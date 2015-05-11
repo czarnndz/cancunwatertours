@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "open-r";
+    src: url(fonts/OpenSans-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: "open-l";
+    src: url(fonts/OpenSans-Light.ttf) format("truetype");
+}
+@font-face {
+    font-family: "open-b";
+    src: url(fonts/OpenSans-Bold.ttf) format("truetype");
+}
+body{font-family: open-r}
+/**header**/
+
+.menu-busc{height: 50px;}
+#menu{width: 74px;height: 100%;}
+.linea-menu{width: 17px;height: 2px;background: #64CBE4;margin-bottom: 3px}
+.input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 15px;background: #F2F2F2;border: 0px}
+.input-header:focus{border: none;border-radius-color: none}
+.icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
+.text-header{color: #64CBE4;font-size: 8px;font-family: open-b;text-align: center;margin-left: 5px}
+.menu-logo{height: 50px;}
+#logo{max-width: 75%}
+.menu-usua{height: 50px;}
+#img-perfil{width: 30px;height: 30px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 10px}
+.text-prefil{font-family: open-b;font-size: 7.5px;color: #727272;margin-right: 5px;text-transform: uppercase;}
+.icon-carrito{color:#2AB7D0;font-size: 18px;margin-right: 10px}
+#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 9px;font-family: open-b;height: 19px;width: 45px;}
+
+/**header**/
+
+@media (max-width: 600px){
+.input-header,
+.icon-header,
+.text-header,
+#img-perfil,
+.text-prefil,
+.icon-carrito,
+#login{margin: 0px}
+}

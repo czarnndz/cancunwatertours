@@ -1,0 +1,137 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-p5s444');
+	src:url('fonts/icomoon.eot?#iefix-p5s444') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-p5s444') format('woff'),
+		url('fonts/icomoon.ttf?-p5s444') format('truetype'),
+		url('fonts/icomoon.svg?-p5s444#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-hotel:before {
+	content: "\e617";
+}
+
+.icon-mascompradas:before {
+	content: "\e618";
+}
+
+.icon-new:before {
+	content: "\e619";
+}
+
+.icon-populares:before {
+	content: "\e61a";
+}
+
+.icon-precio:before {
+	content: "\e61b";
+}
+
+.icon-adultos:before {
+	content: "\e600";
+}
+
+.icon-aventura:before {
+	content: "\e601";
+}
+
+.icon-borrar:before {
+	content: "\e602";
+}
+
+.icon-buceo:before {
+	content: "\e603";
+}
+
+.icon-buscador:before {
+	content: "\e604";
+}
+
+.icon-calendario:before {
+	content: "\e605";
+}
+
+.icon-carrito:before {
+	content: "\e606";
+}
+
+.icon-corazon:before {
+	content: "\e607";
+}
+
+.icon-estrella:before {
+	content: "\e608";
+}
+
+.icon-face:before {
+	content: "\e609";
+}
+
+.icon-familiar:before {
+	content: "\e60a";
+}
+
+.icon-horario:before {
+	content: "\e60b";
+}
+
+.icon-mail:before {
+	content: "\e60c";
+}
+
+.icon-nino:before {
+	content: "\e60d";
+}
+
+.icon-ninos:before {
+	content: "\e60e";
+}
+
+.icon-nombre:before {
+	content: "\e60f";
+}
+
+.icon-pesca:before {
+	content: "\e610";
+}
+
+.icon-pin:before {
+	content: "\e611";
+}
+
+.icon-snorkel:before {
+	content: "\e612";
+}
+
+.icon-tel:before {
+	content: "\e613";
+}
+
+.icon-transporte:before {
+	content: "\e614";
+}
+
+.icon-twit:before {
+	content: "\e615";
+}
+
+.icon-viajes:before {
+	content: "\e616";
+}
+
