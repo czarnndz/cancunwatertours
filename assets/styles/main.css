@@ -32,8 +32,25 @@ a{text-decoration: none}
 #login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 12px;font-family: open-b;height: 19px;width: 45px;}
 /*menu*/
 
+/*buscar header*/
+#buscar-header{position: absolute;width: 300px;background: white;z-index: 1000000;left: 80px;top: 50px;opacity: 1;transition: .5s linear all}
+#buscar-header.ng-hide{opacity: 0}
+.imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
+.buscar-header:hover{background: #00ADEF}
+.buscar-header:hover .titulo-buscar{color: white}
+.titulo-buscar{font-size: 10px;color: #828282}
+.input-header::-webkit-input-placeholder {font-size: 12px;}
+.imagen-buscar.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-buscar.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-buscar.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-buscar.cuatro{background-image: url(../images/4.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-buscar.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-buscar.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+/*buscar header*/
+
 /*menu desplegable*/
 #cont-menu{width: 75px;background: #28B7D9;height: 587px;margin-top: 5px;z-index: 1000000;opacity: 1;transition: .5s linear all;position: absolute;}
+.buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
 .enlace-menu{color: white ; font-size: 8px;height: 60px;margin: 0px;}
 .icon-desplegable{color: white;font-size: 30px}
@@ -44,7 +61,7 @@ a{text-decoration: none}
 
 /*home*/
 
-#home{}
+#home{position: relative;}
 .home{height: auto;clear: both;}
 .imagen-chica{height:157px}
 .imagen-grande{height: 435px}
@@ -72,11 +89,26 @@ a{text-decoration: none}
 
 /*footer*/
 
-#footer{height: 110px;background: #272727}
+#footer{height: 150px;background: #272727}
+.cont-footer{}
+.enlace-footer{color: white;font-size: 8px;font-family: open-b}
 
 /*footer*/
 
+@media (max-width: 1000px){
+/*home*/
+.imagen-grande{height: 300px}
+.titulo-tour{font-size: 18px}
+.tour-desde{font-size: 8px}
+.text-aventura{font-size: 18px;text-align: center;}
+.text-aventura-2{font-size: 12px;text-align: center;}
+.precio-aventura{font-size: 22px;text-align: center;}
+/*home*/
+}
+
+
 @media (max-width: 600px){
+/*header*/
 .input-header,
 .icon-header,
 .text-header,
@@ -84,5 +116,26 @@ a{text-decoration: none}
 .text-prefil,
 .icon-carrito,
 #login{margin: 0px}
+/*header*/
+
+/*home*/
 .imagen-grande{height: 300px}
+.titulo-tour{font-size: 18px}
+.tour-desde{font-size: 8px}
+.text-aventura{font-size: 17px;}
+.text-aventura-2{font-size: 10px;}
+.precio-aventura{font-size: 23px;}
+/*home*/
+}
+
+@media (max-width: 400px){
+	#buscar-header{left: 30px;}
+/*home*/
+.titulo-tour{font-size: 15px;text-align: center;}
+.tour-desde{font-size: 8px;text-align: center;}
+.precio-tour{font-size: 17px;;text-align: center;}
+.text-aventura{font-size: 14px;}
+.text-aventura-2{font-size: 7px;}
+.precio-aventura{font-size: 20px}
+/*home*/
 }

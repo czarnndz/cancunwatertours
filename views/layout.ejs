@@ -41,20 +41,47 @@
         <div class="linea-menu"></div>
         <div class="linea-menu"></div>
       </div>
-      <input type="text" class="input-header">
+      <input placeholder="  Buscar" type="text" class="input-header" ng-click="buscarVisibility = !buscarVisibility" >
       <i class="icon-buscador icon-header "></i>
       <div class="text-header">BÚSQUEDA AVANZADA</div>
     </div>
     <div class="menu-logo" flex="20" flex-md="20" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
-      <img id="logo" src="images/watertourslogo.png" alt="">
+      <a href="/home"><img id="logo" src="images/watertourslogo.png" alt=""></a>
     </div>
     <div class="menu-usua" flex="20" flex-md="40" flex-sm="100" layout="row" layout-align="end center" layout-align-sm="space-around center" >
-      <div id="img-perfil"></div>
-      <div class="text-prefil">Mi cuenta</div>
-      <div class="text-prefil">registro</div>
-      <i class="icon-carrito icon-carrito"></i>
+      <a href=""><div id="img-perfil"></div></a>
+      <a href=""><div class="text-prefil">Mi cuenta</div></a>
+      <a href=""><div class="text-prefil">registro</div></a>
+      <a href=""><i class="icon-carrito icon-carrito"></i></a>
       <a href=""> <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
+</div>
+
+<div id="buscar-header" layout="row" layout-align="center center" layout-wrap ng-show="buscarVisibility">
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar uno"></div>
+    <div class="titulo-buscar">Tour Xcaret</div>
+  </div>
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar dos"></div>
+    <div class="titulo-buscar">Tour Xplor</div>
+  </div>
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar tres"></div>
+    <div class="titulo-buscar">Tour Xel Ha Todo incluido</div>
+  </div>
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar cuatro"></div>
+    <div class="titulo-buscar">Jungle Tour "sunrise Marina"</div>
+  </div>
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar cinco"></div>
+    <div class="titulo-buscar">Jungle Tour Xenotes</div>
+  </div>
+  <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
+    <div class="imagen-buscar seis"></div>
+    <div class="titulo-buscar">Tour de Esnorquel en Cozumel</div>
+  </div>
 </div>
 
  <div id="cont-menu" layout="row" layout-align="center start" layout-wrap ng-show="menuVisibility" ng-cloak>
@@ -127,7 +154,6 @@
     <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-material/angular-material.min.js"></script>
-    <script src="/bower_components/livereload-js/dist/livereload.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/funciones.js"></script>
     <!--SCRIPTS END-->
