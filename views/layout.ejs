@@ -34,6 +34,36 @@
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
     <!--STYLES END-->
+<div id="header" layout="row" flex="100" layout-align="space-between center" layout-wrap >
+    <div class="menu-busc" flex="30" flex-md="40" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="space-around center" >
+      <div id="menu" layout="column" layout-align="center center" ng-click="menuVisibility = !menuVisibility" >
+        <div class="linea-menu"></div>
+        <div class="linea-menu"></div>
+        <div class="linea-menu"></div>
+      </div>
+      <input type="text" class="input-header">
+      <i class="icon-buscador icon-header "></i>
+      <div class="text-header">BÚSQUEDA AVANZADA</div>
+    </div>
+    <div class="menu-logo" flex="20" flex-md="20" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
+      <img id="logo" src="images/watertourslogo.png" alt="">
+    </div>
+    <div class="menu-usua" flex="20" flex-md="40" flex-sm="100" layout="row" layout-align="end center" layout-align-sm="space-around center" >
+      <div id="img-perfil"></div>
+      <div class="text-prefil">Mi cuenta</div>
+      <div class="text-prefil">registro</div>
+      <i class="icon-carrito icon-carrito"></i>
+      <a href=""> <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
+    </div>
+</div>
+
+ <div id="cont-menu" layout="row" layout-align="center start" layout-wrap ng-show="menuVisibility" ng-cloak>
+  <a href="" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu"> <i class="icon-aventura icon-desplegable"></i> AVENTURA </div></a>
+  <a href="" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-viajes icon-desplegable"></i> VIAJES </div></a>
+  <a href="" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-buceo icon-desplegable"></i> BUCEO </div></a>
+  <a href="" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-snorkel icon-desplegable"></i> SNORKEL </div></a>
+  <a href="" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-pesca icon-desplegable"></i> PESCA </div></a>
+ </div>
   </head>
 
   <body>

@@ -11,11 +11,14 @@
     src: url(fonts/OpenSans-Bold.ttf) format("truetype");
 }
 body{font-family: open-r}
+a{text-decoration: none}
+.ng-cloak{display: none}
 /**header**/
 
+/*menu*/
 .menu-busc{height: 50px;}
-#menu{width: 74px;height: 100%;}
-.linea-menu{width: 17px;height: 2px;background: #64CBE4;margin-bottom: 3px}
+#menu{width: 74px;height: 100%;position: relative;}
+.linea-menu{width: 15px;height: 2px;background: #64CBE4;margin-bottom: 3px}
 .input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 15px;background: #F2F2F2;border: 0px}
 .input-header:focus{border: none;border-radius-color: none}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
@@ -23,12 +26,55 @@ body{font-family: open-r}
 .menu-logo{height: 50px;}
 #logo{max-width: 75%}
 .menu-usua{height: 50px;}
-#img-perfil{width: 30px;height: 30px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 10px}
+#img-perfil{width: 25px;height: 25px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 13px}
 .text-prefil{font-family: open-b;font-size: 7.5px;color: #727272;margin-right: 5px;text-transform: uppercase;}
 .icon-carrito{color:#2AB7D0;font-size: 18px;margin-right: 10px}
-#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 9px;font-family: open-b;height: 19px;width: 45px;}
+#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 12px;font-family: open-b;height: 19px;width: 45px;}
+/*menu*/
+
+/*menu desplegable*/
+#cont-menu{width: 75px;background: #28B7D9;height: 587px;margin-top: 5px;z-index: 1000000;opacity: 1;transition: .5s linear all;position: absolute;}
+#cont-menu.ng-hide{opacity: 0}
+.enlace-menu{color: white ; font-size: 8px;height: 60px;margin: 0px;}
+.icon-desplegable{color: white;font-size: 30px}
+.en-menu{margin-top: -80px}
+/*menu desplegable*/
 
 /**header**/
+
+/*home*/
+
+#home{}
+.home{height: auto;clear: both;}
+.imagen-chica{height:157px}
+.imagen-grande{height: 435px}
+.imagenes-home.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.cuatro{background-image: url(../images/4.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home:hover .hover-imagen-1{opacity: 1;transition: .5s linear all}
+.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0}
+.imagenes-home:hover .hover-imagen-2{opacity: 1;transition: .5s linear all}
+.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0}
+.icono-tour-home{color: white;font-size: 15px}
+.titulo-tour{color: white;font-size: 21px}
+.tour-desde{color: white;font-size: 11px}
+.precio-tour{color: white;font-size: 20px;font-weight: 700}
+.reservar-tour{border-radius: 20px;background:#2CB8D9;width: 60px;height: 20px;font-size: 9px;color: white;font-weight: 700;margin-top: 20px}
+.icono-aventura-home{color: #2CB8D9;font-size: 30px;margin-bottom: 2px}
+.text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px}
+.text-aventura-2{color: white;font-size: 13px;margin-bottom: 2px}
+.precio-aventura{color: white;font-size: 26px}
+/*home*/
+
+/*footer*/
+
+#footer{height: 110px;background: #272727}
+
+/*footer*/
 
 @media (max-width: 600px){
 .input-header,
@@ -38,4 +84,5 @@ body{font-family: open-r}
 .text-prefil,
 .icon-carrito,
 #login{margin: 0px}
+.imagen-grande{height: 300px}
 }
