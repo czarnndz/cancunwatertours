@@ -43,7 +43,7 @@
       </div>
       <input placeholder="  Buscar" type="text" class="input-header" ng-click="buscarVisibility = !buscarVisibility" >
       <i class="icon-buscador icon-header "></i>
-      <div class="text-header">BÚSQUEDA AVANZADA</div>
+      <a href="" layout="row" layout-align="center center" flex class="text-header" ><div >BÚSQUEDA AVANZADA</div></a>
     </div>
     <div class="menu-logo" flex="20" flex-md="20" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
       <a href="/home"><img id="logo" src="images/watertourslogo.png" alt=""></a>
@@ -52,9 +52,33 @@
       <a href=""><div id="img-perfil"></div></a>
       <a href=""><div class="text-prefil">Mi cuenta</div></a>
       <a href=""><div class="text-prefil">registro</div></a>
-      <a href=""><i class="icon-carrito icon-carrito"></i></a>
+      <a href="" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
       <a href=""> <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
+</div>
+
+<div id="buscar-avanzado-header" layout="row" layout-align="center center" layout-wrap>
+  <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
+    <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="40" >
+      <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
+        <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
+      </div>
+      <div class="text-buscar-a">Buscar por precio</div>
+    </div>
+    <div class="slide-precio" layout="column" layout="start center" flex="40">
+      <div class="rango-precios" layout="row" layout-align="space-between center" >
+        <div class="precios-a">$0</div>
+        <div class="precios-a">$12,000</div>
+      </div>
+      <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
+      <div class="rango-precios" layout="row" layout-align="space-between center" >
+        <div class="precios-b">-</div>
+        <div class="precios-b">+</div>
+      </div>
+    </div>
+  </div>
+  <div flex="90" layout="row" layout-align="space-around center" class="cont-avanzada"></div>
+  <div flex="90" layout="row" layout-align="space-around center" class="cont-avanzada"></div>
 </div>
 
 <div id="buscar-header" layout="row" layout-align="center center" layout-wrap ng-show="buscarVisibility">
