@@ -42,8 +42,8 @@
         <div class="linea-menu"></div>
       </div>
       <input placeholder="  Buscar" type="text" class="input-header" ng-click="buscarVisibility = !buscarVisibility" >
-      <i class="icon-buscador icon-header "></i>
-      <a href="" layout="row" layout-align="center center" flex class="text-header" ><div >BÚSQUEDA AVANZADA</div></a>
+      <i class="icon-buscador icon-header" ng-click="buscarVisibility = !buscarVisibility"></i>
+      <a href="" layout="row" layout-align="center center" flex class="text-header" ng-click="avazadaVisibility = !avazadaVisibility" ><div >BÚSQUEDA AVANZADA</div></a>
     </div>
     <div class="menu-logo" flex="20" flex-md="20" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
       <a href="/home"><img id="logo" src="images/watertourslogo.png" alt=""></a>
@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div id="buscar-avanzado-header" layout="row" layout-align="center center" layout-wrap>
+<div id="buscar-avanzado-header"  layout="row" layout-align="center center" layout-wrap ng-show="avazadaVisibility">
   <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
     <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="40" >
       <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
@@ -77,8 +77,30 @@
       </div>
     </div>
   </div>
-  <div flex="90" layout="row" layout-align="space-around center" class="cont-avanzada"></div>
-  <div flex="90" layout="row" layout-align="space-around center" class="cont-avanzada"></div>
+  <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+    <select class="select-header">
+      <option value=""><h6 class="option">Tour</h6></option>
+      <option value=""><h6 class="option">Aventura</h6></option>
+      <option value=""><h6 class="option">Hotel</h6></option>
+    </select>
+  </div>
+  <div flex="90" layout="row" layout-align="start center" class="cont-avanzada">
+    <i class="icon-adultos icon-buscar dos "></i>
+    <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
+        <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
+    </div>
+    <div class="text-adultos">Adultos</div>
+    <i class="icon-familiar icon-buscar"></i>
+    <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
+        <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
+    </div>
+    <div class="text-adultos">familiar</div>
+    <i class="icon-ninos icon-buscar dos "></i>
+    <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
+        <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
+    </div>
+    <div class="text-adultos">niños</div>
+  </div>
 </div>
 
 <div id="buscar-header" layout="row" layout-align="center center" layout-wrap ng-show="buscarVisibility">
@@ -179,6 +201,7 @@
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-material/angular-material.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/controllers/headerController.js"></script>
     <script src="/js/funciones.js"></script>
     <!--SCRIPTS END-->
   </body>

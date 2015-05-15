@@ -61,6 +61,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 /*busqueda avanzada*/
 #buscar-avanzado-header{position: absolute;width: 321px;height: 190px;background: #00ADEF;z-index: 1000000;left: 74px;top: 50px;opacity: 1;transition: .5s linear all}
+#buscar-avanzado-header.ng-hide{opacity: 0}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
 .apuntador-avanzado{width: 6px;height: 6px;background:black;border-radius: 50%}
@@ -73,8 +74,15 @@ a.text-header:focus{background: #00ADEF;color: white}
 .precios-a{color: white;font-size: 8px}
 .precios-b{color: white;font-size: 15px}
 .slider-precios{margin-top: -10px}
+.select-header{width: 100%;background: black;color: white;height: auto!important;border-radius: 5px!important;font-size: 11px;border-color: black;padding-left: 5px;position: relative;}
+/*.md-select-label{padding: 0px!important;padding-left: 10px!important}*/
 /*busqueda avanzada*/
-
+.icon-buscar{color: white;font-size: 25px;margin-right: 3px}
+.text-adultos{color: white;font-size: 8px;font-weight: 700;text-transform: uppercase;margin-right: 20px}
+#apuntador-avanzado.dos{margin-right: 5px}
+.icon-familiar{margin-right: 10px}
+.icon-ninos{margin-right: 10px}
+#select-header{margin-top: -10px}
 /**header**/
 
 /*home*/
