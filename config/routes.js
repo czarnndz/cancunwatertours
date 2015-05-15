@@ -38,6 +38,9 @@ module.exports.routes = {
   '/home': {
     view: 'home/index'
   },
+  '/resultados': {
+    view: 'home/resultados'
+  },
 
   /***************************************************************************
   *                                                                          *
