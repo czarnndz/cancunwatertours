@@ -3,34 +3,34 @@
 		<div class="text-resultados-1">Resultado de la búsqueda: <strong>Buceo en Cancún</strong></div>
 		<div class="text-resultados-2">Mostrar paquete por:</div>
 	</div>
-	<div id="opciones-resultados" flex="70" flex-sm="90" flex-md="85" layout="row" layout-align="space-between center" >
+	<div id="opciones-resultados" flex="70" flex-sm="90" flex-md="95" layout="row" layout-align="space-between center" >
 		<div flex="100" layout="row" layout-align="start center" layout-wrap>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-precio icono-opciones"></i>
 				<div class="text-opciones">Precio</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center">
-					<div class="apuntador-opt"></div>
+				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="precioVisibility = !precioVisibility" >
+					<div class="apuntador-opt" ng-show="precioVisibility" ></div>
 				</div>
 			</div>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-new icono-opciones"></i>
 				<div class="text-opciones">Nuevas</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center">
-					<div class="apuntador-opt"></div>
+				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="nuevaVisibility = !nuevaVisibility" >
+					<div class="apuntador-opt" ng-show="nuevaVisibility" ></div>
 				</div>
 			</div>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-populares icono-opciones"></i>
 				<div class="text-opciones">Populares</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center">
-					<div class="apuntador-opt"></div>
+				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="popularVisibility = !popularVisibility" >
+					<div class="apuntador-opt" ng-show="popularVisibility" ></div>
 				</div>
 			</div>
 			<div flex="30" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-mascompradas icono-opciones"></i>
 				<div class="text-opciones">Más Compradas</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center">
-					<div class="apuntador-opt"></div>
+				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="masVisibility = !masVisibility" >
+					<div class="apuntador-opt" ng-show="masVisibility" ></div>
 				</div>
 			</div>
 			<div flex flex-sm="100" layout="row" layout-align="center start" class="opciones tipo" layout-wrap>
@@ -45,7 +45,163 @@
 			</div>
 		</div>
 	</div>
-	<div class="cont-resultados" flex="70" flex-sm="90" flex-md="85" layout="row" layout-align="center center" ></div>
+	<div class="cont-resultados" flex="70" flex-sm="95" flex-md="95" layout="row" layout-align="space-between start" layout-wrap>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados uno">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados dos">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados tres">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados cuatro">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados cinco">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados seis">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados siete">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados ocho">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+		<div flex-sm="100" flex="30" layout="row" layout-align="end end" class="imagen-resultados nueve">
+			<div id="detalles-resultados" layout="row" flex="100" layout-align="start center" layout-wrap>
+				<div id="textos-resultados" flex="70" layout="row" layout="start start" layout-wrap>
+					<div class="text-strong-1" flex="100" >Tour Subasee Explorer</div>
+					<div class="localidad-resultado" flex="100">Cancun</div>
+					<div class="categoria-resultado" flex="100">Categoria: Aventura,Buceo</div>
+				</div>
+				<div id="precios-resultados" flex="20" flex-sm="25" layout="column" layout-align="center start" >
+					<div class="desde-resultados">DESDE</div>
+					<div class="precio-resultados">$655<strong>MX</strong></div>
+				</div>
+			</div>
+			<div class="book-now" flex="100" layout="row" layout-align="center center" >
+				<div class="boton-resultados" layout="row" layout-align="center center" >BOOK NOW!</div>
+			</div>
+		</div>
+
+
+	</div>
 </div>
 
 <div ng-include="'/templates/global/footer.ejs'" layout='row'></div>
