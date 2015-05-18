@@ -4,42 +4,44 @@
 		<div class="text-resultados-2">Mostrar paquete por:</div>
 	</div>
 	<div id="opciones-resultados" flex="70" flex-sm="90" flex-md="85" layout="row" layout-align="space-between center" >
-		<div id="opciones" flex="100" layout="row" layout-align="start center"  >
-			<div flex="15" layout="column" layout-align="start center" class="opciones">
+		<div flex="100" layout="row" layout-align="start center" layout-wrap>
+			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-precio icono-opciones"></i>
 				<div class="text-opciones">Precio</div>
 				<div class="apuntador-opcion" layout="row" layout-align="center center">
 					<div class="apuntador-opt"></div>
 				</div>
 			</div>
-			<div flex="15" layout="column" layout-align="start center" class="opciones">
+			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-new icono-opciones"></i>
 				<div class="text-opciones">Nuevas</div>
 				<div class="apuntador-opcion" layout="row" layout-align="center center">
 					<div class="apuntador-opt"></div>
 				</div>
 			</div>
-			<div flex="15" layout="column" layout-align="start center" class="opciones">
+			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-populares icono-opciones"></i>
 				<div class="text-opciones">Populares</div>
 				<div class="apuntador-opcion" layout="row" layout-align="center center">
 					<div class="apuntador-opt"></div>
 				</div>
 			</div>
-			<div flex="30" layout="column" layout-align="start center" class="opciones">
+			<div flex="30" flex-sm="50" layout="column" layout-align="start center" class="opciones">
 				<i class="icon-mascompradas icono-opciones"></i>
 				<div class="text-opciones">Más Compradas</div>
 				<div class="apuntador-opcion" layout="row" layout-align="center center">
 					<div class="apuntador-opt"></div>
 				</div>
 			</div>
-			<div flex layout="row" layout-align="center start" class="opciones tipo" layout-wrap>
+			<div flex flex-sm="100" layout="row" layout-align="center start" class="opciones tipo" layout-wrap>
 				<div class="text-opciones tipo" flex="70" layout="row" layout-align="start start" >Tipo de Tour</div>
-				<select name="" id="" class="select-tipo">
-					<option value="">Tour</option>
-					<option value="">Aventura</option>
-					<option value="">Hotek</option>
-				</select>
+				<div  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="70">
+				  <md-select class="select-tipo" ng-model="someVal">
+				    <md-option value="1">Hotel</md-option>
+				    <md-option value="2">Tour</md-option>
+				    <md-option value="3">Aventura</md-option>
+				  </md-select>
+				</div>
 			</div>
 		</div>
 	</div>
