@@ -16,22 +16,22 @@ a{text-decoration: none}
 /**header**/
 
 /*menu*/
-.menu-busc{height: 50px;}
+.menu-busc{height: 74px;}
 #menu{width: 74px;height: 100%;position: relative;}
 .linea-menu{width: 15px;height: 2px;background: #64CBE4;margin-bottom: 3px}
 .input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 15px;background: #F2F2F2;border: 0px}
 .input-header:focus{border: none;border-radius-color: none}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
-.text-header{color: #64CBE4;font-size: 8px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%}
+.text-header{color: #64CBE4;font-size: 10px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%}
 a.text-header:focus{background: #00ADEF;color: white}
 .menu-logo{height: 50px;}
 #logo{max-width: 75%}
 .menu-usua{height: 50px;}
-#img-perfil{width: 25px;height: 25px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 13px}
-.text-prefil{font-family: open-b;font-size: 7.5px;color: #727272;margin-right: 5px;text-transform: uppercase;}
+#img-perfil{width: 35px;height: 35px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 13px}
+.text-prefil{font-family: open-b;font-size: 9px;color: #727272;margin-right: 5px;text-transform: uppercase;}
 #icon-carrito{margin-top: 7px}
-.icon-carrito{color:#2AB7D0;font-size: 18px;margin-right: 10px;margin-top: 10px}
-#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 12px;font-family: open-b;height: 19px;width: 45px;}
+.icon-carrito{color:#2AB7D0;font-size: 20px;margin-right: 10px;margin-top: 10px}
+#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 12px;font-family: open-b;height: 20px;width: 50px;}
 /*menu*/
 
 /*buscar header*/
@@ -60,7 +60,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu desplegable*/
 
 /*busqueda avanzada*/
-#buscar-avanzado-header{position: absolute;width: 321px;height: 190px;background: #00ADEF;z-index: 1000000;left: 74px;top: 50px;opacity: 1;transition: .5s linear all}
+#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 1000000;left: 74px;top: 50px;opacity: 1;transition: .5s linear all}
 #buscar-avanzado-header.ng-hide{opacity: 0}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
