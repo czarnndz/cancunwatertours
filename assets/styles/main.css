@@ -129,6 +129,9 @@ a.text-header:focus{background: #00ADEF;color: white}
 .apuntador-opcion{width: 20px;height: 20px;border-radius: 50%;background: #E4E4E4;margin-top: 5px}
 .apuntador-opt{width: 10px;height: 10px;border-radius: 50%;background: #00C1C9;}
 .cont-resultados{background: white;height: 700px;margin-top: -20px;}
+.text-opciones.tipo{margin-top: 10px}
+.select-tipo{background: #E4E4E4;color: #919191;width: 80%;height: 20px;border-radius: 5px}
+.select-tipo::after{background: blue}
 /*Resultados */
 
 /*footer*/
