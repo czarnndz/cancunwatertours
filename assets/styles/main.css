@@ -11,8 +11,8 @@
     src: url(fonts/OpenSans-Bold.ttf) format("truetype");
 }
 body{font-family: open-r}
-a{text-decoration: none}
-.ng-cloak{display: none}
+a{text-decoration: none;border: none;box-shadow: none;}
+.ng-cloak{display: none!important}
 /**header**/
 
 /*menu*/
@@ -27,11 +27,11 @@ a.text-header:focus{background: #00ADEF;color: white}
 .menu-logo{height: 50px;}
 #logo{max-width: 75%}
 .menu-usua{height: 50px;}
-#img-perfil{width: 35px;height: 35px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 13px}
-.text-prefil{font-family: open-b;font-size: 9px;color: #727272;margin-right: 5px;text-transform: uppercase;}
+#img-perfil{width: 35px;height: 35px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 15px}
+.text-prefil{font-family: open-b;font-size: 9px;color: #727272;margin-right: 15px;text-transform: uppercase;}
 #icon-carrito{margin-top: 7px}
-.icon-carrito{color:#2AB7D0;font-size: 20px;margin-right: 10px;margin-top: 10px}
-#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 12px;font-family: open-b;height: 20px;width: 50px;}
+.icon-carrito{color:#2AB7D0;font-size: 20px;margin-right: 15px;margin-top: 10px}
+#login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 25px;font-family: open-b;height: 20px;width: 50px;}
 /*menu*/
 
 /*buscar header*/
@@ -107,7 +107,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 11px}
 .precio-tour{color: white;font-size: 20px;font-weight: 700}
-.reservar-tour{border-radius: 20px;background:#2CB8D9;width: 60px;height: 20px;font-size: 9px;color: white;font-weight: 700;margin-top: 20px}
+.reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 9px;color: white;font-weight: 700;margin-top: 20px}
 .icono-aventura-home{color: #2CB8D9;font-size: 30px;margin-bottom: 2px}
 .text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px}
 .text-aventura-2{color: white;font-size: 13px;margin-bottom: 2px}
@@ -133,7 +133,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -10px!important}
 .select-tipo .md-select-label .md-select-icon{color: #3DBDEC}
 .select-tipo .md-select-label{font-size: 13px;margin-top: -17px;padding-left: 5px;border:0px;}
-.imagen-resultados{height:200px;margin-bottom: 35px;position: relative;}
+.imagen-resultados{height:200px;margin-bottom: 35px;position: relative;cursor: pointer;}
 .imagen-resultados.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -154,6 +154,13 @@ a.text-header:focus{background: #00ADEF;color: white}
 .book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;z-index: 10000000;width: 100%;left: 0;opacity: 0;transition: .5s linear all}
 .imagen-resultados:hover .book-now{opacity: 1}
 .boton-resultados{color:white;font-size: 16px;height: 50px;width: 150px;background: #00C1CA;border-radius: 10px;font-weight: 700;transition: .5s linear all}
+/*Resultados */
+
+/*detalle*/
+#detalle{background: blue}
+#similares{height: 563px;background: #F5F5F5}
+/*detalle*/
+
 /*footer*/
 
 #footer{height: 150px;background: #272727}
