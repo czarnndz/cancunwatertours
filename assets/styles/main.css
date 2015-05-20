@@ -53,11 +53,11 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 /*menu desplegable*/
 #cont-menu{width: 95px;background: #28B7D9;height: 100%;z-index: 1000000;opacity: 1;transition: .5s linear all;position: absolute;}
-.cont-menu{height: 50%;margin-top: 10px}
+.cont-menu{height: 400px;}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
-.enlace-menu{color: white ; font-size: 8px;margin: 0px;}
-.icon-desplegable{color: white;font-size: 30px}
+.enlace-menu{color: white ; font-size: 9px;margin: 15px 0 15px 0;font-weight: 700}
+.icon-desplegable{color: white;font-size: 30px;margin-bottom: 5px}
 .en-menu{margin-top: -80px}
 /*menu desplegable*/
 
