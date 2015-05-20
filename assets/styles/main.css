@@ -56,7 +56,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .cont-menu{height: 600px;}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
-.enlace-menu{color: white;font-family: open-b}
+.enlace-menu{color: white;font-family: open-b;margin-top: 10px}
 .enlace-menu i{width: 40px;height: 41px}
 .enlace-menu.viajes i{font-size: 45px}
 .text-menu{font-size: 10px;color: white}
@@ -165,8 +165,39 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 /*detalle*/
 #detalle{}
-#cont-detalle{height: 563px;background: #1EA2F1}
-#similares{height: 563px;background: #F5F5F5}
+#cont-detalle{background: #1EA2F1}
+#detalles-tour{height: 563px;background: white}
+.cont-detalles{height: 100%}
+.nombre-detalle{color: white;font-size: 20px;font-family: open-b;margin-bottom: 3px}
+.ubicacion-detalle{color: white;font-size: 10px;margin-bottom: 3px}
+.like-detalle{color: white;font-size: 10px}
+.text-ubi{font-weight: 12px}
+.num-like{font-size: 10px;font-weight: 700;margin-right: 5px;font-family: open-b}
+.icon-ubicacion{margin-right: 5px}
+.text-like{font-size: 9px;font-weight: 700;font-family: open-b}
+.horario-detalle{color: white;font-size: 20px;margin-bottom: 5px}
+.text-horario{font-size: 9px;font-family: open-b;margin-top: 5px;margin-left: -5px;font-weight: 700}
+.duracion{font-size: 9px;font-weight: 700;font-family: open-b;margin-left: 5px}
+.detalles-tour{background: #1EA2F1;height: 100px;}
+.cont-imagen-detalle{height: 300px;position: relative;}
+.titulo-descripcion{color: #27C8CF;font-size: 13px}
+.p-descripcion{color: #7A7A7A;font-size: 10px;text-align: justify;}
+.owl-pagination{position: absolute;top: 0;right: 0;background: rgba(255, 253, 253, 0.7);;width: 100%;height: 30px;padding-right: 15px}
+.owl-page{float: right;margin-top: 5px}
+.owl-page.active span{background: #616261!important}
+.owl-page span{background: #18A5F0!important;margin-right: -.1px!important;width: 10px!important;height: 10px!important}
+.imagen-detalle{height: 100%;background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.owl-wrapper, .owl-item, .owl-wrapper-outer{height: 100%}
+.descripcion-detalle{height: 163px;}
+#reservar-mapa{height: 563px;background: #00C1C8}
+#similares{background: #F5F5F5;height: 563px}
+#text-similares{font-weight: 700;font-size: 20px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 40px;padding-bottom: 5px}
+.cont-similares{padding-bottom: 18px}
+.imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.nombre-similares{font-size: 15px;color: #ADADAD;font-weight: 700}
+.lugar-similares{font-size: 9px;color: #ADADAD}
+.precio-similares{font-size: 20px;color: #ADADAD;text-transform: uppercase;}
+.precio-similares strong{font-size: 10px;margin-left: -5px}
 /*detalle*/
 
 /*footer*/
@@ -228,6 +259,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .text-resultados-1 strong{font-size: 15px}
 .text-resultados-2{font-size: 10px;}
 
+.nombre-detalle{font-size: 15px;}
 
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
 
