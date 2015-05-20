@@ -57,7 +57,9 @@
     </div>
 </div>
 
-<div id="buscar-avanzado-header" class="ng-cloak"  layout="row" layout-align="center center" layout-wrap ng-show="avazadaVisibility">
+
+<div id="cont-global" flex="100" layout="row" layout-wrap >
+ <div id="buscar-avanzado-header" class="ng-cloak"  layout="row" layout-align="center center" layout-wrap ng-show="avazadaVisibility">
   <div flex="90" flex-sm="100" layout="row" layout-align="space-between center" class="cont-avanzada">
     <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="40" >
       <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
@@ -129,18 +131,28 @@
     <div class="titulo-buscar">Tour de Esnorquel en Cozumel</div>
   </div>
 </div>
-
- <div id="cont-menu" layout="row" layout-align="center start" layout-wrap ng-show="menuVisibility" class="ng-cloak">
-  <a href="/resultados" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu"> <i class="icon-aventura icon-desplegable"></i> AVENTURA </div></a>
-  <a href="/resultados" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-viajes icon-desplegable"></i> VIAJES </div></a>
-  <a href="/resultados" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-buceo icon-desplegable"></i> BUCEO </div></a>
-  <a href="/resultados" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-snorkel icon-desplegable"></i> SNORKEL </div></a>
-  <a href="/resultados" flex="100" layout="column" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-pesca icon-desplegable"></i> PESCA </div></a>
+ <div id="cont-menu" layout="row" layout-align="start start" layout-wrap ng-show="menuVisibility" class="ng-cloak">
+  <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu"> <i class="icon-aventura icon-desplegable"></i> AVENTURA </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-viajes icon-desplegable"></i> VIAJES </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-buceo icon-desplegable"></i> BUCEO </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-snorkel icon-desplegable"></i> SNORKEL </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-pesca icon-desplegable"></i> PESCA </div></a>    
+  </div>
+<!--
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu"> <i class="icon-aventura icon-desplegable"></i> AVENTURA </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-viajes icon-desplegable"></i> VIAJES </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-buceo icon-desplegable"></i> BUCEO </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-snorkel icon-desplegable"></i> SNORKEL </div></a>
+  <a href="/resultados" flex="100" layout="row" layout-align="center center" ><div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> <i class="icon-pesca icon-desplegable"></i> PESCA </div></a>
+  -->
  </div>
   </head>
 
   <body>
     <%- body %>
+</div><!--global-->
+<div ng-include="'/templates/global/footer.ejs'" layout='row'></div>
 
 
 
@@ -195,11 +207,14 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/hammerjs/hammer.min.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/controllers/headerController.js"></script>
     <script src="/js/controllers/homeController.js"></script>

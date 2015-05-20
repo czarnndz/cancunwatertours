@@ -13,6 +13,7 @@
 body{font-family: open-r}
 a{text-decoration: none;border: none;box-shadow: none;}
 .ng-cloak{display: none!important}
+#cont-global{position: relative;}
 /**header**/
 
 /*menu*/
@@ -35,7 +36,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu*/
 
 /*buscar header*/
-#buscar-header{position: absolute;width: 300px;background: white;z-index: 1000000;left: 80px;top: 50px;opacity: 1;transition: .5s linear all}
+#buscar-header{position: absolute;width: 300px;background: white;z-index: 1000000;left: 80px;opacity: 1;transition: .5s linear all}
 #buscar-header.ng-hide{opacity: 0}
 .imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
 .buscar-header:hover{background: #00ADEF}
@@ -51,16 +52,17 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*buscar header*/
 
 /*menu desplegable*/
-#cont-menu{width: 95px;background: #28B7D9;height: 587px;z-index: 1000000;opacity: 1;transition: .5s linear all;position: absolute;top: 50px;}
+#cont-menu{width: 95px;background: #28B7D9;height: 100%;z-index: 1000000;opacity: 1;transition: .5s linear all;position: absolute;}
+.cont-menu{height: 50%;margin-top: 10px}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
-.enlace-menu{color: white ; font-size: 8px;height: 60px;margin: 0px;}
+.enlace-menu{color: white ; font-size: 8px;margin: 0px;}
 .icon-desplegable{color: white;font-size: 30px}
 .en-menu{margin-top: -80px}
 /*menu desplegable*/
 
 /*busqueda avanzada*/
-#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 1000000;left: 74px;top: 50px;opacity: 1;transition: .5s linear all}
+#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 1000000;left: 74px;opacity: 1;transition: .5s linear all}
 #buscar-avanzado-header.ng-hide{opacity: 0}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
@@ -157,7 +159,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*Resultados */
 
 /*detalle*/
-#detalle{background: blue}
+#detalle{}
+#cont-detalle{height: 563px;background: #1EA2F1}
 #similares{height: 563px;background: #F5F5F5}
 /*detalle*/
 
