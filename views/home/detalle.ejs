@@ -33,13 +33,28 @@
 				<div class="imagen-detalle item" flex="100" layout="row" ></div>
 			</div>
 			<div class="descripcion-detalle" flex="100" layout="row" layout-align="center center">
-				<div class="cont-descripcion" flex="80" layout="column" layout-align="center start">
+				<div class="cont-descripcion" flex="80" flex-sm="90" layout="column" layout-align="center start">
 					<div class="titulo-descripcion">Descripción This is Photoshop's</div>
 					<p class="p-descripcion">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. </p>
 				</div>
 			</div>
 		</div>
-		<div id="reservar-mapa" flex="30" flex-md="100" flex-sm="100" layout="row" layout-wrap ></div>
+		<div id="reservar-mapa" flex="30" flex-md="100" flex-sm="100" layout="row" layout-wrap >
+			<div id="reservar" flex="100" layout="column" layout-align="start center">
+				<div id="reservar-titulo">RESERVA EL TOUR</div>
+				<div class="fecha-detalle" layout="row" layout-align="start center">
+					<i class="icon-calendario icono-calendario"></i>
+					<div class="text-fecha">Fecha</div>
+				</div>
+				<div class="ninos-adultos" layout="row" layout-align="start center">
+					<div class="ninos-text">Adultos</div>
+					<div class="ninos-text">Niños</div>
+				</div>
+			</div>
+			<div id="mapa" flex="100">
+				<iframe class="mapa"  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14882.706519277925!2d-86.81700335!3d21.1652635!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1429728579438" width="600" height="450" frameborder="0" style="border:0"></iframe>
+			</div>
+		</div>
 	</div>
 	<div id="similares" flex="20" flex-md="100" flex-sm="100" layout="column" layout-sm="row" layout-md="row" layout-align-md="space-around center" layout-align-sm="space-around center" layout-align="start center" layout-wrap>
 		<div id="text-similares" flex-sm="100" layout-sm="row" layout-md="row" layout-align="center center" flex-md="100" >Tours similares</div>

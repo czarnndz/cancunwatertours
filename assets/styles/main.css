@@ -164,9 +164,9 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*Resultados */
 
 /*detalle*/
-#detalle{}
+#detalle{position: relative;}
 #cont-detalle{background: #1EA2F1}
-#detalles-tour{height: 563px;background: white}
+#detalles-tour{background: white}
 .cont-detalles{height: 100%}
 .nombre-detalle{color: white;font-size: 20px;font-family: open-b;margin-bottom: 3px}
 .ubicacion-detalle{color: white;font-size: 10px;margin-bottom: 3px}
@@ -188,11 +188,21 @@ a.text-header:focus{background: #00ADEF;color: white}
 .owl-page span{background: #18A5F0!important;margin-right: -.1px!important;width: 10px!important;height: 10px!important}
 .imagen-detalle{height: 100%;background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .owl-wrapper, .owl-item, .owl-wrapper-outer{height: 100%}
-.descripcion-detalle{height: 163px;}
-#reservar-mapa{height: 563px;background: #00C1C8}
-#similares{background: #F5F5F5;height: 563px}
-#text-similares{font-weight: 700;font-size: 20px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 40px;padding-bottom: 5px}
-.cont-similares{padding-bottom: 18px}
+.descripcion-detalle{height: 183px;}
+#reservar-mapa{height: 583px;background:white;}
+#reservar{height: 400px;background: #00C1C8}
+#reservar-titulo{color: white;font-size: 22px;margin-top: 27px}
+.fecha-detalle{height: 25px;width: 180px;background: #27C8CF;border-radius: 5px;margin-top: 20px}
+.icono-calendario{color: white;font-size: 15px;margin-left: 5px;margin-right: 10px}
+.text-fecha{color: white;font-family: open-b;font-size: 12px}
+.ninos-adultos{height: 25px;width: 180px;}
+.ninos-text{color: white;font-family: open-b;font-size: 12px}
+#calendario{position: absolute;background: green;z-index: 100000000}
+#mapa{height: 183px}
+.mapa{height: 100%;width: 100%}
+#similares{background: #F5F5F5;height: 583px}
+#text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 30px;padding-bottom: 20px}
+.cont-similares{margin-bottom: 15px;margin-top: 15px}
 .imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .nombre-similares{font-size: 15px;color: #ADADAD;font-weight: 700}
 .lugar-similares{font-size: 9px;color: #ADADAD}
@@ -217,6 +227,10 @@ a.text-header:focus{background: #00ADEF;color: white}
 .text-aventura-2{font-size: 12px;text-align: center;}
 .precio-aventura{font-size: 22px;text-align: center;}
 /*home*/
+}
+
+@media (max-width: 960px){
+	#similares{height: auto;}
 }
 
 @media (max-width: 800px){
