@@ -46,9 +46,48 @@
 					<i class="icon-calendario icono-calendario"></i>
 					<div class="text-fecha">Fecha</div>
 				</div>
-				<div class="ninos-adultos" layout="row" layout-align="start center">
+				<div class="ninos-adultos" layout="row" layout-align="space-between center">
 					<div class="ninos-text">Adultos</div>
+					<md-select placeholder="0" class="select-adultos" ng-model="someVal">
+						 <md-option value="1">1</md-option>
+						 <md-option value="2">2</md-option>
+						 <md-option value="3">3</md-option>
+						 <md-option value="1">4</md-option>
+						 <md-option value="2">5</md-option>
+						 <md-option value="3">6</md-option>
+					</md-select>
 					<div class="ninos-text">Niños</div>
+					<md-select placeholder="0" class="select-adultos" ng-model="someVal">
+						 <md-option value="1">1</md-option>
+						 <md-option value="2">2</md-option>
+						 <md-option value="3">3</md-option>
+						 <md-option value="1">4</md-option>
+						 <md-option value="2">5</md-option>
+						 <md-option value="3">6</md-option>
+					</md-select>
+				</div>
+				<md-select placeholder="0" class="select-posicion" ng-model="someVal">
+						 <md-option value="1" class="ng-cloak" > <i class="icon-hotel icono-option"></i> Hotel donde estoy</md-option>
+						 <md-option value="2" class="ng-cloak" > <i class="icon-hotel icono-option"></i> Hotel donde estoy</md-option>
+						 <md-option value="3" class="ng-cloak" > <i class="icon-hotel icono-option"></i> Hotel donde estoy</md-option>
+				</md-select>
+				<div id="precios-detalle" layout="row" layout-wrap layout-align="start center" >
+					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
+						<div class="contador">(5)</div> Precio por adulto $xxx
+					</div>
+					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
+						<div class="contador">(3)</div> Precio por niño $xxx
+					</div>
+					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
+						IVA $xxx
+					</div>
+					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
+						<div class="contador total">TOTAL</div> 
+					</div>
+					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
+						<div class="precio-total">$4,250</div> 
+					</div>
+					<div class="boton-detalle" layout="row" layout-align="center center" >AÑADIR A MI CARRITO</div>
 				</div>
 			</div>
 			<div id="mapa" flex="100">
