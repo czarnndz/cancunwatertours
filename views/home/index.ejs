@@ -1,5 +1,20 @@
 <div id="home" flex="100" layout="row" layout-wrap >
-
+<div id="agregar-transporte" layout="row" layout-align="center center" ng-show="agregarVisibility">
+  <div class="agregar-transporte" layout="row" layout-align="center start" layout-wrap >
+       <i class="icon-transporte icon-agregar"></i>
+       <div class="text-transportacion" >Agregar transportación al Tour</div>
+       <div class="hotel-agregar" flex="80" layout="row" layout-align="start center" > <i class="icon-pin pin-agregar"></i>Hotel </div>
+       	<md-select placeholder="agregar" class="select-agregar" ng-model="someVal">
+				<md-option value="1" class="ng-cloak" > Hotel Oasis</md-option>
+				<md-option value="2" class="ng-cloak" > Hotel Ryu</md-option>
+				<md-option value="3" class="ng-cloak" > Hotel Calinda</md-option>
+		</md-select>
+		<div class="botones-agregar" flex="80" layout="row" layout-align="space-around center" >
+			<div layout="row" layout-align="center center" class="boton-agregar">agregar</div>
+			<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
+		</div>
+  </div>
+</div>
 	<div class="home" flex="100" layout="row" layout-wrap>
 		<div class="imagenes-home uno imagen-chica" flex="30" flex-sm="50" layout="row" layout="start center" >
 			<div class="hover-imagen-1" flex="45" layout="column" layout-align="center center" >
@@ -7,7 +22,7 @@
 				<div class="titulo-tour">Tour</div>
 				<div class="tour-desde">desde</div>
 				<div class="precio-tour">$4,500</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home dos imagen-chica" flex="20" flex-sm="50" layout="row" layout="start center" >
@@ -16,7 +31,7 @@
 				<div class="titulo-tour">Tour</div>
 				<div class="tour-desde">desde</div>
 				<div class="precio-tour">$4,500</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home tres imagen-chica" flex="25" flex-sm="50" layout="row" layout="start center" >
@@ -25,7 +40,7 @@
 				<div class="titulo-tour">Tour</div>
 				<div class="tour-desde">desde</div>
 				<div class="precio-tour">$4,500</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home cuatro imagen-chica" flex="25" flex-sm="50" layout="row" layout="start center" >
@@ -34,7 +49,7 @@
 				<div class="titulo-tour">Tour</div>
 				<div class="tour-desde">desde</div>
 				<div class="precio-tour">$4,500</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home cinco imagen-grande" flex="50" layout="row" flex-sm="100" layout="start center" >
@@ -43,7 +58,7 @@
 				<div class="text-aventura">This is photoshop's version Lorem ipsum</div>
 				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
 				<div class="precio-aventura">$4,250</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home seis imagen-grande" flex="25" flex-sm="50" layout="row" layout="start center" >
@@ -52,7 +67,7 @@
 				<div class="text-aventura">This is photoshop's version</div>
 				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
 				<div class="precio-aventura">$4,250</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 		<div class="imagenes-home siete imagen-grande" flex="25" flex-sm="50" layout="row" layout="start center" >
@@ -61,7 +76,7 @@
 				<div class="text-aventura">This is photoshop's version</div>
 				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
 				<div class="precio-aventura">$4,250</div>
-				<a href=""><div class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
+				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
 			</div>
 		</div>
 	</div>
