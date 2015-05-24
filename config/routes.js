@@ -44,6 +44,9 @@ module.exports.routes = {
   '/detalle': {
     view: 'home/detalle'
   },
+  '/reserva': {
+    view: 'reserva/index'
+  },
 
   /***************************************************************************
   *                                                                          *

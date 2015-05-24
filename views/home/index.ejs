@@ -1,6 +1,6 @@
 <div id="home" flex="100" layout="row" layout-wrap >
 <div id="agregar-transporte" layout="row" layout-align="center center" ng-show="agregarVisibility">
-  <div class="agregar-transporte" layout="row" layout-align="center start" layout-wrap >
+  <div class="agregar-transporte ng-cloak" layout="row" layout-align="center start" layout-wrap >
        <i class="icon-transporte icon-agregar"></i>
        <div class="text-transportacion" >Agregar transportación al Tour</div>
        <div class="hotel-agregar" flex="80" layout="row" layout-align="start center" > <i class="icon-pin pin-agregar"></i>Hotel </div>
@@ -10,8 +10,12 @@
 				<md-option value="3" class="ng-cloak" > Hotel Calinda</md-option>
 		</md-select>
 		<div class="botones-agregar" flex="80" layout="row" layout-align="space-around center" >
-			<div layout="row" layout-align="center center" class="boton-agregar">agregar</div>
-			<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
+			<a href="/reserva"  layout="row" layout-align="center center" class="boton-agregar">
+				<div layout="row" layout-align="center center" class="boton-agregar">agregar</div>
+			</a>
+			<a href="/reserva"  layout="row" layout-align="center center" class="boton-no">
+				<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
+			</a>
 		</div>
   </div>
 </div>

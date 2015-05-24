@@ -93,7 +93,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /**header**/
 
 /*agregar transporte*/
-#agregar-transporte{width: 100%;height: 100%;position: absolute;z-index: 10000000000000000;}
+#agregar-transporte{width: 100%;height: 100%;position: absolute;z-index: 1;}
 .agregar-transporte{width: 100%;height: 230px;background: white;max-width: 380px}
 .icon-agregar{color: #30B7D5;font-size: 25px;margin-top: 20px;}
 .text-transportacion{font-size: 18px;color: #ABABAB;margin-top: 5px;width: 100%;text-align: center;font-family: open-b;margin-bottom: 20px}
@@ -244,6 +244,10 @@ a.text-header:focus{background: #00ADEF;color: white}
 .precio-similares{font-size: 20px;color: #ADADAD;text-transform: uppercase;}
 .precio-similares strong{font-size: 10px;margin-left: -5px}
 /*detalle*/
+
+/*reserva*/
+#reserva{background: #F5F5F5}
+/*reserva*/
 
 /*footer*/
 
