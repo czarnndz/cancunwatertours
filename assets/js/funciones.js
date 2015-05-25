@@ -66,7 +66,44 @@ $(document).ready(function(){
    });
 });
 
+$(document).ready(function(){
+   $(".tu-reservacion").click(function(event){
+    $("#tu-reservacion").addClass("activar");
+    $("#tu-reservacion").removeClass("ng-hide");
+      if($('#datos-viajero').hasClass('activar')){
+        $("#datos-viajero").removeClass("activar");
+        $("#datos-viajero").addClass("ng-hide");
+        $("#pago-reservacion").removeClass("activar");
+        $("#pago-reservacion").addClass("ng-hide");
+    }
+   });
+});
 
+$(document).ready(function(){
+   $(".datos-v").click(function(event){
+    $("#datos-viajero").addClass("activar");
+    $("#datos-viajero").removeClass("ng-hide");
+      if($('#tu-reservacion').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
+        $("#tu-reservacion").removeClass("activar");
+        $("#tu-reservacion").addClass("ng-hide");
+        $("#pago-reservacion").removeClass("activar");
+        $("#pago-reservacion").addClass("ng-hide");
+    }
+   });
+});
+
+$(document).ready(function(){
+   $(".pago-r").click(function(event){
+    $("#pago-reservacion").addClass("activar");
+    $("#pago-reservacion").removeClass("ng-hide");
+      if($('#tu-reservacion').hasClass('activar') || $('#datos-viajero').hasClass('activar') ){
+        $("#tu-reservacion").removeClass("activar");
+        $("#tu-reservacion").addClass("ng-hide");
+        $("#datos-viajero").removeClass("activar");
+        $("#datos-viajero").addClass("ng-hide");
+    }
+   });
+});
 
 /*$(document).ready(function(){
    $(".input-busqueda").click(function(event){

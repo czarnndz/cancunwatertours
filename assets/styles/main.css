@@ -16,7 +16,7 @@ a{text-decoration: none;border: none;box-shadow: none;}
 #cont-global{position: relative;}
 .desactivar{opacity: 0!important}
 .activar{opacity: 1!important}
-.ocultar{opacity: 0!important;z-index: 1!important}
+.ocultar{opacity: 0!important;z-index: 1!important;display: none!important}
 /**header**/
 
 /*menu*/
@@ -249,13 +249,27 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*detalle*/
 
 /*reserva*/
-#reserva{background: #F2F2F2;height: 650px}
-#cont-reservacion{background: white;height: 540px;margin-top: 40px}
+#reserva{background: #F2F2F2;height: auto;min-height: 730px}
+#cont-reservacion{height: 600px;margin-top: 40px}
 #detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 40px;margin-right: 40px;margin-left: 20px}
-#header-reservacion{height: 60px;background: blue}
+#header-reservacion{height: 60px;}
 .listado-reserva{background: white;height: 100%;border:  solid #F2F2F2;}
 .num-header-r{font-family: open-b;color: #00C0C7;font-size: 17px}
 .titulo-reservacion-h{color: #00C0C7;font-size: 17px}
+#tu-reservacion{height: 510px;}
+#nombre-reservacion{height: 40px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+.nombre-reservacion{color: #8A8A8A;font-size: 17px;height: 100%;margin-left: 35px;font-weight: 700}
+#datos-reservacion{height: 250px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+#transp-reservacion{height: 40px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+#hotel-reservacion{background: white;height: 135px;;border-bottom: 3px solid #F2F2F2;width: 100%}
+
+#datos-reservacion{height: 510px}
+#pago-reservacion{height: 510px}
+#datos-reservacion.ng-hide{opacity: 0}
+#pago-reservacion.ng-hide{opacity: 0}
+#tu-reservacion.ng-hide{opacity: 0}
+
+.boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
 /*reserva*/
 
 /*footer*/
@@ -291,6 +305,9 @@ a.text-header:focus{background: #00ADEF;color: white}
 .precio-resultados strong{font-size: 11px;font-weight: 700}
 /*resultados*/
 #text-similares{font-size: 20px;}
+
+#cont-reservacion{background: white;height: 540px;margin-top: 20px}
+#detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 20px;margin-right: 0px;margin-left: 0px;}
 }
 
 @media (max-width: 650px){
