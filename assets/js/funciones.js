@@ -13,3 +13,67 @@ $(document).ready(function() {
 
 });
 /*detalles*/
+
+$(document).ready(function(){
+   $(".text-header").click(function(event){
+   	$("#buscar-avanzado-header").addClass("activar");
+   	$("#buscar-avanzado-header").removeClass("ng-hide");
+      if($('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
+         $("#buscar-header").removeClass("activar");
+   		 $("#buscar-header").addClass("ng-hide");
+   		 $("#cont-menu").removeClass("activar");
+   		 $("#cont-menu").addClass("ng-hide");
+    }
+   });
+});
+
+$(document).ready(function(){
+   $(".input-busqueda").click(function(event){
+   	$("#buscar-header").addClass("activar");
+   	$("#buscar-header").removeClass("ng-hide");
+      if($('#buscar-avanzado-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
+         $("#buscar-avanzado-header").removeClass("activar");
+   		 $("#buscar-avanzado-header").addClass("ng-hide");
+   		 $("#cont-menu").removeClass("activar");
+   		 $("#cont-menu").addClass("ng-hide");
+    }
+   });
+});
+
+$(document).ready(function(){
+   $("#menu").click(function(event){
+   	$("#cont-menu").addClass("activar");
+   	$("#cont-menu").removeClass("ng-hide");
+      if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') ){
+         $("#buscar-avanzado-header").removeClass("activar");
+   		 $("#buscar-avanzado-header").addClass("ng-hide");
+   		 $("#buscar-header").removeClass("activar");
+   		 $("#buscar-header").addClass("ng-hide");
+    }
+   });
+});
+
+$(document).ready(function(){
+   $("#cont-global").click(function(event){
+      if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
+         $("#buscar-avanzado-header").removeClass("activar");
+   		 $("#buscar-avanzado-header").addClass("ng-hide");
+   		 $("#buscar-header").removeClass("activar");
+   		 $("#buscar-header").addClass("ng-hide");
+   		 $("#cont-menu").removeClass("activar");
+   		 $("#cont-menu").addClass("ng-hide");
+    }
+   });
+});
+
+
+
+/*$(document).ready(function(){
+   $(".input-busqueda").click(function(event){
+      if($('.menu-2').hasClass('desactivar')){
+         $(".menu-2").addClass("desactivar");   
+       }else{
+      $(".menu-2").removeClass("desactivar");
+    }
+   });
+});*/

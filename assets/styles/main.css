@@ -14,6 +14,9 @@ body{font-family: open-r}
 a{text-decoration: none;border: none;box-shadow: none;}
 .ng-cloak{display: none!important}
 #cont-global{position: relative;}
+.desactivar{opacity: 0!important}
+.activar{opacity: 1!important}
+.ocultar{opacity: 0!important;z-index: 1!important}
 /**header**/
 
 /*menu*/
@@ -36,7 +39,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu*/
 
 /*buscar header*/
-#buscar-header{position: absolute;width: 300px;background: white;z-index: 100000000000000;left: 80px;opacity: 1;transition: .5s linear all}
+#buscar-header{position: absolute;width: 300px;background: white;z-index: 100000000000000;left: 80px;opacity: 1;transition: .5s linear all;opacity: 0}
 #buscar-header.ng-hide{opacity: 0}
 .imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
 .buscar-header:hover{background: #00ADEF}
@@ -52,7 +55,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*buscar header*/
 
 /*menu desplegable*/
-#cont-menu{width: 95px;background: #28B7D9;height: 100%;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;}
+#cont-menu{width: 95px;background: #28B7D9;height: 100%;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0}
 .cont-menu{height: 600px;}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
@@ -67,7 +70,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu desplegable*/
 
 /*busqueda avanzada*/
-#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 100000000000000;left: 74px;opacity: 1;transition: .5s linear all}
+#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 100000000000000;left: 74px;opacity: 1;transition: .5s linear all;opacity: 0}
 #buscar-avanzado-header.ng-hide{opacity: 0}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
@@ -158,7 +161,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .select-tipo{background: #E4E4E4;width: 100%;height: 20px;border-radius:5px;}
 .select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -10px!important}
 .select-tipo .md-select-label .md-select-icon{color: #3DBDEC}
-.select-tipo .md-select-label{font-size: 13px;margin-top: -17px;padding-left: 5px;border:0px;}
+.select-tipo .md-select-label{font-size: 13px;margin-top: -20px;padding-left: 5px;border:0px;}
 .imagen-resultados{height:200px;margin-bottom: 35px;position: relative;cursor: pointer;}
 .imagen-resultados.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -246,7 +249,13 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*detalle*/
 
 /*reserva*/
-#reserva{background: #F5F5F5}
+#reserva{background: #F2F2F2;height: 650px}
+#cont-reservacion{background: white;height: 540px;margin-top: 40px}
+#detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 40px;margin-right: 40px;margin-left: 20px}
+#header-reservacion{height: 60px;background: blue}
+.listado-reserva{background: white;height: 100%;border:  solid #F2F2F2;}
+.num-header-r{font-family: open-b;color: #00C0C7;font-size: 17px}
+.titulo-reservacion-h{color: #00C0C7;font-size: 17px}
 /*reserva*/
 
 /*footer*/
