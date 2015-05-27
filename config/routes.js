@@ -41,6 +41,12 @@ module.exports.routes = {
   '/resultados': {
     view: 'home/resultados'
   },
+  '/detalle': {
+    view: 'home/detalle'
+  },
+  '/reserva': {
+    view: 'reserva/index'
+  },
 
   /***************************************************************************
   *                                                                          *
