@@ -70,7 +70,7 @@ $(document).ready(function(){
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
     $("#tu-reservacion").removeClass("ng-hide");
-      if($('#datos-viajero').hasClass('activar')){
+      if($('#datos-viajero').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
         $("#datos-viajero").removeClass("activar");
         $("#datos-viajero").addClass("ng-hide");
         $("#pago-reservacion").removeClass("activar");
@@ -101,6 +101,30 @@ $(document).ready(function(){
         $("#tu-reservacion").addClass("ng-hide");
         $("#datos-viajero").removeClass("activar");
         $("#datos-viajero").addClass("ng-hide");
+    }
+   });
+});
+
+$(document).ready(function(){
+   $("#boton-reserva").click(function(event){
+      if($('#tu-reservacion').hasClass('activar') ){
+        $("#tu-reservacion").removeClass("activar");
+        $("#tu-reservacion").addClass("ng-hide");
+        $(".tu-reservacion").addClass("fuente-r");
+        $("#datos-viajero").addClass("activar");
+        $("#datos-viajero").removeClass("ng-hide");
+    }else{
+      if($('#datos-viajero').hasClass('activar') ){
+        $("#datos-viajero").removeClass("activar");
+        $("#datos-viajero").addClass("ng-hide");
+        $(".datos-v").addClass("fuente-r");
+        $("#pago-reservacion").addClass("activar");
+        $("#pago-reservacion").removeClass("ng-hide");
+    }else{
+      if($('#pago-reservacion').hasClass('activar') ){
+        $(".pago-r").addClass("fuente-r");
+      }
+    }
     }
    });
 });

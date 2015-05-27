@@ -15,8 +15,10 @@ a{text-decoration: none;border: none;box-shadow: none;}
 .ng-cloak{display: none!important}
 #cont-global{position: relative;}
 .desactivar{opacity: 0!important}
-.activar{opacity: 1!important}
+.activar{opacity: 1!important;transition: .5s linear all}
 .ocultar{opacity: 0!important;z-index: 1!important;display: none!important}
+.fuente-r{background: #00C0C8!important;color: white}
+.fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 /**header**/
 
 /*menu*/
@@ -249,21 +251,27 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*detalle*/
 
 /*reserva*/
-#reserva{background: #F2F2F2;height: auto;min-height: 730px}
-#cont-reservacion{height: 600px;margin-top: 40px}
+#reserva{background: #F2F2F2;height: auto;min-height: 750px}
+#cont-reservacion{margin-top: 40px}
 #detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 40px;margin-right: 40px;margin-left: 20px}
 #header-reservacion{height: 60px;}
-.listado-reserva{background: white;height: 100%;border:  solid #F2F2F2;}
+.listado-reserva{background: white;height: 100%;}
+.tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
+.datos-v{border-right: 2px solid;border-bottom: 4px solid;border-left: 2px solid;border-color: #F2F2F2;}
+.pago-r{border-left: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
 .num-header-r{font-family: open-b;color: #00C0C7;font-size: 17px}
 .titulo-reservacion-h{color: #00C0C7;font-size: 17px}
 #tu-reservacion{height: 510px;}
-#nombre-reservacion{height: 40px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
-.nombre-reservacion{color: #8A8A8A;font-size: 17px;height: 100%;margin-left: 35px;font-weight: 700}
-#datos-reservacion{height: 250px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
-#transp-reservacion{height: 40px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+#nombre-reservacion{height: 60px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+.nombre-reservacion{color: #8A8A8A;font-size: 16px;height: 100%;margin-left: 35px;font-weight: 700;text-transform: uppercase;font-family: open-b}
+#datos-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+#imagen-reservacion{height: 250px;}
+.imagen-reservacion{width: 100px;height: 100px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
+.datos-reservacion{height: 250px;}
+
+#transp-reservacion{height: 60px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #hotel-reservacion{background: white;height: 135px;;border-bottom: 3px solid #F2F2F2;width: 100%}
 
-#datos-reservacion{height: 510px}
 #pago-reservacion{height: 510px}
 #datos-reservacion.ng-hide{opacity: 0}
 #pago-reservacion.ng-hide{opacity: 0}
@@ -342,6 +350,9 @@ a.text-header:focus{background: #00ADEF;color: white}
 .nombre-detalle{font-size: 13px;}
 
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
+
+#imagen-reservacion{height: 120px;}
+.imagen-reservacion{margin: 0}
 
 }
 

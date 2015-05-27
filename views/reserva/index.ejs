@@ -15,16 +15,24 @@
 			<div id="nombre-reservacion" layout="row" layout-align="start center" >
 				<div class="nombre-reservacion" layout="row" layout-align="center center" >Tour</div>
 			</div>
-			<div id="datos-reservacion" layout="row" layout-align="center center" ></div>
+			<div id="datos-reservacion" layout="row" layout-align="center center" layout-wrap>
+				<div id="imagen-reservacion" flex="20" flex-md="25" flex-sm="100" layout="column" layout-align="start center" layout-align-sm="center center" >
+					<div class="imagen-reservacion"></div>
+				</div>
+				<div class="datos-reservacion" flex="80" flex-md="75" flex-sm="100" layout="row" layout-align="start start" ></div>
+			</div>
 			<div id="transp-reservacion" layout="row" layout-align="center center" ></div>
 			<div id="hotel-reservacion" layout="row" layout-align="center center" ></div>
 		</div>
+
 		<div id="datos-viajero" class="ng-hide" flex="100" layout="column" layout-align="start start">
-			
+			datos
 		</div>
+
 		<div id="pago-reservacion" class="ng-hide" flex="100" layout="column" layout-align="start start">
-			
+			pago
 		</div>
+
 		<a href="" id="boton-reserva" ><div class="boton-reserva" layout="row" layout-align="center center" >CONTINUAR</div></a>
 	</div>
 	<div id="detalle-reservacion" flex="20" flex-md="75" flex-sm="90" layout="row" layot-align="start star" ></div>
