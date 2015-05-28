@@ -12,6 +12,7 @@
 }
 body{font-family: open-r}
 a{text-decoration: none;border: none;box-shadow: none;}
+a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transparent;}
 .ng-cloak{display: none!important}
 #cont-global{position: relative;}
 .desactivar{opacity: 0!important}
@@ -64,7 +65,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 .enlace-menu{color: white;font-family: open-b;margin-top: 10px}
 .enlace-menu i{width: 40px;height: 41px}
 .enlace-menu.viajes i{font-size: 45px}
-.text-menu{font-size: 10px;color: white}
+.text-menu{font-size: 10px;color: white;}
+.text-menu:hover,.icon-desplegable{border:none!important;}
 .text-menu.viajes{margin-top: -8px}
 .text-menu.viajes{margin-top: -8px}
 .icon-desplegable{color: white;font-size: 40px;margin-bottom: 5px}
@@ -251,7 +253,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*detalle*/
 
 /*reserva*/
-#reserva{background: #F2F2F2;height: auto;min-height: 750px}
+#reserva{background: #F2F2F2;height: auto;padding-bottom: 100px}
 #cont-reservacion{margin-top: 40px}
 #detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 40px;margin-right: 40px;margin-left: 20px}
 #header-reservacion{height: 60px;}
@@ -261,16 +263,37 @@ a.text-header:focus{background: #00ADEF;color: white}
 .pago-r{border-left: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
 .num-header-r{font-family: open-b;color: #00C0C7;font-size: 17px}
 .titulo-reservacion-h{color: #00C0C7;font-size: 17px}
-#tu-reservacion{height: 510px;}
+#tu-reservacion{}
 #nombre-reservacion{height: 60px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 .nombre-reservacion{color: #8A8A8A;font-size: 16px;height: 100%;margin-left: 35px;font-weight: 700;text-transform: uppercase;font-family: open-b}
 #datos-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
-#imagen-reservacion{height: 250px;}
+#imagen-reservacion{height: 270px;}
 .imagen-reservacion{width: 100px;height: 100px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
-.datos-reservacion{height: 250px;}
+.datos-reservacion{height: 270px;}
+.tours-reservacion{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-top: 20px;}
+.tours-reservacion-2{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-bottom: 10px}
+#fecha-tour{margin-bottom: 10px}
+.fecha-reserva p input{border-radius: 5px!important;color: #939393;margin-left: 5px}
+.icono-fecha-r{color: #00B6DA;font-size: 15px;margin-right: 5px;margin-top: -10px}
+.fecha-tour{color: #898989;font-size: 13px;font-weight: 700;margin-top: -10px}
+#ubicacion-tour{margin-bottom: 20px}
+.ubicacion-r{width: 164px;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;margin-left: 5px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
+.ubicacion-r.adultos{width: 50px}
+.icono-fecha-r.ninos{margin-left: 13px}
+#adultos-r{margin-bottom: 20px}
+.ubicacion-r.fecha{width: 177px}
+.hotel-reservacion{width: 90%;margin-top: 30px;}
+.trans-r{color: #1DB5DA;font-size: 25px;margin-right: 15px;margin-top: -10px}
+.pin-r{font-size: 13px;color: #787878;margin-top: -10px}
+.text-hotel-r{font-size: 13px;color: #787878;margin-top: -10px}
+.ubicacion-r.ubi-hotel{width: 200px;font-weight: 700;color: #787878;text-transform: capitalize;}
+.boton-r-h{width: 90px;height: 30px;border-radius: 10px;border:1px solid #00BDCE;;color: #A6A6A6;font-size: 13px;text-transform: uppercase;font-family: open-b}
+.boton-r-h-2{width: 110px;height: 30px;border-radius: 10px;border:1px solid #00BDCE;;color: #A6A6A6;font-size: 13px;text-transform: uppercase;font-family: open-b}
+.btn-borrar{color: #C7C7C7;font-size: 13px;margin-right: 5px}
+
 
 #transp-reservacion{height: 60px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
-#hotel-reservacion{background: white;height: 135px;;border-bottom: 3px solid #F2F2F2;width: 100%}
+#hotel-reservacion{background: white;height: 170px;;border-bottom: 3px solid #F2F2F2;width: 100%}
 
 #pago-reservacion{height: 510px}
 #datos-reservacion.ng-hide{opacity: 0}
@@ -314,7 +337,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*resultados*/
 #text-similares{font-size: 20px;}
 
-#cont-reservacion{background: white;height: 540px;margin-top: 20px}
+#cont-reservacion{background: white;margin-top: 20px}
 #detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 20px;margin-right: 0px;margin-left: 0px;}
 }
 
@@ -351,8 +374,15 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
 
+.tours-reservacion{margin-top: 0px;}
 #imagen-reservacion{height: 120px;}
 .imagen-reservacion{margin: 0}
+
+#cont-reservacion{margin-top: 20px}
+#detalle-reservacion{margin-top: 20px;}
+
+.num-header-r{font-size: 10px}
+.titulo-reservacion-h{font-size: 10px}
 
 }
 

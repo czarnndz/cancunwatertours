@@ -1,5 +1,5 @@
 <div id="reserva" flex="100" layout="row" layout-align="end start" layout-align-md="center center" layout-align-sm="center center" layout-wrap >
-	<div id="cont-reservacion" flex="60" flex-md="75" flex-sm="90" layout="row" layout-align="end start" layout-wrap >
+	<div id="cont-reservacion" flex="60" flex-md="75" flex-sm="95" layout="row" layout-align="end start" layout-wrap >
 		<div id="header-reservacion" flex="100" layout="row" layout-align="center center" >
 			<div class="listado-reserva tu-reservacion" flex="33" layout="row" layout-align="center center" >
 				<div class="num-header-r">1.</div> <div class="titulo-reservacion-h">Tu reservación</div>
@@ -15,14 +15,59 @@
 			<div id="nombre-reservacion" layout="row" layout-align="start center" >
 				<div class="nombre-reservacion" layout="row" layout-align="center center" >Tour</div>
 			</div>
-			<div id="datos-reservacion" layout="row" layout-align="center center" layout-wrap>
+			<div id="datos-reservacion" layout="row" layout-align="space-between center" layout-wrap>
 				<div id="imagen-reservacion" flex="20" flex-md="25" flex-sm="100" layout="column" layout-align="start center" layout-align-sm="center center" >
 					<div class="imagen-reservacion"></div>
 				</div>
-				<div class="datos-reservacion" flex="80" flex-md="75" flex-sm="100" layout="row" layout-align="start start" ></div>
+				<div class="datos-reservacion" flex="75" flex-md="70" flex-sm="100" layout="column" layout-align="start start" layout-align-sm="start center" >
+					<div class="tours-reservacion">Xcaret | Xel Há | Xplor | Xichén</div>
+					<div class="tours-reservacion-2">( 2 - 3 o 4 tours) con Transportación</div>
+					<div id="fecha-tour" layout="row" layout-align="start center" >
+						<i class="icon-calendario icono-fecha-r"></i>
+						<div class="fecha-tour">Fecha:</div>
+						<div class="fecha-reserva" ng-controller="DatepickerDemoCtrl">
+							<p class="input-group">
+	              				<input type="date" class="form-control ng-pristine ng-untouched ng-valid" datepicker-popup="" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+	            			</p>
+						</div>
+					</div>
+					<div id="ubicacion-tour" layout="row" layout-align="start center" >
+						<i class="icon-pin icono-fecha-r"></i>
+						<div class="fecha-tour">Ubicación:</div>
+						<input type="text" class="ubicacion-r" >
+					</div>
+					<div id="adultos-r" layout="row" layout-align="start center" >
+						<i class="icon-adultos icono-fecha-r"></i>
+						<div class="fecha-tour">Adultos:</div>
+						<input type="text" class="ubicacion-r adultos" >
+						<i class="icon-nino icono-fecha-r ninos"></i>
+						<div class="fecha-tour">Niños:</div>
+						<input type="text" class="ubicacion-r adultos" >
+					</div>
+					<div id="fecha-tour" layout="row" layout-align="start center" >
+						<i class="icon-horario icono-fecha-r"></i>
+						<div class="fecha-tour">Horario:</div>
+						<input type="text" class="ubicacion-r fecha" >
+					</div>
+				</div>
 			</div>
-			<div id="transp-reservacion" layout="row" layout-align="center center" ></div>
-			<div id="hotel-reservacion" layout="row" layout-align="center center" ></div>
+			<div id="transp-reservacion" layout="row" layout-align="start center" >
+				<div class="nombre-reservacion" layout="row" layout-align="center center" >Transportación</div>
+			</div>
+			<div id="hotel-reservacion" layout="column" layout-align="space-between center">
+				<div class="hotel-reservacion" layout="row" layout-align="space-between center" layout-wrap>
+					<div class="cont-r-1" flex="65" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
+						<i class="icon-transporte trans-r"></i>
+						<i class="icon-pin pin-r"></i>
+						<div class="text-hotel-r">HOTEL</div>
+						<input type="text" class="ubicacion-r ubi-hotel" >
+					</div>
+					<div class="cont-r-1" flex="30" flex-sm="100" layout="row" layout-align="space-between center" layout-align-sm="center center" >
+						<div class="boton-r-h" layout="row" layout-align="center center" >editar</div>
+						<div class="boton-r-h-2" layout="row" layout-align="center center" > <i class="icon-borrar btn-borrar"></i> eliminar</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="datos-viajero" class="ng-hide" flex="100" layout="column" layout-align="start start">
