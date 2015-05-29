@@ -255,7 +255,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*reserva*/
 #reserva{background: #F2F2F2;height: auto;padding-bottom: 100px}
 #cont-reservacion{margin-top: 40px}
-#detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 40px;margin-right: 40px;margin-left: 20px}
+#detalle-reservacion{background: #19A4EF;margin-top: 40px;margin-right: 40px;margin-left: 20px}
 #header-reservacion{height: 60px;}
 .listado-reserva{background: white;height: 100%;}
 .tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
@@ -300,14 +300,23 @@ a.text-header:focus{background: #00ADEF;color: white}
 .text2-total strong{font-size: 24px; font-family: open-b}
 .text3-total{color: #8A8A93;font-size: 14px;text-align: center;}
 #total-transporte{padding-bottom: 25px}
-
 #transp-reservacion{height: 60px;background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #hotel-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
+#nombre-detalles{height:190px;border-bottom: 1px solid white;}
+#precio-detalles{height:120px;}
+.nombre-d{color: white;font-size: 12px;}
+.ver-detalles{color: white;font-size: 8px;text-transform: uppercase;}
+.precio-detalles{color: white;font-size: 17px;font-family: open-r}
+.precio-detalles.margen{margin-bottom: 20px}
+.text-total-d{color:white;font-size: 15px;font-family: open-b}
+.precio-total-d{color:white;font-size: 18px;font-family: open-b}
 
 #pago-reservacion{height: 510px}
 #datos-reservacion.ng-hide{opacity: 0}
 #pago-reservacion.ng-hide{opacity: 0}
 #tu-reservacion.ng-hide{opacity: 0}
+
+.head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
 
 .boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
 /*reserva*/
@@ -349,7 +358,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 #text-similares{font-size: 20px;}
 
 #cont-reservacion{margin-top: 20px}
-#detalle-reservacion{background: #19A4EF;height: 300px;margin-top: 20px;margin-right: 0px;margin-left: 0px;}
+#detalle-reservacion{background: #19A4EF;margin-top: 20px;margin-right: 0px;margin-left: 0px;}
 }
 
 @media (max-width: 650px){
