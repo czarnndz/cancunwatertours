@@ -312,9 +312,11 @@ a.text-header:focus{background: #00ADEF;color: white}
 .precio-total-d{color:white;font-size: 18px;font-family: open-b}
 
 #pago-reservacion{height: 510px}
-#datos-reservacion.ng-hide{opacity: 0}
-#pago-reservacion.ng-hide{opacity: 0}
-#tu-reservacion.ng-hide{opacity: 0}
+#datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
+#datos-viajero-1{margin-top: 20px}
+.icono-trans-d{color:#00C0C9;font-size: 25px}
+.text-datos-trans{font-size: 12px;color: #918A8A;margin-left: 5px;font-family: open-b}
+#datos-viajero-2{}
 
 .head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
 
