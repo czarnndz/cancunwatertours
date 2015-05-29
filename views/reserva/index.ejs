@@ -1,18 +1,18 @@
 <div id="reserva" flex="100" layout="row" layout-align="end start" layout-align-md="center center" layout-align-sm="center center" layout-wrap >
-	<div id="cont-reservacion" flex="60" flex-md="75" flex-sm="95" layout="row" layout-align="end start" layout-wrap >
+	<div id="cont-reservacion" flex="60" flex-md="90" flex-sm="100" layout="row" layout-align="end start" layout-align-sm="center center" layout-wrap >
 		<div id="header-reservacion" flex="100" layout="row" layout-align="center center" >
-			<div class="listado-reserva tu-reservacion" flex="33" layout="row" layout-align="center center" >
+			<div class="listado-reserva tu-reservacion" flex="33" layout="row" layout-align="center center" layout-sm="column" >
 				<div class="num-header-r">1.</div> <div class="titulo-reservacion-h">Tu reservación</div>
 			</div>
-			<div class="listado-reserva datos-v" flex="33" layout="row" layout-align="center center" >
+			<div class="listado-reserva datos-v" flex="33" layout="row" layout-align="center center" layout-sm="column" >
 				<div class="num-header-r">2.</div> <div class="titulo-reservacion-h">Datos del Viajero</div>
 			</div>
-			<div class="listado-reserva pago-r" flex="33" layout="row" layout-align="center center" >
+			<div class="listado-reserva pago-r" flex="33" layout="row" layout-align="center center" layout-sm="column" >
 				<div class="num-header-r">3.</div> <div class="titulo-reservacion-h">Pago</div>
 			</div>
 		</div>
 		<div id="tu-reservacion" class="activar" flex="100" layout="column" layout-align="start start">
-			<div id="nombre-reservacion" layout="row" layout-align="start center" >
+			<div id="nombre-reservacion" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
 				<div class="nombre-reservacion" layout="row" layout-align="center center" >Tour</div>
 			</div>
 			<div id="datos-reservacion" layout="row" layout-align="space-between center" layout-wrap>
@@ -51,20 +51,31 @@
 					</div>
 				</div>
 			</div>
-			<div id="transp-reservacion" layout="row" layout-align="start center" >
+			<div id="transp-reservacion" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
 				<div class="nombre-reservacion" layout="row" layout-align="center center" >Transportación</div>
 			</div>
 			<div id="hotel-reservacion" layout="column" layout-align="space-between center">
 				<div class="hotel-reservacion" layout="row" layout-align="space-between center" layout-wrap>
-					<div class="cont-r-1" flex="65" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" >
+					<div class="cont-r-1" flex="65" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap >
 						<i class="icon-transporte trans-r"></i>
 						<i class="icon-pin pin-r"></i>
 						<div class="text-hotel-r">HOTEL</div>
 						<input type="text" class="ubicacion-r ubi-hotel" >
 					</div>
-					<div class="cont-r-1" flex="30" flex-sm="100" layout="row" layout-align="space-between center" layout-align-sm="center center" >
+					<div class="cont-r-2" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="space-between center" layout-align-md="space-around center" layout-align-sm="space-around center" >
 						<div class="boton-r-h" layout="row" layout-align="center center" >editar</div>
 						<div class="boton-r-h-2" layout="row" layout-align="center center" > <i class="icon-borrar btn-borrar"></i> eliminar</div>
+					</div>
+					<div class="cont-r-3" flex="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-wrap>
+						<div id="marcador-terminos" layout="row" layout-align="center center" ng-click="terminosVisibility = !terminosVisibility" >
+							<div class="marcador-terminos" ng-show="terminosVisibility" ></div>
+						</div>
+						He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
+					</div>
+					<div id="total-transporte" flex="100" layout="column" layout-align="center start" layout-align-sm="center center">
+						<div class="text1-total">Total Transporte</div>
+						<div class="text2-total">MXM <strong> $ 293.00 </strong></div>
+						<div class="text3-total">El importe incluye todos los impuestos</div>
 					</div>
 				</div>
 			</div>
