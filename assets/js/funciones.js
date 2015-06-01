@@ -120,9 +120,12 @@ $(document).ready(function(){
         $(".datos-v").addClass("fuente-r");
         $("#pago-reservacion").addClass("activar");
         $("#pago-reservacion").removeClass("ng-hide");
+         $("#boton-reserva").removeClass("activar");
+        $("#boton-reserva").addClass("ng-hide");
     }else{
       if($('#pago-reservacion').hasClass('activar') ){
         $(".pago-r").addClass("fuente-r");
+
       }
     }
     }
