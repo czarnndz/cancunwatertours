@@ -313,10 +313,21 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 #pago-reservacion{height: 510px}
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
-#datos-viajero-1{margin-top: 20px}
+#datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
 .icono-trans-d{color:#00C0C9;font-size: 25px}
-.text-datos-trans{font-size: 12px;color: #918A8A;margin-left: 5px;font-family: open-b}
-#datos-viajero-2{}
+.text-datos-trans{font-size: 15px;color: #918A8A;margin-left: 5px;font-family: open-b}
+.ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px}
+#datos-viajero-2{border-top: 4px solid #F2F2F2}
+.text-datos-trans.datos{margin-top: 10px}
+.text-datos-trans.info{color: #949494;font-size: 14px;font-family: open-r}
+.form-datos{height: 35px;background: #F5F5F5;margin-top: 10px;border-radius: 5px;}
+.input-datos{height: 100%;background: #F5F5F5;box-shadow: none;border:none;color: #939393;padding-left: 10px;font-size: 13px;}
+.icono-datos-v{font-size: 18px;color: #19A4EF}
+.text-datos-trans.tel{color: #949494;font-size: 14px;font-family: open-r;margin-top: 10px;}
+.celular{height: 35px;background:white;color: #ACACAC;font-size: 10px}
+#apuntador-cel{width: 10px;height: 10px;border:2px solid #ACACAC;}
+.apuntador-cel{width: 4px;height: 4px;background: #ACACAC}
+#info-datos{padding-bottom: 30px}
 
 .head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
 
@@ -405,6 +416,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 .num-header-r{font-size: 10px}
 .titulo-reservacion-h{font-size: 10px}
+
+.text-datos-trans.info{text-align: center;}
 }
 
 @media (max-width: 400px){

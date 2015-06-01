@@ -82,11 +82,51 @@
 		</div>
 
 		<div id="datos-viajero" class="ng-hide" flex="100" layout="row" layout-align="center center" layout-wrap >
-			<div id="datos-viajero-1" flex="90" layout="row" layout-align="start center" >
-				<i class="icon-transporte icono-trans-d"></i>
-				<div class="text-datos-trans">Datos para el traslado de tu Tour (Opcional)</div>
+			<div id="datos-viajero-1" flex="90" layout="row" layout-align="start center" layout-wrap>
+				<div flex="100" layout="row" layout-align="start center"  >
+					<i class="icon-transporte icono-trans-d"></i>
+					<div class="text-datos-trans">Datos para el traslado de tu Tour (Opcional)</div>
+				</div>
+				<input flex="50" flex-sm="100" type="text" class="ubicacion-r datos-viajero" >
 			</div>
-			<div id="datos-viajero-2"></div>
+			<div id="datos-viajero-2" flex="100" layout="row" layout-align="center center" layout-wrap >
+				<div class="text-datos-trans datos" layout="row" layout-align-sm="center center" flex="90" >Datos para tu reservación</div>
+				<div class="text-datos-trans info" layout="row" layout-align-sm="center center" flex="90" >Estos datos son los que se utilizarán para hacerte llegar información de su reservación </div>
+				<div id="info-datos" flex="90" layout="row" layout-align="start center" >
+					<div flex="80" flex-sm="100" layout="row" layout-align="space-between center" layout-align-sm="space-around center" layout-wrap>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" > 
+							<div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div> 
+							<input flex="85"  type="text" class="input-datos" placeholder="Nombre" >
+						</div>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+							<div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div> 
+							<input flex="85" type="text" class="input-datos" placeholder="Apellidos" >
+						</div>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+							<div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div> 
+							<input flex="85"  type="text" class="input-datos" placeholder="Correo Electrónico" >
+						</div>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+							<div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div>
+							<input flex="85"  type="text" class="input-datos" placeholder="Confirmar Correo Electrónico" >
+						</div>
+						<div class="text-datos-trans tel" layout="row" layout-align-sm="center center" flex="90" >Número Telefónico</div>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+							<input flex="100"  type="text" class="input-datos" placeholder="Lada" >
+						</div>
+						<div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+							<div flex="15" layout="row" layout-align="center center" ><i class="icon-tel icono-datos-v"></i></div>
+							<input flex="65"  type="text" class="input-datos" placeholder="Número" >
+							<div class="celular" flex="20" layout="row" layout-align="space-around center" >
+								<div id="apuntador-cel" layout="row" layout-align="center center" ng-click="celularVisibility = !celularVisibility">
+									<div class="apuntador-cel" ng-show="celularVisibility" ></div>
+								</div>
+								Celular
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="pago-reservacion" class="ng-hide" flex="100" layout="column" layout-align="start start">
