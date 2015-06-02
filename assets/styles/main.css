@@ -20,6 +20,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .ocultar{opacity: 0!important;z-index: 1!important;display: none!important}
 .fuente-r{background: #00C0C8!important;color: white}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
+*:focus, *:hover{outline: 0px}
 /**header**/
 
 /*menu*/
@@ -329,12 +330,12 @@ a.text-header:focus{background: #00ADEF;color: white}
 #info-datos{padding-bottom: 30px}
 
 #pago-reservacion{background: white;border-bottom: 4px solid #F2F2F2}
-.cont-tarjetas{height: 20px;margin-right: 10px}
+.cont-tarjetas{height: 20px;margin-right: 10px;}
 #forma-pago{border-bottom:4px solid #F2F2F2 }
-#apuntador-tarjeta{width: 15px;height: 15px;border:2px solid #ACACAC;border-radius: 50%}
 .forma-1{margin-top: 20px;margin-bottom: 5px}
-.apuntador-tarjeta{width: 7px;height: 7px;background: #ACACAC;border-radius: 50%}
-.img-tarjeta{width: 30px;height: 17px}
+#apuntador-tarjeta{width: 12px;height: 12px;border:2px solid #ACACAC;border-radius: 50%;margin-left: 5px;margin-right: 5px}
+.apuntador-tarjeta{width: 6px;height: 6px;background: #ACACAC;border-radius: 50%}
+.img-tarjeta{}
 .select-banco{height: 40px;border:1px solid #A9A9A9!important;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important}
 .select-banco .md-select-label{margin-top: -12px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important}
 .select-banco .md-select-label .md-select-icon{color:#19A4EF!important;font-size: 10px!important}
@@ -349,7 +350,21 @@ a.text-header:focus{background: #00ADEF;color: white}
 .select-mes .md-select-label{margin-top: -12px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;text-align: center!important;}
 .select-mes .md-select-label .md-select-icon{color:#19A4EF!important;font-size: 10px!important}
 .fecha-slect{margin-top: 3px;margin-left: 10px}
+.input-num-tarjeta.seguridad{width: 183px;margin-left: 10px;margin-right: 0px}
+.pregunta-pago{width: 30px;height: 30px;background: #00C1CC;color: white;font-size: 17px;font-family: open-b;border-radius: 50%;margin-left: 5px}
 #Pais{margin-bottom: 20px}
+.select-estado{height: 40px;border:1px solid #A9A9A9;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;margin: 0}
+.select-estado .md-select-label{margin-top: -12px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important}
+.select-estado .md-select-label .md-select-icon{color:#A9A9A9!important;font-size: 10px!important}
+.input-num-tarjeta.ciudad{margin: 0;margin-left: 35px;width: 183px}
+.input-num-tarjeta.ciudad.codigo{margin-top: 10px;margin-left: 16px}
+.input-num-tarjeta.direccion{margin-top: 10px}
+#terminos-condiciones-pago{margin-top: 30px;margin-bottom: 30px}
+.total-pagar{font-size: 17px;color: #898989;font-family: open-b}
+.precio-total{font-size: 20px;color: #13A6ED;font-family: open-b}
+.precio-total strong{font-size: 30px;margin-left: 5px;}
+.importe-pago{color: #8A8A8A;font-size: 15px;text-align: center;}
+#boton-pagar{width: 180px;height: 40px;color: white;font-family: open-b;background: #00C1CA;border-radius: 10px;margin-top: 10px}
 
 .head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
 
@@ -379,6 +394,12 @@ a.text-header:focus{background: #00ADEF;color: white}
 	#similares{height: auto;}
 	.cont-r-1{padding-bottom: 10px}
 	.nombre-reservacion{margin: 0px}
+	.input-num-tarjeta{margin: 0 auto;margin-left: 12px}
+	.input-num-tarjeta.seguridad{margin-left: 12px;margin-top: 10px}
+	.pregunta-pago{margin-top: 10px}
+	.input-num-tarjeta.ciudad.codigo{margin-top: 10px;margin-left: 0px}
+	.input-num-tarjeta.ciudad{margin: 0;margin-top: 10px}
+	.input-num-tarjeta.direccion{margin: 0;;margin-top: 10px}
 }
 
 @media (max-width: 800px){
@@ -440,6 +461,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 .titulo-reservacion-h{font-size: 10px}
 
 .text-datos-trans.info{text-align: center;}
+
+.input-num-tarjeta{margin: 0 auto;margin-left: 12px}
 }
 
 @media (max-width: 400px){
@@ -459,5 +482,6 @@ a.text-header:focus{background: #00ADEF;color: white}
 .text-resultados-2{font-size: 10px;}
 
 .ubicacion-r.ubi-hotel{margin-top: 15px}
+.cont-tarjetas{margin-top: 10px}
 
 }
