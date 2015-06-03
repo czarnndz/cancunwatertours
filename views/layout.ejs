@@ -70,7 +70,7 @@
 <div id="cont-sub-header" flex="100" layout="row" layout-wrap >
  <div id="buscar-avanzado-header" class="ng-cloak ng-hide"  layout="row" layout-align="center center" layout-wrap >
   <div flex="90" flex-sm="100" layout="row" layout-align="space-between center" class="cont-avanzada">
-    <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="40" >
+    <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="45" >
       <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
         <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
       </div>
@@ -95,8 +95,29 @@
       <option value=""><h6 class="option">Hotel</h6></option>
     </select>
   </div>
-  <div flex="90" flex-sm="100" layout="row" layout-align="start center" class="cont-avanzada">
-    <i class="icon-adultos icon-buscar dos "></i>
+  <div flex="95" flex-sm="100" layout="row" layout-align="space-around center" class="cont-avanzada">
+    <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+      <i class="icon-adultos icon-buscar dos "></i>
+      <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
+        <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
+      </div>
+      <div class="text-adultos">Adultos</div>
+    </div>
+    <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+      <i class="icon-familiar icon-buscar"></i>
+      <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
+        <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
+      </div>
+      <div class="text-adultos">familiar</div>
+    </div>
+    <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+      <i class="icon-ninos icon-buscar dos "></i>
+      <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
+         <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
+      </div>
+      <div class="text-adultos">niños</div>
+    </div>
+    <!--<i class="icon-adultos icon-buscar dos "></i>
     <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
         <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
     </div>
@@ -110,7 +131,7 @@
     <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
         <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
     </div>
-    <div class="text-adultos">niños</div>
+    <div class="text-adultos">niños</div>-->
   </div>
 </div>
 
@@ -141,7 +162,7 @@
   </div>
 </div>
 
- <div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide">
+ <div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide alto">
   <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="column" layout-align="center center" class="enlace-menu">

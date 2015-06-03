@@ -53,10 +53,11 @@ $(document).ready(function(){
    });
 });
 
+
 $(document).ready(function(){
    $("#cont-global").click(function(event){
       if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
-         $("#buscar-avanzado-header").removeClass("activar");
+       $("#buscar-avanzado-header").removeClass("activar");
    		 $("#buscar-avanzado-header").addClass("ng-hide");
    		 $("#buscar-header").removeClass("activar");
    		 $("#buscar-header").addClass("ng-hide");
@@ -130,6 +131,11 @@ $(document).ready(function(){
     }
     }
    });
+});
+
+$(document).ready(function(){
+  var div_alto = $('#cont-global').height(); 
+  $('.alto').css('height',div_alto)
 });
 
 /*$(document).ready(function(){

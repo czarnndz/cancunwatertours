@@ -1,8 +1,8 @@
 <div id="detalle" flex="100" layout="row" layout-align="end end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 	<div id="cont-detalle" flex="80" flex-md="100" flex-sm="100" layout="row" layout-align="end end" layout-wrap>
 		<div id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="row" layout-alig="start start" layout-wrap >
-			<div class="detalles-tour" layout="row" flex="100" layout-align="end end">
-				<div class="cont-detalles" flex="60" flex-sm="65" layout-align="center start" layout="column" >
+			<div class="detalles-tour" layout="row" flex="100" layout-align="end center">
+				<div class="cont-detalles" flex="65" layout-align="center start" layout="column" >
 					<div class="nombre-detalle">Tour de Snorkel con Tortugas Marinas</div>
 					<div class="ubicacion-detalle" layout="row" layout-align="center center"> 
 						<i class="icon-pin icon-ubicacion"></i> 
@@ -14,8 +14,19 @@
 						<div class="text-like">Me gusta</div>
 					</div>
 				</div>
-				<div class="cont-detalles" flex="30" layout-align="center start" layout="column" >
-					<div class="horario-detalle" layout="arow" layout-align="center start" > 
+				<div class="cont-detalles" flex="25" flex-sm="30" layout-align="center start" layout="row" layout-wrap >
+					<div class="cont-detalles-horario" flex="100" layout="row" layout-align="start center" >
+						<i class="icon-horario icono-horario"></i> 
+						<div class="hora-duracion" layout="column">
+							<div class="duracion">Horario o Duración</div>
+							<div class="duracion hora">9am - 10pm</div>
+						</div>
+					</div>
+					<div class="cont-detalles-horario" flex="100" layout="row" layout-align="start center" >
+						<i class="icon-familiar icono-horario"></i>
+						<div class="text-horario">Atracción Familiar</div>  
+					</div>
+					<!--<div class="horario-detalle" layout="arow" layout-align="center start" > 
 						<i class="icon-horario icono-horario"></i> 
 						<div class="hora-duracion" layout="column">
 							<div class="duracion">Horario o Duración</div>
@@ -25,7 +36,7 @@
 					<div class="horario-detalle" layout="arow" layout-align="center start" > 
 						<i class="icon-familiar icono-horario"></i>
 						<div class="text-horario">Atracción Familiar</div>  
-					</div>
+					</div>-->
 				</div>
 			</div>
 			<div class="cont-imagen-detalle" flex="100" layout="row" >
@@ -33,7 +44,7 @@
 				<div class="imagen-detalle item" flex="100" layout="row" ></div>
 			</div>
 			<div class="descripcion-detalle" flex="100" layout="row" layout-align="center center">
-				<div class="cont-descripcion" flex="80" flex-sm="90" layout="column" layout-align="center start">
+				<div class="cont-descripcion" flex="80" flex-sm="95" layout="column" layout-align="center start">
 					<div class="titulo-descripcion">Descripción This is Photoshop's</div>
 					<p class="p-descripcion">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. </p>
 				</div>
@@ -42,28 +53,33 @@
 		<div id="reservar-mapa" flex="30" flex-md="100" flex-sm="100" layout="row" layout-wrap >
 			<div id="reservar" flex="100" layout="column" layout-align="start center">
 				<div id="reservar-titulo">RESERVA EL TOUR</div>
-				<div class="fecha-detalle" layout="row" layout-align="start center">
+				<div class="fecha-detalle" layout="row" layout-align="start center" ng-click="fechaVisiblity = !fechaVisiblity" >
 					<i class="icon-calendario icono-calendario"></i>
 					<div class="text-fecha">Fecha</div>
 				</div>
+				<div class="fecha-reserva" ng-controller="DatepickerDemoCtrl" ng-show="fechaVisiblity" >
+							<p class="input-group">
+	              				<input type="date" class="form-control ng-pristine ng-untouched ng-valid" datepicker-popup="" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+	            			</p>
+						</div>
 				<div class="ninos-adultos" layout="row" layout-align="space-between center">
 					<div class="ninos-text">Adultos</div>
 					<md-select placeholder="0" class="select-adultos" ng-model="someVal">
 						 <md-option value="1">1</md-option>
 						 <md-option value="2">2</md-option>
 						 <md-option value="3">3</md-option>
-						 <md-option value="1">4</md-option>
-						 <md-option value="2">5</md-option>
-						 <md-option value="3">6</md-option>
+						 <md-option value="4">4</md-option>
+						 <md-option value="5">5</md-option>
+						 <md-option value="6">6</md-option>
 					</md-select>
 					<div class="ninos-text">Niños</div>
 					<md-select placeholder="0" class="select-adultos" ng-model="someVal">
 						 <md-option value="1">1</md-option>
 						 <md-option value="2">2</md-option>
 						 <md-option value="3">3</md-option>
-						 <md-option value="1">4</md-option>
-						 <md-option value="2">5</md-option>
-						 <md-option value="3">6</md-option>
+						 <md-option value="4">4</md-option>
+						 <md-option value="5">5</md-option>
+						 <md-option value="6">6</md-option>
 					</md-select>
 				</div>
 				<md-select placeholder="0" class="select-posicion" ng-model="someVal">
@@ -85,7 +101,7 @@
 						<div class="contador total">TOTAL</div> 
 					</div>
 					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
-						<div class="precio-total">$4,250</div> 
+						<div class="precio-total-tour">$4,250</div> 
 					</div>
 					<a href="" class="boton-detalle" layout="row" layout-align="center center">
 						<div class="boton-detalle" layout="row" layout-align="center center" >AÑADIR A MI CARRITO</div>

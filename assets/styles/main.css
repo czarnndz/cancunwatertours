@@ -21,13 +21,14 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .fuente-r{background: #00C0C8!important;color: white}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 *:focus, *:hover{outline: 0px}
+.alto{height: }
 /**header**/
 
 /*menu*/
 .menu-busc{height: 74px;}
 #menu{width: 74px;height: 100%;position: relative;}
 .linea-menu{width: 15px;height: 2px;background: #64CBE4;margin-bottom: 3px}
-.input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 15px;background: #F2F2F2;border: 0px}
+.input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 15px;background: #F2F2F2;border: 0px;padding-left: 10px;font-size: 10px}
 .input-header:focus{border: none;border-radius-color: none}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
 .text-header{color: #64CBE4;font-size: 10px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%}
@@ -43,13 +44,13 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu*/
 
 /*buscar header*/
-#buscar-header{position: absolute;width: 300px;background: white;z-index: 100000000000000;left: 80px;opacity: 1;transition: .5s linear all;opacity: 0}
+#buscar-header{position: absolute;width: 300px;background: white;z-index: 100000000000000;left: 80px;transition: .5s linear all;opacity: 0}
 #buscar-header.ng-hide{opacity: 0}
 .imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
 .buscar-header:hover{background: #00ADEF}
 .buscar-header:hover .titulo-buscar{color: white}
-.titulo-buscar{font-size: 10px;color: #828282}
-.input-header::-webkit-input-placeholder {font-size: 12px;}
+.titulo-buscar{font-size: 11px;color: #828282;font-family: open-b}
+.input-header::-webkit-input-placeholder {font-size: 10px;}
 .imagen-buscar.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-buscar.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-buscar.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -59,8 +60,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*buscar header*/
 
 /*menu desplegable*/
-#cont-menu{width: 95px;background: #28B7D9;height: 100%;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0}
-.cont-menu{height: 600px;}
+#cont-menu{width: 95px;background: #28B7D9;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0}
+.cont-menu{height: 600px;margin-top: 20px}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
 .enlace-menu{color: white;font-family: open-b;margin-top: 10px}
@@ -80,23 +81,25 @@ a.text-header:focus{background: #00ADEF;color: white}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
 .apuntador-avanzado{width: 6px;height: 6px;background:black;border-radius: 50%}
-.text-buscar-a{color: white;font-size: 8px;font-weight: 700;margin-left: 5px;text-transform: uppercase;}
+.text-buscar-a{color: white;font-size: 10px;font-weight: 700;margin-left: 5px;text-transform: uppercase;font-family: open-b}
 .slide-precio{height: 50px;}
 .md-thumb{background:#FFFFFF }
 .md-thumb:after{background: #FFFFFF!important;border: #FFFFFF!important}
 .md-track{background: black!important}
 .md-track-container{height: 4px!important}
-.precios-a{color: white;font-size: 8px}
-.precios-b{color: white;font-size: 15px}
+.precios-a{color: white;font-size: 10px;font-family: open-b}
+.precios-b{color: white;font-size: 17px;font-family: open-b}
 .slider-precios{margin-top: -10px}
-.select-header{width: 100%;background: black;color: white;height: auto!important;border-radius: 5px!important;font-size: 11px;border-color: black;padding-left: 5px;position: relative;}
+.select-header{width: 100%;background: black;color: white;height: 30px!important;border-radius: 5px!important;font-size: 11px;border-color: black;padding-left: 5px;position: relative;}
+#select-buscar{}
+#select-buscar.select-buscar .md-select-label{width: 100%!important;height: 100%!important;background: black!important}
 /*.md-select-label{padding: 0px!important;padding-left: 10px!important}*/
 /*busqueda avanzada*/
-.icon-buscar{color: white;font-size: 25px;margin-right: 3px}
-.text-adultos{color: white;font-size: 8px;font-weight: 700;text-transform: uppercase;margin-right: 20px}
-#apuntador-avanzado.dos{margin-right: 5px}
-.icon-familiar{margin-right: 10px}
-.icon-ninos{margin-right: 10px}
+.icon-buscar{color: white;font-size: 25px;}
+.text-adultos{color: white;font-size: 9px;font-weight: 700;text-transform: uppercase;font-family: open-b}
+/*#apuntador-avanzado.dos{margin-right: 5px}*/
+.icon-familiar{}
+.icon-ninos{}
 #select-header{margin-top: -10px}
 /**header**/
 
@@ -140,16 +143,16 @@ a.text-header:focus{background: #00ADEF;color: white}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 11px}
-.precio-tour{color: white;font-size: 20px;font-weight: 700}
-.reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 9px;color: white;font-weight: 700;margin-top: 20px}
-.icono-aventura-home{color: #2CB8D9;font-size: 30px;margin-bottom: 2px}
+.precio-tour{color: white;font-size: 20px;font-family: open-b}
+.reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 10px;color: white;margin-top: 20px;font-family: open-b}
+.icono-aventura-home{color: #2CB8D9;font-size: 40px;margin-bottom: 2px}
 .text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px}
-.text-aventura-2{color: white;font-size: 13px;margin-bottom: 2px}
-.precio-aventura{color: white;font-size: 26px}
+.text-aventura-2{color: white;font-size: 15px;margin-bottom: 2px}
+.precio-aventura{color: white;font-size: 35px;}
 /*home*/
 
 /*Resultados */
-#cont-resultados{background: #F2F2F2;/*height: 921px*/height: auto;}
+#cont-resultados{background: #F2F2F2;height: auto;}
 #text-resultados{height: 70px;}
 .text-resultados-1{color: #9D9D9D;font-size: 24px;margin-top: 5px}
 .text-resultados-1 strong{color: #9D9D9D;font-size: 18px}
@@ -166,7 +169,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .select-tipo{background: #E4E4E4;width: 100%;height: 20px;border-radius:5px;}
 .select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -10px!important}
 .select-tipo .md-select-label .md-select-icon{color: #3DBDEC}
-.select-tipo .md-select-label{font-size: 13px;margin-top: -20px;padding-left: 5px;border:0px;}
+.select-tipo .md-select-label{font-size: 13px;margin-top: -20px;padding-left: 5px;border:0px;border:none!important;font-family: open-b!important}
 .imagen-resultados{height:200px;margin-bottom: 35px;position: relative;cursor: pointer;}
 .imagen-resultados.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -179,13 +182,13 @@ a.text-header:focus{background: #00ADEF;color: white}
 .imagen-resultados.nueve{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 #detalles-resultados{background: rgba(3, 3, 3, 0.7);height: 35%;opacity: 1}
 .imagen-resultados:hover #detalles-resultados{opacity: 0}
-.text-strong-1{color: white;font-size: 16px;font-weight: 700;margin-left: 10px}
-.localidad-resultado{color: white;font-size: 12px;font-weight: 700;margin-left: 10px}
-.categoria-resultado{color: white;font-size: 9px;;margin-left: 10px}
+.text-strong-1{color: white;font-size: 13.5px;margin-left: 10px;font-family: open-b}
+.localidad-resultado{color: white;font-size: 12px;margin-left: 10px;font-family: open-b}
+.categoria-resultado{color: white;font-size: 10px;;margin-left: 10px}
 .desde-resultados{color: white;font-weight: 900;font-size: 8px}
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 20px}
 .precio-resultados strong{font-size: 11px;font-weight: 700}
-.book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;z-index: 10000000;width: 100%;left: 0;opacity: 0;transition: .5s linear all}
+.book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;z-index: 10000000;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
 .imagen-resultados:hover .book-now{opacity: 1}
 .boton-resultados{color:white;font-size: 16px;height: 50px;width: 150px;background: #00C1CA;border-radius: 10px;font-weight: 700;transition: .5s linear all}
 /*Resultados */
@@ -194,17 +197,20 @@ a.text-header:focus{background: #00ADEF;color: white}
 #detalle{position: relative;}
 #cont-detalle{background: #1EA2F1}
 #detalles-tour{background: white}
-.cont-detalles{height: 100%}
+.cont-detalles-horario{color: white; font-family: open-b;margin-bottom: 5px}
+.icono-horario{font-size: 25px}
+.duracion.hora{margin-top: -5px}
+.cont-detalles{}
 .nombre-detalle{color: white;font-size: 20px;font-family: open-b;margin-bottom: 3px}
-.ubicacion-detalle{color: white;font-size: 10px;margin-bottom: 3px}
+.ubicacion-detalle{color: white;margin-bottom: 3px}
 .like-detalle{color: white;font-size: 10px}
-.text-ubi{font-weight: 12px}
-.num-like{font-size: 10px;font-weight: 700;margin-right: 5px;font-family: open-b}
-.icon-ubicacion{margin-right: 5px}
-.text-like{font-size: 9px;font-weight: 700;font-family: open-b}
+.text-ubi{font-weight: 11px!important}
+.num-like{font-size: 12px;font-weight: 700;margin-right: 5px;font-family: open-b}
+.icon-ubicacion{margin-right: 3px;font-size: 12px}
+.text-like{font-size: 11px;font-weight: 700;font-family: open-b}
 .horario-detalle{color: white;font-size: 20px;margin-bottom: 5px}
-.text-horario{font-size: 9px;font-family: open-b;margin-top: 5px;margin-left: -5px;font-weight: 700}
-.duracion{font-size: 9px;font-weight: 700;font-family: open-b;margin-left: 5px}
+.text-horario{font-size: 13px;font-family: open-b;margin-top: 5px;font-weight: 700;margin-left: 5px}
+.duracion{font-size: 13px;font-weight: 700;font-family: open-b;margin-left: 5px;}
 .detalles-tour{background: #1EA2F1;height: 100px;}
 .cont-imagen-detalle{height: 300px;position: relative;}
 .titulo-descripcion{color: #27C8CF;font-size: 13px}
@@ -219,7 +225,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 #reservar-mapa{height: 583px;background:white;}
 #reservar{height: 400px;background: #00C1C8}
 #reservar-titulo{color: white;font-size: 22px;margin-top: 27px}
-.fecha-detalle{height: 25px;width: 200px;background: #27C8CF;border-radius: 5px;margin-top: 20px;}
+.fecha-detalle{height: 25px;width: 200px;background: #27C8CF;border-radius: 5px;margin-top: 20px;margin-bottom: 10px}
 .icono-calendario{color: white;font-size: 15px;margin-left: 5px;margin-right: 10px}
 .text-fecha{color: white;font-family: open-b;font-size: 12px}
 .ninos-adultos{height: 50px;width: 200px;border-radius: 5px}
@@ -238,8 +244,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 #precios-detalle{width: 200px;color: white;font-size: 13px;}
 .contador{font-family: open-b;margin-right: 5px}
 .contador.total{margin-top: 10px}
-.precio-total{font-size: 35px}
-.boton-detalle{width: 200px;background: white;color: #00C1C8;height: 30px;border-radius: 5px;margin-top: 10px}
+.precio-total-tour{font-size: 35px;}
+.boton-detalle{width: 200px;background: white;color: #00C1C8;height: 30px;border-radius: 5px;margin-top: 10px;font-family: open-b}
 
 #mapa{height: 183px}
 .mapa{height: 100%;width: 100%}
@@ -248,7 +254,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .cont-similares{margin-bottom: 15px;margin-top: 15px}
 .imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .nombre-similares{font-size: 15px;color: #ADADAD;font-weight: 700}
-.lugar-similares{font-size: 9px;color: #ADADAD}
+.lugar-similares{font-size: 11px;color: #ADADAD}
 .precio-similares{font-size: 20px;color: #ADADAD;text-transform: uppercase;}
 .precio-similares strong{font-size: 10px;margin-left: -5px}
 /*detalle*/
@@ -419,6 +425,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 @media (max-width: 650px){
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
+.text-horario{font-size: 11px;}
+.duracion{font-size: 11px;}
 
 }
 
@@ -432,6 +440,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 .icon-carrito,
 #login{margin: 0px}
 /*header*/
+
+.descripcion-detalle{height: 300px;}
 
 /*home*/
 .imagen-grande{height: 300px}
