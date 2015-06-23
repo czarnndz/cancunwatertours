@@ -464,6 +464,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 .descripcion-detalle{height: 300px;}
 
+#buscar-avanzado-header{width: 100%;left: 0;}
+
 /*home*/
 .imagen-grande{height: 300px}
 .titulo-tour{font-size: 18px}
@@ -501,7 +503,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 @media (max-width: 400px){
 #buscar-header{left: 30px;}
-#buscar-avanzado-header{width: 285px;left: 0;}
+
 /*home*/
 .titulo-tour{font-size: 15px;text-align: center;}
 .tour-desde{font-size: 8px;text-align: center;}
