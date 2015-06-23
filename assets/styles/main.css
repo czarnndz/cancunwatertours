@@ -103,6 +103,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*buscar header*/
 
 /*menu desplegable*/
+#cont-menu-1{background: #28B7D9;opacity: 1;transition: .5s linear all;width: 95px;}
 #cont-menu{width: 95px;background: #28B7D9;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0}
 .cont-menu{height: 600px;margin-top: 20px}
 .buscar-header{height: 30px}

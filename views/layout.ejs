@@ -162,7 +162,7 @@
   </div>
 </div>
 
- <div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide alto">
+<div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide alto" hide-gt-sm>
   <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="column" layout-align="center center" class="enlace-menu">
@@ -201,7 +201,41 @@
   </head>
 
   <body>
-  <div id="cont-global" flex="100" >
+  <div id="cont-global" layout="row" flex="100" >
+  <div id="cont-menu-1" layout="row" layout-align="start start" layout-wrap class="ng-cloak alto" hide-sm>
+  <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+      <div flex="100" layout="column" layout-align="center center" class="enlace-menu">
+        <i class="icon-aventura icon-desplegable"></i> 
+        <div class="text-menu">AVENTURA</div>
+      </div>
+    </a>
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu viajes">
+         <i class="icon-viajes icon-desplegable viajes"></i>
+         <div class="text-menu viajes">VIAJES</div> 
+      </div>
+    </a>
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> 
+        <i class="icon-buceo icon-desplegable"></i> 
+        <div class="text-menu">BUCEO</div> 
+      </div>
+    </a>
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu"> 
+        <i class="icon-snorkel icon-desplegable"></i> 
+        <div class="text-menu">SNORKEL</div> 
+      </div>
+    </a>
+    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu">
+       <i class="icon-pesca icon-desplegable"></i> 
+       <div class="text-menu viajes">PESCA</div>
+      </div>
+    </a>    
+  </div>
+ </div>
     <%- body %>
   </div>
 <div ng-include="'/templates/global/footer.ejs'" layout='row'></div>
