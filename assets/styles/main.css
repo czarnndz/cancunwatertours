@@ -355,7 +355,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
-.icono-trans-d{color:#00C0C9;font-size: 25px}
+.icono-trans-d{color:#00C0C9;font-size: 25px;margin-right: 5px}
 .text-datos-trans{font-size: 15px;color: #918A8A;margin-left: 5px;font-family: open-b}
 .ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px}
 #datos-viajero-2{border-top: 4px solid #F2F2F2}
