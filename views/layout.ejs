@@ -57,7 +57,7 @@
     <div class="menu-logo" flex="20" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
       <a href="/home"><img id="logo" src="images/watertourslogo.png" alt=""></a>
     </div>
-    <div class="menu-usua" flex="25" flex-md="100" flex-sm="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
+    <div class="menu-usua" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <a href=""><div id="img-perfil"></div></a>
       <a href=""><div class="text-prefil">Mi cuenta</div></a>
       <a href=""><div class="text-prefil">registro</div></a>
@@ -89,11 +89,16 @@
     </div>
   </div>
   <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-    <select class="select-header">
+        <md-select class="select-avanzado" ng-model="someVal" placeholder="Més">
+              <md-option value="1">Hotel</md-option>
+              <md-option value="2">Tour</md-option>
+              <md-option value="3">Aventura</md-option>
+        </md-select>
+   <!-- <select class="select-header">
       <option value=""><h6 class="option">Tour</h6></option>
       <option value=""><h6 class="option">Aventura</h6></option>
       <option value=""><h6 class="option">Hotel</h6></option>
-    </select>
+    </select>-->
   </div>
   <div flex="95" layout="row" layout-align="space-around center" class="cont-avanzada">
     <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
@@ -162,7 +167,7 @@
   </div>
 </div>
 
-<div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide alto" hide-gt-sm>
+<div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide " hide-gt-sm>
   <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="column" layout-align="center center" class="enlace-menu">
@@ -202,7 +207,7 @@
 
   <body>
   <div id="cont-global" layout="row" flex="100" >
-  <div id="cont-menu-1" layout="row" layout-align="start start" layout-wrap class="ng-cloak alto" hide-sm>
+  <div id="cont-menu-1" layout="row" layout-align="start start" layout-wrap class="ng-cloak " hide-sm>
   <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="column" layout-align="center center" class="enlace-menu">

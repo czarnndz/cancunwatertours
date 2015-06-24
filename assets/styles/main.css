@@ -37,8 +37,8 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .select-estado .md-select-label{margin-top: -8px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;width: 100%}
 .select-estado .md-select-label .md-select-icon{color:#A9A9A9!important;font-size: 10px!important}
 
-.select-mes{height: 40px;border:1px solid #A9A9A9!important;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;;padding: 0px!important;}
-.select-mes .md-select-label{margin-top: -12px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;text-align: center!important;}
+.select-mes{height: 40px;border:1px solid #A9A9A9!important;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;;padding: 0px!important;margin-bottom: 5px}
+.select-mes .md-select-label{margin-top: -10px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;text-align: center!important;}
 .select-mes .md-select-label .md-select-icon{color:#19A4EF!important;font-size: 10px!important}
 
 .select-adultos{width: 55px;color: white;background: #46CFD2;height: 25px;border-radius: 5px;font-size: 12px;;padding: 0px!important;padding:0px;}
@@ -52,7 +52,13 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .select-posicion span{margin-left: 10px!important}
 .select-posicion span{color: white;font-size: 12px!important}
 
-.cont-tipo{}
+.select-avanzado{width: 100%;color: white;background: black;height: 25px;border-radius: 5px;margin-top: -5px;padding: 0px;}
+.select-avanzado span{color: white}
+.select-avanzado .md-select-label{margin-top: -5px!important;border: 0px!important;padding: 0px!important;width: 100%}
+.select-avanzado span{margin-left: 10px!important}
+.select-avanzado span{color: white;font-size: 12px!important}
+
+
 .select-tipo{background: #E4E4E4;width: 100%;height: 20px;border-radius:5px;padding: 0px!important;}
 .select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -10px!important}
 .select-tipo .md-select-label .md-select-icon{color: #3DBDEC}
@@ -87,7 +93,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu*/
 
 /*buscar header*/
-#buscar-header{position: absolute;width: 300px;background: white;z-index: 100000000000000;left: 80px;transition: .5s linear all;opacity: 0}
+#buscar-header{position: absolute;width: 100%;max-width: 360px;background: white;z-index: 100000000000000;left: 95px;transition: .5s linear all;opacity: 0}
 #buscar-header.ng-hide{opacity: 0}
 .imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
 .buscar-header:hover{background: #00ADEF}
@@ -103,8 +109,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*buscar header*/
 
 /*menu desplegable*/
-#cont-menu-1{background: #28B7D9;opacity: 1;transition: .5s linear all;width: 95px;}
-#cont-menu{width: 95px;background: #28B7D9;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0}
+#cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
+#cont-menu{width: 95px;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
 .cont-menu{height: 600px;margin-top: 20px}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
@@ -120,7 +126,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*menu desplegable*/
 
 /*busqueda avanzada*/
-#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 100000000000000;left: 74px;opacity: 1;transition: .5s linear all;opacity: 0}
+#buscar-avanzado-header{position: absolute;width: 321px;height: 210px;background: #00ADEF;z-index: 90;left: 95px;opacity: 1;transition: .5s linear all;opacity: 0}
 #buscar-avanzado-header.ng-hide{opacity: 0}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
@@ -182,7 +188,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
-.tour-desde{color: white;font-size: 11px}
+.tour-desde{color: white;font-size: 13px}
 .precio-tour{color: white;font-size: 20px;font-family: open-b}
 .reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 10px;color: white;margin-top: 20px;font-family: open-b}
 .icono-aventura-home{color: #2CB8D9;font-size: 40px;margin-bottom: 2px}
@@ -217,15 +223,15 @@ a.text-header:focus{background: #00ADEF;color: white}
 .imagen-resultados.siete{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.ocho{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.nueve{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-#detalles-resultados{background: rgba(3, 3, 3, 0.7);height: 35%;opacity: 1}
+#detalles-resultados{background: rgba(3, 3, 3, 0.7);height: auto;opacity: 1}
 .imagen-resultados:hover #detalles-resultados{opacity: 0}
 .text-strong-1{color: white;font-size: 13.5px;margin-left: 10px;font-family: open-b}
 .localidad-resultado{color: white;font-size: 12px;margin-left: 10px;font-family: open-b}
-.categoria-resultado{color: white;font-size: 10px;;margin-left: 10px}
+.categoria-resultado{color: white;font-size: 12px;;margin-left: 10px}
 .desde-resultados{color: white;font-weight: 900;font-size: 8px}
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 20px}
 .precio-resultados strong{font-size: 11px;font-weight: 700}
-.book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;z-index: 10000000;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
+.book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
 .imagen-resultados:hover .book-now{opacity: 1}
 .boton-resultados{color:white;font-size: 16px;height: 50px;width: 150px;background: #00C1CA;border-radius: 10px;font-weight: 700;transition: .5s linear all}
 /*Resultados */
@@ -235,7 +241,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 #cont-detalle{background: #1EA2F1}
 #detalles-tour{background: white}
 .cont-detalles-horario{color: white; font-family: open-b;margin-bottom: 5px}
-.icono-horario{font-size: 25px}
+.icono-horario{font-size: 25px;margin-right: 5px}
 .duracion.hora{margin-top: -5px}
 .cont-detalles{}
 .nombre-detalle{color: white;font-size: 20px;font-family: open-b;margin-bottom: 3px}
@@ -279,7 +285,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 #mapa{height: 183px}
 .mapa{height: 100%;width: 100%}
 #similares{background: #F5F5F5;height: 583px}
-#text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px}
+#text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px;text-align: center;}
 .cont-similares{margin-bottom: 15px;margin-top: 15px}
 .imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .nombre-similares{font-size: 15px;color: #ADADAD;font-weight: 700}
@@ -323,7 +329,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .pin-r{font-size: 13px;color: #787878;margin-top: -10px}
 .text-hotel-r{font-size: 13px;color: #787878;margin-top: -10px}
 .ubicacion-r.ubi-hotel{width: 200px;font-weight: 700;color: #787878;text-transform: capitalize;}
-.boton-r-h{width: 90px;height: 30px;border-radius: 10px;border:1px solid #00BDCE;;color: #A6A6A6;font-size: 13px;text-transform: uppercase;font-family: open-b;}
+.boton-r-h{width: 90px;height: 30px;border-radius: 10px;border:1px solid #00BDCE;;color: #A6A6A6;font-size: 13px;text-transform: uppercase;font-family: open-b;  margin-right: 10px;}
 .boton-r-h-2{width: 110px;height: 30px;border-radius: 10px;border:1px solid #00BDCE;;color: #A6A6A6;font-size: 13px;text-transform: uppercase;font-family: open-b;}
 .btn-borrar{color: #C7C7C7;font-size: 13px;margin-right: 5px}
 #marcador-terminos{width: 15px;height: 15px;border:2px solid #8A8A8A;margin-right: 5px}
@@ -375,7 +381,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 .datos-img{margin-top: 20px;margin-bottom: 20px}
 .text-datos-trans.info.pais{font-size: 15px;margin-top: 15px;}
 
-.input-num-tarjeta{height: 40px;border:1px solid #A9A9A9;border-radius: 10px;color: #8A8A8A;padding-left:10px;font-family: open-b;margin-right: 20px}
+.input-num-tarjeta{height: 40px;border:1px solid #A9A9A9;border-radius: 10px;color: #8A8A8A;padding-left:10px;font-family: open-b;margin-right: 20px;margin-top: 5px}
 .text-datos-trans.info.fecha{font-size: 13px}
 
 .fecha-slect{margin-top: 3px;margin-left: 10px}
@@ -410,12 +416,28 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*home*/
 .imagen-grande{height: 300px}
 .titulo-tour{font-size: 18px}
-.tour-desde{font-size: 8px}
+.tour-desde{font-size: 12px}
 .text-aventura{font-size: 18px;text-align: center;}
 .text-aventura-2{font-size: 12px;text-align: center;}
 .precio-aventura{font-size: 22px;text-align: center;}
 /*home*/
 }
+
+@media (max-width: 1100px){
+
+/*resiltados*/
+.text-strong-1{color: white;font-size: 14px;font-weight: 700;margin-left: 10px}
+.localidad-resultado{color: white;font-size: 10px;font-weight: 700;margin-left: 10px}
+.categoria-resultado{color: white;font-size: 10px;;margin-left: 10px}
+.desde-resultados{color: white;font-weight: 900;font-size: 8px}
+.precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 18px}
+.precio-resultados strong{font-size: 11px;font-weight: 700}
+/*resultados*/
+
+}
+
+
+
 
 @media (max-width: 960px){
 	#similares{height: auto;}
@@ -427,17 +449,11 @@ a.text-header:focus{background: #00ADEF;color: white}
 	.input-num-tarjeta.ciudad.codigo{margin-top: 10px;margin-left: 0px}
 	.input-num-tarjeta.ciudad{margin: 0;margin-top: 10px}
 	.input-num-tarjeta.direccion{margin: 0;;margin-top: 10px}
+	.text-strong-1{text-align: center;}
 }
 
 @media (max-width: 800px){
-/*resiltados*/
-.text-strong-1{color: white;font-size: 14px;font-weight: 700;margin-left: 10px}
-.localidad-resultado{color: white;font-size: 10px;font-weight: 700;margin-left: 10px}
-.categoria-resultado{color: white;font-size: 8px;;margin-left: 10px}
-.desde-resultados{color: white;font-weight: 900;font-size: 8px}
-.precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 18px}
-.precio-resultados strong{font-size: 11px;font-weight: 700}
-/*resultados*/
+
 #text-similares{font-size: 20px;}
 
 #cont-reservacion{margin-top: 20px}
@@ -462,6 +478,8 @@ a.text-header:focus{background: #00ADEF;color: white}
 #login{margin: 0px}
 /*header*/
 
+.opciones.tipo{margin: 0}
+
 .descripcion-detalle{height: 300px;}
 
 #buscar-avanzado-header{width: 100%;left: 0;}
@@ -469,7 +487,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 /*home*/
 .imagen-grande{height: 300px}
 .titulo-tour{font-size: 18px}
-.tour-desde{font-size: 8px}
+.tour-desde{font-size: 11px}
 .text-aventura{font-size: 17px;}
 .text-aventura-2{font-size: 10px;}
 .precio-aventura{font-size: 23px;}
@@ -506,7 +524,7 @@ a.text-header:focus{background: #00ADEF;color: white}
 
 /*home*/
 .titulo-tour{font-size: 15px;text-align: center;}
-.tour-desde{font-size: 8px;text-align: center;}
+.tour-desde{font-size: 10px;text-align: center;}
 .precio-tour{font-size: 17px;;text-align: center;}
 .text-aventura{font-size: 14px;}
 .text-aventura-2{font-size: 7px;}
