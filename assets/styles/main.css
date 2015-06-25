@@ -65,7 +65,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 
 
 .select-tipo{background: #E4E4E4;width: 100%;height: 20px;border-radius:5px;padding: 0px!important;}
-.select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -10px!important}
+.select-tipo .md-placeholder{width: 100%!important;height: 20px!important;border: 0px!important;margin-top: -8px!important}
 .select-tipo .md-select-label .md-select-icon{color: #3DBDEC}
 .select-tipo .md-select-label{font-size: 13px;margin-top: -8px;padding-left: 5px;border:0px;border:none!important;font-family: open-b!important;width: 100%}
 
@@ -98,7 +98,8 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 /*menu*/
 
 /*buscar header*/
-#buscar-header{position: absolute;width: 100%;max-width: 360px;background: white;z-index: 100000000000000;left: 95px;transition: .5s linear all;opacity: 0;}
+#buscar-header{position: absolute;width: 100%;max-width: 360px;background: white;z-index: 100000000000000;left: 95px;transition: .5s linear all;opacity: 0;height: 0px}
+.buscar-header{height: auto;background: white}
 #buscar-header.ng-hide{opacity: 0}
 .imagen-buscar{width: 25px;height: 25px;border-radius: 50%;margin-right: 15px;margin-left: 15px}
 .buscar-header:hover{background: #00ADEF}
@@ -116,10 +117,12 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 /*menu desplegable*/
 #cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
 #cont-menu{width: 95px;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
-.cont-menu{height: 600px;margin-top: 20px}
+.cont-menu{height: 600px;}
 .buscar-header{height: 30px}
 #cont-menu.ng-hide{opacity: 0}
-.enlace-menu{color: white;font-family: open-b;margin-top: 10px}
+.enlace-menu{color: white;font-family: open-b;height: 100px}
+.enlace-menu:hover{background: white}
+.enlace-menu:hover i, .enlace-menu:hover .text-menu{color: #20B2E9}
 .enlace-menu i{width: 40px;height: 41px}
 .enlace-menu.viajes i{font-size: 45px}
 .text-menu{font-size: 10px;color: white;}
@@ -229,7 +232,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .imagen-resultados.siete{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.ocho{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-resultados.nueve{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-#detalles-resultados{background: rgba(3, 3, 3, 0.7);height: auto;opacity: 1}
+#detalles-resultados{background: rgba(3, 3, 3, 0.7);height: auto;opacity: 1;padding-top: 5px;padding-bottom: 5px}
 .imagen-resultados:hover #detalles-resultados{opacity: 0}
 .text-strong-1{color: white;font-size: 13.5px;margin-left: 10px;font-family: open-b}
 .localidad-resultado{color: white;font-size: 12px;margin-left: 10px;font-family: open-b}
@@ -353,7 +356,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 #nombre-detalles{height:190px;border-bottom: 1px solid white;}
 #precio-detalles{height:120px;}
 .nombre-d{color: white;font-size: 12px;}
-.ver-detalles{color: white;font-size: 8px;text-transform: uppercase;}
+.ver-detalles{color: white;font-size: 9px;text-transform: uppercase;font-family: open-b}
 .precio-detalles{color: white;font-size: 17px;font-family: open-r}
 .precio-detalles.margen{margin-bottom: 20px}
 .text-total-d{color:white;font-size: 15px;font-family: open-b}

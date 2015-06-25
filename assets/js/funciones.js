@@ -106,7 +106,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
        height1 = $("#buscar-avanzado-header").css('height' , '0px');
       $("#buscar-avanzado-header").css('opacity' , '0');
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $("#agregar-transporte").addClass("ng-hide");
+      $(".buscar-avanzado-header").addClass("ng-hide");
       /*if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
        $("#buscar-avanzado-header").removeClass("activar");
    		 $("#buscar-avanzado-header").addClass("ng-hide");
