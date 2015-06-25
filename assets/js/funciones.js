@@ -15,7 +15,31 @@ $(document).ready(function() {
 /*detalles*/
 
 $(document).ready(function(){
+
+var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
+var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
+
    $(".text-header").click(function(event){
+     height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
+     console.log(height1);
+    if (height1 <= 1) {
+      console.log('el alto es de 1');
+      height1 = $("#buscar-avanzado-header").css('height' , '210px');
+      $("#buscar-avanzado-header").css('opacity' , '1');
+      $(".text-header").css({ background : '#00ADEF', color : 'white'});
+      $(".buscar-avanzado-header").removeClass("ng-hide");
+      height2 = $("#buscar-header").css('height' , '0px');
+      $("#buscar-header").css('opacity' , '0');
+      height1 = 100;
+    }else if(height1 > 1){
+      console.log('el alto es de 100');
+       height1 = $("#buscar-avanzado-header").css('height' , '0px');
+      $("#buscar-avanzado-header").css('opacity' , '0');
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $(".buscar-avanzado-header").addClass("ng-hide");
+      height1 = 0;
+    }
+   /*$(".text-header").click(function(event){
    	$("#buscar-avanzado-header").addClass("activar");
    	$("#buscar-avanzado-header").removeClass("ng-hide");
       if($('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
@@ -24,23 +48,39 @@ $(document).ready(function(){
    		 $("#cont-menu").removeClass("activar");
    		 $("#cont-menu").addClass("ng-hide");
     }
-   });
+   });*/
 });
 
-$(document).ready(function(){
    $(".input-busqueda").click(function(event){
-   	$("#buscar-header").addClass("activar");
+     height2 =  parseInt($('#buscar-header').css('height').replace('px',''));
+     console.log(height1);
+    if (height2 <= 1) {
+      console.log('el alto es de 1');
+      height2 = $("#buscar-header").css('height' , 'auto');
+      $("#buscar-header").css('opacity' , '1');
+      $(".buscar-header").removeClass("ng-hide");
+      height1 = $("#buscar-avanzado-header").css('height' , '0px');
+      $("#buscar-avanzado-header").css('opacity' , '0');
+      $(".buscar-avanzado-header").addClass("ng-hide");
+      height2 = 100;
+    }else if(height2 > 1){
+      console.log('el alto es de 100');
+      height2 = $("#buscar-header").css('height' , '0px');
+      $("#buscar-header").css('opacity' , '0');
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $(".buscar-header").addClass("ng-hide");
+      height2 = 0;
+    }
+   	$/*("#buscar-header").addClass("activar");
    	$("#buscar-header").removeClass("ng-hide");
       if($('#buscar-avanzado-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
          $("#buscar-avanzado-header").removeClass("activar");
    		 $("#buscar-avanzado-header").addClass("ng-hide");
    		 $("#cont-menu").removeClass("activar");
    		 $("#cont-menu").addClass("ng-hide");
-    }
+    }*/
    });
-});
 
-$(document).ready(function(){
    $("#menu").click(function(event){
    	$("#cont-menu").addClass("activar");
    	$("#cont-menu").removeClass("ng-hide");
@@ -51,23 +91,34 @@ $(document).ready(function(){
    		 $("#buscar-header").addClass("ng-hide");
     }
    });
-});
 
 
-$(document).ready(function(){
+
+
    $("#cont-global").click(function(event){
-      if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
+    $("#cont-menu").removeClass("activar");
+    $("#cont-menu").addClass("ng-hide");
+    height2 = $("#buscar-header").css('height' , '0px');
+      $("#buscar-header").css('opacity' , '0');
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $(".buscar-header").addClass("ng-hide");
+      $(".buscar-header").addClass("ng-hide");
+       height1 = $("#buscar-avanzado-header").css('height' , '0px');
+      $("#buscar-avanzado-header").css('opacity' , '0');
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $("#agregar-transporte").addClass("ng-hide");
+      /*if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') || $('#cont-menu').hasClass('activar') ){
        $("#buscar-avanzado-header").removeClass("activar");
    		 $("#buscar-avanzado-header").addClass("ng-hide");
    		 $("#buscar-header").removeClass("activar");
    		 $("#buscar-header").addClass("ng-hide");
    		 $("#cont-menu").removeClass("activar");
    		 $("#cont-menu").addClass("ng-hide");
-    }
+    }*/
    });
-});
 
-$(document).ready(function(){
+
+
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
     $("#tu-reservacion").removeClass("ng-hide");
@@ -78,9 +129,9 @@ $(document).ready(function(){
         $("#pago-reservacion").addClass("ng-hide");
     }
    });
-});
 
-$(document).ready(function(){
+
+
    $(".datos-v").click(function(event){
     $("#datos-viajero").addClass("activar");
     $("#datos-viajero").removeClass("ng-hide");
@@ -91,9 +142,9 @@ $(document).ready(function(){
         $("#pago-reservacion").addClass("ng-hide");
     }
    });
-});
 
-$(document).ready(function(){
+
+
    $(".pago-r").click(function(event){
     $("#pago-reservacion").addClass("activar");
     $("#pago-reservacion").removeClass("ng-hide");
@@ -104,9 +155,9 @@ $(document).ready(function(){
         $("#datos-viajero").addClass("ng-hide");
     }
    });
-});
 
-$(document).ready(function(){
+
+
    $("#boton-reserva").click(function(event){
       if($('#tu-reservacion').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
@@ -131,9 +182,7 @@ $(document).ready(function(){
     }
     }
    });
-});
 
-$(document).ready(function(){
   var div_alto = $('#cont-global').height(); 
   $('.alto').css('height',div_alto)
 });
