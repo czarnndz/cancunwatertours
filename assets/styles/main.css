@@ -311,7 +311,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .precio-similares{font-size: 20px;color: #ADADAD;text-transform: uppercase;}
 .precio-similares strong{font-size: 10px;margin-left: -5px}
 
-#sugeridos{}
+#sugeridos{background: #e8e8e8 }
 /*detalle*/
 
 /*reserva*/
