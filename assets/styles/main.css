@@ -220,7 +220,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .text-opciones{color: #9D9D9D;font-size: 15px}
 .apuntador-opcion{width: 20px;height: 20px;border-radius: 50%;background: #E4E4E4;margin-top: 5px}
 .apuntador-opt{width: 10px;height: 10px;border-radius: 50%;background: #00C1C9;}
-.cont-resultados{background: white;margin-top: 10px;margin-bottom: 60px;}
+.cont-resultados{margin-top: 10px;margin-bottom: 60px;}
 .text-opciones.tipo{margin-top: 10px}
 
 .imagen-resultados{height:200px;margin-bottom: 35px;position: relative;cursor: pointer;}
@@ -274,9 +274,9 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .owl-page span{background: #18A5F0!important;margin-right: -.1px!important;width: 10px!important;height: 10px!important}
 .imagen-detalle{height: 100%;background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .owl-wrapper, .owl-item, .owl-wrapper-outer{height: 100%}
-.descripcion-detalle{height: 183px;}
+.descripcion-detalle{height: 230px;}
 #reservar-mapa{height: 583px;background:white;}
-#reservar{height: 400px;background: #00C1C8}
+#reservar{height: 400px;background: #00C1C8;margin-top: -47px;}
 #reservar-titulo{color: white;font-size: 22px;margin-top: 27px}
 .fecha-detalle{height: 25px;width: 200px;background: #27C8CF;border-radius: 5px;margin-top: 10px;margin-bottom: 10px}
 .icono-calendario{color: white;font-size: 15px;margin-left: 5px;margin-right: 10px}
@@ -292,9 +292,9 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .precio-total-tour{font-size: 35px;}
 .boton-detalle{width: 200px;background: white;color: #00C1C8;height: 30px;border-radius: 5px;margin-top: 10px;font-family: open-b}
 
-#mapa{height: 183px}
+#mapa{height: 230px}
 .mapa{height: 100%;width: 100%}
-#similares{background: #F5F5F5;height: 583px}
+#similares{background: #F5F5F5;min-height: 630px}
 #text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px;text-align: center;}
 .cont-similares{margin-bottom: 15px;margin-top: 15px}
 .imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -418,7 +418,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 
 #footer{height: 150px;background: #272727}
 .cont-footer{}
-.enlace-footer{color: white;font-size: 8px;font-family: open-b}
+.enlace-footer{color: white;font-size: 10px;font-family: open-b}
 
 /*footer*/
 
