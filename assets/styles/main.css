@@ -13,6 +13,7 @@
 body{font-family: open-r}
 a{text-decoration: none;border: none;box-shadow: none;}
 a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transparent;}
+a:focus{text-decoration: none;border: none;box-shadow: none;}
 .ng-cloak{display: none!important}
 #cont-global{position: relative;}
 .desactivar{opacity: 0!important}
