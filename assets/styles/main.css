@@ -100,6 +100,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .menu-usua{height: 50px;}
 #img-perfil{width: 35px;height: 35px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 15px}
 .text-prefil{font-family: open-b;font-size: 9px;color: #727272;margin-right: 15px;text-transform: uppercase;}
+.text-prefil:hover{color:#2aa3ee}
 #icon-carrito{margin-top: 7px}
 .icon-carrito{color:#2AB7D0;font-size: 20px;margin-right: 15px;margin-top: 10px}
 #login{font-size: 8px;color: white;background: #36BEC9;border-radius: 20px;margin-right: 25px;font-family: open-b;height: 20px;width: 50px;}
@@ -429,6 +430,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 #footer{height: 150px;background: #272727}
 .cont-footer{}
 .enlace-footer{color: white;font-size: 10px;font-family: open-b}
+.enlace-footer:hover{color: #1fc1c7}
 
 /*footer*/
 
