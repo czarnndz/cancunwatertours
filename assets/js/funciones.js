@@ -175,7 +175,24 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     });
 
   var div_alto = $('#cont-global').height(); 
-  $('.alto').css('height',div_alto)
+  $('.alto').css('height',div_alto);
+
+  $( document ).ready(function() {
+    var div_mapa = $('.descripcion-detalle').height(); 
+      $('.alto-mapa').css('height',div_mapa);
+      $('.alto-mapa').css('height',div_mapa);
+      console.log(div_mapa);
+  });
+
+  $( window ).resize(function() {
+
+      var div_mapa = $('.descripcion-detalle').height(); 
+      $('.alto-mapa').css('height',div_mapa);
+      $('.alto-mapa').css('height',div_mapa);
+      console.log(div_mapa);
+
+  });
+
 });
 
 /*$(document).ready(function(){
