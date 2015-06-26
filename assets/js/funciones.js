@@ -178,10 +178,27 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
   $('.alto').css('height',div_alto);
 
   $( document ).ready(function() {
+    var div_similares = $('#cont-detalle').height(); 
+      $('#similares').css('height',div_similares);
+      $('#similares').css('height',div_similares);
+      console.log(div_similares);
+  });
+
+  $( window ).resize(function() {
+
+      var div_similares = $('#cont-detalle').height(); 
+      $('#similares').css('height',div_similares);
+      $('#similares').css('height',div_similares);
+      console.log(div_similares);
+
+  });
+
+
+  $( document ).ready(function() {
     var div_mapa = $('.descripcion-detalle').height(); 
       $('.alto-mapa').css('height',div_mapa);
       $('.alto-mapa').css('height',div_mapa);
-      console.log(div_mapa);
+     // console.log(div_mapa);
   });
 
   $( window ).resize(function() {
@@ -189,7 +206,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
       var div_mapa = $('.descripcion-detalle').height(); 
       $('.alto-mapa').css('height',div_mapa);
       $('.alto-mapa').css('height',div_mapa);
-      console.log(div_mapa);
+     // console.log(div_mapa);
 
   });
 
