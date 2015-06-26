@@ -6,30 +6,30 @@
 	<div id="opciones-resultados" flex="80" flex-sm="100" flex-md="100" layout="row" layout-align="space-between center" >
 		<div flex="100" layout="row" layout-align="start center" layout-wrap>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
-				<i class="icon-precio icono-opciones"></i>
+				<i class="icon-precio icono-opciones ap-precio"></i>
 				<div class="text-opciones">Precio</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="precioVisibility = !precioVisibility" >
+				<div id="ap-precio" class="apuntador-opcion" layout="row" layout-align="center center" ng-click="precioVisibility = !precioVisibility" >
 					<div class="apuntador-opt" ng-show="precioVisibility" ></div>
 				</div>
 			</div>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
-				<i class="icon-new icono-opciones"></i>
+				<i class="icon-new icono-opciones ap-nuevas"></i>
 				<div class="text-opciones">Nuevas</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="nuevaVisibility = !nuevaVisibility" >
+				<div id="ap-nuevas" class="apuntador-opcion" layout="row" layout-align="center center" ng-click="nuevaVisibility = !nuevaVisibility" >
 					<div class="apuntador-opt" ng-show="nuevaVisibility" ></div>
 				</div>
 			</div>
 			<div flex="15" flex-sm="50" layout="column" layout-align="start center" class="opciones">
-				<i class="icon-populares icono-opciones"></i>
+				<i class="icon-populares icono-opciones ap-populares"></i>
 				<div class="text-opciones">Populares</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="popularVisibility = !popularVisibility" >
+				<div id="ap-populares" class="apuntador-opcion" layout="row" layout-align="center center" ng-click="popularVisibility = !popularVisibility" >
 					<div class="apuntador-opt" ng-show="popularVisibility" ></div>
 				</div>
 			</div>
 			<div flex="30" flex-sm="50" layout="column" layout-align="start center" class="opciones">
-				<i class="icon-mascompradas icono-opciones"></i>
+				<i class="icon-mascompradas icono-opciones ap-mas"></i>
 				<div class="text-opciones">Más Compradas</div>
-				<div class="apuntador-opcion" layout="row" layout-align="center center" ng-click="masVisibility = !masVisibility" >
+				<div id="ap-mas" class="apuntador-opcion" layout="row" layout-align="center center" ng-click="masVisibility = !masVisibility" >
 					<div class="apuntador-opt" ng-show="masVisibility" ></div>
 				</div>
 			</div>

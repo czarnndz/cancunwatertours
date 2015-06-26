@@ -27,6 +27,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 .md-focus-thumb{display: none;}
 .md-focus-ring{display: none;}
 .md-disabled-thumb{display: none;}
+.ap-color{color: #29BEE0!important}
 
 /*select*/
 
@@ -215,7 +216,7 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 #opciones-resultados{}
 .opciones{background: white;height: 85px}
 .opciones.tipo{margin-left: 10px}
-.icono-opciones{color: #9D9D9D;font-size: 25px;margin-top: 5px}
+.icono-opciones{color: #9D9D9D;font-size: 25px;margin-top: 5px;transition: .5s linear all}
 .text-opciones{color: #9D9D9D;font-size: 15px}
 .apuntador-opcion{width: 20px;height: 20px;border-radius: 50%;background: #E4E4E4;margin-top: 5px}
 .apuntador-opt{width: 10px;height: 10px;border-radius: 50%;background: #00C1C9;}
