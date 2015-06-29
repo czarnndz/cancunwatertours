@@ -211,8 +211,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .precio-tour{color: white;font-size: 20px;font-family: open-b}
 .reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 10px;color: white;margin-top: 20px;font-family: open-b}
 .icono-aventura-home{color: #2CB8D9;font-size: 40px;margin-bottom: 2px}
-.text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px}
-.text-aventura-2{color: white;font-size: 15px;margin-bottom: 2px}
+.text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px;text-align: center;}
+.text-aventura-2{color: white;font-size: 15px;margin-bottom: 2px;text-align: center;}
 .precio-aventura{color: white;font-size: 35px;}
 
 /*home*/
