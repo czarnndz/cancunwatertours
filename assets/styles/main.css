@@ -423,6 +423,11 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
 
 .boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
+
+.redes-face{color: white;font-size: 26px;}
+.redes-face:hover{color: #1FB2E9}
+.redes-twit{color: white;font-size: 30px;}
+.redes-twit:hover{color: #1FB2E9}
 /*reserva*/
 
 /*footer*/
