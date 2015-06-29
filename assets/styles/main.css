@@ -201,9 +201,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home:hover .hover-imagen-1{opacity: 1;}
-.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0;transition: .5s linear all}
+.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;}
 .imagenes-home:hover .hover-imagen-2{opacity: 1;}
-.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0;transition: .5s linear all}
+.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 13px}
@@ -213,6 +213,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px}
 .text-aventura-2{color: white;font-size: 15px;margin-bottom: 2px}
 .precio-aventura{color: white;font-size: 35px;}
+
 /*home*/
 
 /*Resultados */
