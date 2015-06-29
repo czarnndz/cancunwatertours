@@ -465,7 +465,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 
 @media (max-width: 960px){
-	#similares{min-height: 300px!important;height: 300px!important}
+	#similares{min-height: 300px!important;height: auto!important}
 	.cont-r-1{padding-bottom: 10px}
 	.nombre-reservacion{margin: 0px}
 	.input-num-tarjeta{margin: 0 auto;margin-left: 12px}
