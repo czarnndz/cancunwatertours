@@ -158,6 +158,12 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     }
    });
 
+   $("#boton-pagar").click(function(event){
+     $(".pago-r").addClass("fuente-r");
+   });
+
+
+
   $("#ap-precio").click(function(event){ 
       $(".ap-precio").toggleClass("ap-color");
     });
