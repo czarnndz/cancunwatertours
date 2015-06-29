@@ -191,8 +191,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #home{position: relative!important}
 /*#traslado{position: absolute;height: 100%;background: white;z-index: 100000000}*/
 .home{height: auto;clear: both;position: relative;}
-.imagen-chica{height:157px}
-.imagen-grande{height: 435px}
+.imagen-chica{height:157px;}
+.imagen-grande{height: 435px;}
 .imagenes-home.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -200,10 +200,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagenes-home.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home:hover .hover-imagen-1{opacity: 1;transition: .5s linear all}
-.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0}
-.imagenes-home:hover .hover-imagen-2{opacity: 1;transition: .5s linear all}
-.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0}
+.imagenes-home:hover .hover-imagen-1{opacity: 1;}
+.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0;transition: .5s linear all}
+.imagenes-home:hover .hover-imagen-2{opacity: 1;}
+.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0;transition: .5s linear all}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 13px}
