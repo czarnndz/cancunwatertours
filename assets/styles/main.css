@@ -498,6 +498,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #login{margin: 0px}
 /*header*/
 
+.enlace-footer{margin-top: 5px;margin-bottom: 5px}
+
 #buscar-header{left: 0;width: 100%}
 
 .opciones.tipo{margin: 0}
