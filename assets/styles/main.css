@@ -31,6 +31,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .ap-color{color: #29BEE0!important}
 .alto-mapa{height: }
 .centrar{text-align: center;margin-top: 15px!important}
+.cont-contenido{min-height: 100%;padding-bottom: 170px;}
 
 .hvr-bounce-to-right{vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;position: relative;-webkit-transition-property: color;transition-property: color;-webkit-transition-duration: 0.5s;transition-duration: 0.5s;}
 .hvr-bounce-to-right:before {content: "";position: absolute;z-index: -1;top: 0;left: 0;right: 0;bottom: 0;background: white;-webkit-transform: scaleX(0);transform: scaleX(0);-webkit-transform-origin: 0 50%;transform-origin: 0 50%;-webkit-transition-property: transform;transition-property: transform;-webkit-transition-duration: 0.5s;transition-duration: 0.5s;-webkit-transition-timing-function: ease-out;transition-timing-function: ease-out;}
@@ -200,10 +201,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagenes-home.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home:hover .hover-imagen-1{opacity: 1;}
-.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;}
-.imagenes-home:hover .hover-imagen-2{opacity: 1;}
-.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;}
+.imagenes-home:hover .hover-imagen-1{opacity: 1;visibility: visible;}
+.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}
+.imagenes-home:hover .hover-imagen-2{opacity: 1;visibility: visible;}
+.hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 13px}
@@ -433,7 +434,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*footer*/
 
-#footer{height: 170px;background: #272727}
+#footer{height: 170px;background: #272727;margin-top: -170px}
 .cont-footer{}
 .enlace-footer{color: white;font-size: 10px;font-family: open-b}
 .enlace-footer:hover{color: #1fc1c7}
