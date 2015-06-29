@@ -91,7 +91,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .menu-busc{height: 74px;}
 #menu{width: 96px;height: 100%;position: relative;}
 .linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
-.input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 20px;background: #F2F2F2;border: 0px;padding-left: 10px;font-size: 13px;font-family: open-b}
+.input-header{width: 127px;margin-left: 9px;border-radius: 20px 20px 20px 20px;height: 20px;background: #F2F2F2;border: 0px;padding-left: 10px;font-size: 13px;font-family: open-b;padding-top: 5px;}
 .input-header:focus{border: none;border-radius-color: none}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
 .text-header{color: #64CBE4;font-size: 10px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%;overflow: hidden;}
@@ -104,7 +104,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-prefil:hover{color:#2aa3ee}
 #icon-carrito{margin-top: 7px}
 .icon-carrito{color:#2AB7D0;font-size: 20px;margin-right: 15px;margin-top: 10px}
-#login{font-size: 8px;color: white;border-radius: 20px;margin-right: 25px;font-family: open-b;height: 25px;width: 55px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
+#login{font-size: 10px;color: white;border-radius: 20px;margin-right: 25px;font-family: open-b;height: 25px;width: 55px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
 /*menu*/
 
 /*buscar header*/
@@ -432,7 +432,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*footer*/
 
-#footer{height: 150px;background: #272727}
+#footer{height: 170px;background: #272727}
 .cont-footer{}
 .enlace-footer{color: white;font-size: 10px;font-family: open-b}
 .enlace-footer:hover{color: #1fc1c7}

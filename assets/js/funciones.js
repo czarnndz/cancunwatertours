@@ -85,8 +85,8 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     height2 = $("#buscar-header").css('height' , '0px');
       $("#buscar-header").css('opacity' , '0');
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $(".buscar-header").addClass("ng-hide");
-      $(".buscar-header").addClass("ng-hide");
+      $(".cont-buscar-header").addClass("ng-hide");
+      //$(".buscar-header").addClass("ng-hide");
        height1 = $("#buscar-avanzado-header").css('height' , '0px');
       $("#buscar-avanzado-header").css('opacity' , '0');
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
