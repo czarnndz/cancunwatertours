@@ -23,7 +23,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
      height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
      console.log(height1);
     if (height1 <= 1) {
-      console.log('el alto es de 1');
+      //console.log('el alto es de 1');
       height1 = $("#buscar-avanzado-header").css('height' , '210px');
       $("#buscar-avanzado-header").css('opacity' , '1');
       $(".text-header").css({ background : '#00ADEF', color : 'white'});
@@ -32,7 +32,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
       $("#buscar-header").css('opacity' , '0');
       height1 = 100;
     }else if(height1 > 1){
-      console.log('el alto es de 100');
+      //console.log('el alto es de 100');
        height1 = $("#buscar-avanzado-header").css('height' , '0px');
       $("#buscar-avanzado-header").css('opacity' , '0');
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
@@ -49,17 +49,17 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
       console.log('el alto es de 1');
       height2 = $("#buscar-header").css('height' , 'auto');
       $("#buscar-header").css('opacity' , '1');
-      $(".buscar-header").removeClass("ng-hide");
+      $(".cont-buscar-header").removeClass("ng-hide");
       height1 = $("#buscar-avanzado-header").css('height' , '0px');
       $("#buscar-avanzado-header").css('opacity' , '0');
       $(".buscar-avanzado-header").addClass("ng-hide");
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
       height2 = 100;
     }else if(height2 > 1){
-      console.log('el alto es de 100');
+      //console.log('el alto es de 100');
       height2 = $("#buscar-header").css('height' , '0px');
       $("#buscar-header").css('opacity' , '0');
-      $(".buscar-header").addClass("ng-hide");
+      $(".cont-buscar-header").addClass("ng-hide");
       height2 = 0;
     }
 
