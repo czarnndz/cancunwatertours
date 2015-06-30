@@ -51,8 +51,8 @@
       </div>
       <input hide-sm placeholder="  Buscar" type="text" class="input-header input-busqueda" >
       <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
-      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header"  >
-        <div >BÚSQUEDA AVANZADA</div>
+      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header" >
+        <div class="abrir" >BÚSQUEDA AVANZADA</div>
       </a>
     </div>
     <div class="menu-logo" flex="20" flex-sm="50" flex-md="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
@@ -65,8 +65,20 @@
       <a href="/reserva" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
       <a href="" hide-sm > <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
+    <div flex="100" class="busqueda-movil" layout="row" layout-align="center center">
+      <div flex="70" class="cont-b-movil" layout="row" layout-align="space-around center" >
+        <i  class="icon-buscador icon-header " ></i>
+        <a  href="" layout="row" layout-align="center center" class="text-header"  >
+          <div class="abrir" >BÚSQUEDA</div>
+        </a>
+        <a href="" ><div class="text-prefil">Mi cuenta</div></a>
+        <a href="" ><div class="text-prefil">registro</div></a>
+        <a href="" > <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
+      </div>
+    </div>
 </div>
 
+<div ng-include="'/templates/global/avanzada.ejs'"></div>
 
 <div id="cont-sub-header" flex="100" layout="row" layout-wrap >
 <div id="buscar-avanzado-header" class="ng-cloak "  layout="row" layout-align="center center" layout-wrap >

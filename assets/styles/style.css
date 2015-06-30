@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-p5s444');
-	src:url('fonts/icomoon.eot?#iefix-p5s444') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-p5s444') format('woff'),
-		url('fonts/icomoon.ttf?-p5s444') format('truetype'),
-		url('fonts/icomoon.svg?-p5s444#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?vuv51k');
+	src:url('fonts/icomoon.eot?#iefixvuv51k') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?vuv51k') format('truetype'),
+		url('fonts/icomoon.woff?vuv51k') format('woff'),
+		url('fonts/icomoon.svg?vuv51k#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,115 +23,93 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-hotel:before {
-	content: "\e617";
-}
-
-.icon-mascompradas:before {
-	content: "\e618";
-}
-
-.icon-new:before {
-	content: "\e619";
-}
-
-.icon-populares:before {
-	content: "\e61a";
-}
-
-.icon-precio:before {
-	content: "\e61b";
-}
-
 .icon-adultos:before {
 	content: "\e600";
 }
-
 .icon-aventura:before {
 	content: "\e601";
 }
-
 .icon-borrar:before {
 	content: "\e602";
 }
-
 .icon-buceo:before {
 	content: "\e603";
 }
-
 .icon-buscador:before {
 	content: "\e604";
 }
-
 .icon-calendario:before {
 	content: "\e605";
 }
-
 .icon-carrito:before {
 	content: "\e606";
 }
-
-.icon-corazon:before {
+.icon-cerrar:before {
 	content: "\e607";
 }
-
-.icon-estrella:before {
+.icon-corazon:before {
 	content: "\e608";
 }
-
-.icon-face:before {
+.icon-estrella:before {
 	content: "\e609";
 }
-
-.icon-familiar:before {
+.icon-face:before {
 	content: "\e60a";
 }
-
-.icon-horario:before {
+.icon-familiar:before {
 	content: "\e60b";
 }
-
-.icon-mail:before {
+.icon-flecha:before {
 	content: "\e60c";
 }
-
-.icon-nino:before {
+.icon-horario:before {
 	content: "\e60d";
 }
-
-.icon-ninos:before {
+.icon-hotel:before {
 	content: "\e60e";
 }
-
-.icon-nombre:before {
+.icon-mail:before {
 	content: "\e60f";
 }
-
-.icon-pesca:before {
+.icon-mascompradas:before {
 	content: "\e610";
 }
-
-.icon-pin:before {
+.icon-new:before {
 	content: "\e611";
 }
-
-.icon-snorkel:before {
+.icon-nino:before {
 	content: "\e612";
 }
-
-.icon-tel:before {
+.icon-ninos:before {
 	content: "\e613";
 }
-
-.icon-transporte:before {
+.icon-nombre:before {
 	content: "\e614";
 }
-
-.icon-twit:before {
+.icon-pesca:before {
 	content: "\e615";
 }
-
-.icon-viajes:before {
+.icon-pin:before {
 	content: "\e616";
 }
-
+.icon-populares:before {
+	content: "\e617";
+}
+.icon-precio:before {
+	content: "\e618";
+}
+.icon-snorkel:before {
+	content: "\e619";
+}
+.icon-tel:before {
+	content: "\e61a";
+}
+.icon-transporte:before {
+	content: "\e61b";
+}
+.icon-twit:before {
+	content: "\e61c";
+}
+.icon-viajes:before {
+	content: "\e61d";
+}
