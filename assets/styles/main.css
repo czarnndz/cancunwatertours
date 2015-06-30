@@ -127,20 +127,23 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*menu desplegable*/
 #cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
-#cont-menu{width: 95px;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
-.cont-menu{height: 600px;}
+#cont-menu{width: 100%;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
+.cont-menu{height: 500px}
 #cont-menu.ng-hide{opacity: 0}
 .enlace-menu{color: white;font-family: open-b;height: 100px}
+
 /*.enlace-menu:hover{background: white}*/
 .enlace-menu:hover i, .enlace-menu:hover .text-menu{color: #20B2E9;transition: .4s linear all}
 .enlace-menu i{width: 40px;height: 41px}
 .enlace-menu.viajes i{font-size: 45px}
-.text-menu{font-size: 10px;color: white;}
+.text-menu{font-size: 13px;color: white; font-family: open-b}
 .text-menu:hover,.icon-desplegable{border:none!important;}
 .text-menu.viajes{margin-top: -8px}
 .text-menu.viajes{margin-top: -8px}
 .icon-desplegable{color: white;font-size: 40px;margin-bottom: 5px}
 .en-menu{margin-top: -80px}
+
+#cerrar-movil{height: 400px;}
 /*menu desplegable*/
 
 /*busqueda avanzada*/
@@ -508,6 +511,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .icon-carrito,
 #login{margin: 0px}
 /*header*/
+
+.enlace-menu:hover i, .enlace-menu:hover .text-menu{color: white;}
 
 .enlace-footer{margin-top: 5px;margin-bottom: 5px}
 

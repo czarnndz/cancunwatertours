@@ -43,27 +43,27 @@
     <!--STYLES END-->
 <div class="cont-contenido">
 <div id="header" layout="row" flex="100" layout-align="space-between center" layout-wrap >
-    <div class="menu-busc" flex="35" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
+    <div class="menu-busc" flex="35" flex-sm="20" flex-md="100" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <div id="menu" layout="column" layout-align="center center">
         <div class="linea-menu"></div>
         <div class="linea-menu"></div>
         <div class="linea-menu"></div>
       </div>
-      <input placeholder="  Buscar" type="text" class="input-header input-busqueda" >
-      <i class="icon-buscador icon-header input-busqueda" ></i>
-      <a href="" layout="row" layout-align="center center" flex class="text-header"  >
+      <input hide-sm placeholder="  Buscar" type="text" class="input-header input-busqueda" >
+      <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
+      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header"  >
         <div >BÚSQUEDA AVANZADA</div>
       </a>
     </div>
-    <div class="menu-logo" flex="20" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
-      <a href="/home"><img id="logo" src="images/watertourslogo.png" alt=""></a>
+    <div class="menu-logo" flex="20" flex-sm="50" flex-md="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
+      <a href="/home" flex="100" layout="row" layout-align="center center" ><img id="logo" src="images/watertourslogo.png" alt=""></a>
     </div>
-    <div class="menu-usua" flex="35" flex-md="100" flex-sm="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
+    <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <a href=""><div id="img-perfil"></div></a>
-      <a href=""><div class="text-prefil">Mi cuenta</div></a>
-      <a href=""><div class="text-prefil">registro</div></a>
+      <a href="" hide-sm ><div class="text-prefil">Mi cuenta</div></a>
+      <a href="" hide-sm ><div class="text-prefil">registro</div></a>
       <a href="/reserva" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
-      <a href=""> <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
+      <a href="" hide-sm > <div id="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
 </div>
 
@@ -128,7 +128,7 @@
     </div>
 </div>
 
-<div id="buscar-header" class="ng-cloak " layout="row" layout-align="center center" layout-wrap >
+<div id="buscar-header" class="ng-cloak" layout="row" layout-align="center center" layout-wrap >
   <div class="cont-buscar-header ng-cloak ng-hide" layout="row" layout-align="center center" layout-wrap >
     <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
       <div class="imagen-buscar uno"></div>
@@ -157,38 +157,41 @@
   </div>
 </div>
 
-<div id="cont-menu" layout="row" layout-align="start start" layout-wrap class="ng-cloak ng-hide menu-movil " hide-gt-sm>
-  <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
+<div id="cont-menu" layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak ng-hide menu-movil " hide-gt-sm>
+  <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu ">
+      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
         <i class="icon-aventura icon-desplegable"></i> 
         <div class="text-menu">AVENTURA</div>
       </div>
     </a>
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu viajes ">
+      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu viajes ">
          <i class="icon-viajes icon-desplegable viajes"></i>
          <div class="text-menu viajes">VIAJES</div> 
       </div>
     </a>
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu "> 
+      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu "> 
         <i class="icon-buceo icon-desplegable"></i> 
         <div class="text-menu">BUCEO</div> 
       </div>
     </a>
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu "> 
+      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu "> 
         <i class="icon-snorkel icon-desplegable"></i> 
         <div class="text-menu">SNORKEL</div> 
       </div>
     </a>
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu ">
+      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
        <i class="icon-pesca icon-desplegable"></i> 
        <div class="text-menu viajes">PESCA</div>
       </div>
     </a>    
+  </div>
+  <div id="cerrar-movil" flex="30" layout="row" layout-align="end start" >
+    <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
   </div>
  </div>
 

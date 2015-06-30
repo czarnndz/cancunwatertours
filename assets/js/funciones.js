@@ -76,7 +76,10 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     }
    });
 
-
+   $("#cerrar-menu-movil").click(function(event){
+    $("#cont-menu").removeClass("activar");
+    $("#cont-menu").addClass("ng-hide");
+   });
 
 
    $("#cont-global").click(function(event){
