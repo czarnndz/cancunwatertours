@@ -1,6 +1,6 @@
 <div id="cont-sub-header" flex="100" layout="row" layout-wrap >
 <div id="buscar-avanzado-header" class="ng-cloak "  layout="row" layout-align="center center" layout-wrap >
-  <div id="busqueda-movil" class="ocultar-avazanda-bt" layout="row" layout-align="center center" layout-wrap>
+  <div hide-gt-sm id="busqueda-movil" class="ocultar-avazanda-bt ng-hide" layout="row" layout-align="center center" layout-wrap>
     
     <a href="" id="btn-avanzada" layout="row" flex="60" layout-align="space-between center">
         <div layout="row" class="btn-avanzada" flex="100" layout-align="space-between center">
@@ -40,7 +40,7 @@
                   <md-option value="3">Aventura</md-option>
             </md-select>
       </div>
-      <div hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+      <div hide-gt-sm hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
             <md-select class="select-avanzado" ng-model="someVal" placeholder="Categoria">
                   <md-option value="1">Hotel</md-option>
                   <md-option value="2">Tour</md-option>
@@ -70,7 +70,7 @@
           <div class="text-adultos">niños</div>
         </div>
       </div>
-      <a href="" flex="100" layout="row" layout-align="center center">
+      <a hide-gt-sm href="" flex="100" layout="row" layout-align="center center">
           <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
       </a>
     </div>
