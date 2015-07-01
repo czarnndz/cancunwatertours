@@ -14,7 +14,7 @@ $(document).ready(function() {
 });
 /*detalles*/
 
-$(document).ready(function(){
+$(document).ready(function(){ 
 
 var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
 var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
@@ -94,7 +94,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
        height1 = $("#buscar-avanzado-header").css('height' , '0px');
       $("#buscar-avanzado-header").css('opacity' , '0');
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $(".buscar-avanzado-header").addClass("ng-hide");
+      $(".ocultar-avazanda-bt").addClass("ng-hide");
 
    });
 
