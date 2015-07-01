@@ -322,7 +322,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .mapa{height: 100%;width: 100%}
 #similares{background: #F5F5F5;height: auto;}
 #text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px;text-align: center;}
-.cont-similares{margin-bottom: 15px;margin-top: 15px}
+.cont-similares{margin-bottom: 15px;margin-top: 15px;cursor: pointer;}
 .imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .cont-similares:hover .nombre-similares{color: #00C1C8}
 .cont-similares:hover .lugar-similares{color: #00C1C8}
@@ -440,7 +440,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .importe-pago{color: #8A8A8A;font-size: 15px;text-align: center;}
 #boton-pagar{width: 180px;height: 40px;color: white;font-family: open-b;background: #00C1CA;border-radius: 10px;margin-top: 10px}
 
-.head-detalle{height: 60px;background: white;color: #19A4EF;font-size: 22px}
+.head-detalle{height: 60px;background: #19A4EF;color: white;font-size: 22px}
 
 .boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
 
@@ -522,6 +522,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .icon-carrito,
 #login{margin: 0px}
 /*header*/
+
+.cont-footer{margin-bottom: 5px;margin-top: 5px}
+#footer{height: auto;}
 
 .enlace-menu:hover i, .enlace-menu:hover .text-menu{color: white;}
 
