@@ -157,6 +157,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .icono-bt-avanzada-2{color: white;font-size: 20px;margin-top: 5px;margin-bottom: 10px;}
 .text-ava-movil{margin-bottom: 20px;}
 .cont-b-movil{height: 100%}
+.text-header.movil{color: #2FBFC7!important;background: white!important}
+.text-header.movil:hover{background: white;color: #03AFEF!important}
 
 #buscar-avanzado-header{position: absolute;width: 321px;height: 0px;background: #00ADEF;z-index: 90;left: 95px;transition: .5s linear all;opacity: 0;min-height: 0px}
 .buscar-avanzado-header{height: 100%}
