@@ -548,7 +548,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 .text-resultados-1{font-size: 20px;}
 .text-resultados-1 strong{font-size: 15px}
-.text-resultados-2{font-size: 10px;}
+.text-resultados-2{font-size: 10px;margin-bottom: 10px}
 
 .nombre-detalle{font-size: 13px;}
 
