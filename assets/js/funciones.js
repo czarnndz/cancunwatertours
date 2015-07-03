@@ -82,98 +82,11 @@ $(document).ready(function(){
     }
   });  
 
-/*var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
-var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
-
-   $(".text-header").click(function(event){
-     height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
-      //console.log(height1);
-    if (height1 <= 1) {
-      //console.log('el alto es de 1');
-      height1 = $("#buscar-avanzado-header").css('height' , 'auto');
-      $("#buscar-avanzado-header").css('opacity' , '1');
-      $(".ocultar-avazanda-bt").css('height' , 'auto');
-      $(".text-header").css({ background : '#00ADEF', color : 'white'});
-      $(".ocultar-avazanda-bt").removeClass("ng-hide");
-      height2 = $("#buscar-header").css('height' , '0px');
-      $("#buscar-header").css('opacity' , '0');
-      height1 = 100;
-    }else if(height1 > 1){
-      //console.log('el alto es de 100');
-       height1 = $("#buscar-avanzado-header").css('height' , '0px');
-      $("#buscar-avanzado-header").css('opacity' , '0');
-      $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $(".ocultar-avazanda-bt").addClass("ng-hide");
-      height1 = 0;
-    }
-
-});
-
-   $(".btn-avanzada").click(function(event){
-    console.log("entre");
-      //$(".buscar-avanzado-header").css('background' , 'green');
-   });
-
-
-   $(".input-busqueda").click(function(event){
-     height2 =  parseInt($('#buscar-header').css('height').replace('px',''));
-     //console.log(height1);
-    if (height2 <= 1) {
-      console.log('el alto es de 1');
-      height2 = $("#buscar-header").css('height' , 'auto');
-      $("#buscar-header").css('opacity' , '1');
-      $(".cont-buscar-header").removeClass("ng-hide");
-      height1 = $("#buscar-avanzado-header").css('height' , '0px');
-      $("#buscar-avanzado-header").css('opacity' , '0');
-      $(".buscar-avanzado-header").addClass("ng-hide");
-      $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      height2 = 100;
-    }else if(height2 > 1){
-      //console.log('el alto es de 100');
-      height2 = $("#buscar-header").css('height' , '0px');
-      $("#buscar-header").css('opacity' , '0');
-      $(".cont-buscar-header").addClass("ng-hide");
-      height2 = 0;
-    }
-
-   });
-
-
-   $("#menu").click(function(event){
-   	$("#cont-menu").addClass("activar");
-   	$("#cont-menu").removeClass("ng-hide");
-      if($('#buscar-avanzado-header').hasClass('activar') || $('#buscar-header').hasClass('activar') ){
-         $("#buscar-avanzado-header").removeClass("activar");
-   		 $("#buscar-avanzado-header").addClass("ng-hide");
-   		 $("#buscar-header").removeClass("activar");
-   		 $("#buscar-header").addClass("ng-hide");
-    }
-   });
-
-   $("#cerrar-menu-movil").click(function(event){
-    $("#cont-menu").removeClass("activar");
-    $("#cont-menu").addClass("ng-hide");
-   });
-
-
-   $("#cont-global").click(function(event){
-    $("#cont-menu").removeClass("activar");
-    $("#cont-menu").addClass("ng-hide");
-    height2 = $("#buscar-header").css('height' , '0px');
-      $("#buscar-header").css('opacity' , '0');
-      $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $(".cont-buscar-header").addClass("ng-hide");
-      //$(".buscar-header").addClass("ng-hide");
-       height1 = $("#buscar-avanzado-header").css('height' , '0px');
-      $("#buscar-avanzado-header").css('opacity' , '0');
-      $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $(".ocultar-avazanda-bt").addClass("ng-hide");
-
-   });*/
 
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
     $("#tu-reservacion").removeClass("ng-hide");
+    $("#boton-reserva").removeClass("ng-hide");
       if($('#datos-viajero').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
         $("#datos-viajero").removeClass("activar");
         $("#datos-viajero").addClass("ng-hide");
@@ -186,6 +99,8 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
 
    $(".datos-v").click(function(event){
     $("#datos-viajero").addClass("activar");
+    $(".datos-v").addClass("fuente-r");
+    $("#boton-reserva").removeClass("ng-hide");
     $("#datos-viajero").removeClass("ng-hide");
       if($('#tu-reservacion').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
@@ -199,6 +114,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
 
    $(".pago-r").click(function(event){
     $("#pago-reservacion").addClass("activar");
+    $(".pago-r").addClass("fuente-r");
     $("#pago-reservacion").removeClass("ng-hide");
       if($('#tu-reservacion').hasClass('activar') || $('#datos-viajero').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
@@ -210,7 +126,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
 
 
 
-   $("#boton-reserva").click(function(event){
+  $("#boton-reserva").click(function(event){
       if($('#tu-reservacion').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
         $("#tu-reservacion").addClass("ng-hide");
@@ -222,6 +138,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
         $("#datos-viajero").removeClass("activar");
         $("#datos-viajero").addClass("ng-hide");
         $(".datos-v").addClass("fuente-r");
+        $(".pago-r").addClass("fuente-r");
         $("#pago-reservacion").addClass("activar");
         $("#pago-reservacion").removeClass("ng-hide");
          $("#boton-reserva").removeClass("activar");
