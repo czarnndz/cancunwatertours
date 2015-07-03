@@ -186,7 +186,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*.md-select-label{padding: 0px!important;padding-left: 10px!important}*/
 /*busqueda avanzada*/
 .icon-buscar{color: white;font-size: 25px;}
-.text-adultos{color: white;font-size: 9px;font-weight: 700;text-transform: uppercase;font-family: open-b}
+.text-adultos{color: white;font-size: 10px;font-weight: 700;text-transform: uppercase;font-family: open-b}
 /*#apuntador-avanzado.dos{margin-right: 5px}*/
 .icon-familiar{}
 .icon-ninos{}
