@@ -332,7 +332,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #similares{background: #F5F5F5;height: auto;}
 #text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px;text-align: center;}
 .cont-similares{margin-bottom: 15px;margin-top: 15px;cursor: pointer;}
-.imagen-similares{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-similares-1{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar1.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-similares-2{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar2.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagen-similares-3{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar3.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .cont-similares:hover .nombre-similares{color: #00C1C8}
 .cont-similares:hover .lugar-similares{color: #00C1C8}
 .cont-similares:hover .precio-similares{color: #00C1C8}
@@ -341,6 +343,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .precio-similares{font-size: 20px;color: #ADADAD;text-transform: uppercase;}
 .precio-similares strong{font-size: 10px;margin-left: -5px}
 
+
+.precio-adulto{font-size: 14px}
 #sugeridos{background: #e8e8e8 }
 /*detalle*/
 
