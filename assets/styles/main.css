@@ -241,7 +241,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*home*/
 
 /*Resultados */
-#detalle{height: 100%}
 #cont-resultados{background: #F2F2F2;height: auto;}
 #text-resultados{height: 70px;}
 .text-resultados-1{color: #9D9D9D;font-size: 24px;margin-top: 5px}
@@ -281,7 +280,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*Resultados */
 
 /*detalle*/
-#detalle{position: relative;}
+#detalle{position: relative;height: 100%!important}
 #cont-detalle{background: #1EA2F1}
 #detalles-tour{background: white}
 .cont-detalles-horario{color: white; font-family: open-b;margin-bottom: 5px}
