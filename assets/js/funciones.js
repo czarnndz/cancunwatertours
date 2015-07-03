@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 
   $("#text-ava-movil").click(function(event){
-    console.log("text ava")
+    //console.log("text ava")
     if ($("#b-avanzada").hasClass('buscar-movil-ap')) {
       //console.log("avanzada abierta")
       $("#b-avanzada").removeClass("buscar-movil-ap");   
@@ -70,7 +70,17 @@ $(document).ready(function(){
     }
   });
 
-  
+  $("#menu").click(function(event){
+    console.log("menu");
+    if ($("#cont-menu").hasClass('desactivar')) {
+      //console.log("avanzada abierta")
+      $("#cont-menu").removeClass("desactivar");   
+      $("#cont-menu").addClass("activar");
+    }else if ($("#cont-menu").hasClass('activar')) {
+      $("#cont-menu").addClass("desactivar");   
+      $("#cont-menu").removeClass("activar");
+    }
+  });  
 
 /*var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
 var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));

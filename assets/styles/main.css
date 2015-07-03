@@ -127,7 +127,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*menu desplegable*/
 #cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
-#cont-menu{width: 100%;z-index: 100000000000000;opacity: 1;transition: .5s linear all;position: absolute;opacity: 0;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
+#cont-menu{width: 100%;z-index: 100000000000000;transition: .5s linear all;position: absolute;background: linear-gradient(to right, #1EB0EB  , #35cdd4);overflow: hidden;}
 .cont-menu{height: 500px}
 #cont-menu.ng-hide{opacity: 0}
 .enlace-menu{color: white;font-family: open-b;height: 100px}
