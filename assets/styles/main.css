@@ -590,6 +590,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 @media (max-width: 400px){
 
+.imagen-reservacion{width: 110px;height: 110px;}
 
 /*home*/
 .titulo-tour{font-size: 15px;text-align: center;}
