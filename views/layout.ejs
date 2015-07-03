@@ -44,13 +44,13 @@
 <div class="cont-contenido">
 <div id="header" layout="row" flex="100" layout-align="space-between center" layout-wrap >
     <div class="menu-busc" flex="35" flex-sm="20" flex-md="100" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
-      <div id="menu" layout="column" layout-align="center center">
+      <div hide-gt-sm id="menu" layout="column" layout-align="center center">
         <div class="linea-menu"></div>
         <div class="linea-menu"></div>
         <div class="linea-menu"></div>
       </div>
-      <input hide-sm placeholder="  Buscar" type="text" class="input-header input-busqueda" >
-      <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
+      <input placeholder="  Buscar" type="text" class="input-header" >
+      <i class="icon-buscador icon-header input-busqueda" ></i>
       <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header" >
         <div class="abrir" >BÚSQUEDA AVANZADA</div>
       </a>
@@ -78,98 +78,88 @@
     </div>
 </div>
 
-<div ng-include="'/templates/global/avanzada.ejs'"></div>
+<div id="buscar-avanzado-header" class="ng-cloak desactivar" >
+  <div layout="row" layout-align="center center" layout-wrap>
+    <div  id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
+      
+      <a href="" id="btn-avanzada" layout="row" flex="60" layout-align="space-between center">
+          <div layout="row" class="btn-avanzada" flex="100" layout-align="space-between center">
+              i
+              <div class="text-bt-avan">Buscar</div>
+              <i class="icon-flecha icono-bt-avanzada"></i>
+          </div>
+      </a>
 
-<div id="cont-sub-header" flex="100" layout="row" layout-wrap >
-<div id="buscar-avanzado-header" class="ng-cloak "  layout="row" layout-align="center center" layout-wrap >
-  <div class="buscar-avanzado-header ng-hide" layout="row" layout-align="center center" layout-wrap>
-      <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
-        <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="45" >
-          <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
-            <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
-          </div>
-          <div class="text-buscar-a">Buscar por precio</div>
-        </div>
-        <div class="slide-precio" layout="column" layout="start center" flex="40">
-          <div class="rango-precios" layout="row" layout-align="space-between center" >
-            <div class="precios-a">$0</div>
-            <div class="precios-a">$12,000</div>
-          </div>
-          <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
-          <div class="rango-precios" layout="row" layout-align="space-between center" >
-            <div class="precios-b">-</div>
-            <div class="precios-b">+</div>
-          </div>
-        </div>
-      </div>
-      <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-            <md-select class="select-avanzado" ng-model="someVal" placeholder="Més">
-                  <md-option value="1">Hotel</md-option>
-                  <md-option value="2">Tour</md-option>
-                  <md-option value="3">Aventura</md-option>
-            </md-select>
-       <!-- <select class="select-header">
-          <option value=""><h6 class="option">Tour</h6></option>
-          <option value=""><h6 class="option">Aventura</h6></option>
-          <option value=""><h6 class="option">Hotel</h6></option>
-        </select>-->
-      </div>
-      <div flex="95" layout="row" layout-align="space-around center" class="cont-avanzada">
-        <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-          <i class="icon-adultos icon-buscar dos "></i>
-          <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
-            <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
-          </div>
-          <div class="text-adultos">Adultos</div>
-        </div>
-        <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-          <i class="icon-familiar icon-buscar"></i>
-          <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
-            <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
-          </div>
-          <div class="text-adultos">familiar</div>
-        </div>
-        <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-          <i class="icon-ninos icon-buscar dos "></i>
-          <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
-             <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
-          </div>
-          <div class="text-adultos">niños</div>
-        </div>
-      </div>
-    </div>
-</div>
+      <div id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
 
-<div id="buscar-header" class="ng-cloak" layout="row" layout-align="center center" layout-wrap >
-  <div class="cont-buscar-header ng-cloak ng-hide" layout="row" layout-align="center center" layout-wrap >
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar uno"></div>
-      <div class="titulo-buscar">Tour Xcaret</div>
     </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar dos"></div>
-      <div class="titulo-buscar">Tour Xplor</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar tres"></div>
-      <div class="titulo-buscar">Tour Xel Ha Todo incluido</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar cuatro"></div>
-      <div class="titulo-buscar">Jungle Tour "sunrise Marina"</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar cinco"></div>
-      <div class="titulo-buscar">Jungle Tour Xenotes</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar seis"></div>
-      <div class="titulo-buscar">Tour de Esnorquel en Cozumel</div>
-    </div>
+    <div id="b-avanzada" class="buscar-avanzado-header buscar-movil-ap" layout="row" layout-align="center center" layout-wrap>
+        <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
+          <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="45" >
+            <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
+              <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
+            </div>
+            <div class="text-buscar-a">Buscar por precio</div>
+          </div>
+          <div class="slide-precio" layout="column" layout="start center" flex="40">
+            <div class="rango-precios" layout="row" layout-align="space-between center" >
+              <div class="precios-a">$0</div>
+              <div class="precios-a">$12,000</div>
+            </div>
+            <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
+            <div class="rango-precios" layout="row" layout-align="space-between center" >
+              <div class="precios-b">-</div>
+              <div class="precios-b">+</div>
+            </div>
+          </div>
+        </div>
+        <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+              <md-select class="select-avanzado" ng-model="someVal" placeholder="Tipo">
+                    <md-option value="1">Hotel</md-option>
+                    <md-option value="2">Tour</md-option>
+                    <md-option value="3">Aventura</md-option>
+              </md-select>
+        </div>
+        <div hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+              <md-select class="select-avanzado" ng-model="someVal" placeholder="Categoria">
+                    <md-option value="1">Hotel</md-option>
+                    <md-option value="2">Tour</md-option>
+                    <md-option value="3">Aventura</md-option>
+              </md-select>
+        </div>
+        <div flex="95" layout="row" layout-align="space-around center" class="cont-avanzada">
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-adultos icon-buscar dos "></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
+              <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
+            </div>
+            <div class="text-adultos">Adultos</div>
+          </div>
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-familiar icon-buscar"></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
+              <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
+            </div>
+            <div class="text-adultos">familiar</div>
+          </div>
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-ninos icon-buscar dos "></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
+               <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
+            </div>
+            <div class="text-adultos">niños</div>
+          </div>
+        </div>
+        <a href="" flex="100" layout="row" layout-align="center center">
+            <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
+        </a>
+      </div>
   </div>
 </div>
 
-<div id="cont-menu" layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak ng-hide menu-movil " hide-gt-sm>
+<div id="buscar-header" class="ng-cloak desactivar" ng-include="'/templates/global/buscar2.ejs'"></div>
+
+<div id="cont-menu" layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak ng-hide menu-movil ng-hide" hide-gt-sm>
   <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
     <a href="/resultados" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
@@ -206,9 +196,7 @@
     <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
   </div>
  </div>
-
-</div><!--cont-sub-header-->
-  </head>
+</head>
 
   <body>
   <div id="cont-global" layout="row" flex="100" >
@@ -249,7 +237,7 @@
     <%- body %>
   </div>
 </div>
-<div ng-include="'/templates/global/footer.ejs'" layout='row'></div>
+<div id="cont-footer" ng-include="'/templates/global/footer.ejs'" layout='row'></div>
 
 
 

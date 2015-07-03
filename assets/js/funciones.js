@@ -16,7 +16,63 @@ $(document).ready(function() {
 
 $(document).ready(function(){ 
 
-var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
+  $(".input-header").click(function(event){
+    console.log("entre");
+    if ($("#buscar-header").hasClass('desactivar')) {
+      console.log("buscar abierta");
+      $("#buscar-header").removeClass("desactivar");   
+      $("#buscar-header").addClass("activar");
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $("#buscar-avanzado-header").addClass("desactivar");   
+      $("#buscar-avanzado-header").removeClass("activar");
+    }else if ($("#buscar-header").hasClass('activar')) {
+      $("#buscar-header").addClass("desactivar");   
+      $("#buscar-header").removeClass("activar");
+    }
+  });
+
+
+  $(".text-header").click(function(event){
+    if ($("#buscar-avanzado-header").hasClass('desactivar')) {
+      //console.log("avanzada abierta")
+      $(".text-header").css({ background : '#00ADEF', color : 'white'});
+      $("#buscar-avanzado-header").removeClass("desactivar");   
+      $("#buscar-avanzado-header").addClass("activar");
+      $("#buscar-header").addClass("desactivar");   
+      $("#buscar-header").removeClass("activar");
+    }else if ($("#buscar-avanzado-header").hasClass('activar')) {
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $("#buscar-avanzado-header").addClass("desactivar");   
+      $("#buscar-avanzado-header").removeClass("activar");
+    }
+  });
+
+  $("#cont-global").click(function(event){
+    //console.log("global")
+    if ($("#buscar-header").hasClass('activar') || $("#buscar-avanzado-header").hasClass('activar')) { 
+      $("#buscar-avanzado-header").addClass("desactivar"); 
+      $("#buscar-avanzado-header").removeClass("activar");
+      $("#buscar-header").addClass("desactivar"); 
+      $("#buscar-header").removeClass("activar");
+    }
+  });
+
+
+  $("#text-ava-movil").click(function(event){
+    console.log("text ava")
+    if ($("#b-avanzada").hasClass('buscar-movil-ap')) {
+      //console.log("avanzada abierta")
+      $("#b-avanzada").removeClass("buscar-movil-ap");   
+      $("#b-avanzada").addClass("buscar-movil-en");
+    }else if ($("#b-avanzada").hasClass('buscar-movil-en')) {
+      $("#b-avanzada").addClass("buscar-movil-ap");   
+      $("#b-avanzada").removeClass("buscar-movil-en");
+    }
+  });
+
+  
+
+/*var height1 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
 var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',''));
 
    $(".text-header").click(function(event){
@@ -43,6 +99,12 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
 
 });
 
+   $(".btn-avanzada").click(function(event){
+    console.log("entre");
+      //$(".buscar-avanzado-header").css('background' , 'green');
+   });
+
+
    $(".input-busqueda").click(function(event){
      height2 =  parseInt($('#buscar-header').css('height').replace('px',''));
      //console.log(height1);
@@ -65,6 +127,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     }
 
    });
+
 
    $("#menu").click(function(event){
    	$("#cont-menu").addClass("activar");
@@ -96,7 +159,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
       $(".ocultar-avazanda-bt").addClass("ng-hide");
 
-   });
+   });*/
 
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
@@ -191,7 +254,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
     var div_similares = $('#cont-detalle').height(); 
       $('#similares').css('height',div_similares);
       $('#similares').css('height',div_similares);
-      console.log(div_similares);
+      //console.log(div_similares);
   });
 
   $( window ).resize(function() {
@@ -199,7 +262,7 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
       var div_similares = $('#cont-detalle').height(); 
       $('#similares').css('height',div_similares);
       $('#similares').css('height',div_similares);
-      console.log(div_similares);
+      //console.log(div_similares);
 
   });
 
@@ -219,6 +282,8 @@ var height2 =  parseInt($('#buscar-avanzado-header').css('height').replace('px',
      // console.log(div_mapa);
 
   });
+
+
 
 });
 
