@@ -271,7 +271,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-strong-1{color: white;font-size: 13.5px;margin-left: 10px;font-family: open-b}
 .localidad-resultado{color: white;font-size: 12px;margin-left: 10px;font-family: open-b}
 .categoria-resultado{color: white;font-size: 12px;;margin-left: 10px}
-.desde-resultados{color: white;font-weight: 900;font-size: 8px}
+.desde-resultados{color: white;font-weight: 900;font-size: 10px;font-family: open-b}
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 20px}
 .precio-resultados strong{font-size: 11px;font-weight: 700}
 .book-now{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
@@ -490,7 +490,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-strong-1{color: white;font-size: 14px;font-weight: 700;margin-left: 10px}
 .localidad-resultado{color: white;font-size: 10px;font-weight: 700;margin-left: 10px}
 .categoria-resultado{color: white;font-size: 10px;;margin-left: 10px}
-.desde-resultados{color: white;font-weight: 900;font-size: 8px}
 .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 18px}
 .precio-resultados strong{font-size: 11px;font-weight: 700}
 /*resultados*/
