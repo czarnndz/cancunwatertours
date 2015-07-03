@@ -212,8 +212,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #home{position: relative!important}
 /*#traslado{position: absolute;height: 100%;background: white;z-index: 100000000}*/
 .home{height: auto;clear: both;position: relative;}
-.imagen-chica{height:157px;}
-.imagen-grande{height: 435px;}
+.imagen-chica{height:15%;min-height:157px;}
+.imagen-grande{height: 30%;min-height: 435px}
+/*.imagen-chica{height:157px;}
+.imagen-grande{height: 435px;}*/
 .imagenes-home.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
