@@ -10,7 +10,7 @@
     font-family: "open-b";
     src: url(fonts/OpenSans-Bold.ttf) format("truetype");
 }
-body{font-family: open-r}
+body{font-family: open-r;background: #E8E8E8}
 a{text-decoration: none;border: none;box-shadow: none;}
 a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transparent;}
 a:focus{text-decoration: none;border: none;box-shadow: none;}
@@ -89,6 +89,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /**header**/
 
 /*menu*/
+#header{background: white}
 .menu-busc{height: 74px;}
 #menu{width: 96px;height: 100%;position: relative;}
 .linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
@@ -240,6 +241,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*home*/
 
 /*Resultados */
+#detalle{height: 100%}
 #cont-resultados{background: #F2F2F2;height: auto;}
 #text-resultados{height: 70px;}
 .text-resultados-1{color: #9D9D9D;font-size: 24px;margin-top: 5px}
