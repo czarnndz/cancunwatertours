@@ -474,7 +474,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*footer*/
 
 @media (min-width: 961px){
-	#header{height: 74px!important}
+	#header{max-height: 74px!important}
 }
 
 @media (max-width: 1000px){
