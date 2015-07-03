@@ -31,7 +31,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .ap-color{color: #29BEE0!important}
 .alto-mapa{height: }
 .centrar{text-align: center;margin-top: 15px!important}
-.cont-contenido{min-height: 100%;padding-bottom: 170px;}
+.cont-contenido{width: 100%;margin: auto;height: auto;min-height: 100%}
+.cont-contenido:after{
+width: 100%;
+height:170px;
+display:block;
+clear:both;
+}
 
 .hvr-bounce-to-right{vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;position: relative;-webkit-transition-property: color;transition-property: color;-webkit-transition-duration: 0.5s;transition-duration: 0.5s;}
 .hvr-bounce-to-right:before {content: "";position: absolute;z-index: -1;top: 0;left: 0;right: 0;bottom: 0;background: white;-webkit-transform: scaleX(0);transform: scaleX(0);-webkit-transform-origin: 0 50%;transform-origin: 0 50%;-webkit-transition-property: transform;transition-property: transform;-webkit-transition-duration: 0.5s;transition-duration: 0.5s;-webkit-transition-timing-function: ease-out;transition-timing-function: ease-out;}
@@ -344,7 +350,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*reserva*/
 #reserva{background: #F2F2F2;height: auto;padding-bottom: 100px}
 #cont-reservacion{margin-top: 40px}
-#detalle-reservacion{background: #19A4EF;margin-top: 40px;margin-right: 40px;margin-left: 20px}
+#detalle-reservacion{background: #19A4EF;margin-top: 40px;margin-left: 20px}
 #header-reservacion{height: 60px;}
 .listado-reserva{background: white;height: 100%;cursor:pointer }
 .tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
@@ -357,7 +363,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .nombre-reservacion{color: #8A8A8A;font-size: 16px;height: 100%;margin-left: 35px;font-weight: 700;text-transform: uppercase;font-family: open-b}
 #datos-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #imagen-reservacion{height: 270px;}
-.imagen-reservacion{width: 100px;height: 100px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
+.imagen-reservacion{width: 130px;height: 130px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
 .datos-reservacion{height: 270px;}
 .tours-reservacion{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-top: 20px;}
 .tours-reservacion-2{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-bottom: 10px}
@@ -459,7 +465,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*footer*/
 
 #cont-footer{height: auto;}
-#footer{height: 170px;background: #272727;margin-top: -170px}
+#footer{height: 170px;background: #272727;margin: -170px auto 0}
 .cont-footer{}
 .enlace-footer{color: white;font-size: 10px;font-family: open-b}
 .enlace-footer:hover{color: #1fc1c7}
