@@ -225,6 +225,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagenes-home.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.ocho{background-image: url(../images/1b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.nueve{background-image: url(../images/2b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.diez{background-image: url(../images/3b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.once{background-image: url(../images/4b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.doce{background-image: url(../images/5b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.trece{background-image: url(../images/6b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
+.imagenes-home.catorce{background-image: url(../images/7b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home:hover .hover-imagen-1{opacity: 1;visibility: visible;}
 .hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}
 .imagenes-home:hover .hover-imagen-2{opacity: 1;visibility: visible;}
