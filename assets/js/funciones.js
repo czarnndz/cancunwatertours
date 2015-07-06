@@ -82,6 +82,14 @@ $(document).ready(function(){
     }
   });  
 
+  $("#cerrar-menu-movil").click(function(event){
+    console.log("menu cerrar");
+    if ($("#cont-menu").hasClass('activar')) {
+      $("#cont-menu").addClass("desactivar");   
+      $("#cont-menu").removeClass("activar");
+    }
+  });  
+
 
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
