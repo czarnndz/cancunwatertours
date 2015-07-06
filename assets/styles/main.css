@@ -379,12 +379,14 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .tours-reservacion{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-top: 20px;}
 .tours-reservacion-2{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-bottom: 10px}
 #fecha-tour{margin-bottom: 10px}
+.fecha-reserva{width: 187px!important}
+.fecha-reserva p input{max-width: 188px!important}
 .fecha-reserva p input{border-radius: 5px!important;color: #939393;margin-left: 5px}
 .icono-fecha-r{color: #00B6DA;font-size: 15px;margin-right: 5px;margin-top: -10px}
 .fecha-tour{color: #898989;font-size: 13px;font-weight: 700;margin-top: -10px}
 #ubicacion-tour{margin-bottom: 20px}
-.ubicacion-r{width: 164px;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;margin-left: 5px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
-.ubicacion-r.adultos{width: 50px}
+.ubicacion-r{width: 164px!important;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;margin-left: 5px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
+.ubicacion-r.adultos{width: 50px!important}
 .icono-fecha-r.ninos{margin-left: 13px}
 #adultos-r{margin-bottom: 20px}
 .ubicacion-r.fecha{width: 177px}
@@ -416,7 +418,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .precio-detalles.margen{margin-bottom: 20px}
 .text-total-d{color:white;font-size: 15px;font-family: open-b}
 .precio-total-d{color:white;font-size: 18px;font-family: open-b}
-
+.ubicacion-r.fecha.dos{width: 177px!important}
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
 .icono-trans-d{color:#00C0C9;font-size: 25px;margin-right: 5px}
@@ -526,6 +528,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 	#reservar-mapa{height: auto;}
 
 	#header{max-height: 174px!important}
+	.select-mes{margin-bottom: 5px}
 }
 
 @media (max-width: 800px){

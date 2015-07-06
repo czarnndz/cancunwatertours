@@ -22,32 +22,34 @@
 				<div class="datos-reservacion" flex="70" flex-md="65" flex-sm="100" layout="column" layout-align="start start" layout-align-sm="start center" >
 					<div class="tours-reservacion">Xcaret | Xel Há | Xplor | Xichén</div>
 					<div class="tours-reservacion-2">( 2 - 3 o 4 tours) con Transportación</div>
-					<div id="fecha-tour" layout="row" layout-align="start center" >
-						<i class="icon-calendario icono-fecha-r"></i>
-						<div class="fecha-tour">Fecha:</div>
-						<div class="fecha-reserva" ng-controller="DatepickerDemoCtrl">
-							<p class="input-group">
-	              				<input type="date" class="form-control ng-pristine ng-untouched ng-valid" datepicker-popup="" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
-	            			</p>
+					<div class="cont-fechas">
+						<div id="fecha-tour" layout="row" layout-align="start center" >
+							<i class="icon-calendario icono-fecha-r"></i>
+							<div class="fecha-tour">Fecha:</div>
+							<div class="fecha-reserva" ng-controller="DatepickerDemoCtrl">
+								<p class="input-group">
+		              				<input type="date" class="form-control ng-pristine ng-untouched ng-valid" datepicker-popup="" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+		            			</p>
+							</div>
 						</div>
-					</div>
-					<div id="ubicacion-tour" layout="row" layout-align="start center" >
-						<i class="icon-pin icono-fecha-r"></i>
-						<div class="fecha-tour">Ubicación:</div>
-						<input type="text" class="ubicacion-r" >
-					</div>
-					<div id="adultos-r" layout="row" layout-align="start center" >
-						<i class="icon-adultos icono-fecha-r"></i>
-						<div class="fecha-tour">Adultos:</div>
-						<input type="text" class="ubicacion-r adultos" >
-						<i class="icon-nino icono-fecha-r ninos"></i>
-						<div class="fecha-tour">Niños:</div>
-						<input type="text" class="ubicacion-r adultos" >
-					</div>
-					<div id="fecha-tour" layout="row" layout-align="start center" >
-						<i class="icon-horario icono-fecha-r"></i>
-						<div class="fecha-tour">Horario:</div>
-						<input type="text" class="ubicacion-r fecha" >
+						<div id="ubicacion-tour" layout="row" layout-align="start center" >
+							<i class="icon-pin icono-fecha-r"></i>
+							<div class="fecha-tour">Ubicación:</div>
+							<input type="text" class="ubicacion-r" >
+						</div>
+						<div id="adultos-r" layout="row" layout-align="start center" >
+							<i class="icon-adultos icono-fecha-r"></i>
+							<div class="fecha-tour">Adultos:</div>
+							<input type="text" class="ubicacion-r adultos" >
+							<i class="icon-nino icono-fecha-r ninos"></i>
+							<div class="fecha-tour">Niños:</div>
+							<input type="text" class="ubicacion-r adultos" >
+						</div>
+						<div id="fecha-tour" layout="row" layout-align="start center" >
+							<i class="icon-horario icono-fecha-r"></i>
+							<div class="fecha-tour">Horario:</div>
+							<input type="text" class="ubicacion-r fecha dos" >
+						</div>
 					</div>
 				</div>
 			</div>
