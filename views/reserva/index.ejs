@@ -192,8 +192,8 @@
 				</div>
 				<div class="text-datos-trans datos" layout="row" layout-align-sm="center center" layout-align-md="center center" flex="90" >Datos del Pago</div>
 				<div class="text-datos-trans info pais" layout="row" layout-align-sm="center center" layout-align-md="center center" flex="90" >País</div>
-				<div id="selct-pais" flex="90" layout="row" layout-align="start center" >
-					<div  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="40" flex-md="100" flex-sm="100">
+				<div id="selct-pais" flex-md="85" flex-sm="90" layout="row" layout-align="start center" >
+					<div  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="100">
 				  		<md-select class="select-pais" ng-model="someVal">
 				    		<md-option value="1">Estados Unidos</md-option>
 				    		<md-option value="2">Canada</md-option>
@@ -206,8 +206,8 @@
 						Fecha de vencimiento
 					</div>
 					<div flex="90" flex-lg="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap>
-						<input type="text" flex="45" flex-md="100" flex-sm="100" class="input-num-tarjeta" placeholder="Número de Tarjeta">
-						<div class="fecha-slect"  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="15" flex-md="100" flex-sm="100">
+						<input type="text" flex-md="100" flex-sm="100" class="input-num-tarjeta" placeholder="Número de Tarjeta">
+						<div class="fecha-slect"  ng-controller="AppCtrl" layout="column" layout-align="center center" flex-md="100" flex-sm="100">
 				  			<md-select class="select-mes" ng-model="someVal" placeholder="Més">
 				    			<md-option value="1">1</md-option>
 				    			<md-option value="2">2</md-option>
@@ -223,14 +223,14 @@
 				    			<md-option value="12">12</md-option>
 				  			</md-select>
 						</div>
-						<div class="fecha-slect"  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="15" flex-md="100" flex-md="100" flex-sm="100">
+						<div class="fecha-slect"  ng-controller="AppCtrl" layout="column" layout-align="center center" flex-md="100" flex-md="100" flex-sm="100">
 				  			<md-select class="select-mes" ng-model="someVal" placeholder="Año">
 				    			<md-option value="1">2015</md-option>
 				    			<md-option value="2">2016</md-option>
 				    			<md-option value="3">2017</md-option>
 				  			</md-select>
 						</div>
-						<input type="text" flex="45" flex-md="100" flex-sm="100" class="input-num-tarjeta" placeholder="Nombre del titular de la tarjeta">
+						<input type="text" flex-md="100" flex-sm="100" class="input-num-tarjeta" placeholder="Nombre del titular de la tarjeta">
 						<input type="text" flex-md="100" flex-sm="100" class="input-num-tarjeta seguridad" placeholder="Código de seguridad">
 						<div class="pregunta-pago" layout="row" layout-align="center center" >?</div>
 					</div>
