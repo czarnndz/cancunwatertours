@@ -49,6 +49,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .select-pais .md-select-label{margin-top: -8px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;width: 100%}
 .select-pais .md-select-label .md-select-icon{color:#A9A9A9!important;font-size: 10px!important}
 
+#estado{max-width: 593px!important}
 .select-estado{height: 40px;border:1px solid #A9A9A9;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;;padding: 0px!important;}
 .select-estado .md-select-label{margin-top: -8px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;width: 100%}
 .select-estado .md-select-label .md-select-icon{color:#A9A9A9!important;font-size: 10px!important}
@@ -420,7 +421,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
 .icono-trans-d{color:#00C0C9;font-size: 25px;margin-right: 5px}
 .text-datos-trans{font-size: 15px;color: #918A8A;margin-left: 5px;font-family: open-b}
-.ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px}
+.ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px;border: none;}
 #datos-viajero-2{border-top: 4px solid #F2F2F2}
 .text-datos-trans.datos{margin-top: 10px}
 .text-datos-trans.info{color: #949494;font-size: 14px;font-family: open-r}
@@ -428,7 +429,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .input-datos{height: 100%;background: #F5F5F5;box-shadow: none;border:none;color: #939393;padding-left: 10px;font-size: 13px;}
 .icono-datos-v{font-size: 18px;color: #19A4EF}
 .text-datos-trans.tel{color: #949494;font-size: 14px;font-family: open-r;margin-top: 10px;}
-.celular{height: 35px;background:white;color: #ACACAC;font-size: 10px}
+.celular{height: 35px;background:white;color: #ACACAC;font-size: 10px;border: none}
 #apuntador-cel{width: 10px;height: 10px;border:2px solid #ACACAC;}
 .apuntador-cel{width: 4px;height: 4px;background: #ACACAC}
 #info-datos{padding-bottom: 30px}
@@ -440,6 +441,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #apuntador-tarjeta{width: 12px;height: 12px;border:2px solid #ACACAC;border-radius: 50%;margin-left: 5px;margin-right: 5px}
 .apuntador-tarjeta{width: 6px;height: 6px;background: #ACACAC;border-radius: 50%}
 .img-tarjeta{}
+
+.cont-datos-tarjeta{max-width: 633px!important}
 
 .datos-img{margin-top: 20px;margin-bottom: 20px}
 .text-datos-trans.info.pais{font-size: 15px;margin-top: 15px;}
