@@ -54,7 +54,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .select-estado .md-select-label{margin-top: -8px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;width: 100%}
 .select-estado .md-select-label .md-select-icon{color:#A9A9A9!important;font-size: 10px!important}
 
-.select-mes{height: 40px;border:1px solid #A9A9A9!important;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;;padding: 0px!important;margin-bottom: 5px}
+.select-mes{height: 40px;border:1px solid #A9A9A9!important;border-radius: 10px;width: 100%;font-family: open-b;color: #A9A9A9!important;;padding: 0px!important;}
 .select-mes .md-select-label{margin-top: -10px!important;border: none!important;padding-left: 10px!important;padding-right: 10px!important;color: #A9A9A9!important;text-align: center!important;width: 100%!important}
 .select-mes .md-select-label .md-select-icon{color:#19A4EF!important;font-size: 10px!important}
 
