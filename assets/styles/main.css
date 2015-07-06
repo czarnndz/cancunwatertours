@@ -163,7 +163,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-header.movil:hover{background: white;color: #03AFEF!important}
 
 #btn-avanzada::-webkit-input-placeholder{color: #BCBCBC;text-align: center;font-family: open-b;font-size: 15px}
-
+#btn-avanzada:focus::-webkit-input-placeholder{color: transparent;}
 
 .buscar-movil-en{height: auto;opacity: 1;}
 #b-avanzada{transition: .5s linear all}
