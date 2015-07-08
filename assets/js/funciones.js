@@ -54,6 +54,7 @@ $(document).ready(function(){
       $("#buscar-avanzado-header").removeClass("activar");
       $("#buscar-header").addClass("desactivar"); 
       $("#buscar-header").removeClass("activar");
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
     }
   });
 

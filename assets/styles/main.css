@@ -473,6 +473,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .head-detalle{height: 60px;background: #19A4EF;color: white;font-size: 22px}
 
 .boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
+.enlace-footer.bold{font-family: open-b}
 
 .redes-face{color: white;font-size: 26px;}
 .redes-face:hover{color: #1FB2E9}
@@ -488,9 +489,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .cont-footer-en{height: 80px}
 .redes-footer{height: 40px}
 /*.cont-footer-en.borde{border-right: #19B7DA 1px solid}*/
-.enlace-footer{color: white;font-size: 10px;cursor: pointer;margin-left: 20px;}
-.enlace-footer:hover{color: #1fc1c7}
-.redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 1px;color: #1EB0EB;margin-right: 10px}
+.enlace-footer{color: white;font-size: 11px;cursor: pointer;margin-left: 20px;}
+.enlace-footer.hover:hover{color: #1fc1c7}
+.redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 2px;color: #1EB0EB;margin-right: 10px}
 .icon-footer{margin-left: 4px}
 .img-footer{width: 45px;margin-right: 10px}
 .deg-footer{width: 1px;background: linear-gradient(#1EB0EB  , #35cdd4);height: 100%}
