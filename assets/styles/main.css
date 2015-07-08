@@ -484,9 +484,15 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 #cont-footer{height: auto;}
 #footer{height: 170px;background: #272727;margin-top: -170px}
-.cont-footer{}
-.enlace-footer{color: white;font-size: 10px;font-family: open-b}
+.cont-footer{max-width: 1251px!important}
+.cont-footer-en{height: 80px}
+.redes-footer{height: 40px}
+.cont-footer-en.borde{border-right: #19B7DA 1px solid}
+.enlace-footer{color: white;font-size: 10px;cursor: pointer;margin-left: 20px;}
 .enlace-footer:hover{color: #1fc1c7}
+.redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 1px;color: #1EB0EB;margin-right: 10px}
+.icon-footer{margin-left: 4px}
+.img-footer{width: 45px;margin-right: 10px}
 
 /*footer*/
 
@@ -535,6 +541,12 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 	#header{max-height: 174px!important}
 	.select-mes{margin-bottom: 5px}
 	.input-num-tarjeta{margin-bottom: 5px!important}
+
+	#footer{height: auto;}
+	.enlace-footer{margin: 0px}
+	
+	.cont-footer-en{height: 100px}
+	.cont-footer-en.contacto{margin-top: 10px;margin-bottom: 10px;}
 }
 
 @media (max-width: 800px){
@@ -571,7 +583,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-resultados-2{width: 100%; text-align: center;}
 
 .cont-footer{margin-bottom: 5px;margin-top: 5px}
-#footer{height: auto;}
+
 
 .enlace-menu:hover i, .enlace-menu:hover .text-menu{color: white;}
 
