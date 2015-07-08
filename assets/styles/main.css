@@ -98,14 +98,14 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .menu-busc{height: 74px;}
 #menu{width: 96px;height: 100%;position: relative;}
 .linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
-.input-header{width: 220px;margin-left: 25px;border-radius: 20px 20px 20px 20px;height: 25px;background: #F2F2F2;border: 0px;padding-left: 5px;font-size: 14px;font-family: open-b;padding-top: 3px;padding-left: 10px;color: #A9A9AB}
+.input-header{width: 220px;border-radius: 20px 20px 20px 20px;height: 25px;background: #F2F2F2;border: 0px;padding-left: 5px;font-size: 14px;font-family: open-b;padding-top: 3px;padding-left: 10px;color: #A9A9AB}
 .input-header:focus{border: none;border-radius-color: none}
 .input-header:focus::-webkit-input-placeholder{color: transparent;}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
 .text-header{color: #64CBE4;font-size: 10px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%;overflow: hidden;}
 /*a.text-header:focus{background: #00ADEF;color: white}*/
 .menu-logo{height: 50px;}
-#logo{max-width: 75%}
+#logo{width: 162px}
 .menu-usua{height: 50px;}
 #img-perfil{width: 40px;height: 40px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 15px}
 .text-prefil{font-family: open-b;font-size: 10px;color: #727272;margin-right: 15px;text-transform: uppercase;}
@@ -155,7 +155,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*busqueda avanzada*/
 .busqueda-movil{height: 40px}
-#busqueda-movil{background: radial-gradient(#35cdd4, #1EB0EB );width: 100%;min-height: ;height: ;color: white;font-size: 13px}
+#busqueda-movil{background: radial-gradient(#35cdd4, #1EB0EB );width: 100%;min-height: ;height:;color: white;font-size: 13px}
 .cont-avanzada{margin-top: 15px;margin-bottom: 15px;}
 #btn-avanzada{background: white;color: #BCBCBC;height: 30px;border-radius: 10px;margin-top: 20px;margin-bottom: 10px;text-align: center;border: none;font-family: open-b;font-size: 13px}
 .btn-avanzada{color: white}
@@ -173,7 +173,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .buscar-movil-en{height: auto;opacity: 1;}
 #b-avanzada{transition: .5s linear all}
 
-#buscar-avanzado-header{position: absolute;width: 350px;background: #00ADEF;z-index: 90;left: 95px;transition: .5s linear all;overflow: hidden;}
+#buscar-avanzado-header{position: absolute;width: 350px;background: #00ADEF;z-index: 90;left: 350px;transition: .5s linear all;overflow: hidden;}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
 .apuntador-avanzado{width: 6px;height: 6px;background:black;border-radius: 50%}
@@ -216,7 +216,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*home*/
 
-#home{position: relative!important}
+#home{position: relative!important;overflow: hidden;}
 /*#traslado{position: absolute;height: 100%;background: white;z-index: 100000000}*/
 .home{height: auto;clear: both;position: relative;}
 .imagen-chica{height:15%;min-height:157px;}
@@ -487,13 +487,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .cont-footer{max-width: 1251px!important}
 .cont-footer-en{height: 80px}
 .redes-footer{height: 40px}
-.cont-footer-en.borde{border-right: #19B7DA 1px solid}
+/*.cont-footer-en.borde{border-right: #19B7DA 1px solid}*/
 .enlace-footer{color: white;font-size: 10px;cursor: pointer;margin-left: 20px;}
 .enlace-footer:hover{color: #1fc1c7}
 .redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 1px;color: #1EB0EB;margin-right: 10px}
 .icon-footer{margin-left: 4px}
 .img-footer{width: 45px;margin-right: 10px}
-
+.deg-footer{width: 1px;background: linear-gradient(#1EB0EB  , #35cdd4);height: 100%}
 /*footer*/
 
 @media (min-width: 961px){
@@ -510,6 +510,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-aventura{font-size: 18px;text-align: center;}
 .text-aventura-2{font-size: 12px;text-align: center;}
 .precio-aventura{font-size: 22px;text-align: center;}
+.input-header{width: 170px;}
 /*home*/
 }
 
@@ -555,6 +556,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 #cont-reservacion{margin-top: 20px}
 #detalle-reservacion{background: #19A4EF;margin-top: 20px;margin-right: 0px;margin-left: 0px;}
+
+#buscar-avanzado-header{left: 200px;}
 }
 
 @media (max-width: 650px){
@@ -577,7 +580,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 .buscar-movil-ap{height: 0px;opacity: 0;overflow: hidden;}
 
-.opciones.movil{padding-top: 20px;}
 
 .text-resultados-1{width: 100%; text-align: center;}
 .text-resultados-2{width: 100%; text-align: center;}
