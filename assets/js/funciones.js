@@ -47,9 +47,24 @@ $(document).ready(function(){
     }
   });
 
+    $(".registro").click(function(event){
+      //alert("login");
+    if ($("#login-cont").hasClass('desactivar')) {
+      //console.log("avanzada abierta")
+      $("#login-cont").removeClass("desactivar");   
+      $("#login-cont").addClass("activar");
+    }else if ($("#login-cont").hasClass('activar')) {
+      $(".text-header").css({ background : 'white', color : '#64CBE4'});
+      $("#login-cont").addClass("desactivar");   
+      $("#login-cont").removeClass("activar");
+    }
+  });
+
   $("#cont-global").click(function(event){
     //console.log("global")
-    if ($("#buscar-header").hasClass('activar') || $("#buscar-avanzado-header").hasClass('activar')) { 
+    if ($("#buscar-header").hasClass('activar') || $("#buscar-avanzado-header").hasClass('activar') || $("#login-cont").hasClass('activar')) { 
+      $("#login-cont").removeClass("activar");
+      $("#login-cont").addClass("desactivar");
       $("#buscar-avanzado-header").addClass("desactivar"); 
       $("#buscar-avanzado-header").removeClass("activar");
       $("#buscar-header").addClass("desactivar"); 

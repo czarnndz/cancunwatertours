@@ -93,6 +93,20 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /**header**/
 
+/*login*/
+
+#login-cont{width: 100%;max-width: 350px;position: absolute;z-index: 100000000;right: 0;transition: .5s linear all;overflow: hidden;background: linear-gradient(#1EB0EB  , #35cdd4);}
+.registrar-text{height: 70px;color: white;font-size: 35px;}
+.input-re{background: transparent;color: white;border-radius: 5px;border: 1px solid white;margin-bottom: 5px;padding-left: 10px}
+.input-re::-webkit-input-placeholder{color: white}
+.input-re:focus::-webkit-input-placeholder{color: transparent;}
+#boton-sing{background: white;color: #39BEC7;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b}
+.text-sing{color: white;font-family: open-b;font-size: 11px}
+#boton-facebook{background: #3B5999;color: white;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b}
+.text-sing-2{color: white;font-family: open-b;font-size: 10px;margin-bottom: 30px}
+
+/*login*/
+
 /*menu*/
 #header{background: white;height: auto!important;}
 .menu-busc{height: 74px;}
@@ -489,7 +503,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .cont-footer-en{height: 80px}
 .redes-footer{height: 40px}
 /*.cont-footer-en.borde{border-right: #19B7DA 1px solid}*/
-.enlace-footer{color: white;font-size: 11px;cursor: pointer;margin-left: 20px;}
+.enlace-footer{color: white;font-size: 11px;margin-left: 20px;}
 .enlace-footer.hover:hover{color: #1fc1c7}
 .redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 2px;color: #1EB0EB;margin-right: 10px}
 .icon-footer{margin-left: 4px}
@@ -637,6 +651,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 
 @media (max-width: 400px){
+
+#login-cont{width: 100%;max-width: 100%}
 
 .imagen-reservacion{width: 110px;height: 110px;}
 
