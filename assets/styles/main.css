@@ -101,11 +101,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .input-re{background: transparent;color: white;border-radius: 5px;border: 1px solid white;margin-bottom: 5px;padding-left: 10px}
 .input-re::-webkit-input-placeholder{color: white}
 .input-re:focus::-webkit-input-placeholder{color: transparent;}
-#boton-sing{background: white;color: #39BEC7;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b}
+#boton-sing{background: white;color: #39BEC7;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b;border: none}
+#boton-sing:hover{color: #19A4EF}
 .text-sing{color: white;font-family: open-b;font-size: 11px}
 #boton-facebook{background: #3B5999;color: white;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b}
 .text-sing-2{color: white;font-family: open-b;font-size: 10px;margin-bottom: 30px}
-
+.text-sing-2.forgot{padding-right: 15px}
+.text-sing-2.create{padding-left: 5px}
 /*login*/
 
 /*menu*/

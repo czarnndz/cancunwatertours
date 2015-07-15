@@ -16,10 +16,11 @@ $(document).ready(function() {
 
 $(document).ready(function(){ 
 
+/*buscar*/
   $(".input-header").click(function(event){
     console.log("entre");
     if ($("#buscar-header").hasClass('desactivar')) {
-      console.log("buscar abierta");
+      //console.log("buscar abierta");
       $("#buscar-header").removeClass("desactivar");   
       $("#buscar-header").addClass("activar");
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
@@ -30,8 +31,9 @@ $(document).ready(function(){
       $("#buscar-header").removeClass("activar");
     }
   });
+/*buscar*/
 
-
+/*buscar avanzada*/
   $(".text-header").click(function(event){
     if ($("#buscar-avanzado-header").hasClass('desactivar')) {
       //console.log("avanzada abierta")
@@ -46,7 +48,9 @@ $(document).ready(function(){
       $("#buscar-avanzado-header").removeClass("activar");
     }
   });
+  /*buscar avanzada*/
 
+/*registro*/
     $(".registro").click(function(event){
       //alert("login");
     if ($("#registrar-cont").hasClass('desactivar')) {
@@ -60,7 +64,9 @@ $(document).ready(function(){
       $("#registrar-cont").removeClass("activar");
     }
   });
+/*registro*/
 
+/*login*/
   $(".login").click(function(event){
       //alert("login");
     if ($("#login-cont").hasClass('desactivar')) {
@@ -75,6 +81,7 @@ $(document).ready(function(){
       $("#login-cont").removeClass("activar");
     }
   });
+/*login*/
 
   $("#cont-global").click(function(event){
     //console.log("global")
@@ -91,7 +98,7 @@ $(document).ready(function(){
     }
   });
 
-
+/*avanzada movil*/
   $("#text-ava-movil").click(function(event){
     //console.log("text ava")
     if ($("#b-avanzada").hasClass('buscar-movil-ap')) {
@@ -103,7 +110,9 @@ $(document).ready(function(){
       $("#b-avanzada").removeClass("buscar-movil-en");
     }
   });
+/*avanzada movil*/
 
+/*menu movil*/
   $("#menu").click(function(event){
     console.log("menu");
     if ($("#cont-menu").hasClass('desactivar')) {
@@ -123,8 +132,9 @@ $(document).ready(function(){
       $("#cont-menu").removeClass("activar");
     }
   });  
+/*menu movil*/
 
-
+/*pago*/
    $(".tu-reservacion").click(function(event){
     $("#tu-reservacion").addClass("activar");
     $("#tu-reservacion").removeClass("ng-hide");
@@ -136,9 +146,9 @@ $(document).ready(function(){
         $("#pago-reservacion").addClass("ng-hide");
     }
    });
+/*pago*/
 
-
-
+/*datos viajero*/
    $(".datos-v").click(function(event){
     $("#datos-viajero").addClass("activar");
     $(".datos-v").addClass("fuente-r");
@@ -151,12 +161,14 @@ $(document).ready(function(){
         $("#pago-reservacion").addClass("ng-hide");
     }
    });
+/*datos viajero*/
 
-
-
+/*pago del tour*/
    $(".pago-r").click(function(event){
     $("#pago-reservacion").addClass("activar");
     $(".pago-r").addClass("fuente-r");
+     $("#boton-reserva").removeClass("activar");
+     $("#boton-reserva").addClass("ng-hide");
     $("#pago-reservacion").removeClass("ng-hide");
       if($('#tu-reservacion').hasClass('activar') || $('#datos-viajero').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
@@ -165,9 +177,9 @@ $(document).ready(function(){
         $("#datos-viajero").addClass("ng-hide");
     }
    });
+/*pago del tour*/
 
-
-
+/*boton reserva*/
   $("#boton-reserva").click(function(event){
       if($('#tu-reservacion').hasClass('activar') ){
         $("#tu-reservacion").removeClass("activar");
@@ -188,17 +200,30 @@ $(document).ready(function(){
     }else{
       if($('#pago-reservacion').hasClass('activar') ){
         $(".pago-r").addClass("fuente-r");
+        $("#boton-reserva").removeClass("activar");
+        $("#boton-reserva").addClass("ng-hide");
 
       }
     }
     }
    });
+/*boton reserva */
+  var div_reserva = parseInt($('#pago-reservacion').css('height').replace('px',''));
+
+  $( document ).ready(function() {
+    var div_reserva = parseInt($('#pago-reservacion').css('height').replace('px',''));
+    //alert(div_reserva);
+    if (div_reserva = 0){
+      alert(div_reserva);
+      $("#boton-reserva").removeClass("ng-hide");
+      $("#boton-reserva").addClass("activar");
+    };
+    //alert(div_reserva);
+  });
 
    $("#boton-pagar").click(function(event){
      $(".pago-r").addClass("fuente-r");
    });
-
-
 
   $("#ap-precio").click(function(event){ 
       $(".ap-precio").toggleClass("ap-color");
