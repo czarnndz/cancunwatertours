@@ -208,10 +208,9 @@ $(document).ready(function(){
     }
    });
 /*boton reserva */
-  var div_reserva = parseInt($('#pago-reservacion').css('height').replace('px',''));
 
   $( document ).ready(function() {
-    var div_reserva = parseInt($('#pago-reservacion').css('height').replace('px',''));
+    var div_reserva = $('#pago-reservacion').css('height')
     //alert(div_reserva);
     if (div_reserva = 0){
       alert(div_reserva);
