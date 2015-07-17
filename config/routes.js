@@ -47,6 +47,10 @@ module.exports.routes = {
   '/reserva': {
     view: 'reserva/index'
   },
+  '/cuenta': {
+    view: 'cuenta/index'
+  },
+
 
   /***************************************************************************
   *                                                                          *

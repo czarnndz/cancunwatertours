@@ -53,7 +53,7 @@
 			</div>
 		</div>
 		<div id="reservar-mapa" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="start start" layout-wrap >
-			<div id="reservar" flex="100" layout="column" layout-align="start center">
+			<form method="post" id="reservar" flex="100" layout="column" layout-align="start center">
 				<div id="reservar-titulo">RESERVA EL TOUR</div>
 				<div class="fecha-detalle" layout="row" layout-align="start center" ng-click="fechaVisiblity = !fechaVisiblity" >
 					<i class="icon-calendario icono-calendario"></i>
@@ -105,11 +105,11 @@
 					<div class="precio-adulto" flex="100" layout="row" layout-align="end center"  >
 						<div class="precio-total-tour">$4,250</div> 
 					</div>
-					<a href="/reserva" id="boton-detalle" layout="row" layout-align="center center">
-						<div class="boton-detalle" layout="row" layout-align="center center" >AÑADIR A MI CARRITO</div>
-					</a>
+					
+						<input type="button" class="boton-detalle" value="AÑADIR A MI CARRITO" >
+				
 				</div>
-			</div>
+			</form>
 			<div id="mapa" class="alto-mapa" flex="100">
 				<iframe class="mapa"  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14882.706519277925!2d-86.81700335!3d21.1652635!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1429728579438" width="600" height="450" frameborder="0" style="border:0"></iframe>
 			</div>

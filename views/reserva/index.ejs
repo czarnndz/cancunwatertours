@@ -1,4 +1,4 @@
-<div id="reserva" flex layout="row" layout-align="center start" layout-align-md="center center" layout-align-sm="center center" layout-wrap >
+<form method="post" id="reserva" flex layout="row" layout-align="center start" layout-align-md="center center" layout-align-sm="center center" layout-wrap >
 	<div id="cont-reservacion" flex="60" flex-md="90" flex-sm="100" layout="row" layout-align="end start" layout-align-md="center center" layout-align-sm="center center" layout-wrap >
 		<div id="header-reservacion" flex="100" layout="row" layout-align="center center" >
 			<div class="listado-reserva tu-reservacion fuente-r" flex="33" layout="row" layout-align="center center" layout-sm="column" >
@@ -262,9 +262,9 @@
 					<div class="total-pagar" flex="100" layout="row" layout-align="center center" >Total a Pagar</div>
 					<div class="precio-total" flex="100" layout="row" layout-align="center center" >MXM <strong>$ 20,793.00</strong></div>
 					<div class="importe-pago" flex="100" layout="row" layout-align="center center">El importe incluye todos los impuestos</div>
-					<a href=""layout="row" layout-align="center center">
-						<div id="boton-pagar" layout="row" layout-align="center center" >PAGAR RESERVA</div>
-					</a>
+					
+						<input type="button" id="boton-pagar" value="PAGAR RESERVA">
+					
 				</div>
 			</div>
 		</div>
@@ -291,4 +291,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</form>

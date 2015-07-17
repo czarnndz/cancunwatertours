@@ -108,7 +108,25 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .text-sing-2{color: white;font-family: open-b;font-size: 10px;margin-bottom: 30px}
 .text-sing-2.forgot{padding-right: 15px}
 .text-sing-2.create{padding-left: 5px}
+
 /*login*/
+
+/*mi cuenta*/
+
+#cont-cuenta{margin-top: 50px;margin-bottom: 50px}
+#mi-cuenta{background: linear-gradient( #35cdd4, #1EB0EB );height: auto;}
+.datos-text{color: white;font-size: 25px;margin-top: 20px;margin-bottom: 10px}
+.cont-form-cuenta{margin-top: 10px;}
+.cont-input-cuenta{height: 50px;margin-right: 20px;}
+.text-cuenta{color: white}
+.input-cuenta{background: transparent;color: white;padding-left: 5px;border-radius: 5px;border: 1px solid white;}
+.input-cuenta::-webkit-input-placeholder{color: white}
+.input-cuenta:focus::-webkit-input-placeholder{color: transparent;}
+#boton-cuenta-1{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-family: open-b}
+.cont-input-cuenta.contra{height: auto;}
+#boton-cuenta-2{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-family: open-b;}
+#contrasena{margin-bottom: 30px}
+/*mi cuenta*/
 
 /*menu*/
 #header{background: white;height: auto!important;}
@@ -355,7 +373,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .contador.total{margin-top: 10px}
 .precio-total-tour{font-size: 35px;}
 #boton-detalle{margin-top: 10px}
-.boton-detalle{width: 200px;background: white;color: #00C1C8;height: 30px;border-radius: 5px;font-family: open-b}
+.boton-detalle{width: 200px;background: white;color: #00C1C8;height: 30px;border-radius: 5px;font-family: open-b;border: 0px}
 
 #mapa{}
 .mapa{height: 100%;width: 100%}
@@ -485,7 +503,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .precio-total{font-size: 20px;color: #13A6ED;font-family: open-b}
 .precio-total strong{font-size: 30px;margin-left: 5px;}
 .importe-pago{color: #8A8A8A;font-size: 15px;text-align: center;}
-#boton-pagar{width: 180px;height: 40px;color: white;font-family: open-b;background: #00C1CA;border-radius: 10px;margin-top: 10px}
+#boton-pagar{width: 180px;height: 40px;color: white;font-family: open-b;background: #00C1CA;border-radius: 10px;margin-top: 10px;border: 0px;text-align: center;}
 
 .head-detalle{height: 60px;background: #19A4EF;color: white;font-size: 22px}
 
@@ -566,6 +584,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 	
 	.cont-footer-en{height: 100px}
 	.cont-footer-en.contacto{margin-top: 10px;margin-bottom: 10px;}
+
+	.cont-input-cuenta{margin-right: 0px;margin-bottom: 10px}
+	.cont-input-cuenta{height: auto;}
 }
 
 @media (max-width: 800px){
@@ -651,6 +672,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 .icono-horario, .icono-horario{font-size: 20px}
 .duracion, .text-horario{font-size: 10px;margin-left: 10px}
+
+
 }
 
 @media (max-width: 400px){
