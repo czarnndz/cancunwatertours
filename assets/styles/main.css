@@ -115,7 +115,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 #cont-cuenta{margin-top: 50px;margin-bottom: 50px}
 #mi-cuenta{background: linear-gradient( #35cdd4, #1EB0EB );height: auto;}
-.datos-text{color: white;font-size: 25px;margin-top: 20px;margin-bottom: 10px}
+.datos-text{color: white;font-size: 25px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
+.datos-text-2{color: white;font-size: 20px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
 .cont-form-cuenta{margin-top: 10px;}
 .cont-input-cuenta{height: 50px;margin-right: 20px;}
 .text-cuenta{color: white}
