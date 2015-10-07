@@ -1,151 +1,185 @@
-<div id="home" flex layout="row" layout-wrap >
-<div id="agregar-transporte" layout="row"  ng-show="agregarVisibility">
+<div id="home" ng-controller="Home">
+<div id="agregar-transporte" flex layout="row"  ng-show="agregarVisibility">
   <div class="agregar-transporte ng-cloak" layout="row" layout-align="center start" layout-wrap >
        <i class="icon-transporte icon-agregar"></i>
        <div class="text-transportacion" >Agregar transportación al Tour</div>
        <div class="hotel-agregar" flex="80" layout="row" layout-align="start center" > <i class="icon-pin pin-agregar"></i>Hotel </div>
-       	<md-select placeholder="agregar" class="select-agregar" ng-model="someVal">
-				<md-option value="1" class="ng-cloak" > Hotel Oasis</md-option>
-				<md-option value="2" class="ng-cloak" > Hotel Ryu</md-option>
-				<md-option value="3" class="ng-cloak" > Hotel Calinda</md-option>
+       	<md-select placeholder="agregar" class="select-agregar" ng-model="hotel">
+				<md-option value="{{hotel.id}}" class="ng-cloak" ng-repeat="hotel in hotels">{{hotel.name}}</md-option>
 		</md-select>
 		<div class="botones-agregar" flex="60" layout="row" layout-align="space-around center" >
-			<a href="/reserva"  layout="row" layout-align="center center" class="boton-agregar">
-				<div layout="row" layout-align="center center" class="boton-agregar">agregar</div>
+			<a href="/reserva?hotel={{hotel.id}}&tour={{selectedTour.id}}" layout="row" layout-align="center center" class="boton-agregar">
+				<button layout="row" layout-align="center center" class="boton-agregar" disabled="{{hotel == null}}">agregar</button>
 			</a>
-			<a href="/reserva"  layout="row" layout-align="center center" class="boton-no">
+			<a href="/reserva?tour={{selectedTour.id}}"  layout="row" layout-align="center center" class="boton-no">
 				<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
 			</a>
 		</div>
   </div>
 </div>
-	<div class="home" flex="100" layout="row" layout-wrap>
-		<div class="imagenes-home uno imagen-chica" flex="30" flex-sm="50" flex-md="50"  layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home dos imagen-chica" flex="20" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home tres imagen-chica" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home cuatro imagen-chica" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home cinco imagen-grande" flex="50" layout="row" flex-sm="100" flex-md="100" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version Lorem ipsum</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home seis imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home siete imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home ocho imagen-chica" flex="30" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home nueve imagen-chica" flex="20" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home diez imagen-chica" flex="25" flex-sm="50" flex-md="100" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home once imagen-chica" flex="25" flex-sm="50" flex-md="100" layout="row" layout="start center" >
-			<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >
-				<i class="icon-estrella icono-tour-home"></i>
-				<div class="titulo-tour">Tour</div>
-				<div class="tour-desde">desde</div>
-				<div class="precio-tour">$4,500</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home doce imagen-grande" flex="50" layout="row" flex-sm="100" flex-md="100" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version Lorem ipsum</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home trece imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-		<div class="imagenes-home catorce imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >
-			<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >
-				<i class="icon-aventura icono-aventura-home"></i>
-				<div class="text-aventura">This is photoshop's version</div>
-				<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>
-				<div class="precio-aventura">$4,250</div>
-				<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>
-			</div>
-		</div>
-	</div>
+<!--<md-content class="md-default-theme" layout-padding="">-->
+    <!--<md-grid-list md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="8px" md-gutter-gt-sm="6px" md-gutter="4px">-->
+        <!--<md-grid-tile ng-repeat="tile in colorTiles" ng-style="{-->
+    <!--'background': tile.color-->
+  <!--}" md-colspan-gt-sm="{{tile.colspan}}" md-rowspan-gt-sm="{{tile.rowspan}}">-->
+        <!--</md-grid-tile>-->
+    <!--</md-grid-list>-->
+<!--</md-content>-->
+    <div>
+        <md-grid-list md-cols-gt-md="6" md-cols-sm="1" md-cols-md="4" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="5px" md-gutter-gt-sm="2px" md-gutter="1px">
+            <md-grid-tile
+                    ng-repeat="tour in tours"
+                    ng-style="{
+                        'background-image': 'url({{tour.icon}})',
+                        'background-repeat':'no-repeat',
+                        'background-position':'center',
+                        'background-size': 'cover'
+                    }"
+                    md-colspan-gt-sm="{{tour.colspan}}"
+                    md-rowspan-gt-sm="{{tour.rowspan}}"
+                    class="imagenes-home"
+                    layout-align-gt-sm="center center">
+                    <md-grid-tile-footer class="hover-imagen-1" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
+                            <div class="titulo-tour"><a href="/detalle/{{tour.id}}">{{tour.name}}</div>
+                            <div class="tour-desde">desde</div>
+                            <div class="precio-tour">{{tour.fee | currency}} </div>
+                            <div><a ng-click="selectTour(tour)" class="reservar-tour">RESERVAR</a></div>
+                    </md-grid-tile-footer>
+            </md-grid-tile>
+            <!--<div class="imagenes-home uno imagen-chica" flex="30" flex-sm="50" flex-md="50"  layout="row" layout="start center" >-->
+                <!---->
+            <!--</div>-->
+
+        </md-grid-list>
+    </div>
+
+	<!--<div class="home" flex="100" layout="row" layout-wrap>-->
+		<!--<div class="imagenes-home uno imagen-chica" flex="30" flex-sm="50" flex-md="50"  layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home dos imagen-chica" flex="20" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home tres imagen-chica" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home cuatro imagen-chica" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home cinco imagen-grande" flex="50" flex-sm="100" flex-md="100" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version Lorem ipsum</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home seis imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home siete imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home ocho imagen-chica" flex="30" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home nueve imagen-chica" flex="20" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home diez imagen-chica" flex="25" flex-sm="50" flex-md="100" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home once imagen-chica" flex="25" flex-sm="50" flex-md="100" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-1" flex="45" flex-sm="100" flex-md="55" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-estrella icono-tour-home"></i>-->
+				<!--<div class="titulo-tour">Tour</div>-->
+				<!--<div class="tour-desde">desde</div>-->
+				<!--<div class="precio-tour">$4,500</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home doce imagen-grande" flex="50" flex-sm="100" flex-md="100" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version Lorem ipsum</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home trece imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="imagenes-home catorce imagen-grande" flex="25" flex-sm="50" flex-md="50" layout="row" layout="start center" >-->
+			<!--<div class="hover-imagen-2" flex="100" layout="column" layout-align="center center" >-->
+				<!--<i class="icon-aventura icono-aventura-home"></i>-->
+				<!--<div class="text-aventura">This is photoshop's version</div>-->
+				<!--<div class="text-aventura-2">proin gravida nibh vei vel auctor  aliquet</div>-->
+				<!--<div class="precio-aventura">$4,250</div>-->
+				<!--<a href=""><div ng-click="agregarVisibility = !agregarVisibility" class="reservar-tour" layout="row" layout-align="center center" >RESERVAR</div></a>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
 	<!--<div id="traslado" flex="100" layout="row" layout-align="center center" ></div>-->
 </div>

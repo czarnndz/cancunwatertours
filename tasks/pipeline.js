@@ -39,6 +39,7 @@ var jsFilesToInject = [
   'bower_components/angular-material/*.min.js',
   'bower_components/angular-bootstrap/*.min.js',
   'bower_components/livereload-js/dist/*.js',
+  'bower_components/ngCart/dist/ngCart.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

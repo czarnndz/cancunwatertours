@@ -133,92 +133,82 @@ $(document).ready(function(){
     }
   });  
 /*menu movil*/
-
-/*pago*/
-   $(".tu-reservacion").click(function(event){
-    $("#tu-reservacion").addClass("activar");
-    $("#tu-reservacion").removeClass("ng-hide");
-    $("#boton-reserva").removeClass("ng-hide");
-      if($('#datos-viajero').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
-        $("#datos-viajero").removeClass("activar");
-        $("#datos-viajero").addClass("ng-hide");
-        $("#pago-reservacion").removeClass("activar");
-        $("#pago-reservacion").addClass("ng-hide");
-    }
-   });
-/*pago*/
-
-/*datos viajero*/
-   $(".datos-v").click(function(event){
-    $("#datos-viajero").addClass("activar");
-    $(".datos-v").addClass("fuente-r");
-    $("#boton-reserva").removeClass("ng-hide");
-    $("#datos-viajero").removeClass("ng-hide");
-      if($('#tu-reservacion').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
-        $("#tu-reservacion").removeClass("activar");
-        $("#tu-reservacion").addClass("ng-hide");
-        $("#pago-reservacion").removeClass("activar");
-        $("#pago-reservacion").addClass("ng-hide");
-    }
-   });
-/*datos viajero*/
-
-/*pago del tour*/
-   $(".pago-r").click(function(event){
-    $("#pago-reservacion").addClass("activar");
-    $(".pago-r").addClass("fuente-r");
-     $("#boton-reserva").removeClass("activar");
-     $("#boton-reserva").addClass("ng-hide");
-    $("#pago-reservacion").removeClass("ng-hide");
-      if($('#tu-reservacion').hasClass('activar') || $('#datos-viajero').hasClass('activar') ){
-        $("#tu-reservacion").removeClass("activar");
-        $("#tu-reservacion").addClass("ng-hide");
-        $("#datos-viajero").removeClass("activar");
-        $("#datos-viajero").addClass("ng-hide");
-    }
-   });
-/*pago del tour*/
-
-/*boton reserva*/
-  $("#boton-reserva").click(function(event){
-      if($('#tu-reservacion').hasClass('activar') ){
-        $("#tu-reservacion").removeClass("activar");
-        $("#tu-reservacion").addClass("ng-hide");
-        $(".tu-reservacion").addClass("fuente-r");
-        $("#datos-viajero").addClass("activar");
-        $("#datos-viajero").removeClass("ng-hide");
-    }else{
-      if($('#datos-viajero').hasClass('activar') ){
-        $("#datos-viajero").removeClass("activar");
-        $("#datos-viajero").addClass("ng-hide");
-        $(".datos-v").addClass("fuente-r");
-        $(".pago-r").addClass("fuente-r");
-        $("#pago-reservacion").addClass("activar");
-        $("#pago-reservacion").removeClass("ng-hide");
-         $("#boton-reserva").removeClass("activar");
-        $("#boton-reserva").addClass("ng-hide");
-    }else{
-      if($('#pago-reservacion').hasClass('activar') ){
-        $(".pago-r").addClass("fuente-r");
-        $("#boton-reserva").removeClass("activar");
-        $("#boton-reserva").addClass("ng-hide");
-
-      }
-    }
-    }
-   });
+//
+///*pago*/
+//   $(".tu-reservacion").click(function(event){
+//    $("#tu-reservacion").addClass("activar");
+//    $("#tu-reservacion").removeClass("ng-hide");
+//    $("#boton-reserva").removeClass("ng-hide");
+//      if($('#datos-viajero').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
+//        $("#datos-viajero").removeClass("activar");
+//        $("#datos-viajero").addClass("ng-hide");
+//        $("#pago-reservacion").removeClass("activar");
+//        $("#pago-reservacion").addClass("ng-hide");
+//    }
+//   });
+///*pago*/
+//
+///*datos viajero*/
+//   $(".datos-v").click(function(event){
+//    $("#datos-viajero").addClass("activar");
+//    $(".datos-v").addClass("fuente-r");
+//    $("#boton-reserva").removeClass("ng-hide");
+//    $("#datos-viajero").removeClass("ng-hide");
+//      if($('#tu-reservacion').hasClass('activar') || $('#pago-reservacion').hasClass('activar') ){
+//        $("#tu-reservacion").removeClass("activar");
+//        $("#tu-reservacion").addClass("ng-hide");
+//        $("#pago-reservacion").removeClass("activar");
+//        $("#pago-reservacion").addClass("ng-hide");
+//    }
+//   });
+///*datos viajero*/
+//
+///*pago del tour*/
+//   $(".pago-r").click(function(event){
+//    $("#pago-reservacion").addClass("activar");
+//    $(".pago-r").addClass("fuente-r");
+//     $("#boton-reserva").removeClass("activar");
+//     $("#boton-reserva").addClass("ng-hide");
+//    $("#pago-reservacion").removeClass("ng-hide");
+//      if($('#tu-reservacion').hasClass('activar') || $('#datos-viajero').hasClass('activar') ){
+//        $("#tu-reservacion").removeClass("activar");
+//        $("#tu-reservacion").addClass("ng-hide");
+//        $("#datos-viajero").removeClass("activar");
+//        $("#datos-viajero").addClass("ng-hide");
+//    }
+//   });
+///*pago del tour*/
+//
+///*boton reserva*/
+//  $("#boton-reserva").click(function(event){
+//      if($('#tu-reservacion').hasClass('activar') ){
+//        $("#tu-reservacion").removeClass("activar");
+//        $("#tu-reservacion").addClass("ng-hide");
+//        $(".tu-reservacion").addClass("fuente-r");
+//        $("#datos-viajero").addClass("activar");
+//        $("#datos-viajero").removeClass("ng-hide");
+//    }else{
+//      if($('#datos-viajero').hasClass('activar') ){
+//        $("#datos-viajero").removeClass("activar");
+//        $("#datos-viajero").addClass("ng-hide");
+//        $(".datos-v").addClass("fuente-r");
+//        $(".pago-r").addClass("fuente-r");
+//        $("#pago-reservacion").addClass("activar");
+//        $("#pago-reservacion").removeClass("ng-hide");
+//         $("#boton-reserva").removeClass("activar");
+//        $("#boton-reserva").addClass("ng-hide");
+//    }else{
+//      if($('#pago-reservacion').hasClass('activar') ){
+//        $(".pago-r").addClass("fuente-r");
+//        $("#boton-reserva").removeClass("activar");
+//        $("#boton-reserva").addClass("ng-hide");
+//
+//      }
+//    }
+//    }
+//   });
 /*boton reserva */
 
-  $( document ).ready(function() {
-    var div_reserva = $('#pago-reservacion').css('height')
-    //alert(div_reserva);
-    if (div_reserva = 0){
-      alert(div_reserva);
-      $("#boton-reserva").removeClass("ng-hide");
-      $("#boton-reserva").addClass("activar");
-    };
-    //alert(div_reserva);
-  });
 
    $("#boton-pagar").click(function(event){
      $(".pago-r").addClass("fuente-r");
@@ -240,28 +230,12 @@ $(document).ready(function(){
       $(".ap-mas").toggleClass("ap-color");
     });
 
-  var div_alto = $('#cont-global').height(); 
+  var div_alto = $('#cont-global').height();
   $('.alto').css('height',div_alto);
 
-  $( document ).ready(function() {
-    var div_similares = $('#cont-detalle').height(); 
-      $('#similares').css('height',div_similares);
-      $('#similares').css('height',div_similares);
-      //console.log(div_similares);
-  });
-
-  $( window ).resize(function() {
-
-      var div_similares = $('#cont-detalle').height(); 
-      $('#similares').css('height',div_similares);
-      $('#similares').css('height',div_similares);
-      //console.log(div_similares);
-
-  });
-
 
   $( document ).ready(function() {
-    var div_mapa = $('.descripcion-detalle').height(); 
+    var div_mapa = $('.descripcion-detalle').height();
       $('.alto-mapa').css('height',div_mapa);
       $('.alto-mapa').css('height',div_mapa);
      // console.log(div_mapa);
@@ -269,7 +243,7 @@ $(document).ready(function(){
 
   $( window ).resize(function() {
 
-      var div_mapa = $('.descripcion-detalle').height(); 
+      var div_mapa = $('.descripcion-detalle').height();
       $('.alto-mapa').css('height',div_mapa);
       $('.alto-mapa').css('height',div_mapa);
      // console.log(div_mapa);
@@ -278,81 +252,4 @@ $(document).ready(function(){
 
 
 
-});
-
-/*$(document).ready(function(){
-   $(".input-busqueda").click(function(event){
-      if($('.menu-2').hasClass('desactivar')){
-         $(".menu-2").addClass("desactivar");   
-       }else{
-      $(".menu-2").removeClass("desactivar");
-    }
-   });
-});*/
-angular.module('water-tours').controller('DatepickerDemoCtrl', function ($scope) {
-  $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-
-  // Disable weekend selection
-  $scope.disabled = function(date, mode) {
-    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-  };
-
-  $scope.toggleMin = function() {
-    $scope.minDate = $scope.minDate ? null : new Date();
-  };
-  $scope.toggleMin();
-
-  $scope.open = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
-    $scope.opened = true;
-  };
-
-  $scope.dateOptions = {
-    formatYear: 'yy',
-    startingDay: 1
-  };
-
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0];
-
-  var tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var afterTomorrow = new Date();
-  afterTomorrow.setDate(tomorrow.getDate() + 2);
-  $scope.events =
-    [
-      {
-        date: tomorrow,
-        status: 'full'
-      },
-      {
-        date: afterTomorrow,
-        status: 'partially'
-      }
-    ];
-
-  $scope.getDayClass = function(date, mode) {
-    if (mode === 'day') {
-      var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-      for (var i=0;i<$scope.events.length;i++){
-        var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-        if (dayToCheck === currentDay) {
-          return $scope.events[i].status;
-        }
-      }
-    }
-
-    return '';
-  };
 });

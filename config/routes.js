@@ -33,23 +33,32 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'home/index'
-  },
-  '/home': {
-    view: 'home/index'
+    controller : 'home',
+    action : 'index'
   },
   '/resultados': {
-    view: 'home/resultados'
+    controller : 'home',
+    action : 'resultados'
   },
-  '/detalle': {
-    view: 'home/detalle'
+  '/detalle/:id': {
+    controller : 'tour',
+    action : 'index'
   },
   '/reserva': {
-    view: 'reserva/index'
+    controller : 'reserva',
+    action : 'index'
   },
   '/cuenta': {
     view: 'cuenta/index'
   },
+  '/tours' : {
+      controller : 'home',
+      action : 'tour_list'
+  },
+    '/hotels' : {
+        controller : 'home',
+        action : 'hotel_list'
+    }
 
 
   /***************************************************************************

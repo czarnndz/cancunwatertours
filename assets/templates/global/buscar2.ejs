@@ -1,28 +1,13 @@
-<div class="ng-cloak" layout="row" layout-align="center center" layout-wrap >
+<div class="ng-cloak" layout="row" layout-align="center center" layout-wrap ng-controller="Search">
   <div class="cont-buscar-header ng-cloak " layout="row" layout-align="center center" layout-wrap >
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar uno"></div>
-      <div class="titulo-buscar">Tour Xcaret</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar dos"></div>
-      <div class="titulo-buscar">Tour Xplor</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar tres"></div>
-      <div class="titulo-buscar">Tour Xel Ha Todo incluido</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar cuatro"></div>
-      <div class="titulo-buscar">Jungle Tour "sunrise Marina"</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar cinco"></div>
-      <div class="titulo-buscar">Jungle Tour Xenotes</div>
-    </div>
-    <div class="buscar-header" flex="100" layout="row" layout-align="start center" >
-      <div class="imagen-buscar seis"></div>
-      <div class="titulo-buscar">Tour de Esnorquel en Cozumel</div>
+    <div class="buscar-header" flex="100" layout="row" layout-align="start center" ng-repeat="tour in tours">
+      <div class="imagen-buscar" ng-style="{
+                        'background-image': 'url({{tour.avatar2}})',
+                        'background-repeat':'no-repeat',
+                        'background-position':'center',
+                        'background-size': 'cover'
+                    }"></div>
+      <div class="titulo-buscar">{{tour.name}}</div>
     </div>
   </div>
 </div>

@@ -11,6 +11,7 @@
     src: url(fonts/OpenSans-Bold.ttf) format("truetype");
 }
 
+.grey {background: #27c8cf none repeat scroll 0 0;}
 .c-uno{height: auto;  padding-top: 17px;}
 .c-dos{height: auto;}
 
@@ -26,14 +27,14 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .fuente-r{background: #00C0C8!important;color: white}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 *:focus, *:hover{outline: 0px}
-.alto{height: }
+
 .md-thumb{max-width: 27px;max-height: 27px;margin-top: 6px}
 .md-thumb:after{display: none;}
 .md-focus-thumb{display: none;}
 .md-focus-ring{display: none;}
 .md-disabled-thumb{display: none;}
 .ap-color{color: #29BEE0!important}
-.alto-mapa{height: }
+
 .centrar{text-align: center;margin-top: 15px!important}
 .cont-contenido{min-height: 100%;padding-bottom: 170px;}
 .hvr-bounce-to-right{vertical-align: middle;-webkit-transform: translateZ(0);transform: translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;position: relative;-webkit-transition-property: color;transition-property: color;-webkit-transition-duration: 0.5s;transition-duration: 0.5s;}
@@ -197,7 +198,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*busqueda avanzada*/
 .busqueda-movil{height: 40px}
-#busqueda-movil{background: radial-gradient(#35cdd4, #1EB0EB );width: 100%;min-height: ;height:;color: white;font-size: 13px}
+#busqueda-movil{background: radial-gradient(#35cdd4, #1EB0EB );width: 100%;color: white;font-size: 13px}
 .cont-avanzada{margin-top: 15px;margin-bottom: 15px;}
 #btn-avanzada{background: white;color: #BCBCBC;height: 30px;border-radius: 10px;margin-top: 20px;margin-bottom: 10px;text-align: center;border: none;font-family: open-b;font-size: 13px}
 .btn-avanzada{color: white}
@@ -265,29 +266,26 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagen-grande{height: 30%;min-height: 435px}
 /*.imagen-chica{height:157px;}
 .imagen-grande{height: 435px;}*/
-.imagenes-home.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.cuatro{background-image: url(../images/4.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.cinco{background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.siete{background-image: url(../images/7.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.ocho{background-image: url(../images/1b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.nueve{background-image: url(../images/2b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.diez{background-image: url(../images/3b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.once{background-image: url(../images/4b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.doce{background-image: url(../images/5b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.trece{background-image: url(../images/6b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
-.imagenes-home.catorce{background-image: url(../images/7b.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagenes-home:hover .hover-imagen-1{opacity: 1;visibility: visible;}
-.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}
+/*.hover-imagen-1{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}*/
+.hover-imagen-1{
+    visibility: hidden;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.18) none repeat scroll 0 0;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    left: 0px;
+    right: 0%;
+}
 .imagenes-home:hover .hover-imagen-2{opacity: 1;visibility: visible;}
 .hover-imagen-2{background: rgba(3, 3, 3, 0.7);opacity: 0; transition: .3s opacity;visibility: hidden;}
 .icono-tour-home{color: white;font-size: 15px}
 .titulo-tour{color: white;font-size: 21px}
 .tour-desde{color: white;font-size: 13px}
 .precio-tour{color: white;font-size: 20px;font-family: open-b}
-.reservar-tour{border-radius: 10px;background:#2CB8D9;width: 70px;height: 30px;font-size: 10px;color: white;margin-top: 20px;font-family: open-b}
+.reservar-tour{border-radius: 5px;background:#2CB8D9;font-size: 10px;color: white;font-family: open-b;padding: 5px;}
 .icono-aventura-home{color: #2CB8D9;font-size: 40px;margin-bottom: 2px}
 .text-aventura{color: white;font-size: 20px;font-weight: 700;margin-bottom: 2px;text-align: center;}
 .text-aventura-2{color: white;font-size: 15px;margin-bottom: 2px;text-align: center;}
@@ -310,6 +308,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .apuntador-opt{width: 10px;height: 10px;border-radius: 50%;background: #00C1C9;}
 .cont-resultados{margin-top: 10px;margin-bottom: 60px;}
 .text-opciones.tipo{margin-top: 10px}
+
 
 .imagen-resultados{height:200px;margin-bottom: 35px;position: relative;cursor: pointer;}
 .imagen-resultados.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -336,7 +335,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*detalle*/
 #detalle{position: relative;height: 100%!important}
-#cont-detalle{background: #1EA2F1}
 #detalles-tour{background: white}
 .cont-detalles-horario{color: white; font-family: open-b;margin-bottom: 5px}
 .icono-horario{font-size: 25px;margin-right: 5px}
@@ -352,7 +350,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .horario-detalle{color: white;font-size: 20px;margin-bottom: 5px}
 .text-horario{font-size: 13px;font-family: open-b;margin-top: 5px;font-weight: 700;margin-left: 5px}
 .duracion{font-size: 13px;font-weight: 700;font-family: open-b;margin-left: 5px;}
-.detalles-tour{background: #1EA2F1;height: 100px;}
+.detalles-tour{background: #1EA2F1;}
 .cont-imagen-detalle{height: 300px;position: relative;}
 .titulo-descripcion{color: #27C8CF;font-size: 25px}
 .p-descripcion{color: #7A7A7A;font-size: 13px;text-align: justify;}
@@ -362,10 +360,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .owl-page span{background: #18A5F0!important;margin-right: -.1px!important;width: 10px!important;height: 10px!important}
 .imagen-detalle{height: 100%;background-image: url(../images/5.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .owl-wrapper, .owl-item, .owl-wrapper-outer{height: 100%}
-.descripcion-detalle{height: auto;min-height: 230px}
 .cont-descripcion{margin-bottom: 10px;margin-top: 10px}
-#reservar-mapa{height: 583px;background:white;}
-#reservar{height: 400px;background: #00C1C8;}
+#reservar-mapa{background:white;}
+#reservar{background: #00C1C8;}
 #reservar-titulo{color: white;font-size: 22px;margin-top: 27px}
 .fecha-detalle{height: 25px;width: 200px;background: #27C8CF;border-radius: 5px;margin-top: 10px;margin-bottom: 10px}
 .icono-calendario{color: white;font-size: 15px;margin-left: 5px;margin-right: 10px}
@@ -384,9 +381,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 #mapa{}
 .mapa{height: 100%;width: 100%}
-#similares{background: #F5F5F5;height: auto;}
-#text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;padding-bottom: 5px;padding-top: 25px;padding-bottom: 15px;text-align: center;}
-.cont-similares{margin-bottom: 15px;margin-top: 15px;cursor: pointer;}
+#similares{background: #F5F5F5;height: 100%;}
+#text-similares{font-weight: 700;font-size: 25px;color: #06C3C9;text-transform: uppercase;text-align: center;}
+.cont-similares{margin-bottom: 15px;cursor: pointer;background-color:none !important;}
 .imagen-similares-1{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar1.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-similares-2{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar2.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-similares-3{width: 75px;height: 75px;border-radius: 50%;background-image: url(../images/toursimilar3.png);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -400,7 +397,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 
 .precio-adulto{font-size: 14px}
-#sugeridos{background: #e8e8e8 }
+#sugeridos{background-color: #e8e8e8 }
 /*detalle*/
 
 /*reserva*/
@@ -419,8 +416,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .nombre-reservacion{color: #8A8A8A;font-size: 16px;height: 100%;margin-left: 35px;font-weight: 700;text-transform: uppercase;font-family: open-b}
 #datos-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #imagen-reservacion{height: 270px;}
-.imagen-reservacion{width: 130px;height: 130px;border-radius: 50%;background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
-.datos-reservacion{height: 270px;}
+.imagen-reservacion{width: 130px;height: 130px;border-radius: 50%;background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
 .tours-reservacion{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-top: 20px;}
 .tours-reservacion-2{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-bottom: 10px}
 #fecha-tour{margin-bottom: 10px}
@@ -432,8 +428,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #ubicacion-tour{margin-bottom: 20px}
 .ubicacion-r{width: 164px!important;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;margin-left: 5px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
 .ubicacion-r.adultos{width: 50px!important}
-.icono-fecha-r.ninos{margin-left: 13px}
-#adultos-r{margin-bottom: 20px}
+.adultos-r{margin-bottom: 20px}
 .ubicacion-r.fecha{width: 177px}
 .hotel-reservacion{width: 90%;margin-top: 30px;}
 .trans-r{color: #1DB5DA;font-size: 25px;margin-right: 10px;margin-top: -10px}
@@ -570,7 +565,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 
 @media (max-width: 960px){
-	#similares{min-height: 300px!important;height: auto!important}
 	.cont-r-1{padding-bottom: 10px}
 	.nombre-reservacion{margin: 0px}
 	.input-num-tarjeta{margin: 0 auto;margin-left: 12px}
