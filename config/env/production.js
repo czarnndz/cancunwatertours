@@ -26,7 +26,7 @@ module.exports = {
      }
    },
 
-   hookTimeout: 60000
+   hookTimeout: 600000
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
