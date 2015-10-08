@@ -7,7 +7,6 @@
 
 module.exports = {
 	index : function(req,res){
-        console.log('Home');
 		res.view({
 			meta : {
 				controller : 'home.js',
@@ -20,7 +19,6 @@ module.exports = {
 		});
 	},
     resultados : function(req,res){
-        console.log('Resultados');
         res.view({
             meta : {
                 controller : 'home.js'
@@ -32,7 +30,6 @@ module.exports = {
         });
     },
     tour_list : function(req,res){
-        console.log('tour list');
         var params = req.params.all();
         var s = {};
         if( params.term && params.term != '' )
@@ -48,7 +45,6 @@ module.exports = {
         });
     },
     hotel_list : function(req,res){
-        console.log('hotel list');
         var params = req.params.all();
         var s = {};
         if( params.term && params.term != '' )

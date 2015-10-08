@@ -56,7 +56,6 @@ module.exports = {
 	},
 	getAirports : function(req,res){
 		var params = req.params.all();
-		console.log(params);
 		if(params.location){
 			Airport.find({'location' : params.location}).sort('name').exec(function(err,airports){
 				return res.json(airports);

@@ -10,7 +10,6 @@ module.exports = {
         var params = req.params.all();
         var callback = function(tour,hotel,hotels) {
             var tour = Common.formatTour(tour,'es');
-            console.log(tour);
             res.view({
                 tour : tour,
                 hotel : Common.formatHotel(hotel,'es'),
