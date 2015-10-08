@@ -55,9 +55,5 @@ process.chdir(__dirname);
 
 
   // Start server
-  //super hack - https://github.com/balderdashy/sails/issues/1945
-    if (process.env.NODE_ENV === 'production')
-        sails.lift(rc('sails', {hooks:{grunt:false}}));
-    else
-        sails.lift(rc('sails'));//esto estaba antes
+  sails.lift(rc('sails'));
 })();
