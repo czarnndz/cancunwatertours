@@ -21,15 +21,18 @@
     "bootstrap": "~3.3.4",
     "ui-bootstrap": "~0.13.0",
     "angular-bootstrap": "~0.13.0",
-      "angular-chosen-localytics": "~1.0.6",
-      "bootstrap-wizard": "~1.0.0",
-      "leaflet": "~0.7.3",
-      "angular-leaflet": "~0.7.10",
-      "underscore": "~1.7.0",
-      "moment": "~2.9.0",
-      "angular-moment": "~0.9.0",
-      "angular-typeahead": "~0.2.2",
-      "ngcart": "~1.0.0"
+    "angular-chosen-localytics": "~1.0.6",
+    "bootstrap-wizard": "~1.0.0",
+    "leaflet": "~0.7.3",
+    "angular-leaflet": "~0.7.10",
+    "underscore": "~1.7.0",
+    "moment": "~2.9.0",
+    "angular-moment": "~0.9.0",
+    "angular-typeahead": "~0.2.2",
+    "ngcart": "~1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.4.7"
+  }
 }

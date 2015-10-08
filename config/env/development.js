@@ -20,5 +20,14 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
+//  models : {
+//      connections : {
+//          mongodb: {
+//              adapter   : 'sails-mongo',
+//              url       : process.env.MONGO_URI || null
+//          }
+//      }
+//  }
+
 
 };

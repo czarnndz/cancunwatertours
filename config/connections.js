@@ -58,10 +58,7 @@ module.exports.connections = {
   ***************************************************************************/
   mongodb: {
       adapter   : 'sails-mongo',
-      url:  process.env.MONGOLAB_URI || null,
-      host      : process.env.MONGO_HOST || 'localhost',
-      port      : process.env.MONGO_PORT || 27017,
-      database  : process.env.DATABASE || null
+      url       : process.env.MONGO_URI || 'mongodb://localhost:27017/cancunwatertours'
   },
 
   /***************************************************************************
