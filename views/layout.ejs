@@ -146,8 +146,8 @@
           </div>
           <div class="slide-precio" layout="column" layout="start center" flex="40">
             <div class="rango-precios" layout="row" layout-align="space-between center" >
-              <div class="precios-a">$0</div>
-              <div class="precios-a">$12,000</div>
+              <div class="precios-a">{{minFee | currency}}</div>
+              <div class="precios-a">{{maxFee | currency}}</div>
             </div>
             <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
             <div class="rango-precios" layout="row" layout-align="space-between center" >

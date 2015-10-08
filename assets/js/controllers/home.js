@@ -73,10 +73,21 @@ app.controller('Resultados', function($scope,$http,ngCart) {
 
 app.controller('Header', function($scope,$http,ngCart) {
     $scope.tours = [];
+    $scope.maxFee = 0;
+    $scope.minFee = 10000;
 
     $http.get('/tours').success(function(response) {
         if (angular.isArray(response)) {
             $scope.tours = response;
+
+            angular.forEach($scope.tours,function(item) {
+                if (item.fee > $scope.maxFee) {
+                    $scope.maxFee = item.fee;
+                }
+                if (item.fee < $scope.minFee) {
+                    $scope.minFee = item.fee
+                }
+            });
         }
     });
 
@@ -90,6 +101,7 @@ app.controller('Header', function($scope,$http,ngCart) {
 
         }
         return tours;
-
     }
+
+
 });

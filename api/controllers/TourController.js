@@ -14,11 +14,11 @@ module.exports = {
                     console.log(e);
                     res.notFound();
                 }
-                //console.log(tour);
-                Tour.find({location:tour.location.id,id : { '!' : tour.id}}).limit(3).sort('fee desc').populate('location').exec(function(e,similar_tours){
+                console.log(tour);
+                Tour.find({location:tour.location.id,id : { '!' : params.id}}).limit(3).sort('fee desc').populate('location').exec(function(e,similar_tours){
                     //console.log(e);
                     //console.log(Common.formatTours(similar_tours,'es'));
-                    Tour.find({location:tour.location.id,id : { '!' : tour.id}}).limit(3).sort('name').populate('location').exec(function(e,suggested_tours){
+                    Tour.find({location:tour.location.id,id : { '!' : params.id}}).limit(3).sort('name').populate('location').exec(function(e,suggested_tours){
                         //console.log(e);
                         //console.log(Common.formatTours(suggested_tours,'es'));
                         res.view({
