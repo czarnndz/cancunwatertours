@@ -24,9 +24,9 @@ module.exports = {
              url       : process.env.MONGO_URI || null
          }
      }
-   }
+   },
 
-   //hookTimeout: 300000
+   hookTimeout: 60000
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *

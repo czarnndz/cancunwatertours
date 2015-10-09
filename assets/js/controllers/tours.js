@@ -2,7 +2,6 @@
 
 app.controller('tourCTL',function($scope,$http,ngCart){
     $scope.similar_tours = similar_tours;
-    $scope.suggested_tours = suggested_tours;
     $scope.tour = tour;
     $scope.tour.adults = 1;
     $scope.tour.kids = 0;
