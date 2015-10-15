@@ -1,0 +1,57 @@
+<div id="header" layout="row" flex layout-align="space-between center" layout-align-md="center center"  layout-wrap>
+    <div class="menu-busc" flex="40" flex-sm="20" flex-md="80" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
+      <div id="menu" layout="column" layout-align="center center">
+        <div hide-gt-sm class="linea-menu"></div>
+        <div hide-gt-sm class="linea-menu"></div>
+        <div hide-gt-sm class="linea-menu"></div>
+      </div>
+
+    <div layout-padding layout="column" hide-sm>
+        <form ng-submit="$event.preventDefault()">
+            <md-autocomplete
+                    md-selected-item="selectedTour"
+                    md-selected-item-change="selectedItemChange(item)"
+                    md-items="item in querySearch(searchText)"
+                    md-item-text="item.name"
+                    md-min-length="0"
+                    placeholder="Buscar"
+                    md-menu-class="autocomplete-custom-template"
+                    class="input-header" >
+                <md-item-template>
+                      <span class="item-title">
+                        <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                        <a href="/detalle/{{item.id}}"> {{item.name}} </a>
+                      </span>
+                </md-item-template>
+            </md-autocomplete>
+        </form>
+    </div>
+
+
+      <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
+      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header" >
+        <div class="abrir" >BÚSQUEDA AVANZADA</div>
+      </a>
+    </div>
+    <div class="menu-logo" flex="20" flex-sm="50" flex-md="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
+      <a href="/home" flex="100" layout="row" layout-align="center center" ><img id="logo" src="images/watertourslogo.png" alt=""></a>
+    </div>
+    <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
+      <a href="" flex-order-sm="2" ><div id="img-perfil"></div></a>
+      <a href="/cuenta" hide-sm ><div class="text-prefil">Mi cuenta</div></a>
+      <a href="" hide-sm ><div class="text-prefil registro">registro</div></a>
+      <a href="/reserva" flex-order-sm="1" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
+      <a href="/login" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
+    </div>
+    <div hide-gt-sm flex="100" class="busqueda-movil" layout="row" layout-align="center center">
+      <div flex="90" class="cont-b-movil" layout="row" layout-align="space-around center" >
+        <i  class="icon-buscador icon-header " ></i>
+        <a  href="" layout="row" layout-align="center center" class="text-header movil"  >
+          <div class="abrir" >BÚSQUEDA</div>
+        </a>
+        <a href="/cuenta" ><div class="text-prefil">Mi cuenta</div></a>
+        <a href="" ><div class="text-prefil registro">registro</div></a>
+        <a href="" > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
+      </div>
+    </div>
+</div>

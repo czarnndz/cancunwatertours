@@ -55,10 +55,14 @@ module.exports.routes = {
       controller : 'home',
       action : 'tour_list'
   },
-    '/hotels' : {
-        controller : 'home',
-        action : 'hotel_list'
-    }
+  '/hotels' : {
+      controller : 'home',
+      action : 'hotel_list'
+  },
+  '/tour_categories':{
+    controller: 'home',
+    action: 'tour_categories'
+  },
 
 
   /***************************************************************************

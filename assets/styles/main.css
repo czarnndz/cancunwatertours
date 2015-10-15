@@ -73,7 +73,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .select-posicion span{margin-left: 10px!important}
 .select-posicion span{color: white;font-size: 12px!important}
 
-.select-avanzado{width: 100%;color: white;background: black;height: 25px;border-radius: 5px;padding: 0px;margin-top: 5px}
+.select-avanzado{
+  background: black;
+  border-radius: 3px;
+  color: white;
+  margin-top: 5px;
+  width: 100%;
+}
 .select-avanzado span{color: white}
 .select-avanzado .md-select-label{margin-top: -5px!important;border: 0px!important;padding: 0px!important;width: 100%}
 .select-avanzado span{margin-left: 10px!important}
@@ -582,7 +588,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 	#footer{height: auto;}
 	.enlace-footer{margin: 0px}
-	
+
 	.cont-footer-en{height: 100px}
 	.cont-footer-en.contacto{margin-top: 10px;margin-bottom: 10px;}
 

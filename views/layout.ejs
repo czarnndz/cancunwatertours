@@ -6,29 +6,30 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <!--  
+
+    <!--
         Stylesheets and Preprocessors
         ==============================
 
         You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
         of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
         By default, stylesheets from your `assets/styles` folder are included
         here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
         are supported. In production, your styles will be minified and concatenated into
         a single file.
-        
+
         To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
         For example, here are a few things you could do:
-            
+
             + Change the order of your CSS files
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.layouts.min.css">
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -41,252 +42,114 @@
     <link rel="stylesheet" href="/styles/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="/styles/style.css">
     <!--STYLES END-->
-<div class="cont-contenido" layout="column">
-<div id="header" layout="row" flex layout-align="space-between center" layout-align-md="center center"  layout-wrap ng-controller="Header">
-    <div class="menu-busc" flex="40" flex-sm="20" flex-md="80" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
-      <div id="menu" layout="column" layout-align="center center">
-        <div hide-gt-sm class="linea-menu"></div>
-        <div hide-gt-sm class="linea-menu"></div>
-        <div hide-gt-sm class="linea-menu"></div>
-      </div>
 
-    <div layout-padding layout="column" hide-sm>
-        <form ng-submit="$event.preventDefault()">
-            <md-autocomplete
-                    md-selected-item="selectedTour"
-                    md-selected-item-change="selectedItemChange(item)"
-                    md-items="item in querySearch(searchText)"
-                    md-item-text="item.name"
-                    md-min-length="0"
-                    placeholder="Buscar"
-                    md-menu-class="autocomplete-custom-template"
-                    class="input-header" >
-                <md-item-template>
-                      <span class="item-title">
-                        <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-                        <a href="/detalle/{{item.id}}"> {{item.name}} </a>
-                      </span>
-                </md-item-template>
-            </md-autocomplete>
-        </form>
-    </div>
-
-
-      <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
-      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header" >
-        <div class="abrir" >BÚSQUEDA AVANZADA</div>
-      </a>
-    </div>
-    <div class="menu-logo" flex="20" flex-sm="50" flex-md="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
-      <a href="/home" flex="100" layout="row" layout-align="center center" ><img id="logo" src="images/watertourslogo.png" alt=""></a>
-    </div>
-    <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
-      <a href="" flex-order-sm="2" ><div id="img-perfil"></div></a>
-      <a href="/cuenta" hide-sm ><div class="text-prefil">Mi cuenta</div></a>
-      <a href="" hide-sm ><div class="text-prefil registro">registro</div></a>
-      <a href="/reserva" flex-order-sm="1" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
-      <a href="/login" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
-    </div>
-    <div hide-gt-sm flex="100" class="busqueda-movil" layout="row" layout-align="center center">
-      <div flex="90" class="cont-b-movil" layout="row" layout-align="space-around center" >
-        <i  class="icon-buscador icon-header " ></i>
-        <a  href="" layout="row" layout-align="center center" class="text-header movil"  >
-          <div class="abrir" >BÚSQUEDA</div>
-        </a>
-        <a href="/cuenta" ><div class="text-prefil">Mi cuenta</div></a>
-        <a href="" ><div class="text-prefil registro">registro</div></a>
-        <a href="" > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
-      </div>
-    </div>
-</div>
-
-<div id="registrar-cont" class="ng-cloak desactivar" layout="row" layout-align="center center" layout-wrap>
-  <div class="registrar-text" layout="row" layout-align="center center" flex="100">Register</div>
-  <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" flex="80" type="text" placeholder="Name" class="input-re">
-      <input type="email" flex="80" type="text" placeholder="Email" class="input-re">
-      <input type="passwrod" flex="80" type="text" placeholder="Password" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Re-type Password" class="input-re">
-      <input type="button" value="SING UP" id="boton-sing" flex="80">
-  </form>
-  <div class="text-sing" layout="row" layout-align="center center" flex="80">OR REGISTER WITH A SOCIAL ACCOUNT</div>
-  <a href="" layout="row" flex="80"><div id="boton-facebook" layout="row" layout-align="center center" flex="100">FACEBOOK</div></a>
-  <div class="text-sing-2" layout="row" layout-align="center center" flex="80">Already have an account? Sign In</div>
-</div>
-
-<div id="login-cont" class="ng-cloak desactivar" layout="row" layout-align="center center" layout-wrap>
-  <div class="registrar-text" layout="row" layout-align="center center" flex="100">Login</div>
-  <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" flex="80" type="text" placeholder="Username" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Password" class="input-re">
-      <input type="button" value="SING UP" id="boton-sing" flex="80">
-  </form>
-  <div class="text-sing" layout="row" layout-align="center center" flex="80">OR SING IN WITH</div>
-  <a href="" layout="row" flex="80"><div id="boton-facebook" layout="row" layout-align="center center" flex="100">FACEBOOK</div></a>
-  <a href="" layout="row" flex="50"><div class="text-sing-2 forgot" layout="row" layout-align="center center" flex="100">I forgot password</div></a>
-  <a href="" layout="row" flex="50"><div class="text-sing-2 create" layout="row" layout-align="center center" flex="100">Create new account</div></a>
-</div>
-
-<div id="buscar-avanzado-header" class="ng-cloak desactivar" >
-  <div layout="row" layout-align="center center" layout-wrap>
-    <div  id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
-      
-      <input id="btn-avanzada" placeholder="Buscar" flex="60"><i class="icon-flecha icono-bt-avanzada"></i>
-
-      <div id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
-
-    </div>
-    <div id="b-avanzada" class="buscar-avanzado-header buscar-movil-ap" layout="row" layout-align="center center" layout-wrap>
-        <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
-          <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="50" >
-            <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
-              <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
-            </div>
-            <div class="text-buscar-a">Buscar por precio</div>
-          </div>
-          <div class="slide-precio" layout="column" layout="start center" flex="40">
-            <div class="rango-precios" layout="row" layout-align="space-between center" >
-              <div class="precios-a">{{minFee | currency}}</div>
-              <div class="precios-a">{{maxFee | currency}}</div>
-            </div>
-            <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
-            <div class="rango-precios" layout="row" layout-align="space-between center" >
-              <div class="precios-b">-</div>
-              <div class="precios-b">+</div>
-            </div>
-          </div>
-        </div>
-        <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-              <md-select class="select-avanzado" ng-model="someVal" placeholder="Tipo">
-                    <md-option value="1">Hotel</md-option>
-                    <md-option value="2">Tour</md-option>
-                    <md-option value="3">Aventura</md-option>
-              </md-select>
-        </div>
-        <div hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-              <md-select class="select-avanzado" ng-model="someVal" placeholder="Categoria">
-                    <md-option value="1">Hotel</md-option>
-                    <md-option value="2">Tour</md-option>
-                    <md-option value="3">Aventura</md-option>
-              </md-select>
-        </div>
-        <div flex="95" layout="row" layout-align="space-around center" class="cont-avanzada">
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-adultos icon-buscar dos "></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
-              <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
-            </div>
-            <div class="text-adultos">Adultos</div>
-          </div>
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-familiar icon-buscar"></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
-              <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
-            </div>
-            <div class="text-adultos">familiar</div>
-          </div>
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-ninos icon-buscar dos "></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
-               <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
-            </div>
-            <div class="text-adultos">niños</div>
-          </div>
-        </div>
-        <a href="" flex="100" layout="row" layout-align="center center">
-            <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
-        </a>
-      </div>
-  </div>
-</div>
-
-<!--<div id="buscar-header" class="ng-cloak desactivar" ng-include="'/templates/global/buscar2.ejs'"></div>-->
-
-<% if (meta && meta.addMenu) { %>
-<div id="cont-menu" flex layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak desactivar" hide-gt-sm>
-  <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
-        <i class="icon-aventura icon-desplegable"></i> 
-        <div class="text-menu">AVENTURA</div>
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu viajes ">
-         <i class="icon-viajes icon-desplegable viajes"></i>
-         <div class="text-menu viajes">VIAJES</div> 
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu "> 
-        <i class="icon-buceo icon-desplegable"></i> 
-        <div class="text-menu">BUCEO</div> 
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu "> 
-        <i class="icon-snorkel icon-desplegable"></i> 
-        <div class="text-menu">SNORKEL</div> 
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
-       <i class="icon-pesca icon-desplegable"></i> 
-       <div class="text-menu viajes">PESCA</div>
-      </div>
-    </a>    
-  </div>
-  <div id="cerrar-movil" flex="30" layout="row" layout-align="end start" >
-    <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
-  </div>
- </div>
-<% } %>
 </head>
 
-  <body>
-  <div id="cont-global" <% if (!meta.removeFlexLayout) { %> layout-gt-sm="row" layout-sm="column" <% } %> >
-  <% if (meta && meta.addMenu) { %>
-  <div id="cont-menu-1" layout="row" flex="10" layout-align="start start" layout-wrap hide-sm>
-    <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu hvr-bounce-to-right">
-        <i class="icon-aventura icon-desplegable"></i> 
-        <div class="text-menu">AVENTURA</div>
+<body>
+
+  <div class="cont-contenido" layout="column">
+
+    <div ng-controller="Header">
+      <%- partial('partials/header') -%>
+      <%- partial('partials/register') -%>
+      <%- partial('partials/login') -%>
+      <%- partial('partials/search') -%>
+    </div>
+
+    <!--<div id="buscar-header" class="ng-cloak desactivar" ng-include="'/templates/global/buscar2.ejs'"></div>-->
+
+    <% if (meta && meta.addMenu) { %>
+      <div id="cont-menu" flex layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak desactivar" hide-gt-sm>
+
+        <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
+          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
+              <i class="icon-aventura icon-desplegable"></i>
+              <div class="text-menu">AVENTURA</div>
+            </div>
+          </a>
+          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu viajes ">
+               <i class="icon-viajes icon-desplegable viajes"></i>
+               <div class="text-menu viajes">VIAJES</div>
+            </div>
+          </a>
+          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
+              <i class="icon-buceo icon-desplegable"></i>
+              <div class="text-menu">BUCEO</div>
+            </div>
+          </a>
+          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
+              <i class="icon-snorkel icon-desplegable"></i>
+              <div class="text-menu">SNORKEL</div>
+            </div>
+          </a>
+          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
+             <i class="icon-pesca icon-desplegable"></i>
+             <div class="text-menu viajes">PESCA</div>
+            </div>
+          </a>
+        </div>
+
+        <div id="cerrar-movil" flex="30" layout="row" layout-align="end start" >
+          <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
+        </div>
+
       </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" class=" ">
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu viajes hvr-bounce-to-right">
-         <i class="icon-viajes icon-desplegable viajes"></i>
-         <div class="text-menu viajes">VIAJES</div> 
+    <% } %>
+
+
+    <div id="cont-global" <% if (!meta.removeFlexLayout) { %> layout-gt-sm="row" layout-sm="column" <% } %> >
+      <% if (meta && meta.addMenu) { %>
+        <div id="cont-menu-1" layout="row" flex="10" layout-align="start start" layout-wrap hide-sm>
+          <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
+
+            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+              <div flex="100" layout="column" layout-align="center center" class="enlace-menu hvr-bounce-to-right">
+                <i class="icon-aventura icon-desplegable"></i>
+                <div class="text-menu">AVENTURA</div>
+              </div>
+            </a>
+            <a href="/resultados" flex="100" layout="row" layout-align="center center" class=" ">
+              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu viajes hvr-bounce-to-right">
+                 <i class="icon-viajes icon-desplegable viajes"></i>
+                 <div class="text-menu viajes">VIAJES</div>
+              </div>
+            </a>
+            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
+                <i class="icon-buceo icon-desplegable"></i>
+                <div class="text-menu">BUCEO</div>
+              </div>
+            </a>
+            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
+                <i class="icon-snorkel icon-desplegable"></i>
+                <div class="text-menu">SNORKEL</div>
+              </div>
+            </a>
+            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
+              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
+               <i class="icon-pesca icon-desplegable"></i>
+               <div class="text-menu viajes">PESCA</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      <% } %>
+
+      <div <% if (meta && meta.addMenu) { %> layout="column" flex="90" <% } %>>
+          <%- body %>
       </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right"> 
-        <i class="icon-buceo icon-desplegable"></i> 
-        <div class="text-menu">BUCEO</div> 
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right"> 
-        <i class="icon-snorkel icon-desplegable"></i> 
-        <div class="text-menu">SNORKEL</div> 
-      </div>
-    </a>
-    <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
-       <i class="icon-pesca icon-desplegable"></i> 
-       <div class="text-menu viajes">PESCA</div>
-      </div>
-    </a>    
+
+    </div>
   </div>
-  </div>
-  <% } %>
-  <div <% if (meta && meta.addMenu) { %> layout="column" flex="90" <% } %>>
-      <%- body %>
-  </div>
-  </div>
-</div>
-<div id="cont-footer" ng-include="'/templates/global/footer.ejs'" layout='row'></div>
+
+  <div id="cont-footer" ng-include="'/templates/global/footer.ejs'" layout='row'></div>
 
 
 
@@ -301,7 +164,7 @@
         By default, your Gruntfile is configured to automatically load and precompile
         client-side JST templates in your `assets/templates` folder, then
         include them here automatically (between TEMPLATES and TEMPLATES END).
-        
+
         To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
         For example, here are a few things you could do:
 
@@ -312,7 +175,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
@@ -322,17 +185,17 @@
       ========================
 
       You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
       take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
       By default, files in your `assets/js` folder are included here
       automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
       CoffeeScript (.coffee) are supported. In production, your scripts will be minified
       and concatenated into a single file.
-      
+
       To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
       For example, here are a few things you could do:
-          
+
           + Change the order of your scripts
           + Import scripts from other directories
           + Use a different preprocessor, like TypeScript
@@ -349,17 +212,16 @@
     <script src="/bower_components/angular-material/angular-material.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="/bower_components/ngCart/dist/ngCart.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/controllers/cuenta.js"></script>
     <script src="/js/controllers/home.js"></script>
     <script src="/js/controllers/reserva.js"></script>
     <script src="/js/controllers/tours.js"></script>
     <script src="/js/controllers/transfer.js"></script>
-    <script src="/js/directives/cartList.js"></script>
     <script src="/js/funciones.js"></script>
     <script src="/js/modernizr.custom.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/services/toursService.js"></script>
     <script src="/js/toucheffects.js"></script>
     <!--SCRIPTS END-->
   </body>

@@ -1,0 +1,68 @@
+<div id="buscar-avanzado-header" class="ng-cloak desactivar" >
+  <div layout="row" layout-align="center center" layout-wrap>
+    <div  id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
+
+      <input id="btn-avanzada" placeholder="Buscar" flex="60"><i class="icon-flecha icono-bt-avanzada"></i>
+
+      <div id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
+
+    </div>
+    <div id="b-avanzada" class="buscar-avanzado-header buscar-movil-ap" layout="row" layout-align="center center" layout-wrap>
+        <div flex="90" layout="row" layout-align="space-between center" class="cont-avanzada">
+          <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="50" >
+            <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
+              <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
+            </div>
+            <div class="text-buscar-a">Buscar por precio</div>
+          </div>
+          <div class="slide-precio" layout="column" layout="start center" flex="40">
+            <div class="rango-precios" layout="row" layout-align="space-between center" >
+              <div class="precios-a">{{minFee | currency}}</div>
+              <div class="precios-a">{{maxFee | currency}}</div>
+            </div>
+            <md-slider class="slider-precios" ng-model="myValue" min="5" max="500"></md-slider>
+            <div class="rango-precios" layout="row" layout-align="space-between center" >
+              <div class="precios-b">-</div>
+              <div class="precios-b">+</div>
+            </div>
+          </div>
+        </div>
+        <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+              <md-select class="select-avanzado" ng-model="someVal" placeholder="Tipo">
+                    <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
+              </md-select>
+        </div>
+        <div hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
+              <md-select class="select-avanzado" ng-model="someVal" placeholder="Categoria">
+                    <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
+              </md-select>
+        </div>
+        <div flex="95" layout="row" layout-align="space-around center" class="cont-avanzada">
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-adultos icon-buscar dos "></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
+              <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
+            </div>
+            <div class="text-adultos">Adultos</div>
+          </div>
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-familiar icon-buscar"></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
+              <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
+            </div>
+            <div class="text-adultos">familiar</div>
+          </div>
+          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
+            <i class="icon-ninos icon-buscar dos "></i>
+            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
+               <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
+            </div>
+            <div class="text-adultos">niños</div>
+          </div>
+        </div>
+        <a href="" flex="100" layout="row" layout-align="center center">
+            <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
+        </a>
+      </div>
+  </div>
+</div>

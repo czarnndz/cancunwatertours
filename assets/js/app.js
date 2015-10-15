@@ -1,2 +1,2 @@
-var app = angular.module('watertours',['ui.bootstrap','ngMaterial','ngCart']);
+var app = angular.module('watertours',['ui.bootstrap','ngMaterial']);
 
