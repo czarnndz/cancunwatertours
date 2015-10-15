@@ -21,7 +21,8 @@ module.exports = {
     resultados : function(req,res){
         res.view({
             meta : {
-                controller : 'home.js'
+                controller : 'home.js',
+                addMenu : true
             },
             page : {
                 searchUrl : '/resultados',
