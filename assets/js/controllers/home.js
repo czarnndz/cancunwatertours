@@ -1,5 +1,5 @@
 
-app.controller('Home', function($scope,$http,ngCart) {
+app.controller('Home', function($scope,$http) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.agregarVisibility = false;
@@ -67,11 +67,11 @@ app.controller('Search',function($scope,$http){
     });
 });
 
-app.controller('Resultados', function($scope,$http,ngCart) {
+app.controller('Resultados', function($scope,$http) {
 
 });
 
-app.controller('Header', function($scope,$http,ngCart) {
+app.controller('Header', function($scope,$http) {
     $scope.tours = [];
     $scope.maxFee = 0;
     $scope.minFee = 10000;

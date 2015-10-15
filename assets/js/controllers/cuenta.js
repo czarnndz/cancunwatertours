@@ -1,3 +1,3 @@
-app.controller('Cuenta', function($scope,$http,ngCart) {
+app.controller('Cuenta', function($scope,$http) {
 
 });
