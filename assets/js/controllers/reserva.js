@@ -1,6 +1,4 @@
-app.controller('reservaCTL',function($scope,ngCart,$filter) {
-    $scope.ngCart = ngCart;
-    $scope.ngCart.setTaxRate(16);
+app.controller('reservaCTL',function($scope,$filter) {
     $scope.city = '';
     //$rootScope.orderID = false;
     $scope.tour = tour;
@@ -28,9 +26,7 @@ app.controller('reservaCTL',function($scope,ngCart,$filter) {
     $scope.tour.schedules = aux_schedules;
 
     $scope.addCart = function() {
-        $scope.ngCart.addItem({
 
-        });
     }
 
     $scope.continueClick = function(){

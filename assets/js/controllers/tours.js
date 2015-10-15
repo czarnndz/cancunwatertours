@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$http,ngCart){
+app.controller('tourCTL',function($scope,$http){
     $scope.similar_tours = similar_tours;
     $scope.tour = tour;
     $scope.tour.adults = 1;

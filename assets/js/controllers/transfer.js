@@ -1,4 +1,4 @@
-app.controller('transfersCTL',function($scope,ngCart,$http){
+app.controller('transfersCTL',function($scope,$http){
   //Var define section start
   var startDate = new Date();
   var endDate = new Date();

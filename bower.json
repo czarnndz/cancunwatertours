@@ -28,8 +28,7 @@
     "underscore": "~1.7.0",
     "moment": "~2.9.0",
     "angular-moment": "~0.9.0",
-    "angular-typeahead": "~0.2.2",
-    "ngcart": "~1.0.0"
+    "angular-typeahead": "~0.2.2"
   },
   "devDependencies": {},
   "resolutions": {
