@@ -1,5 +1,5 @@
 
-app.controller('Home', function($scope,$http) {
+app.controller('Home', function($scope,$http, searchService) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.agregarVisibility = false;
@@ -29,7 +29,7 @@ app.controller('Home', function($scope,$http) {
     });
 
     $http.get('/hotels').success(function(response) {
-        console.log(response);
+        //console.log(response);
         $scope.hotels = response;
     });
 
@@ -71,11 +71,15 @@ app.controller('Resultados', function($scope,$http) {
 
 });
 
-app.controller('Header', function($scope,$http, toursService) {
+app.controller('Header', function($scope,$http, $rootScope, toursService, searchService) {
     $scope.tours = [];
     $scope.maxFee = 0;
     $scope.minFee = 10000;
     $scope.toursCategories = [];
+
+    $rootScope.$on('searchParamsChanged', function(event,data){
+      console.log(data);
+    });
 
     $http.get('/tours').success(function(response) {
         if (angular.isArray(response)) {
@@ -109,7 +113,16 @@ app.controller('Header', function($scope,$http, toursService) {
 
         }
         return tours;
-    }
+    };
+
+    $scope.doSearch = function(){
+      var params = {
+        minFee: $scope.minFee,
+        maxFee: $scope.maxFee,
+        category: $scope.tourCategory
+      };
+      searchService.setParams(params);
+    };
 
     $scope.getToursCategories();
 

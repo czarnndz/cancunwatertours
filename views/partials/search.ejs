@@ -28,12 +28,12 @@
           </div>
         </div>
         <div id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-              <md-select class="select-avanzado" ng-model="someVal" placeholder="Tipo">
+              <md-select class="select-avanzado" ng-model="tourCategory" placeholder="Tipo">
                     <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
               </md-select>
         </div>
         <div hide-gt-sm id="select-header" flex="90" layout="row" layout-align="space-around center" class="cont-avanzada">
-              <md-select class="select-avanzado" ng-model="someVal" placeholder="Categoria">
+              <md-select class="select-avanzado" ng-model="tourCategory" placeholder="Categoria">
                     <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
               </md-select>
         </div>
@@ -60,7 +60,7 @@
             <div class="text-adultos">niños</div>
           </div>
         </div>
-        <a href="" flex="100" layout="row" layout-align="center center">
+        <a href="" ng-click="doSearch()" flex="100" layout="row" layout-align="center center">
             <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
         </a>
       </div>
