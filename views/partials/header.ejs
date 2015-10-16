@@ -27,14 +27,20 @@
         </form>
     </div>
 
-
-      <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
-      <a hide-sm href="" layout="row" layout-align="center center" flex class="text-header" >
-        <div class="abrir" >BÚSQUEDA AVANZADA</div>
-      </a>
+    <i hide-sm class="icon-buscador icon-header input-busqueda" ></i>
+    <a
+      ng-click="toggleSearch = !toggleSearch"
+      hide-sm href=""
+      flex
+      class="advanced-search-trigger"
+      ng-class="{'advanced-search-trigger-on': toggleSearch}"
+      layout="column"
+      layout-align="center center">
+      <span>BÚSQUEDA AVANZADA</span>
+    </a>
     </div>
     <div class="menu-logo" flex="20" flex-sm="50" flex-md="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
-      <a href="/home" flex="100" layout="row" layout-align="center center" ><img id="logo" src="images/watertourslogo.png" alt=""></a>
+      <a href="/home" flex="100" layout="row" layout-align="center center" ><img id="logo" src="/images/watertourslogo.png" alt=""></a>
     </div>
     <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <a href="" flex-order-sm="2" ><div id="img-perfil"></div></a>
@@ -46,7 +52,7 @@
     <div hide-gt-sm flex="100" class="busqueda-movil" layout="row" layout-align="center center">
       <div flex="90" class="cont-b-movil" layout="row" layout-align="space-around center" >
         <i  class="icon-buscador icon-header " ></i>
-        <a  href="" layout="row" layout-align="center center" class="text-header movil"  >
+        <a  href="" layout="row" layout-align="center center" class="advanced-search-trigger movil"  >
           <div class="abrir" >BÚSQUEDA</div>
         </a>
         <a href="/cuenta" ><div class="text-prefil">Mi cuenta</div></a>

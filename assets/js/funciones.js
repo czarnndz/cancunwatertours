@@ -14,40 +14,41 @@ $(document).ready(function() {
 });
 /*detalles*/
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 
 /*buscar*/
-  $(".input-header").click(function(event){
+  /*$(".input-header").click(function(event){
     console.log("entre");
     if ($("#buscar-header").hasClass('desactivar')) {
       //console.log("buscar abierta");
-      $("#buscar-header").removeClass("desactivar");   
+      $("#buscar-header").removeClass("desactivar");
       $("#buscar-header").addClass("activar");
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $("#buscar-avanzado-header").addClass("desactivar");   
+      $("#buscar-avanzado-header").addClass("desactivar");
       $("#buscar-avanzado-header").removeClass("activar");
     }else if ($("#buscar-header").hasClass('activar')) {
-      $("#buscar-header").addClass("desactivar");   
+      $("#buscar-header").addClass("desactivar");
       $("#buscar-header").removeClass("activar");
     }
   });
+  */
 /*buscar*/
 
 /*buscar avanzada*/
-  $(".text-header").click(function(event){
+  /*$(".text-header").click(function(event){
     if ($("#buscar-avanzado-header").hasClass('desactivar')) {
       //console.log("avanzada abierta")
       $(".text-header").css({ background : '#00ADEF', color : 'white'});
-      $("#buscar-avanzado-header").removeClass("desactivar");   
+      $("#buscar-avanzado-header").removeClass("desactivar");
       $("#buscar-avanzado-header").addClass("activar");
-      $("#buscar-header").addClass("desactivar");   
+      $("#buscar-header").addClass("desactivar");
       $("#buscar-header").removeClass("activar");
     }else if ($("#buscar-avanzado-header").hasClass('activar')) {
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $("#buscar-avanzado-header").addClass("desactivar");   
+      $("#buscar-avanzado-header").addClass("desactivar");
       $("#buscar-avanzado-header").removeClass("activar");
     }
-  });
+  });*/
   /*buscar avanzada*/
 
 /*registro*/
@@ -55,12 +56,12 @@ $(document).ready(function(){
       //alert("login");
     if ($("#registrar-cont").hasClass('desactivar')) {
       //console.log("avanzada abierta")
-      $("#registrar-cont").removeClass("desactivar");   
+      $("#registrar-cont").removeClass("desactivar");
       $("#registrar-cont").addClass("activar");
-      $("#login-cont").addClass("desactivar");   
+      $("#login-cont").addClass("desactivar");
       $("#login-cont").removeClass("activar");
     }else if ($("#registrar-cont").hasClass('activar')) {
-      $("#registrar-cont").addClass("desactivar");   
+      $("#registrar-cont").addClass("desactivar");
       $("#registrar-cont").removeClass("activar");
     }
   });
@@ -71,13 +72,13 @@ $(document).ready(function(){
       //alert("login");
     if ($("#login-cont").hasClass('desactivar')) {
       //console.log("avanzada abierta")
-      $("#login-cont").removeClass("desactivar");   
+      $("#login-cont").removeClass("desactivar");
       $("#login-cont").addClass("activar");
-      $("#registrar-cont").addClass("desactivar");   
+      $("#registrar-cont").addClass("desactivar");
       $("#registrar-cont").removeClass("activar");
     }else if ($("#login-cont").hasClass('activar')) {
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
-      $("#login-cont").addClass("desactivar");   
+      $("#login-cont").addClass("desactivar");
       $("#login-cont").removeClass("activar");
     }
   });
@@ -85,31 +86,32 @@ $(document).ready(function(){
 
   $("#cont-global").click(function(event){
     //console.log("global")
-    if ($("#buscar-header").hasClass('activar') || $("#buscar-avanzado-header").hasClass('activar') || $("#login-cont").hasClass('activar') || $("#registrar-cont").hasClass('activar')) { 
+    if ($("#buscar-header").hasClass('activar') || $("#buscar-avanzado-header").hasClass('activar') || $("#login-cont").hasClass('activar') || $("#registrar-cont").hasClass('activar')) {
       $("#login-cont").removeClass("activar");
       $("#login-cont").addClass("desactivar");
-      $("#registrar-cont").addClass("desactivar");   
+      $("#registrar-cont").addClass("desactivar");
       $("#registrar-cont").removeClass("activar");
-      $("#buscar-avanzado-header").addClass("desactivar"); 
+      $("#buscar-avanzado-header").addClass("desactivar");
       $("#buscar-avanzado-header").removeClass("activar");
-      $("#buscar-header").addClass("desactivar"); 
+      $("#buscar-header").addClass("desactivar");
       $("#buscar-header").removeClass("activar");
       $(".text-header").css({ background : 'white', color : '#64CBE4'});
     }
   });
 
 /*avanzada movil*/
+  /*
   $("#text-ava-movil").click(function(event){
     //console.log("text ava")
     if ($("#b-avanzada").hasClass('buscar-movil-ap')) {
       //console.log("avanzada abierta")
-      $("#b-avanzada").removeClass("buscar-movil-ap");   
+      $("#b-avanzada").removeClass("buscar-movil-ap");
       $("#b-avanzada").addClass("buscar-movil-en");
     }else if ($("#b-avanzada").hasClass('buscar-movil-en')) {
-      $("#b-avanzada").addClass("buscar-movil-ap");   
+      $("#b-avanzada").addClass("buscar-movil-ap");
       $("#b-avanzada").removeClass("buscar-movil-en");
     }
-  });
+  });*/
 /*avanzada movil*/
 
 /*menu movil*/
@@ -117,21 +119,21 @@ $(document).ready(function(){
     console.log("menu");
     if ($("#cont-menu").hasClass('desactivar')) {
       //console.log("avanzada abierta")
-      $("#cont-menu").removeClass("desactivar");   
+      $("#cont-menu").removeClass("desactivar");
       $("#cont-menu").addClass("activar");
     }else if ($("#cont-menu").hasClass('activar')) {
-      $("#cont-menu").addClass("desactivar");   
+      $("#cont-menu").addClass("desactivar");
       $("#cont-menu").removeClass("activar");
     }
-  });  
+  });
 
   $("#cerrar-menu-movil").click(function(event){
     console.log("menu cerrar");
     if ($("#cont-menu").hasClass('activar')) {
-      $("#cont-menu").addClass("desactivar");   
+      $("#cont-menu").addClass("desactivar");
       $("#cont-menu").removeClass("activar");
     }
-  });  
+  });
 /*menu movil*/
 //
 ///*pago*/
@@ -214,19 +216,19 @@ $(document).ready(function(){
      $(".pago-r").addClass("fuente-r");
    });
 
-  $("#ap-precio").click(function(event){ 
+  $("#ap-precio").click(function(event){
       $(".ap-precio").toggleClass("ap-color");
     });
 
-  $("#ap-nuevas").click(function(event){ 
+  $("#ap-nuevas").click(function(event){
       $(".ap-nuevas").toggleClass("ap-color");
     });
 
-  $("#ap-populares").click(function(event){ 
+  $("#ap-populares").click(function(event){
       $(".ap-populares").toggleClass("ap-color");
     });
 
-  $("#ap-mas").click(function(event){ 
+  $("#ap-mas").click(function(event){
       $(".ap-mas").toggleClass("ap-color");
     });
 

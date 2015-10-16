@@ -11,6 +11,66 @@
     src: url(fonts/OpenSans-Bold.ttf) format("truetype");
 }
 
+/*-------------/
+  HEADER
+/*------------*/
+#header md-autocomplete md-autocomplete-wrap{
+  border-radius: 46px;
+  box-shadow: none;
+  height: 40px;
+  line-height: 1.2;
+}
+#header .input-header{
+  background: #F2F2F2;
+  border-radius: 20px;
+  border: 0px;
+  color: #A9A9AB;
+  font-family: open-b;
+  padding:0;font-size: 14px;
+  width: 220px;
+}
+#header .input-header:focus{border: none;border-radius-color: none}
+#header .input-header:focus::-webkit-input-placeholder{color: transparent;}
+#header .input-header::-webkit-input-placeholder {font-size: 13px;}
+.rango-precios-simbolos{
+  margin-top: 24px;
+}
+.advanced-search{
+  padding: 8px 12px;
+}
+.slide-precio{}
+.slider-precios{height: auto;}
+.selected-price{
+  color: #fff;
+  text-align: center;
+}
+.advanced-search-header{
+  background: #00ADEF;
+  left: 365px;
+  overflow: hidden;
+  position: absolute;
+  /*transition: .5s linear all;*/
+  width: 350px;
+  z-index: 90;
+}
+.advanced-search-trigger{
+  color: #64CBE4;
+  font-family: open-b;
+  font-size: 10px;
+  height: 100%;
+  margin-left: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+.advanced-search-trigger-on{
+  background: #00ADEF;
+  color: #fff;
+}
+.advanced-search-trigger-on span{color: #fff!important;}
+
+
+
+
 .grey {background: #27c8cf none repeat scroll 0 0;}
 .c-uno{height: auto;  padding-top: 17px;}
 .c-dos{height: auto;}
@@ -21,9 +81,10 @@ a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transp
 a:focus{text-decoration: none;border: none;box-shadow: none;}
 .ng-cloak{display: none!important}
 #cont-global{position: relative;}
-.desactivar{opacity: 0;height: 0px}
+/*.desactivar{opacity: 0;height: 0px}
 .activar{opacity: 1;height: auto;}
 .ocultar{opacity: 0!important;z-index: 1!important;display: none!important}
+*/
 .fuente-r{background: #00C0C8!important;color: white}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 *:focus, *:hover{outline: 0px}
@@ -147,12 +208,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .menu-busc{height: 74px;}
 #menu{width: 96px;height: 100%;position: relative;}
 .linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
-.input-header{width: 220px;border-radius: 20px 20px 20px 20px;height: 25px;background: #F2F2F2;border: 0px;padding-left: 5px;font-size: 14px;font-family: open-b;padding-top: 3px;padding-left: 10px;color: #A9A9AB}
-.input-header:focus{border: none;border-radius-color: none}
-.input-header:focus::-webkit-input-placeholder{color: transparent;}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
-.text-header{color: #64CBE4;font-size: 10px;font-family: open-b;text-align: center;margin-left: 5px;height: 100%;overflow: hidden;}
-/*a.text-header:focus{background: #00ADEF;color: white}*/
 .menu-logo{height: 50px;}
 #logo{width: 162px}
 .menu-usua{height: 50px;}
@@ -172,7 +228,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .buscar-header:hover{background: #00ADEF}
 .buscar-header:hover .titulo-buscar{color: white}
 .titulo-buscar{font-size: 12.5px;color: #828282;font-family: open-b}
-.input-header::-webkit-input-placeholder {font-size: 13px;}
 .imagen-buscar.uno{background-image: url(../images/1.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-buscar.dos{background-image: url(../images/2.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 .imagen-buscar.tres{background-image: url(../images/3.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
@@ -222,19 +277,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .buscar-movil-en{height: auto;opacity: 1;}
 #b-avanzada{transition: .5s linear all}
 
-#buscar-avanzado-header{position: absolute;width: 350px;background: #00ADEF;z-index: 90;left: 350px;transition: .5s linear all;overflow: hidden;}
 .cont-buscar-precio{height: 50px;}
 #apuntador-avanzado{width: 16px;height: 16px;background:#81D7F7;border-radius: 50%}
 .apuntador-avanzado{width: 6px;height: 6px;background:black;border-radius: 50%}
 .text-buscar-a{color: white;font-size: 12px;font-weight: 700;margin-left: 5px;text-transform: uppercase;font-family: open-b}
-.slide-precio{height: 50px;}
 .md-thumb{background:#FFFFFF }
 .md-thumb:after{background: #FFFFFF!important;border: #FFFFFF!important}
 .md-track{background: black!important}
 .md-track-container{height: 4px!important}
 .precios-a{color: white;font-size: 12px;font-family: open-b}
 .precios-b{color: white;font-size: 19px;font-family: open-b}
-.slider-precios{margin-top: -10px}
 .select-header{width: 100%;background: black;color: white;height: 30px!important;border-radius: 5px!important;font-size: 11px;border-color: black;padding-left: 5px;position: relative;}
 #select-buscar{}
 #select-buscar.select-buscar .md-select-label{width: 100%!important;height: 100%!important;background: black!important}
