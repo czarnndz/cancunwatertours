@@ -1,39 +1,41 @@
 
-app.controller('Home', function($scope,$http, searchService) {
+app.controller('Home', function($scope,$http, toursService, searchService) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.agregarVisibility = false;
 
-    $http.get('/tours').success(function(response) {
-        if (angular.isArray(response)) {
+    $scope.getTours = function() {
+      toursService.getTours().then(function(res){
+        $scope.tours = $scope.formatTours(res);
+      });
+    };
 
-            $scope.tours = (function() {
-                var aux_tours = [];
-                var span = 1;
-                for (var i = 0; i < response.length; i++) {
-                    colspan = randomSpan();
-                    rowspan = randomSpan(colspan);
-                    aux_tours.push({
-                        id : response[i].id,
-                        name: response[i].name,
-                        icon : response[i]['avatar' + (colspan)],
-                        fee : response[i].fee,
-                        colspan: colspan,
-                        rowspan: rowspan
-                    });
-                }
-                return aux_tours;
-            })();
-        }
+    $scope.formatTours = function(tours){
+        return (function() {
+            var aux_tours = [];
+            var span = 1;
+            for (var i = 0; i < tours.length; i++) {
+                colspan = randomSpan();
+                rowspan = randomSpan(colspan);
+                aux_tours.push({
+                    id : tours[i].id,
+                    name: tours[i].name,
+                    icon : tours[i]['avatar' + (colspan)],
+                    fee : tours[i].fee,
+                    colspan: colspan,
+                    rowspan: rowspan
+                });
+            }
+            return aux_tours;
+        })();
+    };
 
-    });
-
-    $http.get('/hotels').success(function(response) {
-        //console.log(response);
-        $scope.hotels = response;
-    });
-
-
+    $scope.getHotels = function(){
+        $http.get('/hotels').success(function(response) {
+            //console.log(response);
+            $scope.hotels = response;
+        });
+    };
 
     function randomItem(array) {
         return array[Math.floor(Math.random() * array.length)];
@@ -54,7 +56,14 @@ app.controller('Home', function($scope,$http, searchService) {
         console.log(tour);
         $scope.agregarVisibility = true;
         $scope.selectedTour = tour;
-    }
+    };
+
+    $scope.init = function(){
+        $scope.getHotels();
+        $scope.getTours();
+    };
+
+    $scope.init();
 });
 
 app.controller('Search',function($scope,$http){
@@ -81,25 +90,16 @@ app.controller('Header', function($scope,$http, $rootScope, toursService, search
       console.log(data);
     });
 
-    $http.get('/tours').success(function(response) {
-        if (angular.isArray(response)) {
-            $scope.tours = response;
-
-            angular.forEach($scope.tours,function(item) {
-                if (item.fee > $scope.maxFee) {
-                    $scope.maxFee = item.fee;
-                }
-                if (item.fee < $scope.minFee) {
-                    $scope.minFee = item.fee
-                }
-            });
-        }
-    });
+    $scope.getFeeRange = function(){
+        toursService.getFeeRange().then(function(res){
+            $scope.minFee = res.minFee;
+            $scope.maxFee = res.maxFee;
+        });
+    };
 
     $scope.getToursCategories = function() {
       toursService.getCategories().then(function(res){
         $scope.toursCategories = res;
-        console.log($scope.toursCategories);
       });
     };
 
@@ -124,7 +124,12 @@ app.controller('Header', function($scope,$http, $rootScope, toursService, search
       searchService.setParams(params);
     };
 
-    $scope.getToursCategories();
+    $scope.init = function(){
+        $scope.getToursCategories();
+        $scope.getFeeRange();
+    };
+
+    $scope.init();
 
 
 });

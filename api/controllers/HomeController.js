@@ -33,11 +33,22 @@ module.exports = {
   tour_list : function(req,res){
       var params = req.params.all();
       var s = {};
-      if( params.term && params.term != '' )
+      var query = {};
+
+      if( params.term && params.term != '' ){
           s = { name : new RegExp(params.term,"i") };
-      if (!params.skip)
+      }
+      if (!params.skip){
           params.skip = 0;
-      Tour.find({ sort : 'name_es asc' }).limit(20).exec(function(e,tours){
+      }
+      if(params.minFee && params.maxFee){
+        query.fee = { '>=' : params.minFee};
+        query.fee = { '<=' : params.maxFee};
+      }
+
+      query.sort = 'name_es asc';
+
+      Tour.find(query).limit(20).exec(function(e,tours){
           if (e) {
               console.log(e);
               throw e;
