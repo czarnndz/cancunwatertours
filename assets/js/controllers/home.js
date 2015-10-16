@@ -3,33 +3,45 @@ app.controller('Home', function($scope,$http) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.agregarVisibility = false;
+    $scope.lengthsArray = [
+        { col : 2 ,row : 1 },
+        { col : 2 ,row : 1 },
+        { col : 2 ,row : 1 },
+        { col : 2 ,row : 1 },
+        { col : 4 ,row : 3 },
+        { col : 2 ,row : 3 },
+        { col : 2 ,row : 3 },
+    ];
 
     $http.get('/tours').success(function(response) {
+        console.log("responseeee");
+        console.log(response);
         if (angular.isArray(response)) {
 
             $scope.tours = (function() {
                 var aux_tours = [];
                 var span = 1;
-                for (var i = 0; i < response.length; i++) {
-                    colspan = randomSpan();
-                    rowspan = randomSpan(colspan);
+                for (var i = 0; i < 7; i++) {
+                    //colspan = randomSpan();
+                    //rowspan = randomSpan(colspan);
                     aux_tours.push({
                         id : response[i].id,
                         name: response[i].name,
-                        icon : response[i]['avatar' + (colspan)],
+                        icon : response[i].avatar3,
                         fee : response[i].fee,
-                        colspan: colspan,
-                        rowspan: rowspan
+                        colspan: $scope.lengthsArray[i].col,
+                        rowspan: $scope.lengthsArray[i].row
                     });
                 }
+                console.log(aux_tours);
                 return aux_tours;
+
             })();
         }
 
     });
 
     $http.get('/hotels').success(function(response) {
-        console.log(response);
         $scope.hotels = response;
     });
 
@@ -51,7 +63,6 @@ app.controller('Home', function($scope,$http) {
     }
 
     $scope.selectTour = function(tour) {
-        console.log(tour);
         $scope.agregarVisibility = true;
         $scope.selectedTour = tour;
     }
