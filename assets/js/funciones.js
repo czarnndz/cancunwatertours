@@ -2,6 +2,7 @@
 $(document).ready(function() {
 
   var owl = $(".cont-imagen-detalle");
+  var owl = $('.tour-slider');
 
   owl.owlCarousel({
       items : 1, //10 items above 1000px browser width
@@ -115,6 +116,7 @@ $(document).ready(function(){
 /*avanzada movil*/
 
 /*menu movil*/
+/*
   $("#menu").click(function(event){
     console.log("menu");
     if ($("#cont-menu").hasClass('desactivar')) {
@@ -134,6 +136,7 @@ $(document).ready(function(){
       $("#cont-menu").removeClass("activar");
     }
   });
+*/
 /*menu movil*/
 //
 ///*pago*/

@@ -1,23 +1,5 @@
 <div id="home" ng-controller="Home">
-  <div id="agregar-transporte" flex layout="row"  ng-show="agregarVisibility">
-    <div class="agregar-transporte ng-cloak" layout="row" layout-align="center start" layout-wrap >
-         <i class="icon-transporte icon-agregar"></i>
-         <div class="text-transportacion" >Agregar transportación al Tour</div>
-         <div class="hotel-agregar" flex="80" layout="row" layout-align="start center" > <i class="icon-pin pin-agregar"></i>Hotel </div>
-         	<md-select placeholder="agregar" class="select-agregar" ng-model="hotel">
-  				<md-option value="{{hotel.id}}" class="ng-cloak" ng-repeat="hotel in hotels">{{hotel.name}}</md-option>
-  		</md-select>
-  		<div class="botones-agregar" flex="60" layout="row" layout-align="space-around center" >
-  			<a href="/reserva?hotel={{hotel.id}}&tour={{selectedTour.id}}" layout="row" layout-align="center center" class="boton-agregar">
-  				<button layout="row" layout-align="center center" class="boton-agregar" disabled="{{hotel == null}}">agregar</button>
-  			</a>
-  			<a href="/reserva?tour={{selectedTour.id}}"  layout="row" layout-align="center center" class="boton-no">
-  				<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
-  			</a>
-  		</div>
-    </div>
-  </div>
-
+  <%- partial('../partials/add-transport') -%>
   <div>
       <md-grid-list md-cols-gt-md="8" md-cols-sm="1" md-cols-md="6" md-row-height-gt-md="1:1" md-row-height="4:3">
         <md-grid-tile
@@ -30,13 +12,15 @@
           }"
           md-colspan-gt-sm="{{tour.colspan}}"
           md-rowspan-gt-sm="{{tour.rowspan}}"
-          class="imagenes-home"
+          class="tour-item"
           layout-align-gt-sm="center center">
-          <md-grid-tile-footer class="hover-imagen-1" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-                  <div class="titulo-tour"><a href="/detalle/{{tour.id}}">{{tour.name}}</div>
-                  <div class="tour-desde">desde</div>
-                  <div class="precio-tour">{{tour.fee | currency}} </div>
-                  <div><a ng-click="selectTour(tour)" class="reservar-tour">RESERVAR</a></div>
+          <md-grid-tile-footer class="tour-item-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
+            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
+            <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
+            <p>desde</p>
+            <p class="tour-price">{{tour.fee | currency}} </p>
+            <p><a href="/detalle/{{tour.id}}" class="action-btn"><strong>RESERVAR</strong></a></p>
+            <!--<p><a ng-click="selectTour(tour)" class="reservar-tour">RESERVAR</a></p>-->
           </md-grid-tile-footer>
         </md-grid-tile>
 

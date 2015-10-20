@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="/styles/style.css">
     <!--STYLES END-->
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -54,102 +56,31 @@
       <%- partial('partials/register') -%>
       <%- partial('partials/login') -%>
       <%- partial('partials/search') -%>
+      <% if (meta && meta.addMenu) { %>
+        <%- partial('partials/menu-mobile') -%>
+      <% } %>
     </div>
 
     <!--<div id="buscar-header" class="ng-cloak desactivar" ng-include="'/templates/global/buscar2.ejs'"></div>-->
 
-    <% if (meta && meta.addMenu) { %>
-      <div id="cont-menu" flex layout="row"  layout-align="space-around center" layout-wrap class="ng-cloak desactivar" hide-gt-sm>
 
-        <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
-          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
-              <i class="icon-aventura icon-desplegable"></i>
-              <div class="text-menu">AVENTURA</div>
-            </div>
-          </a>
-          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu viajes ">
-               <i class="icon-viajes icon-desplegable viajes"></i>
-               <div class="text-menu viajes">VIAJES</div>
-            </div>
-          </a>
-          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
-              <i class="icon-buceo icon-desplegable"></i>
-              <div class="text-menu">BUCEO</div>
-            </div>
-          </a>
-          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
-              <i class="icon-snorkel icon-desplegable"></i>
-              <div class="text-menu">SNORKEL</div>
-            </div>
-          </a>
-          <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-            <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">
-             <i class="icon-pesca icon-desplegable"></i>
-             <div class="text-menu viajes">PESCA</div>
-            </div>
-          </a>
-        </div>
-
-        <div id="cerrar-movil" flex="30" layout="row" layout-align="end start" >
-          <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
-        </div>
-
-      </div>
-    <% } %>
 
 
     <div id="cont-global" <% if (!meta.removeFlexLayout) { %> layout-gt-sm="row" layout-sm="column" <% } %> >
       <% if (meta && meta.addMenu) { %>
-        <div id="cont-menu-1" layout="row" flex="10" layout-align="start start" layout-wrap hide-sm>
-          <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
-
-            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-              <div flex="100" layout="column" layout-align="center center" class="enlace-menu hvr-bounce-to-right">
-                <i class="icon-aventura icon-desplegable"></i>
-                <div class="text-menu">AVENTURA</div>
-              </div>
-            </a>
-            <a href="/resultados" flex="100" layout="row" layout-align="center center" class=" ">
-              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu viajes hvr-bounce-to-right">
-                 <i class="icon-viajes icon-desplegable viajes"></i>
-                 <div class="text-menu viajes">VIAJES</div>
-              </div>
-            </a>
-            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
-                <i class="icon-buceo icon-desplegable"></i>
-                <div class="text-menu">BUCEO</div>
-              </div>
-            </a>
-            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
-                <i class="icon-snorkel icon-desplegable"></i>
-                <div class="text-menu">SNORKEL</div>
-              </div>
-            </a>
-            <a href="/resultados" flex="100" layout="row" layout-align="center center" >
-              <div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">
-               <i class="icon-pesca icon-desplegable"></i>
-               <div class="text-menu viajes">PESCA</div>
-              </div>
-            </a>
-
-          </div>
-        </div>
+          <%- partial('partials/sidebar-menu') -%>
       <% } %>
 
-      <div <% if (meta && meta.addMenu) { %> layout="column" flex="90" <% } %>>
+      <div <% if (meta && meta.addMenu) { %> layout="column" flex="90" flex-md="100" flex-sm="100" <% } %>>
           <%- body %>
       </div>
 
     </div>
   </div>
 
-  <div id="cont-footer" ng-include="'/templates/global/footer.ejs'" layout='row'></div>
+  <div id="cont-footer" layout='row'>
+    <%- partial('partials/footer') -%>
+  </div>
 
 
 
@@ -175,7 +106,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 

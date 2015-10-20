@@ -1,6 +1,7 @@
 <div id="header" layout="row" flex layout-align="space-between center" layout-align-md="center center"  layout-wrap>
     <div class="menu-busc" flex="40" flex-sm="20" flex-md="80" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
-      <div id="menu" layout="column" layout-align="center center">
+
+      <div id="menu" ng-click="toggleMenuMobile = !toggleMenuMobile" layout="column" layout-align="center center">
         <div hide-gt-sm class="linea-menu"></div>
         <div hide-gt-sm class="linea-menu"></div>
         <div hide-gt-sm class="linea-menu"></div>
@@ -44,20 +45,20 @@
     </div>
     <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <a href="" flex-order-sm="2" ><div id="img-perfil"></div></a>
-      <a href="/cuenta" hide-sm ><div class="text-prefil">Mi cuenta</div></a>
-      <a href="" hide-sm ><div class="text-prefil registro">registro</div></a>
+      <a href="/cuenta" hide-sm ><strong>Mi cuenta</strong></a>
+      <a href="" ng-click="toggleRegister = !toggleRegister" hide-sm ><div class="text-prefil registro">registro</div></a>
       <a href="/reserva" flex-order-sm="1" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
-      <a href="/login" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
+      <a href="" ng-click="loginToggle = !loginToggle" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
     <div hide-gt-sm flex="100" class="busqueda-movil" layout="row" layout-align="center center">
       <div flex="90" class="cont-b-movil" layout="row" layout-align="space-around center" >
         <i  class="icon-buscador icon-header " ></i>
-        <a  href="" layout="row" layout-align="center center" class="advanced-search-trigger movil"  >
-          <div class="abrir" >BÚSQUEDA</div>
+        <a  href="" ng-click="toggleSearch = !toggleSearch" layout="row" layout-align="center center" class="advanced-search-trigger movil"  >
+          <strong>BÚSQUEDA</strong>
         </a>
-        <a href="/cuenta" ><div class="text-prefil">Mi cuenta</div></a>
-        <a href="" ><div class="text-prefil registro">registro</div></a>
-        <a href="" > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
+        <a href="/cuenta" ><strong>Mi cuenta</strong></a>
+        <a href="" ng-click="toggleRegister = !toggleRegister"><strong>registro</strong></a>
+        <a href="" ng-click="loginToggle = !loginToggle" > <span id="login" class="login" layout="row" layout-align="center center" >LOGIN</span></a>
       </div>
     </div>
 </div>

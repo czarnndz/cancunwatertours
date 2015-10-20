@@ -1,0 +1,18 @@
+  <div id="agregar-transporte" flex layout="row"  ng-show="agregarVisibility">
+    <div class="agregar-transporte ng-cloak" layout="row" layout-align="center start" layout-wrap >
+         <i class="icon-transporte icon-agregar"></i>
+         <div class="text-transportacion" >Agregar transportación al Tour</div>
+         <div class="hotel-agregar" flex="80" layout="row" layout-align="start center" > <i class="icon-pin pin-agregar"></i>Hotel </div>
+         	<md-select placeholder="agregar" class="select-agregar" ng-model="hotel">
+  				<md-option value="{{hotel.id}}" class="ng-cloak" ng-repeat="hotel in hotels">{{hotel.name}}</md-option>
+  		</md-select>
+  		<div class="botones-agregar" flex="60" layout="row" layout-align="space-around center" >
+  			<a href="/reserva?hotel={{hotel.id}}&tour={{selectedTour.id}}" layout="row" layout-align="center center" class="boton-agregar">
+  				<button layout="row" layout-align="center center" class="boton-agregar" disabled="{{hotel == null}}">agregar</button>
+  			</a>
+  			<a href="/reserva?tour={{selectedTour.id}}"  layout="row" layout-align="center center" class="boton-no">
+  				<div layout="row" layout-align="center center" class="boton-no">ahora no</div>
+  			</a>
+  		</div>
+    </div>
+  </div>
