@@ -11,32 +11,30 @@
     <!--TOUR INFO (FIRST COLUMN)-->
     <div id="detalles-tour" flex="70" flex-md="100" flex-sm="100">
 
-      <div class="tour-data">
-        <div class="tour-data" layout="row" layout-align="space-between center">
-          <div flex="65" >
-            <h1>{{tour.name}}</h1>
-            <h2><i class="icon-pin icon-ubicacion"></i> Ubicacion del Tour</h2>
+      <div class="tour-data" layout="row" layout-sm="column" layout-align="space-between center">
+        <div class="tour-data-column" flex="65" flex-sm="100">
+          <h1>{{tour.name}}</h1>
+          <h2><i class="icon-pin icon-ubicacion"></i> Ubicacion del Tour</h2>
 
-            <div class="like-detalle">
-              <p>
-                <i class="icon-corazon icon-ubicacion"></i>
-                <strong>23</strong>
-                <strong>Me gusta</strong>
-              </p>
+          <div class="like-detalle">
+            <p>
+              <i class="icon-corazon icon-ubicacion"></i>
+              <strong>23</strong>
+              <strong>Me gusta</strong>
+            </p>
+          </div>
+        </div>
+        <div class="tour-data-column" flex="25" flex-sm="100" >
+          <div class="tour-data-item" layout="row" layout-align="start center" >
+            <i class="icon-horario big-icon"></i>
+            <div>
+              <p>Horario o Duración</p>
+              <p>9am - 10pm</p>
             </div>
           </div>
-          <div flex="25" flex-sm="30" >
-            <div class="tour-data-item" layout="row" layout-align="start center" >
-              <i class="icon-horario big-icon"></i>
-              <div>
-                <p>Horario o Duración</p>
-                <p>9am - 10pm</p>
-              </div>
-            </div>
-            <div class="tour-data-item" layout="row" layout-align="start center" >
-              <i class="icon-familiar big-icon"></i>
-              <div class="text-horario">Atracción Familiar</div>
-            </div>
+          <div class="tour-data-item" layout="row" layout-align="start center" >
+            <i class="icon-familiar big-icon"></i>
+            <div class="text-horario">Atracción Familiar</div>
           </div>
         </div>
       </div>

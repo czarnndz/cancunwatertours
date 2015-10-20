@@ -15,12 +15,12 @@
           class="tour-item"
           layout-align-gt-sm="center center">
           <md-grid-tile-footer class="tour-item-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
+            <!--<a href="/detalle/{{tour.id}}" class="absolute-link"></a>-->
             <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
             <p>desde</p>
             <p class="tour-price">{{tour.fee | currency}} </p>
-            <p><a href="/detalle/{{tour.id}}" class="action-btn"><strong>RESERVAR</strong></a></p>
-            <!--<p><a ng-click="selectTour(tour)" class="reservar-tour">RESERVAR</a></p>-->
+            <!--<p><a href="/detalle/{{tour.id}}" class="action-btn"><strong>RESERVAR</strong></a></p>-->
+            <p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>
 

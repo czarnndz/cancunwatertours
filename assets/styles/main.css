@@ -33,6 +33,22 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 
 /*----------/
+  #CUSTOM-SELECT
+/*---------*/
+.custom-select{
+  color: white;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid #C4C4C4;
+}
+.custom-select .md-select-value{border: 0;}
+.custom-select span{color: #C4C4C4}
+.custom-select .md-select-label{margin-top: -8px!important;border: 0px!important;width: 100%!important;}
+.custom-select span{margin-left: 10px!important}
+.custom-select span.md-select-icon{display: none}
+
+
+/*----------/
   #CONTAINERS
 /*---------*/
 .c-container{margin: 0 auto}
@@ -161,6 +177,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   color: #fff;
   padding: 8px 20px;
 }
+.tour-data-column{width: 100%;}
 .tour-data h1,
 .tour-data h2{margin: 4px 0}
 .tour-data h1{font-size: 20px;}
@@ -255,6 +272,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   padding: 4px;
   color: #fff!important ;
 }
+.booking-form md-datepicker md-icon{color: #fff;}
 .booking-form .md-datepicker-input-container{border-bottom: 0;}
 .md-datepicker-calendar-pane{background: #fff;}
 .booking-form .md-select-value{
@@ -263,6 +281,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   border-bottom: 0;
   min-width: 0;
 }
+.booking-form .md-select-value :first-child{
+  margin-left: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.booking-form .select-posicion span{text-align: left;}
+.booking-form .md-select-value span{color: #fff;}
 .booking-form md-select.md-default-theme:not([disabled]):focus,
 .booking-form md-select:not([disabled]):focus .md-select-value{
   border-bottom: 0;
@@ -275,6 +300,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   color: #fff;
   font-size: 12px;
 }
+
 .booking-form md-select{margin: 0;}
 
 
@@ -357,11 +383,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .select-adultos span{color: white;margin-left: 5px!important}
 .select-adultos .md-select-icon{margin: 0;margin-right: 18px!important;margin-top: -2px!important;font-size: 10px;;padding: 0px!important;}
 
+/*
 .select-posicion{width: 200px;color: white;background: #46CFD2;height: 25px;border-radius: 5px;margin-top: -5px;padding: 0px;}
 .select-posicion span{color: white}
 .select-posicion .md-select-label{margin-top: -5px!important;border: 0px!important;padding: 0px!important;width: 100%}
 .select-posicion span{margin-left: 10px!important}
 .select-posicion span{color: white;font-size: 12px!important}
+*/
 
 .select-avanzado{
   background: black;
@@ -398,19 +426,71 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*login*/
 
-#login-cont{width: 100%;max-width: 350px;position: absolute;z-index: 100000000;right: 0;transition: .5s linear all;overflow: hidden;background: linear-gradient( #35cdd4, #1EB0EB );}
+#login-cont{
+  width: 100%;
+  max-width: 350px;
+  position: absolute;
+  z-index: 99999999;
+  right: 0;
+  transition: .5s linear all;
+  overflow: hidden;
+  background: linear-gradient( #35cdd4, #1EB0EB );
+  padding: 10px 20px;
+}
 #registrar-cont{width: 100%;max-width: 350px;position: absolute;z-index: 100000000;right: 0;transition: .5s linear all;overflow: hidden;background: linear-gradient(#35cdd4, #1EB0EB );}
 .registrar-text{height: 70px;color: white;font-size: 35px;}
-.input-re{background: transparent;color: white;border-radius: 5px;border: 1px solid white;margin-bottom: 5px;padding-left: 10px}
+.input-re{
+  background: transparent;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-bottom: 5px;
+  padding: 4px 4px 4px 10px;
+}
 .input-re::-webkit-input-placeholder{color: white}
 .input-re:focus::-webkit-input-placeholder{color: transparent;}
-#boton-sing{background: white;color: #39BEC7;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b;border: none}
+#boton-sing{
+  background: white;
+  color: #39BEC7;
+  font-size: 15px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+  padding: 6px;
+}
 #boton-sing:hover{color: #19A4EF}
-.text-sing{color: white;font-family: open-b;font-size: 11px}
-#boton-facebook{background: #3B5999;color: white;font-size: 15px;height: 30px;border-radius: 5px;margin-top: 15px;margin-bottom: 15px;font-family: open-b}
-.text-sing-2{color: white;font-family: open-b;font-size: 10px;margin-bottom: 30px}
+.text-sing{
+  color: white;
+  font-size: 11px;
+  text-align: center;
+}
+#boton-facebook{
+  background: #3B5999;
+  color: white;
+  font-size: 15px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+  padding: 6px;
+}
+.text-sing-2{
+  color: white;
+  font-size: 10px;
+  margin-bottom: 30px;
+}
 .text-sing-2.forgot{padding-right: 15px}
 .text-sing-2.create{padding-left: 5px}
+.bottom-btns{
+  width: 100%;
+  text-align: center;
+}
 
 /*login*/
 
@@ -441,6 +521,12 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .menu-logo{height: 50px;}
 #logo{width: 162px}
 .menu-usua{height: 50px;}
+.menu-usua a{
+  font-size: 10px;
+  color: #727272;
+  margin-right: 15px;
+  text-transform: uppercase;
+}
 #img-perfil{width: 40px;height: 40px;background-image: url(../images/perfil.png);background-repeat:no-repeat;background-position:center;background-size: cover;margin-right: 15px}
 .text-prefil{font-size: 10px;color: #727272;margin-right: 15px;text-transform: uppercase;}
 .text-prefil:hover{color:#2aa3ee}
@@ -547,17 +633,47 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /**header**/
 
 /*agregar transporte*/
-#agregar-transporte{position: absolute;z-index: 1;position: fixed;left: 0;right: 0;margin: 0 auto}
-.agregar-transporte{width: 100%;height: 230px;background: white;max-width: 380px;margin: 0 auto;margin-top: 50px}
-.icon-agregar{color: #30B7D5;font-size: 25px;margin-top: 20px;}
-.text-transportacion{font-size: 18px;color: #ABABAB;margin-top: 5px;width: 100%;text-align: center;font-family: open-b;margin-bottom: 20px}
-.hotel-agregar{color: #ABABAB;font-size: 15px;}
-
+.add-transport-modal .hotel-agregar{
+  color: #ABABAB;
+  font-size: 15px;
+  max-width: 80%;
+  margin: 20px auto;
+}
 .pin-agregar{font-size: 12px}
-.boton-agregar{width: 100px;height: 30px;background: white;border: #38BEC9 1px solid;border-radius: 10px;text-transform: uppercase;color: #8B8B8B;font-size: 13px;font-family: open-b}
-.boton-no{width: 100px;height: 30px;background: white;border: #38BEC9 1px solid;border-radius: 10px;text-transform: uppercase;color: #8B8B8B;font-size: 13px;font-family: open-b}
-.boton-agregar:hover,
-.boton-no:hover{background: #38BEC9;color: white}
+.add-transport-modal{
+  z-index: 1;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 10%;
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+.add-transport-modal h4{
+  font-size: 18px;
+  color: #ABABAB;
+  margin-top: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.add-transport-modal i{
+  color: #30B7D5;
+  font-size: 25px;
+}
+.add-transport-modal .action-btn{
+  background: transparent;
+  border: 2px #38BEC9 solid;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: #8B8B8B;
+  font-size: 13px;
+  padding: 6px 8px;
+}
+
+.add-transport-modal .action-btn:hover{background: #38BEC9;color: white}
 .botones-agregar{padding-bottom: 20px}
 /*agregar transporte*/
 
@@ -937,6 +1053,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
     padding: 0;
     width: 100%;
   }
+  .booking-form .input-field-right{float: none;}
   .booking-form .md-button.md-icon-button{
     margin: 0;
     width: 20%;
@@ -945,6 +1062,8 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
     width: 66%;
     margin-left: 10%;
   }
+  .booking-form .select-posicion{text-align: left;}
+
 
 
 /*header*/
