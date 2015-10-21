@@ -41,7 +41,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   border-radius: 10px;
   border: 1px solid #C4C4C4;
 }
-.custom-select .md-select-value{border: 0;}
+.custom-select .md-select-value{border: 0!important;}
 .custom-select span{color: #C4C4C4}
 .custom-select .md-select-label{margin-top: -8px!important;border: 0px!important;width: 100%!important;}
 .custom-select span{margin-left: 10px!important}
@@ -168,6 +168,11 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   font-size: 26px;
 }
 .tour-item-content a{color: #fff;}
+.tour-item .absolute-link{z-index: 4}
+.tour-item .action-btn{
+  position: relative;
+  z-index: 5;
+}
 
 /*-------/
   #TOUR-INDIVIDUAL
@@ -758,7 +763,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #detalles-tour{background: white}
 .icono-horario{font-size: 25px;margin-right: 5px}
 .duracion.hora{margin-top: -5px}
-.nombre-detalle{color: white;font-size: 20px;font-family: open-b;margin-bottom: 3px}
+.nombre-detalle{color: white;font-size: 20px;;margin-bottom: 3px}
 .ubicacion-detalle{color: white;margin-bottom: 3px}
 .like-detalle{color: white;font-size: 10px}
 .text-ubi{font-weight: 11px!important}
@@ -829,10 +834,49 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*detalle*/
 
 /*reserva*/
-#reserva{background: #F2F2F2;height: auto;padding-bottom: 100px}
-#cont-reservacion{margin-top: 40px}
-#detalle-reservacion{background: #19A4EF;margin-top: 40px;margin-left: 20px}
-#header-reservacion{height: 60px;}
+#reserva{
+  background: #F2F2F2;
+  height: auto;
+  padding-bottom: 100px;
+  padding-top: 40px;
+}
+#detalle-reservacion{background: #19A4EF;}
+#header-reservacion{/*height: 60px;*/}
+#header-reservacion .step{
+  background: #fff;
+  margin-bottom: 0;
+  padding: 20px;
+  color: #00C0C7;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+#header-reservacion .step + .step{
+  margin-left: 4px;
+}
+#header-reservacion .step-on{
+  background: #00C0C8;
+  color: #fff;
+}
+
+.reservacion-content .title-block{
+  padding: 12px 20px;
+  background: #fff;
+  margin-bottom: 3px;
+}
+.reservacion-content .title-block h3{
+  color: #8A8A8A;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.reservacion-content .title-block i{
+  color: #1DB5DA;
+  font-size: 24px;
+  vertical-align: middle;
+}
+.reservacion-content .custom-select{margin-left: 10px;}
+
+
 .listado-reserva{background: white;height: 100%;cursor:pointer }
 .tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
 .datos-v{border-right: 2px solid;border-bottom: 4px solid;border-left: 2px solid;border-color: #F2F2F2;}
@@ -881,11 +925,11 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #nombre-detalles{height:190px;border-bottom: 1px solid white;}
 #precio-detalles{height:120px;}
 .nombre-d{color: white;font-size: 12px;}
-.ver-detalles{color: white;font-size: 9px;text-transform: uppercase;font-family: open-b}
-.precio-detalles{color: white;font-size: 17px;font-family: open-r}
+.ver-detalles{color: white;font-size: 9px;text-transform: uppercase;}
+.precio-detalles{color: white;font-size: 17px;}
 .precio-detalles.margen{margin-bottom: 20px}
-.text-total-d{color:white;font-size: 15px;font-family: open-b}
-.precio-total-d{color:white;font-size: 18px;font-family: open-b}
+.text-total-d{color:white;font-size: 15px;}
+.precio-total-d{color:white;font-size: 18px;}
 .ubicacion-r.fecha.dos{width: 177px!important}
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}

@@ -71,7 +71,16 @@
           <%- partial('partials/sidebar-menu') -%>
       <% } %>
 
-      <div <% if (meta && meta.addMenu) { %> layout="column" flex="90" flex-md="100" flex-sm="100" <% } %>>
+      <div
+        layout="column"
+        <% if (meta && meta.addMenu) { %>
+          flex="90" flex-md="100" flex-sm="100"
+
+        <% } else { %>
+          flex="100"
+        <% } %>
+
+      >
           <%- body %>
       </div>
 
