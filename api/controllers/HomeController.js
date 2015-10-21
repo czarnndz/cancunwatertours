@@ -7,39 +7,49 @@
 
 module.exports = {
 	index : function(req,res){
-		res.view({
-			meta : {
-				controller : 'home.js',
-                addMenu : true
-			},
-			page : {
-				searchUrl : '/index',
-				placeholder : 'Buscar'
-			}
-		});
+    TourCategory.find().exec(function(e,categories){
+      //console.log(categories);
+      res.view({
+        meta : {
+          controller : 'home.js',
+          addMenu : true,
+          categories : categories
+        },
+        page : {
+          searchUrl : '/index',
+          placeholder : 'Buscar'
+        }
+      });
+    });
+
 	},
   resultados : function(req,res){
+    TourCategory.find().exec(function(e,categories) {
+
       res.view({
-          meta : {
-              controller : 'home.js',
-              addMenu : true
-          },
-          page : {
-              searchUrl : '/resultados',
-              placeholder : 'Buscar'
-          }
+        meta: {
+          controller: 'home.js',
+          addMenu: true,
+          categories : categories
+        },
+        page: {
+          searchUrl: '/resultados',
+          placeholder: 'Buscar'
+        }
       });
+    });
   },
   tour_list : function(req,res){
       var params = req.params.all();
       var s = {};
       var query = {};
+      var pageSize = 20;
 
       if( params.term && params.term != '' ){
           s = { name : new RegExp(params.term,"i") };
       }
-      if (!params.skip){
-          params.skip = 0;
+      if (params.page){
+          query.skip = pageSize * (params.page - 1);
       }
       if(params.minFee && params.maxFee){
         query.fee = { '>=' : params.minFee};
@@ -77,7 +87,7 @@ module.exports = {
               controller : 'reserva.js'
           },
           page : {
-              searchUrl : '/resev',
+              searchUrl : '/reserva',
               placeholder : 'Buscar'
           }
       });
@@ -91,6 +101,5 @@ module.exports = {
           res.json({categories:categories});
       });
   }
-
 };
 
