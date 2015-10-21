@@ -38,8 +38,8 @@ app.controller('reservaCTL',function($scope,$filter) {
     }
 
     $scope.isNextButtonDisabled = function() {
-        console.log('is disabled function');
-        console.log($scope.reserva);
+        //console.log('is disabled function');
+        //console.log($scope.reserva);
         //console.log($scope.reserva.$valid);
         if ($scope.step == 0) {
             if (!$scope.terminos)

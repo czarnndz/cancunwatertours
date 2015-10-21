@@ -49,7 +49,8 @@ module.exports.routes = {
     action : 'index'
   },
   '/cuenta': {
-    view: 'cuenta/index'
+    controller : 'cuenta',
+    action : 'index',
   },
   '/tours' : {
       controller : 'home',

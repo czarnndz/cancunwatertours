@@ -128,116 +128,106 @@
                   <input flex="50" flex-sm="100" type="text" class="ubicacion-r datos-viajero" >
                 </div>
 
-                <div class="block-content" id="datos-viajero-2" flex="100" layout="row" layout-align="center center" layout-wrap >
-                      <p>Datos para tu reservación</p>
+                <div class="block-content" id="datos-viajero-2">
+                      <p><strong>Datos para tu reservación</strong></p>
                       <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
-                      <div id="info-datos" flex="90" layout="row" layout-align="start center" >
-                          <div flex="80" flex-sm="100" layout="row" layout-align="space-between center" layout-align-sm="space-around center" layout-wrap>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div>
-                                  <input flex="85"  type="text" class="input-datos" placeholder="Nombre" ng-model="tour.client.name" name="nombre" ng-required>
-                              </div>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div>
-                                  <input flex="85" type="text" class="input-datos" placeholder="Apellidos" ng-model="tour.client.last_name" name="apellido"  ng-required>
-                              </div>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div>
-                                  <input flex="85"  type="email" class="input-datos" placeholder="Correo Electrónico" ng-model="tour.client.email" name="email" ng-required>
-                              </div>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div>
-                                  <input flex="85"  type="email" class="input-datos" placeholder="Confirmar Correo Electrónico" name="repeat_email" ng-model="repeat_email">
-                              </div>
-                              <div class="text-datos-trans tel" layout="row" layout-align-sm="center center" flex="90" >Número Telefónico</div>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <input flex="100"  type="text" class="input-datos" placeholder="Lada" ng-model="tour.client.phone_lada">
-                              </div>
-                              <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
-                                  <div flex="15" layout="row" layout-align="center center" ><i class="icon-tel icono-datos-v"></i></div>
-                                  <input flex="65"  type="text" class="input-datos" placeholder="Número" ng-model="tour.client.phone">
-                                  <div class="celular" flex="20" layout="row" layout-align="space-around center" >
-                                      <div id="apuntador-cel" layout="row" layout-align="center center" ng-click="tour.client.isMobile = !tour.client.isMobile">
-                                          <div class="apuntador-cel" ng-show="tour.client.isMobile" ></div>
-                                      </div>
-                                      Celular
-                                  </div>
-                              </div>
+                      <div id="info-datos" flex="90">
+                          <div layout="row" layout-align="space-between center">
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div>
+                                <input flex="85"  type="text" class="input-datos" placeholder="Nombre" ng-model="tour.client.name" name="nombre" ng-required>
+                            </div>
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <div flex="15" layout="row" layout-align="center center" ><i class="icon-nombre icono-datos-v"></i></div>
+                                <input flex="85" type="text" class="input-datos" placeholder="Apellidos" ng-model="tour.client.last_name" name="apellido"  ng-required>
+                            </div>
                           </div>
+                          <div layout="row" layout-align="space-between center">
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div>
+                                <input flex="85"  type="email" class="input-datos" placeholder="Correo Electrónico" ng-model="tour.client.email" name="email" ng-required>
+                            </div>
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <div flex="15" layout="row" layout-align="center center" ><i class="icon-mail icono-datos-v"></i></div>
+                                <input flex="85"  type="email" class="input-datos" placeholder="Confirmar Correo Electrónico" name="repeat_email" ng-model="repeat_email">
+                            </div>
+                          </div>
+
+                          <p class="tel-label">Número Telefónico</p>
+
+                          <div layout="row" layout-align="space-between center">
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <input flex="100"  type="text" class="input-datos" placeholder="Lada" ng-model="tour.client.phone_lada">
+                            </div>
+                            <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
+                                <div flex="15" layout="row" layout-align="center center" ><i class="icon-tel icono-datos-v"></i></div>
+                                <input flex="65"  type="text" class="input-datos" placeholder="Número" ng-model="tour.client.phone">
+                                <div class="celular" flex="20" layout="row" layout-align="space-around center" >
+                                <md-checkbox md-no-ink aria-label="Celular" ng-model="tour.client.isMobile" class="md-primary">
+                                  Celular
+                                </md-checkbox>
+                                </div>
+                            </div>
+                          </div>
+
                       </div>
                   </div>
               </div>
 
-              <div id="pago-reservacion" ng-class="step == 2 ? 'activar' : 'ng-hide'" flex="100" layout="row" layout-align="center center" layout-wrap >
-                  <div id="nombre-reservacion" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
-                      <div class="nombre-reservacion" layout="row" layout-align="center center" >FORMA DE PAGO</div>
+              <div id="pago-reservacion" class="reservacion-content" ng-class="step == 2 || true ? 'activar' : 'ng-hide'">
+                  <div class="title-block">
+                      <h3><strong>FORMA DE PAGO</strong></h3>
                   </div>
-                  <div id="forma-pago" flex="100" layout="row" layout-align="center center" layout-wrap>
-                      <div class="forma-1" flex="90" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center"  layout-wrap>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="visaVisibility = !visaVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="visaVisibility"></div>
-                              </div>
-                              <img src="images/visa.png" class="img-tarjeta">
-                          </div>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="masterVisibility = !masterVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="masterVisibility"></div>
-                              </div>
-                              <img src="images/master.png" class="img-tarjeta">
-                          </div>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="americanVisibility = !americanVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="americanVisibility"></div>
-                              </div>
-                              <img src="images/american.png" class="img-tarjeta">
-                          </div>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="puntosVisibility = !puntosVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="puntosVisibility"></div>
-                              </div>
-                              <img src="images/puntos.png" class="img-tarjeta">
-                          </div>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="oxxoVisibility = !oxxoVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="oxxoVisibility"></div>
-                              </div>
-                              <img src="images/oxxo.png" class="img-tarjeta">
-                          </div>
-                          <div  class="cont-tarjetas" layout="row" layout-align="start center" >
-                              <div id="apuntador-tarjeta" layout="row" layout-align="center center" ng-click="paypalVisibility = !paypalVisibility">
-                                  <div class="apuntador-tarjeta" ng-show="paypalVisibility"></div>
-                              </div>
-                              <img src="images/paypal.png" class="img-tarjeta">
-                          </div>
-                      </div>
-                      <div class="text-datos-trans info" layout="row" layout-align-sm="center center" flex="90" >Elije un banco</div>
-                      <div id="select-banco" flex="90" layout="row" layout-align="start center" >
-                          <div layout="column" layout-align="center center" flex="35" flex-md="100" flex-sm="100">
-                              <md-select class="select-banco" ng-model="someVal">
-                                  <md-option value="1">Bancomer <img src="images/bancomer.png"></md-option>
-                              </md-select>
-                          </div>
-                      </div>
+                  <div id="forma-pago" class="block-content">
+
+                      <md-radio-group class="md-primary" ng-model="paymentMethod" layout="row">
+                        <md-radio-button value="Visa" class="md-primary">
+                          <img src="images/visa.png" class="img-tarjeta">
+                        </md-radio-button>
+                        <md-radio-button value="Master" class="md-primary">
+                          <img src="images/master.png" class="img-tarjeta">
+                        </md-radio-button>
+                        <md-radio-button value="American" class="md-primary">
+                          <img src="images/american.png" class="img-tarjeta">
+                        </md-radio-button>
+                        <md-radio-button value="Puntos" class="md-primary">
+                          <img src="images/puntos.png" class="img-tarjeta">
+                        </md-radio-button>
+                        <md-radio-button value="Oxxo" class="md-primary">
+                          <img src="images/oxxo.png" class="img-tarjeta">
+                        </md-radio-button>
+                        <md-radio-button value="Paypal" class="md-primary">
+                          <img src="images/paypal.png" class="img-tarjeta">
+                        </md-radio-button>
+                      </md-radio-group>
+
+                      <p>Elije un banco</p>
+
+                      <md-select class="custom-select" ng-model="someVal">
+                          <md-option value="1">Bancomer <img src="images/bancomer.png"></md-option>
+                      </md-select>
+
                   </div>
-                  <div id="nombre-reservacion" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" >
-                      <div class="nombre-reservacion" layout="row" layout-align="center center" >DATOS DEL PAGO</div>
+
+                  <div class="title-block">
+                      <h3><strong>DATOS DEL PAGO</strong></h3>
                   </div>
-                  <div id="datos-del-pago" layout-align-md="center center" layout-align-sm="center center" flex="90" layout="row" layout-align="start center" layout-wrap>
+
+                  <div id="datos-del-pago" class="block-content">
+
                       <div flex="90" layout="row" layout-align="start center" layout-align-md="center center" layout-align-sm="center center">
                           <img src="images/visa.png" class="datos-img">
                       </div>
-                      <div class="text-datos-trans datos" layout="row" layout-align-sm="center center" layout-align-md="center center" flex="90" >Datos del Pago</div>
-                      <div class="text-datos-trans info pais" layout="row" layout-align-sm="center center" layout-align-md="center center" flex="90" >País</div>
-                      <div id="selct-pais" flex-md="85" flex-sm="90" layout="row" layout-align="start center" >
-                          <div layout="column" layout-align="center center" flex="100">
-                              <md-select class="select-pais" ng-model="someVal">
-                                  <md-option value="1">Estados Unidos</md-option>
-                                  <md-option value="2">Canada</md-option>
-                                  <md-option value="3">España</md-option>
-                              </md-select>
-                          </div>
-                      </div>
+
+                      <p>Datos del pago</p>
+                      <p>País</p>
+
+                      <md-select flex="60" class="custom-select" ng-model="someVal">
+                          <md-option value="1">Estados Unidos</md-option>
+                          <md-option value="2">Canada</md-option>
+                          <md-option value="3">España</md-option>
+                      </md-select>
+
                       <div id="Pais" flex="90" flex-lg="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap>
                           <div flex flex-md="100" flex-sm="100" layout="row" layout-align="start start" class="c-uno" layout-wrap>
                               <input type="text" flex-md="100" flex-sm="100" class="input-num-tarjeta" placeholder="Número de Tarjeta">
@@ -248,7 +238,7 @@
                                   <div> Fecha de vencimiento </div>
                               </div>
                               <div class="fecha-slect" layout="column" layout-align="center center" flex-md="100" flex-sm="100">
-                                  <md-select class="select-mes" ng-model="someVal" placeholder="Més">
+                                  <md-select class="select-mes custom-select" ng-model="someVal" placeholder="Més">
                                       <md-option value="1">1</md-option>
                                       <md-option value="2">2</md-option>
                                       <md-option value="3">3</md-option>
@@ -264,7 +254,7 @@
                                   </md-select>
                               </div>
                               <div class="fecha-slect" layout="column" layout-align="center center" flex-md="100" flex-md="100" flex-sm="100">
-                                  <md-select class="select-mes" ng-model="someVal" placeholder="Año">
+                                  <md-select class="select-mes custom-select" ng-model="someVal" placeholder="Año">
                                       <md-option value="1">2015</md-option>
                                       <md-option value="2">2016</md-option>
                                       <md-option value="3">2017</md-option>
@@ -287,18 +277,17 @@
                           <input type="text" flex="40" flex-md="100" flex-sm="100" class="input-num-tarjeta direccion" placeholder="Dirección">
                           <input type="text" flex-md="100" flex-sm="100" class="input-num-tarjeta ciudad codigo" placeholder="Código Postal">
                       </div>
-                      <div id="terminos-condiciones-pago" flex="100" layout="row" layout-align="center center" layout-wrap>
-                          <div class="cont-r-3" flex="100" layout="row" layout-align="center center"  layout-wrap>
-                              <div id="marcador-terminos" layout="row" layout-align="center center" ng-click="terminosVisibility = !terminosVisibility" >
-                                  <div class="marcador-terminos" ng-show="terminosVisibility" ></div>
-                              </div>
+                      <div id="terminos-condiciones-pago">
+                          <p>
+                            <md-checkbox class="md-primary" ng-model="terminosVisibility" aria-label="Terminos">
                               He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
-                          </div>
-                          <div class="total-pagar" flex="100" layout="row" layout-align="center center" >Total a Pagar</div>
-                          <div class="precio-total" flex="100" layout="row" layout-align="center center" >MXM <strong>$ 20,793.00</strong></div>
+                            </md-checkbox>
+                          </p>
+                          <p class="total-pagar"><strong>Total a Pagar</strong></p>
+                          <p class="precio-total">MXM <strong>$ 20,793.00</strong></p>
                           <div class="importe-pago" flex="100" layout="row" layout-align="center center">El importe incluye todos los impuestos</div>
 
-                              <input type="button" id="boton-pagar" value="PAGAR RESERVA">
+                          <input type="button" id="boton-pagar" value="PAGAR RESERVA">
 
                       </div>
                   </div>

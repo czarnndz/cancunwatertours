@@ -17,7 +17,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 a{text-decoration: none;border: none;box-shadow: none;}
 a:hover{text-decoration: none;border: none;box-shadow: none;border-color: transparent;}
 a:focus{text-decoration: none;border: none;box-shadow: none;}
-.ng-cloak{display: none!important}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 #cont-global{position: relative;}
 .fuente-r{background: #00C0C8!important;color: white}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
@@ -436,6 +438,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .input-cuenta .md-select-label{margin-top: -14px!important;border: 0px!important;padding: 0px!important;width: 100%!important;margin-left: -3px;text-align: left!important}
 .input-cuenta span{color: white;width: 50%!important}
 .input-cuenta md-select{width: 100%!important}
+.input-cuenta md-select md-select-value{border: 0;}
 .input-cuenta .md-select-label .md-select-icon{display: none}
 /*select*/
 
@@ -513,9 +516,22 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*mi cuenta*/
 
-#cont-cuenta{margin-top: 50px;margin-bottom: 50px}
-#mi-cuenta{background: linear-gradient( #35cdd4, #1EB0EB );height: auto;}
-.datos-text{color: white;font-size: 25px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
+#cont-cuenta{
+  background: linear-gradient( #35cdd4, #1EB0EB );
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#mi-cuenta{
+  height: auto;
+  padding: 20px;
+}
+#mi-cuenta h1{
+  color: white;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 .datos-text-2{color: white;font-size: 20px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
 .cont-form-cuenta{margin-top: 10px;}
 .cont-input-cuenta{height: 50px;margin-right: 20px;}
@@ -523,9 +539,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .input-cuenta{background: transparent;color: white;padding-left: 5px;border-radius: 5px;border: 1px solid white;}
 .input-cuenta::-webkit-input-placeholder{color: white}
 .input-cuenta:focus::-webkit-input-placeholder{color: transparent;}
-#boton-cuenta-1{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-family: open-b}
+#boton-cuenta-1{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-weight: 700}
 .cont-input-cuenta.contra{height: auto;}
-#boton-cuenta-2{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-family: open-b;}
+#boton-cuenta-2{
+  height: 30px;
+  background: white;
+  color: #25B3E3;
+  border-radius: 5px;
+  border: 0px;
+  font-weight: 700;
+}
 #contrasena{margin-bottom: 30px}
 /*mi cuenta*/
 
@@ -924,7 +947,17 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .icono-fecha-r{color: #00B6DA;font-size: 15px;margin-right: 5px;margin-top: -10px}
 .fecha-tour{color: #898989;font-size: 13px;font-weight: 700;margin-top: -10px}
 #ubicacion-tour{margin-bottom: 20px}
-.ubicacion-r{width: 164px!important;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
+.ubicacion-r{
+  width: 164px!important;
+  height: 34px;
+  border-radius: 5px;
+  box-shadow: none;
+  margin-top: -10px;
+  border:1px solid #DCDCDC;
+  color: #939393;
+  padding-left: 10px;
+  margin-left: 10px;
+}
 .ubicacion-r.adultos{width: 50px!important}
 .adultos-r{margin-bottom: 20px}
 .ubicacion-r.fecha{width: 177px}
@@ -964,17 +997,35 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px;border: none;}
 #datos-viajero-2{border-top: 4px solid #F2F2F2}
 .text-datos-trans.datos{margin-top: 10px}
-.text-datos-trans.info{color: #949494;font-size: 14px;font-family: open-r}
-.form-datos{height: 35px;background: #F5F5F5;margin-top: 10px;border-radius: 5px;}
-.input-datos{height: 100%;background: #F5F5F5;box-shadow: none;border:none;color: #939393;padding-left: 10px;font-size: 13px;}
+.text-datos-trans.info{color: #949494;font-size: 14px;}
+.form-datos{
+  /*height: 35px;*/
+  background: #F5F5F5;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.input-datos{
+  background: #F5F5F5;
+  border:none;
+  box-shadow: none;
+  color: #939393;
+  font-size: 13px;
+  padding: 10px;
+}
 .icono-datos-v{font-size: 18px;color: #19A4EF}
 .text-datos-trans.tel{color: #949494;font-size: 14px;font-family: open-r;margin-top: 10px;}
-.celular{height: 35px;background:white;color: #ACACAC;font-size: 10px;border: none}
+.celular{
+  background:white;
+  color: #ACACAC;
+  font-size: 10px;
+  border: none;
+}
 #apuntador-cel{width: 10px;height: 10px;border:2px solid #ACACAC;}
 .apuntador-cel{width: 4px;height: 4px;background: #ACACAC}
 #info-datos{padding-bottom: 30px}
+#info-datos .tel-label{margin: 15px 0 0}
 
-#pago-reservacion{background: white;border-bottom: 4px solid #F2F2F2}
+#pago-reservacion{}
 .cont-tarjetas{height: 20px;margin-right: 10px;}
 #forma-pago{border-bottom:4px solid #F2F2F2 }
 .forma-1{margin-top: 20px;margin-bottom: 5px}
@@ -987,7 +1038,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .datos-img{margin-top: 20px;margin-bottom: 20px}
 .text-datos-trans.info.pais{font-size: 15px;margin-top: 15px;}
 
-.input-num-tarjeta{width: 240px;height: 40px;border:1px solid #A9A9A9;border-radius: 10px;color: #8A8A8A;padding-left:10px;font-family: open-b;margin-right: 20px;margin-top: 5px}
+.input-num-tarjeta{
+  width: 240px;
+  height: 40px;
+  border:1px solid #A9A9A9;
+  border-radius: 10px;
+  color: #8A8A8A;
+  padding-left:10px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
 .text-datos-trans.info.fecha{font-size: 13px;padding-left: 31px}
 
 .fecha-slect{margin-top: 3px;margin-left: 10px;width: 86px}
@@ -999,15 +1059,36 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .input-num-tarjeta.ciudad.codigo{margin-top: 10px;margin-left: 16px}
 .input-num-tarjeta.direccion{margin-top: 10px}
 #terminos-condiciones-pago{margin-top: 30px;margin-bottom: 30px}
-.total-pagar{font-size: 17px;color: #898989;font-family: open-b}
-.precio-total{font-size: 20px;color: #13A6ED;font-family: open-b}
+.total-pagar{
+  font-size: 17px;
+  color: #898989;
+  text-align: center;
+}
+.precio-total{
+  font-size: 20px;
+  color: #13A6ED!important;
+  text-align: center;
+}
 .precio-total strong{font-size: 30px;margin-left: 5px;}
 .importe-pago{color: #8A8A8A;font-size: 15px;text-align: center;}
-#boton-pagar{width: 180px;height: 40px;color: white;font-family: open-b;background: #00C1CA;border-radius: 10px;margin-top: 10px;border: 0px;text-align: center;}
+#boton-pagar{
+  width: 180px;
+  padding: 20px 0;
+  color: white;
+  font-weight: 700;
+  background: #00C1CA;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 0px;
+  text-align: center;
+  margin: 20px auto;
+  text-align: center;
+  display: block;
+}
 
 .head-detalle{height: 60px;background: #19A4EF;color: white;font-size: 22px}
 
-.boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;font-family: open-b;border-radius: 5px;margin-top: 15px}
+.boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;;border-radius: 5px;margin-top: 15px}
 .enlace-footer.bold{font-family: open-b}
 
 .redes-face{color: white;font-size: 26px;}

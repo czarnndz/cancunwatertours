@@ -1,15 +1,16 @@
-<div id="cont-cuenta" flex layout="row" layout-align="center center" ng-controller="Cuenta">
-	<div id="mi-cuenta" flex="90" flex-md="95" layout="row" layout-align="center center" layout-wrap>
-		<form method="post"  flex="100" layout="row" layout-align="center center" layout-wrap>
-			<div class="datos-text" flex="100" layout="row" layout-align="center center">Mi cuenta-Datos Personales</div>
-			<div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
-				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
+<div id="cont-cuenta" class="c-container c-container-lg" ng-controller="Cuenta">
+	<div id="mi-cuenta">
+		<form method="post">
+			<h1>Mi cuenta-Datos Personales</h1>
+
+      <div class="cont-form-cuenta" layout="row" layout-align="center center" layout-wrap>
+				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90">
 					<div class="text-cuenta">Nombre</div>
 					<input flex="100" type="text" placeholder="Nombre" class="input-cuenta">
 				</div>
-				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
+				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" >
 					<div class="text-cuenta">Apellido</div>
-					<input flex="100" type="text" placeholder="Apellido" class="input-cuenta">				
+					<input flex="100" type="text" placeholder="Apellido" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="input-cuenta" layout="column" layout-align="center start" flex="100">
@@ -17,10 +18,11 @@
 				    		<md-option value="1">Hombre</md-option>
 				    		<md-option value="2">Mujer</md-option>
 				  		</md-select>
-					</div>				
+					</div>
 				</div>
 			</div>
-			<div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
+
+      <div class="cont-form-cuenta" layout="row" layout-align="center center" layout-wrap>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="space-between end" layout-wrap>
 					<div class="text-cuenta" flex="100" layout="row" layout-align-sm="center center">Fecha de nacimiento</div>
 					<div class="input-cuenta" layout="column" layout-align="center center" flex="30">
@@ -37,7 +39,7 @@
 				    		<md-option value="10">10</md-option>
 				  		</md-select>
 					</div>
-					<div class="input-cuenta"  ng-controller="AppCtrl" layout="column" layout-align="center center" flex="30">
+					<div class="input-cuenta" layout="column" layout-align="center center" flex="30">
 				  		<md-select ng-model="someVal" placeholder="Més">
 				    		<md-option value="1">1</md-option>
 				    		<md-option value="2">2</md-option>
@@ -64,10 +66,10 @@
 				</div>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="text-cuenta">Teléfonos de Contácto</div>
-					<input flex="100" type="text" placeholder="Número" class="input-cuenta">				
-				</div> 
+					<input flex="100" type="text" placeholder="Número" class="input-cuenta">
+				</div>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-					<input flex="100" type="text" placeholder="Número" class="input-cuenta">				
+					<input flex="100" type="text" placeholder="Número" class="input-cuenta">
 				</div>
 			</div>
 			<div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
@@ -77,10 +79,10 @@
 				</div>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="text-cuenta">Número de Tarjeta</div>
-					<input flex="100" type="text" value="***** **** ****" class="input-cuenta">				
+					<input flex="100" type="text" placeholder="***** **** ****" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-					<input flex="100" type="text" placeholder="Cambiar forma de pago" class="input-cuenta">				
+					<input flex="100" type="text" placeholder="Cambiar forma de pago" class="input-cuenta">
 				</div>
 			</div>
 			<div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
@@ -96,10 +98,10 @@
 					<input flex="100" type="password" placeholder="Contraseña anterior" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta contra" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-					<input flex="100" type="password" placeholder="Nueva contraseña" class="input-cuenta">				
+					<input flex="100" type="password" placeholder="Nueva contraseña" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta contra" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-					<input flex="100" type="password" placeholder="Repetir nueva contraseña" class="input-cuenta">				
+					<input flex="100" type="password" placeholder="Repetir nueva contraseña" class="input-cuenta">
 				</div>
 			</div>
 			<div class="cont-form-cuenta contra" flex="100" layout="row" layout-align="center center" layout-wrap>
