@@ -1,14 +1,15 @@
 <div id="cont-menu-1" layout="row" flex="10" layout-align="start start" layout-wrap hide-sm>
   <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
 
-    <% _.each(meta.categories,function(item){ %>
-      <a href="/resultados?tipe=<%= item.id %>" flex="100" layout="row" layout-align="center center" >
+    <% for(var i=0;i<meta.categories.length;i++){ %>
+      <% if(i === 6) break; %>
+      <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
         <div flex="100" layout="column" layout-align="center center" class="enlace-menu hvr-bounce-to-right">
-          <i class="icon-<%= item.name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
-          <div class="text-menu"><%= item.name.toUpperCase() %></div>
+          <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
+          <div class="text-menu"><%= meta.categories[i].name.toUpperCase() %></div>
         </div>
       </a>
-    <% }) %>
+    <% } %>
 
     <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" class=" ">-->
       <!--<div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">-->
