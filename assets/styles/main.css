@@ -23,6 +23,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 *:focus, *:hover{outline: 0px}
 .clear{clear: both;}
+.no-margin{margin: 0;}
 
 .absolute-link{
   position: absolute;
@@ -47,6 +48,17 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .custom-select span{margin-left: 10px!important}
 .custom-select span.md-select-icon{display: none}
 
+/*------------/
+  #CUSTOM-AUTOCOMPLETE
+/*-----------*/
+.custom-autocomplete{
+  background: rgb(245,245,245);
+  border-radius: 46px;
+  box-shadow: none;
+  height: 40px;
+  line-height: 1.2;
+}
+.custom-autocomplete md-autocomplete-wrap{box-shadow: none;}
 
 /*----------/
   #CONTAINERS
@@ -860,13 +872,14 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 
 .reservacion-content .title-block{
-  padding: 12px 20px;
+  padding: 15px 20px;
   background: #fff;
-  margin-bottom: 3px;
+  margin: 6px 0;
 }
 .reservacion-content .title-block h3{
   color: #8A8A8A;
   font-size: 16px;
+  margin: 0;
   text-transform: uppercase;
 }
 .reservacion-content .title-block i{
@@ -875,7 +888,20 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   vertical-align: middle;
 }
 .reservacion-content .custom-select{margin-left: 10px;}
-
+.reservacion-content p{color: #8A8A8A}
+.reservacion-content .highlight{
+  color:#19A4EF;
+}
+.reservacion-content .big-price{font-size: 24px;}
+.reservacion-content .hotel-autocomplete{
+  margin-left: 12px;
+}
+.reservacion-content .block-content{
+  background: #fff;
+  padding: 14px;
+  margin-bottom: 4px;
+}
+.reservacion-content .block-content p i{vertical-align: middle;}
 
 .listado-reserva{background: white;height: 100%;cursor:pointer }
 .tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}
@@ -898,7 +924,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .icono-fecha-r{color: #00B6DA;font-size: 15px;margin-right: 5px;margin-top: -10px}
 .fecha-tour{color: #898989;font-size: 13px;font-weight: 700;margin-top: -10px}
 #ubicacion-tour{margin-bottom: 20px}
-.ubicacion-r{width: 164px!important;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;margin-left: 5px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
+.ubicacion-r{width: 164px!important;height: 34px;border-radius: 5px;box-shadow: none;margin-top: -10px;border:1px solid #DCDCDC;color: #939393;padding-left: 10px}
 .ubicacion-r.adultos{width: 50px!important}
 .adultos-r{margin-bottom: 20px}
 .ubicacion-r.fecha{width: 177px}
@@ -934,7 +960,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
 .icono-trans-d{color:#00C0C9;font-size: 25px;margin-right: 5px}
-.text-datos-trans{font-size: 15px;color: #918A8A;margin-left: 5px;font-family: open-b}
+.text-datos-trans{font-size: 15px;color: #918A8A;margin-left: 5px;}
 .ubicacion-r.datos-viajero{width: 200px;margin-top: 5px;background: #F5F5F5;margin-bottom: 5px;border: none;}
 #datos-viajero-2{border-top: 4px solid #F2F2F2}
 .text-datos-trans.datos{margin-top: 10px}

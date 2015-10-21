@@ -75,33 +75,34 @@
 
                   <div id="hotel-reservacion" layout="column" layout-align="space-between center">
                       <div class="hotel-reservacion" layout="row" layout-align="space-between center" layout-wrap>
-                          <div class="cont-r-1" flex="60" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap >
-                              <i class="icon-pin pin-r"></i>
-                              <div class="text-hotel-r">Hotel : </div>
+                          <div flex="60" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap >
+                              <p class="no-margin"><i class="icon-pin"></i>Hotel : </p>
+
                               <md-autocomplete
-                                      ng-disabled="isDisabled"
-                                      md-no-cache="false"
-                                      md-selected-item="hotel"
-                                      md-search-text="searchText"
-                                      md-items="item in hotels|filter:{name : searchText}:false"
-                                      md-item-text="item.name"
-                                      md-min-length="0"
-                                      placeholder="">
-                                  <md-item-template>
-                                      <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
-                                  </md-item-template>
-                                  <md-not-found>
-                                      No matches found for "{{searchText}}".
-                                  </md-not-found>
-                              </md-autocomplete>
+                                  class="custom-autocomplete hotel-autocomplete"
+                                  ng-disabled="isDisabled"
+                                  md-no-cache="false"
+                                  md-selected-item="hotel"
+                                  md-search-text="searchText"
+                                  md-items="item in hotels|filter:{name : searchText}:false"
+                                  md-item-text="item.name"
+                                  md-min-length="0"
+                                  placeholder="">
+                                <md-item-template>
+                                  <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                  No matches found for "{{searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
                           </div>
-                          <div class="cont-r-2" flex="40" flex-md="100" flex-sm="100" layout="row" layout-align="space-around center" >
-                              <md-button class="md-raised" ng-class="!isDisabled ? 'md-primary' : ''" ng-click="isDisabled = false">editar</md-button>
+                          <div flex="40" flex-md="100" flex-sm="100" layout="row" layout-align="space-around center" >
+                              <md-button class="md-raised" ng-class="!isDisabled ? 'md-primary' : ''" ng-click="isDisabled = false">Editar</md-button>
                           </div>
                           <div id="total-transporte" flex="100" layout="column" layout-align="center start" layout-align-sm="center center">
-                              <div class="text1-total">Total Transporte</div>
-                              <div class="text2-total">mxn <strong> {{priceTransfer() | currency}} </strong></div>
-                              <div class="text3-total">El importe incluye todos los impuestos</div>
+                              <p><strong>Total Transporte</strong></p>
+                              <p class="highlight"><strong class="big-price"> {{priceTransfer() | currency}} </strong> mxn</p>
+                              <p>El importe incluye todos los impuestos</p>
                           </div>
                       </div>
                   </div>
@@ -116,20 +117,20 @@
               </div>
               <!--END STEP 1-->
 
+              <!--STEP 2-->
+              <div id="datos-viajero" class="reservacion-content" ng-class="step == 1 ? 'activar' : 'ng-hide'">
 
-              <div id="datos-viajero" ng-class="step == 1 ? 'activar' : 'ng-hide'" flex="100" layout="row" layout-align="center center" layout-wrap >
-                  <div id="datos-viajero-1" flex="90" flex-sm="95" layout="row" layout-align="start center" layout-wrap>
-                      <div flex="100" layout="row" layout-align="start center"  >
-                          <i class="icon-transporte icono-trans-d"></i>
-                          <div class="text-datos-trans">Datos para el traslado de tu Tour (Opcional)</div>
-                      </div>
-                      <input flex="50" flex-sm="100" type="text" class="ubicacion-r datos-viajero" >
-                  </div>
-                  <div id="datos-viajero-2" flex="100" layout="row" layout-align="center center" layout-wrap >
-                      <div class="text-datos-trans datos" layout="row" layout-align-sm="center center" flex="90" >Datos para tu reservación</div>
-                      <div class="text-datos-trans info" layout="row" layout-align-sm="center center" flex="90" >
-                          Estos datos son los que se utilizarán para hacerte llegar información de su reservación
-                      </div>
+                <div class="block-content">
+                  <p>
+                    <i class="icon-transporte icono-trans-d"></i>
+                     <strong>Datos para el traslado de tu Tour (Opcional)</strong>
+                  </p>
+                  <input flex="50" flex-sm="100" type="text" class="ubicacion-r datos-viajero" >
+                </div>
+
+                <div class="block-content" id="datos-viajero-2" flex="100" layout="row" layout-align="center center" layout-wrap >
+                      <p>Datos para tu reservación</p>
+                      <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
                       <div id="info-datos" flex="90" layout="row" layout-align="start center" >
                           <div flex="80" flex-sm="100" layout="row" layout-align="space-between center" layout-align-sm="space-around center" layout-wrap>
                               <div class="form-datos" flex="45" layout="row" flex-sm="100" layout-align="center center" >
