@@ -26,13 +26,13 @@
 .icon-adultos:before {
 	content: "\e600";
 }
-.icon-aventura:before {
+.icon-adventure:before {
 	content: "\e601";
 }
 .icon-borrar:before {
 	content: "\e602";
 }
-.icon-buceo:before {
+.icon-diving:before {
 	content: "\e603";
 }
 .icon-buscador:before {
@@ -86,7 +86,7 @@
 .icon-nombre:before {
 	content: "\e614";
 }
-.icon-pesca:before {
+.icon-fishing:before {
 	content: "\e615";
 }
 .icon-pin:before {
@@ -98,7 +98,7 @@
 .icon-precio:before {
 	content: "\e618";
 }
-.icon-snorkel:before {
+.icon-snorkeling:before {
 	content: "\e619";
 }
 .icon-tel:before {

@@ -86,7 +86,11 @@ app.controller('Search',function($scope,$http){
 });
 
 app.controller('Resultados', function($scope,$http) {
-
+  $scope.getToursCategories = function() {
+    toursService.getCategories().then(function(res){
+      $scope.toursCategories = res;
+    });
+  };
 });
 
 app.controller('Header', function($scope,$http, $rootScope, toursService, searchService) {
