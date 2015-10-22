@@ -69,7 +69,7 @@ $(document).ready(function(){
 /*registro*/
 
 /*login*/
-  $(".login").click(function(event){
+  /*$(".login").click(function(event){
       //alert("login");
     if ($("#login-cont").hasClass('desactivar')) {
       //console.log("avanzada abierta")
@@ -83,6 +83,7 @@ $(document).ready(function(){
       $("#login-cont").removeClass("activar");
     }
   });
+  */
 /*login*/
 
   $("#cont-global").click(function(event){
@@ -219,6 +220,7 @@ $(document).ready(function(){
      $(".pago-r").addClass("fuente-r");
    });
 
+  /*
   $("#ap-precio").click(function(event){
       $(".ap-precio").toggleClass("ap-color");
     });
@@ -234,6 +236,7 @@ $(document).ready(function(){
   $("#ap-mas").click(function(event){
       $(".ap-mas").toggleClass("ap-color");
     });
+  */
 
   var div_alto = $('#cont-global').height();
   $('.alto').css('height',div_alto);

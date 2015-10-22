@@ -758,14 +758,60 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /*Resultados */
 #cont-resultados{background: #F2F2F2;height: auto;}
-#text-resultados{height: 70px;}
-.text-resultados-1{color: #9D9D9D;font-size: 24px;margin-top: 5px}
-.text-resultados-1 strong{color: #9D9D9D;font-size: 18px}
-.text-resultados-2{color: #9D9D9D;font-size: 13px;margin-top: 5px}
+/*#text-resultados{height: 70px;}*/
+#cont-resultados .cont-resultados-head{padding: 10px 0;}
+#cont-resultados .cont-resultados-head h1{
+  color: #9D9D9D;
+  font-size: 24px;
+  margin-top: 5px;
+}
+#cont-resultados .cont-resultados-head h1 strong{
+  color: #9D9D9D;
+  font-size: 18px
+}
+#cont-resultados .cont-resultados-head p{
+  color: #9D9D9D;
+  font-size: 13px;
+  margin-top: 5px;
+}
+#cont-resultados .icono-opciones{
+  color: #9D9D9D;
+  font-size: 25px;
+  margin-top: 5px;
+  transition: .5s linear all;
+}
+#cont-resultados .cont-iconos p{
+  color: #9D9D9D;
+  font-size: 15px;
+  margin: 0;
+}
+.text-resultados-2{}
 #opciones-resultados{}
-.opciones{background: white;height: 85px}
-.opciones.tipo{margin-left: 10px}
-.icono-opciones{color: #9D9D9D;font-size: 25px;margin-top: 5px;transition: .5s linear all}
+#cont-resultados .opciones{
+  background: white;
+  /*height: 85px;*/
+  padding: 10px 0;
+}
+#cont-resultados .opciones md-radio-button{margin: 0 0 0 10px;}
+#cont-resultados .icono-opciones{
+  color: #9D9D9D;
+  font-size: 25px;
+  transition: .5s linear all
+}
+#cont-resultados .custom-select{
+  background: #E4E4E4;
+  margin: 6px 0;
+  width: 100%;
+}
+
+#cont-resultados .detalles-resultados-item{padding: 10px;}
+#cont-resultados .detalles-resultados-item p{
+  color: #fff;
+  font-size: 13px;
+  margin: 0;
+}
+
+#cont-resultados .opciones.tipo{margin-left: 10px}
 .text-opciones{color: #9D9D9D;font-size: 15px}
 .apuntador-opcion{width: 20px;height: 20px;border-radius: 50%;background: #E4E4E4;margin-top: 5px}
 .apuntador-opt{width: 10px;height: 10px;border-radius: 50%;background: #00C1C9;}
@@ -922,12 +968,12 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .reservacion-content .hotel-autocomplete{
   margin-left: 12px;
 }
-.reservacion-content .block-content{
+#cont-reservacion .block-content{
   background: #fff;
   padding: 14px;
   margin-bottom: 4px;
 }
-.reservacion-content .block-content p i{vertical-align: middle;}
+#cont-reservacion .block-content p i{vertical-align: middle;}
 
 .listado-reserva{background: white;height: 100%;cursor:pointer }
 .tu-reservacion{border-right: 2px solid;border-bottom: 4px solid;border-color: #F2F2F2;}

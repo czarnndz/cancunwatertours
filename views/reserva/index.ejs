@@ -107,12 +107,9 @@
                       </div>
                   </div>
                   <div id="hotel-reservacion" layout="row" layout-align="center center" layout-padding>
-                      <div class="cont-r-3" flex="100" layout="row" layout-align="center center" layout-wrap ng-click="terminos = !terminos" >
-                          <div id="marcador-terminos" layout="row" layout-align="center center" >
-                              <div class="marcador-terminos" ng-if="terminos" ></div>
-                          </div>
-                          He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
-                      </div>
+                    <md-checkbox class="md-primary" ng-model="terminos" aria-label="Terminos">
+                      He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
+                    </md-checkbox>
                   </div>
               </div>
               <!--END STEP 1-->
@@ -174,7 +171,7 @@
                   </div>
               </div>
 
-              <div id="pago-reservacion" class="reservacion-content" ng-class="step == 2 || true ? 'activar' : 'ng-hide'">
+              <div id="pago-reservacion" class="reservacion-content" ng-class="step == 2 ? 'activar' : 'ng-hide'">
                   <div class="title-block">
                       <h3><strong>FORMA DE PAGO</strong></h3>
                   </div>
@@ -293,7 +290,9 @@
                   </div>
               </div>
 
-              <md-button ng-disabled="isNextButtonDisabled()" class="md-raised md-primary" ng-click="continueClick()"><span class="activar">CONTINUAR</span></md-button>
+              <div class="block-content">
+                <md-button ng-disabled="isNextButtonDisabled()" class="md-raised md-primary" ng-click="continueClick()"><span class="activar">CONTINUAR</span></md-button>
+              </div>
 
           </div>
           <!--END LEFT SIDE-->
