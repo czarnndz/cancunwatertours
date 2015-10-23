@@ -1,11 +1,13 @@
 <div id="header" layout="row" flex layout-align="space-between center" layout-align-md="center center"  layout-wrap>
     <div class="menu-busc" flex="40" flex-sm="20" flex-md="80" layout="row" layout-align="start center" layout-align-sm="space-around center" layout-align-md="space-around center" >
 
-      <div id="menu" ng-click="toggleMenuMobile = !toggleMenuMobile" layout="column" layout-align="center center">
+    <div class="mobile-menu-btn-wrap">
+      <div hide-gt-sm id="menu" ng-click="toggleMenuMobile = !toggleMenuMobile" layout="column" layout-align="center center">
         <div hide-gt-sm class="linea-menu"></div>
         <div hide-gt-sm class="linea-menu"></div>
         <div hide-gt-sm class="linea-menu"></div>
       </div>
+    </div>
 
     <div layout-padding layout="column" hide-sm>
         <form ng-submit="$event.preventDefault()">

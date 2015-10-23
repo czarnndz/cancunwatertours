@@ -1,40 +1,12 @@
-<div id="cont-menu-1" layout="row" flex="10" layout-align="start start" layout-wrap hide-sm>
-  <div class="cont-menu" flex="100" layout="row" layout-align="start start" layout-wrap >
+<div id="cont-menu-1" layout="row" flex="9" hide-sm>
+  <div class="cont-menu"  >
 
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
-      <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
-        <div flex="100" layout="column" layout-align="center center" class="enlace-menu hvr-bounce-to-right">
-          <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
-          <div class="text-menu"><%= meta.categories[i].name.toUpperCase() %></div>
-        </div>
+      <a class="enlace-menu hvr-bounce-to-right" href="/resultados?type=<%= meta.categories[i].id %>">
+        <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
+        <p><%= meta.categories[i].name.toUpperCase() %></p>
       </a>
     <% } %>
-
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" class=" ">-->
-      <!--<div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">-->
-         <!--<i class="icon-viajes icon-desplegable viajes"></i>-->
-         <!--<div class="text-menu viajes">VIAJES</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">-->
-        <!--<i class="icon-buceo icon-desplegable"></i>-->
-        <!--<div class="text-menu">BUCEO</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">-->
-        <!--<i class="icon-snorkel icon-desplegable"></i>-->
-        <!--<div class="text-menu">SNORKEL</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="column" layout-align="center center" class="enlace-menu en-menu hvr-bounce-to-right">-->
-       <!--<i class="icon-pesca icon-desplegable"></i>-->
-       <!--<div class="text-menu viajes">PESCA</div>-->
-      <!--</div>-->
-    <!--</a>-->
-
   </div>
 </div>

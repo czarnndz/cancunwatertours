@@ -144,20 +144,55 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*-----------/
   #MENU-MOBILE
 /*----------*/
+.mobile-menu-btn-wrap{
+  width: 96px;
+  height: 100%;
+  position: relative;
+}
+#menu{width: 96px;height: 100%;position: relative;}
+.linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
 
-#cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
+/*----------/
+  #SIDEBAR
+/*----------*/
+/*menu desplegable*/
+#cont-menu-1{
+  opacity: 1;
+  transition: .5s linear all;
+  /*width: 95px;*/
+  max-width: 8%;
+  background: linear-gradient(to right, #1EB0EB  , #35cdd4);
+}
 #cont-menu{
-  display:none;
   width: 100%;
-  z-index: 100000000000000;
+  z-index: 9999;
   transition: .5s linear all;
   position: absolute;
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
   overflow: hidden;
 }
-.cont-menu{height: 500px}
+.cont-menu{/*height: 500px*/}
 #cont-menu.ng-hide{opacity: 0}
-.menu-mobile-on{display: flex!important;}
+.enlace-menu{
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 6px;
+}
+
+/*.enlace-menu:hover{background: white}*/
+.enlace-menu:hover i,
+.enlace-menu:hover p{color: #20B2E9;transition: .4s linear all}
+.enlace-menu i{/*width: 40px;height: 41px*/}
+.enlace-menu.viajes i{font-size: 45px}
+.enlace-menu p{
+  font-size: 13px;
+  text-align: center;
+}
+.enlace-menu p:hover,.icon-desplegable{border:none!important;}
+.enlace-menu .icon-desplegable{color: white;font-size: 40px;margin-bottom: 5px}
+.en-menu{margin-top: -80px}
+
 
 /*-----------/
   #TOUR-ITEM
@@ -326,7 +361,22 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*----------/
   #FOOTER
 /*---------*/
-#footer{padding: 40px 20px;}
+#cont-footer{height: auto;}
+#footer{
+  background: #272727;
+  margin-top: -170px;
+  padding: 40px 20px 30px;
+}
+.cont-footer{max-width: 1251px!important}
+/*.cont-footer-en{height: 80px}*/
+.redes-footer{height: 40px}
+.enlace-footer{color: white;font-size: 11px;margin-left: 20px;}
+.enlace-footer.hover:hover{color: #1fc1c7}
+.redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 2px;color: #1EB0EB;margin-right: 10px}
+.icon-footer{margin-left: 4px}
+.img-footer{width: 45px;margin-right: 10px}
+.deg-footer{width: 1px;background: linear-gradient(#1EB0EB  , #35cdd4);height: 100%}
+
 #footer a{
   color: white;
   font-size: 11px;
@@ -555,8 +605,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*menu*/
 #header{background: white;height: auto!important;}
 .menu-busc{height: 74px;}
-#menu{width: 96px;height: 100%;position: relative;}
-.linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
 .icon-header{color:#2AB7D0;font-size: 18px;margin-left: 10px}
 .menu-logo{height: 50px;}
 #logo{width: 162px}
@@ -591,26 +639,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .imagen-buscar.seis{background-image: url(../images/6.jpg);background-repeat:no-repeat;background-position:center;background-size: cover;}
 /*buscar header*/
 
-/*menu desplegable*/
-#cont-menu-1{opacity: 1;transition: .5s linear all;width: 95px;background: linear-gradient(to right, #1EB0EB  , #35cdd4);}
-#cont-menu{width: 100%;z-index: 100000000000000;transition: .5s linear all;position: absolute;background: linear-gradient(to right, #1EB0EB  , #35cdd4);overflow: hidden;}
-.cont-menu{height: 500px}
-#cont-menu.ng-hide{opacity: 0}
-.enlace-menu{color: white;height: 100px}
 
-/*.enlace-menu:hover{background: white}*/
-.enlace-menu:hover i, .enlace-menu:hover .text-menu{color: #20B2E9;transition: .4s linear all}
-.enlace-menu i{width: 40px;height: 41px}
-.enlace-menu.viajes i{font-size: 45px}
-.text-menu{
-  font-size: 13px;
-  text-align: center;
-}
-.text-menu:hover,.icon-desplegable{border:none!important;}
-.text-menu.viajes{margin-top: -8px}
-.text-menu.viajes{margin-top: -8px}
-.icon-desplegable{color: white;font-size: 40px;margin-bottom: 5px}
-.en-menu{margin-top: -80px}
 
 #cerrar-movil{min-height: 400px;}
 /*menu desplegable*/
@@ -676,12 +705,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /**header**/
 
 /*agregar transporte*/
-.add-transport-modal .hotel-agregar{
-  color: #ABABAB;
-  font-size: 15px;
-  max-width: 80%;
-  margin: 20px auto;
-}
 .pin-agregar{font-size: 12px}
 .add-transport-modal{
   z-index: 1;
@@ -689,11 +712,17 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   position: fixed;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 18%;
   max-width: 380px;
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+}
+.add-transport-modal .hotel-agregar{
+  color: #ABABAB;
+  font-size: 15px;
+  max-width: 80%;
+  margin: 20px auto;
 }
 .add-transport-modal h4{
   font-size: 18px;
@@ -1146,21 +1175,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .redes-twit:hover{color: #1FB2E9}
 /*reserva*/
 
-/*footer*/
-
-#cont-footer{height: auto;}
-#footer{height: 170px;background: #272727;margin-top: -170px}
-.cont-footer{max-width: 1251px!important}
-.cont-footer-en{height: 80px}
-.redes-footer{height: 40px}
-/*.cont-footer-en.borde{border-right: #19B7DA 1px solid}*/
-.enlace-footer{color: white;font-size: 11px;margin-left: 20px;}
-.enlace-footer.hover:hover{color: #1fc1c7}
-.redes-f-t-i{height: 30px;width: 30px;border-radius: 50%;border: #1EB0EB solid 2px;color: #1EB0EB;margin-right: 10px}
-.icon-footer{margin-left: 4px}
-.img-footer{width: 45px;margin-right: 10px}
-.deg-footer{width: 1px;background: linear-gradient(#1EB0EB  , #35cdd4);height: 100%}
-/*footer*/
 
 @media (min-width: 961px){
 	#header{max-height: 74px!important}
