@@ -53,6 +53,7 @@ $(document).ready(function(){
   /*buscar avanzada*/
 
 /*registro*/
+    /*
     $(".registro").click(function(event){
       //alert("login");
     if ($("#registrar-cont").hasClass('desactivar')) {
@@ -65,7 +66,7 @@ $(document).ready(function(){
       $("#registrar-cont").addClass("desactivar");
       $("#registrar-cont").removeClass("activar");
     }
-  });
+  });*/
 /*registro*/
 
 /*login*/
@@ -238,6 +239,7 @@ $(document).ready(function(){
     });
   */
 
+  /*
   var div_alto = $('#cont-global').height();
   $('.alto').css('height',div_alto);
 
@@ -256,7 +258,7 @@ $(document).ready(function(){
       $('.alto-mapa').css('height',div_mapa);
      // console.log(div_mapa);
 
-  });
+  });*/
 
 
 

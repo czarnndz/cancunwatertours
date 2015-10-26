@@ -30,11 +30,13 @@ app.controller('reservaCTL',function($scope,$filter) {
     }
 
     $scope.continueClick = function(){
-        if ($scope.step == 3) {
-            $scope.addCart();
-        } else  {
-            $scope.step++;
-        }
+      if( !$scope.isNextButtonDisabled() ){
+          if ($scope.step == 3) {
+              $scope.addCart();
+          } else  {
+              $scope.step++;
+          }
+      }
     }
 
     $scope.isNextButtonDisabled = function() {

@@ -25,7 +25,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .fuente-r .num-header-r, .fuente-r .titulo-reservacion-h{color: white}
 *:focus, *:hover{outline: 0px}
 .clear{clear: both;}
-.no-margin{margin: 0;}
+.no-margin{margin: 0!important;}
 
 .absolute-link{
   position: absolute;
@@ -33,6 +33,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   top: 0;
   height: 100%;
   width: 100%;
+}
+.pull-left{text-align: left;}
+.md-select-menu-container{z-index: 999999}
+.input-field{
+  background: #F5F5F5;
+  border:none;
+  box-shadow: none;
+  color: #939393;
+  font-size: 13px;
+  padding: 10px;
 }
 
 /*----------/
@@ -43,7 +53,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   background: transparent;
   border-radius: 10px;
   border: 1px solid #C4C4C4;
+  padding-bottom: 5px;
 }
+.custom-select-full{width: 100%;}
 .custom-select .md-select-value{border: 0!important;}
 .custom-select span{color: #C4C4C4}
 .custom-select .md-select-label{margin-top: -8px!important;border: 0px!important;width: 100%!important;}
@@ -66,8 +78,39 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   #CONTAINERS
 /*---------*/
 .c-container{margin: 0 auto}
-.c-container-xlg{max-width: 1180px;}
-.c-container-lg{max-width: 980px}
+.c-container-xxlg{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.c-container-xlg{
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.c-container-lg{
+  margin: 0 auto;
+  max-width: 766px;
+}
+.c-container-md{
+  margin: 0 auto;
+  max-width: 670px;
+}
+.c-container-smd{
+  margin: 0 auto;
+  max-width: 560px;
+}
+.c-container-sm{
+  margin: 0 auto;
+  max-width: 460px;
+}
+.c-container-xsm{
+  margin: 0 auto;
+  max-width: 320px;
+}
+.c-container-mini{
+  margin: 0 auto;
+  max-width: 264px;
+}
 
 /*------------/
   #ACTION-BTN
@@ -144,12 +187,29 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 /*-----------/
   #MENU-MOBILE
 /*----------*/
+.menu-mobile{
+  display: none;
+  position: relative;
+}
+.menu-mobile-on{display: flex;}
 .mobile-menu-btn-wrap{
   width: 96px;
   height: 100%;
   position: relative;
 }
-#menu{width: 96px;height: 100%;position: relative;}
+#cerrar-movil{
+  min-height: 400px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+#menu{
+  cursor: pointer;
+  width: 96px;
+  height: 100%;
+  position: relative;
+}
 .linea-menu{width: 20px;height: 3px;background: #64CBE4;margin-bottom: 3px}
 
 /*----------/
@@ -163,11 +223,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   max-width: 8%;
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
 }
-#cont-menu{
+.cont-menu{
   width: 100%;
   z-index: 9999;
   transition: .5s linear all;
-  position: absolute;
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
   overflow: hidden;
 }
@@ -318,13 +377,17 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   margin: 10px 0;
   text-align: center;
 }
-.booking-form .input-field{margin: 6px 0;}
-.booking-form .input-field-right{float: right;}
+.booking-form .input-field-wrap{margin: 6px 0;}
+.booking-form .input-field-wrap-right{float: right;}
 .booking-form md-datepicker{
   background: #46CFD2;
   border-radius: 5px;
   padding: 4px;
   color: #fff!important ;
+}
+.booking-form md-datepicker .md-datepicker-triangle-button{
+  -webkit-transform: translateY(-18%) translateX(25%);
+  transform: translateY(-18%) translateX(25%);
 }
 .booking-form md-datepicker md-icon{color: #fff;}
 .booking-form .md-datepicker-input-container{border-bottom: 0;}
@@ -483,13 +546,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .select-agregar span{margin-left: 10px!important}
 .select-agregar span.md-select-icon{display: none}
 
-.input-cuenta{width: 100%;color: white;background: black;height: 25px;border-radius: 5px;padding: 0px;margin-top: 5px;}
-.input-cuenta span{color: white;}
-.input-cuenta .md-select-label{margin-top: -14px!important;border: 0px!important;padding: 0px!important;width: 100%!important;margin-left: -3px;text-align: left!important}
-.input-cuenta span{color: white;width: 50%!important}
-.input-cuenta md-select{width: 100%!important}
-.input-cuenta md-select md-select-value{border: 0;}
-.input-cuenta .md-select-label .md-select-icon{display: none}
 /*select*/
 
 /**header**/
@@ -582,13 +638,33 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   margin-bottom: 10px;
   text-align: center;
 }
-.datos-text-2{color: white;font-size: 20px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
-.cont-form-cuenta{margin-top: 10px;}
-.cont-input-cuenta{height: 50px;margin-right: 20px;}
-.text-cuenta{color: white}
-.input-cuenta{background: transparent;color: white;padding-left: 5px;border-radius: 5px;border: 1px solid white;}
+
+.input-cuenta{
+  background: transparent;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  border: 1px solid white;
+  width: 100%;
+}
 .input-cuenta::-webkit-input-placeholder{color: white}
 .input-cuenta:focus::-webkit-input-placeholder{color: transparent;}
+
+.input-cuenta-select{height: 25px;}
+.input-cuenta span{color: white;}
+.input-cuenta .md-select-label{margin-top: -14px!important;border: 0px!important;padding: 0px!important;width: 100%!important;margin-left: -3px;text-align: left!important}
+.input-cuenta span{color: white;width: 50%!important}
+.input-cuenta md-select{width: 100%!important}
+.input-cuenta md-select md-select-value{border: 0;}
+.input-cuenta .md-select-label .md-select-icon{display: none}
+.cont-input-cuenta{
+  /*height: 50px;*/
+  margin-right: 20px;
+}
+.cont-form-cuenta{margin: 20px 0;}
+.datos-text-2{color: white;font-size: 20px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
+.text-cuenta{color: white}
 #boton-cuenta-1{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-weight: 700}
 .cont-input-cuenta.contra{height: auto;}
 #boton-cuenta-2{
@@ -641,7 +717,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 
 
-#cerrar-movil{min-height: 400px;}
+
 /*menu desplegable*/
 
 /*busqueda avanzada*/
@@ -704,29 +780,37 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #select-header{margin-top: -10px}
 /**header**/
 
-/*agregar transporte*/
+/*--------------/
+  #ADD-TRANSPORT
+/*-------------*/
 .pin-agregar{font-size: 12px}
 .add-transport-modal{
-  z-index: 1;
+  z-index: 99999;
   background: #fff;
   position: fixed;
   left: 0;
   right: 0;
-  top: 18%;
+  top: 50%;
   max-width: 380px;
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-.add-transport-modal .hotel-agregar{
-  color: #ABABAB;
+.add-transport-modal p{
+  color: #787878;
   font-size: 15px;
-  max-width: 80%;
-  margin: 20px auto;
+  margin: 20px 0;
+}
+.add-transport-modal p i{vertical-align: middle;}
+.add-transport-modal .custom-select .md-select-value{
+  padding-bottom: 5px;
 }
 .add-transport-modal h4{
   font-size: 18px;
-  color: #ABABAB;
+  color: #787878;
   margin-top: 5px;
   width: 100%;
   margin-bottom: 20px;
@@ -743,13 +827,18 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   color: #8B8B8B;
   font-size: 13px;
   padding: 6px 8px;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+
 }
 
 .add-transport-modal .action-btn:hover{background: #38BEC9;color: white}
 .botones-agregar{padding-bottom: 20px}
-/*agregar transporte*/
 
-/*home*/
+/*--------------/
+  #HOME
+/*-------------*/
 
 #home{position: relative!important;overflow: hidden;}
 /*#traslado{position: absolute;height: 100%;background: white;z-index: 100000000}*/
@@ -946,7 +1035,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #sugeridos{background-color: #e8e8e8 }
 /*detalle*/
 
-/*reserva*/
+/*------------/
+  #RESERVA
+/*-----------*/
 #reserva{
   background: #F2F2F2;
   height: auto;
@@ -954,9 +1045,12 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   padding-top: 40px;
 }
 #detalle-reservacion{background: #19A4EF;}
-#header-reservacion{/*height: 60px;*/}
+#header-reservacion{/*height: 60px;*/
+  overflow: hidden;
+}
 #header-reservacion .step{
   background: #fff;
+  cursor: pointer;
   margin-bottom: 0;
   padding: 20px;
   color: #00C0C7;
@@ -987,8 +1081,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   color: #1DB5DA;
   font-size: 24px;
   vertical-align: middle;
+  margin-right: 4px;
 }
-.reservacion-content .custom-select{margin-left: 10px;}
+.reservacion-content .custom-select{margin:0 0 0 10px;}
 .reservacion-content p{color: #8A8A8A}
 .reservacion-content .highlight{
   color:#19A4EF;
@@ -999,9 +1094,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 #cont-reservacion .block-content{
   background: #fff;
-  padding: 14px;
+  padding: 14px 20px;
   margin-bottom: 4px;
 }
+#cont-reservacion .block-content-transparent{background: transparent;}
 #cont-reservacion .block-content p i{vertical-align: middle;}
 
 .listado-reserva{background: white;height: 100%;cursor:pointer }
@@ -1016,14 +1112,79 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #datos-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #imagen-reservacion{height: 270px;}
 .imagen-reservacion{width: 130px;height: 130px;border-radius: 50%;background-repeat:no-repeat;background-position:center;background-size: cover;margin-top: 30px}
-.tours-reservacion{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-top: 20px;}
-.tours-reservacion-2{color: #00AFE2;font-size: 13.5px;font-weight: 700;margin-bottom: 10px}
+.datos-reservacion h3{
+  color: #00AFE2;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+.datos-reservacion h4{
+  color: #00AFE2;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px
+}
+.datos-reservacion md-datepicker{
+  background-color: #DCDCDC;
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 0 10px;
+}
+.datos-reservacion .md-datepicker-input-container{border-bottom: 0}
+.datos-reservacion md-datepicker .md-datepicker-button{display: none;}
+.datos-reservacion md-datepicker .md-icon-button{height: auto}
+.datos-reservacion .input-field-wrap{
+  margin: 10px 0;
+}
+.datos-reservacion .input-field-wrap-inner{width: 100%;}
+.datos-reservacion label{
+  color: #898989;
+  font-size: 13px;
+  font-weight: 700;
+}
+.datos-reservacion input[type="number"],
+.datos-reservacion input[type="text"],
+.datos-reservacion input[type="email"]{
+  border-radius: 5px;
+  border:1px solid #DCDCDC;
+  box-shadow: none;
+  color: #939393;
+  padding-left: 10px;
+  /*width: 164px!important;*/
+}
+
+.datos-reservacion label + input[type="number"],
+.datos-reservacion label + input[type="text"],
+.datos-reservacion label + input[type="email"]{
+  margin-left: 10px;
+}
+
+.datos-reservacion .input-field{
+  /*width: 100%;*/
+}
+
+.datos-reservacion .input-field-iconized{
+  padding-left: 20px;
+}
+.datos-reservacion .input-field-iconized:after{
+  content: "\e614";
+}
+
+.terms-text{
+  font-size: 12px;
+  text-align: center;
+}
+.terms-text md-checkbox{
+  display: inline-block;
+}
+
+#reserva .continue-btn{float: right;}
+
 #fecha-tour{margin-bottom: 10px}
 .fecha-reserva{width: 187px!important}
 .fecha-reserva p input{max-width: 188px!important}
 .fecha-reserva p input{border-radius: 5px!important;color: #939393;margin-left: 5px}
 .icono-fecha-r{color: #00B6DA;font-size: 15px;margin-right: 5px;margin-top: -10px}
-.fecha-tour{color: #898989;font-size: 13px;font-weight: 700;margin-top: -10px}
 #ubicacion-tour{margin-bottom: 20px}
 .ubicacion-r{
   width: 164px!important;
@@ -1141,26 +1302,22 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   font-size: 17px;
   color: #898989;
   text-align: center;
+  margin: 0;
 }
 .precio-total{
   font-size: 20px;
   color: #13A6ED!important;
   text-align: center;
+  margin: 0;
 }
 .precio-total strong{font-size: 30px;margin-left: 5px;}
 .importe-pago{color: #8A8A8A;font-size: 15px;text-align: center;}
 #boton-pagar{
-  width: 180px;
-  padding: 20px 0;
-  color: white;
+  padding: 12px 18px;
   font-weight: 700;
-  background: #00C1CA;
-  border-radius: 10px;
-  margin-top: 10px;
+  font-size: 18px;
   border: 0px;
-  text-align: center;
   margin: 20px auto;
-  text-align: center;
   display: block;
 }
 
@@ -1230,6 +1387,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 	.cont-input-cuenta{margin-right: 0px;margin-bottom: 10px}
 	.cont-input-cuenta{height: auto;}
+
+  /*-------------/
+    #RESERVA
+  /*------------*/
 }
 
 @media (max-width: 800px){
@@ -1279,72 +1440,85 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   .booking-form .select-posicion{text-align: left;}
 
 
-
-/*header*/
-.input-header,
-.icon-header,
-.text-header,
-#img-perfil,
-.text-prefil,
-.icon-carrito,
-#login{margin: 0px}
-/*header*/
-
-.buscar-movil-ap{height: 0px;opacity: 0;overflow: hidden;}
-
-
-.text-resultados-1{width: 100%; text-align: center;}
-.text-resultados-2{width: 100%; text-align: center;}
-
-.cont-footer{margin-bottom: 5px;margin-top: 5px}
+  /*---------/
+    #RESERVA
+  /*--------*/
+  #header-reservacion .step{font-size: 14px;}
+  .datos-reservacion .input-field{
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width: 100%;
+  }
+  .datos-reservacion .input-field{margin:10px 0;}
+  .datos-reservacion .input-field-wrap{width: 100%;}
 
 
-.enlace-menu:hover i, .enlace-menu:hover .text-menu{color: white;}
+  /*header*/
+  .input-header,
+  .icon-header,
+  .text-header,
+  #img-perfil,
+  .text-prefil,
+  .icon-carrito,
+  #login{margin: 0px}
+  /*header*/
 
-.enlace-footer{margin-top: 5px;margin-bottom: 5px}
-
-#buscar-header{left: 0;width: 100%}
-
-.opciones.tipo{margin: 0}
+  .buscar-movil-ap{height: 0px;opacity: 0;overflow: hidden;}
 
 
-#buscar-avanzado-header{width: 100%;left: 0;}
+  .text-resultados-1{width: 100%; text-align: center;}
+  .text-resultados-2{width: 100%; text-align: center;}
 
-.ocultar-avan{height: 0px!important;visibility: hidden;}
+  .cont-footer{margin-bottom: 5px;margin-top: 5px}
 
-/*home*/
-.imagen-grande{height: 300px}
-.titulo-tour{font-size: 18px}
-.tour-desde{font-size: 11px}
-.text-aventura{font-size: 17px;}
-.text-aventura-2{font-size: 10px;}
-.precio-aventura{font-size: 23px;}
-/*home*/
 
-.text-resultados-1{font-size: 20px;}
-.text-resultados-1 strong{font-size: 15px}
-.text-resultados-2{font-size: 10px;margin-bottom: 10px}
+  .enlace-menu:hover i, .enlace-menu:hover .text-menu{color: white;}
 
-.nombre-detalle{font-size: 13px;}
+  .enlace-footer{margin-top: 5px;margin-bottom: 5px}
 
-.precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
+  #buscar-header{left: 0;width: 100%}
 
-.tours-reservacion{margin-top: 0px;}
-#imagen-reservacion{height: 120px;}
-.imagen-reservacion{margin: 0}
+  .opciones.tipo{margin: 0}
 
-#cont-reservacion{margin-top: 20px}
-#detalle-reservacion{margin-top: 20px;}
 
-.num-header-r{font-size: 10px}
-.titulo-reservacion-h{font-size: 10px}
+  #buscar-avanzado-header{width: 100%;left: 0;}
 
-.text-datos-trans.info{text-align: center;}
+  .ocultar-avan{height: 0px!important;visibility: hidden;}
 
-.input-num-tarjeta{margin: 0 auto;margin-left: 12px}
+  /*home*/
+  .imagen-grande{height: 300px}
+  .titulo-tour{font-size: 18px}
+  .tour-desde{font-size: 11px}
+  .text-aventura{font-size: 17px;}
+  .text-aventura-2{font-size: 10px;}
+  .precio-aventura{font-size: 23px;}
+  /*home*/
 
-.icono-horario, .icono-horario{font-size: 20px}
-.duracion, .text-horario{font-size: 10px;margin-left: 10px}
+  .text-resultados-1{font-size: 20px;}
+  .text-resultados-1 strong{font-size: 15px}
+  .text-resultados-2{font-size: 10px;margin-bottom: 10px}
+
+  .nombre-detalle{font-size: 13px;}
+
+  .precio-resultados{color: white;color: #00ABE3;font-weight: 700;font-size: 16px}
+
+  .tours-reservacion{margin-top: 0px;}
+  #imagen-reservacion{max-height: 200px;}
+  .imagen-reservacion{margin: 0}
+
+  #cont-reservacion{margin-top: 20px}
+  #detalle-reservacion{margin-top: 20px;}
+
+  .num-header-r{font-size: 10px}
+  .titulo-reservacion-h{font-size: 10px}
+
+  .text-datos-trans.info{text-align: center;}
+
+  .input-num-tarjeta{margin: 0 auto;margin-left: 12px}
+
+  .icono-horario, .icono-horario{font-size: 20px}
+  .duracion, .text-horario{font-size: 10px;margin-left: 10px}
 
 
 }

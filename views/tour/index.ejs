@@ -62,14 +62,14 @@
         <!--INPUT FIELDS-->
         <!--<div layout="row" layout-align="end start">-->
 
-        <div class="input-field input-field-right">
+        <div class="input-field-wrap input-field-wrap-right">
           <md-datepicker ng-model="bookingDate" md-placeholder="Fecha"></md-datepicker>
         </div>
         <div class="clear"></div>
 
         <div layout="row" layout-align="space-between center">
           <div flex="45">
-            <div class="input-field" layout="row" layout-align="space-between center">
+            <div class="input-field-wrap" layout="row" layout-align="space-between center">
               <label flex>Adultos</label>
               <md-select flex="50" placeholder="1" ng-model="tour.adults" ng-required>
                  <md-option value="1">1</md-option>
@@ -82,7 +82,7 @@
             </div>
           </div>
           <div flex="45">
-            <div class="input-field" layout="row" layout-align="space-between center">
+            <div class="input-field-wrap" layout="row" layout-align="space-between center">
               <label flex>Niños</label>
               <md-select flex="50" placeholder="1" ng-model="tour.kids" ng-required>
                  <md-option value="1">1</md-option>
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <div class="input-field input-field-right">
+        <div class="input-field-wrap input-field-wrap-right">
           <md-select placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
             <md-option ng-repeat="hotel in hotels" value="{{hotel.id}}" class="ng-cloak" >
               <i class="icon-hotel icono-option"></i> {{hotel.name}}

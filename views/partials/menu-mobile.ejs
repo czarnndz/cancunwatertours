@@ -1,6 +1,6 @@
-<div id="cont-menu" ng-class="{'menu-mobile-on': toggleMenuMobile}" flex layout="row"  layout-align="space-around center" layout-wrap hide-gt-sm>
+<div class="cont-menu menu-mobile" hide-gt-sm ng-class="{'menu-mobile-on': toggleMenuMobile}">
 
-  <div class="cont-menu" flex="40" layout="row" layout-align="space-around  center " layout-wrap >
+  <div layout="row" layout-align="space-around  center " layout-wrap >
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
       <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
