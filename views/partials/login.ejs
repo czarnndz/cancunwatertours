@@ -1,16 +1,18 @@
-<div id="login-cont" ng-show="loginToggle" layout="row" layout-align="center center" layout-wrap>
-  <div class="registrar-text" layout="row" layout-align="center center" flex="100">Login</div>
+<div class="form-modal" ng-show="loginToggle" layout="row" layout-align="center center" layout-wrap>
+  <h3>Login</h3>
   <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
       <input type="text" flex="80" type="text" placeholder="Username" class="input-re">
       <input type="password" flex="80" type="text" placeholder="Password" class="input-re">
       <input type="button" value="SING UP" id="boton-sing" flex="80">
   </form>
-  <p class="text-sing">OR SING IN WITH</p>
+  <p>OR SING IN WITH</p>
   <a href="" id="boton-facebook" flex="80">
     <strong >FACEBOOK</strong>
   </a>
-  <div class="bottom-btns" layout="row" layout-align="space-between center">
-    <a href=""><strong class="text-sing-2 forgot">I forgot password</strong></a>
-    <a href=""><strong class="text-sing-2 create">Create new account</strong></a>
+  <div flex="80">
+    <div class="bottom-btns" layout="row" layout-align="space-between center">
+      <a href=""><strong>I forgot password</strong></a>
+      <a href=""><strong>Create new account</strong></a>
+    </div>
   </div>
 </div>

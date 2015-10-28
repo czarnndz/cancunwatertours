@@ -1,7 +1,7 @@
 <section class="add-transport-modal"  ng-show="agregarVisibility">
   <div class="c-container c-container-xsm">
     <p><i class="icon-transporte"></i></p>
-    <h4><strong>Agregar transportación al Tour</strong></h4>
+    <h4><strong>Agregar transportación al tour</strong></h4>
     <p class="pull-left">
       <i class="icon-pin pin-agregar"></i>Hotel
     </p>
@@ -9,7 +9,7 @@
   	 <md-option value="{{hotel.id}}" class="ng-cloak" ng-repeat="hotel in hotels">{{hotel.name}}</md-option>
     </md-select>
 
-    <div class="botones-agregar" layout="row" layout-align="space-around center" >
+    <div class="botones-agregar" layout="row" layout-align="center center" >
   		<a ng-if="hotel" class="action-btn" ng-href="/reserva?hotel={{hotel.id}}&tour={{selectedTour.id}}">
   			<strong>Agregar</strong>
   		</a>

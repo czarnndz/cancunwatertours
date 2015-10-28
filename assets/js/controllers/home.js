@@ -98,10 +98,22 @@ app.controller('Header', function($scope,$http, $rootScope, toursService, search
     $scope.maxFee = 0;
     $scope.minFee = 10000;
     $scope.toursCategories = [];
+    $scope.registerToggle = false;
+    $scope.loginToggle = false;
 
-    $rootScope.$on('searchParamsChanged', function(event,data){
-      console.log(data);
-    });
+    $scope.doLoginToggle = function(){
+      if($scope.registerToggle){
+        $scope.registerToggle = false;
+      }
+      $scope.loginToggle = !$scope.loginToggle;
+    };
+
+    $scope.doRegisterToggle = function(){
+      if($scope.loginToggle){
+        $scope.loginToggle = false;
+      }
+      $scope.registerToggle = !$scope.registerToggle;
+    };
 
     $scope.getFeeRange = function(){
         toursService.getFeeRange().then(function(res){

@@ -294,11 +294,17 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .tour-data h1,
 .tour-data h2{margin: 4px 0}
 .tour-data h1{font-size: 20px;}
-.tour-data h2{font-size: 16px;}
+.tour-data h2{
+  font-size: 14px;
+  font-weight: 400;
+}
 .tour-data .big-icon{font-size: 24px;}
 .tour-data-item{margin-bottom: 10px;}
 .tour-data-item .big-icon{margin-right: 8px;}
-.tour-data-item p{margin:0;}
+.tour-data-item p{
+  font-size: 12px;
+  margin:0;
+}
 
 .tour-description{
   padding: 20px 30px;
@@ -306,7 +312,9 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 .tour-description h3{
   color: #27C8CF;
-  font-size: 25px;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
 }
 .tour-description p{
   color: #7A7A7A;
@@ -339,15 +347,20 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   margin: 16px 0;
   position: relative;
 }
-.s-tour h4{margin: 4px 0 0;}
+.s-tour h4{
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+.s-tour h4 a{color: #8B8B8B}
 .s-tour p{margin: 0}
 .s-tour:hover p,
-.s-tour:hover h4{color: #00C1C8;}
+.s-tour:hover h4 a{color: #00C1C8;}
 .s-tour-price{
   color: #ADADAD;
   font-size: 20px;
   text-transform: uppercase;
 }
+.s-tour-price span{font-size: 12px;}
 
 /*-----------/
   #TOUR-SLIDER
@@ -376,6 +389,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   font-size: 22px;
   margin: 10px 0;
   text-align: center;
+  font-weight: 300;
 }
 .booking-form .input-field-wrap{margin: 6px 0;}
 .booking-form .input-field-wrap-right{float: right;}
@@ -390,6 +404,12 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   transform: translateY(-18%) translateX(25%);
 }
 .booking-form md-datepicker md-icon{color: #fff;}
+.booking-form md-datepicker > .md-button.md-icon-button{width: 24px;}
+
+.booking-form .md-datepicker-input,
+/*.booking-form .md-datepicker-input:-moz-input-placeholder,*/
+.booking-form .md-datepicker-input::-webkit-input-placeholder{color: #fff;}
+
 .booking-form .md-datepicker-input-container{border-bottom: 0;}
 .md-datepicker-calendar-pane{background: #fff;}
 .booking-form .md-select-value{
@@ -397,6 +417,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   border-radius: 5px;
   border-bottom: 0;
   min-width: 0;
+  padding-left: 10px;
 }
 .booking-form .md-select-value :first-child{
   margin-left: 0;
@@ -420,6 +441,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 .booking-form md-select{margin: 0;}
 
+.boton-detalle{
+  max-width: 200px;
+  background: white;
+  color: #00C1C8;
+  border-radius: 5px;
+  border: 0px;
+  width: 100%;
+  font-weight: 700;
+  padding: 8px 0;
+}
 
 /*----------/
   #FOOTER
@@ -454,6 +485,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #footer .content-col ul{
   padding: 0;
   list-style: none;
+  margin: 0;
 }
 #footer p{
   color: white;
@@ -463,6 +495,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #footer .payment-method{
   max-width: 45px;
   margin-right: 10px;
+  vertical-align: middle;
 }
 #footer .logo-footer{
   padding: 10px 0;
@@ -550,9 +583,10 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 
 /**header**/
 
-/*login*/
-
-#login-cont{
+/*-----------/
+  #LOGIN AND REGISTER
+/*-----------*/
+.form-modal{
   width: 100%;
   max-width: 350px;
   position: absolute;
@@ -561,20 +595,41 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   transition: .5s linear all;
   overflow: hidden;
   background: linear-gradient( #35cdd4, #1EB0EB );
-  padding: 10px 20px;
+  padding: 20px 10px;
 }
-#registrar-cont{width: 100%;max-width: 350px;position: absolute;z-index: 100000000;right: 0;transition: .5s linear all;overflow: hidden;background: linear-gradient(#35cdd4, #1EB0EB );}
-.registrar-text{height: 70px;color: white;font-size: 35px;}
-.input-re{
+.form-modal h3{
+  padding: 14px 0;
+  color: #fff;
+  font-size: 35px;
+  text-align: center;
+  margin: 0;
+  font-weight: 300;
+}
+.form-modal p{
+  color: #fff;
+  font-size: 11px;
+  margin: 0;
+}
+.form-modal p a{color: #fff;}
+
+.form-modal input[type="password"],
+.form-modal input[type="text"],
+.form-modal input[type="email"]{
   background: transparent;
   color: white;
   border-radius: 5px;
   border: 1px solid white;
   margin-bottom: 5px;
-  padding: 4px 4px 4px 10px;
+  padding: 4px 10px;
+  font-size: 14px;
 }
-.input-re::-webkit-input-placeholder{color: white}
-.input-re:focus::-webkit-input-placeholder{color: transparent;}
+.form-modal input[type="password"]::-webkit-input-placeholder,
+.form-modal input[type="text"]::-webkit-input-placeholder,
+.form-modal input[type="email"]::-webkit-input-placeholder{color: white}
+
+.form-modal input[type="password"]:focus::-webkit-input-placeholder,
+.form-modal input[type="text"]:focus::-webkit-input-placeholder,
+.form-modal input[type="email"]:focus::-webkit-input-placeholder{color: transparent;}
 #boton-sing{
   background: white;
   color: #39BEC7;
@@ -589,11 +644,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   padding: 6px;
 }
 #boton-sing:hover{color: #19A4EF}
-.text-sing{
-  color: white;
-  font-size: 11px;
-  text-align: center;
-}
 #boton-facebook{
   background: #3B5999;
   color: white;
@@ -606,21 +656,20 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   text-align: center;
   padding: 6px;
 }
-.text-sing-2{
-  color: white;
-  font-size: 10px;
-  margin-bottom: 30px;
-}
-.text-sing-2.forgot{padding-right: 15px}
-.text-sing-2.create{padding-left: 5px}
 .bottom-btns{
   width: 100%;
   text-align: center;
 }
+.bottom-btns a{
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
 
-/*login*/
 
-/*mi cuenta*/
+/*----------/
+  #MY ACCOUNT
+/*---------*/
 
 #cont-cuenta{
   background: linear-gradient( #35cdd4, #1EB0EB );
@@ -805,6 +854,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   margin: 20px 0;
 }
 .add-transport-modal p i{vertical-align: middle;}
+.add-transport-modal .custom-select{text-align: left;}
 .add-transport-modal .custom-select .md-select-value{
   padding-bottom: 5px;
 }
@@ -821,12 +871,13 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 }
 .add-transport-modal .action-btn{
   background: transparent;
-  border: 2px #38BEC9 solid;
   border-radius: 10px;
-  text-transform: uppercase;
+  border: 2px #38BEC9 solid;
   color: #8B8B8B;
   font-size: 13px;
+  margin: 0 8px;
   padding: 6px 8px;
+  text-transform: uppercase;
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
   transition: all .4s;
@@ -1007,21 +1058,16 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .precios-detalle p{margin: 4px 0;}
 .prices-value{font-size: 14px;}
 .prices-total-text{margin-top: 10px;}
-.prices-value-total{font-size: 36px;}
+.prices-value-total{
+  font-size: 36px;
+  font-weight: 300;
+}
 
 /*.contador{font-family: open-b;margin-right: 5px}
 .contador.total{margin-top: 10px}*/
 .precio-total-tour{font-size: 35px;}
 #boton-detalle{margin-top: 10px}
-.boton-detalle{
-  max-width: 200px;
-  background: white;
-  color: #00C1C8;
-  height: 30px;
-  border-radius: 5px;
-  border: 0px;
-  width: 100%;
-}
+
 
 #mapa{}
 .mapa{
@@ -1222,12 +1268,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 #hotel-reservacion{background: white;border-bottom: 3px solid #F2F2F2;width: 100%}
 #nombre-detalles{height:190px;border-bottom: 1px solid white;}
 #precio-detalles{height:120px;}
-.nombre-d{color: white;font-size: 12px;}
-.ver-detalles{color: white;font-size: 9px;text-transform: uppercase;}
-.precio-detalles{color: white;font-size: 17px;}
-.precio-detalles.margen{margin-bottom: 20px}
-.text-total-d{color:white;font-size: 15px;}
-.precio-total-d{color:white;font-size: 18px;}
 .ubicacion-r.fecha.dos{width: 177px!important}
 #datos-viajero{background: white;border-bottom: 4px solid #F2F2F2}
 #datos-viajero-1{margin-top: 20px;margin-bottom: 10px}
@@ -1321,7 +1361,6 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   display: block;
 }
 
-.head-detalle{height: 60px;background: #19A4EF;color: white;font-size: 22px}
 
 .boton-reserva{width: 130px;height: 30px;background: #00C1CC;color: white;font-size: 12px;;border-radius: 5px;margin-top: 15px}
 .enlace-footer.bold{font-family: open-b}
@@ -1331,6 +1370,35 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .redes-twit{color: white;font-size: 30px;}
 .redes-twit:hover{color: #1FB2E9}
 /*reserva*/
+
+/*----------/
+  #DETALLE-RESERVACION
+/*---------*/
+.reserva-info{
+  color: #fff;
+  padding: 15px 25px 30px;
+}
+.reserva-info h2{
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+.reserva-info h3{
+  font-size: 18px;
+  margin: 0;
+}
+.reserva-info-block{margin: 16px 0;}
+.reserva-info p{
+  font-size: 12px;
+  margin: 0;
+}
+.reserva-info a{color: #fff;}
+.reserva-info .precio-detalles{font-size: 16px;}
+.reserva-info .text-total-d{font-size: 15px;}
+.reserva-info .precio-total-d{font-size: 18px;}
+
 
 
 @media (min-width: 961px){

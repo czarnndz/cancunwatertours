@@ -48,10 +48,12 @@
     <div class="menu-usua" flex="35" flex-sm="30" flex-md="100" layout="row" layout-align="end center" layout-align-sm="space-around center" layout-align-md="space-around center" >
       <a href="/cuenta" flex-order-sm="2" ><div id="img-perfil"></div></a>
       <a href="/cuenta" hide-sm ><strong>Mi cuenta</strong></a>
-      <a href="" ng-click="toggleRegister = !toggleRegister" hide-sm ><strong>registro</strong></a>
+      <a href="" ng-click="doRegisterToggle()" hide-sm ><strong>registro</strong></a>
       <a href="/reserva" flex-order-sm="1" id="icon-carrito" ><i class="icon-carrito icon-carrito"></i></a>
-      <a href="" ng-click="loginToggle = !loginToggle" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
+      <a href="" ng-click="doLoginToggle()" hide-sm > <div id="login" class="login" layout="row" layout-align="center center" >LOGIN</div></a>
     </div>
+
+    <!--HEADER MOBILE-->
     <div hide-gt-sm flex="100" class="busqueda-movil" layout="row" layout-align="center center">
       <div flex="90" class="cont-b-movil" layout="row" layout-align="space-around center" >
         <i  class="icon-buscador icon-header " ></i>
@@ -59,8 +61,9 @@
           <strong>BÚSQUEDA</strong>
         </a>
         <a href="/cuenta" ><strong>Mi cuenta</strong></a>
-        <a href="" ng-click="toggleRegister = !toggleRegister"><strong>registro</strong></a>
-        <a href="" ng-click="loginToggle = !loginToggle" > <span id="login" class="login" layout="row" layout-align="center center" >LOGIN</span></a>
+        <a href="" ng-click="doRegisterToggle()"><strong>registro</strong></a>
+        <a href="" ng-click="doLoginToggle()" > <span id="login" class="login" layout="row" layout-align="center center" >LOGIN</span></a>
       </div>
     </div>
+    <!--END HEADER MOBILE-->
 </div>

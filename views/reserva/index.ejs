@@ -315,25 +315,25 @@
           <!--END LEFT SIDE-->
 
           <!--RIGHT SIDE-->
-          <div id="detalle-reservacion" flex="25" flex-md="100" flex-sm="100" layout="row" layot-align="start start" layout-wrap>
-              <div class="head-detalle" flex="100" layout="row" layout-align="center center" >Tu reservación</div>
-              <div id="nombre-detalles" flex="100" layout="row" layout-align="center center" layout-wrap >
-                  <div class="nombre-detalle" flex="80" layout="column" layout-align="center start" layout-align-md="center center" layout-align-sm="center center" >
-                      <div class="nombre-d">{{tour.name}}</div>
-                      <a href="" class="ver-detalles">ver detalles</a>
-                      <div class="precio-detalles margen">MXN {{priceTour() | currency}}</div>
-                      <div class="ver-detalles" ng-if="hotel">TRANSPORTACIÓN</div>
-                      <div class="precio-detalles" ng-if="hotel">MXN {{priceTransfer() | currency}}</div>
-                      <div class="ver-detalles">IMPUESTOS</div>
-                      <div class="precio-detalles">MXN {{priceTax() | currency}}</div>
-                  </div>
-              </div>
-              <div id="precio-detalles"  flex="100" layout="row" layout-align="center center" layout-wrap >
-                  <div class="total-detalles" flex="80" layout="column" layout-align="center start" layout-align-md="center center" layout-align-sm="center center"  >
-                      <div class="text-total-d">TOTAL</div>
-                      <div class="precio-total-d">MXN {{priceTotal() | currency}}</div>
-                  </div>
-              </div>
+          <div id="detalle-reservacion" class="reserva-info" flex="25" flex-md="100" flex-sm="100">
+              <h2>Tu reservación</h2>
+              <section class="reserva-info-block">
+                <h3>{{tour.name}}</h3>
+                <a ng-href="/detalle/{{tour.id}}" target="_blank">ver detalles</a>
+                <p class="precio-detalles">MXN {{priceTour() | currency}}</p>
+              </section>
+              <section class="reserva-info-block">
+                <p  ng-if="hotel">TRANSPORTACIÓN</p>
+                <p class="precio-detalles" ng-if="hotel">MXN {{priceTransfer() | currency}}</p>
+              </section>
+              <section class="reserva-info-block">
+                <p>IMPUESTOS</p>
+                <p class="precio-detalles">MXN {{priceTax() | currency}}</p>
+              </section>
+              <section class="reserva-info-block">
+                <p class="text-total-d"><strong>TOTAL</strong></p>
+                <p class="precio-total-d">MXN {{priceTotal() | currency}}</p>
+              </section>
           </div>
           <!--END RIGHT SIDE-->
 

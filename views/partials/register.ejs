@@ -1,15 +1,15 @@
-<div id="registrar-cont" ng-show="toggleRegister" layout="row" layout-align="center center" layout-wrap>
-  <div class="registrar-text" layout="row" layout-align="center center" flex="100">Register</div>
+<div class="form-modal" ng-show="registerToggle" layout="row" layout-align="center center" layout-wrap>
+  <h3>Register</h3>
   <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
       <input type="text" flex="80" type="text" placeholder="Name" class="input-re">
       <input type="email" flex="80" type="text" placeholder="Email" class="input-re">
-      <input type="passwrod" flex="80" type="text" placeholder="Password" class="input-re">
+      <input type="password" flex="80" type="text" placeholder="Password" class="input-re">
       <input type="password" flex="80" type="text" placeholder="Re-type Password" class="input-re">
       <input type="button" value="SING UP" id="boton-sing" flex="80">
   </form>
-  <p class="text-sing">OR REGISTER WITH A SOCIAL ACCOUNT</p>
+  <p><strong>OR REGISTER WITH A SOCIAL ACCOUNT</strong></p>
   <a href="" id="boton-facebook" flex="80">
     <strong >FACEBOOK</strong>
   </a>
-  <p class="text-sing-2">Already have an account? Sign In</p>
+  <p><strong><a href="#">Already have an account? Sign In</a></strong></p>
 </div>
