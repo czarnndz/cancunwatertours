@@ -6,138 +6,144 @@
 <div id="detalle" class="tour-indiv" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
 
   <!--TOUR INFO-->
-  <div class="tour-indiv-info" flex="75" flex-md="100" flex-sm="100" layout="row" layout-align="start start" layout-wrap>
+  <div class="tour-indiv-info" flex="75" flex-md="100" flex-sm="100">
+    <div layout="row" layout-md="column" layout-sm="column" layout-wrap>
 
-    <!--TOUR INFO (FIRST COLUMN)-->
-    <div id="detalles-tour" flex="70" flex-md="100" flex-sm="100">
+      <!--TOUR INFO (FIRST COLUMN)-->
+      <div id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="column">
 
-      <div class="tour-data" layout="row" layout-sm="column" layout-align="space-between center">
-        <div class="tour-data-column" flex="65" flex-sm="100">
-          <h1>{{tour.name}}</h1>
-          <h2><i class="icon-pin icon-ubicacion"></i> Ubicacion del Tour</h2>
+        <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
+          <div class="tour-data-column" flex="65" flex-sm="100">
+            <h1>{{tour.name}}</h1>
+            <h2><i class="icon-pin icon-ubicacion"></i> Ubicacion del Tour</h2>
 
-          <div class="like-detalle">
-            <p>
-              <i class="icon-corazon icon-ubicacion"></i>
-              <strong>23</strong>
-              <strong>Me gusta</strong>
-            </p>
-          </div>
-        </div>
-        <div class="tour-data-column" flex="25" flex-sm="100" >
-          <div class="tour-data-item" layout="row" layout-align="start center" >
-            <i class="icon-horario big-icon"></i>
-            <div>
-              <p><strong>Horario o Duración</strong></p>
-              <p><strong>9am - 10pm</strong></p>
+            <div class="like-detalle">
+              <p>
+                <i class="icon-corazon icon-ubicacion"></i>
+                <strong>23</strong>
+                <strong>Me gusta</strong>
+              </p>
             </div>
           </div>
-          <div class="tour-data-item" layout="row" layout-align="start center" >
-            <i class="icon-familiar big-icon"></i>
-            <p><strong>Atracción Familiar</strong></p>
+          <div class="tour-data-column" flex="25" flex-sm="100" >
+            <div class="tour-data-item" layout="row" layout-align="start center" >
+              <i class="icon-horario big-icon"></i>
+              <div>
+                <p><strong>Horario o Duración</strong></p>
+                <p><strong>9am - 10pm</strong></p>
+              </div>
+            </div>
+            <div class="tour-data-item" layout="row" layout-align="start center" >
+              <i class="icon-familiar big-icon"></i>
+              <p><strong>Atracción Familiar</strong></p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="tour-slider">
-        <div class="imagen-detalle item" ></div>
-        <div class="imagen-detalle item" ></div>
-        <div class="imagen-detalle item" ></div>
-        <div class="imagen-detalle item" ></div>
-      </div>
+        <div class="tour-slider" flex="70" layout-fill>
+          <div class="imagen-detalle item" ></div>
+          <div class="imagen-detalle item" ></div>
+          <div class="imagen-detalle item" ></div>
+          <div class="imagen-detalle item" ></div>
+        </div>
 
-      <div class="tour-description">
-        <h3>Descripción</h4>
+      </div>
+      <!--END FIRST COLUMN TOUR INFO-->
+
+      <!--TOUR INFO BOOKING (SECOND COLUMN)-->
+      <div class="booking-form-wrap" flex="30" flex-md="100" flex-sm="100">
+        <form class="booking-form booking-form-absolute" method="post" id="reservar">
+          <h3>RESERVA EL TOUR</h3>
+
+          <!--INPUT FIELDS-->
+          <!--<div layout="row" layout-align="end start">-->
+
+          <div class="input-field-wrap">
+            <md-datepicker ng-model="bookingDate" md-placeholder="Fecha"></md-datepicker>
+          </div>
+          <div class="clear"></div>
+
+          <div layout="row" layout-align="space-between center">
+            <div flex="45">
+              <div class="input-field-wrap" layout="row" layout-align="space-between center">
+                <label flex>Adultos</label>
+                <md-select flex placeholder="1" ng-model="tour.adults" ng-required>
+                   <md-option value="1">1</md-option>
+                   <md-option value="2">2</md-option>
+                   <md-option value="3">3</md-option>
+                   <md-option value="4">4</md-option>
+                   <md-option value="5">5</md-option>
+                   <md-option value="6">6</md-option>
+                </md-select>
+              </div>
+            </div>
+            <div flex="45">
+              <div class="input-field-wrap" layout="row" layout-align="space-between center">
+                <label flex>Niños</label>
+                <md-select flex placeholder="1" ng-model="tour.kids" ng-required>
+                   <md-option value="1">1</md-option>
+                   <md-option value="2">2</md-option>
+                   <md-option value="3">3</md-option>
+                   <md-option value="4">4</md-option>
+                   <md-option value="5">5</md-option>
+                   <md-option value="6">6</md-option>
+                </md-select>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-field-wrap">
+            <md-select placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
+              <md-option ng-repeat="hotel in hotels" value="{{hotel.id}}" class="ng-cloak" >
+                <i class="icon-hotel icono-option"></i> {{hotel.name}}
+              </md-option>
+            </md-select>
+          </div>
+
+          <div class="clear"></div>
+
+          <!--END INPUT FIELDS-->
+
+
+          <div class="precios-detalle">
+            <p class="prices-value">
+              <strong>({{tour.adults}})</strong> Precio por adulto {{tour.fee * tour.adults | currency}}
+            </p>
+            <p class="prices-value"  >
+              <strong>({{tour.kids}})</strong> Precio por niño {{tour.feeChild * tour.kids | currency}}
+            </p>
+            <p class="prices-value">
+              IVA $xxx
+            </p>
+            <section class="final-price-block">
+              <p class="prices-value">
+                <strong>TOTAL</strong>
+              </p>
+              <p class="prices-value">
+                <span class="prices-value-total">{{getPrice() | currency}}</span>
+              </p>
+
+              <!--<input type="submit" class="boton-detalle" value="AÑADIR A MI CARRITO" >-->
+              <a ng-href="/reserva/?tour={{tour.id}}" class="boton-detalle">AÑADIR A MI CARRITO</a>
+            </section>
+          </div>
+        </form>
+      </div>
+      <!--END TOUR INFO (SECOND COLUMN)-->
+    </div>
+
+    <div layout="row" layout-md="column" layout-sm="column">
+      <!--TOUR DESCRIPTION-->
+      <div class="tour-description" flex="70" flex-md="100" flex-sm="100">
+        <h3>Descripción</h3>
         <p ng-repeat="description in tour.description track by $index">{{description}} </p>
       </div>
+      <!--END TOUR DESCRIPTION-->
 
-    </div>
-    <!--END FIRST COLUMN TOUR INFO-->
-
-    <!--TOUR INFO (SECOND COLUMN)-->
-    <div flex="30" flex-md="100" flex-sm="100">
-      <form class="booking-form" method="post" id="reservar">
-        <h3>RESERVA EL TOUR</h3>
-
-        <!--INPUT FIELDS-->
-        <!--<div layout="row" layout-align="end start">-->
-
-        <div class="input-field-wrap input-field-wrap-right">
-          <md-datepicker ng-model="bookingDate" md-placeholder="Fecha"></md-datepicker>
-        </div>
-        <div class="clear"></div>
-
-        <div layout="row" layout-align="space-between center">
-          <div flex="45">
-            <div class="input-field-wrap" layout="row" layout-align="space-between center">
-              <label flex>Adultos</label>
-              <md-select flex="50" placeholder="1" ng-model="tour.adults" ng-required>
-                 <md-option value="1">1</md-option>
-                 <md-option value="2">2</md-option>
-                 <md-option value="3">3</md-option>
-                 <md-option value="4">4</md-option>
-                 <md-option value="5">5</md-option>
-                 <md-option value="6">6</md-option>
-              </md-select>
-            </div>
-          </div>
-          <div flex="45">
-            <div class="input-field-wrap" layout="row" layout-align="space-between center">
-              <label flex>Niños</label>
-              <md-select flex="50" placeholder="1" ng-model="tour.kids" ng-required>
-                 <md-option value="1">1</md-option>
-                 <md-option value="2">2</md-option>
-                 <md-option value="3">3</md-option>
-                 <md-option value="4">4</md-option>
-                 <md-option value="5">5</md-option>
-                 <md-option value="6">6</md-option>
-              </md-select>
-            </div>
-          </div>
-        </div>
-
-        <div class="input-field-wrap input-field-wrap-right">
-          <md-select placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
-            <md-option ng-repeat="hotel in hotels" value="{{hotel.id}}" class="ng-cloak" >
-              <i class="icon-hotel icono-option"></i> {{hotel.name}}
-            </md-option>
-          </md-select>
-        </div>
-
-        <div class="clear"></div>
-
-        <!--END INPUT FIELDS-->
-
-
-        <div class="precios-detalle">
-          <p class="prices-value">
-            <strong>({{tour.adults}})</strong> Precio por adulto {{tour.fee * tour.adults | currency}}
-          </p>
-          <p class="prices-value"  >
-            <strong>({{tour.kids}})</strong> Precio por niño {{tour.feeChild * tour.kids | currency}}
-          </p>
-          <p class="prices-value">
-            IVA $xxx
-          </p>
-          <section class="final-price-block">
-            <p class="prices-value">
-              <strong>TOTAL</strong>
-            </p>
-            <p class="prices-value">
-              <span class="prices-value-total">{{getPrice() | currency}}</span>
-            </p>
-
-            <input type="button" class="boton-detalle" value="AÑADIR A MI CARRITO" >
-          <section>
-
-
-        </div>
-      </form>
-      <div id="mapa" class="alto-mapa" layout-fill>
-        <iframe class="mapa"  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14882.706519277925!2d-86.81700335!3d21.1652635!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1429728579438" width="600" height="450" frameborder="0" style="border:0"></iframe>
+      <div class="tour-map-wrap" flex="30" flex-md="100" flex-sm="100">
+        <iframe class="tour-map"  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14882.706519277925!2d-86.81700335!3d21.1652635!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1429728579438" width="600" height="450" frameborder="0" style="border:0"></iframe>
       </div>
     </div>
-    <!--END TOUR INFO (SECOND COLUMN)-->
 
   </div>
   <!--END TOUR INFO-->

@@ -42,31 +42,41 @@
                       <div id="imagen-reservacion" flex="30" flex-md="35" flex-sm="100" layout="column" layout-align="start center" layout-align-sm="center center">
                           <div class="imagen-reservacion"  ng-style="{ 'background-image' : 'url(' + tour.avatar2 + ')'}"></div>
                       </div>
-                      <div class="datos-reservacion" flex="70" flex-md="65" flex-sm="100" layout="column" layout-align="start start" layout-align-sm="start center" >
+                      <div class="datos-reservacion" flex="70" flex-md="65" flex-sm="100" >
                           <h3>{{tour.name}}</h3>
                           <div class="tours-reservacion-2">{{hotel ? "con Transportación" : ""}}</div>
                           <section>
-                              <div class="input-field-wrap" layout="row" layout-align="start center" >
-                                  <label><i class="icon-calendario icono-fecha-r"></i> Fecha:</label>
-                                  <md-datepicker ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center" >
+                                  <label flex="20"><i class="icon-calendario icono-fecha-r"></i> Fecha:</label>
+                                  <div flex="75">
+                                    <md-datepicker flex="75" ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
+                                  </div>
                               </div>
-                              <div class="input-field-wrap" layout="row" layout-align="start center" ng-if="tour.location">
-                                  <label><i class="icon-pin icono-fecha-r"></i> Ubicación:</label>
-                                  <input type="text" ng-model="tour.location.name" disabled="disabled">
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.location">
+                                  <label flex="20"><i class="icon-pin icono-fecha-r"></i> Ubicación:</label>
+                                  <div flex="75">
+                                    <input type="text" ng-model="tour.location.name" disabled="disabled">
+                                  </div>
                               </div>
-                              <div class="input-field-wrap" layout="row" layout-align="start center" >
-                                  <label><i class="icon-adultos icono-fecha-r"></i> Adultos:</label>
-                                  <input type="number" min-value="1" max-value="8" ng-model="tour.adults">
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center" >
+                                  <label flex="20"><i class="icon-adultos icono-fecha-r"></i> Adultos:</label>
+                                  <div flex="75">
+                                    <input type="number" min-value="1" max-value="8" ng-model="tour.adults">
+                                  </div>
                               </div>
-                              <div class="input-field-wrap" layout="row" layout-align="start center">
-                                  <label><i class="icon-nino icono-fecha-r ninos"></i> Niños:</label>
-                                  <input type="number" min-value="0" max-value="8" ng-model="tour.kids">
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center">
+                                  <label flex="20"><i class="icon-nino icono-fecha-r ninos"></i> Niños:</label>
+                                  <div flex="75">
+                                    <input type="number" min-value="0" max-value="8" ng-model="tour.kids">
+                                  </div>
                               </div>
-                              <div class="input-field-wrap" layout="row" layout-align="start center" ng-if="tour.schedules.length > 0">
-                                  <label><i class="icon-horario icono-fecha-r"></i> Horario:</label>
-                                  <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
-                                      <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">from {{schedule.from | date:'HH:mm'}} to {{schedule.to | date:'HH:mm'}}</md-option>
-                                  </md-select>
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.schedules.length > 0">
+                                  <label flex="20"><i class="icon-horario icono-fecha-r"></i> Horario:</label>
+                                  <div flex="75">
+                                    <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
+                                        <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">from {{schedule.from | date:'HH:mm'}} to {{schedule.to | date:'HH:mm'}}</md-option>
+                                    </md-select>
+                                  </div>
                               </div>
                           </section>
                       </div>
@@ -135,8 +145,8 @@
                       <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
                       <div class="datos-reservacion" flex="90">
 
-                          <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between center">
-                            <input flex="45" flex-sm="100"  type="text" class="input-field icon-nombre" placeholder="Nombre" ng-model="tour.client.name" name="nombre" ng-required>
+                          <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between start">
+                            <input flex="45" flex-sm="100"  type="text" class="input-field" placeholder="Nombre" ng-model="tour.client.name" name="nombre" ng-required>
                             <input flex="45" flex-sm="100" type="text" class="input-field" placeholder="Apellidos" ng-model="tour.client.last_name" name="apellido"  ng-required>
                           </div>
 
@@ -176,29 +186,29 @@
 
                       <md-radio-group class="md-primary" ng-model="paymentMethod" layout="row" layout-md="column" layout-sm="column">
                         <md-radio-button flex-md="100" flex-sm="100" value="Visa" class="md-primary">
-                          <img src="images/visa.png" class="img-tarjeta">
+                          <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="Master" class="md-primary">
-                          <img src="images/master.png" class="img-tarjeta">
+                          <img src="/images/master.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="American" class="md-primary">
-                          <img src="images/american.png" class="img-tarjeta">
+                          <img src="/images/american.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">
-                          <img src="images/puntos.png" class="img-tarjeta">
+                          <img src="/images/puntos.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="Oxxo" class="md-primary">
-                          <img src="images/oxxo.png" class="img-tarjeta">
+                          <img src="/images/oxxo.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="Paypal" class="md-primary">
-                          <img src="images/paypal.png" class="img-tarjeta">
+                          <img src="/images/paypal.png" class="img-tarjeta">
                         </md-radio-button>
                       </md-radio-group>
 
                       <p>Elije un banco</p>
 
                       <md-select class="custom-select no-margin" ng-model="someVal" placeholder>
-                          <md-option value="1">Bancomer <img src="images/bancomer.png"></md-option>
+                          <md-option value="1">Bancomer <img src="/images/bancomer.png"></md-option>
                       </md-select>
 
                   </div>
@@ -209,7 +219,7 @@
 
                   <div id="datos-del-pago" class="block-content">
                       <p>
-                          <img src="images/visa.png" class="datos-img">
+                          <img src="/images/visa.png" class="datos-img">
                       </p>
 
                       <p><strong>Datos del pago</strong></p>
@@ -229,8 +239,8 @@
                           </div>
                           <div flex="45" flex-sm="100" class="input-field-wrap">
                             <p class="no-margin">Fecha de vencimiento</p>
-                            <div layout="row">
-                              <div flex>
+                            <div layout="row" layout-align="space-between center">
+                              <div flex="45">
                                 <md-select class="custom-select no-margin" ng-model="someVal" placeholder="Més">
                                     <md-option value="1">1</md-option>
                                     <md-option value="2">2</md-option>
@@ -246,7 +256,7 @@
                                     <md-option value="12">12</md-option>
                                 </md-select>
                               </div>
-                              <div flex>
+                              <div flex="45">
                                 <md-select class="custom-select" ng-model="someVal" placeholder="Año">
                                     <md-option value="1">2015</md-option>
                                     <md-option value="2">2016</md-option>
