@@ -6,7 +6,7 @@
 <div id="detalle" class="tour-indiv" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
 
   <!--TOUR INFO-->
-  <div flex="75" flex-md="100" flex-sm="100" layout="row" layout-align="start start" layout-wrap>
+  <div class="tour-indiv-info" flex="75" flex-md="100" flex-sm="100" layout="row" layout-align="start start" layout-wrap>
 
     <!--TOUR INFO (FIRST COLUMN)-->
     <div id="detalles-tour" flex="70" flex-md="100" flex-sm="100">
@@ -116,17 +116,20 @@
           <p class="prices-value"  >
             <strong>({{tour.kids}})</strong> Precio por niño {{tour.feeChild * tour.kids | currency}}
           </p>
-          <p class="prices-value" flex="100" layout="row" layout-align="end center"  >
+          <p class="prices-value">
             IVA $xxx
           </p>
-          <p class="prices-value" flex="100" layout="row" layout-align="end center"  >
-            <strong class="prices-total-text">TOTAL</strong>
-          </p>
-          <p class="prices-value" flex="100" layout="row" layout-align="end center"  >
-            <span class="prices-value-total">{{getPrice() | currency}}</span>
-          </p>
+          <section class="final-price-block">
+            <p class="prices-value">
+              <strong>TOTAL</strong>
+            </p>
+            <p class="prices-value">
+              <span class="prices-value-total">{{getPrice() | currency}}</span>
+            </p>
 
             <input type="button" class="boton-detalle" value="AÑADIR A MI CARRITO" >
+          <section>
+
 
         </div>
       </form>
