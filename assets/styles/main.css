@@ -717,6 +717,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   background: linear-gradient( #35cdd4, #1EB0EB );
   margin-top: 50px;
   margin-bottom: 50px;
+  width: 100%;
 }
 #mi-cuenta{
   height: auto;
@@ -729,6 +730,14 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   margin-bottom: 10px;
   text-align: center;
 }
+#mi-cuenta h2{
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#mi-cuenta label{color: #fff;}
 
 .input-cuenta{
   background: transparent;
@@ -739,32 +748,35 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
   border: 1px solid white;
   width: 100%;
 }
+.input-cuenta-select{
+  padding: 1px 2px 4px;
+}
+.input-cuenta-select md-select:not([disabled]):focus .md-select-value{border: 0;}
 .input-cuenta::-webkit-input-placeholder{color: white}
 .input-cuenta:focus::-webkit-input-placeholder{color: transparent;}
 
-.input-cuenta-select{height: 25px;}
 .input-cuenta span{color: white;}
 .input-cuenta .md-select-label{margin-top: -14px!important;border: 0px!important;padding: 0px!important;width: 100%!important;margin-left: -3px;text-align: left!important}
-.input-cuenta span{color: white;width: 50%!important}
-.input-cuenta md-select{width: 100%!important}
+/*.input-cuenta span{color: white;width: 50%!important}*/
+.input-cuenta md-select{
+  margin: 0;
+  width: 100%!important
+}
 .input-cuenta md-select md-select-value{border: 0;}
 .input-cuenta .md-select-label .md-select-icon{display: none}
 .cont-input-cuenta{
   /*height: 50px;*/
   margin-right: 20px;
 }
-.cont-form-cuenta{margin: 20px 0;}
-.datos-text-2{color: white;font-size: 20px;margin-top: 20px;margin-bottom: 10px;text-align: center;}
-.text-cuenta{color: white}
-#boton-cuenta-1{height: 30px;background: white;color: #25B3E3;border-radius: 5px;border: 0px;font-weight: 700}
+.cont-form-cuenta{margin: 20px auto}
 .cont-input-cuenta.contra{height: auto;}
-#boton-cuenta-2{
-  height: 30px;
+.boton-cuenta{
   background: white;
   color: #25B3E3;
   border-radius: 5px;
   border: 0px;
   font-weight: 700;
+  padding: 6px;
 }
 #contrasena{margin-bottom: 30px}
 /*mi cuenta*/
