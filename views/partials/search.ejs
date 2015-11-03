@@ -1,61 +1,39 @@
-<div ng-show="toggleSearch" id="buscar-avanzado-header" class="advanced-search-header ng-cloak" >
-  <div>
-    <div id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
-      <input id="btn-avanzada" placeholder="Buscar" flex="60"><i class="icon-flecha icono-bt-avanzada"></i>
-      <div ng-click="toggleSearchMobile = !toggleSearchMobile" id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
+<div ng-show="toggleSearch" class="advanced-search-header" >
+
+  <section layout="row" layout-aligin="space-between center">
+    <div flex>
+      <md-radio-group ng-model="group1">
+        <md-radio-button class="search-by-price" value="Buscar por precio" class="md-primary">BUSCAR POR PRECIO</md-radio-button>
+      </md-radio-group>
     </div>
-    <div id="b-avanzada" class="advanced-search advanced-search-mobile" ng-class="{'advanced-search-mobile-on': toggleSearchMobile}">
-        <div layout="row" layout-align="space-between center" class="cont-avanzada">
-          <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="50" >
-            <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
-              <div class="apuntador-avanzado" ng-show="apuntadorVisibility " ></div>
-            </div>
-            <div class="text-buscar-a">Buscar por precio</div>
-          </div>
-          <div class="slide-precio" flex="40">
-            <div class="rango-precios" layout="row" layout-align="space-between center" >
-              <div class="precios-a">{{minFee | currency}}</div>
-              <div class="precios-a">{{maxFee | currency}}</div>
-            </div>
-            <md-slider class="slider-precios" ng-model="tourPrice" min="5" max="500"></md-slider>
-            <div class="rango-precios-simbolos" layout="row" layout-align="space-between center" >
-              <div class="precios-b">-</div>
-              <div class="precios-b">+</div>
-            </div>
-            <p class="selected-price" ng-if="tourPrice">${{tourPrice}}</p>
-          </div>
-        </div>
-        <div id="select-header" layout="row" layout-align="space-around center" class="cont-avanzada">
-              <md-select class="select-avanzado" ng-model="tourCategory" placeholder="Tipo">
-                    <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
-              </md-select>
-        </div>
-        <div layout="row" layout-align="space-around center" class="cont-avanzada">
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-adultos icon-buscar dos "></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="adultosVisibility = !adultosVisibility" >
-              <div class="apuntador-avanzado" ng-show="adultosVisibility " ></div>
-            </div>
-            <div class="text-adultos">Adultos</div>
-          </div>
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-familiar icon-buscar"></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="familiaVisibility = !familiaVisibility" >
-              <div class="apuntador-avanzado" ng-show="familiaVisibility " ></div>
-            </div>
-            <div class="text-adultos">familiar</div>
-          </div>
-          <div class="cont-adutos-avanzado" flex="30" layout="row" layout-align="space-around center">
-            <i class="icon-ninos icon-buscar dos "></i>
-            <div id="apuntador-avanzado" class="dos" layout="row" layout-align="center center" ng-click="ninosVisibility = !ninosVisibility" >
-               <div class="apuntador-avanzado" ng-show="ninosVisibility " ></div>
-            </div>
-            <div class="text-adultos">niños</div>
-          </div>
-        </div>
-        <a href="" ng-click="doSearch()" flex="100" layout="row" layout-align="center center">
-            <i flex="100" layout="row" layout-align="center center" class="icon-flecha icono-bt-avanzada-2"></i>
-        </a>
-      </div>
-  </div>
+    <div flex>
+      <p layout="row" layout-align="space-between center">
+        <span>{{minFee | currency}}</span>
+        <span>{{maxFee | currency}}</span>
+      </p>
+      <md-slider class="slider-precios" ng-model="tourPrice" min="5" max="500"></md-slider>
+      <p>{{tourPrice | currency}}</p>
+    </div>
+  </section>
+
+  <section>
+    <md-select class="custom-select" ng-model="tourCategory" placeholder="Tipo">
+          <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
+    </md-select>
+  </section>
+
+  <section>
+    <md-radio-group ng-model="group2" layout="row">
+      <md-radio-button value="ADULTOS" class="md-primary">
+        <i class="icon-adultos"></i> ADULTOS
+      </md-radio-button>
+      <md-radio-button value="FAMILIAR" class="md-primary">
+        <i class="icon-familiar"></i> FAMILIAR
+      </md-radio-button>
+      <md-radio-button value="NIÑOS" class="md-primary">
+        <i class="icon-ninos"></i> NIÑOS
+      </md-radio-button>
+    </md-radio-group>
+  </section>
+
 </div>

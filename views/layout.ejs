@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="/styles/owl.theme.css">
     <link rel="stylesheet" href="/styles/owl.transitions.css">
     <link rel="stylesheet" href="/styles/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="/styles/stickyFooter.css">
     <link rel="stylesheet" href="/styles/style.css">
     <!--STYLES END-->
 
@@ -47,46 +48,28 @@
 
 <body>
 
-  <div class="cont-contenido" ng-cloak layout="column">
+  <div id="wrap">
+    <div id="main" class="clearfix">
+      <div id="topBackRepeat" layout='row' flex layout-fill>
 
-    <div ng-controller="Header">
-      <%- partial('partials/header') -%>
-      <%- partial('partials/register') -%>
-      <%- partial('partials/login') -%>
-      <%- partial('partials/search') -%>
-      <% if (meta && meta.addMenu) { %>
-        <%- partial('partials/menu-mobile') -%>
-      <% } %>
-    </div>
+        <div layout="column" flex>
 
-    <!--<div id="buscar-header" class="ng-cloak desactivar" ng-include="'/templates/global/buscar2.ejs'"></div>-->
+          <div ng-controller="Header">
+            <%- partial('partials/header') -%>
+            <%- partial('partials/search') -%>
+          </div>
 
-    <div id="cont-global" <% if (!meta.removeFlexLayout) { %> layout-gt-sm="row" layout-sm="column" <% } %> >
-      <% if (meta && meta.addMenu) { %>
-          <%- partial('partials/sidebar-menu') -%>
-      <% } %>
+          <md-content ng-cloak autoscroll="true">
+            <!--AQUI VA EL CONTENIDO-->
+          </md-content>
 
-      <div
-        layout="column"
-        <% if (meta && meta.addMenu) { %>
-          flex flex-md="100" flex-sm="100"
+        </div>
+      </div><!-- END topBackRepeat -->
+    </div><!-- END main -->
+  </div><!-- END wrap -->
+  <div class="clear"></div>
 
-        <% } else { %>
-          flex="100"
-        <% } %>
-
-      >
-          <%- body %>
-      </div>
-
-    </div>
-  </div>
-
-  <div id="cont-footer" layout='row'>
-    <%- partial('partials/footer') -%>
-  </div>
-
-
+  <%- partial('partials/footer') -%>
 
     <!--
         Client-side Templates
