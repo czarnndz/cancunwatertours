@@ -59,6 +59,9 @@
             <%- partial('partials/search') -%>
             <%- partial('partials/register') -%>
             <%- partial('partials/login') -%>
+            <% if (meta && meta.addMenu) { %>
+              <%- partial('partials/menu-mobile') -%>
+            <% } %>
           </div>
 
           <md-content id="main-content">

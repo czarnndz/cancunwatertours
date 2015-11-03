@@ -4,39 +4,13 @@
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
       <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
-      <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
-        <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
-        <div class="text-menu"><%= meta.categories[i].name.toUpperCase() %></div>
-      </div>
+      <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
+      <span><%= meta.categories[i].name.toUpperCase() %></span>
     </a>
     <% } %>
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu viajes ">-->
-         <!--<i class="icon-viajes icon-desplegable viajes"></i>-->
-         <!--<div class="text-menu viajes">VIAJES</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">-->
-        <!--<i class="icon-buceo icon-desplegable"></i>-->
-        <!--<div class="text-menu">BUCEO</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">-->
-        <!--<i class="icon-snorkel icon-desplegable"></i>-->
-        <!--<div class="text-menu">SNORKEL</div>-->
-      <!--</div>-->
-    <!--</a>-->
-    <!--<a href="/resultados" flex="100" layout="row" layout-align="center center" >-->
-      <!--<div flex="100" layout="row" layout-align="space-around center" class="enlace-menu en-menu ">-->
-       <!--<i class="icon-pesca icon-desplegable"></i>-->
-       <!--<div class="text-menu viajes">PESCA</div>-->
-      <!--</div>-->
-    <!--</a>-->
   </div>
 
-  <div id="cerrar-movil" ng-click="toggleMenuMobile = false" flex="30" layout="row" layout-align="end start" >
+  <div class="close-mobile" ng-click="toggleMenuMobile = false">
     <img id="cerrar-menu-movil" src="images/cerrarcel.png" alt="">
   </div>
 

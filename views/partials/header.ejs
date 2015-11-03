@@ -1,11 +1,9 @@
-<div class="header" layout="row" layout-align="space-between center" layout-align-md="center center">
+<!--HEADER DESKTOP/TABLET-->
 
-  <div flex="40">
+<div class="header" hide-sm layout="row" layout-md="column" layout-sm="column" layout-align="space-between center" layout-align-md="center center">
+
+  <div flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
     <div layout="row" layout-align="start center">
-
-      <div class="button-menu-mobile">
-        <hr><hr><hr>
-      </div>
 
       <form class="search-box" flex ng-submit="$event.preventDefault()">
         <md-autocomplete
@@ -33,11 +31,11 @@
     </div>
   </div>
 
-  <div flex="20">
+  <div flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
     <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
-  <div flex="35" class="account-menu">
+  <div flex="35" flex-md="100" flex-sm="100" class="account-menu" flex-order-md="2">
     <div layout="row" layout-align="end center">
       <span>
         <img src="/images/perfil.png" alt="Mi cuenta">
@@ -54,3 +52,74 @@
   </div>
 
 </div>
+
+<!--END HEADER DESKTOP/TABLET-->
+
+<!--HEADER MOBILE-->
+
+<div class="header header-mobile" hide-gt-sm show-sm>
+
+  <div layout="row" layout-align="space-between center">
+
+    <div ng-click="toggleMenuMobile = !toggleMenuMobile" flex="30" class="button-menu-mobile">
+      <hr><hr><hr>
+    </div>
+
+    <div flex="40">
+      <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
+    </div>
+
+    <div flex="30" class="account-menu" flex-order-md="2">
+      <div layout="row" layout-align="end center">
+        <span>
+          <img src="/images/perfil.png" alt="Mi cuenta">
+        </span>
+        <span><a href="#"><i class="icon-carrito"></i></a></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-mini submenu" layout="row" layout-align="space-between center">
+    <span>
+      <a ng-click="toggleSearchMobile = !toggleSearchMobile" href=""><strong>Búsqueda</strong></a>
+    </span>
+    <span>
+      <a href="/cuenta"><strong>Mi cuenta</strong></a>
+    </span>
+    <span>
+      <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+    </span>
+    <span>
+      <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a>
+    </span>
+  </div>
+
+</div>
+
+<div class="header search-mobile" ng-class="{'search-mobile-on': toggleSearchMobile}">
+  <form class="search-box" flex ng-submit="$event.preventDefault()">
+    <md-autocomplete
+      md-selected-item="selectedTour"
+      md-selected-item-change="selectedItemChange(item)"
+      md-items="item in querySearch(searchText)"
+      md-item-text="item.name"
+      md-min-length="0"
+      placeholder="Buscar"
+      md-menu-class="autocomplete-custom-template"
+      class="input-header" >
+      <md-item-template>
+        <span class="item-title">
+          <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+          <a href="/detalle/{{item.id}}"> {{item.name}} </a>
+        </span>
+      </md-item-template>
+    </md-autocomplete>
+  </form>
+
+  <div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
+    <a href="#"><strong>BÚSQUEDA AVANZADA</strong></a>
+  </div>
+</div>
+
+<!--END HEADER MOBILE-->

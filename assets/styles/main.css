@@ -124,6 +124,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   font-size: 24px;
   vertical-align: middle;
 }
+
+/*-----------/
+  #HEADER-MOBILE
+/*----------*/
 .button-menu-mobile{
   cursor: pointer;
   /*display: none;*/
@@ -140,6 +144,55 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   height: 4px;
   max-width: 30px
 }
+.header-mobile .submenu{margin-top: 15px;}
+.search-mobile{
+  background: radial-gradient(#35cdd4, #1EB0EB);
+  display: none;
+}
+.search-mobile md-autocomplete input{background: #fff}
+.search-mobile .search-box{margin: 0 auto!important;}
+.search-mobile a{color: #fff;}
+.search-mobile .advanced-search{
+  margin: 4px 0;
+  text-align: center;
+}
+
+/*-----------/
+  #MENU-MOBILE
+/*----------*/
+.menu-mobile{
+  display: none;
+  position: relative;
+  width: 100%;
+  z-index: 9999;
+  padding: 10px 0;
+  transition: .5s linear all;
+  background: linear-gradient(to right, #1EB0EB  , #35cdd4);
+  overflow: hidden;
+}
+.menu-mobile a{
+  color: #fff;
+  margin: 8px 0;
+}
+.menu-mobile span{display: block;}
+.menu-mobile i{
+  font-size: 20px;
+  margin-right: 10px;
+}
+.menu-mobile-on{display: flex;}
+.mobile-menu-btn-wrap{
+  width: 96px;
+  height: 100%;
+  position: relative;
+}
+.close-mobile{
+  min-height: 400px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
 
 /*----------/
   #ADVANCED-SEARCH-HEADER
@@ -1123,6 +1176,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 }
 
 @media (max-width: 600px){
+  .search-mobile-on{display: block;}
 
   /*--------/
     #FOOTER
