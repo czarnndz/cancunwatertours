@@ -1,6 +1,7 @@
 <script type="text/javascript">
     var tour = <%- JSON.stringify(tour) %>;
     var similar_tours = <%- JSON.stringify(similar_tours) %>;
+    var imgs_url = <%- JSON.stringify(imgs_url) %>
 </script>
 
 <div id="detalle" class="tour-indiv" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
@@ -41,18 +42,19 @@
         </div>
 
         <div class="tour-slider" flex="70" layout-fill>
-          <div class="tour-slider-item" ></div>
-          <div class="tour-slider-item" ></div>
-          <div class="tour-slider-item" ></div>
-          <div class="tour-slider-item" ></div>
+          <div
+            ng-repeat="photo in galleryPhotos track by $index"
+            style="background-image: url({{photo}})"
+            class="tour-slider-item" >
+          </div>
         </div>
 
       </div>
       <!--END FIRST COLUMN TOUR INFO-->
 
       <!--TOUR INFO BOOKING (SECOND COLUMN)-->
-      <div class="booking-form-wrap" flex="30" flex-md="100" flex-sm="100">
-        <form class="booking-form booking-form-absolute" method="post" id="reservar">
+      <div class="booking-partial-wrap" flex="30" flex-md="100" flex-sm="100">
+        <form class="booking-partial booking-partial-absolute" method="post" id="reservar">
           <h3>RESERVA EL TOUR</h3>
 
           <!--INPUT FIELDS-->

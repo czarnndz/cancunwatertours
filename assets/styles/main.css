@@ -194,13 +194,25 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   padding: 0;
 }
 
+/*------------/
+  #CUSTOM-AUTOCOMPLETE
+/*-----------*/
+.custom-autocomplete{
+  background: rgb(245,245,245);
+  border-radius: 46px;
+  box-shadow: none;
+  height: 40px;
+  line-height: 1.2;
+}
+.custom-autocomplete md-autocomplete-wrap{box-shadow: none;}
+
 /*-------------/
   #SIDEBAR
 /*------------*/
 .main-sidebar{
   opacity: 1;
   transition: .5s linear all;
-  max-width: 8%;
+  max-width: 102px;
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
 }
 .main-sidebar-inner{
@@ -226,8 +238,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .main-sidebar-item:hover i,
 .main-sidebar-item:hover p{color: #20B2E9;transition: .4s linear all}
 .main-sidebar-item p{
-  font-size: 13px;
+  font-size: 10px;
   text-align: center;
+  font-weight: 700;
 }
 
 .main-sidebar-item:before {
@@ -397,12 +410,30 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   background-position:center;
   background-size: cover;
 }
+.tour-slider .owl-pagination{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 253, 253, 0.7);
+  width: 100%;
+  height: 30px;
+  padding-right: 15px;
+}
+.tour-slider .owl-page{
+  float: right;
+  margin-top: 5px;
+}
+.tour-slider .owl-page span{
+  background: #18A5F0!important;
+  width: 10px!important;
+  height: 10px!important;
+}
 
 /*--------/
-  #BOOKING-FORM
+  #BOOKING-PARTIAL
 /*-------*/
-.booking-form-wrap{position: relative;}
-.booking-form-absolute{
+.booking-partial-wrap{position: relative;}
+.booking-partial-absolute{
   height: 100%;
   position: absolute;
   right: 0;
@@ -412,19 +443,19 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   box-sizing: border-box;
 }
 
-.booking-form{
+.booking-partial{
   background: #00C1C8;
   padding: 20px 25px;
 }
-.booking-form h3{
+.booking-partial h3{
   color: #fff;
   font-size: 22px;
   margin: 10px 0;
   text-align: center;
   font-weight: 300;
 }
-.booking-form .input-field-wrap{margin: 6px 0;}
-.booking-form md-datepicker{
+.booking-partial .input-field-wrap{margin: 6px 0;}
+.booking-partial md-datepicker{
   background: #46CFD2;
   border-radius: 5px;
   padding: 4px;
@@ -435,12 +466,12 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
 }
-.booking-form md-datepicker .md-datepicker-triangle-button{
+.booking-partial md-datepicker .md-datepicker-triangle-button{
   -webkit-transform: translateY(-18%) translateX(25%);
   transform: translateY(-18%) translateX(25%);
 }
-.booking-form md-datepicker md-icon{color: #fff;}
-.booking-form md-datepicker > .md-button.md-icon-button{
+.booking-partial md-datepicker md-icon{color: #fff;}
+.booking-partial md-datepicker > .md-button.md-icon-button{
   height: 31px;
   min-height: 0;
   line-height: 1;
@@ -450,67 +481,67 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   vertical-align: middle;
   display: none;
 }
-.booking-form md-datepicker md-icon{height: auto;}
+.booking-partial md-datepicker md-icon{height: auto;}
 
-.booking-form .md-datepicker-input,
-.booking-form .md-datepicker-input::-webkit-input-placeholder{
+.booking-partial .md-datepicker-input,
+.booking-partial .md-datepicker-input::-webkit-input-placeholder{
   color: #fff;
   font-size: 16px;
 }
 
-.booking-form .md-datepicker-input-container{
+.booking-partial .md-datepicker-input-container{
   border-bottom: 0;
   width: 100%;
   margin: 0;
   padding-bottom: 0;
 }
 .md-datepicker-calendar-pane{background: #fff;}
-.booking-form .md-select-value{
+.booking-partial .md-select-value{
   background: #46CFD2;
   border-radius: 5px;
   border-bottom: 0;
   min-width: 0;
   padding: 4px 6px!important;
 }
-.booking-form .md-select-value :first-child{
+.booking-partial .md-select-value :first-child{
   margin-left: 0;
   vertical-align: middle;
 }
-/*.booking-form .select-posicion span{text-align: left;}*/
-.booking-form .md-select-icon{margin-top: -6px}
-.booking-form .md-select-value span{color: #fff;}
-.booking-form md-select.md-default-theme:not([disabled]):focus,
-.booking-form md-select:not([disabled]):focus .md-select-value{
+/*.booking-partial .select-posicion span{text-align: left;}*/
+.booking-partial .md-select-icon{margin-top: -6px}
+.booking-partial .md-select-value span{color: #fff;}
+.booking-partial md-select.md-default-theme:not([disabled]):focus,
+.booking-partial md-select:not([disabled]):focus .md-select-value{
   border-bottom: 0;
 }
-.booking-form input::-webkit-input-placeholder,
-.booking-form input:-moz-placeholder,
-.booking-form input::-moz-placeholder,
-.booking-form input:-ms-input-placeholder{color: #fff!important }
-.booking-form label{
+.booking-partial input::-webkit-input-placeholder,
+.booking-partial input:-moz-placeholder,
+.booking-partial input::-moz-placeholder,
+.booking-partial input:-ms-input-placeholder{color: #fff!important }
+.booking-partial label{
   color: #fff;
   font-size: 12px;
 }
 
-.booking-form md-select{
+.booking-partial md-select{
   width: 100%;
   margin: 0;
 }
-.booking-form  .precios-detalle{
+.booking-partial  .precios-detalle{
     color: white;
     font-size: 13px;
     text-align: right;
     margin-top: 10px;
 }
-.booking-form  .precios-detalle p{margin: 4px 0;}
-.booking-form  .prices-value{font-size: 14px;}
-.booking-form  .prices-value-total{
+.booking-partial  .precios-detalle p{margin: 4px 0;}
+.booking-partial  .prices-value{font-size: 14px;}
+.booking-partial  .prices-value-total{
     font-size: 36px;
     font-weight: 300;
   }
-.booking-form  .precio-total-tour{font-size: 35px;}
-.booking-form .final-price-block{margin: 20px 0 0}
-.booking-form .final-price-block p{margin: 0}
+.booking-partial  .precio-total-tour{font-size: 35px;}
+.booking-partial .final-price-block{margin: 20px 0 0}
+.booking-partial .final-price-block p{margin: 0}
 .boton-detalle{
   background: white;
   border-radius: 5px;
@@ -760,7 +791,262 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .tour-item-overlay{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
 .tour-item:hover .tour-item-overlay{opacity: 1}
 
+/*------------/
+  #BOOKING
+/*-----------*/
+.booking{padding: 30px 0;}
+.booking-header .step{
+  background: #fff;
+  cursor: pointer;
+  margin-bottom: 0;
+  padding: 20px;
+  color: #00C0C7;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.booking-header .step + .step{
+  margin-left: 4px;
+}
+.booking-header .step-on{
+  background: #00C0C8;
+  color: #fff;
+}
 
+.booking .title-block{
+  padding: 15px 20px;
+  background: #fff;
+  margin: 6px 0;
+}
+.booking .title-block h3{
+  color: #8A8A8A;
+  font-size: 16px;
+  margin: 0;
+  text-transform: uppercase;
+}
+.booking .title-block-data h3{
+  margin-bottom: 10px;
+}
+.booking .title-block i{
+  color: #1DB5DA;
+  font-size: 24px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.booking .block-content{
+  background: #fff;
+  padding: 20px 24px;
+  margin-bottom: 4px;
+}
+.booking .block-content-transparent{background: transparent;}
+.booking .block-content p{color: #8A8A8A}
+.booking .block-content p i{vertical-align: middle;}
+
+.booking .terms-text{
+  font-size: 12px;
+  text-align: center;
+}
+.booking .terms-text md-checkbox{
+  display: inline-block;
+}
+
+.booking .final-data{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.booking .total-pagar{
+  font-size: 17px;
+  color: #898989;
+  margin: 0;
+}
+
+.booking .precio-total{
+  font-size: 20px;
+  color: #13A6ED!important;
+  margin: 0;
+}
+
+.booking-tour-img-wrap{}
+.booking-tour-img{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.booking .total-price{
+  font-size: 20px;
+  color: #13A6ED!important;
+  text-align: center;
+  margin: 0;
+}
+.booking .continue-btn{float: right;}
+.booking .total-transporte p{margin: 0}
+.booking .highlight{color: #19A4EF!important}
+.booking .big-price{font-size: 24px;}
+.boooking .small-text{
+  color: #8A8A8A;
+  font-size: 15px;
+  text-align: center;
+}
+
+.booking .payment-btn{
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 18px;
+  border: 0px;
+  margin: 20px auto;
+  display: block;
+}
+
+/*-----------/
+  #BOOKING-FORM
+/*----------*/
+.booking-form h3{
+  color: #00AFE2;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+.booking-form h4{
+  color: #00AFE2;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px
+}
+.booking-form md-datepicker{
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #DCDCDC;
+  padding: 2px 6px;
+  width: 100%;
+  max-width: 186px;
+  display: block;
+}
+.booking-form .md-datepicker-input-container{
+  border-bottom: 0;
+  width: 100%;
+  padding: 4px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+.booking-form md-datepicker .md-datepicker-button{display: none;}
+.booking-form md-datepicker .md-icon-button{
+  height: auto;
+  margin-top: 6px;
+}
+.booking-form .input-field-wrap{
+  margin: 10px 0;
+}
+.booking-form .input-field-wrap-inner{width: 100%;}
+.booking-form label{
+  color: #898989;
+  font-size: 13px;
+  font-weight: 700;
+}
+.booking-form .highlight{color: #00B6DA;}
+.booking-form input[type="number"],
+.booking-form input[type="text"],
+.booking-form input[type="email"]{
+  border-radius: 5px;
+  border:1px solid #DCDCDC;
+  box-shadow: none;
+  color: #939393;
+  padding: 8px 0px 8px 6px;
+  font-size: 14px;
+  /*width: 164px!important;*/
+}
+
+.booking-form .custom-select{
+  margin:0;
+  border-color:#DCDCDC;
+  color: #DCDCDC;
+  max-width: 186px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.booking-form .custom-select .md-select-value{color: #DCDCDC;}
+
+.booking-form .custom-autocomplete{
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #C4C4C4;
+  height: auto;
+  padding: 6px;
+}
+
+.booking-form .hotel-autocomplete{
+  margin-left: 12px;
+}
+
+.booking-form .custom-autocomplete input:not(.md-input),
+.booking-form .custom-autocomplete md-autocomplete-wrap {
+  height: auto;
+  line-height: 1.2;
+}
+
+.booking-form label + input[type="number"],
+.booking-form label + input[type="text"],
+.booking-form label + input[type="email"]{
+  margin-left: 10px;
+}
+
+.booking-form .input-field{
+  width: 100%;
+}
+
+.booking-form .input-field-iconized{
+  padding-left: 20px;
+}
+.booking-form .input-field-iconized:after{
+  content: "\e614";
+}
+
+
+/*----------/
+  #BOOKING-INFO
+/*---------*/
+.booking-info{
+  color: #fff;
+  background: #19A4EF;
+}
+.booking-info-inner{
+  padding: 15px 25px;
+}
+.booking-info-inner:nth-child(2){
+  border-top: 1px solid #fff;
+}
+.booking-info h2{
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+.booking-info h3{
+  font-size: 18px;
+  margin: 0;
+}
+.booking-info-block{margin: 16px 0;}
+.booking-info p{
+  font-size: 12px;
+  margin: 0;
+}
+.booking-info a{color: #fff;}
+.booking-info .see-details{font-size: 13px;}
+.booking-info .precio-detalles{font-size: 16px;}
+.booking-info .text-total-d{font-size: 16px;}
+.booking-info .precio-total-d{font-size: 19px;}
 
 /*-------------/
   #FOOTER
@@ -832,7 +1118,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   /*--------/
     #TOUR-INDIV
   /*--------*/
-  .booking-form-absolute,
+  .booking-partial-absolute,
   .tour-map{position: relative;}
 }
 
