@@ -2,6 +2,7 @@
 
 app.controller('tourCTL',function($scope,$http){
     $scope.similar_tours = similar_tours;
+    $scope.imgs_url = imgs_url;
     $scope.tour = tour;
     $scope.tour.adults = 1;
     $scope.tour.kids = 0;
@@ -16,6 +17,12 @@ app.controller('tourCTL',function($scope,$http){
         $scope.hotels = response;
     });
 
+    $scope.setUpGallery = function(){
+      $scope.galleryPhotos = $scope.tour.files.map(function(file){
+        return $scope.imgs_url + '/uploads/tours/gallery/593x331' +  file.filename;
+      });
+    }
+
     $scope.getPrice = function(){
         if ($scope.kids > 0) {
             return ($scope.tour.adults * $scope.tour.fee) + ($scope.tour.kids * $scope.tour.feeChild);
@@ -23,6 +30,8 @@ app.controller('tourCTL',function($scope,$http){
             return ($scope.tour.adults * $scope.tour.fee);
         }
     }
+
+    $scope.setUpGallery();
 });
 
 app.controller('CarouselDemoCtrl', function ($scope) {

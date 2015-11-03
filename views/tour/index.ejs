@@ -1,6 +1,7 @@
 <script type="text/javascript">
     var tour = <%- JSON.stringify(tour) %>;
     var similar_tours = <%- JSON.stringify(similar_tours) %>;
+    var imgs_url = <%- JSON.stringify(imgs_url) %>;
 </script>
 
 <div id="detalle" class="tour-indiv" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
@@ -41,10 +42,14 @@
         </div>
 
         <div class="tour-slider" flex="70" layout-fill>
+          <div
+            ng-repeat="photo in galleryPhotos track by $index"
+            style="background-image: url({{photo}})"
+            class="imagen-detalle item" >
+          </div>
+          <!--<div class="imagen-detalle item" ></div>
           <div class="imagen-detalle item" ></div>
-          <div class="imagen-detalle item" ></div>
-          <div class="imagen-detalle item" ></div>
-          <div class="imagen-detalle item" ></div>
+          <div class="imagen-detalle item" ></div>-->
         </div>
 
       </div>
