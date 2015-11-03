@@ -315,6 +315,7 @@ a:focus{text-decoration: none;border: none;box-shadow: none;}
 .tour-description{
   padding: 20px 30px;
   text-align: justify;
+  min-height: 300px;
 }
 .tour-description h3{
   color: #27C8CF;
