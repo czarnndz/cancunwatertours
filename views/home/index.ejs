@@ -1,4 +1,5 @@
 <div id="home" ng-controller="Home">
+
   <%- partial('../partials/add-transport') -%>
   <div>
       <md-grid-list md-cols-gt-md="8" md-cols-sm="1" md-cols-md="6" md-row-height-gt-md="1:1" md-row-height="4:3">
@@ -12,9 +13,9 @@
           }"
           md-colspan-gt-sm="{{tour.colspan}}"
           md-rowspan-gt-sm="{{tour.rowspan}}"
-          class="tour-item"
+          class="landing-tour"
           layout-align-gt-sm="center center">
-          <md-grid-tile-footer class="tour-item-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
+          <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
             <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
             <p>desde</p>

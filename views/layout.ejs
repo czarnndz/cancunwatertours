@@ -46,7 +46,7 @@
 
 </head>
 
-<body>
+<body ng-cloak >
 
   <div id="wrap">
     <div id="main" class="clearfix">
@@ -57,10 +57,34 @@
           <div ng-controller="Header">
             <%- partial('partials/header') -%>
             <%- partial('partials/search') -%>
+            <%- partial('partials/register') -%>
+            <%- partial('partials/login') -%>
           </div>
 
-          <md-content ng-cloak autoscroll="true">
-            <!--AQUI VA EL CONTENIDO-->
+          <md-content id="main-content">
+            <div layout="row">
+
+              <!--SIDEBAR-->
+              <% if (meta && meta.addMenu) { %>
+                  <%- partial('partials/sidebar-menu') -%>
+              <% } %>
+              <!--END SIDEBAR-->
+
+              <!--MAIN CONTENT-->
+              <section
+                <% if (meta && meta.addMenu) { %>
+                  flex flex-md="100" flex-sm="100"
+
+                <% } else { %>
+                  flex="100"
+                <% } %>
+              >
+                <%- body %>
+              </section>
+              <!--END MAIN CONTENT-->
+
+            </div>
+
           </md-content>
 
         </div>
