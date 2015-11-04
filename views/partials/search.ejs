@@ -1,12 +1,10 @@
 <div ng-show="toggleSearch" id="buscar-avanzado-header" class="advanced-search-header ng-cloak" >
   <div>
-    <div  id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
-
+    <div id="busqueda-movil" hide-gt-sm layout="row" layout-align="center center" layout-wrap>
       <input id="btn-avanzada" placeholder="Buscar" flex="60"><i class="icon-flecha icono-bt-avanzada"></i>
-      <div id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
-
+      <div ng-click="toggleSearchMobile = !toggleSearchMobile" id="text-ava-movil" flex="100" layout-align="center center" layout="row">Búsqueda avanzada</div>
     </div>
-    <div id="b-avanzada" class="advanced-search buscar-avanzado-header buscar-movil-ap">
+    <div id="b-avanzada" class="advanced-search advanced-search-mobile" ng-class="{'advanced-search-mobile-on': toggleSearchMobile}">
         <div layout="row" layout-align="space-between center" class="cont-avanzada">
           <div class="cont-buscar-precio" layout="row" layout-align="start center" flex="50" >
             <div id="apuntador-avanzado" layout="row" layout-align="center center" ng-click="apuntadorVisibility = !apuntadorVisibility" >
