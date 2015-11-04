@@ -22,97 +22,108 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.icon-cenote:before {
+  content: "\e900";
+}
 .icon-adultos:before {
-	content: "\e600";
+	content: "\e901";
+}
+.icon-archaeological-sites:before {
+  content : "\e902"
 }
 .icon-adventure:before {
-	content: "\e601";
+  content: "\e903";
 }
 .icon-borrar:before {
-	content: "\e602";
+	content: "\e904";
 }
 .icon-diving:before {
-	content: "\e603";
+	content: "\e905";
 }
 .icon-buscador:before {
-	content: "\e604";
+	content: "\e906";
 }
 .icon-calendario:before {
-	content: "\e605";
+	content: "\e907";
 }
 .icon-carrito:before {
-	content: "\e606";
+	content: "\e908";
 }
 .icon-cerrar:before {
-	content: "\e607";
+	content: "\e909";
 }
 .icon-corazon:before {
-	content: "\e608";
+	content: "\e90a";
+}
+.icon-watersports:before {
+  content: "\e90b"
 }
 .icon-estrella:before {
-	content: "\e609";
+	content: "\e90c";
 }
 .icon-face:before {
-	content: "\e60a";
+	content: "\e90d";
 }
 .icon-familiar:before {
-	content: "\e60b";
+	content: "\e90e";
 }
 .icon-flecha:before {
-	content: "\e60c";
+	content: "\e90f";
 }
 .icon-horario:before {
-	content: "\e60d";
+	content: "\e910";
 }
 .icon-hotel:before {
-	content: "\e60e";
+	content: "\e911";
 }
 .icon-mail:before {
-	content: "\e60f";
+	content: "\e912";
 }
 .icon-mascompradas:before {
-	content: "\e610";
+	content: "\e913";
 }
 .icon-new:before {
-	content: "\e611";
+	content: "\e914";
 }
 .icon-nino:before {
-	content: "\e612";
+	content: "\e915";
 }
 .icon-ninos:before {
-	content: "\e613";
+	content: "\e916";
 }
 .icon-nombre:before {
-	content: "\e614";
+	content: "\e917";
+}
+.icon-theme-parks:before {
+  content: "\e918";
 }
 .icon-fishing:before {
-	content: "\e615";
+	content: "\e924";
 }
 .icon-pin:before {
-	content: "\e616";
+	content: "\e91a";
 }
 .icon-populares:before {
-	content: "\e617";
+	content: "\e91b";
 }
 .icon-precio:before {
-	content: "\e618";
+	content: "\e91c";
 }
 .icon-snorkeling:before {
-	content: "\e619";
+	content: "\e91d";
 }
 .icon-tel:before {
-	content: "\e61a";
+	content: "\e91e";
 }
 .icon-transporte:before {
-	content: "\e61b";
+	content: "\e91f";
 }
 .icon-twit:before {
-	content: "\e61c";
-}
-.icon-viajes:before {
-	content: "\e61d";
+	content: "\e920";
 }
 .icon-instagram:before {
-	content: "\e61e";
+	content: "\e922";
+}
+.icon-sailing:before {
+  content: "\e923";
 }

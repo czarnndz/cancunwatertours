@@ -382,6 +382,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .tour-description{
   padding: 20px 30px;
   text-align: justify;
+  min-height: 300px;
 }
 .tour-description h3{
   color: #27C8CF;
