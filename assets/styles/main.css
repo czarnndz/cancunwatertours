@@ -94,7 +94,15 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 /*------------/
   #HEADER
 /*-----------*/
-.header{padding: 14px 20px;}
+.header .menu-section{
+  padding: 10px 20px;
+}
+.header .menu-section-first{
+  padding: 0 20px;
+}
+.header .menu-section-first .search-box{
+  padding: 10px 0;
+}
 .header .logo{max-width: 162px;}
 .header .account-item img{vertical-align: middle;}
 .header a{
@@ -106,12 +114,26 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   margin-left: 40px;
 }
 .header md-autocomplete{background: none}
-.header md-autocomplete-wrap{box-shadow: none;}
-.header md-autocomplete input{
+.header md-autocomplete-wrap{
+  box-shadow: none;
   background: #F2F2F2;
   border-radius: 46px;
 }
-.header .advanced-search{margin: 0 30px;}
+/*
+.header md-autocomplete input{
+  background: #F2F2F2;
+  border-radius: 46px;
+}*/
+.header .advanced-search{
+  padding: 0 30px;
+  min-height: 72px;
+  position: relative;
+}
+.header .advanced-search-on{
+  background: #00ADEF;
+  color: #fff;
+}
+.header .advanced-search-on a{color: #fff;}
 .header .action-btn{color: #fff!important;}
 .header .account-menu a{
   color: #727272;
@@ -144,10 +166,13 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   height: 4px;
   max-width: 30px
 }
+.header-mobile{padding: 14px 20px;}
 .header-mobile .submenu{margin-top: 15px;}
 .search-mobile{
   background: radial-gradient(#35cdd4, #1EB0EB);
   display: none;
+  padding: 14px 20px;
+  position: relative;
 }
 .search-mobile md-autocomplete input{background: #fff}
 .search-mobile .search-box{margin: 0 auto!important;}
@@ -155,6 +180,13 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .search-mobile .advanced-search{
   margin: 4px 0;
   text-align: center;
+  min-height: 0;
+}
+.search-mobile .advanced-search-header{
+  width: 100%;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 /*-----------/
@@ -170,11 +202,13 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
   overflow: hidden;
 }
+.menu-mobile-inner{padding: 20px;}
 .menu-mobile a{
   color: #fff;
   margin: 8px 0;
+  display: block;
 }
-.menu-mobile span{display: block;}
+.menu-mobile span{/*display: block;*/}
 .menu-mobile i{
   font-size: 20px;
   margin-right: 10px;
@@ -199,13 +233,14 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 /*---------*/
 .advanced-search-header{
   background: #00ADEF;
-  left: 12%;
+  left: 0;
   overflow: hidden;
   color: #fff;
   position: absolute;
   padding: 14px;
   min-width: 350px;
   z-index: 90;
+  top:100%;
 }
 .advanced-search-header .search-by-price{margin: 15px 0;}
 .advanced-search-header .md-focus-ring,
@@ -226,6 +261,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   color: #fff;
   border:none;
 }
+.advanced-search-header .custom-select md-select-value{color: #fff!important;}
+.advanced-search-header md-radio-button:first-child{margin-left: 0px;}
+.advanced-search-header md-radio-button{margin: 10px;}
 
 
 /*------------/
@@ -758,7 +796,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 /*------------/
   #RESULTS
 /*------------*/
-.search-results-head{padding: 10px 0;}
+.search-results-head{padding: 10px;}
 .search-results-head h1{
   color: #9D9D9D;
   font-size: 24px;
@@ -1168,6 +1206,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   text-align: center;
 }
 
+@media (max-width: 1100px){
+  .header .search-box{margin-left: 0;}
+  .header .advanced-search{padding: 0 5px;}
+}
+
 @media (max-width: 960px){
   /*--------/
     #TOUR-INDIV
@@ -1178,6 +1221,32 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 
 @media (max-width: 600px){
   .search-mobile-on{display: block;}
+  .advanced-search-header{left: 0;}
+
+  /*---------/
+    #BOOKING
+  /*--------*/
+  .booking{padding: 20px 10px;}
+  .booking-header .step{
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  /*----------/
+    #BOOKING-FORM
+  /*---------*/
+  .booking-form .input-field-wrap{width: 100%;}
+  .booking-form .input-field{margin: 10px 0}
+
+  /*---------/
+    #BOOKING-INFO
+  /*--------*/
+  .booking-info{width: 100%;}
+
+  /*---------/
+    #SEARCH-RESULTS
+  /*---------*/
+  .search-results-option-item.tour-type{margin-left: 0;}
 
   /*--------/
     #FOOTER

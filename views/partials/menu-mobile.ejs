@@ -1,9 +1,9 @@
 <div class="cont-menu menu-mobile" hide-gt-sm ng-class="{'menu-mobile-on': toggleMenuMobile}">
 
-  <div layout="row" layout-align="space-around  center " layout-wrap >
+  <div class="menu-mobile-inner">
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
-      <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
+      <a href="/resultados?type=<%= meta.categories[i].id %>" >
       <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
       <span><%= meta.categories[i].name.toUpperCase() %></span>
     </a>

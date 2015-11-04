@@ -1,11 +1,11 @@
 <!--HEADER DESKTOP/TABLET-->
 
-<div class="header" hide-sm layout="row" layout-md="column" layout-sm="column" layout-align="space-between center" layout-align-md="center center">
+<div class="header" hide-sm layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" layout-align-md="center center">
 
-  <div flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
-    <div layout="row" layout-align="start center">
+  <div class="menu-section menu-section-first" flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
+    <div layout="row">
 
-      <form class="search-box" flex ng-submit="$event.preventDefault()">
+      <form class="search-box" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()">
         <md-autocomplete
           md-selected-item="selectedTour"
           md-selected-item-change="selectedItemChange(item)"
@@ -24,18 +24,19 @@
         </md-autocomplete>
       </form>
 
-      <div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
-        <a href="#"><strong>BÚSQUEDA AVANZADA</strong></a>
+      <div  class="advanced-search" ng-class="{'advanced-search-on': toggleSearch}" layout="row" layout-align="center center">
+        <a ng-click="toggleSearch = !toggleSearch" href=""><strong>BÚSQUEDA AVANZADA</strong></a>
+        <%- partial('../partials/search') -%>
       </div>
 
     </div>
   </div>
 
-  <div flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
+  <div class="menu-section" flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
     <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
-  <div flex="35" flex-md="100" flex-sm="100" class="account-menu" flex-order-md="2">
+  <div class="menu-section account-menu" flex="35" flex-md="100" flex-sm="100"  flex-order-md="2">
     <div layout="row" layout-align="end center">
       <span>
         <img src="/images/perfil.png" alt="Mi cuenta">
@@ -61,7 +62,7 @@
 
   <div layout="row" layout-align="space-between center">
 
-    <div ng-click="toggleMenuMobile = !toggleMenuMobile" flex="30" class="button-menu-mobile">
+    <div ng-click="toggleMenuMobile = !toggleMenuMobile" flex="15" class="button-menu-mobile">
       <hr><hr><hr>
     </div>
 
@@ -79,6 +80,7 @@
     </div>
 
   </div>
+
 
   <div class="container-mini submenu" layout="row" layout-align="space-between center">
     <span>
@@ -120,6 +122,8 @@
   <div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
     <a href="#"><strong>BÚSQUEDA AVANZADA</strong></a>
   </div>
+  <%- partial('../partials/search') -%>
+
 </div>
 
 <!--END HEADER MOBILE-->
