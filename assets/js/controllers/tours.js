@@ -10,6 +10,7 @@ app.controller('tourCTL',function($scope,$http){
     $scope.minDate = new Date();
     $scope.hotels = [];
 
+    console.log($scope.similar_tours);
     console.log($scope.tour.description);
 
     $http.get('/hotels').success(function(response) {

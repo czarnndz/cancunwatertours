@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-vfshu0');
-	src:url('fonts/icomoon.eot?#iefix-vfshu0') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?-vfshu0') format('truetype'),
-		url('fonts/icomoon.woff?-vfshu0') format('woff'),
-		url('fonts/icomoon.svg?-vfshu0#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?qqzjl8');
+	src:url('fonts/icomoon.eot?qqzjl8#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?qqzjl8') format('truetype'),
+		url('fonts/icomoon.woff?qqzjl8') format('woff'),
+		url('fonts/icomoon.svg?qqzjl8#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -22,49 +22,50 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.icon-cenote:before {
-  content: "\e900";
-}
+
 .icon-adultos:before {
+	content: "\e900";
+}
+.icon-adventure:before {
 	content: "\e901";
 }
 .icon-archaeological-sites:before {
-  content : "\e902"
-}
-.icon-adventure:before {
-  content: "\e903";
+	content: "\e902";
 }
 .icon-borrar:before {
-	content: "\e904";
-}
-.icon-diving:before {
-	content: "\e905";
+	content: "\e903";
 }
 .icon-buscador:before {
-	content: "\e906";
+	content: "\e904";
 }
 .icon-calendario:before {
-	content: "\e907";
+	content: "\e905";
 }
 .icon-carrito:before {
-	content: "\e908";
+	content: "\e906";
+}
+.icon-cenote:before {
+	content: "\e907";
 }
 .icon-cerrar:before {
-	content: "\e909";
+	content: "\e908";
 }
 .icon-corazon:before {
+	content: "\e909";
+}
+.icon-diving:before {
 	content: "\e90a";
 }
-.icon-watersports:before {
-  content: "\e90b"
-}
 .icon-estrella:before {
-	content: "\e90c";
+	content: "\e90b";
 }
 .icon-face:before {
-	content: "\e90d";
+	content: "\e90c";
 }
 .icon-familiar:before {
+	content: "\e90d";
+}
+.icon-fishing:before {
 	content: "\e90e";
 }
 .icon-flecha:before {
@@ -76,29 +77,29 @@
 .icon-hotel:before {
 	content: "\e911";
 }
-.icon-mail:before {
+.icon-instagram:before {
 	content: "\e912";
 }
-.icon-mascompradas:before {
+.icon-mail:before {
 	content: "\e913";
 }
-.icon-new:before {
+.icon-mascompradas:before {
 	content: "\e914";
 }
-.icon-nino:before {
+.icon-new:before {
 	content: "\e915";
 }
-.icon-ninos:before {
+.icon-nino:before {
 	content: "\e916";
 }
-.icon-nombre:before {
+.icon-ninos:before {
 	content: "\e917";
 }
-.icon-theme-parks:before {
-  content: "\e918";
+.icon-nombre:before {
+	content: "\e918";
 }
-.icon-fishing:before {
-	content: "\e924";
+.icon-oferta:before {
+	content: "\e919";
 }
 .icon-pin:before {
 	content: "\e91a";
@@ -109,21 +110,31 @@
 .icon-precio:before {
 	content: "\e91c";
 }
-.icon-snorkeling:before {
+.icon-sailing:before {
 	content: "\e91d";
 }
-.icon-tel:before {
+.icon-snorkeling:before {
 	content: "\e91e";
 }
-.icon-transporte:before {
+.icon-tel:before {
 	content: "\e91f";
 }
-.icon-twit:before {
+.icon-theme-parks:before {
 	content: "\e920";
 }
-.icon-instagram:before {
+.icon-transporte:before {
+	content: "\e921";
+}
+.icon-trending:before {
 	content: "\e922";
 }
-.icon-sailing:before {
-  content: "\e923";
+.icon-twit:before {
+	content: "\e923";
 }
+.icon-viajes:before {
+	content: "\e924";
+}
+.icon-water-sports:before {
+	content: "\e925";
+}
+

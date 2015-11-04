@@ -44,7 +44,7 @@
         <div class="tour-slider" flex="70" layout-fill>
           <div
             ng-repeat="photo in galleryPhotos track by $index"
-            style="background-image: url({{photo}})"
+            ng-style="{'background-image': 'url('+photo+')'}"
             class="tour-slider-item" >
           </div>
         </div>
@@ -155,7 +155,10 @@
     <h2>Tours similares</h2>
     <div class="s-tour cont-similares" layout="column" layout-align="center center" ng-repeat="tour_i in similar_tours">
       <!--<a ng-href="/detalle/{{tour_i.id}}" class="absolute-link"></a>-->
-      <div class="s-tour-img"></div>
+      <div
+        ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
+        class="s-tour-img">
+      </div>
       <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
       <p>{{tour_i.location.name}}</p>
       <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
