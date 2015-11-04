@@ -29,7 +29,7 @@ module.exports = {
       res.view({
         meta: {
           controller: 'home.js',
-          addMenu: true,
+          addMenu: false,
           categories : categories
         },
         page: {
