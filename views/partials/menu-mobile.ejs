@@ -3,7 +3,7 @@
   <div layout="row" layout-align="space-around  center " layout-wrap >
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
-      <a href="/resultados?type=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
+      <a href="/resultados?category=<%= meta.categories[i].id %>" flex="100" layout="row" layout-align="center center" >
       <div flex="100" layout="row" layout-align="space-around center" class="enlace-menu ">
         <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
         <div class="text-menu"><%= meta.categories[i].name.toUpperCase() %></div>
