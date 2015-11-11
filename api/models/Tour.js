@@ -19,7 +19,8 @@ module.exports = {
 //			via:'tours' }
 		,categories : {
 			collection : 'tourcategory'
-			,via:'tours' }
+			,via:'tours'
+    }
 		,fee : 'float' // precio de venta
 		,feeChild : 'float' //precio de venta
 		,fee_base : 'float' //precios de proveedor
@@ -27,7 +28,13 @@ module.exports = {
 		,commission_agency_base : 'integer'
 		,commission_user_base : 'integer'
 		,provider : {
-			model : 'tourprovider' }
+			model : 'tourprovider'
+    },
+    accessibility : {
+      type: 'string',
+      enum: ['family', 'adult'],
+      defaultsTo : 'family'
+    }
 	}
 	, migrate : 'alter'
 	, attrs_labels : {

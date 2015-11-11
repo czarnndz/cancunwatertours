@@ -3,7 +3,7 @@
 
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <% if(i === 6) break; %>
-      <a class="main-sidebar-item" href="/resultados?type=<%= meta.categories[i].id %>">
+      <a class="main-sidebar-item" href="/resultados?category=<%= meta.categories[i].id %>">
         <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
         <p><%= meta.categories[i].name.toUpperCase() %></p>
       </a>

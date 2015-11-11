@@ -854,7 +854,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   margin-bottom: 16px;
   position: relative;
   cursor: pointer;
-  background-image: url(../images/1.jpg);
   background-repeat:no-repeat;
   background-position:center;
   background-size: cover;

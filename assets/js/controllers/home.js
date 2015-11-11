@@ -13,6 +13,7 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
         { col : 2 ,row : 3 },
     ];
 
+
     $scope.getTours = function() {
       toursService.getTours().then(function(res){
         $scope.tours = $scope.formatTours(res);
@@ -85,12 +86,34 @@ app.controller('Search',function($scope,$http){
     });
 });
 
-app.controller('Resultados', function($scope,$http) {
+app.controller('Resultados', function($scope,toursService) {
+  $scope.category = category;
+  $scope.minFee = minFee;
+  $scope.maxFee = maxFee;
+  $scope.term = term;
+  $scope.loading = false;
+  $scope.toursCategories = [];
+
+  $scope.getCategoriesString = function(tour) {
+    return tour.categories.map(function(elem){ return elem.name; }).join(" , ");
+  };
+
   $scope.getToursCategories = function() {
     toursService.getCategories().then(function(res){
       $scope.toursCategories = res;
+      console.log($scope.toursCategories);
     });
   };
+
+  $scope.getTours = function() {
+    $scope.loading = true;
+    toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
+      $scope.tours = res;
+      $scope.loading = false;
+    });
+  };
+  $scope.getTours();
+  $scope.getToursCategories();
 });
 
 app.controller('Header', function($scope,$http, $rootScope, toursService, searchService) {

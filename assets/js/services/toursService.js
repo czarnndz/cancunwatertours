@@ -17,10 +17,25 @@
       serv.tours = [];
       serv.categories = [];
 
-      function getTours(){
+      function getTours(category = false,minFee = false,maxFee = false,term = false){
+        var params = {};
+        if (category) {
+          params.category = category;
+        }
+        if (minFee) {
+          params.minFee = minFee;
+        }
+        if (maxFee) {
+          params.maxFee = maxFee;
+        }
+        if (term) {
+          params.term = term;
+        }
+
         return $http({
           method: 'GET',
           url: '/tours',
+          params : params
         })
         .then(function(res){
           if (res.data && angular.isArray(res.data) ) {
@@ -37,7 +52,7 @@
       function getCategories(name){
         return $http({
           method: 'GET',
-          url: '/tour_categories',
+          url: '/tour_categories'
         })
         .then(function(res){
           if (res.data && res.data.categories) {
