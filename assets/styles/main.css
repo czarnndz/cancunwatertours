@@ -846,12 +846,78 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   margin: 20px 0;
 }
 
+.search-results-tours{
+  padding:20px;
+}
+
+.map-wrapper{position: relative;}
+.map-wrapper .angular-leaflet-map{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/*-----------/
+  #MAP-MARKER
+/*----------*/
+.map-wrapper .custom-icon{
+  background: #31BDCA;
+  color: #fff;
+  padding: 2px 6px;
+  text-align: center;
+  border-radius: 6px;
+  /*height: auto!important;*/
+  margin-top: -40px!important;
+  margin-left: -40px;
+  font-size: 16px;
+  border: 0;
+}
+/*---------/
+  #MAP-MARKER-POPUP
+/*---------*/
+.map-wrapper .leaflet-popup-content-wrapper{border-radius: 4px;}
+.map-wrapper .leaflet-popup-content{
+  background: #fff;
+  color: #00AEED;
+  text-align: center;
+  margin: 18px 11px;
+  min-width: 250px;
+}
+.map-wrapper .leaflet-popup-content .img-wrap{
+  position: relative;
+  margin-bottom: 10px;
+}
+.map-wrapper .leaflet-popup-content .img-wrap img{
+  max-width: 100%!important;
+  float: left;
+}
+.map-wrapper .leaflet-popup-content .img-wrap:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.map-wrapper .leaflet-popup-content .price-wrap{
+  background: rgba(0,0,0,0.5);
+  bottom: 0;
+  color: #fff;
+  font-size: 20px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+}
+.map-wrapper .leaflet-popup-content a{color: #00AEED;}
+.map-wrapper .leaflet-popup-content p{margin: 0;}
+
+
 /*----------/
   #TOUR-ITEM
 /*---------*/
-.tour-item{
+.tour-item-inner{
   height:200px;
-  margin-bottom: 16px;
+  margin: 0 10px 16px;
   position: relative;
   cursor: pointer;
   background-image: url(../images/1.jpg);

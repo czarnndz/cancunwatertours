@@ -17,6 +17,7 @@
 var cssFilesToInject = [
   'bower_components/angular/*.min.css',
   'bower_components/angular-material/*.min.css',
+  'bower_components/leaflet/dist/leaflet.css',
   //'bower_components/bootstrap/dist/css/*.min.css',
   'styles/**/*.css',
 ];
@@ -39,6 +40,9 @@ var jsFilesToInject = [
   'bower_components/angular-material/*.min.js',
   //'bower_components/angular-bootstrap/*.min.js',
   'bower_components/livereload-js/dist/*.js',
+  'bower_components/leaflet/dist/leaflet.js',
+  'bower_components/leaflet-plugins/layer/tile/Google.js',
+  'bower_components/angular-leaflet/dist/angular-leaflet-directive.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
