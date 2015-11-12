@@ -10,7 +10,7 @@ Text Domain: CancunWatertours
 
 html{min-width: 320px;}
 .ng-cloak{display: none!important;}
-body{font-family: 'Open Sans',sans-serif;}
+body{background: #F5F5F5;font-family: 'Open Sans',sans-serif;}
 a{text-decoration:none;}
 strong{font-weight: 700}
 a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif}
@@ -94,6 +94,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 /*------------/
   #HEADER
 /*-----------*/
+.header{background: #fff;}
 .header .menu-section{
   padding: 10px 20px;
 }
@@ -828,7 +829,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   text-align: center;
 }
 .search-results-option-item.tour-type{
-  margin-left: 20px;
   padding: 10px 16px;
   text-align: left;
 }
@@ -850,7 +850,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   padding:20px;
 }
 
-.map-wrapper{position: relative;}
+.map-wrapper{
+  min-height: 460px;
+  position: relative;
+}
 .map-wrapper .angular-leaflet-map{
   position: absolute;
   height: 100%;
@@ -873,6 +876,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   margin-left: -40px;
   font-size: 16px;
   border: 0;
+}
+.map-wrapper .custom-icon-inner{
+  position: relative;
 }
 /*---------/
   #MAP-MARKER-POPUP
