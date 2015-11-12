@@ -4,14 +4,14 @@
     var imgs_url = <%- JSON.stringify(imgs_url) %>;
 </script>
 
-<div id="detalle" class="tour-indiv" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
+<div id="detalle" class="tour-indiv container-max" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
 
   <!--TOUR INFO-->
   <div class="tour-indiv-info" flex="75" flex-md="100" flex-sm="100">
     <div layout="row" layout-md="column" layout-sm="column" layout-wrap>
 
       <!--TOUR INFO (FIRST COLUMN)-->
-      <div id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="column">
+      <div class="tour-details" id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="column">
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex="65" flex-sm="100">
@@ -41,12 +41,14 @@
           </div>
         </div>
 
-        <div class="tour-slider" flex="70" layout-fill>
-          <div
-            ng-repeat="photo in galleryPhotos track by $index"
-            ng-style="{'background-image': 'url('+photo+')'}"
-            class="tour-slider-item" >
-          </div>
+        <div class="tour-slider-wrapper" flex="70" >
+          <slick class="tour-slider" dots="true" arrows="false">
+            <div
+              ng-repeat="photo in galleryPhotos track by $index"
+              ng-style="{'background-image': 'url('+photo+')'}"
+              class="tour-slider-item" >
+            </div>
+          </slick>
         </div>
 
       </div>

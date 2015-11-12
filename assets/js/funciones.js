@@ -1,6 +1,7 @@
 /*detalles*/
 $(document).ready(function() {
 
+  /*
   var owl = $(".cont-imagen-detalle");
   var owl = $('.tour-slider');
 
@@ -11,6 +12,7 @@ $(document).ready(function() {
       itemsTablet: [600,1], //2 items between 600 and 0
       itemsMobile : [400,1] // itemsMobile disabled - inherit from itemsTablet option
     });
+  */
 
 });
 /*detalles*/
