@@ -817,6 +817,75 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 }
 #contrasena{margin-bottom: 30px}
 
+/*------------/
+  #FILTERS
+/*------------*/
+.filters-section {
+  color: #8f9094;
+  background: #fff;
+  padding: 16px;
+}
+.filters-section-row{margin: 20px 0; }
+.filter-option:first-child{
+  margin-left: 0;
+}
+.filter-option{
+  display: inline-block;
+  margin: 0 15px;
+}
+.filter-option i{
+  color: #3CB7E3;
+  font-size: 28px;
+  vertical-align: middle;
+}
+
+.filter-option md-checkbox span,
+.filter-option md-radio-button span,
+.filter-option label{
+  font-size: 11px;
+}
+
+.filter-option md-radio-button,
+.filter-option md-checkbox{margin: 0}
+
+.filters-section-sliders .filter-option:first-child{
+  padding-left: 0;
+}
+.filters-section-sliders .filter-option{
+  margin: 0;
+  padding: 0 15px;
+}
+
+.filter-option md-slider{margin-top: -11px;}
+.filter-option md-slider .md-track{background: #b6b7b9}
+
+.filter-option md-slider.md-default-theme.md-primary,
+.filter-option md-slider.md-primary .md-sign{
+  background-color: #3CB7E3;
+}
+
+.filter-option md-slider.md-default-theme.md-primary:after,
+.filter-option md-slider.md-primary .md-sign:after{
+  border-top-color: #3CB7E3;
+}
+.filter-option md-slider.md-default-theme.md-primary,
+.filter-option md-slider.md-primary .md-track.md-track-fill{
+  background-color: #3CB7E3;
+}
+
+.filter-option md-slider.md-default-theme.md-primary,
+.filter-option md-slider.md-primary .md-thumb:after {
+  border-color: rgb(63,81,181);
+  background-color: rgb(63,81,181);
+  background: #fff;
+  border-color: #8f9094;
+  border-width: 2px;
+}
+.filter-option .levels-text{margin-top: -10px;}
+.filter-option .levels-text span{
+  font-size: 11px;
+}
+
 
 /*------------/
   #RESULTS
@@ -903,6 +972,19 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 }
 .map-wrapper .custom-icon-inner{
   position: relative;
+}
+.map-wrapper .custom-icon-inner:after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #31bdca transparent transparent transparent;
 }
 /*---------/
   #MAP-MARKER-POPUP
@@ -1312,6 +1394,12 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   /*--------*/
   .booking-partial-absolute,
   .tour-map{position: relative;}
+
+  /*--------/
+    #FILTERS-OPTIONS
+  /*--------*/
+  .filters-section-sliders .filter-option{padding: 0;}
+
 }
 
 @media (max-width: 600px){
