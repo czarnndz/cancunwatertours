@@ -17,11 +17,18 @@
       <md-radio-group ng-model="orderBy">
         <span class="filters-section-large-label">Mostrar tours por: </span>
         <div class="filter-option">
-          <md-radio-button value="Populares" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
+          <md-radio-button value="rating" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
         </div>
         <div class="filter-option">
-          <md-radio-button value="Nuevos" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
+          <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
         </div>
+        <div class="filter-option">
+          <md-radio-button value="fee" class="md-primary"> <i class="icon-precio2"></i> PRECIO</md-radio-button>
+        </div>
+        <!--
+        <div class="filter-option">
+          <md-radio-button value="reservations" class="md-primary"> <i class="icon-mascompradas"></i> MÁS COMPRADAS</md-radio-button>
+        </div>-->
 
       </md-radio-group>
 
@@ -117,7 +124,7 @@
         </div>
       </div>
 
-      <md-radio-group ng-model="orderBy" class="cont-iconos" flex="100" layout="row" layout-align="start start" layout-wrap>
+      <!--<md-radio-group ng-model="orderBy" class="cont-iconos" flex="100" layout="row" layout-align="start start" layout-wrap>
 
         <div class="search-results-option-item" flex="25" flex-sm="50">
           <i class="icon-precio icono-opciones ap-precio"></i>
@@ -139,7 +146,7 @@
           <p>Más compradas</p>
           <md-radio-button value="reservations" class="md-primary"></md-radio-button>
         </div>
-      </md-radio-group>
+      </md-radio-group>-->
     </div>
 
     <!--END FILTERS-->

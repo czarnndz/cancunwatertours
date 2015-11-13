@@ -826,9 +826,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   padding: 16px;
 }
 .filters-section-row{margin: 20px 0; }
+/*
 .filter-option:first-child{
   margin-left: 0;
 }
+*/
 .filter-option{
   display: inline-block;
   margin: 0 15px;
@@ -848,9 +850,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .filter-option md-radio-button,
 .filter-option md-checkbox{margin: 0}
 
+/*
 .filters-section-sliders .filter-option:first-child{
   padding-left: 0;
-}
+}*/
 .filters-section-sliders .filter-option{
   margin: 0;
   padding: 0 15px;
