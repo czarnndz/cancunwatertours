@@ -955,6 +955,35 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   left: 0;
 }
 
+.map-wrapper .hotel-search{
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+  z-index: 999999;
+}
+.map-wrapper .hotel-search md-autocomplete{min-width: 140px;}
+.map-wrapper .hotel-search md-autocomplete-wrap{
+  box-shadow: none;
+  background: #fff;
+}
+.map-wrapper .hotel-search md-autocomplete-wrap input{
+  font-size: 12px;
+}
+.map-wrapper .hotel-search-label{
+  background: rgba(255,255,255,0.7);
+  padding: 4px;
+}
+.map-wrapper .hotel-search-label a{
+  color: #00AEED;
+  font-size: 10px;
+  display: inline-block;
+  margin-top: 9px;
+}
+
 /*-----------/
   #MAP-MARKER
 /*----------*/

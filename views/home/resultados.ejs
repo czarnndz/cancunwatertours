@@ -68,8 +68,8 @@
         </div>
       </div>
 
-      <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column">
-        <div flex="25" flex-md="100" class="filter-option">
+      <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
           <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
           <md-slider class="md-primary" min="250" max="2890" ng-model="rating1"></md-slider>
           <div class="levels-text" layout="row" layout-align="space-between center">
@@ -77,7 +77,7 @@
             <span>$2.890.00</span>
           </div>
         </div>
-        <div flex="25" flex-md="100" class="filter-option">
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
           <label><i class="icon-mojado"></i> NIVEL DE WETNESS</label>
           <md-slider flex class="md-primary" md-discrete ng-model="rating2" step="1" min="1" max="5" aria-label="rating"></md-slider>
           <div class="levels-text" layout="row" layout-align="space-between center">
@@ -85,7 +85,7 @@
             <span>Mojado</span>
           </div>
         </div>
-        <div flex="25" flex-md="100" class="filter-option">
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
           <label><i class="icon-naturaleza"></i> NATURALEZA</label>
           <md-slider flex class="md-primary" md-discrete ng-model="rating3" step="1" min="1" max="5" aria-label="rating"></md-slider>
           <div class="levels-text" layout="row" layout-align="space-between center">
@@ -93,7 +93,7 @@
             <span>Extrema</span>
           </div>
         </div>
-        <div flex="25" flex-md="100" class="filter-option">
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
           <label><i class="icon-actividad"></i> NIVEL DE ACTIVIDAD FISICA</label>
           <md-slider flex class="md-primary" md-discrete ng-model="rating4" step="1" min="1" max="5" aria-label="rating"></md-slider>
           <div class="levels-text" layout="row" layout-align="space-between center">
@@ -175,6 +175,27 @@
   </section>
 
   <section class="map-wrapper" flex="35" flex-md="100" flex-sm="100">
+    <div class="hotel-search" layout="row" layout-sm="column">
+      <div flex="60" flex-sm="100" class="hotel-search-label">
+        <a href="#"><strong><i class="icon-pin"></i> Calcular ubicación de acuerdo a mi hotel:</strong></a>
+      </div>
+      <div flex="40" flex-sm="100">
+        <md-autocomplete
+            md-selected-item="selectedHotel"
+            md-search-text="searchText"
+            md-items="hotel in hotels"
+            md-item-text="hotel.name"
+            md-min-length="0"
+            placeholder="Busca un hotel">
+          <md-item-template>
+            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{hotel.name}}</span>
+          </md-item-template>
+          <md-not-found>
+            No se econcontro "{{searchText}}".
+          </md-not-found>
+        </md-autocomplete>
+      </div>
+    </div>
     <leaflet center="center"  markers="markers" layers="layers"></leaflet>
   </section>
 
