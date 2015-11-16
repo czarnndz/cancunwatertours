@@ -4,13 +4,13 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
     $scope.hotels = [];
     $scope.agregarVisibility = false;
     $scope.lengthsArray = [
+        { col : 4 ,row : 2 },
+        { col : 2 ,row : 1 },
+        { col : 2 ,row : 2 },
+        { col : 2 ,row : 1 },
+        { col : 4 ,row : 2 },
         { col : 2 ,row : 1 },
         { col : 2 ,row : 1 },
-        { col : 2 ,row : 1 },
-        { col : 2 ,row : 1 },
-        { col : 4 ,row : 3 },
-        { col : 2 ,row : 3 },
-        { col : 2 ,row : 3 },
     ];
 
     $scope.getTours = function() {
