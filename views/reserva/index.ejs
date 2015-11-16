@@ -142,12 +142,12 @@
               <!--STEP 2-->
               <div id="datos-viajero" ng-class="step == 1 ? 'activar' : 'ng-hide'">
 
-                <div class="title-block title-block-data booking-form">
+                <div class="title-block title-block-data booking-form" ng-if="hotel">
                   <h3>
                     <i class="icon-transporte icono-trans-d"></i>
                      <strong>Datos para el traslado de tu Tour (Opcional)</strong>
                   </h3>
-                  <input flex="50" flex-sm="100" type="text" >
+                  <input flex="50" flex-sm="100" type="text" ng-model="transferClientName">
                 </div>
 
                 <div class="block-content" id="datos-viajero-2">
@@ -195,30 +195,30 @@
                   <div id="forma-pago" class="block-content booking-form">
 
                       <md-radio-group class="md-primary" ng-model="paymentMethod" layout="row" layout-md="column" layout-sm="column">
-                        <md-radio-button flex-md="100" flex-sm="100" value="Visa" class="md-primary">
+                        <md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
                           <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
-                        <md-radio-button flex-md="100" flex-sm="100" value="Master" class="md-primary">
+                        <md-radio-button flex-md="100" flex-sm="100" value="master" class="md-primary">
                           <img src="/images/master.png" class="img-tarjeta">
                         </md-radio-button>
-                        <md-radio-button flex-md="100" flex-sm="100" value="American" class="md-primary">
+                        <md-radio-button flex-md="100" flex-sm="100" value="american" class="md-primary">
                           <img src="/images/american.png" class="img-tarjeta">
                         </md-radio-button>
-                        <md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">
-                          <img src="/images/puntos.png" class="img-tarjeta">
-                        </md-radio-button>
-                        <md-radio-button flex-md="100" flex-sm="100" value="Oxxo" class="md-primary">
+                        <!--<md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">-->
+                          <!--<img src="/images/puntos.png" class="img-tarjeta">-->
+                        <!--</md-radio-button>-->
+                        <md-radio-button flex-md="100" flex-sm="100" value="oxxo" class="md-primary">
                           <img src="/images/oxxo.png" class="img-tarjeta">
                         </md-radio-button>
-                        <md-radio-button flex-md="100" flex-sm="100" value="Paypal" class="md-primary">
+                        <md-radio-button flex-md="100" flex-sm="100" value="paypal" class="md-primary">
                           <img src="/images/paypal.png" class="img-tarjeta">
                         </md-radio-button>
                       </md-radio-group>
 
-                      <p>Elije un banco</p>
-                      <md-select class="custom-select no-margin" placeholder="Elije un banco" ng-model="someVal" placeholder>
-                          <md-option value="1">Bancomer <img src="/images/bancomer.png"></md-option>
-                      </md-select>
+                      <!--<p>Elije un banco</p>-->
+                      <!--<md-select class="custom-select no-margin" placeholder="Elije un banco" ng-model="ba" placeholder>-->
+                          <!--<md-option value="1">Bancomer <img src="/images/bancomer.png"></md-option>-->
+                      <!--</md-select>-->
 
                   </div>
 
@@ -230,46 +230,34 @@
                     <div class="booking-form">
 
                       <p>
-                          <img src="/images/visa.png" class="datos-img">
+                          <img src="/images/{{paymentMethod}}.png" class="datos-img">
                       </p>
 
                       <p><strong>Datos del pago</strong></p>
                       <p class="no-margin">País</p>
 
-                      <md-select class="custom-select no-margin" placeholder="Elige un país" ng-model="someVal">
-                          <md-option value="1">Estados Unidos</md-option>
+                      <md-select class="custom-select no-margin" placeholder="Elige un país" ng-model="ccCountry">
+                          <md-option value="US">Estados Unidos</md-option>
                           <md-option value="2">Canada</md-option>
                           <md-option value="3">España</md-option>
+                          <md-option value="MX">Mexico</md-option>
                       </md-select>
 
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end">
                         <div flex="45" flex-sm="100" class="input-field-wrap">
-                            <input type="text" class="input-field" placeholder="Número de Tarjeta">
+                            <input type="text" class="input-field" placeholder="Número de Tarjeta" ng-model="ccNumber">
                         </div>
                         <div flex="45" flex-sm="100" class="input-field-wrap">
                           <p class="no-margin">Fecha de vencimiento</p>
                           <div layout="row" layout-align="space-between center">
                             <div flex="45">
-                              <md-select class="custom-select no-margin" ng-model="someVal" placeholder="Més">
-                                  <md-option value="1">1</md-option>
-                                  <md-option value="2">2</md-option>
-                                  <md-option value="3">3</md-option>
-                                  <md-option value="4">4</md-option>
-                                  <md-option value="5">5</md-option>
-                                  <md-option value="6">6</md-option>
-                                  <md-option value="7">7</md-option>
-                                  <md-option value="8">8</md-option>
-                                  <md-option value="9">9</md-option>
-                                  <md-option value="10">10</md-option>
-                                  <md-option value="11">11</md-option>
-                                  <md-option value="12">12</md-option>
+                              <md-select class="custom-select no-margin" ng-model="ccmonth" placeholder="Més">
+                                  <md-option ng-repeat="month in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2015 + month}}">{{2015 + month}}</md-option>
                               </md-select>
                             </div>
                             <div flex="45">
-                              <md-select class="custom-select" ng-model="someVal" placeholder="Año">
-                                  <md-option value="1">2015</md-option>
-                                  <md-option value="2">2016</md-option>
-                                  <md-option value="3">2017</md-option>
+                              <md-select class="custom-select" ng-model="ccyear" placeholder="Año">
+                                  <md-option ng-repeat="year in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2015 + year}}">{{2015 + year}}</md-option>
                               </md-select>
                             </div>
                           </div>
@@ -278,10 +266,10 @@
 
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta">
+                          <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta" ng-model="ccName">
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Código de seguridad">
+                          <input type="text" class="input-field" placeholder="Código de seguridad" ng-model="ccCode">
                         </div>
                       </div>
 
@@ -292,23 +280,23 @@
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <p>Estado</p>
-                          <md-select class="custom-select custom-select-full no-margin" ng-model="someVal">
+                          <md-select class="custom-select custom-select-full no-margin" ng-model="state">
                               <md-option value="1">Sinaloa</md-option>
                               <md-option value="2">Monterrey</md-option>
                               <md-option value="3">D.F</md-option>
                           </md-select>
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Ciudad">
+                          <input type="text" class="input-field" placeholder="Ciudad" ng-model="city">
                         </div>
                       </div>
 
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Dirección">
+                          <input type="text" class="input-field" placeholder="Dirección" ng-model="address">
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Código Postal">
+                          <input type="text" class="input-field" placeholder="Código Postal" ng-model="zipCode">
                         </div>
                       </div>
 
@@ -321,7 +309,7 @@
                           </md-checkbox>
                         </p>
                         <p class="total-pagar"><strong>Total a Pagar</strong></p>
-                        <p class="total-price">MXM <strong>$ 20,793.00</strong></p>
+                        <p class="total-price">MXM <strong>{{priceTotal() | currency}}</strong></p>
                         <p class="small-text" flex="100">El importe incluye todos los impuestos</p>
 
                         <!--<input type="button" id="boton-pagar" value="PAGAR RESERVA">-->

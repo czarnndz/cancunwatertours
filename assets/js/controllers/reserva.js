@@ -18,12 +18,12 @@ app.controller('reservaCTL',function($scope,$filter) {
         cost : 20
     };
 
-    var aux_schedules = [];
-    $scope.tour.schedules.forEach(function(el) {
-        aux_schedules.push(JSON.parse(el));
-    });
-
-    $scope.tour.schedules = aux_schedules;
+    //var aux_schedules = [];
+    //$scope.tour.schedules.forEach(function(el) {
+    //    aux_schedules.push(JSON.parse(el));
+    //});
+    //
+    //$scope.tour.schedules = aux_schedules;
 
     $scope.addCart = function() {
 

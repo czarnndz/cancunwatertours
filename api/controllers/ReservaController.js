@@ -15,7 +15,8 @@ module.exports = {
                 hotel : Common.formatHotel(hotel,'es'),
                 hotels : Common.formatHotel(hotels,'es'),
                 meta : {
-                    controller : 'reserva.js'
+                    controller : 'reserva.js',
+                    params : params
                 },
                 page : {
                     searchUrl : '/reserva',
@@ -48,6 +49,10 @@ module.exports = {
         } else {
             res.notFound();
         }
+
+    },
+    addOrder : function(req,res) {
+        var params = req.params.all();
 
     }
 

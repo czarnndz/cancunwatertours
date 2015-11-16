@@ -48,7 +48,10 @@ module.exports = {
 		,exchange_rates : 'json'
 		,prepaid : 'float' /*Para guardar el historial aquí mismo?*/
 		,credit : 'float' /*Para guardar el historial aquí mismo?*/
-
+    ,products : {
+      collection : 'companyproduct'
+      , via : 'agency'
+    }
 		,adminCompany : 'boolean'
 		,addApps : function(apps,cb){
 			if(Array.isArray(apps)){

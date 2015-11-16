@@ -17,7 +17,7 @@
       serv.tours = [];
       serv.categories = [];
 
-      function getTours(category = false,minFee = false,maxFee = false,term = false){
+      function getTours(category,minFee,maxFee,term){
         var params = {};
         if (category) {
           params.category = category;

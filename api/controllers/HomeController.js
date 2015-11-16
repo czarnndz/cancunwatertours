@@ -7,7 +7,7 @@
 
 module.exports = {
 	index : function(req,res){
-    TourCategory.find().exec(function(e,categories){
+    TourCategory.find({ type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
       //console.log(categories);
       res.view({
         meta : {
