@@ -24,47 +24,45 @@ module.exports = {
 
 	},
   resultados : function(req,res){
-    TourCategory.find().exec(function(e,categories) {
-
-      res.view({
-        meta: {
-          controller: 'home.js',
-          addMenu: false,
-          categories : categories
-        },
-        page: {
-          searchUrl: '/resultados',
-          placeholder: 'Buscar'
-        }
+      TourCategory.find().exec(function(e,categories) {
+        res.view({
+          meta: {
+            controller: 'home.js',
+            addMenu: false,
+            categories : categories,
+            req : req.params.all()
+          },
+          page: {
+            searchUrl: '/resultados',
+            placeholder: 'Buscar'
+          }
+        });
       });
-    });
+
   },
   tour_list : function(req,res){
-      var params = req.params.all();
-      var s = {};
-      var query = {};
-      var pageSize = 20;
+    var params = req.params.all();
+    var queryCategories = {};
+    if(params.category) {
+      queryCategories.id = params.category;
+    }
 
-      if( params.term && params.term != '' ){
-          s = { name : new RegExp(params.term,"i") };
-      }
-      if (params.page){
-          query.skip = pageSize * (params.page - 1);
-      }
-      if(params.minFee && params.maxFee){
-        query.fee = { '>=' : params.minFee};
-        query.fee = { '<=' : params.maxFee};
-      }
-
-      query.sort = 'name_es asc';
-
-      Tour.find(query).limit(20).exec(function(e,tours){
-          if (e) {
-              console.log(e);
-              throw e;
-          }
-          res.json( Common.formatTours(tours,'es'/*req.getLocale()*/) );
-      });
+    TourCategory.find(queryCategories).populate('tours').exec(function(e,results){
+        if (e)  {
+          console.log(e);
+          throw e;
+        }
+        var auxTourIds = [];
+        _.map(results,function(category){
+          _.map(category.tours,function(tour){
+            auxTourIds.push(tour.id);
+          });
+        });
+        var tourIds = _.uniq(auxTourIds);
+        Common.getTours(function(err,tour_list){
+          res.json(tour_list);
+        },req.page,req.pageSize,req.sort,req.name,req.category,req.maxFee,req.minFee,tourIds);
+    });
   },
   hotel_list : function(req,res){
       var params = req.params.all();

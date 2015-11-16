@@ -13,6 +13,7 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
         { col : 2 ,row : 1 },
     ];
 
+
     $scope.getTours = function() {
       toursService.getTours().then(function(res){
         $scope.tours = $scope.formatTours(res);
@@ -83,14 +84,6 @@ app.controller('Search',function($scope,$http){
             $scope.tours = response;
         }
     });
-});
-
-app.controller('Resultados', function($scope,$http) {
-  $scope.getToursCategories = function() {
-    toursService.getCategories().then(function(res){
-      $scope.toursCategories = res;
-    });
-  };
 });
 
 app.controller('Header', function($scope,$http, $rootScope, toursService, searchService) {
