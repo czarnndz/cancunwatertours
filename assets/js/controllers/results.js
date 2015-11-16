@@ -1,4 +1,4 @@
-app.controller('resultsCTL',function($scope, toursService){
+app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData){
   $scope.category = category;
   $scope.minFee = minFee;
   $scope.maxFee = maxFee;
@@ -17,11 +17,21 @@ app.controller('resultsCTL',function($scope, toursService){
     });
   };
 
+  $scope.redrawMap = function(){
+    $timeout(function(){
+      leafletData.getMap().then(function(map) {
+        console.log('resize');
+        map.invalidateSize();
+      });
+    },500);
+  };
+
   $scope.getTours = function() {
     $scope.loading = true;
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
       $scope.tours = res;
       $scope.loading = false;
+      $scope.redrawMap();
     });
   };
 
@@ -39,7 +49,7 @@ app.controller('resultsCTL',function($scope, toursService){
         className: 'custom-icon',
         iconSize: [90, 24],
         popupAnchor:  [0, -50],
-        html: '<strong>$'+ text + ' mx</strong>'
+        html: '<div class="custom-icon-inner"><strong>$'+ text + ' mx</strong></div>'
       };
     };
 

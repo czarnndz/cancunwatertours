@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?qqzjl8');
-	src:url('fonts/icomoon.eot?qqzjl8#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?qqzjl8') format('truetype'),
-		url('fonts/icomoon.woff?qqzjl8') format('woff'),
-		url('fonts/icomoon.svg?qqzjl8#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?co04fi');
+	src:url('fonts/icomoon.eot?co04fi#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?co04fi') format('truetype'),
+		url('fonts/icomoon.woff?co04fi') format('woff'),
+		url('fonts/icomoon.svg?co04fi#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,118 +23,163 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-adultos:before {
+.icon-accesible:before {
 	content: "\e900";
 }
-.icon-adventure:before {
+.icon-actividad:before {
 	content: "\e901";
 }
-.icon-archaeological-sites:before {
+.icon-adultos:before {
 	content: "\e902";
 }
-.icon-borrar:before {
+.icon-adventure:before {
 	content: "\e903";
 }
-.icon-buscador:before {
+.icon-archaeological-sites:before {
 	content: "\e904";
 }
-.icon-calendario:before {
+.icon-bebes:before {
 	content: "\e905";
 }
-.icon-carrito:before {
+.icon-borrar:before {
 	content: "\e906";
 }
-.icon-cenote:before {
+.icon-buscador:before {
 	content: "\e907";
 }
-.icon-cerrar:before {
+.icon-calendario:before {
 	content: "\e908";
 }
-.icon-corazon:before {
+.icon-carrito:before {
 	content: "\e909";
 }
-.icon-diving:before {
+.icon-cenote:before {
 	content: "\e90a";
 }
-.icon-estrella:before {
+.icon-cerrar:before {
 	content: "\e90b";
 }
-.icon-face:before {
+.icon-corazon:before {
 	content: "\e90c";
 }
-.icon-familiar:before {
+.icon-cultural:before {
 	content: "\e90d";
 }
-.icon-fishing:before {
+.icon-diving:before {
 	content: "\e90e";
 }
-.icon-flecha:before {
+.icon-embarazadas:before {
 	content: "\e90f";
 }
-.icon-horario:before {
+.icon-estrella:before {
 	content: "\e910";
 }
-.icon-hotel:before {
+.icon-face:before {
 	content: "\e911";
 }
-.icon-instagram:before {
+.icon-familiar:before {
 	content: "\e912";
 }
-.icon-mail:before {
+.icon-familiar2:before {
 	content: "\e913";
 }
-.icon-mascompradas:before {
+.icon-fishing:before {
 	content: "\e914";
 }
-.icon-new:before {
+.icon-flecha:before {
 	content: "\e915";
 }
-.icon-nino:before {
+.icon-grupos:before {
 	content: "\e916";
 }
-.icon-ninos:before {
+.icon-horario:before {
 	content: "\e917";
 }
-.icon-nombre:before {
+.icon-horario2:before {
 	content: "\e918";
 }
-.icon-oferta:before {
+.icon-hotel:before {
 	content: "\e919";
 }
-.icon-pin:before {
+.icon-instagram:before {
 	content: "\e91a";
 }
-.icon-populares:before {
+.icon-mail:before {
 	content: "\e91b";
 }
-.icon-precio:before {
+.icon-mascompradas:before {
 	content: "\e91c";
 }
-.icon-sailing:before {
+.icon-mojado:before {
 	content: "\e91d";
 }
-.icon-snorkeling:before {
+.icon-naturaleza:before {
 	content: "\e91e";
 }
-.icon-tel:before {
+.icon-new:before {
 	content: "\e91f";
 }
-.icon-theme-parks:before {
+.icon-nino:before {
 	content: "\e920";
 }
-.icon-transporte:before {
+.icon-ninos:before {
 	content: "\e921";
 }
-.icon-trending:before {
+.icon-nocturno:before {
 	content: "\e922";
 }
-.icon-twit:before {
+.icon-nombre:before {
 	content: "\e923";
 }
-.icon-viajes:before {
+.icon-nuevo:before {
 	content: "\e924";
 }
-.icon-water-sports:before {
+.icon-oferta:before {
 	content: "\e925";
+}
+.icon-parejas:before {
+	content: "\e926";
+}
+.icon-pin:before {
+	content: "\e927";
+}
+.icon-populares:before {
+	content: "\e928";
+}
+.icon-populares2:before {
+	content: "\e929";
+}
+.icon-precio:before {
+	content: "\e92a";
+}
+.icon-precio2:before {
+	content: "\e92b";
+}
+.icon-sailing:before {
+	content: "\e92c";
+}
+.icon-snorkeling:before {
+	content: "\e92d";
+}
+.icon-tel:before {
+	content: "\e92e";
+}
+.icon-theme-parks:before {
+	content: "\e92f";
+}
+.icon-transporte:before {
+	content: "\e930";
+}
+.icon-trending:before {
+	content: "\e931";
+}
+.icon-twit:before {
+	content: "\e932";
+}
+.icon-viajes:before {
+	content: "\e933";
+}
+.icon-water-sports:before {
+	content: "\e934";
 }
 

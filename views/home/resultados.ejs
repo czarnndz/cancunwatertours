@@ -6,9 +6,111 @@
   var term = '<%- meta.req.term %>';
 </script>
 
-<div ng-controller="resultsCTL" layout="row">
+<div ng-controller="resultsCTL" layout="row" layout-md="column" layout-sm="column">
   <!--LEFT SIDE-->
-  <section class="search-results-tours" flex="50">
+  <section class="search-results-tours" flex="65" flex-md="100" flex-sm="100">
+
+    <!--FILTERS-->
+
+    <div class="filters-section">
+
+      <md-radio-group ng-model="orderBy">
+        <span class="filters-section-large-label">Mostrar tours por: </span>
+        <div class="filter-option">
+          <md-radio-button value="rating" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
+        </div>
+        <div class="filter-option">
+          <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
+        </div>
+        <div class="filter-option">
+          <md-radio-button value="fee" class="md-primary"> <i class="icon-precio2"></i> PRECIO</md-radio-button>
+        </div>
+        <!--
+        <div class="filter-option">
+          <md-radio-button value="reservations" class="md-primary"> <i class="icon-mascompradas"></i> MÁS COMPRADAS</md-radio-button>
+        </div>-->
+
+      </md-radio-group>
+
+      <div class="filters-section-row">
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb5" class="md-primary">
+            <i class="icon-accesible"></i> Accesible
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb6" class="md-primary">
+            <i class="icon-cultural"></i> Cultural
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb7" class="md-primary">
+            <i class="icon-familiar2"></i> Familiar
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb8" class="md-primary">
+            <i class="icon-nocturno"></i> Nocturno
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb9" class="md-primary">
+            <i class="icon-bebes"></i> Bebés
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb10" class="md-primary">
+            <i class="icon-parejas"></i> Parejas
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb11" class="md-primary">
+            <i class="icon-grupos"></i> Grupos
+          </md-checkbox>
+        </div>
+        <div class="filter-option">
+          <md-checkbox ng-model="data.cb12" class="md-primary">
+            <i class="icon-embarazadas"></i> Embarazadas
+          </md-checkbox>
+        </div>
+      </div>
+
+      <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+          <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
+          <md-slider class="md-primary" min="250" max="2890" ng-model="rating1"></md-slider>
+          <div class="levels-text" layout="row" layout-align="space-between center">
+            <span>$250.00</span>
+            <span>$2.890.00</span>
+          </div>
+        </div>
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+          <label><i class="icon-mojado"></i> NIVEL DE WETNESS</label>
+          <md-slider flex class="md-primary" md-discrete ng-model="rating2" step="1" min="1" max="5" aria-label="rating"></md-slider>
+          <div class="levels-text" layout="row" layout-align="space-between center">
+            <span>Seco</span>
+            <span>Mojado</span>
+          </div>
+        </div>
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+          <label><i class="icon-naturaleza"></i> NATURALEZA</label>
+          <md-slider flex class="md-primary" md-discrete ng-model="rating3" step="1" min="1" max="5" aria-label="rating"></md-slider>
+          <div class="levels-text" layout="row" layout-align="space-between center">
+            <span>Poca</span>
+            <span>Extrema</span>
+          </div>
+        </div>
+        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+          <label><i class="icon-actividad"></i> NIVEL DE ACTIVIDAD FISICA</label>
+          <md-slider flex class="md-primary" md-discrete ng-model="rating4" step="1" min="1" max="5" aria-label="rating"></md-slider>
+          <div class="levels-text" layout="row" layout-align="space-between center">
+            <span>Ninguna</span>
+            <span>Extrema</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     <div class="search-results-options">
 
@@ -22,7 +124,7 @@
         </div>
       </div>
 
-      <md-radio-group ng-model="orderBy" class="cont-iconos" flex="100" layout="row" layout-align="start start" layout-wrap>
+      <!--<md-radio-group ng-model="orderBy" class="cont-iconos" flex="100" layout="row" layout-align="start start" layout-wrap>
 
         <div class="search-results-option-item" flex="25" flex-sm="50">
           <i class="icon-precio icono-opciones ap-precio"></i>
@@ -44,8 +146,11 @@
           <p>Más compradas</p>
           <md-radio-button value="reservations" class="md-primary"></md-radio-button>
         </div>
-      </md-radio-group>
+      </md-radio-group>-->
     </div>
+
+    <!--END FILTERS-->
+
     <div class="container-xlg" layout-wrap>
 
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
@@ -75,7 +180,30 @@
       </div>
     </div>
   </section>
-  <section class="map-wrapper" flex="50">
+
+  <section class="map-wrapper" flex="35" flex-md="100" flex-sm="100">
+    <div class="hotel-search" layout="row" layout-sm="column">
+      <div flex="60" flex-sm="100" class="hotel-search-label">
+        <a href="#"><strong><i class="icon-pin"></i> Calcular ubicación de acuerdo a mi hotel:</strong></a>
+      </div>
+      <div flex="40" flex-sm="100">
+        <md-autocomplete
+            md-selected-item="selectedHotel"
+            md-search-text="searchText"
+            md-items="hotel in hotels"
+            md-item-text="hotel.name"
+            md-min-length="0"
+            placeholder="Busca un hotel">
+          <md-item-template>
+            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{hotel.name}}</span>
+          </md-item-template>
+          <md-not-found>
+            No se econcontro "{{searchText}}".
+          </md-not-found>
+        </md-autocomplete>
+      </div>
+    </div>
     <leaflet center="center"  markers="markers" layers="layers"></leaflet>
   </section>
+
 </div>
