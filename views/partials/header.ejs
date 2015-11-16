@@ -24,11 +24,14 @@
         </md-autocomplete>
       </form>
 
-      <div  class="advanced-search" ng-class="{'advanced-search-on': toggleSearch}" layout="row" layout-align="center center">
-        <a ng-click="toggleSearch = !toggleSearch" href=""><strong>BÚSQUEDA AVANZADA</strong></a>
-        <%- partial('../partials/search') -%>
-      </div>
+      <!--<div  class="advanced-search" ng-class="{'advanced-search-on': toggleSearch}" layout="row" layout-align="center center">-->
+        <!--<a ng-click="toggleSearch = !toggleSearch" href=""><strong>BÚSQUEDA AVANZADA</strong></a>-->
+        <!--<%- partial('../partials/search') -%>-->
+      <!--</div>-->
 
+      <div  class="advanced-search" layout="row" layout-align="center center">
+        <a href="/resultados"><strong>BÚSQUEDA AVANZADA</strong></a>
+      </div>
     </div>
   </div>
 
@@ -119,10 +122,14 @@
     </md-autocomplete>
   </form>
 
-  <div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
+  <!--<div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
     <a href="#"><strong>BÚSQUEDA AVANZADA</strong></a>
   </div>
-  <%- partial('../partials/search') -%>
+  <%- partial('../partials/search') -%>-->
+
+  <div class="advanced-search">
+    <a href="/resultados"><strong>BÚSQUEDA AVANZADA</strong></a>
+  </div>
 
 </div>
 

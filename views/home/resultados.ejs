@@ -15,9 +15,9 @@
     <div class="filters-section">
 
       <md-radio-group ng-model="orderBy">
-        <span class="filters-section-large-label">Mostrar tours por: </span>
+        <span class="filters-section-large-label">Ordernar tours por: </span>
         <div class="filter-option">
-          <md-radio-button value="rating" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
+          <md-radio-button value="reservations.length" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
         </div>
         <div class="filter-option">
           <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
@@ -34,32 +34,32 @@
 
       <div class="filters-section-row">
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb5" class="md-primary">
+          <md-checkbox ng-model="subcategory.accesible" class="md-primary">
             <i class="icon-accesible"></i> Accesible
           </md-checkbox>
         </div>
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb6" class="md-primary">
+          <md-checkbox ng-model="subcategory.cultural" class="md-primary">
             <i class="icon-cultural"></i> Cultural
           </md-checkbox>
         </div>
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb7" class="md-primary">
+          <md-checkbox ng-model="subcategory.familiar" class="md-primary">
             <i class="icon-familiar2"></i> Familiar
           </md-checkbox>
         </div>
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb8" class="md-primary">
+          <md-checkbox ng-model="subcategory.nocturno" class="md-primary">
             <i class="icon-nocturno"></i> Nocturno
           </md-checkbox>
         </div>
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb9" class="md-primary">
+          <md-checkbox ng-model="subcategory.bebe" class="md-primary">
             <i class="icon-bebes"></i> Bebés
           </md-checkbox>
         </div>
         <div class="filter-option">
-          <md-checkbox ng-model="data.cb10" class="md-primary">
+          <md-checkbox ng-model="subcategory.parejas" class="md-primary">
             <i class="icon-parejas"></i> Parejas
           </md-checkbox>
         </div>
