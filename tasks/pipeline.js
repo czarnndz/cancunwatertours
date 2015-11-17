@@ -17,7 +17,10 @@
 var cssFilesToInject = [
   'bower_components/angular/*.min.css',
   'bower_components/angular-material/*.min.css',
+  'bower_components/slick-carousel/slick/slick.css',
+  'bower_components/slick-carousel/slick/slick-theme.css',
   'bower_components/leaflet/dist/leaflet.css',
+  'bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css',
   //'bower_components/bootstrap/dist/css/*.min.css',
   'styles/**/*.css',
 ];
@@ -38,11 +41,14 @@ var jsFilesToInject = [
   'bower_components/angular-aria/*.min.js',
   'bower_components/angular-animate/*.min.js',
   'bower_components/angular-material/*.min.js',
-  //'bower_components/angular-bootstrap/*.min.js',
   'bower_components/livereload-js/dist/*.js',
+  'bower_components/slick-carousel/slick/slick.min.js',
+  'bower_components/angular-slick/dist/slick.min.js',
   'bower_components/leaflet/dist/leaflet.js',
   'bower_components/leaflet-plugins/layer/tile/Google.js',
   'bower_components/angular-leaflet/dist/angular-leaflet-directive.js',
+  'bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js',
+  'bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

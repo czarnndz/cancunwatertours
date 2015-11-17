@@ -17,6 +17,20 @@ module.exports = {
   		,via: 'categories'
         ,dominant : true
   	}
+    ,type : {
+      type: 'String'
+      ,enum : ['normal', 'rate']
+      ,defaultsTo : 'normal'
+      /* Aquí se pueden ir agregando las variantes de categorías que podemos ir agregando
+       normal: categorías normales
+       rate : categorías numéricas, barras
+       */
+    }
+    ,rating : 'array'
+    ,classification : {
+      type : 'String'
+      ,enum : [ 'aquatic', 'land' ]
+    }
   }
 };
 

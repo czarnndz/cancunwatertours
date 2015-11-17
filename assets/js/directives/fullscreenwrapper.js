@@ -20,15 +20,17 @@
       var headerd = $(".header-desktop")[0].clientHeight;
       var headerm = $(".header-mobile")[0].clientHeight;
       var footer = $("#footer")[0].clientHeight;
-      var side = $(".main-sidebar")[0].clientHeight;
-      console.log(side);
 
       var newHeight = newValue.h - headerm - footer;
       if(newValue.w >= 600){
         newHeight = newValue.h - headerd - footer;
       }
 
-      element.css({"height" : newHeight+"px","min-height" : side+"px"});
+      element.css({"height" : newHeight+"px","min-height" : "526px"});
+
+      scope.newWidth = function (){
+        return {"width" : (newValue.w-102)+"px"};
+      }
  		}, true);
 
  		w.bind('resize', function () {
