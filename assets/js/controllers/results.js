@@ -14,11 +14,11 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.selected = [];
   $scope.toggle = function(item, list, type){
     var idx = false;
-    for(var x in list){
-      if( list[x].id == item.id ){
-        idx = x; break;
+    list.forEach(function(item,key){
+      if( list[key].id == item.id ){
+        idx = key;
       }
-    }
+    });
     if(idx) list.splice(idx, 1);
     else list.push({ id: item, type : type , tours : item.tours });
     //console.log(list);
