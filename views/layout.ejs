@@ -49,14 +49,14 @@
 
 </head>
 
-<body ng-cloak >
+<body ng-controller="MainCTL"  ng-cloak >
 
   <div id="wrap">
     <div id="main" class="clearfix">
       <div id="topBackRepeat">
         <div layout="column">
 
-          <div ng-controller="Header">
+          <div>
             <%- partial('partials/header') -%>
 
             <%- partial('partials/register') -%>
@@ -168,11 +168,13 @@
     <script src="/js/app.js"></script>
     <script src="/js/controllers/cuenta.js"></script>
     <script src="/js/controllers/home.js"></script>
+    <script src="/js/controllers/main.js"></script>
     <script src="/js/controllers/reserva.js"></script>
     <script src="/js/controllers/results.js"></script>
     <script src="/js/controllers/tours.js"></script>
     <script src="/js/controllers/transfer.js"></script>
     <script src="/js/directives/fullscreenwrapper.js"></script>
+    <script src="/js/filters/slugFilter.js"></script>
     <script src="/js/funciones.js"></script>
     <script src="/js/modernizr.custom.js"></script>
     <script src="/js/owl.carousel.min.js"></script>

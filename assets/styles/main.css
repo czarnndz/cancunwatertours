@@ -549,11 +549,16 @@ figcaption:hover .action-btn-white{
   position: relative;
   overflow: hidden;
 }
+
+.tour-map-wrap .angular-leaflet-map,
 .tour-map{
   height: 100%;
   width: 100%;
   position: absolute;
   min-height: 286px;
+}
+.tour-map-wrap .leaflet-google-layer{
+  height: 100%!important;
 }
 
 .similar-tours{
@@ -645,6 +650,8 @@ figcaption:hover .action-btn-white{
   background: #60c1f5;
   width: 10px!important;
   height: 10px!important;
+  border: 0;
+  margin: 0 3px;
   border-radius: 50%;
 }
 .tour-slider .slick-dots li.slick-active button{

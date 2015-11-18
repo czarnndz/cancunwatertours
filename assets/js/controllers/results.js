@@ -30,12 +30,12 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
         idx = x; break;
       }
     }
-    if(idx && value <= 0 ) 
+    if(idx && value <= 0 )
       list.splice(idx, 1);
     else if(value>0){
       var aux_t = [];
       for(var x in item.tours){
-        //if() if value 
+        //if() if value
         aux_t.push(item.tours[x]);
       }
       if( idx ){
@@ -62,7 +62,6 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.redrawMap = function(){
     $timeout(function(){
       leafletData.getMap().then(function(map) {
-        console.log('resize');
         map.invalidateSize();
       });
     },500);
@@ -103,6 +102,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
+      console.log(data);
       angular.forEach(data, function(t){
         var tour = t.departurePoints.item_0;
         tour.price = t.fee;
@@ -121,10 +121,21 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
           message: message,
           icon: getIcon(tour.price)
         });
+
       },markers);
       $scope.markers = markers.filter(function(e){
         return e;
       });
+
+      if($scope.markers.length > 0){
+        $scope.center = {
+            zoom:14,
+            lat:$scope.markers[0].lat,
+            lng:$scope.markers[0].lng,
+        };
+      }
+
+      console.log($scope.markers);
     });
 
     $scope.layers = {

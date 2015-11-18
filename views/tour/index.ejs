@@ -16,15 +16,15 @@
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex="65" flex-sm="100">
             <h1>{{tour.name}}</h1>
-            <h2><i class="icon-pin icon-ubicacion"></i> Ubicacion del Tour</h2>
+            <h2><i class="icon-pin icon-ubicacion"></i> {{tour.location.name}}</h2>
 
-            <div class="like-detalle">
+            <!--<div class="like-detalle">
               <p>
                 <i class="icon-corazon icon-ubicacion"></i>
                 <strong>23</strong>
                 <strong>Me gusta</strong>
               </p>
-            </div>
+            </div>-->
           </div>
           <div class="tour-data-column" flex="25" flex-sm="100" >
             <div class="tour-data-item" layout="row" layout-align="start center" >
@@ -34,15 +34,15 @@
                 <p><strong>9am - 10pm</strong></p>
               </div>
             </div>
-            <div class="tour-data-item" layout="row" layout-align="start center" >
-              <i class="icon-familiar big-icon"></i>
-              <p><strong>Atracción Familiar</strong></p>
+            <div ng-if="tour.categories.length > 0" class="tour-data-item" layout="row" layout-align="start center" >
+              <i class="icon-{{::tour.categories[0].name_en | slugFilter}} big-icon"></i>
+              <p><strong>{{::tour.categories[0].name}}</strong></p>
             </div>
           </div>
         </div>
 
         <div class="tour-slider-wrapper" flex="70" >
-          <slick class="tour-slider" dots="true" arrows="false">
+          <slick class="tour-slider" dots="true" arrows="false" autoplay="true" autoplaySpeed="4000" fade="true">
             <div
               ng-repeat="photo in galleryPhotos track by $index"
               ng-style="{'background-image': 'url('+photo+')'}"
@@ -144,8 +144,8 @@
       </div>
       <!--END TOUR DESCRIPTION-->
 
-      <div class="tour-map-wrap" flex="30" flex-md="100" flex-sm="100">
-        <iframe class="tour-map"  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14882.706519277925!2d-86.81700335!3d21.1652635!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1429728579438" width="600" height="450" frameborder="0" style="border:0"></iframe>
+      <div class="tour-map-wrap map-wrapper" flex="30" flex-md="100" flex-sm="100">
+        <leaflet center="center"  markers="markers" layers="layers"></leaflet>
       </div>
     </div>
 

@@ -1,15 +1,15 @@
 <div class="form-modal" ng-show="registerToggle" layout="row" layout-align="center center" layout-wrap>
-  <h3>Register</h3>
+  <h3>Registrarse</h3>
   <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" flex="80" type="text" placeholder="Name" class="input-re">
-      <input type="email" flex="80" type="text" placeholder="Email" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Password" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Re-type Password" class="input-re">
-      <input type="button" value="SING UP" class="action-btn" flex="80">
+      <input type="text" flex="80" type="text" placeholder="Nombre" class="input-re">
+      <input type="email" flex="80" type="text" placeholder="E-mail" class="input-re">
+      <input type="password" flex="80" type="text" placeholder="Contraseña" class="input-re">
+      <input type="password" flex="80" type="text" placeholder="Confirmar contraseña" class="input-re">
+      <input type="button" value="REGISTRARSE" class="action-btn" flex="80">
   </form>
-  <p><strong>OR REGISTER WITH A SOCIAL ACCOUNT</strong></p>
+  <p><strong>ó registrate mediante:</strong></p>
   <a href="" class="action-btn fb-btn" flex="80">
     <strong >FACEBOOK</strong>
   </a>
-  <p><strong><a href="#">Already have an account? Sign In</a></strong></p>
+  <p><strong><a ng-click="doLoginToggle()" href="#">¿Ya tienes una cuenta?, Inicia sesión</a></strong></p>
 </div>
