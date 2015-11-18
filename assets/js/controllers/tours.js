@@ -24,7 +24,39 @@ app.controller('tourCTL',function($scope,$http,$timeout){
               }
           }
       };
-      console.log($scope.tour);
+
+      $scope.days = [
+        'Lunes',
+        'Martes',
+        'Miercoles',
+        'Jueves',
+        'Viernes',
+        'Sabado',
+        'Domingo'
+      ];
+
+      $scope.tourDuration = $scope.setDuration($scope.tour.days);
+
+    };
+
+    $scope.setDuration = function(tourDays){
+      var str = '';
+      var counter = 0;
+      console.log(tourDays);
+      for(var i=0;i<$scope.days.length;i++){
+        if(tourDays[i]){
+          if(str !== ''){
+            str += ', ';
+          }
+          str += $scope.days[i];
+          counter++;
+        }
+      }
+      if(str === '' || counter === tourDays.length){
+        str = 'Todos los dias';
+      }
+      console.log(str);
+      return str;
     };
 
     $http.get('/hotels').success(function(response) {
