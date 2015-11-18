@@ -16,12 +16,13 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
     var idx = false;
     for(var x in list){
       if( list[x].id == item.id ){
-        idx = x; break;
+        idx = x;
+        break;
       }
     }
     if(idx) list.splice(idx, 1);
     else list.push({ id: item, type : type , tours : item.tours });
-    console.log(list);
+    //console.log(list);
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
   $scope.formatRatings = function(item,list,value){
@@ -43,7 +44,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
         list.push({ id: item, type : 'rating' , tours : aux_t, value : value });
       }
     }
-    console.log(list);
+    //console.log(list);
   };
   $scope.updatePricesRange = function(){
     toursService.getFeeRange().then(function(res){
@@ -129,7 +130,8 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       angular.forEach(data, function(t){
         var tour = t.departurePoints.item_0;
         tour.price = t.fee;
-        var imgSrc = '/images/1.jpg';
+        tour.img = t.avatar1;
+        var imgSrc = tour.img;
         var price = '$'+tour.price+' MX';
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
