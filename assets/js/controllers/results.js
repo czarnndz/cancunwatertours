@@ -1,10 +1,50 @@
 app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData){
   $scope.category = category;
+  $scope.sec_categories = sec_categories || [];
+  $scope.rate_categories = rate_categories || [];
   $scope.minFee = minFee;
   $scope.maxFee = maxFee;
   $scope.term = term;
   $scope.loading = false;
   $scope.toursCategories = [];
+  $scope.selected = [];
+  $scope.selected.push();
+  $scope.toggle = function(item, list, type){
+    var idx = false;
+    for(var x in list){
+      if( list[x].id == item.id ){
+        idx = x; break;
+      }
+    }
+    if(idx) list.splice(idx, 1);
+    else list.push({ id: item.id, type : type , tours : item.tours });
+    console.log(list);
+  };
+  $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
+  $scope.formatRatings = function(item,list,value){
+    var idx = false;
+    for(var x in list){
+      if( list[x].id == item.id ){
+        idx = x; break;
+      }
+    }
+    if(idx && value <= 0 ) 
+      list.splice(idx, 1);
+    else if(value>0){
+      var aux_t = [];
+      for(var x in item.tours){
+        //if() if value 
+        aux_t.push(item.tours[x]);
+      }
+      if( idx ){
+        list[idx].value = value;
+        list[idx].tours = aux_t;
+      }else{
+        list.push({ id: item.id, type : 'rating' , tours : aux_t, value : value });
+      }
+    }
+    console.log(list);
+  };
 
   $scope.getCategoriesString = function(tour) {
     return tour.categories.map(function(elem){ return elem.name; }).join(" , ");

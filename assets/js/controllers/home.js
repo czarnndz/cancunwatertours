@@ -20,7 +20,6 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
       });
     };
 
-
     $scope.formatTours = function(tours){
         return (function() {
             var aux_tours = [];

@@ -931,7 +931,9 @@ figcaption:hover .action-btn-white{
   background: #fff;
   padding: 16px;
 }
-.filters-section-row{margin: 20px 0; }
+.filters-section-row-colored{background: #F0FBFF;padding: 8px;}
+.filters-section-row{padding: 10px 0;}
+.filters-section-row + .filters-section-row{border-top: 1px solid lightgray;}
 /*
 .filter-option:first-child{
   margin-left: 0;
@@ -940,6 +942,7 @@ figcaption:hover .action-btn-white{
 .filter-option{
   display: inline-block;
   margin: 0 15px;
+  min-width: 128px;
 }
 .filter-option i{
   color: #3CB7E3;

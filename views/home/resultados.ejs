@@ -1,120 +1,22 @@
-
 <script type="text/javascript">
   var category = '<%- meta.req.category %>';
   var minFee = '<%- meta.req.minFee %>';
   var maxFee = '<%- meta.req.maxFee %>';
   var term = '<%- meta.req.term %>';
+  window.sec_categories = <%- JSON.stringify(meta.sec_categories) %>;
+  window.rate_categories = <%- JSON.stringify(meta.rate_categories) %>;
 </script>
 
-<div ng-controller="resultsCTL" layout="row" layout-md="column" layout-sm="column">
+<div ng-controller="resultsCTL" layout="row" layout-md="column" layout-sm="column" ng-style="theStyle" full-screen-wrapper ng-style="newWidth()" >
   <!--LEFT SIDE-->
-  <section class="search-results-tours" flex="65" flex-md="100" flex-sm="100">
+  <md-content flex="65" flex-md="100" flex-sm="100"><section class="search-results-tours">
 
     <!--FILTERS-->
-
-    <div class="filters-section">
-
-      <md-radio-group ng-model="orderBy">
-        <span class="filters-section-large-label">Ordernar tours por: </span>
-        <div class="filter-option">
-          <md-radio-button value="reservations.length" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
-        </div>
-        <div class="filter-option">
-          <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
-        </div>
-        <div class="filter-option">
-          <md-radio-button value="fee" class="md-primary"> <i class="icon-precio2"></i> PRECIO</md-radio-button>
-        </div>
-        <!--
-        <div class="filter-option">
-          <md-radio-button value="reservations" class="md-primary"> <i class="icon-mascompradas"></i> MÁS COMPRADAS</md-radio-button>
-        </div>-->
-
-      </md-radio-group>
-
-      <div class="filters-section-row">
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.accesible" class="md-primary">
-            <i class="icon-accesible"></i> Accesible
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.cultural" class="md-primary">
-            <i class="icon-cultural"></i> Cultural
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.familiar" class="md-primary">
-            <i class="icon-familiar2"></i> Familiar
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.nocturno" class="md-primary">
-            <i class="icon-nocturno"></i> Nocturno
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.bebe" class="md-primary">
-            <i class="icon-bebes"></i> Bebés
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="subcategory.parejas" class="md-primary">
-            <i class="icon-parejas"></i> Parejas
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="data.cb11" class="md-primary">
-            <i class="icon-grupos"></i> Grupos
-          </md-checkbox>
-        </div>
-        <div class="filter-option">
-          <md-checkbox ng-model="data.cb12" class="md-primary">
-            <i class="icon-embarazadas"></i> Embarazadas
-          </md-checkbox>
-        </div>
-      </div>
-
-      <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
-        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-          <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
-          <md-slider class="md-primary" min="250" max="2890" ng-model="rating1"></md-slider>
-          <div class="levels-text" layout="row" layout-align="space-between center">
-            <span>$250.00</span>
-            <span>$2.890.00</span>
-          </div>
-        </div>
-        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-          <label><i class="icon-mojado"></i> NIVEL DE WETNESS</label>
-          <md-slider flex class="md-primary" md-discrete ng-model="rating2" step="1" min="1" max="5" aria-label="rating"></md-slider>
-          <div class="levels-text" layout="row" layout-align="space-between center">
-            <span>Seco</span>
-            <span>Mojado</span>
-          </div>
-        </div>
-        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-          <label><i class="icon-naturaleza"></i> NATURALEZA</label>
-          <md-slider flex class="md-primary" md-discrete ng-model="rating3" step="1" min="1" max="5" aria-label="rating"></md-slider>
-          <div class="levels-text" layout="row" layout-align="space-between center">
-            <span>Poca</span>
-            <span>Extrema</span>
-          </div>
-        </div>
-        <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-          <label><i class="icon-actividad"></i> NIVEL DE ACTIVIDAD FISICA</label>
-          <md-slider flex class="md-primary" md-discrete ng-model="rating4" step="1" min="1" max="5" aria-label="rating"></md-slider>
-          <div class="levels-text" layout="row" layout-align="space-between center">
-            <span>Ninguna</span>
-            <span>Extrema</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <%- partial('../partials/filters') -%>
 
     <div class="search-results-options">
 
-      <div class="search-results-option-item tour-type" flex flex-sm="100">
+      <!--<div class="search-results-option-item tour-type" flex flex-sm="100">
         <p>Categoria</p>
 
         <div class="cont-tipo" layout="column" layout-align="center center" flex="100">
@@ -122,7 +24,7 @@
             <md-option ng-repeat="category in toursCategories"  value="{{category.id}}">{{category.name}}</md-option>
           </md-select>
         </div>
-      </div>
+      </div>-->
 
       <!--<md-radio-group ng-model="orderBy" class="cont-iconos" flex="100" layout="row" layout-align="start start" layout-wrap>
 
@@ -170,7 +72,7 @@
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
-              <a class="action-btn" href="/detalle/{{tour.id}}">BOOK NOW!</a>
+              <a class="action-btn" href="/detalle/{{tour.id}}">RESERVAR!</a>
             </div>
           </div>
         </div>
@@ -179,7 +81,7 @@
         <md-progress-circular md-mode="indeterminate" ></md-progress-circular>
       </div>
     </div>
-  </section>
+  </section></md-content>
 
   <section class="map-wrapper" flex="35" flex-md="100" flex-sm="100">
     <div class="hotel-search" layout="row" layout-sm="column">
