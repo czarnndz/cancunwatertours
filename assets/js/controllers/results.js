@@ -21,7 +21,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
     }
     if(idx) list.splice(idx, 1);
     else list.push({ id: item, type : type , tours : item.tours });
-    console.log(list);
+    //console.log(list);
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
   $scope.formatRatings = function(item,list,value){
@@ -43,7 +43,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
         list.push({ id: item, type : 'rating' , tours : aux_t, value : value });
       }
     }
-    console.log(list);
+    //console.log(list);
   };
   $scope.updatePricesRange = function(){
     toursService.getFeeRange().then(function(res){
@@ -75,7 +75,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.getToursCategories = function() {
     toursService.getCategories().then(function(res){
       $scope.toursCategories = res;
-      console.log($scope.toursCategories);
+      //console.log($scope.toursCategories);
     });
   };
 
@@ -129,12 +129,21 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       angular.forEach(data, function(t){
         var tour = t.departurePoints.item_0;
         tour.price = t.fee;
-        var imgSrc = '/images/1.jpg';
+        var imgSrc = t.avatar3;
         var price = '$'+tour.price+' MX';
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-        var info ="<p><strong class='map-marker-title'><a>Tour Subasee Explorer</a></strong></p>";
-        info += "<p>Categoría: </p>";
+        var info ="<p><strong class='map-marker-title'><a href='/detalle/"+tour.id+"' target='_blank'>"+t.name_es+"</a></strong></p>";
+
+        var categories = '';
+        for(var i=0;i<t.categories.length;i++){
+          categories += '<a href="/resultados?category='+t.categories[i].id+'" target="_blank">' + t.categories[i].name + '</a>';
+          if(i !== (categories.length) ){
+            categories += ', ';
+          }
+        }
+
+        info += "<p>Categorías: "+categories+"</p>";
 
         var message = image + info;
 
@@ -158,7 +167,6 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
         };
       }
 
-      console.log($scope.markers);
     });
 
     $scope.layers = {
