@@ -12,20 +12,26 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
         { col : 2 ,row : 1 },
         { col : 2 ,row : 1 },
     ];
-
+    $scope.randArray = [];
 
     $scope.getTours = function() {
       toursService.getTours().then(function(res){
         $scope.tours = $scope.formatTours(res);
       });
     };
-
+    $scope.getToursRand = function(n) {
+      toursService.getTours().then(function(res){
+        $scope.toursrand1 = $scope.formatToursRandom(res,3);
+        $scope.toursrand2 = $scope.formatToursRandom(res,4);
+        $scope.toursrand3 = $scope.formatToursRandom(res,4);
+      });
+    };
 
     $scope.formatTours = function(tours){
         return (function() {
             var aux_tours = [];
             var span = 1;
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < 4; i++) {
                 //colspan = randomSpan();
                 //rowspan = randomSpan(colspan);
                 aux_tours.push({
@@ -36,6 +42,28 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
                     colspan: $scope.lengthsArray[i].col,
                     rowspan: $scope.lengthsArray[i].row
                 });
+            }
+            return aux_tours;
+        })();
+    };
+    $scope.formatToursRandom = function(tours,n){
+        return (function() {
+            var aux_tours = [];
+            var span = 1;
+            var rand = Math.floor( Math.random() * tours.length );
+            for (var i = 0; i < n; i++) {
+              while( $.inArray( rand,$scope.randArray ) != -1 ){
+                rand = Math.floor( Math.random() * tours.length );
+              }
+              $scope.randArray.push( rand );
+              aux_tours.push({
+                  id : tours[rand].id,
+                  name: tours[rand].name,
+                  icon : tours[rand].avatar3,
+                  fee : tours[rand].fee,
+                  colspan: $scope.lengthsArray[i].col,
+                  rowspan: $scope.lengthsArray[i].row
+              });
             }
             return aux_tours;
         })();
@@ -71,6 +99,7 @@ app.controller('Home', function($scope,$http, toursService, searchService) {
     $scope.init = function(){
         $scope.getHotels();
         $scope.getTours();
+        $scope.getToursRand();
     };
 
     $scope.init();

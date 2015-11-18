@@ -19,4 +19,6 @@ $(document).ready(function() {
    $("#boton-pagar").click(function(event){
      $(".pago-r").addClass("fuente-r");
    });
+
+  $(".perfecscrollbar").perfectScrollbar();
 });
