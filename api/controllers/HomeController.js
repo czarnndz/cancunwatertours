@@ -12,7 +12,7 @@ module.exports = {
       res.view({
         meta : {
           controller : 'home.js',
-          addMenu : true,
+          addMenu : false,
           categories : categories
         },
         page : {
@@ -47,7 +47,6 @@ module.exports = {
         })//rates
         })//subcategories
       });//principal categories
-
   },
   tour_list : function(req,res){
     var params = req.params.all();
@@ -101,11 +100,16 @@ module.exports = {
       });
   },
   tour_categories: function(req, res){
-      TourCategory.find({type : {'!' : 'rate'}}).exec(function(e,categories){
+      var params = req.params.all();
+      var query = {};
+      if (!params.all)
+        query.type = {'!' : 'rate'};
+      TourCategory.find(query).populate('tours',{select: ['id']}).exec(function(e,categories){
           if (e) {
               console.log(e);
               throw e;
           }
+          console.log(categories[0].tours);
           res.json({categories:categories});
       });
   }
