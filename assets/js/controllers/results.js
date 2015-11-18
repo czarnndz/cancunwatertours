@@ -1,7 +1,8 @@
 app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData){
   $scope.category = category;
-  $scope.sec_categories = sec_categories || [];
+  $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
+  $scope.tours = [];
   $scope.minFee = minFee;
   $scope.maxFee = maxFee;
   $scope.term = term;
@@ -9,8 +10,8 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.size = 6;
   $scope.loading = false;
   $scope.toursCategories = [];
+  $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
-  $scope.selected.push();
   $scope.toggle = function(item, list, type){
     var idx = false;
     for(var x in list){
@@ -19,7 +20,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       }
     }
     if(idx) list.splice(idx, 1);
-    else list.push({ id: item.id, type : type , tours : item.tours });
+    else list.push({ id: item, type : type , tours : item.tours });
     console.log(list);
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
@@ -34,23 +35,42 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       list.splice(idx, 1);
     else if(value>0){
       var aux_t = [];
-      for(var x in item.tours){
-        //if() if value 
-        aux_t.push(item.tours[x]);
-      }
+        aux_t.push(item.tours);
       if( idx ){
         list[idx].value = value;
         list[idx].tours = aux_t;
       }else{
-        list.push({ id: item.id, type : 'rating' , tours : aux_t, value : value });
+        list.push({ id: item, type : 'rating' , tours : aux_t, value : value });
       }
     }
     console.log(list);
+  };
+  $scope.updatePricesRange = function(){
+    toursService.getFeeRange().then(function(res){
+      $scope.range = res;
+    });
+  };
+  $scope.getCategoriesByTours = function(){
+    $scope.subcategories = [];
+    var aux = [];
+    for( var x in sec_categories ){
+      for( var y in $scope.tours ){
+        for( var z in $scope.tours[y].categories ){
+          if( $scope.tours[y].categories[z].id == sec_categories[x].id && aux.indexOf(sec_categories[x].id)<0 ){
+            $scope.subcategories.push( sec_categories[x] );
+            aux.push(sec_categories[x].id);
+          }
+        }
+      }
+    }
   };
 
   $scope.getCategoriesString = function(tour) {
     return tour.categories.map(function(elem){ return elem.name; }).join(" , ");
   };
+  $scope.getCategoryIcon = function(category){
+    return toursService.getCategoryIcon(category);
+  }
 
   $scope.getToursCategories = function() {
     toursService.getCategories().then(function(res){
@@ -74,6 +94,8 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       $scope.tours = res;
       $scope.loading = false;
       $scope.redrawMap();
+      $scope.updatePricesRange();
+      $scope.getCategoriesByTours();
     });
   };
 
@@ -103,6 +125,8 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
+      $scope.updatePricesRange();
+      $scope.getCategoriesByTours();
       angular.forEach(data, function(t){
         var tour = t.departurePoints.item_0;
         tour.price = t.fee;
