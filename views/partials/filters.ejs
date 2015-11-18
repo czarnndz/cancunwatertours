@@ -17,9 +17,9 @@
   </md-radio-group></div>
 
   <div class="filters-section-row">
-    <div ng-repeat="item in sec_categories track by item.id" class="filter-option" ng-if="item.tours.length>0">
-      <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected,'subcategory')" class="md-primary">
-        <i class="icon-{{item.name.toLowerCase()}}"></i> {{item.name}}
+    <div ng-repeat="item in subcategories track by item.id" class="filter-option" ng-hide="item.tours.length==0">
+      <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
+        <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
       </md-checkbox>
     </div>
     <!--
@@ -64,10 +64,10 @@
   <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
     <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
       <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
-      <md-slider class="md-primary" min="250" max="2890" ng-model="ratingPrice"></md-slider>
+      <md-slider class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
       <div class="levels-text" layout="row" layout-align="space-between center">
-        <span>$250.00</span>
-        <span>$2.890.00</span>
+        <span>{{range.minFee | currency : '$' }}</span>
+        <span>{{range.maxFee | currency : '$' }}</span>
       </div>
     </div>
     <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option">

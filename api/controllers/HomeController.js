@@ -26,25 +26,25 @@ module.exports = {
   resultados : function(req,res){
       TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
         TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours').exec(function(e,sec_categories){
-        TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours').exec(function(e,rate_categories){
-          for( x in rate_categories ) 
-            for( y in rate_categories[x].rating ) 
-              rate_categories[x].rating[y] = typeof rate_categories[x].rating[y]=='string'?JSON.parse(rate_categories[x].rating[y]):rate_categories[x].rating[y];
-          res.view({
-            meta: {
-              controller: 'home.js',
-              addMenu: true,
-              categories : categories,
-              sec_categories : sec_categories||[],
-              rate_categories : rate_categories||[],
-              req : req.params.all()
-            },
-            page: {
-              searchUrl: '/resultados',
-              placeholder: 'Buscar'
-            }
-          });
-        })//rates
+          TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours').exec(function(e,rate_categories){
+            for( x in rate_categories ) 
+              for( y in rate_categories[x].rating ) 
+                rate_categories[x].rating[y] = typeof rate_categories[x].rating[y]=='string'?JSON.parse(rate_categories[x].rating[y]):rate_categories[x].rating[y];
+            res.view({
+              meta: {
+                controller: 'home.js',
+                addMenu: true,
+                categories : categories,
+                sec_categories : sec_categories||[],
+                rate_categories : rate_categories||[],
+                req : req.params.all()
+              },
+              page: {
+                searchUrl: '/resultados',
+                placeholder: 'Buscar'
+              }
+            });//res
+          })//rates
         })//subcategories
       });//principal categories
   },
