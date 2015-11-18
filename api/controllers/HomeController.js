@@ -4,15 +4,14 @@
  * @description :: Server-side logic for managing homeis
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
-
+var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
-      //console.log(categories);
       res.view({
         meta : {
           controller : 'home.js',
-          addMenu : false,
+          addMenu : true,
           categories : categories
         },
         page : {
@@ -27,8 +26,8 @@ module.exports = {
       TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
         TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours').exec(function(e,sec_categories){
           TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours').exec(function(e,rate_categories){
-            for( x in rate_categories ) 
-              for( y in rate_categories[x].rating ) 
+            for( x in rate_categories )
+              for( y in rate_categories[x].rating )
                 rate_categories[x].rating[y] = typeof rate_categories[x].rating[y]=='string'?JSON.parse(rate_categories[x].rating[y]):rate_categories[x].rating[y];
             res.view({
               meta: {

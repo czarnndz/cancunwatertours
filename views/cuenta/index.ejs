@@ -8,11 +8,11 @@
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label>Nombre</label>
-					<input flex="100" type="text" placeholder="Nombre" class="input-cuenta">
+					<input flex="100" type="text" value="<%- req.user.name %>" placeholder="Nombre" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100" >
 					<label>Apellido</label>
-					<input flex="100" type="text" placeholder="Apellido" class="input-cuenta">
+					<input flex="100" type="text" value="<%- req.user.last_name %>" placeholder="Apellido" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center start" flex="100">
@@ -77,8 +77,8 @@
 
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
-					<label>Mail</label>
-					<input flex="100" type="text" placeholder="Mail" class="input-cuenta">
+					<label>E-mail</label>
+					<input flex="100" type="text" value="<%- req.user.email %>" placeholder="Mail" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label>Número de Tarjeta</label>
