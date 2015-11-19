@@ -1509,6 +1509,9 @@ figcaption:hover .action-btn-white{
   color: #21B3E8;
   padding: 6px 25px;
 }
+.aboutContainer .action-btn{
+  padding: 6px 30px;
+}
 .faqContainer{background: white;padding: 20px;color: #A5A5A5;margin: 25px auto;}
 .faqContainer i{color: #26B2EA;}
 .faqContainer h3{
