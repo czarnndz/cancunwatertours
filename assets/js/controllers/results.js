@@ -13,37 +13,34 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
   $scope.toggle = function(item, list, type){
-    var idx = false;
-    for(var x in list){
-      if( list[x].id == item.id ){
-        idx = x; break;
+    var idx = -1;
+    for(var i=0; i < list.length; i++) {
+      if( list[i].id == item.id ){
+        idx = i;
       }
     }
-    if(idx) list.splice(idx, 1);
-    else list.push({ id: item, type : type , tours : item.tours });
-    //console.log(list);
+    if(idx >= 0) list.splice(idx, 1);
+    else list.push(item);
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
   $scope.formatRatings = function(item,list,value){
-    var idx = false;
-    for(var x in list){
-      if( list[x].id == item.id ){
-        idx = x; break;
+    var idx = -1;
+    for(var i=0; i < list.length; i++) {
+      if( list[i].id == item.id ){
+        idx = i;
       }
     }
-    if(idx && value <= 0 )
+    if(idx >= 0 && value <= 0 )
       list.splice(idx, 1);
     else if(value>0){
-      var aux_t = [];
-      aux_t.push(item.tours);
-      if( idx ){
+      if( idx >= 0  ){
         list[idx].value = value;
-        list[idx].tours = aux_t;
+        list[idx].tours = item.tours;
       }else{
-        list.push({ id: item, type : 'rating' , tours : aux_t, value : value });
+        item.value = value;
+        list.push(item);
       }
     }
-    //console.log(list);
   };
   $scope.updatePricesRange = function(){
     toursService.getFeeRange().then(function(res){

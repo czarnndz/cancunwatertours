@@ -27,6 +27,7 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
+
     <!--STYLES-->
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.layouts.min.css">
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
@@ -58,7 +59,7 @@
 
             <%- partial('partials/register') -%>
             <%- partial('partials/login') -%>
-            <% if (meta && meta.addMenu) { %>
+            <% if (typeof meta !=='undefined' && meta.addMenu) { %>
               <%- partial('partials/menu-mobile') -%>
             <% } %>
           </div>
@@ -73,13 +74,7 @@
               <!--END SIDEBAR-->
 
               <!--MAIN CONTENT-->
-              <section
-                <% if (meta && meta.addMenu) { %>
-                  flex flex-md="100" flex-sm="100"
-                <% } else { %>
-                  flex="100"
-                <% } %>
-              >
+              <section flex >
                 <%- body %>
               </section>
               <!--END MAIN CONTENT-->

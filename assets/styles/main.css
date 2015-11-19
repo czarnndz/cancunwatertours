@@ -154,8 +154,18 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 }
 .header .advanced-search-on a{color: #fff;}
 .header .action-btn{color: #fff!important;}
+.header .account-menu{padding-top: 18px;}
 .header .account-menu a{
   color: #727272;
+}
+.header .account-menu .login-icon-wrap{
+  margin:0;
+}
+.header .account-menu .login-icon-wrap i{
+  font-size: 26px;
+  vertical-align: middle;
+  margin-top: 7px;
+  display: inline-block;
 }
 .header .account-menu span{
   margin: 0 10px;

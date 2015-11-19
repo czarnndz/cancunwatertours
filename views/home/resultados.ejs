@@ -56,7 +56,7 @@
     <div class="container-xlg" layout-wrap>
 
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
-        <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:1 | limitTo: (size * page)">
+        <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
           <div class="tour-item-inner" ng-style="{ 'background-image' : 'url(' + tour.avatar1 + ')' }">
             <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
             <div class="tour-item-detail" layout="row" layout-align="space-between center">

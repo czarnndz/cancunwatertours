@@ -71,7 +71,15 @@ module.exports.routes = {
   '/preguntasfrecuentes' : {
     controller : 'home'
     ,action : 'preguntasfrecuentes'
-  }
+  },
+  '/login':{
+    controller: 'auth',
+    action: 'process'
+  },
+  '/logout':{
+    controller: 'auth',
+    action: 'logout'
+  },
 
 
   /***************************************************************************
