@@ -1,6 +1,9 @@
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
+  FacebookStrategy = require('passport-facebook').Strategy,
   bcrypt = require('bcrypt');
+
+
 //helper functions
 function findById(id, fn) {
   Client_.findOne(id).exec(function (err, user) {
@@ -12,8 +15,21 @@ function findById(id, fn) {
   });
 }
 
+
+function findByFacebookId(id, fn) {
+  Client_.findOne({
+    facebookId: id
+  }).exec(function (err, user) {
+    if (err) {
+      return fn(null, null);
+    } else {
+      return fn(null, user);
+    }
+  });
+}
+
+
 function findByUsername(username, fn) {
-  console.log('buscando: ' + username);
   Client_.findOne().where({
     or: [
       { name: username },
@@ -81,6 +97,54 @@ passport.use(new LocalStrategy(
           });
         });
       })
+    });
+  }
+));
+
+
+passport.use(new FacebookStrategy({
+    clientID: sails.config.facebook_clientID,
+    clientSecret: sails.config.facebook_clientSecret,
+    callbackURL: sails.config.facebook_callback,
+    profileFields: ['id', 'displayName', 'email'],
+    enableProof: false
+  }, function (accessToken, refreshToken, profile, done) {
+    process.nextTick(function(){
+      findByFacebookId(profile.id, function (err, user) {
+
+        // Create a new User if it doesn't exist yet
+        if (!user) {
+          var email = profile.emails[0].value;
+
+          Client_.create({
+            name: profile.displayName,
+            email: email,
+            facebookId: profile.id,
+            source: 'Facebook'
+            // You can also add any other data you are getting back from Facebook here
+            // as long as it is in your model
+
+          }).exec(function (err, user) {
+            if (user) {
+              console.log('Logged In Successfully, registerd');
+              return done(null, user, {
+                message: 'Logged In Successfully, registerd'
+              });
+            } else {
+              return done(err, null, {
+                message: 'There was an error logging you in with Facebook'
+              });
+            }
+          });
+
+        // If there is already a user, return it
+        } else {
+          return done(null, user, {
+            message: 'Logged In Successfully'
+          });
+        }
+      });
+
     });
   }
 ));

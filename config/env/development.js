@@ -28,6 +28,8 @@ module.exports = {
 //          }
 //      }
 //  }
-
+  facebook_clientID: '975412445838967',
+  facebook_clientSecret: '310fcd71a36a13d0bbeddeed73ac56a8',
+  facebook_callback: 'http://localhost:1337/fb_callback'
 
 };
