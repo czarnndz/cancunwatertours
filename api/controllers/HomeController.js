@@ -112,6 +112,36 @@ module.exports = {
           console.log(categories[0].tours);
           res.json({categories:categories});
       });
-  }
+  },
+  quienessomos : function(req,res){
+    TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
+      res.view({
+        meta : {
+          addMenu: true,
+          categories : categories,
+          controller : 'home.js'
+        },
+        page : {
+            searchUrl : '/resultados',
+            placeholder : 'Buscar'
+        }
+      });
+    });
+  },
+  preguntasfrecuentes : function(req,res){
+    TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
+      res.view({
+        meta : {
+          addMenu: true,
+          categories : categories,
+          controller : 'home.js'
+        },
+        page : {
+            searchUrl : '/resultados',
+            placeholder : 'Buscar'
+        }
+      });
+    });
+  },
 };
 

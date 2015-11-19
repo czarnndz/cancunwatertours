@@ -19,6 +19,8 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+.blueBG{background: linear-gradient( #35cdd4, #1EB0EB );}
+.blueText{color: #0BA8E7;}
 .absolute-link{
   height: 100%;
   left: 0;
@@ -342,7 +344,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   transition-duration: 0.5s;
 }
 .main-sidebar-item i{font-size: 34px;}
+.main-sidebar-item.selected,
 .main-sidebar-item:hover{color: #fff;}
+.main-sidebar-item.selected i,
+.main-sidebar-item.selected p,
 .main-sidebar-item:hover i,
 .main-sidebar-item:hover p{color: #20B2E9;transition: .4s linear all}
 .main-sidebar-item p{
@@ -1465,6 +1470,47 @@ figcaption:hover .action-btn-white{
 .booking-info .precio-detalles{font-size: 16px;}
 .booking-info .text-total-d{font-size: 16px;}
 .booking-info .precio-total-d{font-size: 19px;}
+
+/*-------------/
+  #About us
+/*------------*/
+.aboutContainer{
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.aboutContainer h3{
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  padding: 7px;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+.aboutContainer .iconsRow .flex-initial{
+  padding: 10px;
+  margin: 0 15px;
+  font-size: 12px;
+}
+.aboutContainer .iconsRow i{
+  font-size: 45px;
+}
+.action-btn.white-btn{
+  background: white;
+  color: #21B3E8;
+  padding: 6px 25px;
+}
+.faqContainer{background: white;padding: 20px;color: #A5A5A5;margin: 25px auto;}
+.faqContainer i{color: #26B2EA;}
+.faqContainer h3{
+  text-align: center;
+  color:#919191;
+  border-top: 2px solid #919191;
+  border-bottom: 2px solid #919191;
+  padding: 7px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.faqContainer .columns .flex-gt-sm-50{padding: 0 20px;}
 
 /*-------------/
   #FOOTER

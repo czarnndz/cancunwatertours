@@ -85,4 +85,6 @@ app.controller('Search',function($scope,$http){
         }
     });
 });
-
+app.controller('StaticPagesCTL',function($scope,$http){
+    //
+});
