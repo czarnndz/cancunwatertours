@@ -32,7 +32,7 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: process.env.PORT || 1195
+  port: process.env.PORT || 1195,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
