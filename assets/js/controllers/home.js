@@ -1,5 +1,5 @@
 
-app.controller('Home', function($scope,$http, toursService, searchService) {
+app.controller('Home', function($scope,$http, toursService) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.agregarVisibility = false;
