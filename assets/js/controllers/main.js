@@ -1,10 +1,15 @@
-app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searchService) {
+app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searchService,cartService) {
     //$scope.tours = [];
     $scope.maxFee = 0;
     $scope.minFee = 10000;
     $scope.toursCategories = [];
     $scope.registerToggle = false;
     $scope.loginToggle = false;
+
+    cartService.setItem({test : 1});
+    cartService.setItem({test : 1});
+    cartService.setItem({test : 1});
+    cartService.flush();
 
     $scope.doLoginToggle = function(){
       console.log('hey listen');
