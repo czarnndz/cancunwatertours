@@ -1,9 +1,9 @@
 <div class="form-modal" ng-show="loginToggle" layout="row" layout-align="center center" layout-wrap>
   <h3>Iniciar sesión</h3>
-  <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" flex="80" type="text" placeholder="Usuario" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Contraseña" class="input-re">
-      <input type="button" value="INICIAR SESIÓN" class="action-btn" flex="80">
+  <form action="/login" method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
+      <input name="username" type="text" flex="80" type="text" placeholder="Usuario">
+      <input name="password" type="password" flex="80" type="text" placeholder="Contraseña">
+      <input type="submit" value="INICIAR SESIÓN" class="action-btn" flex="80">
   </form>
   <p>O INICIA SESIÓN CON:</p>
   <a href="" class="action-btn fb-btn" flex="80">

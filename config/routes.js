@@ -64,6 +64,14 @@ module.exports.routes = {
     controller: 'home',
     action: 'tour_categories'
   },
+  '/login':{
+    controller: 'auth',
+    action: 'process'
+  },
+  '/logout':{
+    controller: 'auth',
+    action: 'logout'
+  },
 
 
   /***************************************************************************

@@ -59,7 +59,7 @@
 
             <%- partial('partials/register') -%>
             <%- partial('partials/login') -%>
-            <% if (meta && meta.addMenu) { %>
+            <% if (typeof meta !=='undefined' && meta.addMenu) { %>
               <%- partial('partials/menu-mobile') -%>
             <% } %>
           </div>
