@@ -16,7 +16,7 @@
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
-            <h1><i ng-repeat="item in getSubcategories(tour.categories,'sub')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
+            <h1><i ng-repeat="item in getSubcategories(tour.categories,'principal')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tour.duration}}</strong></div>
               <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>
@@ -101,14 +101,34 @@
           </div>
 
           <div ng-if="tour.haveTranslate" class="input-field-wrap">
-              <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
-                <i class='icon-transporte'></i> Agregar transportación
-              </md-checkbox>
-            <md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
+            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+              <i class='icon-transporte'></i> Agregar transportación
+            </md-checkbox>
+            <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+              <span><i class='icon-pin'></i>Hotel</span>
+              <span flex></span>
+              <span><md-autocomplete
+                class="custom-autocomplete"
+                md-no-cache="false"
+                md-selected-item="tour.hotel"
+                md-search-text="tour.searchText"
+                md-items="item in hotels|filter:{name : tour.searchText}:false"
+                md-item-text="item.name"
+                md-min-length="0"
+                placeholder="">
+                <md-item-template>
+                  <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                  No se encontraron resultados para: "{{tour.searchText}}".
+                </md-not-found>
+              </md-autocomplete></span>
+            </div>
+            <!--<md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
               <md-option ng-repeat="hotel in hotels" class="ng-cloak" >
                 <i class="icon-hotel icono-option"></i> {{hotel.name}}
               </md-option>
-            </md-select>
+            </md-select>-->
           </div>
 
           <div class="clear"></div>
@@ -188,6 +208,7 @@
       </span>
       <a href="/detalle/{{tour_i.id}}" class='gradient'></a>
       <div class="s-tour-data" flex>
+        <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
         <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
