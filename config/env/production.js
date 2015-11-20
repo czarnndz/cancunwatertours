@@ -32,7 +32,7 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: process.env.PORT || 1195
+  port: process.env.PORT || 1195,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
@@ -41,5 +41,8 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
+  facebook_clientID: '974697955910416',
+  facebook_clientSecret: '0d2cdb69e932618a7eddad40a6ba4b0c',
+  facebook_callback: 'http://cancunwatertours.herokuapp.com/fb_callback',
 
 };

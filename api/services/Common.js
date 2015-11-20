@@ -124,3 +124,11 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
     callback(err,Common.formatTours(tours,'es'));
   });
 }
+
+module.exports.formValidate = function(form,validate){
+    for(var i in form){
+        if(validate.indexOf(i)==-1)
+            delete form[i];
+    }
+    return form;
+};

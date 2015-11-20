@@ -80,6 +80,18 @@ module.exports.routes = {
     controller: 'auth',
     action: 'logout'
   },
+  '/login_fb':{
+    controller: 'auth',
+    action: 'process_fb'
+  },
+  '/fb_callback':{
+    controller: 'auth',
+    action: 'fb_callback'
+  },
+  '/register':{
+    controller: 'client',
+    action: 'create'
+  }
 
 
   /***************************************************************************

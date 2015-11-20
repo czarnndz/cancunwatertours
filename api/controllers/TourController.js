@@ -23,20 +23,23 @@ module.exports = {
                     }
                 }
                 Tour.find(qparams).limit(3).sort('fee desc').populate('location').exec(function(e,similar_tours){
-                    //console.log(e);
-                    res.view({
-                        tour : Common.formatTour(tour,'es'),
-                        similar_tours : Common.formatTours(similar_tours,'es'),
-                        imgs_url : process.env.BACKEND_URL,
-                        meta : {
-                            controller : 'tours.js',
-                            removeFlexLayout : true
-                        },
-                        page : {
-                            searchUrl : '/detalle/',
-                            placeholder : 'Busca Tours',
-                            menuselected : 'tour'
-                        }
+                    TourTourcategory.find({ tour_categories : tour.id }).exec(function(err,rate_values){
+                        //console.log(e);
+                        res.view({
+                            tour : Common.formatTour(tour,'es'),
+                            rate_values : rate_values,
+                            similar_tours : Common.formatTours(similar_tours,'es'),
+                            imgs_url : process.env.BACKEND_URL,
+                            meta : {
+                                controller : 'tours.js',
+                                removeFlexLayout : true
+                            },
+                            page : {
+                                searchUrl : '/detalle/',
+                                placeholder : 'Busca Tours',
+                                menuselected : 'tour'
+                            }
+                        });
                     });
                 });
             });

@@ -6,7 +6,7 @@ app.filter('toursByCategory', function($q) {
     var auxList2 = [];
     var auxList3= [];
     if (filters.length) {
-      angular.forEach(list,function(item){
+      /*angular.forEach(list,function(item){
         angular.forEach(filters,function(filter){
           angular.forEach(filter.tours,function(itemL){
             if (itemL.id == item.id) {
@@ -22,6 +22,31 @@ app.filter('toursByCategory', function($q) {
           angular.extend(this,auxList3);
         },auxList2);
         angular.extend(this,auxList2);
+      },auxList);*/
+      angular.forEach(list,function(item){
+        angular.forEach(filters,function(filter){
+          angular.forEach(filter.tours,function(itemL){
+            if (itemL.id == item.id) {
+              if (!angular.isUndefined(filter.type) && filter.type == 'rate') {
+                item.value = itemL.value;
+                if (itemL.value <= filter.value)
+                  this.push(true);
+                else
+                  this.push(false);
+              } else
+                this.push(true);
+            }else
+              this.push(false);
+          },auxList3);
+          if( auxList3.indexOf(true) >= 0 )
+            this.push(true);
+          else
+            this.push(false);
+          auxList3 = [];
+        },auxList2);
+        if( auxList2.indexOf(false) == -1 )
+          this.push(item);
+        auxList2 = [];
       },auxList);
     } else {
       auxList = list;

@@ -387,6 +387,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   transition-timing-function: ease-out;
 }
 
+.main-sidebar-item.selected:before,
 .main-sidebar-item:hover:before{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
@@ -531,7 +532,7 @@ figcaption:hover .action-btn-white{
 .tour-data-column{width: 100%;}
 .tour-data h1,
 .tour-data h2{margin: 4px 0}
-.tour-data h1{font-size: 20px;}
+.tour-data h1{font-size: 26px;}
 .tour-data h2{
   font-size: 14px;
   font-weight: 400;
@@ -543,7 +544,27 @@ figcaption:hover .action-btn-white{
   font-size: 12px;
   margin:0;
 }
-
+.tour-extra-data{font-size: 13px;}
+.tour-extra-data i{font-size: 13px;}
+.tour-extra-data .extra-item{margin: 0 10px;}
+.tour-extra-data .extra-item:first-child{margin-left:0; }
+.tour-description .row-categories .row-category{
+  margin: 0 15px;
+}
+.tour-description .row-categories .row-category:first-child{margin-left: 0;}
+.tour-description .row-categories i{
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}
+.tour-description .row-categories h4{
+  color: #B1B1B1;margin: 0;
+}
+.tour-description .row-categories{
+  border-bottom: 1px solid #B1B1B1;
+  margin-bottom: 10px;
+}
 .tour-description{
   padding: 20px 30px;
   text-align: justify;
@@ -688,9 +709,11 @@ figcaption:hover .action-btn-white{
   box-sizing: border-box;
 }
 
+.booking-partial md-checkbox:not([disabled]).md-primary .md-icon{border-color: white;}
 .booking-partial{
   background: #00C1C8;
   padding: 20px 25px;
+  color: white;
 }
 .booking-partial h3{
   color: #fff;
@@ -746,7 +769,7 @@ figcaption:hover .action-btn-white{
   border-radius: 5px;
   border-bottom: 0;
   min-width: 0;
-  padding: 4px 6px!important;
+  padding: 3px 8px!important;
 }
 .booking-partial .md-select-value :first-child{
   margin-left: 0;
@@ -1509,6 +1532,9 @@ figcaption:hover .action-btn-white{
   color: #21B3E8;
   padding: 6px 25px;
 }
+.aboutContainer .action-btn{
+  padding: 6px 30px;
+}
 .faqContainer{background: white;padding: 20px;color: #A5A5A5;margin: 25px auto;}
 .faqContainer i{color: #26B2EA;}
 .faqContainer h3{
@@ -1608,6 +1634,20 @@ figcaption:hover .action-btn-white{
 @media (max-width: 600px){
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
+
+  /*----------/
+    #HEADER
+  /*----------*/
+  .header .account-menu{padding-top: 0}
+  .header .account-menu .login-icon-wrap i{margin-top: 0}
+
+  /*----------/
+    #FORM-MODAL
+  /*----------*/
+  .form-modal{
+    left: 0;
+    max-width: none;
+  }
 
   /*---------/
     #BOOKING
