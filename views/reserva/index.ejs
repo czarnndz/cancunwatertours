@@ -1,8 +1,11 @@
 <script type="text/javascript">
     var hotels = <%- JSON.stringify(hotels) %>;
+    <% if(req.user){ %>
+      var client = <%- JSON.stringify(req.user) %>;
+    <% } %>
 </script>
 <div  class="booking" ng-controller="reservaCTL">
-    <form method="post" id="reserva" name="reserva" >
+    <div id="reserva" >
 
         <div
           class="container-xlg"
@@ -136,6 +139,13 @@
                   </h3>
                   <input flex="50" flex-sm="100" type="text" ng-model="transferClientName">
                 </div>
+
+                <% if(!req.user){ %>
+                  <div class="block-content">
+                    <%- partial('../partials/login-booking') -%>
+                  </div>
+                <% } %>
+
 
                 <div class="block-content" id="datos-viajero-2">
                       <p><strong>Datos para tu reservación</strong></p>
@@ -347,5 +357,5 @@
           <!--END RIGHT SIDE-->
 
         </div>
-    </form>
+    </div>
 </div>

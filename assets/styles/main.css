@@ -120,7 +120,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   padding: 0 20px;
 }
 .header .menu-section-first .search-box{
-  padding: 10px 0;
+  padding: 15px 0 10px;
 }
 .header .logo{max-width: 162px;}
 .header .account-item img{vertical-align: middle;}
@@ -132,11 +132,19 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   max-width: 220px;
   margin-left: 40px;
 }
-.header md-autocomplete{background: none}
+.header md-autocomplete{
+  background: none;
+  height: 34px;
+}
+.header md-autocomplete input:not(.md-input){
+  line-height: 34px;
+  height: 34px;
+}
 .header md-autocomplete-wrap{
   box-shadow: none;
   background: #F2F2F2;
   border-radius: 46px;
+  height: 34px;
 }
 /*
 .header md-autocomplete input{
@@ -887,7 +895,10 @@ figcaption:hover .action-btn-white{
   text-align: center;
   width: 100%;
 }
-.booking-partial .boton-detalle{max-width: 100%;}
+.booking-partial .boton-detalle{
+  cursor: pointer;
+  max-width: 100%;
+}
 
 /*-----------/
   #LOGIN AND REGISTER
@@ -903,6 +914,7 @@ figcaption:hover .action-btn-white{
   background: linear-gradient( #35cdd4, #1EB0EB );
   padding: 20px 10px;
 }
+
 .form-modal h3{
   padding: 14px 0;
   color: #fff;
@@ -961,6 +973,36 @@ figcaption:hover .action-btn-white{
   font-size: 12px;
   margin-bottom: 30px;
 }
+
+/*-----------/
+  #FORM-MODAL-STATIC
+/*----------*/
+.form-modal-static{
+  position: static;
+  background: transparent;
+  max-width: none;
+  color: #8A8A8A;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.form-modal-static p{text-align: center;}
+.form-modal-static input[type="submit"].action-btn{
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, #1eb0eb, #35cdd4) repeat scroll 0 0;
+  color: #fff;
+}
+.form-modal-static .action-btn{max-width: 80%;}
+.form-modal-static input[type="password"],
+.form-modal-static input[type="text"],
+.form-modal-static input[type="email"]{
+  color: #8A8A8A;
+  border-color:#8A8A8A;
+}
+.form-modal-static input[type="password"]::-webkit-input-placeholder,
+.form-modal-static input[type="text"]::-webkit-input-placeholder,
+.form-modal-static input[type="email"]::-webkit-input-placeholder{
+  color: #8A8A8A;
+}
+.form-modal-static h3{color: #8A8A8A;}
 
 /*-----------/
   #MY-ACCOUNT
@@ -1548,7 +1590,7 @@ figcaption:hover .action-btn-white{
   border-top: 1px solid #fff;
 }
 .booking-info h2{
-  margin: 0 0 15px;
+  margin: 15px 0;
   color: #fff;
   font-size: 22px;
   font-weight: 400;
