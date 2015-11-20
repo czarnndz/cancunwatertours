@@ -58,7 +58,7 @@ module.exports.routes = {
   },
   '/toursrand' : {
       controller : 'home',
-      action : 'tour_list_random'
+      action : 'tour_list'
   },
   '/hotels' : {
       controller : 'home',
