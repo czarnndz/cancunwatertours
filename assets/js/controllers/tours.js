@@ -10,6 +10,7 @@ app.controller('tourCTL',function($scope,$http,$timeout){
       $scope.tour.date = new Date();
       $scope.minDate = new Date();
       $scope.hotels = [];
+      $scope.rate_values = rate_values;
       $scope.center = {
           zoom:14,
           lat:21.1656951,
@@ -146,5 +147,29 @@ app.controller('tourCTL',function($scope,$http,$timeout){
       $scope.setUpMap();
     },1000);
 
+    $scope.getSubcategories = function(categories,type){
+      var aux = [];
+      for( var x in categories ){
+        if( type == 'sub' ){
+          if( !categories[x].type || ( categories[x].type && categories[x].type != 'rate' ) )
+            aux.push( categories[x] );
+        }else if( type == 'rate' ){
+          if( categories[x].type && categories[x].type == 'rate' )
+            aux.push( categories[x] );
+        }
+      }
+      return aux;
+    }
+    $scope.getRateValue = function(category){
+      for( var x in $scope.rate_values ){
+        if( category.id == $scope.rate_values[x].tourcategory_tours && $scope.rate_values[x].value ){
+          for( var y in category.rating ){
+            category.rating[y] = typeof category.rating[y] == 'string'?JSON.parse(category.rating[y]):category.rating[y];
+            if( category.rating[y].value == $scope.rate_values[x].value )
+                return category.rating[y].label;
+          }
+        }
+      }
+    }
 
 });

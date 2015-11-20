@@ -49,6 +49,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   };
   $scope.getCategoriesByTours = function(){
     $scope.subcategories = [];
+    console.log(sec_categories);
     var aux = [];
     for( var x in sec_categories ){
       for( var y in $scope.tours ){

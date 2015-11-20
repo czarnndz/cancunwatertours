@@ -1,5 +1,6 @@
 <script type="text/javascript">
     var tour = <%- JSON.stringify(tour) %>;
+    var rate_values = <%- JSON.stringify(rate_values) %>;
     var similar_tours = <%- JSON.stringify(similar_tours) %>;
     var imgs_url = <%- JSON.stringify(imgs_url) %>;
 </script>
@@ -14,9 +15,14 @@
       <div class="tour-details" id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="column">
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
-          <div class="tour-data-column" flex="65" flex-sm="100">
+          <div class="tour-data-column" flex>
             <h1>{{tour.name}}</h1>
-            <h2><i class="icon-pin icon-ubicacion"></i> {{tour.location.name}}</h2>
+            <div layout='row' class='tour-extra-data'>
+              <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tour.duration}}</strong></div>
+              <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>
+              <div class='extra-item' flex-initial></div>
+            </div>
+            <!--<h2><i class="icon-pin icon-ubicacion"></i> {{tour.location.name}}</h2>-->
 
             <!--<div class="like-detalle">
               <p>
@@ -25,19 +31,6 @@
                 <strong>Me gusta</strong>
               </p>
             </div>-->
-          </div>
-          <div class="tour-data-column" flex="25" flex-sm="100" >
-            <div class="tour-data-item" layout="row" layout-align="start center" >
-              <i class="icon-horario big-icon"></i>
-              <div>
-                <p><strong>Horario</strong></p>
-                <p><strong>{{tourDuration}}</strong></p>
-              </div>
-            </div>
-            <div ng-if="tour.categories.length > 0" class="tour-data-item" layout="row" layout-align="start center" >
-              <i class="icon-{{::tour.categories[0].name_en | slugFilter}} big-icon"></i>
-              <p><strong>{{::tour.categories[0].name}}</strong></p>
-            </div>
           </div>
         </div>
 
@@ -97,8 +90,11 @@
             </div>
           </div>
 
-          <div class="input-field-wrap">
-            <md-select placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
+          <div ng-if="tour.haveTranslate" class="input-field-wrap">
+              <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+                <i class='icon-transporte'></i> Agregar transportación 
+              </md-checkbox>
+            <md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
               <md-option ng-repeat="hotel in hotels" value="{{hotel.id}}" class="ng-cloak" >
                 <i class="icon-hotel icono-option"></i> {{hotel.name}}
               </md-option>
@@ -108,8 +104,6 @@
           <div class="clear"></div>
 
           <!--END INPUT FIELDS-->
-
-
           <div class="precios-detalle">
             <p class="prices-value">
               <strong>({{tour.adults}})</strong> Precio por adulto {{tour.fee * tour.adults | currency}}
@@ -140,6 +134,27 @@
     <div layout="row" layout-md="column" layout-sm="column">
       <!--TOUR DESCRIPTION-->
       <div class="tour-description" flex="70" flex-md="100" flex-sm="100">
+        <div class='row-categories' ng-if="getSubcategories(tour.categories,'rate').length>0">
+          <h4>Rangos</h4>
+          <div layout="row" >
+            <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'rate')">
+              <p>
+                <i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                <strong>{{ ::item.name | uppercase }}</strong>:
+                <strong>{{ getRateValue(item) }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='row-categories' ng-if="getSubcategories(tour.categories,'sub').length>0">
+          <h4>Categorias del Tour</h4>
+          <div layout="row" >
+            <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'sub')">
+              <p><i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
+              <strong>{{::item.name}}</strong></p>
+            </div>
+          </div>
+        </div>
         <h3>Descripción</h3>
         <p ng-repeat="description in tour.description track by $index">{{description}} </p>
       </div>
