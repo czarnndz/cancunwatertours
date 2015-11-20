@@ -64,24 +64,30 @@
             <% } %>
           </div>
 
-          <md-content id="main-content">
+          <!-- <md-content id="main-content"> -->
+          <div id="main-content">
             <div layout="row">
 
               <!--SIDEBAR-->
-              <% if (meta && meta.addMenu) { %>
+              <% if (typeof meta !=='undefined' && meta.addMenu) { %>
                   <%- partial('partials/sidebar-menu') -%>
               <% } %>
               <!--END SIDEBAR-->
 
               <!--MAIN CONTENT-->
-              <section flex >
+              <section <% if (typeof meta !=='undefined' && meta.addMenu) { %>
+                flex flex-md="100" flex-sm="100"
+                <% } else { %>
+                flex="100"
+                <% } %> >
                 <%- body %>
               </section>
               <!--END MAIN CONTENT-->
 
             </div>
 
-          </md-content>
+          <!-- </md-content> -->
+        </div>
 
         </div>
       </div><!-- END topBackRepeat -->

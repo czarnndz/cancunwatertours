@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$http,$timeout){
+app.controller('tourCTL',function($scope,$http,$timeout,cartService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
@@ -38,6 +38,13 @@ app.controller('tourCTL',function($scope,$http,$timeout){
 
       $scope.tourDuration = $scope.setDuration($scope.tour.days);
 
+      var aux_schedules = [];
+      $scope.tour.schedules.forEach(function(el) {
+          aux_schedules.push(JSON.parse(el));
+      });
+
+      $scope.tour.schedules = aux_schedules;
+
     };
 
     $scope.setDuration = function(tourDays){
@@ -68,14 +75,15 @@ app.controller('tourCTL',function($scope,$http,$timeout){
       $scope.galleryPhotos = $scope.tour.files.map(function(file){
         return $scope.imgs_url + '/uploads/tours/gallery/593x331' +  file.filename;
       });
-    }
+    };
 
     $scope.getPrice = function(){
-        if ($scope.kids > 0) {
-            return ($scope.tour.adults * $scope.tour.fee) + ($scope.tour.kids * $scope.tour.feeChild);
-        } else {
-            return ($scope.tour.adults * $scope.tour.fee);
-        }
+        return cartService.getPriceTour($scope.tour);
+    };
+
+    $scope.addCartTour = function() {
+      cartService.addTour($scope.tour);
+      location.href = "/reserva";
     };
 
     $scope.setUpMap = function(){

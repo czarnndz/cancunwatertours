@@ -5,8 +5,18 @@
 
     <div class="slider-container" flex="50">
 
-      <slick class="landing-slider" dots="true" arrows="false" ng-if="tours.length" data="tours">
-        <div  ng-repeat="tour in tours" class="landing-slider-item transitions"
+      <slick class="landing-slider"
+              speed="3000"
+              pauseOnHover="true"
+              autoplaySpeed="1000"
+              autoplay="true"
+              fade="true"
+              dots="true"
+              arrows="false"
+              ng-if="toursrand1.length"
+              data="toursrand1"
+      >
+        <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }">
           <div class="landing-slider-cover">
             <div class="landing-slider-footer">
@@ -20,72 +30,71 @@
           </div>
         </div>
       </slick>
-
     </div>
 
-    <md-grid-list
-      flex="50"
+    <div flex="50" class="perfecscrollbar">
+      <md-grid-list
+      md-cols-gt-md="4"
+      md-cols-md="2"
+      md-cols-sm="1"
+      md-row-height-gt-md="fit"
+      md-row-height="4:3"
+      md-gutter="0px"
+      full-screen-wrapper
+      >
+        <md-grid-tile
+        ng-repeat="tour in toursrand2"
+        md-colspan-gt-sm="{{tour.colspan}}"
+        md-rowspan-gt-sm="{{tour.rowspan}}"
+        class="landing-tour"
+        layout-align-gt-sm="center center"
+        >
+          <div class="landing-tour-background transitions"
+              ng-style="{ 'background-image': 'url({{tour.icon}})' }"
+          ></div>
+          <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
+            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
+            <i class="icon-trending"></i>
+            <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
+            <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
+            <p class="tour-price">{{tour.fee | currency}} </p>
+            <p><a href="/detalle/{{tour.id}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
+            <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
+          </md-grid-tile-footer>
+        </md-grid-tile>
+      </md-grid-list>
+
+      <md-grid-list
       md-cols-gt-md="4"
       md-cols-md="2"
       md-cols-sm="1"
       md-row-height-gt-md="4:4"
       md-row-height="4:3"
       md-gutter="0px"
-    >
-      <md-grid-tile
-        ng-repeat="tour in tours"
-        ng-style="{
-            'background-image': 'url({{tour.icon}})',
-            'background-repeat':'no-repeat',
-            'background-position':'center',
-            'background-size': '100% auto'
-        }"
+      full-screen-wrapper
+      >
+        <md-grid-tile
+        ng-repeat="tour in toursrand3"
         md-colspan-gt-sm="{{tour.colspan}}"
         md-rowspan-gt-sm="{{tour.rowspan}}"
-        class="landing-tour transitions"
-        layout-align-gt-sm="center center">
-        <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-          <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
-          <i class="icon-trending"></i>
-          <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
-          <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
-          <p class="tour-price">{{tour.fee | currency}} </p>
-          <p><a href="/detalle/{{tour.id}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
-          <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
-        </md-grid-tile-footer>
-      </md-grid-tile>
-    </md-grid-list>
-  </div>
-</div>
-
-
-<!-- <div id="home" ng-controller="Home">
-
-  <%- partial('../partials/add-transport') -%>
-  <div>
-      <md-grid-list md-cols-gt-md="8" md-cols-sm="1" md-cols-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="0px">
-        <md-grid-tile
-          ng-repeat="tour in tours"
-          ng-style="{
-              'background-image': 'url({{tour.icon}})',
-              'background-repeat':'no-repeat',
-              'background-position':'center',
-              'background-size': 'cover'
-          }"
-          md-colspan-gt-sm="{{tour.colspan}}"
-          md-rowspan-gt-sm="{{tour.rowspan}}"
-          class="landing-tour"
-          layout-align-gt-sm="center center">
+        class="landing-tour"
+        layout-align-gt-sm="center center"
+        >
+          <div class="landing-tour-background transitions"
+              ng-style="{ 'background-image': 'url({{tour.icon}})' }"
+          ></div>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
             <i class="icon-trending"></i>
-            <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3>
+            <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
             <p class="tour-price">{{tour.fee | currency}} </p>
-            <p><a href="/detalle/{{tour.id}}" class="action-btn"><strong>RESERVAR</strong></a></p>
-            <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>
+            <p><a href="/detalle/{{tour.id}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
+            <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
           </md-grid-tile-footer>
         </md-grid-tile>
       </md-grid-list>
+    </div>
+
   </div>
-</div> -->
+</div>

@@ -1,6 +1,4 @@
 <script type="text/javascript">
-    var tour = <%- JSON.stringify(tour) %>;
-    var hotel = <%- JSON.stringify(hotel) %>;
     var hotels = <%- JSON.stringify(hotels) %>;
 </script>
 <div  class="booking" ng-controller="reservaCTL">
@@ -35,16 +33,14 @@
               <!--RESERVACION STEP 1-->
               <div id="tu-reservacion" ng-class="step == 0 ? 'activar' : 'ng-hide'">
 
-                  <div class="title-block">
-                      <h3><i class="icon-transporte"></i> <strong>Tour</strong></h3>
-                  </div>
-                  <div class="block-content" layout="row" layout-align="space-between start" layout-wrap>
+
+                  <div class="block-content" layout="row" layout-align="space-between start" layout-wrap ng-repeat="tour in tours track by $index">
                       <div class="booking-tour-img" flex="30" flex-md="35" flex-sm="100">
                           <div class="booking-tour-img"  ng-style="{ 'background-image' : 'url(' + tour.avatar2 + ')'}"></div>
                       </div>
-                      <div class="booking-form" flex="70" flex-md="65" flex-sm="100" >
+                      <div class="booking-form" flex="70" flex-md="65" flex-sm="100">
                           <h3>{{tour.name}}</h3>
-                          <p>{{hotel ? "con Transportación" : ""}}</p>
+                          <p>{{tour.hotel ? "con Transportación" : ""}}</p>
                           <section>
                               <div class="input-field-wrap" layout="row" layout-align="space-between center" >
                                   <label flex="20">
@@ -54,14 +50,14 @@
                                     <md-datepicker flex="75" ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
                                   </div>
                               </div>
-                              <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.location">
+                              <!--<div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.location">
                                   <label flex="20">
                                     <i class="icon-pin highlight"></i> Ubicación:
                                   </label>
                                   <div flex="75">
                                     <input type="text" ng-model="tour.location.name" disabled="disabled">
                                   </div>
-                              </div>
+                              </div>-->
                               <div class="input-field-wrap" layout="row" layout-align="space-between center" >
                                   <label flex="20">
                                     <i class="icon-adultos highlight"></i> Adultos:
@@ -88,47 +84,38 @@
                                     </md-select>
                                   </div>
                               </div>
+                              <div class="input-field-wrap" layout="row" layout-align="space-between center">
+                                <label flex="20">
+                                  <i class="icon-hotel highlight"></i> Hotel:
+                                </label>
+                                <div flex="75">
+                                  <md-autocomplete
+                                    class="custom-autocomplete"
+                                    md-no-cache="false"
+                                    md-selected-item="tour.hotel"
+                                    md-search-text="tour.searchText"
+                                    md-items="item in hotels|filter:{name : tour.searchText}:false"
+                                    md-item-text="item.name"
+                                    md-min-length="0"
+                                    placeholder="">
+                                    <md-item-template>
+                                      <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                                    </md-item-template>
+                                    <md-not-found>
+                                      No matches found for "{{tour.searchText}}".
+                                    </md-not-found>
+                                  </md-autocomplete>
+                                </div>
+                              </div>
+
+                              <div>
+                                  <md-button ng-click="removeTour($index)">Remove</md-button>
+                              </div>
                           </section>
                       </div>
                   </div>
 
-                  <div class="title-block">
-                      <h3><i class="icon-transporte"></i> <strong>Transportación</strong></h3>
-                  </div>
 
-                  <div class="block-content" layout="column" layout-align="space-between center">
-                      <div class="booking-form" layout="row" layout-align="space-between center" layout-wrap>
-                          <div flex="60" flex-md="100" flex-sm="100" layout="row" layout-align="start center" layout-align-sm="center center" layout-align-md="center center" layout-wrap >
-                              <p class="no-margin"><i class="icon-pin"></i>Hotel : </p>
-
-                            <md-autocomplete
-                              class="custom-autocomplete hotel-autocomplete"
-                              ng-disabled="isDisabled"
-                              md-no-cache="false"
-                              md-selected-item="hotel"
-                              md-search-text="searchText"
-                              md-items="item in hotels|filter:{name : searchText}:false"
-                              md-item-text="item.name"
-                              md-min-length="0"
-                              placeholder="">
-                                <md-item-template>
-                                  <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                  No matches found for "{{searchText}}".
-                                </md-not-found>
-                            </md-autocomplete>
-                          </div>
-                          <div flex="40" flex-md="100" flex-sm="100" layout="row" layout-align="space-around center" >
-                              <md-button class="md-raised" ng-class="!isDisabled ? 'md-primary' : ''" ng-click="isDisabled = false">Editar</md-button>
-                          </div>
-                          <div class="total-transporte">
-                              <p><strong>Total Transporte</strong></p>
-                              <p class="highlight"><strong class="big-price"> {{priceTransfer() | currency}} </strong> mxn</p>
-                              <p>El importe incluye todos los impuestos</p>
-                          </div>
-                      </div>
-                  </div>
                   <div class="block-content">
                     <p class="terms-text">
                       <md-checkbox class="md-primary" ng-model="terminos" aria-label="Terminos">
@@ -156,12 +143,12 @@
                       <div class="booking-form">
 
                           <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between start">
-                            <input flex="45" flex-sm="100"  type="text" class="input-field" placeholder="Nombre" ng-model="tour.client.name" name="nombre" ng-required>
-                            <input flex="45" flex-sm="100" type="text" class="input-field" placeholder="Apellidos" ng-model="tour.client.last_name" name="apellido"  ng-required>
+                            <input flex="45" flex-sm="100"  type="text" class="input-field" placeholder="Nombre" ng-model="client.name" name="nombre" ng-required>
+                            <input flex="45" flex-sm="100" type="text" class="input-field" placeholder="Apellidos" ng-model="client.last_name" name="apellido"  ng-required>
                           </div>
 
                           <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between center">
-                            <input flex="45" flex-sm="100"  type="email" class="input-field" placeholder="Correo Electrónico" ng-model="tour.client.email" name="email" ng-required>
+                            <input flex="45" flex-sm="100"  type="email" class="input-field" placeholder="Correo Electrónico" ng-model="client.email" name="email" ng-required>
                             <input flex="45" flex-sm="100"  type="email" class="input-field" placeholder="Confirmar Correo Electrónico" name="repeat_email" ng-model="repeat_email">
                           </div>
 
@@ -169,13 +156,13 @@
 
                           <div layout="row" layout-sm="column" layout-align="space-between center">
                             <div class="input-field-wrap" flex="45" flex-sm="100">
-                                <input flex="100" class="input-field" type="text" placeholder="Lada" ng-model="tour.client.phone_lada">
+                                <input flex="100" class="input-field" type="text" placeholder="Lada" ng-model="client.phone_lada">
                             </div>
                             <div class="input-field-wrap" flex="45" flex-sm="100" layout="row" layout-sm="column" flex-sm="100" layout-align="start center" >
-                                <input flex="65" flex-sm="100"  type="text" class="input-field" placeholder="Número" ng-model="tour.client.phone">
+                                <input flex="65" flex-sm="100"  type="text" class="input-field" placeholder="Número" ng-model="client.phone">
 
                                 <div class="celular" flex="20" flex-sm="100" layout="row" layout-align="space-around center" >
-                                  <md-checkbox md-no-ink aria-label="Celular" ng-model="tour.client.isMobile" class="md-primary">
+                                  <md-checkbox md-no-ink aria-label="Celular" ng-model="client.isMobile" class="md-primary">
                                     Celular
                                   </md-checkbox>
                                 </div>
@@ -319,31 +306,35 @@
                   </div>
               </div>
               <!--END STEP 3-->
-
+              <div class="block-content block-content-transparent">
+                <a href="" ng-click="continueShopping()" class="action-btn continue-btn">CONTINUAR COMPRANDO</a>
+                <div class="clear"></div>
+              </div>
               <div class="block-content block-content-transparent">
                 <a href="" ng-click="continueClick()" class="action-btn continue-btn">CONTINUAR</a>
                 <div class="clear"></div>
               </div>
+
 
           </div>
           <!--END LEFT SIDE-->
 
           <!--RIGHT SIDE-->
           <div class="booking-info" flex="25" flex-md="100" flex-sm="100">
-            <div class="booking-info-inner">
-              <h2>Tu reservación</h2>
+            <h2>Tu reservación</h2>
+            <div class="booking-info-inner" ng-repeat="tour in tours track by $index">
               <section class="booking-info-block">
                 <h3>{{tour.name}}</h3>
                 <p><a class="see-details" ng-href="/detalle/{{tour.id}}" target="_blank">ver detalles</a></p>
-                <p class="precio-detalles">MXN {{priceTour() | currency}}</p>
+                <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
               </section>
               <section class="booking-info-block">
-                <p  ng-if="hotel"><strong>TRANSPORTACIÓN</strong></p>
-                <p class="precio-detalles" ng-if="hotel">MXN {{priceTransfer() | currency}}</p>
+                <p  ng-if="tour.hotel"><strong>TRANSPORTACIÓN</strong></p>
+                <p class="precio-detalles" ng-if="tour.hotel">MXN {{priceTransfer(tour) | currency}}</p>
               </section>
               <section class="booking-info-block">
                 <p><strong>IMPUESTOS</strong></p>
-                <p class="precio-detalles">MXN {{priceTax() | currency}}</p>
+                <p class="precio-detalles">MXN {{priceTax(tour) | currency}}</p>
               </section>
             </div>
             <div class="booking-info-inner">

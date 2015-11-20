@@ -6,11 +6,6 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.registerToggle = false;
     $scope.loginToggle = false;
 
-    cartService.setItem({test : 1});
-    cartService.setItem({test : 1});
-    cartService.setItem({test : 1});
-    cartService.flush();
-
     $scope.doLoginToggle = function(){
       console.log('hey listen');
       if($scope.registerToggle){

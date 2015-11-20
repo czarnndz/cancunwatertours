@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <div class="tour-slider-wrapper" flex="70" >
+        <div class="tour-slider-wrapper" flex ><!--Erick cambio antes flex70-->
           <slick class="tour-slider" dots="true" arrows="false" autoplay="true" autoplaySpeed="4000" fade="true">
             <div
               ng-repeat="photo in galleryPhotos track by $index"
@@ -60,7 +60,7 @@
 
           <div class="input-field-wrap">
             <i class='icon-calendario icon-inside'></i>
-            <md-datepicker ng-model="bookingDate" md-placeholder="Fecha"></md-datepicker>
+            <md-datepicker ng-model="tour.date" md-placeholder="Fecha"></md-datepicker>
           </div>
           <div class="clear"></div>
 
@@ -93,13 +93,19 @@
               </div>
             </div>
           </div>
+          <div class="input-field-wrap" ng-if="tour.schedules.length > 0">
+              <i class="icon-horario icon-inside"></i>
+              <md-select class="" ng-model="tour.schedule" ng-required name="schedule">
+                <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
+              </md-select>
+          </div>
 
           <div ng-if="tour.haveTranslate" class="input-field-wrap">
               <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
-                <i class='icon-transporte'></i> Agregar transportación 
+                <i class='icon-transporte'></i> Agregar transportación
               </md-checkbox>
             <md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
-              <md-option ng-repeat="hotel in hotels" value="{{hotel.id}}" class="ng-cloak" >
+              <md-option ng-repeat="hotel in hotels" class="ng-cloak" >
                 <i class="icon-hotel icono-option"></i> {{hotel.name}}
               </md-option>
             </md-select>
@@ -127,7 +133,7 @@
               </p>
 
               <!--<input type="submit" class="boton-detalle" value="AÑADIR A MI CARRITO" >-->
-              <a ng-href="/reserva/?tour={{tour.id}}" class="boton-detalle">AÑADIR A MI CARRITO</a>
+              <a ng-click="addCartTour()" class="boton-detalle">AÑADIR A MI CARRITO</a>
             </section>
           </div>
         </form>

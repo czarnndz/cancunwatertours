@@ -7,14 +7,13 @@
 
 module.exports = {
 	index : function(req,res){
-        var params = req.params.all();
+    var params = req.params.all();
 		if (params.id) {
             Tour.findOne({ id : params.id }).populateAll().exec(function(e,tour){
                 if (e) {
                     console.log(e);
                     res.notFound();
                 }
-                //console.log(tour.location);
                 var qparams = {
                     id : { '!' : params.id}
                 }
