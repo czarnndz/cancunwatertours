@@ -16,7 +16,7 @@
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
-            <h1>{{tour.name}}</h1>
+            <h1><i ng-repeat="item in getSubcategories(tour.categories,'sub')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tour.duration}}</strong></div>
               <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>
@@ -31,6 +31,9 @@
                 <strong>Me gusta</strong>
               </p>
             </div>-->
+          </div>
+          <div class='' flex-initial>
+            <i></i>
           </div>
         </div>
 
@@ -56,6 +59,7 @@
           <!--<div layout="row" layout-align="end start">-->
 
           <div class="input-field-wrap">
+            <i class='icon-calendario icon-inside'></i>
             <md-datepicker ng-model="bookingDate" md-placeholder="Fecha"></md-datepicker>
           </div>
           <div class="clear"></div>
@@ -170,16 +174,19 @@
 
   <!--SIMILAR TOURS-->
   <div class="similar-tours" id="similares" flex="25" flex-md="100" flex-sm="100" >
-    <h2>Tours similares</h2>
-    <div class="s-tour cont-similares" layout="column" layout-align="center center" ng-repeat="tour_i in similar_tours">
+    <h2>Tours similares <br> <span class='icon-flecha'></span></h2>
+    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours">
       <!--<a ng-href="/detalle/{{tour_i.id}}" class="absolute-link"></a>-->
-      <div
-        ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
+      <span ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
         class="s-tour-img">
+      </span>
+      <a href="/detalle/{{tour_i.id}}" class='gradient'></a>
+      <div class="s-tour-data" flex>
+        <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
+        <!--<p>{{tour_i.location.name}}</p>-->
+        <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
+        <p><a class='btn-white-o' href="/detalle/{{tour_i.id}}">Reservar</a></p>
       </div>
-      <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
-      <p>{{tour_i.location.name}}</p>
-      <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
     </div>
   </div>
   <!--END SIMILAR TOURS-->
