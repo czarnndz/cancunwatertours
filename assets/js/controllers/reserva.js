@@ -1,38 +1,24 @@
-app.controller('reservaCTL',function($scope,$filter) {
+app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
     $scope.city = '';
-    //$rootScope.orderID = false;
-    $scope.tour = tour;
-    $scope.tour.adults = 1;
-    $scope.tour.kids = 0;
-    $scope.tour.date = new Date();
-    $scope.tour.client = {
+    $scope.client = {
         isMobile : false
     };
     $scope.minDate = new Date();
-    $scope.hotel = hotel;
     $scope.hotels = hotels;
     $scope.isDisabled = true;
     $scope.terminos = false;
     $scope.step = 0;
-    $scope.transportation = {
-        cost : 20
+
+    $scope.tours = cartService.getAll();
+
+    $scope.continueShopping = function() {
+      location.href = "/";
     };
-
-    //var aux_schedules = [];
-    //$scope.tour.schedules.forEach(function(el) {
-    //    aux_schedules.push(JSON.parse(el));
-    //});
-    //
-    //$scope.tour.schedules = aux_schedules;
-
-    $scope.addCart = function() {
-
-    }
 
     $scope.continueClick = function(){
       if( !$scope.isNextButtonDisabled() ){
           if ($scope.step == 3) {
-              $scope.addCart();
+              cartService.process();
           } else  {
               $scope.step++;
           }
@@ -56,33 +42,29 @@ app.controller('reservaCTL',function($scope,$filter) {
         }
     };
 
-    $scope.priceTour = function() {
-        var total = tour.fee * tour.adults;
-        if (tour.kids) {
-            total += tour.feeChild * tour.kids;
-        }
-        return total;
+    $scope.priceTour = function(tour) {
+        return cartService.getPriceTour(tour);
     };
 
-    $scope.priceTax = function(){
-        var tax = $scope.price() * 0.15;
-        return tax;
-    };
-
-    $scope.priceTotal = function() {
-        var total = $scope.price() * 1.15;
-        return total;
-    };
-
-    $scope.price = function() {
-        return ($scope.priceTour() + $scope.priceTransfer());
+    $scope.removeTour = function(index) {
+        cartService.removeItem(index);
+        $scope.tours = cartService.getAll();
     }
 
-    $scope.priceTransfer = function(){
-        if ($scope.hotel)
-            return (($scope.transportation.cost * $scope.tour.adults) + ($scope.tour.kids * $scope.transportation.cost));
-        else
-            return 0;
-    };
+    $scope.priceTotal = function(){
+        return cartService.getPriceTotalTotal();
+    }
+
+    $scope.tourPriceTotal = function(tour){
+        return $scope.priceTour(tour) * $scope.priceTax(tour);
+    }
+
+    $scope.priceTax = function(tour){
+      return cartService.getPriceTax(tour);
+    }
+
+    $scope.priceTransfer = function(tour) {
+      return cartService.getPriceTransfer(tour,{ cost : 20 });
+    }
 
 });
