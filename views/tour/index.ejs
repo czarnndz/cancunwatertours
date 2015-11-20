@@ -101,14 +101,34 @@
           </div>
 
           <div ng-if="tour.haveTranslate" class="input-field-wrap">
-              <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
-                <i class='icon-transporte'></i> Agregar transportación
-              </md-checkbox>
-            <md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
+            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+              <i class='icon-transporte'></i> Agregar transportación
+            </md-checkbox>
+            <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+              <span><i class='icon-pin'></i>Hotel</span>
+              <span flex></span>
+              <span><md-autocomplete
+                class="custom-autocomplete"
+                md-no-cache="false"
+                md-selected-item="tour.hotel"
+                md-search-text="tour.searchText"
+                md-items="item in hotels|filter:{name : tour.searchText}:false"
+                md-item-text="item.name"
+                md-min-length="0"
+                placeholder="">
+                <md-item-template>
+                  <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                  No se encontraron resultados para: "{{tour.searchText}}".
+                </md-not-found>
+              </md-autocomplete></span>
+            </div>
+            <!--<md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
               <md-option ng-repeat="hotel in hotels" class="ng-cloak" >
                 <i class="icon-hotel icono-option"></i> {{hotel.name}}
               </md-option>
-            </md-select>
+            </md-select>-->
           </div>
 
           <div class="clear"></div>

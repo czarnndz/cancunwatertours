@@ -887,8 +887,23 @@ figcaption:hover .action-btn-white{
   text-align: center;
   width: 100%;
 }
+.booking-partial .hotel-select{font-size: 12px;}
 .booking-partial .boton-detalle{max-width: 100%;}
-
+.booking-partial .custom-autocomplete{
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 15px;
+}
+.booking-partial .custom-autocomplete input:not(.md-input){
+  font-size: 14px;
+  height: 30px;
+  line-height: 20px;
+  color: white;
+}
+.booking-partial .custom-autocomplete button{margin: 0;}
 /*-----------/
   #LOGIN AND REGISTER
 /*-----------*/
@@ -1359,10 +1374,21 @@ figcaption:hover .action-btn-white{
   background: #fff;
   padding: 20px 24px;
   margin-bottom: 4px;
+  position: relative;
+}
+.booking .block-content .removeTour{
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 30px;
+  color: #00AFE2;
 }
 .booking .block-content-transparent{background: transparent;}
 .booking .block-content p{color: #8A8A8A}
 .booking .block-content p i{vertical-align: middle;}
+.booking .block-content .hotel-select{color: #898989;font-size: 14px;}
+.booking .block-content .hotel-select span:first-child{margin-right: 15px;}
+.booking .block-content .hotel-select .custom-autocomplete{background: transparent;border-radius: 10px;border:1px solid #898989;}
 
 .booking .terms-text{
   font-size: 12px;
