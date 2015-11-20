@@ -618,6 +618,7 @@ figcaption:hover .action-btn-white{
   background: #F5F5F5;
   padding: 20px;
 }
+.similar-tours .big-icon{color: white;font-size: 35px;}
 .similar-tours h2{
   font-weight: 700;
   font-size: 24px;
@@ -661,13 +662,16 @@ figcaption:hover .action-btn-white{
   width: 100%;
   position: absolute;
   z-index: 1;
-  background: rgba(0, 0, 0, 0) linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 60%) repeat scroll 0 0
+  background: rgba(0, 0, 0, 0) linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 80%) repeat scroll 0 0
 }
 .s-tour-data{
   position: relative;
   text-align: center;
   z-index: 2;
   padding-bottom: 8px;
+  -webkit-transition : all .3s;
+  -moz-transition : all .3s;
+  transition : all .3s;
 }
 .s-tour h4{
   margin: 4px 0 0;
@@ -676,12 +680,17 @@ figcaption:hover .action-btn-white{
 }
 .s-tour h4 a{color: white}
 .s-tour p{margin: 0}
-.s-tour:hover .btn-white-o,
+/*.s-tour:hover .btn-white-o,
 .s-tour:hover p,
-.s-tour:hover h4 a{color: #00C1C8;border-color: #00C1C8;}
+.s-tour:hover h4 a{color: #00C1C8;border-color: #00C1C8;}*/
+.s-tour:hover .s-tour-data{
+  -webkit-transform: scale(1.2) translateY(-10px);
+  -moz-transform: scale(1.2) translateY(-10px);
+  transform: scale(1.2) translateY(-10px);
+}
 .s-tour-price{
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   text-transform: uppercase;
   padding-bottom: 5px;
 }
@@ -785,7 +794,7 @@ figcaption:hover .action-btn-white{
   left: 8px;z-index: 1;
 }
 .booking-partial .input-field-wrap .icon-inside + md-select md-select-value{padding-left: 30px!important;}
-.btn-white-o{display: inline-block;border: 1px solid white;color: white;padding: 4px 10px;}
+.btn-white-o{display: inline-block;border: 2px solid white;color: white;padding: 4px 10px;}
 .booking-partial md-datepicker{
   background: #46CFD2;
   border-radius: 5px;
@@ -1382,17 +1391,21 @@ figcaption:hover .action-btn-white{
   right: 0;
   min-width: 30px;
   color: #00AFE2;
+  background-color: transparent;
 }
 .booking .block-content-transparent{background: transparent;}
 .booking .block-content p{color: #8A8A8A}
 .booking .block-content p i{vertical-align: middle;}
 .booking .block-content .hotel-select{color: #898989;font-size: 14px;}
 .booking .block-content .hotel-select span:first-child{margin-right: 15px;}
-.booking .block-content .hotel-select .custom-autocomplete{background: transparent;border-radius: 10px;border:1px solid #898989;}
+.booking .block-content .hotel-select .custom-autocomplete{background: transparent;border-radius: 10px;border:1px solid #898989;height: 30px;}
+.booking .block-content .hotel-select .custom-autocomplete input:not(.md-input){height: 30px;line-height: 30px;}
+.booking .block-content .hotel-select .custom-autocomplete button{margin: 0;}
 
 .booking .terms-text{
   font-size: 12px;
-  text-align: center;
+  text-align: right;
+  margin: 0;
 }
 .booking .terms-text md-checkbox{
   display: inline-block;
@@ -1433,7 +1446,11 @@ figcaption:hover .action-btn-white{
   text-align: center;
   margin: 0;
 }
-.booking .continue-btn{float: right;}
+.booking .continue-btn{float: right;margin-left: 15px;margin-top: 15px;border-radius: 6px;}
+.booking .continue-btn.shopping{
+  background: transparent;
+  color: #1eb0eb;
+  box-shadow: inset 0px 0px 0px 3px #1EB0EB;}
 .booking .total-transporte p{margin: 0}
 .booking .highlight{color: #19A4EF!important}
 .booking .big-price{font-size: 24px;}

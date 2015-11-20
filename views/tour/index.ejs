@@ -16,7 +16,7 @@
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
-            <h1><i ng-repeat="item in getSubcategories(tour.categories,'sub')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
+            <h1><i ng-repeat="item in getSubcategories(tour.categories,'principal')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tour.duration}}</strong></div>
               <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>
@@ -208,6 +208,7 @@
       </span>
       <a href="/detalle/{{tour_i.id}}" class='gradient'></a>
       <div class="s-tour-data" flex>
+        <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
         <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>

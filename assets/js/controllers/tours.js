@@ -5,6 +5,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
       $scope.tour = tour;
+      $scope.tour.schedules = tour.schedules || [];
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
       $scope.tour.date = new Date();
@@ -40,6 +41,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
 
       var aux_schedules = [];
       $scope.tour.schedules.forEach(function(el) {
+        if( typeof el == 'string' )
           aux_schedules.push(JSON.parse(el));
       });
 
@@ -159,7 +161,10 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       var aux = [];
       for( var x in categories ){
         if( type == 'sub' ){
-          if( !categories[x].type || ( categories[x].type && categories[x].type != 'rate' ) )
+          if( !categories[x].principal && (!categories[x].type || ( categories[x].type && categories[x].type != 'rate' )) )
+            aux.push( categories[x] );
+        }else if( type == 'principal' ){
+          if( categories[x].principal )
             aux.push( categories[x] );
         }else if( type == 'rate' ){
           if( categories[x].type && categories[x].type == 'rate' )
