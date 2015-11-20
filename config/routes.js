@@ -56,6 +56,10 @@ module.exports.routes = {
       controller : 'home',
       action : 'tour_list'
   },
+  '/toursrand' : {
+      controller : 'home',
+      action : 'tour_list_random'
+  },
   '/hotels' : {
       controller : 'home',
       action : 'hotel_list'
