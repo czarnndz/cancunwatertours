@@ -14,6 +14,12 @@ module.exports = {
     password : {
         type : 'string'
     },
+    facebookId: {
+      type: 'string'
+    },
+    source : {
+      type: 'string'
+    },
     setPassword : function(val,cb){
       this.password = bcrypt.hashSync(val,bcrypt.genSaltSync(10));
       this.save(cb);

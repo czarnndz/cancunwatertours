@@ -88,6 +88,7 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
   $scope.getTours = function() {
     $scope.loading = true;
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
+      console.log(res);
       $scope.tours = res;
       $scope.loading = false;
       $scope.redrawMap();

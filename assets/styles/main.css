@@ -1635,6 +1635,20 @@ figcaption:hover .action-btn-white{
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
 
+  /*----------/
+    #HEADER
+  /*----------*/
+  .header .account-menu{padding-top: 0}
+  .header .account-menu .login-icon-wrap i{margin-top: 0}
+
+  /*----------/
+    #FORM-MODAL
+  /*----------*/
+  .form-modal{
+    left: 0;
+    max-width: none;
+  }
+
   /*---------/
     #BOOKING
   /*--------*/
