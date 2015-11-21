@@ -9,6 +9,11 @@ var passport = require('passport');
 module.exports = {
 
   process: function(req, res){
+    var form = req.params.all();
+    var isBooking = false;
+    if (form.is_booking && form.is_booking == '1'){
+      isBooking = true;
+    }
     passport.authenticate('local', function(err, user, info) {
       if ((err) || (!user)) {
         console.log('fail login');
@@ -16,7 +21,11 @@ module.exports = {
       }
       req.logIn(user, function(err) {
         if (err) res.send(err);
-        return res.redirect('/');
+        if(isBooking){
+          return res.redirect('/reserva');
+        }else{
+          return res.redirect('/');
+        }
       });
     })(req, res);
   },

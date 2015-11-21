@@ -16,7 +16,7 @@
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
-            <h1>{{tour.name}}</h1>
+            <h1><i ng-repeat="item in getSubcategories(tour.categories,'principal')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tour.duration}}</strong></div>
               <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>
@@ -32,9 +32,12 @@
               </p>
             </div>-->
           </div>
+          <div class='' flex-initial>
+            <i></i>
+          </div>
         </div>
 
-        <div class="tour-slider-wrapper" flex="70" >
+        <div class="tour-slider-wrapper" flex ><!--Erick cambio antes flex70-->
           <slick class="tour-slider" dots="true" arrows="false" autoplay="true" autoplaySpeed="4000" fade="true">
             <div
               ng-repeat="photo in galleryPhotos track by $index"
@@ -56,6 +59,7 @@
           <!--<div layout="row" layout-align="end start">-->
 
           <div class="input-field-wrap">
+            <i class='icon-calendario icon-inside'></i>
             <md-datepicker ng-model="tour.date" md-placeholder="Fecha"></md-datepicker>
           </div>
           <div class="clear"></div>
@@ -90,25 +94,41 @@
             </div>
           </div>
           <div class="input-field-wrap" ng-if="tour.schedules.length > 0">
-            <label>
-              <i class="icon-horario highlight"></i> Horario:
-            </label>
-            <div >
-              <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
-                <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">from {{schedule.from | date:'HH:mm'}} to {{schedule.to | date:'HH:mm'}}</md-option>
+              <i class="icon-horario icon-inside"></i>
+              <md-select class="" ng-model="tour.schedule" ng-required name="schedule">
+                <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
               </md-select>
-            </div>
           </div>
 
           <div ng-if="tour.haveTranslate" class="input-field-wrap">
-              <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
-                <i class='icon-transporte'></i> Agregar transportación
-              </md-checkbox>
-            <md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
+            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+              <i class='icon-transporte'></i> Agregar transportación
+            </md-checkbox>
+            <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+              <span><i class='icon-pin'></i>Hotel</span>
+              <span flex></span>
+              <span><md-autocomplete
+                class="custom-autocomplete"
+                md-no-cache="false"
+                md-selected-item="tour.hotel"
+                md-search-text="tour.searchText"
+                md-items="item in hotels|filter:{name : tour.searchText}:false"
+                md-item-text="item.name"
+                md-min-length="0"
+                placeholder="">
+                <md-item-template>
+                  <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                  No se encontraron resultados para: "{{tour.searchText}}".
+                </md-not-found>
+              </md-autocomplete></span>
+            </div>
+            <!--<md-select ng-hide="!tour.transfer" placeholder="Hotel" class="select-posicion" ng-model="tour.hotel">
               <md-option ng-repeat="hotel in hotels" class="ng-cloak" >
                 <i class="icon-hotel icono-option"></i> {{hotel.name}}
               </md-option>
-            </md-select>
+            </md-select>-->
           </div>
 
           <div class="clear"></div>
@@ -180,16 +200,20 @@
 
   <!--SIMILAR TOURS-->
   <div class="similar-tours" id="similares" flex="25" flex-md="100" flex-sm="100" >
-    <h2>Tours similares</h2>
-    <div class="s-tour cont-similares" layout="column" layout-align="center center" ng-repeat="tour_i in similar_tours">
+    <h2>Tours similares <br> <span class='icon-flecha'></span></h2>
+    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours">
       <!--<a ng-href="/detalle/{{tour_i.id}}" class="absolute-link"></a>-->
-      <div
-        ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
+      <span ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
         class="s-tour-img">
+      </span>
+      <a href="/detalle/{{tour_i.id}}" class='gradient'></a>
+      <div class="s-tour-data" flex>
+        <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
+        <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
+        <!--<p>{{tour_i.location.name}}</p>-->
+        <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
+        <p><a class='btn-white-o' href="/detalle/{{tour_i.id}}">Reservar</a></p>
       </div>
-      <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
-      <p>{{tour_i.location.name}}</p>
-      <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
     </div>
   </div>
   <!--END SIMILAR TOURS-->

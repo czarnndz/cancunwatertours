@@ -1,8 +1,10 @@
 app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
     $scope.city = '';
-    $scope.client = {
+    $scope.client = window.client || {};
+    $scope.client.isMobile = false;
+    /*$scope.client = {
         isMobile : false
-    };
+    };*/
     $scope.minDate = new Date();
     $scope.hotels = hotels;
     $scope.isDisabled = true;

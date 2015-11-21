@@ -22,7 +22,7 @@ module.exports = {
                         location: tour.location.id
                     }
                 }
-                Tour.find(qparams).limit(3).sort('fee desc').populate('location').exec(function(e,similar_tours){
+                Tour.find(qparams).limit(3).sort('fee desc').populate('location').populate('categories').exec(function(e,similar_tours){
                     TourTourcategory.find({ tour_categories : tour.id }).exec(function(err,rate_values){
                         //console.log(e);
                         res.view({
