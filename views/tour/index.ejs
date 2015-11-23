@@ -164,29 +164,62 @@
     <div layout="row" layout-md="column" layout-sm="column">
       <!--TOUR DESCRIPTION-->
       <div class="tour-description" flex="70" flex-md="100" flex-sm="100">
-        <div class='row-categories' ng-if="getSubcategories(tour.categories,'rate').length>0">
-          <h4>Rangos</h4>
-          <div layout="row" >
-            <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'rate')">
-              <p>
-                <i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
-                <strong>{{ ::item.name | uppercase }}</strong>:
-                <strong>{{ getRateValue(item) }}</strong>
-              </p>
+        <perfect-scrollbar class="tour-description-scroller" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="10">
+          <div class="tour-description-inner">
+            <div class='row-categories' ng-if="getSubcategories(tour.categories,'rate').length>0">
+              <h4>Rangos</h4>
+              <div layout="row" >
+                <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'rate')">
+                  <p>
+                    <i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                    <strong>{{ ::item.name | uppercase }}</strong>:
+                    <strong>{{ getRateValue(item) }}</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class='row-categories' ng-if="getSubcategories(tour.categories,'sub').length>0">
+              <h4>Categorias del Tour</h4>
+              <div layout="row" >
+                <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'sub')">
+                  <p><i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                  <strong>{{::item.name}}</strong></p>
+                </div>
+              </div>
+            </div>
+            <h3>Descripción</h3>
+            <p ng-repeat="description in tour.description track by $index">{{description}} </p>
+            <div class="tour-includes">
+              <div class="tour-include-block">
+                <h4>
+                  <span class="tour-include-icon">&#10003;</span> Incluye
+                </h4>
+                <ul>
+                  <li ng-repeat="include in tour.includesList">{{include}}</li>
+                </ul>
+              </div>
+              <div ng-if="tour.notIncludesList.length > 0" class="tour-include-block">
+                <h4>
+                  <span class="tour-include-icon">&#x2715;</span> No incluye
+                </h4>
+                <ul>
+                  <li ng-repeat="include in tour.notIncludesList">{{include}}</li>
+                </ul>
+              </div>
+              <div ng-if="tour.recommendations_es" class="tour-include-block">
+                <h4>
+                  <span class="tour-include-icon"><i class="icon-populares"></i></span> Recomendaciones
+                </h4>
+                <p>{{::tour.recommendations_es}}</p>
+              </div>
+              <!--<div class="tour-include-block">
+                <h4>
+                  <span class="tour-include-icon"><i class="icon-transporte"></i></span> Transportación no incluida
+                </h4>
+              </div>-->
             </div>
           </div>
-        </div>
-        <div class='row-categories' ng-if="getSubcategories(tour.categories,'sub').length>0">
-          <h4>Categorias del Tour</h4>
-          <div layout="row" >
-            <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'sub')">
-              <p><i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
-              <strong>{{::item.name}}</strong></p>
-            </div>
-          </div>
-        </div>
-        <h3>Descripción</h3>
-        <p ng-repeat="description in tour.description track by $index">{{description}} </p>
+        </perfect-scrollbar>
       </div>
       <!--END TOUR DESCRIPTION-->
 

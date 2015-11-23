@@ -38,6 +38,11 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       ];
 
       $scope.tourDuration = $scope.setDuration($scope.tour.days);
+      $scope.tour.includesList = $scope.formatList($scope.tour.includes_es);
+      $scope.tour.notIncludesList = $scope.formatList($scope.tour.does_not_include_es);
+
+      console.log($scope.tour.notIncludesList);
+
 
       var aux_schedules = [];
       $scope.tour.schedules.forEach(function(el) {
@@ -49,10 +54,19 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
 
     };
 
+    $scope.formatList = function(inlineList){
+      var list = inlineList.split(',');
+      for(var i=0;i<list.length;i++){
+        if(list[i] === ''){
+          list.splice(i, 1);
+        }
+      }
+      return list;
+    }
+
     $scope.setDuration = function(tourDays){
       var str = '';
       var counter = 0;
-      console.log(tourDays);
       for(var i=0;i<$scope.days.length;i++){
         if(tourDays[i]){
           if(str !== ''){
@@ -65,7 +79,6 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       if(str === '' || counter === tourDays.length){
         str = 'Todos los dias';
       }
-      console.log(str);
       return str;
     };
 

@@ -576,6 +576,7 @@ figcaption:hover .action-btn-white{
 .tour-description .row-categories .row-category{
   margin: 0 15px;
 }
+
 .tour-description .row-categories .row-category:first-child{margin-left: 0;}
 .tour-description .row-categories i{
   font-size: 18px;
@@ -591,9 +592,17 @@ figcaption:hover .action-btn-white{
   margin-bottom: 10px;
 }
 .tour-description{
-  padding: 20px 30px;
   text-align: justify;
   min-height: 300px;
+}
+.tour-description-scroller{
+  height: 460px;
+  /*padding: 20px;*/
+  overflow-y: hidden;
+  position: relative;
+}
+.tour-description-inner{
+  padding: 20px 25px 20px 20px;
 }
 .tour-description h3{
   color: #27C8CF;
@@ -605,6 +614,24 @@ figcaption:hover .action-btn-white{
   color: #7A7A7A;
   font-size: 13px;
 }
+
+.tour-includes{
+  border: 1px solid #D4D4D4;
+  padding: 6px 10px;
+}
+.tour-include-block{color: #7A7A7A;}
+.tour-include-block:last-child{border-bottom: 0;}
+.tour-include-block{
+  border-bottom: 1px solid #D4D4D4;
+}
+.tour-include-block h4{
+  color: #00AEEF;
+  font-size: 12px;
+  margin: 4px 0;
+  text-transform: uppercase;
+}
+.tour-include-block ul{padding-left: 18px;}
+.tour-include-block li{font-size: 12px;}
 
 .tour-map-wrap{
   position: relative;
@@ -770,7 +797,10 @@ figcaption:hover .action-btn-white{
 /*--------/
   #BOOKING-PARTIAL
 /*-------*/
-.booking-partial-wrap{position: relative;}
+.booking-partial-wrap{
+  background: #00C1C8;
+  position: relative;
+}
 .booking-partial-absolute{
   height: 100%;
   /*Erick cambios*/
