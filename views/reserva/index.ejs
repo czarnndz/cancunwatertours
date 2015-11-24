@@ -49,7 +49,7 @@
                                   <label flex="20">
                                     <i class="icon-calendario highlight"></i> Fecha:
                                   </label>
-                                  <div flex="75">
+                                  <div flex="80">
                                     <md-datepicker flex="75" ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
                                   </div>
                               </div>
@@ -65,7 +65,7 @@
                                   <label flex="20">
                                     <i class="icon-adultos highlight"></i> Adultos:
                                   </label>
-                                  <div flex="75">
+                                  <div flex="80">
                                     <input type="number" min-value="1" max-value="8" ng-model="tour.adults">
                                   </div>
                               </div>
@@ -73,7 +73,7 @@
                                   <label flex="20">
                                     <i class="icon-nino highlight"></i> Niños:
                                   </label>
-                                  <div flex="75">
+                                  <div flex="80">
                                     <input type="number" min-value="0" max-value="8" ng-model="tour.kids">
                                   </div>
                               </div>
@@ -81,7 +81,7 @@
                                   <label flex="20">
                                     <i class="icon-horario highlight"></i> Horario:
                                   </label>
-                                  <div flex="75">
+                                  <div flex="80">
                                     <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
                                         <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
                                     </md-select>
@@ -116,7 +116,7 @@
                         <p class='blueText'>
                           <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
                             <i class='icon-transporte'></i> Agregar transportación
-                          </md-checkbox> 
+                          </md-checkbox>
                         </p>
                         <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
                           <span><i class='icon-pin'></i>Hotel</span>
@@ -361,20 +361,22 @@
           <!--RIGHT SIDE-->
           <div class="booking-info" flex="25" flex-md="100" flex-sm="100">
             <h2>Tu reservación</h2>
-            <div class="booking-info-inner" ng-repeat="tour in tours track by $index">
-              <section class="booking-info-block">
-                <h3>{{tour.name}}</h3>
-                <p><a class="see-details" ng-href="/detalle/{{tour.id}}" target="_blank">ver detalles</a></p>
-                <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
-              </section>
-              <section class="booking-info-block">
-                <p  ng-if="tour.hotel"><strong>TRANSPORTACIÓN</strong></p>
-                <p class="precio-detalles" ng-if="tour.hotel">MXN {{priceTransfer(tour) | currency}}</p>
-              </section>
-              <section class="booking-info-block">
-                <p><strong>IMPUESTOS</strong></p>
-                <p class="precio-detalles">MXN {{priceTax(tour) | currency}}</p>
-              </section>
+            <div class="booking-info-inner">
+              <div class="booking-info-item" ng-repeat="tour in tours track by $index">
+                <section class="booking-info-block">
+                  <h3>{{tour.name}}</h3>
+                  <p><a class="see-details" ng-href="/detalle/{{tour.id}}" target="_blank">ver detalles</a></p>
+                  <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
+                </section>
+                <section ng-if="tour.hotel" class="booking-info-block">
+                  <p><strong>TRANSPORTACIÓN</strong></p>
+                  <p class="precio-detalles">MXN {{priceTransfer(tour) | currency}}</p>
+                </section>
+                <section class="booking-info-block">
+                  <p><strong>IMPUESTOS</strong></p>
+                  <p class="precio-detalles">MXN {{priceTax(tour) | currency}}</p>
+                </section>
+              </div>
             </div>
             <div class="booking-info-inner">
               <section class="booking-info-block">

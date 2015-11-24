@@ -32,6 +32,19 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 *:focus, *:hover{outline: 0px}
 #main-content{background: #F5F5F5;}
 
+
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked,
+md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
+    background-color: #00AFE2;
+}
+.md-switch-thumb .md-off, md-radio-button .md-off{
+  border-color: #00AFE2;
+}
+.md-switch-thumb.md-checked .md-on, md-radio-button.md-checked .md-on    {
+  background-color: #00AFE2;
+}
+
+
 .transitions{
   -webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
@@ -91,10 +104,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 /*------------/
   #ACTION-BTN
 /*-----------*/
-.action-btn{
+.action-btn {
   background: rgba(0, 0, 0, 0) linear-gradient(to right, #1eb0eb, #35cdd4) repeat scroll 0 0;
   border: 0 none;
-  border-radius: 20px;
+  border-radius: 8px;
   color: #fff;
   display: inline-block;
   font-size: 14px;
@@ -131,20 +144,32 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .header .search-box{
   max-width: 220px;
   margin-left: 40px;
+  position: relative;
+}
+.header .search-box .icon-buscador{
+  color: #64CBE4;
+  position: absolute;
+  left: 8px;
+  top: 54%;
+  z-index: 9;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .header md-autocomplete{
   background: none;
-  height: 34px;
+  height: 29px;
 }
 .header md-autocomplete input:not(.md-input){
-  line-height: 34px;
-  height: 34px;
+  line-height: 29px;
+  height: 29px;
+  padding-left: 32px;
 }
 .header md-autocomplete-wrap{
   box-shadow: none;
   background: #F2F2F2;
   border-radius: 46px;
-  height: 34px;
+  height: 29px;
 }
 /*
 .header md-autocomplete input{
@@ -164,7 +189,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .header .action-btn{color: #fff!important;}
 .header .account-menu{padding-top: 18px;}
 .header .account-menu a{
-  color: #727272;
+  color: #B1B1B1;
 }
 .header .account-menu .login-icon-wrap{
   margin:0;
@@ -354,14 +379,15 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   color: white;
   display: block;
   text-align: center;
-  padding: 6px;
   color: #fff;
   vertical-align: middle;
   position: relative;
+  padding: 12px 6px;
   webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
 .main-sidebar-item i{font-size: 34px;}
+.main-sidebar-item i.icon-sailing + p{margin-top: -9px;}
 .main-sidebar-item.selected,
 .main-sidebar-item:hover{color: #fff;}
 .main-sidebar-item.selected i,
@@ -370,6 +396,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 .main-sidebar-item:hover p{color: #20B2E9;transition: .4s linear all}
 .main-sidebar-item p{
   font-size: 10px;
+  margin: 0;
   text-align: center;
   font-weight: 700;
 }
@@ -617,7 +644,7 @@ figcaption:hover .action-btn-white{
 
 .tour-includes{
   border: 1px solid #D4D4D4;
-  padding: 6px 10px;
+  padding: 10px 20px;
 }
 .tour-include-block{color: #7A7A7A;}
 .tour-include-block:last-child{border-bottom: 0;}
@@ -627,10 +654,14 @@ figcaption:hover .action-btn-white{
 .tour-include-block h4{
   color: #00AEEF;
   font-size: 12px;
-  margin: 4px 0;
+  margin: 6px 0;
   text-transform: uppercase;
 }
-.tour-include-block ul{padding-left: 18px;}
+.tour-include-block p{margin: 0}
+.tour-include-block ul{
+  padding-left: 18px;
+  margin-top: 5px;
+}
 .tour-include-block li{font-size: 12px;}
 
 .tour-map-wrap{
@@ -815,13 +846,13 @@ figcaption:hover .action-btn-white{
 .booking-partial md-checkbox:not([disabled]).md-primary .md-icon{border-color: white;}
 .booking-partial{
   background: #00C1C8;
-  padding: 20px 25px;
+  padding: 20px 26px;
   color: white;
 }
 .booking-partial h3{
   color: #fff;
-  font-size: 22px;
-  margin: 10px 0;
+  font-size: 30px;
+  margin: 0px 0 10px;
   text-align: center;
   font-weight: 300;
 }
@@ -913,7 +944,7 @@ figcaption:hover .action-btn-white{
     margin-top: 10px;
 }
 .booking-partial  .precios-detalle p{margin: 4px 0;}
-.booking-partial  .prices-value{font-size: 14px;}
+.booking-partial  .prices-value{font-size: 16px;}
 .booking-partial  .prices-value-total{
     font-size: 36px;
     font-weight: 300;
@@ -1478,9 +1509,10 @@ figcaption:hover .action-btn-white{
 
 .booking .terms-text{
   font-size: 12px;
-  text-align: right;
+  text-align: center;
   margin: 0;
 }
+.booking .terms-text a{color: #00AFE2}
 .booking .terms-text md-checkbox{
   display: inline-block;
 }
@@ -1535,7 +1567,7 @@ figcaption:hover .action-btn-white{
 }
 
 .booking .payment-btn{
-  padding: 12px 18px;
+  padding: 6px 14px;
   font-weight: 700;
   font-size: 18px;
   border: 0px;
@@ -1587,7 +1619,7 @@ figcaption:hover .action-btn-white{
 }
 .booking-form .input-field-wrap-inner{width: 100%;}
 .booking-form label{
-  color: #898989;
+  color: #B1B1B1;
   font-size: 13px;
   font-weight: 700;
 }
@@ -1659,7 +1691,7 @@ figcaption:hover .action-btn-white{
   background: #19A4EF;
 }
 .booking-info-inner{
-  padding: 15px 25px;
+  padding: 10px 25px;
 }
 .booking-info-inner:nth-child(2){
   border-top: 1px solid #fff;
@@ -1675,7 +1707,14 @@ figcaption:hover .action-btn-white{
   font-size: 18px;
   margin: 0;
 }
-.booking-info-block{margin: 16px 0;}
+.booking-info-item{
+  border-top: 1px solid rgba(255,255,255,0.4);
+  margin: 16px 0;
+  padding-top: 8px;
+}
+.booking-info-item:first-child{
+  border-top: 0;
+}
 .booking-info p{
   font-size: 12px;
   margin: 0;
@@ -1684,7 +1723,7 @@ figcaption:hover .action-btn-white{
 .booking-info .see-details{font-size: 13px;}
 .booking-info .precio-detalles{font-size: 16px;}
 .booking-info .text-total-d{font-size: 16px;}
-.booking-info .precio-total-d{font-size: 19px;}
+.booking-info .precio-total-d{font-size: 24px;}
 
 /*-------------/
   #About us
@@ -1792,6 +1831,12 @@ figcaption:hover .action-btn-white{
 .footer .logo-footer{
   padding: 10px 0;
   text-align: center;
+}
+
+@media (max-width: 1600px){
+  .tour-description-inner{
+    padding: 20px 80px;
+  }
 }
 
 @media (max-width: 1100px){

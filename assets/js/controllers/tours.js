@@ -5,6 +5,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
       $scope.tour = tour;
+      console.log(tour);
       $scope.tour.schedules = tour.schedules || [];
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
@@ -55,13 +56,17 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
     };
 
     $scope.formatList = function(inlineList){
-      var list = inlineList.split(',');
-      for(var i=0;i<list.length;i++){
-        if(list[i] === ''){
-          list.splice(i, 1);
+      if(inlineList){
+        var list = inlineList.split(',');
+        for(var i=0;i<list.length;i++){
+          if(list[i] === ''){
+            list.splice(i, 1);
+          }
         }
+        return list;
       }
-      return list;
+      return [];
+
     }
 
     $scope.setDuration = function(tourDays){
@@ -87,9 +92,11 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
     });
 
     $scope.setUpGallery = function(){
-      $scope.galleryPhotos = $scope.tour.files.map(function(file){
-        return $scope.imgs_url + '/uploads/tours/gallery/593x331' +  file.filename;
-      });
+      if($scope.tour.files){
+        $scope.galleryPhotos = $scope.tour.files.map(function(file){
+          return $scope.imgs_url + '/uploads/tours/gallery/593x331' +  file.filename;
+        });
+      }
     };
 
     $scope.getPrice = function(){

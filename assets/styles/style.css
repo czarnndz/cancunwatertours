@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?l20rtw');
-	src:url('fonts/icomoon.eot?l20rtw#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?l20rtw') format('truetype'),
-		url('fonts/icomoon.woff?l20rtw') format('woff'),
-		url('fonts/icomoon.svg?l20rtw#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?rmzh62');
+	src:url('fonts/icomoon.eot?rmzh62#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?rmzh62') format('truetype'),
+		url('fonts/icomoon.woff?rmzh62') format('woff'),
+		url('fonts/icomoon.svg?rmzh62#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,9 +23,6 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-todos:before {
-	content: "\e936";
-}
 .icon-accesible:before {
 	content: "\e900";
 }
@@ -173,19 +170,22 @@
 .icon-theme-parks:before {
 	content: "\e930";
 }
-.icon-transporte:before {
+.icon-todos:before {
 	content: "\e931";
 }
-.icon-trending:before {
+.icon-transporte:before {
 	content: "\e932";
 }
-.icon-twit:before {
+.icon-trending:before {
 	content: "\e933";
 }
-.icon-viajes:before {
+.icon-twit:before {
 	content: "\e934";
 }
-.icon-water-sports:before {
+.icon-viajes:before {
 	content: "\e935";
+}
+.icon-water-sports:before {
+	content: "\e936";
 }
 
