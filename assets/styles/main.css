@@ -28,7 +28,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   z-index: 1;
 }
 *:focus, *:hover{outline: 0px}
-#main-content{background: #F5F5F5;}
+#main-content{background: #F5F5F5;overflow: hidden;}
 
 .transitions{
   -webkit-transition: all .3s linear;
@@ -519,6 +519,9 @@ figcaption:hover .action-btn-white{
 .landing-slider-footer:hover .action-btn-white{
   border-color: #1EB0EB;
   color: #1EB0EB;
+}
+.slider-container{
+  height: 100%;
 }
 /*-------/
   #TOUR-INDIVIDUAL
@@ -1477,7 +1480,7 @@ figcaption:hover .action-btn-white{
 /*------------*/
 #footer{
   background: #272727;
-  padding: 30px;
+  padding: 30px 10px;
   box-sizing: border-box;
 }
 .footer .redes-footer{
@@ -1509,9 +1512,10 @@ figcaption:hover .action-btn-white{
   color: white;
   font-size: 11px;
 }
-.footer a:hover{color: #1fc1c7}
+.footer a:hover{color: #1eb0eb}
 .footer .content-col{
   padding: 0 24px;
+  text-align: center; /* temp */
 }
 .footer .content-col + .content-col{
   border-left: 2px solid #1EB0EB;
@@ -1553,11 +1557,23 @@ figcaption:hover .action-btn-white{
   /*--------*/
   .filters-section-sliders .filter-option{padding: 0;}
 
+  /*--------
+    #FOOTER
+  /*--------*/
+  #footer{height: auto !important;}
+  .footer .content-col{
+    margin: 10px 0;
+  }
+  .footer .content-col:nth-of-type(5){border: none;}
+  .footer p,.footer a{
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 600px){
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
+  .slider-container{height: 400px;}
 
   /*---------/
     #BOOKING
@@ -1588,9 +1604,13 @@ figcaption:hover .action-btn-white{
     #FOOTER
   /*-------*/
   #footer .content-col{
-    padding: 20px;
     text-align: center;
   }
-  #footer .last-col{border: 0!important;}
+  #footer .last-col{
+    border: 0!important;
+  }
+  .tile-container{
+    height: auto !important;
+  }
 
 }
