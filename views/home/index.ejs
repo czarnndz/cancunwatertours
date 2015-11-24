@@ -3,12 +3,12 @@
   <%- partial('../partials/add-transport') -%>
   <div class="tile-container" layout="row" layout-wrap full-screen-wrapper ng-style="newWidth()">
 
-    <div class="slider-container" flex="50">
+    <div class="slider-container" flex-gt-sm="50" flex="100">
 
       <slick class="landing-slider"
-              speed="3000"
+              speed="500"
               pauseOnHover="true"
-              autoplaySpeed="1000"
+              autoplaySpeed="5000"
               autoplay="true"
               fade="true"
               dots="true"
@@ -32,20 +32,24 @@
       </slick>
     </div>
 
-    <div flex="50" class="perfecscrollbar">
+    <div flex-gt-sm="50" flex="100" class="perfecscrollbar">
       <md-grid-list
       md-cols-gt-md="4"
       md-cols-md="2"
       md-cols-sm="1"
-      md-row-height-gt-md="fit"
-      md-row-height="4:3"
+      md-row-height="fit"
+      md-row-height-sm="400px"
       md-gutter="0px"
       full-screen-wrapper
       >
         <md-grid-tile
         ng-repeat="tour in toursrand2"
-        md-colspan-gt-sm="{{tour.colspan}}"
-        md-rowspan-gt-sm="{{tour.rowspan}}"
+        md-colspan-gt-md="{{tour.collgspan}}"
+        md-rowspan-gt-md="{{tour.rowlgspan}}"
+        md-colspan-md="{{tour.colmdspan}}"
+        md-rowspan-md="{{tour.rowmdspan}}"
+        md-colspan-sm="1"
+        md-rowspan-sm="1"
         class="landing-tour"
         layout-align-gt-sm="center center"
         >
@@ -68,15 +72,19 @@
       md-cols-gt-md="4"
       md-cols-md="2"
       md-cols-sm="1"
-      md-row-height-gt-md="4:4"
-      md-row-height="4:3"
+      md-row-height="fit"
+      md-row-height-sm="400px"
       md-gutter="0px"
       full-screen-wrapper
       >
         <md-grid-tile
         ng-repeat="tour in toursrand3"
-        md-colspan-gt-sm="{{tour.colspan}}"
-        md-rowspan-gt-sm="{{tour.rowspan}}"
+        md-colspan-gt-md="{{tour.collgspan}}"
+        md-rowspan-gt-md="{{tour.rowlgspan}}"
+        md-colspan-md="{{tour.colmdspan}}"
+        md-rowspan-md="{{tour.rowmdspan}}"
+        md-colspan-sm="1"
+        md-rowspan-sm="1"
         class="landing-tour"
         layout-align-gt-sm="center center"
         >

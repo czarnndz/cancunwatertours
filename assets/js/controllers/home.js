@@ -4,13 +4,13 @@ app.controller('Home', function($scope,$http, toursService) {
     $scope.hotels = [];
     $scope.agregarVisibility = false;
     $scope.lengthsArray = [
-        { col : 4 ,row : 2 },
-        { col : 2 ,row : 1 },
-        { col : 2 ,row : 2 },
-        { col : 2 ,row : 1 },
-        { col : 4 ,row : 2 },
-        { col : 2 ,row : 1 },
-        { col : 2 ,row : 1 },
+        { collg : 4, rowlg : 2 ,colmd : 2 ,rowmd : 1},
+        { collg : 2, rowlg : 1 ,colmd : 1 ,rowmd : 1},
+        { collg : 2, rowlg : 2 ,colmd : 1 ,rowmd : 1},
+        { collg : 2, rowlg : 1 ,colmd : 2 ,rowmd : 1},
+        { collg : 4, rowlg : 2 ,colmd : 2 ,rowmd : 1},
+        { collg : 2, rowlg : 1 ,colmd : 1 ,rowmd : 1},
+        { collg : 2, rowlg : 2 ,colmd : 1 ,rowmd : 1}
     ];
     $scope.randArray = [];
 
@@ -40,8 +40,10 @@ app.controller('Home', function($scope,$http, toursService) {
                     name: tours[i].name,
                     icon : tours[i].avatar3,
                     fee : tours[i].fee,
-                    colspan: $scope.lengthsArray[i].col,
-                    rowspan: $scope.lengthsArray[i].row
+                    collgspan: $scope.lengthsArray[i].collg,
+                    rowlgspan: $scope.lengthsArray[i].rowlg,
+                    colmdspan: $scope.lengthsArray[i].colmd,
+                    rowmdspan: $scope.lengthsArray[i].rowmd
                 });
             }
             return aux_tours;
@@ -62,8 +64,10 @@ app.controller('Home', function($scope,$http, toursService) {
                   name: tours[rand].name,
                   icon : tours[rand].avatar3,
                   fee : tours[rand].fee,
-                  colspan: $scope.lengthsArray[i].col,
-                  rowspan: $scope.lengthsArray[i].row
+                  collgspan: $scope.lengthsArray[i].collg,
+                  rowlgspan: $scope.lengthsArray[i].rowlg,
+                  colmdspan: $scope.lengthsArray[i].colmd,
+                  rowmdspan: $scope.lengthsArray[i].rowmd
               });
             }
             return aux_tours;
