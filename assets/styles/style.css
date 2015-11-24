@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?co04fi');
-	src:url('fonts/icomoon.eot?co04fi#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?co04fi') format('truetype'),
-		url('fonts/icomoon.woff?co04fi') format('woff'),
-		url('fonts/icomoon.svg?co04fi#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?l20rtw');
+	src:url('fonts/icomoon.eot?l20rtw#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?l20rtw') format('truetype'),
+		url('fonts/icomoon.woff?l20rtw') format('woff'),
+		url('fonts/icomoon.svg?l20rtw#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-todos:before {
+	content: "\e936";
+}
 .icon-accesible:before {
 	content: "\e900";
 }
@@ -104,82 +107,85 @@
 .icon-instagram:before {
 	content: "\e91a";
 }
-.icon-mail:before {
+.icon-login:before {
 	content: "\e91b";
 }
-.icon-mascompradas:before {
+.icon-mail:before {
 	content: "\e91c";
 }
-.icon-mojado:before {
+.icon-mascompradas:before {
 	content: "\e91d";
 }
-.icon-naturaleza:before {
+.icon-mojado:before {
 	content: "\e91e";
 }
-.icon-new:before {
+.icon-naturaleza:before {
 	content: "\e91f";
 }
-.icon-nino:before {
+.icon-new:before {
 	content: "\e920";
 }
-.icon-ninos:before {
+.icon-nino:before {
 	content: "\e921";
 }
-.icon-nocturno:before {
+.icon-ninos:before {
 	content: "\e922";
 }
-.icon-nombre:before {
+.icon-nocturno:before {
 	content: "\e923";
 }
-.icon-nuevo:before {
+.icon-nombre:before {
 	content: "\e924";
 }
-.icon-oferta:before {
+.icon-nuevo:before {
 	content: "\e925";
 }
-.icon-parejas:before {
+.icon-oferta:before {
 	content: "\e926";
 }
-.icon-pin:before {
+.icon-parejas:before {
 	content: "\e927";
 }
-.icon-populares:before {
+.icon-pin:before {
 	content: "\e928";
 }
-.icon-populares2:before {
+.icon-populares:before {
 	content: "\e929";
 }
-.icon-precio:before {
+.icon-populares2:before {
 	content: "\e92a";
 }
-.icon-precio2:before {
+.icon-precio:before {
 	content: "\e92b";
 }
-.icon-sailing:before {
+.icon-precio2:before {
 	content: "\e92c";
 }
-.icon-snorkeling:before {
+.icon-sailing:before {
 	content: "\e92d";
 }
-.icon-tel:before {
+.icon-snorkeling:before {
 	content: "\e92e";
 }
-.icon-theme-parks:before {
+.icon-tel:before {
 	content: "\e92f";
 }
-.icon-transporte:before {
+.icon-theme-parks:before {
 	content: "\e930";
 }
-.icon-trending:before {
+.icon-transporte:before {
 	content: "\e931";
 }
-.icon-twit:before {
+.icon-trending:before {
 	content: "\e932";
 }
-.icon-viajes:before {
+.icon-twit:before {
 	content: "\e933";
 }
-.icon-water-sports:before {
+.icon-viajes:before {
 	content: "\e934";
+}
+.icon-water-sports:before {
+	content: "\e935";
 }
 

@@ -64,6 +64,34 @@ module.exports.routes = {
     controller: 'home',
     action: 'tour_categories'
   },
+  '/quienessomos' : {
+    controller : 'home'
+    ,action : 'quienessomos'
+  },
+  '/preguntasfrecuentes' : {
+    controller : 'home'
+    ,action : 'preguntasfrecuentes'
+  },
+  '/login':{
+    controller: 'auth',
+    action: 'process'
+  },
+  '/logout':{
+    controller: 'auth',
+    action: 'logout'
+  },
+  '/login_fb':{
+    controller: 'auth',
+    action: 'process_fb'
+  },
+  '/fb_callback':{
+    controller: 'auth',
+    action: 'fb_callback'
+  },
+  '/register':{
+    controller: 'client',
+    action: 'create'
+  }
 
 
   /***************************************************************************

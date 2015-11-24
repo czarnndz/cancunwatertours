@@ -14,6 +14,7 @@
       serv.getCategories = getCategories;
       serv.getTours = getTours;
       serv.getFeeRange = getFeeRange;
+      serv.getCategoryIcon = getCategoryIcon;
       serv.tours = [];
       serv.categories = [];
 
@@ -101,6 +102,24 @@
 
       }
 
+      var iconsObj = [
+          { name : 'Sitios arqueológicos',  icon :'archaeological-sites' },
+          { name : 'Paseos en barco',       icon :'viajes' },
+          { name : 'Buceo',                 icon :'diving' },
+          { name : 'Snorkel',               icon :'snorkeling' },
+          { name : 'Pesca',                 icon :'fishing' },
+          { name : 'Aventura',              icon :'adventure' },
+          { name : 'Parques temáticos',     icon :'theme-parks' },
+          { name : 'Cenotes',               icon :'cenote' },
+          { name : 'Deportes acuáticos',    icon :'water-sports' }
+        ];
+      function getCategoryIcon(category){
+        var icon = '';
+        for(var x in iconsObj)
+          if( iconsObj[x].name == category.name )
+            icon = iconsObj[x].icon;
+        return icon;
+      }
   });
 
 })();

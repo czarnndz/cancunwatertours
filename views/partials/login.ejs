@@ -1,18 +1,18 @@
 <div class="form-modal" ng-show="loginToggle" layout="row" layout-align="center center" layout-wrap>
-  <h3>Login</h3>
-  <form method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" flex="80" type="text" placeholder="Username" class="input-re">
-      <input type="password" flex="80" type="text" placeholder="Password" class="input-re">
-      <input type="button" value="SING UP" class="action-btn" flex="80">
+  <h3>Iniciar sesión</h3>
+  <form action="/login" method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
+      <input name="username" type="text" flex="80" type="text" placeholder="Usuario">
+      <input name="password" type="password" flex="80" type="text" placeholder="Contraseña">
+      <input type="submit" value="INICIAR SESIÓN" class="action-btn" flex="80">
   </form>
-  <p>OR SING IN WITH</p>
-  <a href="" class="action-btn fb-btn" flex="80">
+  <p>O INICIA SESIÓN CON:</p>
+  <a href="/login_fb" class="action-btn fb-btn" flex="80">
     <strong >FACEBOOK</strong>
   </a>
   <div flex="80">
     <div class="bottom-btns" layout="row" layout-align="space-between center">
-      <a href=""><strong>I forgot password</strong></a>
-      <a href=""><strong>Create new account</strong></a>
+      <a href=""><strong>Olvidé mi contraseña</strong></a>
+      <a href=""><strong>Crear una cuenta</strong></a>
     </div>
   </div>
 </div>

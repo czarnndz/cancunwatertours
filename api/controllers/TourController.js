@@ -7,14 +7,13 @@
 
 module.exports = {
 	index : function(req,res){
-        var params = req.params.all();
+    var params = req.params.all();
 		if (params.id) {
             Tour.findOne({ id : params.id }).populateAll().exec(function(e,tour){
                 if (e) {
                     console.log(e);
                     res.notFound();
                 }
-                console.log(tour.location);
                 var qparams = {
                     id : { '!' : params.id}
                 }
@@ -23,21 +22,24 @@ module.exports = {
                         location: tour.location.id
                     }
                 }
-                Tour.find(qparams).limit(3).sort('fee desc').populate('location').exec(function(e,similar_tours){
-                    //console.log(e);
-                    res.view({
-                        tour : Common.formatTour(tour,'es'),
-                        similar_tours : Common.formatTours(similar_tours,'es'),
-                        imgs_url : process.env.BACKEND_URL,
-                        meta : {
-                            controller : 'tours.js',
-                            removeFlexLayout : true
-                        },
-                        page : {
-                            searchUrl : '/detalle/',
-                            placeholder : 'Busca Tours',
-                            menuselected : 'tour'
-                        }
+                Tour.find(qparams).limit(3).sort('fee desc').populate('location').populate('categories').exec(function(e,similar_tours){
+                    TourTourcategory.find({ tour_categories : tour.id }).exec(function(err,rate_values){
+                        //console.log(e);
+                        res.view({
+                            tour : Common.formatTour(tour,'es'),
+                            rate_values : rate_values,
+                            similar_tours : Common.formatTours(similar_tours,'es'),
+                            imgs_url : process.env.BACKEND_URL,
+                            meta : {
+                                controller : 'tours.js',
+                                removeFlexLayout : true
+                            },
+                            page : {
+                                searchUrl : '/detalle/',
+                                placeholder : 'Busca Tours',
+                                menuselected : 'tour'
+                            }
+                        });
                     });
                 });
             });

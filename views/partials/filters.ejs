@@ -1,0 +1,106 @@
+<div class="filters-section">
+  <div class='filters-section-row-colored'><md-radio-group ng-model="orderBy">
+    <span class="filters-section-large-label">Ordernar tours por: </span>
+    <!--<div class="filter-option">
+      <md-radio-button value="reserxºvations.length" class="md-primary"> <i class="icon-populares2"></i> POPULARES</md-radio-button>
+    </div>-->
+    <div class="filter-option">
+      <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
+    </div>
+    <div class="filter-option">
+      <md-radio-button value="fee" class="md-primary"> <i class="icon-precio2"></i> PRECIO</md-radio-button>
+    </div>
+    <!--
+    <div class="filter-option">
+      <md-radio-button value="reservations" class="md-primary"> <i class="icon-mascompradas"></i> MÁS COMPRADAS</md-radio-button>
+    </div>-->
+  </md-radio-group></div>
+
+  <div class="filters-section-row">
+    <div ng-repeat="item in subcategories track by item.id" class="filter-option" ng-hide="item.tours.length==0">
+      <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
+        <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
+      </md-checkbox>
+    </div>
+    <!--
+    if (meta.sec_categories[i].tours.length == 0) continue;
+    <div class="filter-option">
+      <md-checkbox ng-model="subcategory.cultural" class="md-primary">
+        <i class="icon-cultural"></i> Cultural
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="subcategory.familiar" class="md-primary">
+        <i class="icon-familiar2"></i> Familiar
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="subcategory.nocturno" class="md-primary">
+        <i class="icon-nocturno"></i> Nocturno
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="subcategory.bebe" class="md-primary">
+        <i class="icon-bebes"></i> Bebés
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="subcategory.parejas" class="md-primary">
+        <i class="icon-parejas"></i> Parejas
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="data.cb11" class="md-primary">
+        <i class="icon-grupos"></i> Grupos
+      </md-checkbox>
+    </div>
+    <div class="filter-option">
+      <md-checkbox ng-model="data.cb12" class="md-primary">
+        <i class="icon-embarazadas"></i> Embarazadas
+      </md-checkbox>
+    </div>-->
+  </div>
+
+  <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
+    <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+      <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
+      <md-slider class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
+      <div class="levels-text" layout="row" layout-align="space-between center">
+        <span>{{range.minFee | currency : '$' }}</span>
+        <span>{{range.maxFee | currency : '$' }}</span>
+      </div>
+    </div>
+    <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option">
+      <label><i class="icon-precio2"></i> {{item.name}}</label>
+      <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>
+      <div class="levels-text" layout="row" layout-align="space-between center" >
+        <span>{{ item.rating[0].label }}</span>
+        <span>{{ item.rating[item.rating.length-1].label }}</span>
+      </div>
+    </div>
+    <!--<div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+      <label><i class="icon-mojado"></i> NIVEL DE WETNESS</label>
+      <md-slider flex class="md-primary" md-discrete ng-model="rating2" step="1" min="1" max="5" aria-label="rating"></md-slider>
+      <div class="levels-text" layout="row" layout-align="space-between center">
+        <span>Seco</span>
+        <span>Mojado</span>
+      </div>
+    </div>
+    <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+      <label><i class="icon-naturaleza"></i> NATURALEZA</label>
+      <md-slider flex class="md-primary" md-discrete ng-model="rating3" step="1" min="1" max="5" aria-label="rating"></md-slider>
+      <div class="levels-text" layout="row" layout-align="space-between center">
+        <span>Poca</span>
+        <span>Extrema</span>
+      </div>
+    </div>
+    <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+      <label><i class="icon-actividad"></i> NIVEL DE ACTIVIDAD FISICA</label>
+      <md-slider flex class="md-primary" md-discrete ng-model="rating4" step="1" min="1" max="5" aria-label="rating"></md-slider>
+      <div class="levels-text" layout="row" layout-align="space-between center">
+        <span>Ninguna</span>
+        <span>Extrema</span>
+      </div>
+    </div>-->
+  </div>
+</div>

@@ -41,17 +41,31 @@
 
   <div class="menu-section account-menu" flex="35" flex-md="100" flex-sm="100"  flex-order-md="2">
     <div layout="row" layout-align="end center">
+
+      <% if(req.user){ %>
+        <span class="login-icon-wrap">
+          <a href="/cuenta"><i class="icon-login"></i></a>
+        </span>
+
+        <span class="account-item">
+          <a href="/cuenta">
+            <strong>
+              Mi cuenta / <%- req.user.name %>
+            </strong>
+          </a>
+        </span>
+      <% } %>
       <span>
-        <img src="/images/perfil.png" alt="Mi cuenta">
-      </span>
-      <span class="account-item">
-        <a href="/cuenta"><strong>Mi cuenta</strong></a>
-      </span>
-      <span>
-        <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+         <% if(req.user){ %>
+          <a href="/logout"><strong>Cerrar sesión</strong></a>
+        <% }else{ %>
+          <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+        <% } %>
       </span>
       <span><a href="#"><i class="icon-carrito"></i></a></span>
-      <span><a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a></span>
+      <% if(!req.user){ %>
+        <span><a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a></span>
+      <% } %>
     </div>
   </div>
 
@@ -75,8 +89,8 @@
 
     <div flex="30" class="account-menu" flex-order-md="2">
       <div layout="row" layout-align="end center">
-        <span>
-          <img src="/images/perfil.png" alt="Mi cuenta">
+        <span class="login-icon-wrap">
+          <a href="/cuenta"><i class="icon-login"></i></a>
         </span>
         <span><a href="#"><i class="icon-carrito"></i></a></span>
       </div>
@@ -92,12 +106,18 @@
     <span>
       <a href="/cuenta"><strong>Mi cuenta</strong></a>
     </span>
-    <span>
-      <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
-    </span>
-    <span>
-      <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a>
-    </span>
+    <% if(!req.user){ %>
+      <span>
+        <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+      </span>
+      <span>
+        <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a>
+      </span>
+    <% }else{ %>
+      <span>
+        <a href="/logout"><strong>Cerrar sesión</strong></a>
+      </span>
+    <% } %>
   </div>
 
 </div>
