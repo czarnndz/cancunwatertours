@@ -76,6 +76,10 @@ module.exports.routes = {
     controller : 'home'
     ,action : 'preguntasfrecuentes'
   },
+  '/aviso-de-privacidad' : {
+    controller : 'home'
+    ,action : 'avisodeprivacidad'
+  },
   '/login':{
     controller: 'auth',
     action: 'process'

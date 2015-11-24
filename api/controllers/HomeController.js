@@ -141,6 +141,23 @@ module.exports = {
       });
     });
   },
+
+  avisodeprivacidad : function(req,res){
+    TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
+      res.view({
+        meta : {
+          addMenu: true,
+          categories : categories,
+          controller : 'home.js'
+        },
+        page : {
+            searchUrl : '/resultados',
+            placeholder : 'Buscar'
+        }
+      });
+    });
+  },
+
 };
 
 var formatRateCategories = function(rc,callback){
