@@ -758,6 +758,7 @@ figcaption:hover .action-btn-white{
   min-height: 180px;
   overflow: hidden;
 }
+.s-tour .absolute-link{z-index: 999}
 .s-tour .gradient{
   content: '';
   height: 110%;

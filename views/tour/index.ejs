@@ -239,6 +239,7 @@
       <span ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
         class="s-tour-img">
       </span>
+      <a href="/detalle/{{tour_i.id}}" class='absolute-link'></a>
       <a href="/detalle/{{tour_i.id}}" class='gradient'></a>
       <div class="s-tour-data" flex>
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
