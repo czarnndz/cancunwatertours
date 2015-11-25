@@ -224,6 +224,11 @@
       <!--END TOUR DESCRIPTION-->
 
       <div class="tour-map-wrap map-wrapper" flex="30" flex-md="100" flex-sm="100">
+      <div class="hotel-search">
+        <div class="hotel-search-label">
+          <a><strong> Los lugares marcados representan el lugar de salida del tour.</strong></a>
+        </div>
+      </div>
         <leaflet center="center"  markers="markers" layers="layers"></leaflet>
       </div>
     </div>
@@ -245,7 +250,7 @@
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
-        <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
+        <p class="s-tour-price">${{tour_i.fee}} <span>MXN</span> </p>
         <p><a class='action-btn-white' href="/detalle/{{tour_i.id}}">Reservar</a></p>
       </div>
     </div>
