@@ -10,9 +10,10 @@ module.exports = {
     var params = req.params.all();
 		if (params.id) {
             Tour.findOne({ id : params.id }).populateAll().exec(function(e,tour){
-                if (e) {
+                //Fix temporal tour undefined
+                if (e || !tour) {
                     console.log(e);
-                    res.notFound();
+                    return res.notFound();
                 }
                 var qparams = {
                     id : { '!' : params.id}
