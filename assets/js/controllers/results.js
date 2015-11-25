@@ -1,4 +1,4 @@
-app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData){
+app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -102,14 +102,47 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
     var markers = [];
 
     var getIcon = function(text) {
+      var limit = 25;
+      var str = $filter('limitTo')(text, limit);
+      str += (text.length > 25) ? '...' : '';
+      console.log(str);
       return {
         type: 'div',
         className: 'custom-icon',
-        iconSize: [90, 24],
+        iconSize: [170, 24],
         popupAnchor:  [0, -50],
-        html: '<div class="custom-icon-inner"><strong>$'+ text + ' mx</strong></div>'
+        html: '<div class="custom-icon-inner"><strong>'+ str +'</strong></div>'
       };
     };
+
+    var getPopup = function(tour){
+      var imgSrc = tour.avatar3;
+      var price = '$'+tour.fee+' MX';
+      var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
+      var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
+      var info ="<p><strong class='map-marker-title'><a href='"+tour.id+"' target='_blank'>"+tour.name+"</a></strong></p>";
+
+      var popup =  image + info;
+
+      if(tour.categories){
+        console.log(tour.categories);
+        var categories = '';
+        var categoriesStr = '';
+        for(var i=0;i<tour.categories.length;i++){
+          categories += '<a href="/resultados?category='+tour.categories[i].id+'" target="_blank">' + tour.categories[i].name + '</a>';
+          console.log(categories);
+          if(i !== (categories.length) ){
+            categories += ', ';
+          }
+        }
+        categoriesStr += "<p>Categorías: "+categories+"</p>";
+        popup += categoriesStr;
+      }
+
+      console.log(popup);
+      return popup;
+    };
+
 
     $scope.map = {};
     $scope.center = {
@@ -126,31 +159,16 @@ app.controller('resultsCTL',function($scope, toursService, $timeout, leafletData
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
       angular.forEach(data, function(t){
+        var info = '';
+
         var tour = t.departurePoints.item_0;
-        tour.price = t.fee;
-        var imgSrc = t.avatar3;
-        var price = '$'+tour.price+' MX';
-        var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-        var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-        var info ="<p><strong class='map-marker-title'><a href='/detalle/"+tour.id+"' target='_blank'>"+t.name_es+"</a></strong></p>";
-
-        var categories = '';
-        for(var i=0;i<t.categories.length;i++){
-          categories += '<a href="/resultados?category='+t.categories[i].id+'" target="_blank">' + t.categories[i].name + '</a>';
-          if(i !== (categories.length) ){
-            categories += ', ';
-          }
-        }
-
-        info += "<p>Categorías: "+categories+"</p>";
-
-        var message = image + info;
+        var message = getPopup(t);
 
         this.push({
           lat: tour.lat,
           lng: tour.lng,
           message: message,
-          icon: getIcon(tour.price)
+          icon: getIcon(t.name)
         });
 
       },markers);

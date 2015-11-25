@@ -60,7 +60,7 @@
 
           <div class="input-field-wrap">
             <i class='icon-calendario icon-inside'></i>
-            <md-datepicker ng-model="tour.date" md-placeholder="Fecha"></md-datepicker>
+            <md-datepicker ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
           </div>
           <div class="clear"></div>
 
@@ -236,7 +236,7 @@
     <h2>Tours similares <br> <span class='icon-flecha'></span></h2>
     <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours">
       <!--<a ng-href="/detalle/{{tour_i.id}}" class="absolute-link"></a>-->
-      <span ng-style="{'background-image': 'url('+tour_i.avatar1+')'}"
+      <span ng-style="{'background-image': 'url('+tour_i.avatar3+')'}"
         class="s-tour-img">
       </span>
       <a href="/detalle/{{tour_i.id}}" class='absolute-link'></a>
@@ -246,7 +246,7 @@
         <h4><a ng-href="/detalle/{{tour_i.id}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
         <p class="s-tour-price">${{tour_i.fee}} <span>mxn</span> </p>
-        <p><a class='btn-white-o' href="/detalle/{{tour_i.id}}">Reservar</a></p>
+        <p><a class='action-btn-white' href="/detalle/{{tour_i.id}}">Reservar</a></p>
       </div>
     </div>
   </div>

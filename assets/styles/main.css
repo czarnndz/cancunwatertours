@@ -33,15 +33,28 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 #main-content{background: #F5F5F5;overflow: hidden;}
 
 
+/*---------/
+  #LAZYIMG
+/*---------*/
+*[lazy-img].lazy-loader-gif:not(.lazy-load-complete){
+  background: url(../images/loader.gif) center no-repeat!important;
+  background-size: 60px 61px!important;
+  -moz-transition: none!important;
+  -webkit-transition: none!important;
+  -o-transition: color 0 ease-in!important;
+  transition: none!important;
+}
+
+
 md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked,
 md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
-    background-color: #00AFE2;
+    background-color: #00AFE2!important;
 }
 .md-switch-thumb .md-off, md-radio-button .md-off{
-  border-color: #00AFE2;
+  border-color: #00AFE2!important;
 }
 .md-switch-thumb.md-checked .md-on, md-radio-button.md-checked .md-on    {
-  background-color: #00AFE2;
+  background-color: #00AFE2!important;
 }
 
 
@@ -122,6 +135,12 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   border: solid 2px #FFF;
   color: #FFF;
 }
+.action-btn-white:hover{
+  background: #1EB0EB;
+  color: #fff;
+  border-color: #1EB0EB;
+}
+
 /*------------/
   #HEADER
 /*-----------*/
@@ -527,11 +546,21 @@ figcaption:hover .action-btn-white{
   height: 100%;
   top: 0;
   left: 0;
+  -webkit-transition: transform .3s linear;
+  -moz-transition: transform .3s linear;
+  -o-transition: transform .3s linear;
+  -ms-transition: transform .3s linear;
+  transition: transform .3s linear;
 }
 .landing-tour:hover .landing-tour-background{
-    -ms-transform: scale(1.2,1.2);
-    -webkit-transform: scale(1.2,1.2);
-    transform: scale(1.2,1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.landing-tour:hover .action-btn-white{
+  background: #64CBE4;
+  color: #fff;
+  border-color: #64CBE4;
 }
 .landing-slider,
 .landing-slider .slick-list,
@@ -562,8 +591,31 @@ figcaption:hover .action-btn-white{
   background-position: center;
   background-repeat: no-repeat;
 }
-.landing-slider-item:hover{
-  background-size: auto 120%;
+.landing-slider-item:hover .landing-slider-item-bg{
+  -webkit-transform: scale(1.2) translateY(-10px);
+  -moz-transform: scale(1.2) translateY(-10px);
+  transform: scale(1.2) translateY(-10px);
+}
+.landing-slider-item:hover .action-btn-white{
+  background: #64CBE4;
+  color: #fff;
+  border-color: #64CBE4;
+}
+
+.landing-slider-item-bg{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: transform .3s linear;
+  -moz-transition: transform .3s linear;
+  -o-transition: transform .3s linear;
+  -ms-transition: transform .3s linear;
+  transition: transform .3s linear;
 }
 .landing-slider-cover{
   width: 100%;
@@ -785,6 +837,18 @@ figcaption:hover .action-btn-white{
   -moz-transform: scale(1.2) translateY(-10px);
   transform: scale(1.2) translateY(-10px);
 }
+.s-tour .action-btn-white{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.s-tour:hover .action-btn-white{
+  background: #64CBE4;
+  color: #fff;
+  border-color: #64CBE4;
+  -webkit-transition : all .3s;
+  -moz-transition : all .3s;
+  transition : all .3s;
+}
 .s-tour-price{
   color: white;
   font-size: 14px;
@@ -894,7 +958,14 @@ figcaption:hover .action-btn-white{
   left: 8px;z-index: 1;
 }
 .booking-partial .input-field-wrap .icon-inside + md-select md-select-value{padding-left: 30px!important;}
-.btn-white-o{display: inline-block;border: 2px solid white;color: white;padding: 4px 10px;}
+.btn-white-o{
+  display: inline-block;
+  border: 2px solid white;
+  color: white;
+  padding: 4px 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .booking-partial md-datepicker{
   background: #46CFD2;
   border-radius: 5px;
@@ -1108,12 +1179,20 @@ figcaption:hover .action-btn-white{
   background: rgba(0, 0, 0, 0) linear-gradient(to right, #1eb0eb, #35cdd4) repeat scroll 0 0;
   color: #fff;
 }
-.form-modal-static .action-btn{max-width: 80%;}
+.form-modal-static .action-btn{
+  max-width: 80%;
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+}
 .form-modal-static input[type="password"],
 .form-modal-static input[type="text"],
 .form-modal-static input[type="email"]{
   color: #8A8A8A;
   border-color:#8A8A8A;
+  display: block;
+  width: 100%;
+  margin: 10px auto;
 }
 .form-modal-static input[type="password"]::-webkit-input-placeholder,
 .form-modal-static input[type="text"]::-webkit-input-placeholder,
@@ -1378,7 +1457,7 @@ figcaption:hover .action-btn-white{
   /*height: auto!important;*/
   margin-top: -40px!important;
   margin-left: -40px;
-  font-size: 16px;
+  font-size: 11px;
   border: 0;
 }
 .map-wrapper .custom-icon-inner{
@@ -1392,6 +1471,7 @@ figcaption:hover .action-btn-white{
   right: 0;
   margin: 0 auto;
   width: 0;
+  bottom: -16px;
   height: 0;
   border-style: solid;
   border-width: 8px 5px 0 5px;
@@ -1439,14 +1519,36 @@ figcaption:hover .action-btn-white{
 /*----------/
   #TOUR-ITEM
 /*---------*/
-.tour-item-inner{
-  height:200px;
-  margin: 0 10px 16px;
+.tour-item{
+  padding: 0 10px 16px;
   position: relative;
-  cursor: pointer;
+}
+.tour-item-bg{
   background-repeat:no-repeat;
   background-position:center;
   background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: transform .3s linear;
+  -moz-transition: transform .3s linear;
+  -o-transition: transform .3s linear;
+  -ms-transition: transform .3s linear;
+  transition: transform .3s linear;
+}
+.tour-item:hover .tour-item-bg{
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.tour-item-inner{
+  height:200px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
 }
 
 .tour-item-detail{
@@ -1870,9 +1972,10 @@ figcaption:hover .action-btn-white{
   text-align: center;
 }
 
-@media (max-width: 1600px){
+@media (min-width: 1600px){
   .tour-description-inner{
     padding: 20px 80px;
+    max-width: none;
   }
 }
 

@@ -50,6 +50,7 @@ var jsFilesToInject = [
   'bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js',
   'bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js',
   'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+  'bower_components/angular-lazy-img/release/angular-lazy-img.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

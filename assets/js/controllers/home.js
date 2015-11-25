@@ -1,7 +1,7 @@
-
 app.controller('Home', function($scope,$http, toursService) {
     $scope.tours = [];
     $scope.hotels = [];
+    $scope.loading = false;
     $scope.agregarVisibility = false;
     $scope.lengthsArray = [
         { collg : 4, rowlg : 2 ,colmd : 2 ,rowmd : 1},
@@ -21,10 +21,12 @@ app.controller('Home', function($scope,$http, toursService) {
       });
     };
     $scope.getToursRand = function(n) {
+      $scope.loading = true;
       toursService.getTours().then(function(res){
         $scope.toursrand1 = $scope.formatToursRandom(res,3);
         $scope.toursrand2 = $scope.formatToursRandom(res,4);
         $scope.toursrand3 = $scope.formatToursRandom(res,4);
+        $scope.loading = false;
       });
     };
 
@@ -39,6 +41,7 @@ app.controller('Home', function($scope,$http, toursService) {
                     id : tours[i].id,
                     name: tours[i].name,
                     icon : tours[i].avatar3,
+                    avatar: tours[i].avatar,
                     fee : tours[i].fee,
                     collgspan: $scope.lengthsArray[i].collg,
                     rowlgspan: $scope.lengthsArray[i].rowlg,
@@ -63,6 +66,7 @@ app.controller('Home', function($scope,$http, toursService) {
                   id : tours[rand].id,
                   name: tours[rand].name,
                   icon : tours[rand].avatar3,
+                  avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
                   collgspan: $scope.lengthsArray[i].collg,
                   rowlgspan: $scope.lengthsArray[i].rowlg,

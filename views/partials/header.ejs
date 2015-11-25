@@ -64,7 +64,7 @@
         <% } %>
       </span>
       <span>
-        <a href="#">
+        <a href="/reserva">
           <i class="icon-carrito"></i>
           <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
@@ -95,10 +95,17 @@
 
     <div flex="30" class="account-menu" flex-order-md="2">
       <div layout="row" layout-align="end center">
-        <span class="login-icon-wrap">
-          <a href="/cuenta"><i class="icon-login"></i></a>
+        <% if(req.user){ %>
+          <span class="login-icon-wrap">
+            <a href="/cuenta"><i class="icon-login"></i></a>
+          </span>
+        <% } %>
+        <span>
+          <a href="/reserva">
+            <i class="icon-carrito"></i>
+            <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
+          </a>
         </span>
-        <span><a href="#"><i class="icon-carrito"></i></a></span>
       </div>
     </div>
 

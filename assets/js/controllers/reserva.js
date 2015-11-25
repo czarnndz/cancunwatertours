@@ -13,6 +13,11 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
 
     $scope.tours = cartService.getAll();
 
+    //Fix md-datepicker
+    for(var i=0;i<$scope.tours.length;i++){
+      $scope.tours[i].date = new Date($scope.tours[i].date);
+    }
+
     $scope.continueShopping = function() {
       location.href = "/";
     };

@@ -1,9 +1,10 @@
 
 
-app.controller('tourCTL',function($scope,$http,$timeout,cartService){
+app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
+      $scope.minDate = new Date();
       $scope.tour = tour;
       console.log(tour);
       $scope.tour.schedules = tour.schedules || [];
@@ -99,10 +100,15 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
     });
 
     $scope.setUpGallery = function(){
+      $scope.galleryPhotos = [];
       if($scope.tour.files){
         $scope.galleryPhotos = $scope.tour.files.map(function(file){
-          return $scope.imgs_url + '/uploads/tours/gallery/593x331' +  file.filename;
+          return $scope.imgs_url + '/uploads/tours/gallery/' +  file.filename;
         });
+      }else{
+        $scope.galleryPhotos.push(
+          $scope.imgs_url + '/uploads/tours/' +  $scope.tour.icon.filename
+        );
       }
     };
 
@@ -119,21 +125,41 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       var markers = [];
 
       var getIcon = function(text) {
+        var limit = 25;
+        var str = $filter('limitTo')(text, limit);
+        str += (text.length > 25) ? '...' : '';
         return {
           type: 'div',
           className: 'custom-icon',
-          iconSize: [90, 24],
+          iconSize: [170, 24],
           popupAnchor:  [0, -50],
-          html: '<div class="custom-icon-inner"><strong>$'+ text + ' mx</strong></div>'
+          html: '<div class="custom-icon-inner"><strong>'+ str +'</strong></div>'
         };
       };
 
-      var getPopup = function(img,price,name){
-        var imgSrc = '/images/1.jpg';
-        var price = '$'+tour.price+' MX';
+      var getPopup = function(tour){
+        var imgSrc = tour.avatar3;
+        var price = '$'+tour.fee+' MX';
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-        var info ="<p><strong class='map-marker-title'><a>Tour Subasee Explorer</a></strong></p>";
+        var info ="<p><strong class='map-marker-title'><a href='"+tour.id+"' target='_blank'>"+tour.name+"</a></strong></p>";
+
+        var popup =  image + info;
+
+        if(tour.categories){
+          var categories = '';
+          var categoriesStr = '';
+          for(var i=0;i<tour.categories.length;i++){
+            categories += '<a href="/resultados?category='+tour.categories[i].id+'" target="_blank">' + tour.categories[i].name + '</a>';
+            if(i !== (categories.length) ){
+              categories += ', ';
+            }
+          }
+          categoriesStr += "<p>Categorías: "+categories+"</p>";
+          popup += categoriesStr;
+        }
+
+        return popup;
       };
 
       $scope.map = {};
@@ -146,13 +172,13 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
 
       if($scope.tour.departurePoints){
         var tourPoints =  $scope.tour.departurePoints.item_0;
-        var message = getPopup($scope.tour.avatar3, $scope.tour.fee, $scope.tour.name);
+        var message = getPopup($scope.tour);
 
         markers.push({
           lat: tourPoints.lat,
           lng: tourPoints.lng,
           message: message,
-          icon: getIcon($scope.tour.fee)
+          icon: getIcon($scope.tour.name)
         });
 
         $scope.center = {
