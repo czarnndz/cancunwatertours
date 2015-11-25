@@ -48,6 +48,8 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
       $scope.tour.schedules.forEach(function(el) {
         if( typeof el == 'string' )
           aux_schedules.push(JSON.parse(el));
+        else
+          aux_schedules.push(el);
       });
 
       $scope.tour.schedules = aux_schedules;
