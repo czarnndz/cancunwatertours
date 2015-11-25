@@ -6,7 +6,7 @@
     <md-progress-circular md-mode="indeterminate" ></md-progress-circular>
   </div>
 
-  <div ng-show="!loading" class="tile-container" layout="row" layout-wrap full-screen-wrapper ng-style="newWidth()">
+  <div ng-show="!loading" id="home-photos" class="tile-container" layout="row" layout-wrap full-screen-wrapper ng-style="newWidth()">
 
     <div class="slider-container" flex-gt-sm="50" flex="100">
 
@@ -22,7 +22,7 @@
               data="toursrand1"
       >
         <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions">
-          <div class="landing-slider-item-bg lazy-loader-gif" lazy-img="{{tour.avatar}}" ng-style="{ 'background-image': 'url({{tour.avatar}})' }"></div>
+          <div class="landing-slider-item-bg " lazy-img="{{tour.avatar}}" ng-style="{ 'background-image': 'url({{tour.avatar}})' }"></div>
           <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
           <div class="landing-slider-cover">
             <div class="landing-slider-footer">
@@ -58,7 +58,7 @@
         class="landing-tour"
         layout-align-gt-sm="center center"
         >
-          <div class="landing-tour-background lazy-loader-gif"
+          <div class="landing-tour-background "
               lazy-img="{{tour.avatar}}"
               ng-style="{ 'background-image': 'url({{tour.avatar}})' }"
           ></div>
