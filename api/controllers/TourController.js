@@ -33,7 +33,7 @@ module.exports = {
                             imgs_url : process.env.BACKEND_URL,
                             meta : {
                                 controller : 'tours.js',
-                                removeFlexLayout : true
+                                removeFlexLayout : true,
                             },
                             page : {
                                 searchUrl : '/detalle/',

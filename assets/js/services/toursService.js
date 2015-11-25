@@ -135,13 +135,27 @@
           { name : 'Aventura',              icon :'adventure' },
           { name : 'Parques temáticos',     icon :'theme-parks' },
           { name : 'Cenotes',               icon :'cenote' },
-          { name : 'Deportes acuáticos',    icon :'water-sports' }
+          { name : 'Deportes acuáticos',    icon :'water-sports' },
+          { name : 'Familiar',              icon :'familiar2'},
+          { name : 'Parejas',               icon :'parejas'},
+          { name : 'Grupos',                icon :'grupos'},
+          { name : 'Embarazadas',           icon :'embarazadas'},
+          { name : 'Naturaleza',            icon :'naturaleza'},
+          { name : 'Bebes',                 icon :'bebes'},
+          { name : 'Cultural',              icon :'cultural'},
+          { name : 'Nocturno',              icon :'nocturno'},
+
         ];
       function getCategoryIcon(category){
         var icon = '';
-        for(var x in iconsObj)
-          if( iconsObj[x].name == category.name )
+        for(var x in iconsObj){
+          if( iconsObj[x].name == category.name ){
             icon = iconsObj[x].icon;
+          }
+        }
+        if(icon === ''){
+          icon = 'todos';
+        }
         return icon;
       }
   });
