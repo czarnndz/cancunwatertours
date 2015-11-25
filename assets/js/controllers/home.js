@@ -110,14 +110,20 @@ app.controller('Home', function($scope,$http, toursService) {
     $scope.init();
 });
 
-app.controller('Search',function($scope,$http){
-    $scope.tours = [];
+app.controller('Search',function($scope,$http, $window, toursService){
 
-    $http.get('/tours').success(function(response) {
-        if (angular.isArray(response)) {
-            $scope.tours = response;
-        }
-    });
+    $scope.querySearch = function(text) {
+      return toursService.getToursByName(text)
+        .then(function(data){
+          console.log(data);
+          return data;
+        });
+    };
+
+    $scope.selectedItemChange = function(item){
+      $window.location.href = '/detalle/' + item.id;
+    }
+
 });
 app.controller('StaticPagesCTL',function($scope,$http){
     //

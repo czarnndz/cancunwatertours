@@ -18,9 +18,9 @@
       >
         <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }">
+          <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
           <div class="landing-slider-cover">
             <div class="landing-slider-footer">
-              <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
               <i class="icon-trending"></i>
               <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
               <h4><strong>{{tour.name}}</strong></h4>
@@ -56,8 +56,8 @@
           <div class="landing-tour-background transitions"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }"
           ></div>
+          <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
             <i class="icon-trending"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>
@@ -91,8 +91,8 @@
           <div class="landing-tour-background transitions"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }"
           ></div>
+          <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
             <i class="icon-trending"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/detalle/{{tour.id}}">{{tour.name}}</strong></h4>

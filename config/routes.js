@@ -95,6 +95,10 @@ module.exports.routes = {
   '/register':{
     controller: 'client',
     action: 'create'
+  },
+  '/tours_search':{
+    controller: 'home',
+    action: 'toursSearchByName'
   }
 
 

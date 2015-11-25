@@ -38,12 +38,10 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
         'Domingo'
       ];
 
+      $scope.tourDurationFormatted = $scope.formatDuration($scope.tour.duration_formated);
       $scope.tourDuration = $scope.setDuration($scope.tour.days);
       $scope.tour.includesList = $scope.formatList($scope.tour.includes_es);
       $scope.tour.notIncludesList = $scope.formatList($scope.tour.does_not_include_es);
-
-      console.log($scope.tour.notIncludesList);
-
 
       var aux_schedules = [];
       $scope.tour.schedules.forEach(function(el) {
@@ -67,6 +65,15 @@ app.controller('tourCTL',function($scope,$http,$timeout,cartService){
       }
       return [];
 
+    }
+
+    $scope.formatDuration = function(duration){
+      var formatted = 0;
+      if(duration){
+        var t = new Date(duration);
+        formatted = t.getHours();
+      }
+      return formatted;
     }
 
     $scope.setDuration = function(tourDays){

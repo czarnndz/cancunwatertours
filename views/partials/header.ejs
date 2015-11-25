@@ -5,11 +5,12 @@
   <div class="menu-section menu-section-first" flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
     <div layout="row">
 
-      <form class="search-box" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()">
+      <form class="search-box" ng-controller="Search" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()">
         <i class="icon-buscador"></i>
         <md-autocomplete
           md-selected-item="selectedTour"
           md-selected-item-change="selectedItemChange(item)"
+          md-search-text="searchText"
           md-items="item in querySearch(searchText)"
           md-item-text="item.name"
           md-min-length="0"
@@ -17,9 +18,8 @@
           md-menu-class="autocomplete-custom-template"
           class="input-header" >
           <md-item-template>
-            <span class="item-title">
-              <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-              <a href="/detalle/{{item.id}}"> {{item.name}} </a>
+            <span class="item-title search-box-item">
+              <i class="icon-todos"></i> <a href="/detalle/{{item.id}}"> {{item.name}} </a>
             </span>
           </md-item-template>
         </md-autocomplete>
@@ -63,7 +63,12 @@
           <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
         <% } %>
       </span>
-      <span><a href="#"><i class="icon-carrito"></i></a></span>
+      <span>
+        <a href="#">
+          <i class="icon-carrito"></i>
+          <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
+        </a>
+      </span>
       <% if(!req.user){ %>
         <span><a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a></span>
       <% } %>
@@ -109,10 +114,10 @@
     </span>
     <% if(!req.user){ %>
       <span>
-        <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+        <a ng-click="doRegisterToggle($event)" href=""><strong>Registro</strong></a>
       </span>
       <span>
-        <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a>
+        <a ng-click="doLoginToggle($event)" href="" class="action-btn"><strong>Login</strong></a>
       </span>
     <% }else{ %>
       <span>

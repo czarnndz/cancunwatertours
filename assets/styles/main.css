@@ -146,6 +146,12 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   margin-left: 40px;
   position: relative;
 }
+.md-virtual-repeat-container.md-autocomplete-suggestions-container{
+  z-index: 99999;
+}
+.search-box-item a{
+  color: #272727!important;
+}
 .header .search-box .icon-buscador{
   color: #64CBE4;
   position: absolute;
@@ -207,6 +213,22 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #2AB7D0;
   font-size: 24px;
   vertical-align: middle;
+}
+.header .account-menu .cart-items-n{
+  background: #2AB7D0;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  margin: 0;
+  vertical-align: bottom;
+  margin-left: -8px;
+  border: 2px solid #fff;
+  margin-top: 0;
+  top: 2px;
+  position: relative;
 }
 
 /*-----------/
@@ -436,6 +458,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 /*-----------*/
 .landing-tour{
   overflow: hidden;
+}
+.landing-tour-inner{
+  position: relative;
 }
 .landing-tour-content{
   color: #fff;

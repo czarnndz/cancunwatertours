@@ -6,15 +6,16 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.registerToggle = false;
     $scope.loginToggle = false;
 
-    $scope.doLoginToggle = function(){
-      console.log('hey listen');
+    $scope.doLoginToggle = function($event){
+      //$event.stopPropagation($event);
       if($scope.registerToggle){
         $scope.registerToggle = false;
       }
       $scope.loginToggle = !$scope.loginToggle;
     };
 
-    $scope.doRegisterToggle = function(){
+    $scope.doRegisterToggle = function($event){
+      //$event.stopPropagation();
       if($scope.loginToggle){
         $scope.loginToggle = false;
       }
@@ -34,18 +35,6 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
       });
     };
 
-    $scope.querySearch = function(text) {
-        var tours = [];
-        if (angular.isArray($scope.tours)) {
-            angular.forEach($scope.tours,function(item) {
-                if (item.name.contains(text));
-                    this.push(item);
-            },tours);
-
-        }
-        return tours;
-    };
-
     $scope.doSearch = function(){
       var params = {
         minFee: $scope.minFee,
@@ -62,5 +51,24 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
 
     $scope.init();
 
+    /*
+    $(document).bind('click', function(event){
+        var modals = [];
+        modals.push($('#register-modal'));
+        modals.push($('#login-modal'));
+
+        for(var i=0;i<modals.length;i++){
+          //isClickedElementChildOfPopup
+          if(modals[i].find(event.target).length > 0){
+            return;
+          }
+        }
+
+        $scope.$apply(function(){
+          $scope.registerToggle = false;
+          $scope.loginToggle = false;
+        });
+
+    });*/
 
 });

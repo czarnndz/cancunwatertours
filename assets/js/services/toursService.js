@@ -15,6 +15,7 @@
       serv.getTours = getTours;
       serv.getFeeRange = getFeeRange;
       serv.getCategoryIcon = getCategoryIcon;
+      serv.getToursByName = getToursByName;
       serv.tours = [];
       serv.categories = [];
 
@@ -100,6 +101,29 @@
 
         return deferred.promise;
 
+      }
+
+      function getToursByName(name){
+        return $http({
+          method: 'GET',
+          url: '/tours_search',
+          params: {
+            term: name,
+          }
+        })
+        .then(getToursByNameComplete)
+        .catch(getToursByNameFail);
+
+        function getToursByNameComplete(res){
+          if (res.data) {
+            return res.data;
+          }
+          return [];
+        }
+
+        function getToursByNameFail(err){
+          console.log(err);
+        }
       }
 
       var iconsObj = [

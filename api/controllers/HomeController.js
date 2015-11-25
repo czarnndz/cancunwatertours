@@ -71,6 +71,21 @@ module.exports = {
         },req.page,req.pageSize,req.sort,req.name,req.category,req.maxFee,req.minFee,tourIds);
     });
   },
+  toursSearchByName: function(req, res){
+    var params = req.params.all();
+    if (params.term){
+      var term = params.term;
+      Tour.find({ select: ['id','name'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
+        if(e){
+          console.log(e);
+          return res.json([]);
+        }
+        res.json(tours);
+      });
+    }else{
+      res.json([]);
+    }
+  },
   hotel_list : function(req,res){
       var params = req.params.all();
       var s = {};
