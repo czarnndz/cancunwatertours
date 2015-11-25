@@ -75,10 +75,13 @@ module.exports = {
     var params = req.params.all();
     if (params.term){
       var term = params.term;
-      Tour.find({ select: ['id','name'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
+      Tour.find({ select: ['id','name','icon'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
         if(e){
           console.log(e);
           return res.json([]);
+        }
+        for(var i=0;i<tours.length;i++){
+          tours[i].avatar1  = tours[i].icon ? process.env.BACKEND_URL + '/uploads/tours/196x140'+tours[i].icon.filename : '/images/small_default.jpg';
         }
         res.json(tours);
       });

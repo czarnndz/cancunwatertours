@@ -171,6 +171,14 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .search-box-item a{
   color: #272727!important;
 }
+.search-box-item img{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 3px;
+  vertical-align: middle;
+}
 .header .search-box .icon-buscador{
   color: #64CBE4;
   position: absolute;
