@@ -17,7 +17,7 @@
           layout-align-sm="center center">
 
           <!--LEFT SIDE-->
-          <div class="booking-content" flex="70" flex-md="100" flex-sm="100" >
+          <div class="booking-content" flex="65" flex-md="100" flex-sm="100" >
 
               <!--STEPS BAR-->
               <div class="booking-header" layout="row"   ng-click="console.log(step);">
@@ -142,13 +142,13 @@
                   </div><!-- block-content ngRepeat -->
 
 
-                  <div class="">
+                  <!--<div class="">
                     <p class="terms-text">
                       <md-checkbox class="md-primary" ng-model="terminos" aria-label="Terminos">
                         He leído y acepto los <a class='blueText' href=""> Términos y Condiciones de uso </a> y el <a class='blueText' href=""> Aviso de privacidad </a>
                       </md-checkbox>
                     </p>
-                  </div>
+                  </div>-->
               </div>
               <!--END STEP 1-->
 
@@ -173,7 +173,7 @@
                 <div class="block-content" id="datos-viajero-2">
                       <p><strong>Datos para tu reservación</strong></p>
                       <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
-                      <div class="booking-form">
+                      <form class="booking-form">
 
                           <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between start">
                             <input flex="45" flex-sm="100"  type="text" class="input-field" placeholder="Nombre" ng-model="client.name" name="nombre" ng-required>
@@ -202,7 +202,7 @@
                             </div>
                           </div>
 
-                      </div>
+                      </form>
                   </div>
               </div>
               <!--END STEP 2-->
@@ -359,13 +359,12 @@
           <!--END LEFT SIDE-->
 
           <!--RIGHT SIDE-->
-          <div class="booking-info" flex="25" flex-md="100" flex-sm="100">
+          <div class="booking-info" flex="30" flex-md="100" flex-sm="100">
             <h2>Tu reservación</h2>
             <div class="booking-info-inner">
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">
                 <section class="booking-info-block">
-                  <h3>{{tour.name}}</h3>
-                  <p><a class="see-details" ng-href="/detalle/{{tour.id}}" target="_blank">ver detalles</a></p>
+                  <h3><a ng-href="/detalle/{{tour.id}}" target="_blank">{{tour.name}}</a></h3>
                   <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
                 </section>
                 <section ng-if="tour.hotel" class="booking-info-block">
@@ -381,8 +380,11 @@
             <div class="booking-info-inner">
               <section class="booking-info-block">
                 <p class="text-total-d"><strong>TOTAL</strong></p>
-                <p class="precio-total-d">MXN {{priceTotal() | currency}}</p>
+                <p class="precio-total-d">{{priceTotal() | currency}} <span>MXN</span></p>
               </section>
+            </div>
+            <div class="booking-info-inner center-content">
+              <a href="" ng-click="continueClick()" class="action-btn">CONTINUAR</a>
             </div>
           </div>
           <!--END RIGHT SIDE-->

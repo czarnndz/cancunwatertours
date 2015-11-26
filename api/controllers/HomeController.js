@@ -174,17 +174,7 @@ module.exports = {
         }
       });
     });
-  },
-
-  getMainCategories : function(req,res){
-    TourCategory.find({ principal:true, type : {'!' : 'rate'}}).exec(function(e,categories){
-      if(e){
-        console.log(e);
-        return res.json({categories:[]});
-      }
-      res.json({categories:categories});
-    });
-  },
+  }
 
 };
 

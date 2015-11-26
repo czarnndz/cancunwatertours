@@ -64,10 +64,6 @@ module.exports.routes = {
     controller: 'home',
     action: 'tour_categories'
   },
-  '/tour_main_categories':{
-    controller: 'home',
-    action:'getMainCategories'
-  },
   '/quienessomos' : {
     controller : 'home'
     ,action : 'quienessomos'

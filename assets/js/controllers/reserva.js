@@ -1,6 +1,6 @@
 app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
     $scope.city = '';
-    $scope.client = window.client || {};
+    $scope.client = window.client || {name:'',last_name:'',email:''};
     $scope.client.isMobile = false;
     /*$scope.client = {
         isMobile : false
@@ -34,18 +34,24 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
 
     $scope.isNextButtonDisabled = function() {
         //console.log('is disabled function');
-        //console.log($scope.reserva);
-        //console.log($scope.reserva.$valid);
+        //console.log($scope.client);
+        //console.log($scope.client.$valid);
         if ($scope.step == 0) {
-            if (!$scope.terminos)
+            return false;
+            /*if (!$scope.terminos)
                 return true;
             else
-                return false;
+                return false;*/
         } else if ($scope.step == 1) {
-            if ($scope.reserva.nombre.$invalid || $scope.reserva.apellido.$invalid || $scope.reserva.email.$invalid || ($scope.repeat_email != $scope.tour.client.email))
+
+            if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email)){
+              console.log('disabled');
                 return true;
-            else
+            }
+            else{
+              console.log('not disabled');
                 return false;
+            }
         }
     };
 

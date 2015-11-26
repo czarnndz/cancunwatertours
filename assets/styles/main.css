@@ -242,7 +242,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   vertical-align: middle;
 }
 .header .account-menu .cart-items-n{
-  background: #2AB7D0;
+  background: #00aeef;
   color: #fff;
   border-radius: 50%;
   display: inline-block;
@@ -435,7 +435,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #fff;
   vertical-align: middle;
   position: relative;
-  padding: 12px 6px;
+  padding: 9px 6px;
   webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
@@ -1873,7 +1873,7 @@ figcaption:hover .action-btn-white{
   text-align: center;
 }
 .booking-info h3{
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
 }
 .booking-info-item{
@@ -1890,9 +1890,19 @@ figcaption:hover .action-btn-white{
 }
 .booking-info a{color: #fff;}
 .booking-info .see-details{font-size: 13px;}
-.booking-info .precio-detalles{font-size: 16px;}
+.booking-info .precio-detalles{font-size: 12px;}
 .booking-info .text-total-d{font-size: 16px;}
-.booking-info .precio-total-d{font-size: 24px;}
+.booking-info .precio-total-d{font-size: 26px;}
+.booking-info .precio-total-d span{font-size: 18px}
+
+.booking-info .action-btn{
+  background: #fff;
+  color: #19A4EF;
+  padding: 6px 14px;
+  font-weight: 700;
+  min-width: 150px;
+  margin: 10px 0;
+}
 
 /*-------------/
   #About us

@@ -32,15 +32,8 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
 
     $scope.getToursCategories = function() {
       toursService.getCategories().then(function(res){
-        console.log(res);
+        //console.log(res);
         $scope.toursCategories = res;
-      });
-    };
-
-    $scope.getMainCategories = function() {
-      toursService.getMainCategories().then(function(res){
-        console.log(res);
-        $scope.mainCategories = res;
       });
     };
 
@@ -55,7 +48,6 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
 
     $scope.init = function(){
         $scope.getToursCategories();
-        $scope.getMainCategories();
         $scope.getFeeRange();
     };
 
