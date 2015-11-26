@@ -122,6 +122,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   border: 0 none;
   border-radius: 8px;
   color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
   display: inline-block;
   font-size: 14px;
   padding: 6px 14px;
@@ -249,6 +251,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   height: 18px;
   width: 18px;
   text-align: center;
+  font-size: 11px;
+  font-weight: 700;
   margin: 0;
   vertical-align: bottom;
   margin-left: -8px;
@@ -532,8 +536,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   right: 0px;
 }
 figcaption:hover .action-btn-white{
-  border: solid 2px #1EB0EB;
-  color: #1EB0EB;
+  border: solid 2px #00aeef;
+  color: #00aeef;
 }
 
 .landing-tour-content i{
@@ -570,9 +574,9 @@ figcaption:hover .action-btn-white{
   transform: scale(1.2);
 }
 .landing-tour:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
 }
 .landing-slider,
 .landing-slider .slick-list,
@@ -1737,6 +1741,10 @@ figcaption:hover .action-btn-white{
   border: 0px;
   margin: 20px auto;
   display: block;
+}
+
+.booking .continue-wrap-btns{
+  margin: 10px 0 20px;
 }
 
 /*-----------/

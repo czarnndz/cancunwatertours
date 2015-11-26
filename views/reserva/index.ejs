@@ -17,7 +17,7 @@
           layout-align-sm="center center">
 
           <!--LEFT SIDE-->
-          <div class="booking-content" flex="65" flex-md="100" flex-sm="100" >
+          <div class="booking-content" flex="60" flex-md="100" flex-sm="100" >
 
               <!--STEPS BAR-->
               <div class="booking-header" layout="row"   ng-click="console.log(step);">
@@ -339,11 +339,11 @@
                   </div>
               </div>
               <!--END STEP 3-->
-              <div class="">
-              <div layout='row' layout-align='end center'>
-                <a href="" ng-click="continueShopping()" class="action-btn continue-btn shopping">CONTINUAR COMPRANDO</a>
-                <a href="" ng-click="continueClick()" class="action-btn continue-btn">CONTINUAR</a>
-              </div>
+              <div class="continue-wrap-btns">
+                <div layout='row' layout-align='end center'>
+                  <a href="" ng-click="continueShopping()" class="action-btn continue-btn shopping">CONTINUAR COMPRANDO</a>
+                  <a href="" ng-click="continueClick()" class="action-btn continue-btn">CONTINUAR</a>
+                </div>
               </div>
               <!--<div class="block-content block-content-transparent">
                 <a href="" ng-click="continueShopping()" class="action-btn continue-btn">CONTINUAR COMPRANDO</a>
@@ -359,7 +359,7 @@
           <!--END LEFT SIDE-->
 
           <!--RIGHT SIDE-->
-          <div class="booking-info" flex="30" flex-md="100" flex-sm="100">
+          <div class="booking-info" flex="35" flex-md="100" flex-sm="100">
             <h2>Tu reservación</h2>
             <div class="booking-info-inner">
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">

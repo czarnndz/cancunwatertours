@@ -5,7 +5,7 @@
       <p>TODOS</p>
     </a>
     <% for(var i=0;i<meta.categories.length;i++){  %>
-      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/resultados?category=<%= meta.categories[i].id %>">
+      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/resultados?category=<%= meta.categories[i].id %>" target="_self">
         <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
         <p><%= meta.categories[i].name.toUpperCase() %></p>
       </a>
