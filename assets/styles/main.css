@@ -10,7 +10,7 @@ Text Domain: CancunWatertours
 
 html{min-width: 320px;}
 .ng-cloak{display: none!important;}
-body{background: #F5F5F5;font-family: 'Open Sans',sans-serif;}
+body{background: #F5F5F5;*/font-family: 'Open Sans',sans-serif;}
 a{text-decoration:none;}
 strong{font-weight: 700}
 a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif}
@@ -136,9 +136,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #FFF;
 }
 .action-btn-white:hover{
-  background: #1EB0EB;
+  background: #00aeef;
   color: #fff;
-  border-color: #1EB0EB;
+  border-color: #00aeef;
 }
 
 /*------------/
@@ -376,6 +376,10 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .advanced-search-header md-radio-button:first-child{margin-left: 0px;}
 .advanced-search-header md-radio-button{margin: 10px;}
 
+/*-----------/
+  #HOME
+/*----------*/
+#home{background: #fff;}
 
 /*------------/
   #CUSTOM-SELECT
@@ -605,9 +609,9 @@ figcaption:hover .action-btn-white{
   transform: scale(1.2) translateY(-10px);
 }
 .landing-slider-item:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
 }
 
 .landing-slider-item-bg{
@@ -653,8 +657,8 @@ figcaption:hover .action-btn-white{
   margin: 2px 0;
 }
 .landing-slider-footer:hover .action-btn-white{
-  border-color: #1EB0EB;
-  color: #1EB0EB;
+  border-color: #00aeef;
+  color: #00aeef;
 }
 .slider-container{
   height: 100%;
@@ -677,6 +681,7 @@ figcaption:hover .action-btn-white{
   font-size: 14px;
   font-weight: 400;
 }
+.tour-data h1 a{color: #fff}
 .tour-data .big-icon{font-size: 24px;margin-right: 5px;}
 .tour-data-item{margin-bottom: 10px;}
 .tour-data-item .big-icon{margin-right: 8px;}
@@ -850,9 +855,9 @@ figcaption:hover .action-btn-white{
   font-weight: 700;
 }
 .s-tour:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
   -webkit-transition : all .3s;
   -moz-transition : all .3s;
   transition : all .3s;
@@ -1028,7 +1033,10 @@ figcaption:hover .action-btn-white{
   vertical-align: middle;
 }
 /*.booking-partial .select-posicion span{text-align: left;}*/
-.booking-partial .md-select-icon{margin-top: -6px}
+.booking-partial .md-select-icon{
+  margin-top: -6px;
+  width: 12px;
+}
 .booking-partial .md-select-value span{color: #fff;}
 .booking-partial md-select.md-default-theme:not([disabled]):focus,
 .booking-partial md-select:not([disabled]):focus .md-select-value{
@@ -2005,6 +2013,7 @@ figcaption:hover .action-btn-white{
 @media (max-width: 1100px){
   .header .search-box{margin-left: 0;}
   .header .advanced-search{padding: 0 5px;}
+  .main-sidebar{display: none;}
 }
 
 @media (max-width: 960px){

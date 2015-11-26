@@ -20,8 +20,8 @@ module.exports = {
         }
       });
     });
-
 	},
+
   resultados : function(req,res){
       TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
         TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours').exec(function(e,sec_categories){
@@ -173,6 +173,16 @@ module.exports = {
             placeholder : 'Buscar'
         }
       });
+    });
+  },
+
+  getMainCategories : function(req,res){
+    TourCategory.find({ principal:true, type : {'!' : 'rate'}}).exec(function(e,categories){
+      if(e){
+        console.log(e);
+        return res.json({categories:[]});
+      }
+      res.json({categories:categories});
     });
   },
 

@@ -16,6 +16,7 @@
       serv.getFeeRange = getFeeRange;
       serv.getCategoryIcon = getCategoryIcon;
       serv.getToursByName = getToursByName;
+      serv.getMainCategories = getMainCategories;
       serv.tours = [];
       serv.categories = [];
 
@@ -59,6 +60,24 @@
         .then(function(res){
           if (res.data && res.data.categories) {
             serv.categories = res.data.categories;
+            return res.data.categories;
+          }
+          return [];
+        })
+        .catch(function(err){
+          console.log(err);
+          return [];
+        });
+      }
+
+      function getMainCategories(){
+        return $http({
+          method: 'GET',
+          url: '/tour_main_categories'
+        })
+        .then(function(res){
+          console.log(res);
+          if (res.data && res.data.categories) {
             return res.data.categories;
           }
           return [];
