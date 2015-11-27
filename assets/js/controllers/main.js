@@ -3,6 +3,7 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.maxFee = 0;
     $scope.minFee = 10000;
     $scope.toursCategories = [];
+    $scope.mainCategories = [];
     $scope.registerToggle = false;
     $scope.loginToggle = false;
 
@@ -31,6 +32,7 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
 
     $scope.getToursCategories = function() {
       toursService.getCategories().then(function(res){
+        //console.log(res);
         $scope.toursCategories = res;
       });
     };

@@ -21,8 +21,8 @@ module.exports = {
         }
       });
     });
-
 	},
+
   resultados : function(req,res){
     var params = req.params.all();
     if (params.url.match(/\..+$/)) res.notFound();
@@ -169,7 +169,7 @@ module.exports = {
         }
       });
     });
-  },
+  }
 
 };
 

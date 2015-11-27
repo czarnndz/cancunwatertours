@@ -16,7 +16,12 @@
 
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
-            <h1><i ng-repeat="item in getSubcategories(tour.categories,'principal')" class="icon-{{::item.name_en | slugFilter}} big-icon"></i> {{tour.name}}</h1>
+            <h1>
+              <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/resultados?category={{item.id}}" target="_blank" >
+                <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
+              </a>
+               {{tour.name}}
+             </h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial><i class="icon-horario"> </i><strong>Duración</strong> <strong>{{tourDurationFormatted}} hr(s).</strong></div>
               <div class='extra-item' flex-initial><i class="icon-calendario"> </i><strong>Horario</strong> <strong>{{tourDuration}}</strong></div>

@@ -3,7 +3,8 @@
   <!--<%- partial('../partials/add-transport') -%>-->
 
   <div ng-show="loading" layout="row" layout-align="center center" full-screen-wrapper ng-style="newWidth()">
-    <md-progress-circular md-mode="indeterminate" ></md-progress-circular>
+    <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
+    <img src="/images/loader.gif" alt="">
   </div>
 
   <div ng-show="!loading" id="home-photos" class="tile-container" layout="row" layout-wrap full-screen-wrapper ng-style="newWidth()">

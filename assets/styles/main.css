@@ -10,7 +10,7 @@ Text Domain: CancunWatertours
 
 html{min-width: 320px;}
 .ng-cloak{display: none!important;}
-body{background: #F5F5F5;font-family: 'Open Sans',sans-serif;}
+body{background: #F5F5F5;*/font-family: 'Open Sans',sans-serif;}
 a{text-decoration:none;}
 strong{font-weight: 700}
 a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif}
@@ -122,6 +122,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   border: 0 none;
   border-radius: 8px;
   color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
   display: inline-block;
   font-size: 14px;
   padding: 6px 14px;
@@ -136,9 +138,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #FFF;
 }
 .action-btn-white:hover{
-  background: #1EB0EB;
+  background: #00aeef;
   color: #fff;
-  border-color: #1EB0EB;
+  border-color: #00aeef;
 }
 
 /*------------/
@@ -242,13 +244,15 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   vertical-align: middle;
 }
 .header .account-menu .cart-items-n{
-  background: #2AB7D0;
+  background: #00aeef;
   color: #fff;
   border-radius: 50%;
   display: inline-block;
   height: 18px;
   width: 18px;
   text-align: center;
+  font-size: 11px;
+  font-weight: 700;
   margin: 0;
   vertical-align: bottom;
   margin-left: -8px;
@@ -376,6 +380,10 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .advanced-search-header md-radio-button:first-child{margin-left: 0px;}
 .advanced-search-header md-radio-button{margin: 10px;}
 
+/*-----------/
+  #HOME
+/*----------*/
+#home{background: #fff;}
 
 /*------------/
   #CUSTOM-SELECT
@@ -431,7 +439,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #fff;
   vertical-align: middle;
   position: relative;
-  padding: 12px 6px;
+  padding: 9px 6px;
   webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
@@ -528,8 +536,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   right: 0px;
 }
 figcaption:hover .action-btn-white{
-  border: solid 2px #1EB0EB;
-  color: #1EB0EB;
+  border: solid 2px #00aeef;
+  color: #00aeef;
 }
 
 .landing-tour-content i{
@@ -566,9 +574,9 @@ figcaption:hover .action-btn-white{
   transform: scale(1.2);
 }
 .landing-tour:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
 }
 .landing-slider,
 .landing-slider .slick-list,
@@ -605,9 +613,9 @@ figcaption:hover .action-btn-white{
   transform: scale(1.2) translateY(-10px);
 }
 .landing-slider-item:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
 }
 
 .landing-slider-item-bg{
@@ -653,8 +661,8 @@ figcaption:hover .action-btn-white{
   margin: 2px 0;
 }
 .landing-slider-footer:hover .action-btn-white{
-  border-color: #1EB0EB;
-  color: #1EB0EB;
+  border-color: #00aeef;
+  color: #00aeef;
 }
 .slider-container{
   height: 100%;
@@ -677,6 +685,7 @@ figcaption:hover .action-btn-white{
   font-size: 14px;
   font-weight: 400;
 }
+.tour-data h1 a{color: #fff}
 .tour-data .big-icon{font-size: 24px;margin-right: 5px;}
 .tour-data-item{margin-bottom: 10px;}
 .tour-data-item .big-icon{margin-right: 8px;}
@@ -850,9 +859,9 @@ figcaption:hover .action-btn-white{
   font-weight: 700;
 }
 .s-tour:hover .action-btn-white{
-  background: #64CBE4;
+  background: #00aeef;
   color: #fff;
-  border-color: #64CBE4;
+  border-color: #00aeef;
   -webkit-transition : all .3s;
   -moz-transition : all .3s;
   transition : all .3s;
@@ -1028,7 +1037,10 @@ figcaption:hover .action-btn-white{
   vertical-align: middle;
 }
 /*.booking-partial .select-posicion span{text-align: left;}*/
-.booking-partial .md-select-icon{margin-top: -6px}
+.booking-partial .md-select-icon{
+  margin-top: -6px;
+  width: 12px;
+}
 .booking-partial .md-select-value span{color: #fff;}
 .booking-partial md-select.md-default-theme:not([disabled]):focus,
 .booking-partial md-select:not([disabled]):focus .md-select-value{
@@ -1731,6 +1743,10 @@ figcaption:hover .action-btn-white{
   display: block;
 }
 
+.booking .continue-wrap-btns{
+  margin: 10px 0 20px;
+}
+
 /*-----------/
   #BOOKING-FORM
 /*----------*/
@@ -1865,7 +1881,7 @@ figcaption:hover .action-btn-white{
   text-align: center;
 }
 .booking-info h3{
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
 }
 .booking-info-item{
@@ -1882,9 +1898,19 @@ figcaption:hover .action-btn-white{
 }
 .booking-info a{color: #fff;}
 .booking-info .see-details{font-size: 13px;}
-.booking-info .precio-detalles{font-size: 16px;}
+.booking-info .precio-detalles{font-size: 12px;}
 .booking-info .text-total-d{font-size: 16px;}
-.booking-info .precio-total-d{font-size: 24px;}
+.booking-info .precio-total-d{font-size: 26px;}
+.booking-info .precio-total-d span{font-size: 18px}
+
+.booking-info .action-btn{
+  background: #fff;
+  color: #19A4EF;
+  padding: 6px 14px;
+  font-weight: 700;
+  min-width: 150px;
+  margin: 10px 0;
+}
 
 /*-------------/
   #About us
@@ -2005,6 +2031,7 @@ figcaption:hover .action-btn-white{
 @media (max-width: 1100px){
   .header .search-box{margin-left: 0;}
   .header .advanced-search{padding: 0 5px;}
+  .main-sidebar{display: none;}
 }
 
 @media (max-width: 960px){
