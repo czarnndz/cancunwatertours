@@ -19,7 +19,7 @@
           class="input-header" >
           <md-item-template>
             <span class="item-title search-box-item">
-              <img src="{{item.avatar1}}" alt=""> <a href="/detalle/{{item.id}}"> {{item.name}} </a>
+              <img src="{{item.avatar1}}" alt=""> <a href="/detalle/{{item.url}}"> {{item.name}} </a>
             </span>
           </md-item-template>
         </md-autocomplete>
@@ -149,15 +149,12 @@
       <md-item-template>
         <span class="item-title">
           <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-          <a href="/detalle/{{item.id}}"> {{item.name}} </a>
+          <a href="/detalle/{{item.url}}"> {{item.name}} </a>
         </span>
       </md-item-template>
     </md-autocomplete>
   </form>
 
-  <!--<div ng-click="toggleSearch = !toggleSearch" class="advanced-search">
-    <a href="#"><strong>BÚSQUEDA AVANZADA</strong></a>
-  </div>
   <%- partial('../partials/search') -%>-->
 
   <div class="advanced-search">

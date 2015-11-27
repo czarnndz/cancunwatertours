@@ -125,7 +125,7 @@ app.controller('Search',function($scope,$http, $window, toursService){
     };
 
     $scope.selectedItemChange = function(item){
-      $window.location.href = '/detalle/' + item.id;
+      $window.location.href = '/detalle/' + item.url;
     }
 
 });

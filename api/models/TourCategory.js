@@ -31,6 +31,7 @@ module.exports = {
       type : 'String'
       ,enum : [ 'aquatic', 'land' ]
     }
+    ,url : 'string'
   }
 };
 

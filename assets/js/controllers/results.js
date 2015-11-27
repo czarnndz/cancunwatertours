@@ -129,7 +129,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
-          categories += '<a href="/resultados?category='+tour.categories[i].id+'" target="_blank">' + tour.categories[i].name + '</a>';
+          categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
           console.log(categories);
           if(i !== (categories.length) ){
             categories += ', ';

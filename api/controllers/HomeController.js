@@ -8,6 +8,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
+      console.log(categories);
       res.view({
         meta : {
           controller : 'home.js',
@@ -23,31 +24,25 @@ module.exports = {
 
 	},
   resultados : function(req,res){
-      TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
-        TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours').exec(function(e,sec_categories){
-          TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours').exec(function(e,rate_categories){
-            formatRateCategories(rate_categories,function(rc){
-              res.view({
-                meta: {
-                  controller: 'home.js',
-                  addMenu: true,
-                  categories : categories,
-                  sec_categories : sec_categories||[],
-                  rate_categories : rc||[],
-                  req : req.params.all()
-                },
-                page: {
-                  searchUrl: '/resultados',
-                  placeholder: 'Buscar'
-                }
-              });//res
-            });//format categories
-          });//rates
-        })//subcategories
-      });//principal categories
+    var params = req.params.all();
+    if (params.url.match(/\..+$/)) res.notFound();
+    TourCategory.findOne({ url : params.url }).exec(function(err,category){
+      if (err) {
+        console.log(err);
+      } else {
+        params.category = category.id;
+        resultados(params,res);
+      }
+    })
+
+  },
+  resultados_l : function(req,res){
+    var params = req.params.all();
+    resultados(params,res);
   },
   tour_list : function(req,res){
     var params = req.params.all();
+
     var queryCategories = {};
 
     if(params.category) {
@@ -189,4 +184,29 @@ var formatRateCategories = function(rc,callback){
     }
     callback(rc);
   });
+}
+
+var resultados = function(params,res) {
+  TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories) {
+    TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours').exec(function(e,sec_categories){
+      TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours').exec(function(e,rate_categories){
+        formatRateCategories(rate_categories,function(rc){
+          res.view('home/resultados',{
+            meta: {
+              controller: 'home.js',
+              addMenu: true,
+              categories : categories,
+              sec_categories : sec_categories||[],
+              rate_categories : rc||[],
+              req : params
+            },
+            page: {
+              searchUrl: '/resultados',
+              placeholder: 'Buscar'
+            }
+          });//res
+        });//format categories
+      });//rates
+    })//subcategories
+  });//principal categories
 }

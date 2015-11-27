@@ -36,7 +36,7 @@
 
         return $http({
           method: 'GET',
-          url: '/tours',
+          url: '/tour_list',
           params : params
         })
         .then(function(res){

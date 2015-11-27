@@ -36,11 +36,15 @@ module.exports.routes = {
     controller : 'home',
     action : 'index'
   },
-  '/resultados': {
+  '/tours': {
+    controller : 'home',
+    action : 'resultados_l'
+  },
+  '/tours/:url': {
     controller : 'home',
     action : 'resultados'
   },
-  '/detalle/:id': {
+  '/tour/:url': {
     controller : 'tour',
     action : 'index'
   },
@@ -52,7 +56,7 @@ module.exports.routes = {
     controller : 'cuenta',
     action : 'index',
   },
-  '/tours' : {
+  '/tour_list' : {
       controller : 'home',
       action : 'tour_list'
   },
@@ -96,9 +100,13 @@ module.exports.routes = {
     controller: 'client',
     action: 'create'
   },
-  '/tours_search':{
+  '/tours_search': {
     controller: 'home',
     action: 'toursSearchByName'
+  },
+  '/add-order' : {
+    controller : 'reserva',
+    action : 'addOrder'
   }
 
 

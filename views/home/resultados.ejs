@@ -21,7 +21,8 @@
         <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
           <div class="tour-item-inner">
             <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
-            <a href="/detalle/{{tour.id}}" class="absolute-link"></a>
+
+            <a href="/detalle/{{tour.url}}" class="absolute-link"></a>
             <div class="tour-item-detail" layout="row" layout-align="space-between center">
               <div flex="60">
                 <p>{{tour.name}}</p>
@@ -35,7 +36,7 @@
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
-              <a class="action-btn-white" href="/detalle/{{tour.id}}">¡RESERVAR!</a>
+              <a class="action-btn-white" href="/detalle/{{tour.url}}">¡RESERVAR!</a>
             </div>
           </div>
         </div>

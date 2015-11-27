@@ -6,7 +6,6 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
       $scope.imgs_url = imgs_url;
       $scope.minDate = new Date();
       $scope.tour = tour;
-      console.log(tour);
       $scope.tour.schedules = tour.schedules || [];
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
@@ -152,7 +151,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
           var categories = '';
           var categoriesStr = '';
           for(var i=0;i<tour.categories.length;i++){
-            categories += '<a href="/resultados?category='+tour.categories[i].id+'" target="_blank">' + tour.categories[i].name + '</a>';
+            categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
             if(i !== (categories.length) ){
               categories += ', ';
             }

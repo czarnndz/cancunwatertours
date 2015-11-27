@@ -39,6 +39,7 @@ module.exports = {
       enum: ['family', 'adult'],
       defaultsTo : 'family'
     }
+    ,url : 'string'
   }
   , migrate : 'safe'
   , attrs_labels : {
@@ -76,20 +77,6 @@ module.exports = {
     ,recommendations_pt : { es : 'Recomendaciones Portugués' , en : 'Portugués recommendations' }
   }
   ,labels : { es : 'Tours', en : 'Tours' }
-  ,afterCreate: function(val,cb){
-    Notifications.after(Tour,val,'create');
-    cb()
-  }
-  ,afterUpdate: function(val,cb){
-    Notifications.after(Tour,val,'update');
-    cb();
-  }
-  ,beforeUpdate:function(val,cb){
-    Notifications.before(val);
-    cb();
-  }
-  ,beforeCreate: function(val,cb){
-    Notifications.before(val);
-    cb();
-  }
+
+
 };
