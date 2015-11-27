@@ -8,7 +8,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
-      console.log(categories);
+      //console.log(categories);
       res.view({
         meta : {
           controller : 'home.js',

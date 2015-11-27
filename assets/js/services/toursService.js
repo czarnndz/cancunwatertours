@@ -144,6 +144,11 @@
           { name : 'Bebes',                 icon :'bebes'},
           { name : 'Cultural',              icon :'cultural'},
           { name : 'Nocturno',              icon :'nocturno'},
+          { name : 'Nivel de Agua',         icon :'mojado' },
+          { name : 'Actividad Física',      icon :'actividad' },
+          { name : 'Accesible',             icon :'accesible'},
+          { name : 'Bebes',                 icon :'bebes'},
+
 
         ];
       function getCategoryIcon(category){

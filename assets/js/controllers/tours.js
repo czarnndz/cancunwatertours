@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
+app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, toursService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
@@ -143,7 +143,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
         var price = '$'+tour.fee+' MX';
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-        var info ="<p><strong class='map-marker-title'><a href='"+tour.id+"' target='_blank'>"+tour.name+"</a></strong></p>";
+        var info ="<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
 
         var popup =  image + info;
 
@@ -237,6 +237,10 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
           }
         }
       }
+    }
+
+    $scope.getCategoryIcon = function(category){
+      return toursService.getCategoryIcon(category);
     }
 
 });

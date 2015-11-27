@@ -176,8 +176,8 @@
               <div layout="row" >
                 <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'rate')">
                   <p>
-                    <i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
-                    <strong>{{ ::item.name | uppercase }}</strong>:
+                    <i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
+                    <strong>{{ ::item.name }}</strong>:
                     <strong>{{ getRateValue(item) }}</strong>
                   </p>
                 </div>
@@ -187,7 +187,7 @@
               <h4>Categorias del Tour</h4>
               <div layout="row" >
                 <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'sub')">
-                  <p><i class="blueText icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                  <p><i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
                   <strong>{{::item.name}}</strong></p>
                 </div>
               </div>
@@ -245,7 +245,7 @@
   <div class="similar-tours" id="similares" flex="25" flex-md="100" flex-sm="100" >
     <h2>Tours similares <br> <span class='icon-flecha'></span></h2>
     <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours">
-      <!--<a ng-href="/detalle/{{tour_i.id}}" class="absolute-link"></a>-->
+      <!--<a ng-href="/tour/{{tour_i.id}}" class="absolute-link"></a>-->
       <span ng-style="{'background-image': 'url('+tour_i.avatar3+')'}"
         class="s-tour-img">
       </span>
