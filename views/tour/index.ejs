@@ -17,7 +17,7 @@
         <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
           <div class="tour-data-column" flex>
             <h1>
-              <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/resultados?category={{item.id}}" target="_blank" >
+              <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/tours/{{item.url}}" target="_blank" >
                 <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
               </a>
                {{tour.name}}
@@ -249,14 +249,14 @@
       <span ng-style="{'background-image': 'url('+tour_i.avatar3+')'}"
         class="s-tour-img">
       </span>
-      <a href="/detalle/{{tour_i.url}}" class='absolute-link'></a>
-      <a href="/detalle/{{tour_i.url}}" class='gradient'></a>
+      <a href="/tour/{{tour_i.url}}" class='absolute-link'></a>
+      <a href="/tour/{{tour_i.url}}" class='gradient'></a>
       <div class="s-tour-data" flex>
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
-        <h4><a ng-href="/detalle/{{tour_i.url}}">{{tour_i.name}}</a></h4>
+        <h4><a ng-href="/tour/{{tour_i.url}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
         <p class="s-tour-price">${{tour_i.fee}} <span>MXN</span> </p>
-        <p><a class='action-btn-white' href="/detalle/{{tour_i.url}}">Reservar</a></p>
+        <p><a class='action-btn-white' href="/tour/{{tour_i.url}}">Reservar</a></p>
       </div>
     </div>
   </div>

@@ -33,9 +33,6 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
     }
 
     $scope.isNextButtonDisabled = function() {
-        //console.log('is disabled function');
-        //console.log($scope.client);
-        //console.log($scope.client.$valid);
         if ($scope.step == 0) {
             return false;
             /*if (!$scope.terminos)

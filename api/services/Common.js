@@ -17,6 +17,8 @@ module.exports.formatTour = function(tour,lang){
         tour.avatar2 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/177x171'+tour.icon.filename : '/images/small_default.jpg';
         tour.avatar3 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/593x331'+tour.icon.filename : '/images/bit_default.jpg';
         tour.reservation_type = 'tour';
+        tour.adults = 1;
+        tour.kids = 0;
 
         //if(tour.includes_es) tour.includes = tour.includes_es.split("\n");
         tour.name = tour.name_es;

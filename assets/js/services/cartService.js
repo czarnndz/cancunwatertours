@@ -84,9 +84,15 @@
         var response = {};
         var deferred = $q.defer();
 
-
-        deferred.resolve(response);
-
+        $http({
+          method : 'POST',
+          url : '/process',
+          params :{ items : $rootScope.cart_items }
+        }).then(function(res){
+          console.log(res);
+          response = res;
+          deferred.resolve(response);
+        });
         return deferred.promise;
       }
 

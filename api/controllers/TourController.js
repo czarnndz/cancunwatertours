@@ -39,7 +39,7 @@ module.exports = {
                           addMenu: true,
                       },
                       page : {
-                          searchUrl : '/detalle/',
+                          searchUrl : '/tours',
                           placeholder : 'Busca Tours',
                           menuselected : 'tour'
                       }

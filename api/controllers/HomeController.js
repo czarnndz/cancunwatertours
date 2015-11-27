@@ -120,7 +120,7 @@ module.exports = {
               console.log(e);
               throw e;
           }
-          console.log(categories[0].tours);
+          //console.log(categories[0].tours);
           res.json({categories:categories});
       });
   },
@@ -133,7 +133,7 @@ module.exports = {
           controller : 'home.js'
         },
         page : {
-            searchUrl : '/resultados',
+            searchUrl : '/tours',
             placeholder : 'Buscar'
         }
       });
@@ -148,7 +148,7 @@ module.exports = {
           controller : 'home.js'
         },
         page : {
-            searchUrl : '/resultados',
+            searchUrl : '/tours',
             placeholder : 'Buscar'
         }
       });
@@ -164,7 +164,7 @@ module.exports = {
           controller : 'home.js'
         },
         page : {
-            searchUrl : '/resultados',
+            searchUrl : '/tours',
             placeholder : 'Buscar'
         }
       });
@@ -201,7 +201,7 @@ var resultados = function(params,res) {
               req : params
             },
             page: {
-              searchUrl: '/resultados',
+              searchUrl: '/tours',
               placeholder: 'Buscar'
             }
           });//res

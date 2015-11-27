@@ -104,7 +104,7 @@ module.exports.routes = {
     controller: 'home',
     action: 'toursSearchByName'
   },
-  '/add-order' : {
+  '/process' : {
     controller : 'reserva',
     action : 'addOrder'
   }

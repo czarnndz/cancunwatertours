@@ -29,49 +29,35 @@ module.exports = {
             id: "",
             price: 1.00,
             currency: "USD",
-            quantity: 1
+            adults: 1,
+            kids : 1
           }];
         }
-        //console.log(params);
+
         OrderCore.createOrder(function(order) {
           console.log(order);
-          OrderCore.createReservations(order,items,function(reservations){
+          OrderCore.createReservations(order,params.items,function(reservations){
             if (reservations) {
-              var items =
-              Payments.paypalCreate(items,"order=" + order.id,function(result) {
+              Payments.paypalCreate(params.items,"order=" + order.id,function(result) {
                 //Common.updateRese
                 console.log(result);
                 if (result.success) {
                   OrderCore.updateReservations(order.id,{ autorization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
                     if (updateRes)
-                      return res.redirect(result.redirect_url,302);
-                  });
-                } else {
-                  res.view('reserva/voucher',{
-                    order : order,
-                    error : result.error,
-                    meta : {
-                      controller : 'home.js'
-                    },
-                    page : {
-                      searchUrl : '/voucher',
-                      placeholder : 'Voucher'
+                      return res.json(result);
+                    else {
+                      result.success = false;
+                      result.error = 'update reservation error';
+                      result.extra = updateRes;
+                      return res.json(result);
                     }
                   });
+                } else {
+                  return res.json(result);
                 }
               });
             } else { //error al guardar reservaciones
-              res.view('reserva/voucher',{
-                order : order,
-                error : { message : 'error message' },
-                meta : {
-                  controller : 'home.js'
-                },
-                page : {
-                  searchUrl : '/voucher',
-                  placeholder : 'Voucher'
-                }
-              });
+              return res.json({ success : false , error : 'error' });
             }
 
           })
