@@ -364,7 +364,7 @@
             <div class="booking-info-inner">
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">
                 <section class="booking-info-block">
-                  <h3><a ng-href="/detalle/{{tour.url}}" target="_blank">{{tour.name}}</a></h3>
+                  <h3><a ng-href="/tour/{{tour.url}}" target="_blank">{{tour.name}}</a></h3>
                   <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
                 </section>
                 <section ng-if="tour.hotel" class="booking-info-block">

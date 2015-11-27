@@ -43,6 +43,7 @@ app.controller('Home', function($scope,$http, toursService) {
                     icon : tours[i].avatar3,
                     avatar: tours[i].avatar,
                     fee : tours[i].fee,
+                    url: tours[i].url,
                     collgspan: $scope.lengthsArray[i].collg,
                     rowlgspan: $scope.lengthsArray[i].rowlg,
                     colmdspan: $scope.lengthsArray[i].colmd,
@@ -68,6 +69,7 @@ app.controller('Home', function($scope,$http, toursService) {
                   icon : tours[rand].avatar3,
                   avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
+                  url: tours[rand].url,
                   collgspan: $scope.lengthsArray[i].collg,
                   rowlgspan: $scope.lengthsArray[i].rowlg,
                   colmdspan: $scope.lengthsArray[i].colmd,
@@ -125,7 +127,7 @@ app.controller('Search',function($scope,$http, $window, toursService){
     };
 
     $scope.selectedItemChange = function(item){
-      $window.location.href = '/detalle/' + item.url;
+      $window.location.href = '/tour/' + item.url;
     }
 
 });
