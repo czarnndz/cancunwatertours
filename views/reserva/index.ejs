@@ -360,8 +360,9 @@
 
           <!--RIGHT SIDE-->
           <div class="booking-info" flex="35" flex-md="100" flex-sm="100">
-            <h2>Tu reservación</h2>
+            <h2 class="booking-info-title">Tu reservación</h2>
             <div class="booking-info-inner">
+
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">
                 <section class="booking-info-block">
                   <h3><a ng-href="/tour/{{tour.url}}" target="_blank">{{tour.name}}</a></h3>
@@ -369,19 +370,20 @@
                 </section>
                 <section ng-if="tour.hotel" class="booking-info-block">
                   <p><strong>TRANSPORTACIÓN</strong></p>
-                  <p class="precio-detalles">MXN {{priceTransfer(tour) | currency}}</p>
+                  <p>MXN {{priceTransfer(tour) | currency}}</p>
                 </section>
                 <section class="booking-info-block">
                   <p><strong>IMPUESTOS</strong></p>
-                  <p class="precio-detalles">MXN {{priceTax(tour) | currency}}</p>
+                  <p>MXN {{priceTax(tour) | currency}}</p>
                 </section>
               </div>
-            </div>
-            <div class="booking-info-inner">
-              <section class="booking-info-block">
-                <p class="text-total-d"><strong>TOTAL</strong></p>
-                <p class="precio-total-d">{{priceTotal() | currency}} <span>MXN</span></p>
-              </section>
+
+              <div class="booking-info-item">
+                <section class="booking-info-block">
+                  <p class="text-total-d"><strong>TOTAL</strong></p>
+                  <p class="precio-total-d">{{priceTotal() | currency}} <span>MXN</span></p>
+                </section>
+              </div>
             </div>
             <div class="booking-info-inner center-content">
               <a href="" ng-click="continueClick()" class="action-btn">CONTINUAR</a>

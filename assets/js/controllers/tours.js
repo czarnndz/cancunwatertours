@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
+app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, toursService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
@@ -237,6 +237,10 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService){
           }
         }
       }
+    }
+
+    $scope.getCategoryIcon = function(category){
+      return toursService.getCategoryIcon(category);
     }
 
 });
