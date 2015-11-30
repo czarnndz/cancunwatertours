@@ -277,6 +277,20 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   background: #00ADF2;
   color: #fff;
 }
+.header .custom-selector > a{font-size: 10px}
+.header .custom-selector > a > i{
+  color: #B1B1B1;
+  font-size: 19px;
+  margin-top: -6px;
+  display: inline-block;
+}
+
+.header .custom-selector-arrow{
+  font-size: 8px!important;
+  margin-top: -2px!important;
+  margin-left: 6px!important;
+}
+
 .header .custom-selector:hover a,
 .header .custom-selector:hover i,
 .header .custom-selector-active a,
@@ -290,7 +304,6 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   z-index: 9999;
   background: #00ADF2;
   width: 100%;
-  /*max-width: 168px;*/
   left: 0;
   top: 100%;
   margin: 0;
@@ -2085,6 +2098,27 @@ figcaption:hover .action-btn-white{
   text-align: center;
 }
 
+/*---------/
+  #404
+/*--------*/
+#page-404{
+  background: #17B6DA;
+  margin-top: 60px;
+}
+#page-404 .inner-404{
+  color: #fff;
+  text-align: center;
+}
+#page-404 .inner-404 h2{margin: 0;}
+#page-404 .inner-404 h1{
+  font-size: 112px;
+  margin: 0;
+}
+#page-404 .inner-404 .action-btn-white:hover{
+  background: #fff;
+  color: #17B6DA;
+}
+
 @media (min-width: 1600px){
   .tour-description-inner{
     padding: 20px 80px;
@@ -2095,7 +2129,6 @@ figcaption:hover .action-btn-white{
 @media (max-width: 1350px){
   .header .custom-selector{max-width: 55px;}
   .header .custom-selector strong{display: none;}
-  .header .custom-selector-list
 }
 
 @media (max-width: 1100px){
@@ -2123,6 +2156,7 @@ figcaption:hover .action-btn-white{
   .header .custom-selector i{font-size: 22px;}
   .header .custom-selector li{text-align: left;}
   .header-mobile .submenu span{margin:-5px 4px 0;}
+  .header .custom-selector-arrow{margin-left: 0!important;}
 
   /*--------/
     #TOUR-INDIV
@@ -2158,6 +2192,7 @@ figcaption:hover .action-btn-white{
   /*----------*/
   .header .account-menu{padding-top: 0}
   .header .account-menu .login-icon-wrap i{margin-top: 0}
+  .header .custom-selector-list{max-width: 168px!important}
 
   /*----------/
     #FORM-MODAL

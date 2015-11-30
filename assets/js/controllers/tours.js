@@ -70,10 +70,22 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, tou
     }
 
     $scope.formatDuration = function(duration){
-      var formatted = 0;
+      var formatted = '';
+      console.log(duration);
       if(duration){
         var t = new Date(duration);
-        formatted = t.getHours();
+        var h = t.getHours() || '';
+        var m = t.getMinutes() || '';
+        if(h || h>0){
+          formatted = h  + ' hr(s).';
+        }
+        if(m || m>0){
+          if(h || h>0) formatted += ', ';
+          formatted += m + ' min.';
+        }
+      }
+      if(formatted === ''){
+        formatted = '--';
       }
       return formatted;
     }

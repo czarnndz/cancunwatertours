@@ -42,7 +42,7 @@
 
   <div class="menu-section account-menu" flex="35" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong></a>
+      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
@@ -53,7 +53,7 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong></a>
+      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
           <a ng-click="setLang(item)">
@@ -137,7 +137,7 @@
 
   <div class="container-xsm submenu" layout="row" layout-align="space-between center">
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong></a>
+      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
@@ -148,7 +148,7 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong></a>
+      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
           <a ng-click="setLang(item)">

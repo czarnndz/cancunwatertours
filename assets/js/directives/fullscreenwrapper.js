@@ -29,7 +29,11 @@
       element.css({"height" : newHeight+"px","min-height" : "526px"});
 
       scope.newWidth = function (){
-        var side = $(".main-sidebar")[0].clientWidth;
+        var side = 0;
+        if($(".main-sidebar").length > 0){
+          side = $(".main-sidebar")[0].clientWidth;
+        }
+
         return {"width" : (newValue.w-side)+"px"};
       }
  		}, true);
