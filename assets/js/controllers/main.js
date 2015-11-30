@@ -7,6 +7,28 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.registerToggle = false;
     $scope.loginToggle = false;
 
+    $scope.langList = [
+      {label: 'Español',value: 'es'},
+      {label: 'English',value: 'en'},
+    ];
+    $scope.currencyList = [
+      {label: 'Pesos MXN.',value: 'pesos'},
+      {label: 'US. Dollar',value: 'dollar'}
+    ]
+
+    $scope.lang = $scope.langList[0];
+    $scope.currency = $scope.currencyList[0];
+
+    $scope.setCurrency = function(val){
+      console.log(val);
+      $scope.currency = val;
+    }
+    $scope.setLang = function(val){
+      console.log(val);
+      $scope.lang = val;
+    }
+
+
     $scope.doLoginToggle = function($event){
       //$event.stopPropagation($event);
       if($scope.registerToggle){

@@ -1,9 +1,9 @@
 <!--HEADER DESKTOP/TABLET-->
 
-<div class="header header-desktop" hide-sm layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" layout-align-md="center center">
+<div class="header header-desktop" hide-sm layout="row" layout-md="column" layout-sm="column">
 
   <div class="menu-section menu-section-first" flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
-    <div layout="row">
+    <div layout="row" layout-align="center center">
 
       <form class="search-box" ng-controller="Search" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()">
         <i class="icon-buscador"></i>
@@ -36,21 +36,40 @@
     </div>
   </div>
 
-  <div class="menu-section" flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
+  <div class="menu-section menu-section-logo" flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
     <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
-  <div class="menu-section account-menu" flex="35" flex-md="100" flex-sm="100"  flex-order-md="2">
-    <div layout="row" layout-align="end center">
-      <!--<span>
-        <a class="custom-selector"><i class="icon-moneda"></i> <strong>Moneda</strong></a>
-      </span>-->
+  <div class="menu-section account-menu" flex="35" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
+    <div flex class="custom-selector" layout="row" layout-align="center center">
+      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong></a>
+      <ul class="custom-selector-list">
+        <li ng-repeat="item in currencyList track by $index">
+          <a ng-click="setCurrency(item)">
+            <span ng-if="item === currency">&#10003;</span>
+            {{item.label}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div flex class="custom-selector" layout="row" layout-align="center center">
+      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong></a>
+      <ul class="custom-selector-list">
+        <li ng-repeat="item in langList track by $index">
+          <a ng-click="setLang(item)">
+            <span ng-if="item === lang">&#10003;</span>
+            {{item.label}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="account-menu-inner" flex layout="row" layout-align="center center" >
       <% if(req.user){ %>
-        <span class="login-icon-wrap">
+        <span class="account-menu-item login-icon-wrap">
           <a href="/cuenta"><i class="icon-login"></i></a>
         </span>
 
-        <span class="account-item">
+        <span class="account-menu-item account-item">
           <a href="/cuenta">
             <strong>
               Mi cuenta / <%- req.user.name %>
@@ -58,21 +77,23 @@
           </a>
         </span>
       <% } %>
-      <span>
+      <span class="account-menu-item">
          <% if(req.user){ %>
           <a href="/logout"><strong>Cerrar sesión</strong></a>
         <% }else{ %>
           <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
         <% } %>
       </span>
-      <span>
+      <span class="account-menu-item">
         <a href="/reserva">
           <i class="icon-carrito"></i>
           <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
       </span>
       <% if(!req.user){ %>
-        <span><a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a></span>
+        <span class="account-menu-item">
+          <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Login</strong></a>
+        </span>
       <% } %>
     </div>
   </div>
@@ -87,15 +108,15 @@
 
   <div layout="row" layout-align="space-between center">
 
-    <div ng-click="toggleMenuMobile = !toggleMenuMobile" flex="15" class="button-menu-mobile">
+    <div ng-click="toggleMenuMobile = !toggleMenuMobile"  class="button-menu-mobile">
       <hr><hr><hr>
     </div>
 
-    <div flex="40">
+    <div >
       <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
     </div>
 
-    <div flex="30" class="account-menu" flex-order-md="2">
+    <div class="account-menu" flex-order-md="2">
       <div layout="row" layout-align="end center">
         <% if(req.user){ %>
           <span class="login-icon-wrap">
@@ -114,12 +135,31 @@
   </div>
 
 
-  <div class="container-mini submenu" layout="row" layout-align="space-between center">
+  <div class="container-xsm submenu" layout="row" layout-align="space-between center">
+    <div flex class="custom-selector" layout="row" layout-align="center center">
+      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong></a>
+      <ul class="custom-selector-list">
+        <li ng-repeat="item in currencyList track by $index">
+          <a ng-click="setCurrency(item)">
+            <span ng-if="item === currency">&#10003;</span>
+            {{item.label}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div flex class="custom-selector" layout="row" layout-align="center center">
+      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong></a>
+      <ul class="custom-selector-list">
+        <li ng-repeat="item in langList track by $index">
+          <a ng-click="setLang(item)">
+            <span ng-if="item === lang">&#10003;</span>
+            {{item.label}}
+          </a>
+        </li>
+      </ul>
+    </div>
     <span>
       <a ng-click="toggleSearchMobile = !toggleSearchMobile" href=""><strong>Búsqueda</strong></a>
-    </span>
-    <span>
-      <a href="/cuenta"><strong>Mi cuenta</strong></a>
     </span>
     <% if(!req.user){ %>
       <span>
@@ -129,6 +169,9 @@
         <a ng-click="doLoginToggle($event)" href="" class="action-btn"><strong>Login</strong></a>
       </span>
     <% }else{ %>
+      <span>
+        <a href="/cuenta"><strong>Mi cuenta</strong></a>
+      </span>
       <span>
         <a href="/logout"><strong>Cerrar sesión</strong></a>
       </span>
@@ -157,7 +200,7 @@
     </md-autocomplete>
   </form>
 
-  <%- partial('../partials/search') -%>-->
+  <%- partial('../partials/search') -%>
 
   <div class="advanced-search">
     <a href="/tours"><strong>BÚSQUEDA AVANZADA</strong></a>
