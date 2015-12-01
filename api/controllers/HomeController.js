@@ -8,7 +8,6 @@ var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
-      //console.log(categories);
       res.view({
         meta : {
           controller : 'home.js',
@@ -29,9 +28,13 @@ module.exports = {
     TourCategory.findOne({ url : params.url }).exec(function(err,category){
       if (err) {
         console.log(err);
-      } else {
+      } else if (!_.isUndefined(category)){
+        //console.log("assasasassssssssssssssssssssss");
+        //console.log(category);
         params.category = category.id;
         resultados(params,res);
+      } else {
+        res.notFound();
       }
     })
 
