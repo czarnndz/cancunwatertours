@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?zfwzqv');
-	src:url('fonts/icomoon.eot?zfwzqv#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?zfwzqv') format('truetype'),
-		url('fonts/icomoon.woff?zfwzqv') format('woff'),
-		url('fonts/icomoon.svg?zfwzqv#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?2jtkky');
+	src:url('fonts/icomoon.eot?2jtkky#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?2jtkky') format('truetype'),
+		url('fonts/icomoon.woff?2jtkky') format('woff'),
+		url('fonts/icomoon.svg?2jtkky#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -24,181 +24,184 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-world:before {
+.icon-accesible:before {
 	content: "\e900";
 }
-.icon-water-sports:before {
+.icon-actividad:before {
 	content: "\e901";
 }
-.icon-viajes:before {
+.icon-adultos:before {
 	content: "\e902";
 }
-.icon-twit:before {
+.icon-adventure:before {
 	content: "\e903";
 }
-.icon-trending:before {
+.icon-alert:before {
 	content: "\e904";
 }
-.icon-transporte:before {
+.icon-archaeological-sites:before {
 	content: "\e905";
 }
-.icon-todos:before {
+.icon-bebes:before {
 	content: "\e906";
 }
-.icon-theme-parks:before {
+.icon-borrar:before {
 	content: "\e907";
 }
-.icon-tel:before {
+.icon-buscador:before {
 	content: "\e908";
 }
-.icon-snorkeling:before {
+.icon-calendario:before {
 	content: "\e909";
 }
-.icon-sailing:before {
+.icon-carrito:before {
 	content: "\e90a";
 }
-.icon-precio2:before {
+.icon-cenote:before {
 	content: "\e90b";
 }
-.icon-precio:before {
+.icon-cenotes:before {
 	content: "\e90c";
 }
-.icon-populares2:before {
+.icon-cerrar:before {
 	content: "\e90d";
 }
-.icon-populares:before {
+.icon-corazon:before {
 	content: "\e90e";
 }
-.icon-pin:before {
+.icon-cultural:before {
 	content: "\e90f";
 }
-.icon-parejas:before {
+.icon-diving:before {
 	content: "\e910";
 }
-.icon-oferta:before {
+.icon-embarazadas:before {
 	content: "\e911";
 }
-.icon-nuevo:before {
+.icon-estrella:before {
 	content: "\e912";
 }
-.icon-nombre:before {
+.icon-face:before {
 	content: "\e913";
 }
-.icon-nocturno:before {
+.icon-familiar:before {
 	content: "\e914";
 }
-.icon-ninos:before {
+.icon-familiar2:before {
 	content: "\e915";
 }
-.icon-nino:before {
+.icon-fishing:before {
 	content: "\e916";
 }
-.icon-new:before {
+.icon-flecha:before {
 	content: "\e917";
 }
-.icon-naturaleza:before {
+.icon-flecha2:before {
 	content: "\e918";
 }
-.icon-moneda:before {
+.icon-grupos:before {
 	content: "\e919";
 }
-.icon-mojado:before {
+.icon-horario:before {
 	content: "\e91a";
 }
-.icon-mascompradas:before {
+.icon-horario2:before {
 	content: "\e91b";
 }
-.icon-mail:before {
+.icon-hotel:before {
 	content: "\e91c";
 }
-.icon-login:before {
+.icon-instagram:before {
 	content: "\e91d";
 }
-.icon-instagram:before {
+.icon-login:before {
 	content: "\e91e";
 }
-.icon-hotel:before {
+.icon-mail:before {
 	content: "\e91f";
 }
-.icon-horario2:before {
+.icon-mascompradas:before {
 	content: "\e920";
 }
-.icon-horario:before {
+.icon-mojado:before {
 	content: "\e921";
 }
-.icon-grupos:before {
+.icon-moneda:before {
 	content: "\e922";
 }
-.icon-flecha2:before {
+.icon-naturaleza:before {
 	content: "\e923";
 }
-.icon-flecha:before {
+.icon-new:before {
 	content: "\e924";
 }
-.icon-fishing:before {
+.icon-nino:before {
 	content: "\e925";
 }
-.icon-familiar2:before {
+.icon-ninos:before {
 	content: "\e926";
 }
-.icon-familiar:before {
+.icon-nocturno:before {
 	content: "\e927";
 }
-.icon-face:before {
+.icon-nombre:before {
 	content: "\e928";
 }
-.icon-estrella:before {
+.icon-nuevo:before {
 	content: "\e929";
 }
-.icon-embarazadas:before {
+.icon-oferta:before {
 	content: "\e92a";
 }
-.icon-diving:before {
+.icon-parejas:before {
 	content: "\e92b";
 }
-.icon-cultural:before {
+.icon-pin:before {
 	content: "\e92c";
 }
-.icon-corazon:before {
+.icon-populares:before {
 	content: "\e92d";
 }
-.icon-cerrar:before {
+.icon-populares2:before {
 	content: "\e92e";
 }
-.icon-cenotes:before {
+.icon-precio:before {
 	content: "\e92f";
 }
-.icon-cenote:before {
+.icon-precio2:before {
 	content: "\e930";
 }
-.icon-carrito:before {
+.icon-sailing:before {
 	content: "\e931";
 }
-.icon-calendario:before {
+.icon-snorkeling:before {
 	content: "\e932";
 }
-.icon-buscador:before {
+.icon-tel:before {
 	content: "\e933";
 }
-.icon-borrar:before {
+.icon-theme-parks:before {
 	content: "\e934";
 }
-.icon-bebes:before {
+.icon-todos:before {
 	content: "\e935";
 }
-.icon-archaeological-sites:before {
+.icon-transporte:before {
 	content: "\e936";
 }
-.icon-adventure:before {
+.icon-trending:before {
 	content: "\e937";
 }
-.icon-adultos:before {
+.icon-twit:before {
 	content: "\e938";
 }
-.icon-actividad:before {
+.icon-viajes:before {
 	content: "\e939";
 }
-.icon-accesible:before {
+.icon-water-sports:before {
 	content: "\e93a";
+}
+.icon-world:before {
+	content: "\e93b";
 }
 
