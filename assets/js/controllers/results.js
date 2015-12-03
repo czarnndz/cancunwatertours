@@ -105,7 +105,6 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var limit = 25;
       var str = $filter('limitTo')(text, limit);
       str += (text.length > 25) ? '...' : '';
-      console.log(str);
       return {
         type: 'div',
         className: 'custom-icon',
@@ -125,12 +124,10 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var popup =  image + info;
 
       if(tour.categories){
-        console.log(tour.categories);
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
           categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
-          console.log(categories);
           if(i !== (categories.length) ){
             categories += ', ';
           }
@@ -139,7 +136,6 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         popup += categoriesStr;
       }
 
-      console.log(popup);
       return popup;
     };
 

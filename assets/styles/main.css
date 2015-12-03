@@ -207,18 +207,18 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 }
 .header md-autocomplete{
   background: none;
-  height: 29px;
+  height: 33px;
 }
 .header md-autocomplete input:not(.md-input){
-  line-height: 29px;
-  height: 29px;
+  line-height: 33px;
+  height: 33px;
   padding-left: 32px;
 }
 .header md-autocomplete-wrap{
   box-shadow: none;
   background: #F2F2F2;
   border-radius: 46px;
-  height: 29px;
+  height: 33px;
 }
 /*
 .header md-autocomplete input{
@@ -252,6 +252,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .account-menu-item{
   margin: -6px 10px 0;
 }
+.header .account-menu-item .action-btn{padding: 6px 10px;}
 .header .account-menu i{
   color: #2AB7D0;
   font-size: 24px;
@@ -280,7 +281,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .custom-selector{
   cursor: pointer;
   position: relative;
-  max-width: 120px;
+  max-width: 115px;
 }
 .header .custom-selector:hover,
 .header .custom-selector-active{
@@ -356,7 +357,10 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   max-width: 30px
 }
 .header-mobile{padding: 14px 20px;}
-.header-mobile .submenu{margin-top: 15px;}
+.header-mobile .submenu{
+  margin-top: 15px;
+  max-width: 340px;
+}
 .search-mobile{
   background: radial-gradient(#35cdd4, #1EB0EB);
   display: none;
@@ -1543,16 +1547,20 @@ figcaption:hover .action-btn-white{
 }
 
 /*---------/
-  #MAP-WRAPPER
+  #MAP-WRAPPER-ALT
 /*---------*/
 .map-wrapper-alt .hotel-search{
   background: #fff;
   top: 0;
   height: 45px;
   width: 100%;
+  display: none;
 }
 
-.map-wrapper-alt .angular-leaflet-map{top: 45px}
+.map-wrapper-alt .angular-leaflet-map{
+  /*top: 45px;*/
+  top: 0;
+}
 
 /*-----------/
   #MAP-MARKER
@@ -1672,9 +1680,10 @@ figcaption:hover .action-btn-white{
 }
 .tour-item-detail p{
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   margin: 0;
 }
+.tour-item-detail-title{font-size: 14px;}
 .tour-item-detail .tour-item-price{
   color: #00ABE3;
   font-size: 16px;
