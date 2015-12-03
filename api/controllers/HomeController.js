@@ -73,7 +73,7 @@ module.exports = {
     var params = req.params.all();
     if (params.term){
       var term = params.term;
-      Tour.find({ select: ['id','name','icon'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
+      Tour.find({ select: ['id','name','icon','url'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
         if(e){
           console.log(e);
           return res.json([]);
@@ -100,17 +100,6 @@ module.exports = {
               throw e;
           }
           res.json( Common.formatHotels(hotels,'es'/*req.getLocale()*/) );
-      });
-  },
-  reserva : function(req,res) {
-      res.view({
-          meta : {
-              controller : 'reserva.js'
-          },
-          page : {
-              searchUrl : '/reserva',
-              placeholder : 'Buscar'
-          }
       });
   },
   tour_categories: function(req, res){

@@ -43,7 +43,7 @@
                       </div>
                       <div class="booking-form" flex="70" flex-md="65" flex-sm="100">
                           <h3>{{tour.name}}</h3>
-                          <p>{{tour.hotel ? "con Transportación" : ""}}</p>
+                          <p>{{tour.hotel && tour.transfer ? "con Transportación" : ""}}</p>
                           <section>
                               <div class="input-field-wrap" layout="row" layout-align="space-between center" >
                                   <label flex="20">
@@ -215,7 +215,7 @@
                   <div id="forma-pago" class="block-content booking-form">
 
                       <md-radio-group class="md-primary" ng-model="paymentMethod" layout="row" layout-md="column" layout-sm="column">
-                        <md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
+                        <!--<md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
                           <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="master" class="md-primary">
@@ -223,13 +223,13 @@
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="american" class="md-primary">
                           <img src="/images/american.png" class="img-tarjeta">
-                        </md-radio-button>
+                        </md-radio-button>-->
                         <!--<md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">-->
                           <!--<img src="/images/puntos.png" class="img-tarjeta">-->
                         <!--</md-radio-button>-->
-                        <md-radio-button flex-md="100" flex-sm="100" value="oxxo" class="md-primary">
+                        <!--<md-radio-button flex-md="100" flex-sm="100" value="oxxo" class="md-primary">
                           <img src="/images/oxxo.png" class="img-tarjeta">
-                        </md-radio-button>
+                        </md-radio-button>-->
                         <md-radio-button flex-md="100" flex-sm="100" value="paypal" class="md-primary">
                           <img src="/images/paypal.png" class="img-tarjeta">
                         </md-radio-button>
@@ -263,7 +263,7 @@
                           <md-option value="MX">Mexico</md-option>
                       </md-select>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end">
+                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" ng-if="['visa','american','master'].indexOf(paymentMethod) != -1">
                         <div flex="45" flex-sm="100" class="input-field-wrap">
                             <input type="text" class="input-field" placeholder="Número de Tarjeta" ng-model="ccNumber">
                         </div>
@@ -284,7 +284,7 @@
                         </div>
                       </div>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
+                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(paymentMethod) != -1">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta" ng-model="ccName">
                         </div>
@@ -329,17 +329,17 @@
                           </md-checkbox>
                         </p>
                         <p class="total-pagar"><strong>Total a Pagar</strong></p>
-                        <p class="total-price">MXN <strong>{{priceTotal() | currency}}</strong></p>
+                        <p class="total-price"> {{global_currency}} <strong>{{priceTotal() | currency}}</strong></p>
                         <p class="small-text" flex="100">El importe incluye todos los impuestos</p>
 
                         <!--<input type="button" id="boton-pagar" value="PAGAR RESERVA">-->
-                        <input type="button" class="action-btn payment-btn" value="PAGAR RESERVA">
+                        <input type="button" class="action-btn payment-btn" ng-click="process()" value="PAGAR RESERVA">
                     </div>
 
                   </div>
               </div>
               <!--END STEP 3-->
-              <div class="continue-wrap-btns">
+              <div class="continue-wrap-btns" ng-if="step < 2">
                 <div layout='row' layout-align='end center'>
                   <a href="" ng-click="continueShopping()" class="action-btn continue-btn shopping">CONTINUAR COMPRANDO</a>
                   <a href="" ng-click="continueClick()" class="action-btn continue-btn">CONTINUAR</a>
@@ -366,26 +366,22 @@
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">
                 <section class="booking-info-block">
                   <h3><a ng-href="/tour/{{tour.url}}" target="_blank">{{tour.name}}</a></h3>
-                  <p class="precio-detalles">MXN {{priceTour(tour) | currency}}</p>
+                  <p class="precio-detalles">{{global_currency.currency_code | uppercase}} {{priceTour(tour) | currency}}</p>
                 </section>
-                <section ng-if="tour.hotel" class="booking-info-block">
+                <section ng-if="tour.hotel && tour.transfer" class="booking-info-block">
                   <p><strong>TRANSPORTACIÓN</strong></p>
-                  <p>MXN {{priceTransfer(tour) | currency}}</p>
-                </section>
-                <section class="booking-info-block">
-                  <p><strong>IMPUESTOS</strong></p>
-                  <p>MXN {{priceTax(tour) | currency}}</p>
+                  <p>{{global_currency.currency_code | uppercase}} {{priceTransfer(tour) | currency}}</p>
                 </section>
               </div>
 
               <div class="booking-info-item">
                 <section class="booking-info-block">
                   <p class="text-total-d"><strong>TOTAL</strong></p>
-                  <p class="precio-total-d">{{priceTotal() | currency}} <span>MXN</span></p>
+                  <p class="precio-total-d">{{priceTotal() | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
                 </section>
               </div>
             </div>
-            <div class="booking-info-inner center-content">
+            <div class="booking-info-inner center-content" ng-if="step < 2">
               <a href="" ng-click="continueClick()" class="action-btn">CONTINUAR</a>
             </div>
           </div>

@@ -12,11 +12,15 @@
       var serv = this;
 
       serv.addTour = addTour;
+      serv.getClient = getClient;
+      serv.setClient = setClient;
       serv.getPriceTour = getPriceTour;
       serv.getPriceTax = getPriceTax;
       serv.getPriceTotalTotal = getPriceTotalTotal;
       serv.getPriceTotalTax = getPriceTotalTax;
       serv.getPriceTransfer = getPriceTransfer;
+      serv.getPriceAdults = getPriceAdults;
+      serv.getPriceKids = getPriceKids;
       serv.removeItem = removeItem;
       serv.process = process;
       serv.tax = 0.15;
@@ -24,6 +28,15 @@
       serv.getAll = getAll;
       serv.flush = flush;
       $rootScope.cart_items = localStorageService.get('cart_items') || [];
+      $rootScope.cart_client = localStorageService.get('cart_client') || {}  ;
+
+      function getClient() {
+        return $rootScope.cart_client;
+      }
+
+      function setClient(client) {
+        $rootScope.cart_client = client;
+      }
 
       function get(index){
         return $rootScope.cart_items[index];
@@ -46,11 +59,12 @@
       }
 
       function getPriceTour(tour) {
-        var transferPrice = getPriceTransfer(tour,{ cost : 20 })
+        var exchangeRate = getExchangeRate();
+        var transferPrice = getPriceTransfer(tour,{ cost : 20 });
         if (tour.kids > 0) {
-          return transferPrice + (tour.adults * tour.fee) + (tour.kids * tour.feeChild);
+          return transferPrice + (tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate);
         } else {
-          return transferPrice + (tour.adults * tour.fee);
+          return transferPrice + (tour.adults * tour.fee * exchangeRate);
         }
       }
 
@@ -64,7 +78,7 @@
       }
 
       function getPriceTotalTotal() {
-        return getPriceTotal() + getPriceTotalTax();
+        return getPriceTotal() * (1 + serv.tax);
       }
 
       function getPriceTotal(){
@@ -74,11 +88,30 @@
       }
 
       function getPriceTransfer(tour,transfer){
-        if (tour.hotel)
-          return ((transfer.cost * tour.adults) + (tour.kids * transfer.cost));
+        var exchangeRate = getExchangeRate();
+        if (tour.hotel && tour.transfer)
+          return ((transfer.cost * tour.adults * exchangeRate) + (tour.kids * transfer.cost * exchangeRate));
         else
           return 0;
       };
+
+      function getPriceAdults(tour) {
+        var auxTour = {
+          fee : tour.fee,
+          kids : 0,
+          adults : tour.adults
+        };
+        return getPriceTour(auxTour);
+      }
+
+      function getPriceKids(tour) {
+        var auxTour = {
+          fee : tour.fee,
+          kids : tour.kids,
+          adults : 0
+        };
+        return getPriceTour(auxTour);
+      }
 
       function process(){
         var response = {};
@@ -100,6 +133,19 @@
         //console.log($rootScope.cart_items);
         localStorageService.set('cart_items', $rootScope.cart_items);
       }, true);
+
+      $rootScope.$watch('cart_client', function () {
+        //console.log($rootScope.cart_items);
+        localStorageService.set('cart_client', $rootScope.cart_client);
+      });
+
+      function getExchangeRate() {
+        if ($rootScope.global_currency.currency_code == $rootScope.global_base_currency.currency_code) {
+          return 1;
+        } else {
+          return $rootScope.global_exchange_rates[$rootScope.global_currency.id].sales;
+        }
+      }
     });
 
 })();

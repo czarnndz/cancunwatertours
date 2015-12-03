@@ -22,23 +22,28 @@ module.exports = {
     },
     addOrder : function(req,res) {
         var params = req.params.all();
+        if (!params.currency) {
+            params.currency = { name : 'USD',currency_code : 'USD' };
+        }
         console.log(params.items);
         if (!params.items) {
           params.items = [{
             name: "item testing",
             id: "",
             price: 1.00,
-            currency: "USD",
+            currency: params.currency,
             adults: 1,
             kids : 1
           }];
         }
 
+
+
         OrderCore.createOrder(function(order) {
           console.log(order);
-          OrderCore.createReservations(order,params.items,function(reservations){
+          OrderCore.createReservations(order,params.items,params.payment_method,params.currency,function(reservations){
             if (reservations) {
-              Payments.paypalCreate(params.items,"order=" + order.id,function(result) {
+              Payments.paypalCreate(params.items,"order=" + order.id,params.currency,function(result) {
                 //Common.updateRese
                 console.log(result);
                 if (result.success) {

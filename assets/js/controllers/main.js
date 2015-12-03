@@ -1,5 +1,6 @@
-app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searchService,cartService) {
+app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searchService,cartService,localStorageService) {
     //$scope.tours = [];
+    $scope.cartService = cartService;
     $scope.maxFee = 0;
     $scope.minFee = 10000;
     $scope.toursCategories = [];
@@ -7,26 +8,36 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.registerToggle = false;
     $scope.loginToggle = false;
 
+
+    $scope.currencyList = currencies;
+
+    $rootScope.global_exchange_rates = exchange_rates;
+    $rootScope.global_base_currency = base_currency;
+    $rootScope.global_currency = localStorageService.get('global_currency') || base_currency;
+    $rootScope.global_lang = localStorageService.get('global_lang') || {label: 'Español',value: 'es'};
+
     $scope.langList = [
       {label: 'Español',value: 'es'},
-      {label: 'English',value: 'en'},
+      {label: 'English',value: 'en'}
     ];
-    $scope.currencyList = [
-      {label: 'Pesos MXN.',value: 'pesos'},
-      {label: 'US. Dollar',value: 'dollar'}
-    ]
 
     $scope.lang = $scope.langList[0];
     $scope.currency = $scope.currencyList[0];
 
     $scope.setCurrency = function(val){
       console.log(val);
-      $scope.currency = val;
-    }
+      $rootScope.global_currency = val;
+    };
+
     $scope.setLang = function(val){
-      console.log(val);
-      $scope.lang = val;
-    }
+      $scope.global_lang = val;
+    };
+
+    $rootScope.$watch('global_currency',function(){
+      console.log('currency change');
+      console.log($rootScope.global_currency);
+      localStorageService.set('global_currency', $rootScope.global_currency);
+    });
 
 
     $scope.doLoginToggle = function($event){

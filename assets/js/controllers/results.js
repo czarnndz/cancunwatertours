@@ -116,7 +116,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
 
     var getPopup = function(tour){
       var imgSrc = tour.avatar3;
-      var price = '$'+tour.fee+' MX';
+      var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
       var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
       var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
       var info ="<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";

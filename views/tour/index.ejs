@@ -141,20 +141,17 @@
           <!--END INPUT FIELDS-->
           <div class="precios-detalle">
             <p class="prices-value">
-              <strong>({{tour.adults}})</strong> Precio por adulto {{tour.fee * tour.adults | currency}}
+              <strong>({{tour.adults}})</strong> Precio por adulto {{getPriceAdults(tour) | currency}}
             </p>
-            <p class="prices-value"  >
-              <strong>({{tour.kids}})</strong> Precio por niño {{tour.feeChild * tour.kids | currency}}
-            </p>
-            <p class="prices-value">
-              IVA $xxx
+            <p class="prices-value" ng-if="tour.kids > 0" >
+              <strong>({{tour.kids}})</strong> Precio por niño {{getPriceKids(tour) | currency}}
             </p>
             <section class="final-price-block">
               <p class="prices-value">
                 <strong>TOTAL</strong>
               </p>
               <p class="prices-value">
-                <span class="prices-value-total">{{getPrice() | currency}}</span>
+                <span class="prices-value-total">{{getPrice(tour) | currency}} {{global_currency.currency_code | uppercase}}</span>
               </p>
 
               <!--<input type="submit" class="boton-detalle" value="AÑADIR A MI CARRITO" >-->
@@ -255,7 +252,7 @@
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4><a ng-href="/tour/{{tour_i.url}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
-        <p class="s-tour-price">${{tour_i.fee}} <span>MXN</span> </p>
+        <p class="s-tour-price">${{getPrice(tour_i) | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
         <p><a class='action-btn-white' href="/tour/{{tour_i.url}}">Reservar</a></p>
       </div>
     </div>

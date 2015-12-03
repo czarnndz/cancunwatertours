@@ -1,4 +1,9 @@
 <!--HEADER DESKTOP/TABLET-->
+<script type="text/javascript">
+  window.currencies = <%- JSON.stringify(sails.config.company.currencies) %>;
+  window.base_currency = <%- JSON.stringify(sails.config.company.base_currency) %>;
+  window.exchange_rates = <%- JSON.stringify(sails.config.company.exchange_rates) %>;
+</script>
 
 <div class="header header-desktop" hide-sm layout="row" layout-md="column" layout-sm="column">
 
@@ -46,8 +51,8 @@
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
-            <span ng-if="item === currency">&#10003;</span>
-            {{item.label}}
+            <span ng-if="item.currency_code == global_currency.currency_code">&#10003;</span>
+            ({{item.currency_code}}) {{item.name}}
           </a>
         </li>
       </ul>
@@ -141,8 +146,8 @@
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
-            <span ng-if="item === currency">&#10003;</span>
-            {{item.label}}
+            <span ng-if="item.currency_code == global_currency.currency_code">&#10003;</span>
+            ({{item.currency_code}}) {{item.name}}
           </a>
         </li>
       </ul>
