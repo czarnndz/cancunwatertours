@@ -1,4 +1,4 @@
-app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData){
+app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, toursService, leafletData, cartService){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -161,6 +161,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         var message = getPopup(t);
 
         this.push({
+          layer: 'Locations',
           lat: tour.lat,
           lng: tour.lng,
           message: message,
@@ -182,6 +183,17 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
 
     });
 
+    $scope.events = {
+      map: {
+        enable: ['moveend', 'popupopen'],
+        logic: 'emit'
+      },
+      marker: {
+        enable: [],
+        logic: 'emit'
+      }
+    },
+
     $scope.layers = {
         baselayers: {
             googleRoadmap: {
@@ -189,6 +201,18 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
                 layerType: 'ROADMAP',
                 type: 'google'
             }
+        },
+        overlays: {
+          Locations: {
+            "name": "Locations",
+            "type": "markercluster",
+            "visible": true,
+            "layerOptions": {
+            "chunkedLoading": true,
+            "showCoverageOnHover": false,
+            "removeOutsideVisibleBounds": true
+            }
+          }
         }
     };
     $scope.getToursCategories();
