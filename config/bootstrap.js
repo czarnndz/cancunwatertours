@@ -25,7 +25,9 @@ module.exports.bootstrap = function (cb) {
           throw new Error('company_id no existe');
         } else {
           sails.config.company = company;
-          cb();
+          server.kill(function(err){
+            cb();
+          });
         }
       });
     } else {
@@ -35,14 +37,12 @@ module.exports.bootstrap = function (cb) {
     // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
     //cb();
-    //server.kill(function(err){
-    //    cb();
-    //});
+
 };
 
-//server = http.createServer(function(req, res){
-//    res.end('loading Cancun water tours... ');
-//}).listen(port, function(){
-//});
-//
-//killable(server);
+server = http.createServer(function(req, res){
+    res.end('loading Cancun water tours... ');
+}).listen(port, function(){
+});
+
+killable(server);
