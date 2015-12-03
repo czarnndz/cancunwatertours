@@ -25,7 +25,9 @@
 			<ul>
 				<li><a ng-click="doRegisterToggle($event)" href="">Registro</a></li>
 				<li><a ng-click="doLoginToggle($event)" href="">Iniciar sesión</a></li>
-				<li><a href="/cuenta">Mi cuenta</a></li>
+				<% if(req.user){ %>
+          <li><a href="/cuenta">Mi cuenta</a></li>
+        <% } %>
 			</ul>
 		</div>
 

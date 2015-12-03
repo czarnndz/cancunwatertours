@@ -47,7 +47,7 @@
 
   <div class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-moneda"></i> <strong>{{global_currency.currency_code}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
@@ -142,7 +142,7 @@
 
   <div class="container-xsm submenu" layout="row" layout-align="space-between center">
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-moneda"></i> <strong>{{currency.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-moneda"></i> <strong>{{global_currency.currency_code}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">

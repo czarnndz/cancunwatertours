@@ -46,6 +46,9 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
         $scope.registerToggle = false;
       }
       $scope.loginToggle = !$scope.loginToggle;
+      if($scope.loginToggle){
+        $scope.scrollTop();
+      }
     };
 
     $scope.doRegisterToggle = function($event){
@@ -54,6 +57,20 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
         $scope.loginToggle = false;
       }
       $scope.registerToggle = !$scope.registerToggle;
+      if($scope.registerToggle){
+        $scope.scrollTop();
+      }
+    };
+
+    $scope.scrollTop = function(){
+      setTimeout(
+          function(){
+            $('html, body').animate({
+              scrollTop: 0
+            }, 250);
+          },
+          300
+      );
     };
 
     $scope.getFeeRange = function(){

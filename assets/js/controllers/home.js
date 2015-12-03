@@ -120,7 +120,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
     };
 
     $scope.getPriceTour = function(tour) {
-        console.log("get price tour");
+        //console.log("get price tour");
         return cartService.getPriceTour(tour);
     };
 
