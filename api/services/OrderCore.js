@@ -3,20 +3,39 @@
 		create order
 		create reservations transfers and tours/hotels
 */
-module.exports.createOrder = function(callback){
+module.exports.createOrder = function(client,callback){
     var params = {};
     params.user =  process.env.user_id;
     params.company = process.env.company_id;
     params.reservation_method = 'web';
     params.reservations = [];
 
-    Order.create(params).exec(function(err,res){
-      if (err) {
-        console.log(err);
-        callback(false);
-      }
-      callback(res);
-    });
+    if (client.id) {
+      params.client = client.id;
+      Order.create(params).exec(function(err,res){
+        if (err) {
+          console.log(err);
+          callback(false);
+        }
+        callback(res);
+      });
+    } else {
+      Client_.create(client).exec(function(err,res){
+        if (err) {
+          console.log(err);
+          callback(false);
+        }
+        params.client = res.id;
+        Order.create(params).exec(function(err,res1){
+          if (err) {
+            console.log(err);
+            callback(false);
+          }
+          callback(res1);
+        });
+      })
+    }
+
 };
 
 module.exports.updateReservations = function(order,attributes,callback) {
@@ -30,17 +49,17 @@ module.exports.updateReservations = function(order,attributes,callback) {
   })
 }
 
-module.exports.createReservationTour = function(params,payment_method,currency,callback){
-	Order.findOne( params.order ).populate('company').populate('user').exec(function(err,theorder){
+module.exports.createReservations = function(order,items,payment_method,currency,callback){
+	Order.findOne( order ).populate('company').populate('user').exec(function(err,theorder){
 		if(err) callback(err,false);
-		async.mapSeries( params.items, function(item,cb) {
+		async.mapSeries( items, function(item,cb) {
 			item.order = theorder.id;
       item.company = theorder.company.id;
       item.user = theorder.user.id;
       item.payment_method = payment_method;
       item.currency = currency;
 
-			OrderCore.getTourPrices(item.id,theorder.company.id,function(err,tour){
+      getPriceTour(item,theorder.company,function(err,tour){
           if(err) callback(err,false);
 					item.fee_adults_base = tour.fee_base;
 					item.fee_kids_base = tour.feeChild_base;
@@ -61,19 +80,20 @@ module.exports.createReservationTour = function(params,payment_method,currency,c
 	});
 };
 
-module.exports.getTourPrices = function(itemID,company,callback){
-	model = model.toLowerCase();
-	//el OR 'model' es porque falta hoteles por agencia
-	if( company.adminCompany || model == 'hotel' ){
-		sails.models[model].findOne(itemID).exec(function(err,theItem){
-			callback( err, { item:theItem, agencyProduct: false } );
-		});
-	}else{
-		CompanyProduct.findOne( item[model].id ).exec(function(err,CP){
-			sails.models[model].findOne( CP[model].id ).populate('provider').exec(function(err,theItem){
-				callback( err, { item:theItem, agencyProduct: CP } );
-			});
-		});
-	}
+function getPriceTour(item,company,callback){
+  Tour.findOne(item.id).exec(function(err,tour){
+    if (err) {
+      console.log(err);
+      callback(false);
+    }
+    tour.fee_base = tour.fee;
+
+    callback(tour)
+  });
+
 };
+
+function getCurrencyValue(base_currency,rated_currency,exchange_rates){
+
+}
 

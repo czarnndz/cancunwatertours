@@ -15,18 +15,34 @@ var killable = require('killable'),
 
 module.exports.bootstrap = function (cb) {
 
+    if (process.env.company_id){
+
+      Company.findOne({ id : process.env.company_id}).populate('currencies').populate('base_currency').exec(function(err,company){
+        if (err) {
+          console.log(err);
+        }
+        if (!company) {
+          throw new Error('company_id no existe');
+        } else {
+          sails.config.company = company;
+          cb();
+        }
+      });
+    } else {
+      throw new Error("falta agregar company_id en local.js");
+    }
     // It's very important to trigger this callack method when you are finished
     // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
     //cb();
-    server.kill(function(err){
-        cb();
-    });
+    //server.kill(function(err){
+    //    cb();
+    //});
 };
 
-server = http.createServer(function(req, res){
-    res.end('loading Cancun water tours... ');
-}).listen(port, function(){
-});
-
-killable(server);
+//server = http.createServer(function(req, res){
+//    res.end('loading Cancun water tours... ');
+//}).listen(port, function(){
+//});
+//
+//killable(server);

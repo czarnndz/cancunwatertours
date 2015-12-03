@@ -1,4 +1,4 @@
-app.controller('Home', function($scope,$http, toursService) {
+app.controller('Home', function($scope,$http,$rootScope, toursService,cartService) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.loading = false;
@@ -43,7 +43,10 @@ app.controller('Home', function($scope,$http, toursService) {
                     icon : tours[i].avatar3,
                     avatar: tours[i].avatar,
                     fee : tours[i].fee,
+                    feeChild : tours[i].feeChild,
                     url: tours[i].url,
+                    adults : 1,
+                    kids : 0,
                     collgspan: $scope.lengthsArray[i].collg,
                     rowlgspan: $scope.lengthsArray[i].rowlg,
                     colmdspan: $scope.lengthsArray[i].colmd,
@@ -69,7 +72,10 @@ app.controller('Home', function($scope,$http, toursService) {
                   icon : tours[rand].avatar3,
                   avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
+                  feeChild : tours[i].feeChild,
                   url: tours[rand].url,
+                  adults : 1,
+                  kids : 0,
                   collgspan: $scope.lengthsArray[i].collg,
                   rowlgspan: $scope.lengthsArray[i].rowlg,
                   colmdspan: $scope.lengthsArray[i].colmd,
@@ -113,11 +119,15 @@ app.controller('Home', function($scope,$http, toursService) {
         $scope.getToursRand();
     };
 
+    $scope.getPriceTour = function(tour) {
+        console.log("get price tour");
+        return cartService.getPriceTour(tour);
+    };
+
     $scope.init();
 });
 
-app.controller('Search',function($scope,$http, $window, toursService){
-
+app.controller('Search',function($scope, $window, toursService,$rootScope,localStorageService){
     $scope.querySearch = function(text) {
       return toursService.getToursByName(text)
         .then(function(data){
@@ -129,7 +139,6 @@ app.controller('Search',function($scope,$http, $window, toursService){
     $scope.selectedItemChange = function(item){
       $window.location.href = '/tour/' + item.url;
     }
-
 });
 app.controller('StaticPagesCTL',function($scope,$http){
     //

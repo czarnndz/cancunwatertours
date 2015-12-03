@@ -1,7 +1,11 @@
-app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
+app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location) {
+    $scope.cartService = cartService;
     $scope.city = '';
     $scope.client = window.client || {name:'',last_name:'',email:''};
     $scope.client.isMobile = false;
+    if (!cartService.getClient().name) {
+      cartService.setClient($scope.client);
+    }
     /*$scope.client = {
         isMobile : false
     };*/
@@ -24,30 +28,30 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
 
     $scope.continueClick = function(){
       if( !$scope.isNextButtonDisabled() ){
-          if ($scope.step == 3) {
-              cartService.process();
-          } else  {
-              $scope.step++;
+          if ($scope.step < 2) {
+            $scope.step++;
           }
       }
     }
 
     $scope.isNextButtonDisabled = function() {
         if ($scope.step == 0) {
-            return false;
-            /*if (!$scope.terminos)
-                return true;
-            else
-                return false;*/
+          for(var i = 0;i<$scope.tours.length;i++) {
+            if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
+              console.log('no hotel selected');
+              return true;
+            }
+          }
+          return false;
         } else if ($scope.step == 1) {
 
-            if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email)){
+            if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
               console.log('disabled');
-                return true;
+              return true;
             }
             else{
               console.log('not disabled');
-                return false;
+              return false;
             }
         }
     };
@@ -77,4 +81,14 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService) {
       return cartService.getPriceTransfer(tour,{ cost : 20 });
     }
 
+    $scope.process = function() {
+
+      cartService.process(function(result){
+        if (result.success) {
+          $location.path(result.redirect_url);
+        } else {
+          alert(result.error);
+        }
+      })
+    }
 });

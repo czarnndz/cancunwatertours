@@ -10,14 +10,14 @@ function initPaypal() {
 }
 
 
-module.exports.ConektaCreate = function(ccType) {
+module.exports.ConektaCreate = function(currency) {
   conekta.api_key = '9YxqfRnx4sMQDnRsqdYn';
   conekta.locale = 'es';
 
   conekta.Charge.create({
     description: 'Stogies',
     amount: 50000,
-    currency: 'MXN',
+    currency: currency,
     reference_id: '9839-wolf_pack',
     card: 'tok_test_visa_4242',
     details: {
@@ -32,7 +32,7 @@ module.exports.ConektaCreate = function(ccType) {
   });
 }
 
-module.exports.paypalCreate = function(items,return_param,callback){
+module.exports.paypalCreate = function(items,return_param,curreny,callback){
   initPaypal();
   var payment = {};
   payment.intent = "authorize";

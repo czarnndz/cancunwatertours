@@ -30,7 +30,7 @@
               <i class="icon-trending"></i>
               <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
               <h4><strong>{{tour.name}}</strong></h4>
-              <p class="tour-price">{{tour.fee | currency}} </p>
+              <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
               <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <i class="icon-trending"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
-            <p class="tour-price">{{tour.fee | currency}} </p>
+            <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
             <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
             <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
           </md-grid-tile-footer>
@@ -103,7 +103,7 @@
             <i class="icon-trending"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
-            <p class="tour-price">{{tour.fee | currency}} </p>
+            <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
             <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
             <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
           </md-grid-tile-footer>
