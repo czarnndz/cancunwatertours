@@ -1,7 +1,95 @@
-<div ng-controller="StaticPagesCTL" layout="row" layout-md="column" layout-sm="column" ng-style="theStyle" class=''>
+<div ng-controller="StaticPagesCTL">
   <!--LEFT SIDE blueBG-->
-  <section flex flex-md="100" flex-sm="100" class="container-lg faqContainer aboutContainer">
-    <h3>GRACIAS</h3>
+  <section class="container-xlg container-pad voucher-container">
+
+    <div class="top-info" layout="row" layout-align="space-between start">
+      <div flex="65">
+        <div class="voucher-date">
+          <p>
+            <a href="#" onClick="window.print()">
+              <img src="/images/impresora.png"> Imprimir
+            </a> / 17/02/2016</p>
+        </div>
+        <p>
+          <strong>Número de reservación / Reservation number</strong>: <strong class="highlight">01234</strong>
+        </p>
+        <p>
+          <strong>Nombre / Name:</strong> <strong class="highlight">John Smith</strong>
+        </p>
+        <p>
+          <strong>Número de clientes / Number of clients:</strong>: <strong class="highlight">3</strong>
+        </p>
+      </div>
+      <div class="static-info" flex="30">
+        <p><a href="/" target="_blank"><img src="/images/watertourslogo.png" class="voucher-logo" alt=""></a></p>
+        <p><strong>CANCÚN WATER TOURS</strong></p>
+        <p>Avenida Bonampak Calle Cereza #1</p>
+        <p>SM 2a L. 20 CP 77500 Cancún,</p>
+        <p>Quintana Roo, México</p>
+        <p><a href="mailto:info@cancunwatertours.com">info@cancunwatertours.com</a></p>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="space-between start">
+      <div flex="45">
+
+        <!-- VOUCHER ITEM -->
+        <div class="voucher-item">
+          <h3 class="voucher-title">TOUR</h3>
+          <p>
+            <strong>Tour: </strong> <strong><a class="highlight" href="#" target="_blank">Buceo 1 tanque(con equipo propio)</a></strong>
+          </p>
+          <p><strong>Duración:</strong> 2 horas</p>
+          <p><strong>Horario:</strong> 8:00 am</p>
+          <p><strong>Fecha:</strong> 1 de diciembre 2015</p>
+          <p><strong>Total: $215 dolares.</strong></p>
+        </div>
+        <!--END VOUCHER ITEM-->
+
+        <!--VOUCHER ITEM-->
+        <div class="voucher-item">
+          <h3 class="voucher-title">DETALLES DEL TOUR / TOUR DETAILS</h3>
+          <div class="voucher-prop">
+            <p><strong>INCLUYE</strong></p>
+            <ul>
+              <li>IVA 16% Equipo</li>
+              <li>Equipo</li>
+              <li>Instructor, buceo supervisado</li>
+              <li>Aguas y refrescos</li>
+            </ul>
+          </div>
+          <div class="voucher-prop">
+            <p><strong>NO INCLUYE</strong></p>
+            <ul>
+              <li>$10 usd de muelle/parque marino - una fracción de su pago de derechos es destinado a la conservación de MUSA</li>
+              <li>Traje de neopreno</li>
+              <li>Fotos</li>
+            </ul>
+          </div>
+          <div class="voucher-prop">
+            <p><strong>RECOMENDACIONES</strong></p>
+            <p>Se debe presentar una certificación de buceo válida al hacer check-in</p>
+          </div>
+          <div class="voucher-prop">
+            <p><strong>CONDICIONES DE TRANSPORTACIÓN</strong></p>
+          </div>
+        </div>
+        <!--END VOUCHER ITEM-->
+
+      </div>
+
+      <div flex="45">
+        <!-- VOUCHER ITEM -->
+        <div class="voucher-item">
+          <h3 class="voucher-title">TOTAL</h3>
+          <p><strong>TOTAL: $215 usd.</strong></p>
+        </div>
+        <!--END VOUCHER ITEM-->
+      </div>
+
+    </div>
+
+    <!--<h3>GRACIAS</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -10,6 +98,6 @@
         <p><i class='icon-mascompradas'></i></p>
       </div>
     </div>
-    <p><a href="/" class='action-btn'>Home</a></p>
+    <p><a href="/" class='action-btn'>Home</a></p>-->
   </section>
 </div>

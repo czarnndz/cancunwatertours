@@ -44,7 +44,7 @@
       <div ng-show="tours && (page * size) < tours.length" layout="row" layout-align="center center">
         <a ng-click="page = page + 1" href="" class="action-btn">Ver más</a>
       </div>
-      <div ng-show="loading" layout="row" layout-align="center center" layout-fill>
+      <div ng-show="loading" class="loading-wrapper" layout="row" layout-align="center center" layout-fill>
         <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
         <img src="/images/loader.gif" alt="">
       </div>
