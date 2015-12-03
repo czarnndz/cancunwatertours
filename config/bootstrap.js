@@ -25,9 +25,9 @@ module.exports.bootstrap = function (cb) {
           throw new Error('company_id no existe');
         } else {
           sails.config.company = company;
-          //server.kill(function(err){
+          server.kill(function(err){
             cb();
-          //});
+          });
         }
       });
     } else {
@@ -40,9 +40,9 @@ module.exports.bootstrap = function (cb) {
 
 };
 
-//server = http.createServer(function(req, res){
-//    res.end('loading Cancun water tours... ');
-//}).listen(port, function(){
-//});
-//
-//killable(server);
+server = http.createServer(function(req, res){
+    res.end('loading Cancun water tours... ');
+}).listen(port, function(){
+});
+
+killable(server);
