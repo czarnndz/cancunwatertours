@@ -75,6 +75,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 /*----------/
   #CONTAINERS
 /*---------*/
+.container-pad{
+  padding: 20px;
+}
 .container-max{
   max-width: 100%;
   margin: 0 auto;
@@ -2039,6 +2042,63 @@ figcaption:hover .action-btn-white{
   margin-bottom: 20px;
 }
 .faqContainer .columns .flex-gt-sm-50{padding: 0 20px;}
+
+/*-------------/
+  #VOUCHER-CONTAINER
+/*-----------*/
+.voucher-container{
+  background: #fff;
+  margin-top: 20px;
+  color: #636363;
+}
+.voucher-container .voucher-date{
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+.voucher-container .voucher-date a{color:#636363;}
+.voucher-container .voucher-date img{
+  max-width: 15px;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 3px;
+}
+.voucher-container .top-info{margin-bottom: 20px;}
+.voucher-container .top-info{font-size: 16px;}
+.voucher-container p{
+  margin: 6px 0;
+  font-size: 14px;
+}
+.voucher-container .highlight{color: #00B1EE;}
+.voucher-container .voucher-logo{margin-bottom: 20px;}
+.voucher-container .static-info p{
+  font-size: 12px;
+  text-align: right;
+}
+.voucher-container .static-info a{color: #636363;}
+.voucher-container .static-info p{margin: 0;}
+.voucher-container .voucher-title{
+  background: #08B1E8;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px;
+}
+.voucher-container .voucher-prop{margin: 10px 0;}
+.voucher-container .voucher-prop p{margin: 0}
+.voucher-container .voucher-prop ul {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+@media print {
+  .header,
+  .footer{display: none!important;}
+  .voucher-container .voucher-title{
+      background-color: #08B1E8 !important;
+      -webkit-print-color-adjust: exact;
+      color: #fff!important;
+  }
+}
+
 
 /*-------------/
   #FOOTER

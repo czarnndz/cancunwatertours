@@ -83,6 +83,10 @@ module.exports = {
           placeholder : 'Voucher'
         }
       });
+    },
+
+    voucher: function(req, res){
+      res.view();
     }
 
 };
