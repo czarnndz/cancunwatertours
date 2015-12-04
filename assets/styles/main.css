@@ -30,6 +30,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   z-index: 1;
 }
 *:focus, *:hover{outline: 0px}
+#main{
+  padding-bottom: 180px;
+}
 #main-content{background: #F5F5F5;overflow: hidden;}
 
 /*---------/
@@ -178,7 +181,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 }
 .header .search-box{
   max-width: 220px;
-  margin-left: 40px;
+  margin-left: 20px;
   position: relative;
 }
 .md-virtual-repeat-container.md-autocomplete-suggestions-container{
@@ -613,6 +616,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   left: 0px;
   right: 0px;
 }
+.landing-tour-4 figcaption{
+  padding: 12px;
+}
 figcaption:hover .action-btn-white{
   border: solid 2px #00aeef;
   color: #00aeef;
@@ -624,7 +630,7 @@ figcaption:hover .action-btn-white{
 .tile-container{
   overflow: hidden;
 }
-.perfecscrollbar{
+.perfectscrollbar{
   overflow: hidden;
   position: relative;
 }
@@ -2115,6 +2121,11 @@ figcaption:hover .action-btn-white{
 #footer{
   background: #272727;
   padding: 30px 10px;
+  height: auto!important;
+  min-height: 180px;
+  margin-top: -180px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .footer .redes-footer{
@@ -2252,6 +2263,7 @@ figcaption:hover .action-btn-white{
 }
 
 @media (max-width: 960px){
+  #main{padding-bottom: 260px!important;}
   /*--------/
     #HEADER MENU
   /*-------*/
@@ -2286,7 +2298,10 @@ figcaption:hover .action-btn-white{
   /*--------
     #FOOTER
   /*--------*/
-  #footer{height: auto !important;}
+  #footer{
+    min-height: 260px!important;
+    margin-top: -260px!important;
+  }
   .footer .content-col{
     margin: 10px 0;
   }
@@ -2300,6 +2315,14 @@ figcaption:hover .action-btn-white{
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
   .slider-container{height: 400px;}
+  .perfectscrollbar{overflow: visible;}
+
+  /*---------/
+    #HOME
+  /*--------*/
+  /*.landing-tour figcaption{
+    padding: 12px;
+  }*/
 
   /*----------/
     #HEADER

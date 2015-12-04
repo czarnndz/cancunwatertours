@@ -63,7 +63,7 @@
 
   <div class="filters-section-row filters-section-sliders" layout="row" layout-md="column" layout-sm="column">
     <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-      <label><i class="icon-precio2"></i> RANGO DE PRECIOS</label>
+      <label><i class="icon-precio2"></i> Rango de precios</label>
       <md-slider class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
       <div class="levels-text" layout="row" layout-align="space-between center">
         <span>{{range.minFee | currency : '$' }}</span>

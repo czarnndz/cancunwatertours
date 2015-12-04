@@ -13,13 +13,13 @@
  		var w = angular.element($window);
 
  		scope.getWindowDimensions = function () {
- 			return { 'h': w.height(), 'w': w.width() };
+ 			return { 'h': w.outerHeight(false), 'w': w.width() };
  		};
 
  		scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {// jshint ignore:line
-      var headerd = $(".header-desktop")[0].clientHeight;
-      var headerm = $(".header-mobile")[0].clientHeight;
-      var footer = $("#footer")[0].clientHeight;
+      var headerd = $(".header-desktop").outerHeight(false);
+      var headerm = $(".header-mobile").outerHeight(false);
+      var footer = $("#footer").outerHeight(false);
 
       var newHeight = newValue.h - headerm - footer;
       if(newValue.w >= 600){

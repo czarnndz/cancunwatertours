@@ -27,7 +27,7 @@
           <a href="/tour/{{tour.url}}" class="absolute-link"></a>
           <div class="landing-slider-cover">
             <div class="landing-slider-footer">
-              <i class="icon-trending"></i>
+              <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
               <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
               <h4><strong>{{tour.name}}</strong></h4>
               <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
@@ -38,13 +38,13 @@
       </slick>
     </div>
 
-    <div flex-gt-sm="50" flex="100" class="perfecscrollbar">
+    <div flex-gt-sm="50" flex="100" class="perfectscrollbar">
       <md-grid-list
       md-cols-gt-md="4"
       md-cols-md="2"
       md-cols-sm="1"
       md-row-height="fit"
-      md-row-height-sm="400px"
+      md-row-height-sm="fit"
       md-gutter="0px"
       full-screen-wrapper
       >
@@ -56,7 +56,7 @@
         md-rowspan-md="{{tour.rowmdspan}}"
         md-colspan-sm="1"
         md-rowspan-sm="1"
-        class="landing-tour"
+        class="landing-tour landing-tour-{{tour.collgspan}}"
         layout-align-gt-sm="center center"
         >
           <div class="landing-tour-background "
@@ -65,7 +65,7 @@
           ></div>
           <a href="/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-            <i class="icon-trending"></i>
+            <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
             <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
@@ -80,7 +80,7 @@
       md-cols-md="2"
       md-cols-sm="1"
       md-row-height="fit"
-      md-row-height-sm="400px"
+      md-row-height-sm="fit"
       md-gutter="0px"
       full-screen-wrapper
       >
@@ -100,7 +100,7 @@
           ></div>
           <a href="/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
-            <i class="icon-trending"></i>
+            <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
             <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
             <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
             <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>

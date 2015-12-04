@@ -47,6 +47,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                     url: tours[i].url,
                     adults : 1,
                     kids : 0,
+                    firstCategory: tours[i].categories[0],
                     collgspan: $scope.lengthsArray[i].collg,
                     rowlgspan: $scope.lengthsArray[i].rowlg,
                     colmdspan: $scope.lengthsArray[i].colmd,
@@ -76,6 +77,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                   url: tours[rand].url,
                   adults : 1,
                   kids : 0,
+                  firstCategory: tours[rand].categories[0],
                   collgspan: $scope.lengthsArray[i].collg,
                   rowlgspan: $scope.lengthsArray[i].rowlg,
                   colmdspan: $scope.lengthsArray[i].colmd,
@@ -123,6 +125,10 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
         //console.log("get price tour");
         return cartService.getPriceTour(tour);
     };
+
+    $scope.getCategoryIcon = function(category){
+      return toursService.getCategoryIcon(category);
+    }
 
     $scope.init();
 });
