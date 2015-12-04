@@ -24,25 +24,10 @@ module.exports = {
       defaultsTo : 'internal'
     },
     comments : { type : 'string' },
-    sales   : {
-      collection : "Sale",
-      via : "client"
-    },
-    quotes  : {
-      collection : "SaleQuote",
-      via : "client"
-    },
+
     contacts : {
       collection : "Client_contact",
       via : "client"
-    },
-    product_discounts : {
-      collection : "Product_discount",
-      via : "client"
-    },
-    messages : {
-      collection : 'Client_message',
-      via : 'client'
     },
     discount : {
       type : 'float'
