@@ -47,7 +47,7 @@ module.exports.paypalCreate = function(items,return_param,curreny,callback){
         items: items
       },
       amount : {
-        currency: "USD",
+        currency: currency,
         total: 1.00
       },
       description : "This is the payment description."

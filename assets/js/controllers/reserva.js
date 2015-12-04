@@ -1,4 +1,4 @@
-app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location) {
+app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location,$rootScope) {
     $scope.cartService = cartService;
     $scope.city = '';
     $scope.client = window.client || {name:'',last_name:'',email:''};
@@ -82,12 +82,12 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     }
 
     $scope.process = function() {
-
+      $rootScope.cart_client = $scope.client;
       cartService.process(function(result){
         if (result.success) {
           $location.path(result.redirect_url);
         } else {
-          alert(result.error);
+          alert(result);
         }
       })
     }

@@ -83,7 +83,7 @@
                                   </label>
                                   <div flex="80">
                                     <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
-                                        <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
+                                        <md-option value="{{tour.schedule}}" ng-repeat="tour.schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
                                     </md-select>
                                   </div>
                               </div>
@@ -329,7 +329,7 @@
                           </md-checkbox>
                         </p>
                         <p class="total-pagar"><strong>Total a Pagar</strong></p>
-                        <p class="total-price"> {{global_currency}} <strong>{{priceTotal() | currency}}</strong></p>
+                        <p class="total-price"><strong>{{priceTotal() | currency}}</strong> {{global_currency.currency_code | uppercase}}</p>
                         <p class="small-text" flex="100">El importe incluye todos los impuestos</p>
 
                         <!--<input type="button" id="boton-pagar" value="PAGAR RESERVA">-->

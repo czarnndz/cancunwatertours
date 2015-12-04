@@ -1,4 +1,4 @@
-app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData){
+app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -49,7 +49,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
   };
   $scope.getCategoriesByTours = function(){
     $scope.subcategories = [];
-    console.log(sec_categories);
+    //console.log(sec_categories);
     var aux = [];
     for( var x in sec_categories ){
       for( var y in $scope.tours ){
@@ -88,13 +88,17 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
   $scope.getTours = function() {
     $scope.loading = true;
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
-      console.log(res);
+      //console.log(res);
       $scope.tours = res;
       $scope.loading = false;
       $scope.redrawMap();
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
     });
+  };
+
+  $scope.getPriceTour = function(tour){
+    return cartService.getPriceTour(tour);
   };
 
   $scope.init = function(){
@@ -105,7 +109,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var limit = 25;
       var str = $filter('limitTo')(text, limit);
       str += (text.length > 25) ? '...' : '';
-      console.log(str);
+      //console.log(str);
       return {
         type: 'div',
         className: 'custom-icon',
@@ -125,12 +129,12 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var popup =  image + info;
 
       if(tour.categories){
-        console.log(tour.categories);
+        //console.log(tour.categories);
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
           categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
-          console.log(categories);
+          //console.log(categories);
           if(i !== (categories.length) ){
             categories += ', ';
           }
@@ -139,7 +143,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         popup += categoriesStr;
       }
 
-      console.log(popup);
+      //console.log(popup);
       return popup;
     };
 
