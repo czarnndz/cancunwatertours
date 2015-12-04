@@ -1,4 +1,5 @@
-app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, toursService, leafletData, cartService){
+
+app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -49,7 +50,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
   };
   $scope.getCategoriesByTours = function(){
     $scope.subcategories = [];
-    console.log(sec_categories);
+    //console.log(sec_categories);
     var aux = [];
     for( var x in sec_categories ){
       for( var y in $scope.tours ){
@@ -88,13 +89,17 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
   $scope.getTours = function() {
     $scope.loading = true;
     toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
-      console.log(res);
+      //console.log(res);
       $scope.tours = res;
       $scope.loading = false;
       $scope.redrawMap();
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
     });
+  };
+
+  $scope.getPriceTour = function(tour){
+    return cartService.getPriceTour(tour);
   };
 
   $scope.initMap = function(){
@@ -129,10 +134,12 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
       var popup =  image + info;
 
       if(tour.categories){
+
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
           categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
+
           if(i !== (categories.length) ){
             categories += ', ';
           }

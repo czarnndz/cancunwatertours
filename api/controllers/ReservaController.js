@@ -25,7 +25,7 @@ module.exports = {
         if (!params.currency) {
             params.currency = { name : 'USD',currency_code : 'USD' };
         }
-        console.log(params.items);
+        console.log(params);
         if (!params.items) {
           params.items = [{
             name: "item testing",
@@ -37,13 +37,13 @@ module.exports = {
           }];
         }
 
-
+        return res.json({ success : false , params : params });
 
         OrderCore.createOrder(function(order) {
           console.log(order);
           OrderCore.createReservations(order,params.items,params.payment_method,params.currency,function(reservations){
             if (reservations) {
-              Payments.paypalCreate(params.items,"order=" + order.id,params.currency,function(result) {
+              Payments.paypalCreate(reservations,"order=" + order.id,params.currency,function(result) {
                 //Common.updateRese
                 console.log(result);
                 if (result.success) {

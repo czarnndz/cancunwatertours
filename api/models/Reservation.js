@@ -76,8 +76,10 @@ module.exports = {
     ,quantity : 'integer' //cantidad de servicios, reserva de transfer
     ,fee_kids : 'float' //save del precio niños en ese momento
     ,fee_kids_rt : 'float' //save del precio niños en ese momento
+    ,fee_kids_base : 'float' //save del precio niños en ese momento
     ,fee_adults : 'float' //save del precio adultos en ese momento
     ,fee_adults_rt : 'float' //save del precio adultos en ese momento
+    ,fee_adults_base : 'float' //save del precio adultos en ese momento
     ,fee_special : 'float'
     ,discount : 'float'
     ,cuponsingle : {

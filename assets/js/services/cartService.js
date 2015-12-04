@@ -117,16 +117,32 @@
         var response = {};
         var deferred = $q.defer();
 
+        var itemsToSubmit = getCartItems();
         $http({
           method : 'POST',
           url : '/process',
-          params :{ items : $rootScope.cart_items }
+          params :{ items : itemsToSubmit,currency : $rootScope.global_currency.id,client : $rootScope.cart_client }
         }).then(function(res){
           console.log(res);
           response = res;
           deferred.resolve(response);
         });
         return deferred.promise;
+      }
+
+      function getCartItems(){
+        return $rootScope.cart_items.map(function(item) {
+          var aux = {
+            id : item.id,
+            date : item.date,
+            adults : item.adults,
+            kids : item.kids,
+            transfer : item.transfer,
+            hotel : item.hotel,
+            schedule : item.schedule
+          };
+          return aux;
+        });
       }
 
       $rootScope.$watch('cart_items', function () {

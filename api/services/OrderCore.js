@@ -53,47 +53,61 @@ module.exports.createReservations = function(order,items,payment_method,currency
 	Order.findOne( order ).populate('company').populate('user').exec(function(err,theorder){
 		if(err) callback(err,false);
 		async.mapSeries( items, function(item,cb) {
-			item.order = theorder.id;
-      item.company = theorder.company.id;
-      item.user = theorder.user.id;
-      item.payment_method = payment_method;
-      item.currency = currency;
+      var newItem = {};
+      newItem.order = theorder.id;
+      newItem.company = theorder.company.id;
+      newItem.user = theorder.user.id;
+      newItem.payment_method = payment_method;
+      newItem.currency = currency;
 
-      getPriceTour(item,theorder.company,function(err,tour){
-          if(err) callback(err,false);
-					item.fee_adults_base = tour.fee_base;
-					item.fee_kids_base = tour.feeChild_base;
-					item.fee_adults = tour.fee;
-		      item.fee_kids = tour.feeChild;
-					item.commission_sales = tour.commission_sales;
-	        item.exchange_rate_sale = theorder.company.exchange_rates[item.currency].sales;
-	        item.exchange_rate_book = theorder.company.exchange_rates[item.currency].book;
-	        item.exchange_rate_provider = tour.provider?tour.provider.exchange_rate:0;
-          delete item.id;
-          Reservation.create(item).exec(function(err,r){
-					  if(err) cb(err,item);
-					  item.id = r.id;
-					  cb(err,item);
-				  });
+      getPriceTour(item,currency,theorder.company,function(err,tour){
+        if(err) callback(err,false);
+        newItem.pax = tour.adults;
+        newItem.kidPax = tour.kids;
+        newItem.fee_adults_base = tour.fee_base;
+        newItem.fee_kids_base = tour.feeChild_base;
+        newItem.fee_adults = tour.fee;
+        newItem.fee_kids = tour.feeChild;
+        newItem.commission_sales = tour.commission_sales;
+        newItem.exchange_rate_sale = theorder.company.exchange_rates[currency].sales;
+        newItem.exchange_rate_book = theorder.company.exchange_rates[currency].book;
+        newItem.exchange_rate_provider = tour.provider?tour.provider.exchange_rate:0;
+        Reservation.create(item).exec(function(err,r){
+          if(err) cb(err,item);
+          item.id = r.id;
+          cb(err,item);
+        });
 			});
 		},callback);
 	});
 };
 
-function getPriceTour(item,company,callback){
+function getPriceTour(item,currency,company,callback){
+  var exchange_rate = getCurrencyValue(company.base_currency,currency,company.exchange_rates);
   Tour.findOne(item.id).exec(function(err,tour){
     if (err) {
       console.log(err);
       callback(false);
     }
-    tour.fee_base = tour.fee;
-
-    callback(tour)
+    var aux = {};
+    aux.fee_base = tour.fee * item.adults;
+    aux.feeChild_base = tour.feeChild * item.kids;
+    aux.fee = tour.fee * item.adults * exchange_rate;
+    aux.feeChild = tour.feeChild * item.kids * exchange_rate;
+    aux.commission_sales = tour.commission_sales;
+    aux.provider = tour.provider;
+    aux.adults = tour.adults;
+    aux.kids = tour.kids;
+    callback(aux);
   });
 
 };
 
-function getCurrencyValue(base_currency,rated_currency,exchange_rates){
-
+function getCurrencyValue(base_currency,currency,exchange_rates){
+  if (currency == base_currency) {
+    return 1;
+  } else {
+    return exchange_rates[currency.id].sales;
+  }
 }
 
