@@ -97,11 +97,16 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
     });
   };
 
-  $scope.init = function(){
+  $scope.initMap = function(){
+    $scope.map = {};
+    $scope.center = {
+        zoom:14,
+        lat:21.1656951,
+        lng:-86.8210734,
+    };
+    $scope.markers = {};
 
-    var markers = [];
-
-    var getIcon = function(text) {
+    $scope.getIcon = function(text) {
       var limit = 25;
       var str = $filter('limitTo')(text, limit);
       str += (text.length > 25) ? '...' : '';
@@ -114,7 +119,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
       };
     };
 
-    var getPopup = function(tour){
+    $scope.getPopup = function(tour){
       var imgSrc = tour.avatar3;
       var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
       var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
@@ -138,50 +143,6 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
 
       return popup;
     };
-
-
-    $scope.map = {};
-    $scope.center = {
-        zoom:14,
-        lat:21.1656951,
-        lng:-86.8210734,
-    };
-    $scope.markers = {};
-
-    $scope.loading = true;
-    toursService.getTours($scope.category,minFee,maxFee,term).then(function(data){
-      $scope.loading = false;
-      $scope.tours = data;
-      $scope.updatePricesRange();
-      $scope.getCategoriesByTours();
-      angular.forEach(data, function(t){
-        var info = '';
-
-        var tour = t.departurePoints.item_0;
-        var message = getPopup(t);
-
-        this.push({
-          layer: 'Locations',
-          lat: tour.lat,
-          lng: tour.lng,
-          message: message,
-          icon: getIcon(t.name)
-        });
-
-      },markers);
-      $scope.markers = markers.filter(function(e){
-        return e;
-      });
-
-      if($scope.markers.length > 0){
-        $scope.center = {
-            zoom:14,
-            lat:$scope.markers[0].lat,
-            lng:$scope.markers[0].lng,
-        };
-      }
-
-    });
 
     $scope.events = {
       map: {
@@ -215,7 +176,48 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, $rootScope, tour
           }
         }
     };
+  };
+
+  $scope.init = function(){
+    var markers = [];
+    $scope.loading = true;
+    $scope.initMap();
+    toursService.getTours($scope.category,minFee,maxFee,term).then(function(data){
+      $scope.loading = false;
+      $scope.tours = data;
+      $scope.updatePricesRange();
+      $scope.getCategoriesByTours();
+      angular.forEach(data, function(t){
+        var info = '';
+
+        var tour = t.departurePoints.item_0;
+        var message = $scope.getPopup(t);
+
+        this.push({
+          layer: 'Locations',
+          lat: tour.lat,
+          lng: tour.lng,
+          message: message,
+          icon: $scope.getIcon(t.name)
+        });
+
+      },markers);
+      $scope.markers = markers.filter(function(e){
+        return e;
+      });
+
+      if($scope.markers.length > 0){
+        $scope.center = {
+            zoom:14,
+            lat:$scope.markers[0].lat,
+            lng:$scope.markers[0].lng,
+        };
+      }
+
+    });
+
     $scope.getToursCategories();
+
   };
 
   $scope.init();
