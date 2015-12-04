@@ -1,3 +1,4 @@
+
 app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
@@ -109,7 +110,6 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var limit = 25;
       var str = $filter('limitTo')(text, limit);
       str += (text.length > 25) ? '...' : '';
-      //console.log(str);
       return {
         type: 'div',
         className: 'custom-icon',
@@ -129,12 +129,12 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       var popup =  image + info;
 
       if(tour.categories){
-        //console.log(tour.categories);
+
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
           categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
-          //console.log(categories);
+
           if(i !== (categories.length) ){
             categories += ', ';
           }
@@ -143,7 +143,6 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         popup += categoriesStr;
       }
 
-      //console.log(popup);
       return popup;
     };
 
@@ -169,6 +168,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         var message = getPopup(t);
 
         this.push({
+          layer: 'Locations',
           lat: tour.lat,
           lng: tour.lng,
           message: message,
@@ -190,6 +190,17 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
 
     });
 
+    $scope.events = {
+      map: {
+        enable: ['moveend', 'popupopen'],
+        logic: 'emit'
+      },
+      marker: {
+        enable: [],
+        logic: 'emit'
+      }
+    },
+
     $scope.layers = {
         baselayers: {
             googleRoadmap: {
@@ -197,6 +208,18 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
                 layerType: 'ROADMAP',
                 type: 'google'
             }
+        },
+        overlays: {
+          Locations: {
+            "name": "Locations",
+            "type": "markercluster",
+            "visible": true,
+            "layerOptions": {
+            "chunkedLoading": true,
+            "showCoverageOnHover": false,
+            "removeOutsideVisibleBounds": true
+            }
+          }
         }
     };
     $scope.getToursCategories();

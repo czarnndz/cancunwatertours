@@ -30,13 +30,13 @@ module.exports = {
 //  }
   facebook_clientID: '975412445838967',
   facebook_clientSecret: '310fcd71a36a13d0bbeddeed73ac56a8',
-  facebook_callback: 'http://localhost:1337/fb_callback'
+  facebook_callback: 'http://localhost:1337/fb_callback',
 };
 
-  process.env.BACKEND_URL= 'https://admincancunwatertours.herokuapp.com';
-  process.env.CONEKTA_API_PRIVATE= 'key_AhumvqfkFZ4LYNwUtvKyfA';
-  process.env.CONEKTA_API_PUBLIC= 'key_KA6smKzckK59jwiQrdvnHCA';
-  process.env.PAYPAL_CLIENT_ID= 'ATBbxHu2GXZKnNd7qU6JR8U3fNnSbEGNOwv6csod7QyjLbDrA18LSMUM8Y0skqCjTHzVV1_ZDQoM-KF0';
-  process.env.PAYPAL_CLIENT_SECRET= 'EHnPHdMyLK2canYqntNbMGo_y2Wy-xQ2wlfHPQs0a3LIwGa51ND-mxgoDfX7xw87p61kamk4Gw0Dme-k';
-  process.env.company_id= '54741dc00644662f63ca9ff2';
-  process.env.user_id= '54741dc00644662f63ca9ff3';
+process.env.BACKEND_URL = 'https://admincancunwatertours.herokuapp.com';
+process.env.CONEKTA_API_PRIVATE = 'key_AhumvqfkFZ4LYNwUtvKyfA';
+process.env.CONEKTA_API_PUBLIC = 'key_KA6smKzckK59jwiQrdvnHCA';
+process.env.PAYPAL_CLIENT_ID = 'AV8IhxBeEm4on1cNrw7b7E3tj31WARrnZXj7KbBQzEFWCrY80mg7A3P8tAET';
+process.env.PAYPAL_CLIENT_SECRET = 'EJn5ehAu4yAslIMDbux8f_G99OTyB7ZfHXEBC34H3E8Jy1kdolb-sbc-4BK4';
+process.env.company_id = '54741dc00644662f63ca9ff2';
+process.env.user_id = '54741dc00644662f63ca9ff3';
