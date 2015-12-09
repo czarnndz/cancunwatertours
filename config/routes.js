@@ -112,6 +112,14 @@ module.exports.routes = {
     controller: 'reserva',
     action: 'voucher'
   },
+  '/contacto':{
+    controller: 'contact',
+    action: 'index'
+  },
+  '/contact/send':{
+    controller: 'contact',
+    action: 'send'
+  },
 
 
   /***************************************************************************

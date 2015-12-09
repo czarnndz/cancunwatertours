@@ -1384,6 +1384,29 @@ figcaption:hover .action-btn-white{
 }
 #contrasena{margin-bottom: 30px}
 
+/*-------/
+  #CONTACT-FORM
+/*-------*/
+.contact-form textarea{
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 5px;
+  color: #fff;
+  width: 100%;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}
+.contact-form .alert-msg{color: #fff}
+.contact-form textarea::-moz-input-placeholder{color: #fff!important }
+.contact-form textarea::-webkit-input-placeholder{color: #fff!important }
+.contact-form .cont-input-cuenta{
+  margin-right: 0;
+  margin: 10px 0;
+  width: 100%;
+}
+
 /*------------/
   #FILTERS
 /*------------*/
