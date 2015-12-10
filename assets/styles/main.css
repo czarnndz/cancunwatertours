@@ -2342,7 +2342,7 @@ figcaption:hover .action-btn-white{
   }
 }
 
-@media (max-width: 600px){
+@media (max-width: 599px){
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
   .slider-container{height: 400px;}
