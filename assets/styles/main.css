@@ -1324,6 +1324,7 @@ figcaption:hover .action-btn-white{
 }
 .account{
   height: auto;
+  min-height: 200px;
   padding: 20px;
 }
 .account h1{
@@ -1339,6 +1340,10 @@ figcaption:hover .action-btn-white{
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
+}
+.account a{
+  color: #fff;
+  text-decoration: underline;
 }
 .account label{color: #fff;}
 

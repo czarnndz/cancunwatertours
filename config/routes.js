@@ -120,6 +120,26 @@ module.exports.routes = {
     controller: 'contact',
     action: 'send'
   },
+  '/recover_password': {
+    controller: 'client',
+    action: 'recover_password'
+  },
+  '/send_password_recovery': {
+    controller: 'client',
+    action: 'send_password_recovery'
+  },
+  '/change_password': {
+    controller: 'client',
+    action: 'change_password'
+  },
+  '/change_password_message': {
+    controller: 'client',
+    action: 'change_password_message'
+  },
+  '/update_password': {
+    controller: 'client',
+    action: 'update_password'
+  }
 
 
   /***************************************************************************

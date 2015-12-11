@@ -120,7 +120,7 @@ passport.use(new FacebookStrategy({
             name: profile.displayName,
             email: email,
             facebookId: profile.id,
-            source: 'Facebook'
+            //source: 'Facebook'
             // You can also add any other data you are getting back from Facebook here
             // as long as it is in your model
 
