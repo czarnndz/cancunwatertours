@@ -2347,6 +2347,19 @@ figcaption:hover .action-btn-white{
   }
 }
 
+@media (min-width: 600px) and (max-width: 959px) {
+
+  #main{padding-bottom: 408px!important;}
+
+  /*--------
+    #FOOTER
+  /*--------*/
+  #footer{
+    min-height: 408px!important;
+    margin-top: -408px!important;
+  }
+}
+
 @media (max-width: 599px){
   .search-mobile-on{display: block;}
   .advanced-search-header{left: 0;}
