@@ -20,8 +20,11 @@ module.exports.createOrder = function(client,callback){
         callback(res);
       });
     } else {
+      client.user = process.env.user_id;
+      client.company = process.env.company_id;
+      client.source = 'external';
       Client_.create(client).exec(function(err,res){
-        if (err) {
+        if (!res) {
           console.log(err);
           callback(false);
         }
@@ -44,14 +47,13 @@ module.exports.updateReservations = function(order,attributes,callback) {
       console.log(err);
       callback(false);
     }
-    console.log(ress);
     callback(ress);
   })
 }
 
 module.exports.createReservations = function(order,items,payment_method,currency,callback){
-	Order.findOne( order ).populate('company').populate('user').exec(function(err,theorder){
-		if(err) callback(err,false);
+	Order.findOne(order).populate('company').populate('user').exec(function(err,theorder){
+		if(_.isUndefined(theorder) || err) callback(err,false);
 		async.mapSeries( items, function(item,cb) {
       var newItem = {};
       newItem.order = theorder.id;
@@ -59,46 +61,66 @@ module.exports.createReservations = function(order,items,payment_method,currency
       newItem.user = theorder.user.id;
       newItem.payment_method = payment_method;
       newItem.currency = currency;
-
       getPriceTour(item,currency,theorder.company,function(err,tour){
         if(err) callback(err,false);
+
         newItem.pax = tour.adults;
         newItem.kidPax = tour.kids;
+        newItem.fee = tour.fee + tour.feeChild;
         newItem.fee_adults_base = tour.fee_base;
         newItem.fee_kids_base = tour.feeChild_base;
         newItem.fee_adults = tour.fee;
         newItem.fee_kids = tour.feeChild;
         newItem.commission_sales = tour.commission_sales;
-        newItem.exchange_rate_sale = theorder.company.exchange_rates[currency].sales;
-        newItem.exchange_rate_book = theorder.company.exchange_rates[currency].book;
-        newItem.exchange_rate_provider = tour.provider?tour.provider.exchange_rate:0;
-        Reservation.create(item).exec(function(err,r){
-          if(err) cb(err,item);
-          item.id = r.id;
-          cb(err,item);
+        newItem.exchange_rate_sale = _.isUndefined(theorder.company.exchange_rates[currency]) ? 1 : theorder.company.exchange_rates[currency].sales;
+        newItem.exchange_rate_book = _.isUndefined(theorder.company.exchange_rates[currency]) ? 1 : theorder.company.exchange_rates[currency].book;
+        newItem.exchange_rate_provider = tour.provider ? tour.provider.exchange_rate : 0;
+        newItem.tour = tour.id;
+        Reservation.create(newItem).exec(function(err,r){
+          //console.log("result ");
+          //console.log(r);
+          //console.log(err);
+          if(err) cb(err,false);
+          Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation){
+            console.log(reservation);
+            cb(errr,reservation);
+          });
         });
 			});
 		},callback);
 	});
 };
+module.exports.getItems = function(reservations,currency) {
+  return reservations.map(function(r){
+    var item = {};
+    item.id = r.id;
+    item.name = r.tour.name;
+    item.price = r.fee + (r.feeKids ? r.feeKids : 0);
+    item.currency = currency;
+    return item;
+  });
+};
+
+
 
 function getPriceTour(item,currency,company,callback){
   var exchange_rate = getCurrencyValue(company.base_currency,currency,company.exchange_rates);
   Tour.findOne(item.id).exec(function(err,tour){
-    if (err) {
+    if (_.isUndefined(tour) || err) {
       console.log(err);
-      callback(false);
+      callback("tour not found",false);
     }
     var aux = {};
     aux.fee_base = tour.fee * item.adults;
-    aux.feeChild_base = tour.feeChild * item.kids;
-    aux.fee = tour.fee * item.adults * exchange_rate;
-    aux.feeChild = tour.feeChild * item.kids * exchange_rate;
+    aux.feeChild_base = (tour.feeChild ? tour.feeChild : tour.fee) * item.kids;
+    aux.fee = (tour.fee * item.adults * exchange_rate);
+    aux.feeChild = (tour.feeChild ? tour.feeChild : tour.fee) * item.kids * exchange_rate;
     aux.commission_sales = tour.commission_sales;
     aux.provider = tour.provider;
     aux.adults = tour.adults;
     aux.kids = tour.kids;
-    callback(aux);
+    aux.id = tour.id;
+    callback(false,aux);
   });
 
 };
@@ -107,7 +129,7 @@ function getCurrencyValue(base_currency,currency,exchange_rates){
   if (currency == base_currency) {
     return 1;
   } else {
-    return exchange_rates[currency.id].sales;
+    return exchange_rates[currency].sales;
   }
 }
 

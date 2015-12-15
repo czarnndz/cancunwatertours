@@ -81,8 +81,10 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       return cartService.getPriceTransfer(tour,{ cost : 20 });
     }
 
+    //TODO formatear para enviar los items formateados.
     $scope.process = function() {
       $rootScope.cart_client = $scope.client;
+
       cartService.process(function(result){
         if (result.success) {
           $location.path(result.redirect_url);

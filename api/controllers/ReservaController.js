@@ -21,54 +21,62 @@ module.exports = {
       });
     },
     addOrder : function(req,res) {
-        var params = req.params.all();
-        if (!params.currency) {
-            params.currency = { name : 'USD',currency_code : 'USD' };
-        }
-        console.log(params);
-        if (!params.items) {
-          params.items = [{
-            name: "item testing",
-            id: "",
-            price: 1.00,
-            currency: params.currency,
-            adults: 1,
-            kids : 1
-          }];
-        }
+      var params = req.params.all();
+      //console.log(params);
+      if (params && params.client && params.items.length && params.currency) {
+        OrderCore.createOrder(params.client,function(order) {
+          if (order) {
+            OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
+              if (err) {
+                var result = {};
+                result.success = false;
+                result.error = 'create reservation error';
+                result.extra = err;
+                return res.json(result);
+              }
 
-        return res.json({ success : false , params : params });
-
-        OrderCore.createOrder(function(order) {
-          console.log(order);
-          OrderCore.createReservations(order,params.items,params.payment_method,params.currency,function(reservations){
-            if (reservations) {
-              Payments.paypalCreate(reservations,"order=" + order.id,params.currency,function(result) {
-                //Common.updateRese
-                console.log(result);
-                if (result.success) {
-                  OrderCore.updateReservations(order.id,{ autorization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
-                    if (updateRes)
-                      return res.json(result);
-                    else {
-                      result.success = false;
-                      result.error = 'update reservation error';
-                      result.extra = updateRes;
-                      return res.json(result);
+              if (reservations) {
+                var currencyCode = "USD";//sails.config.company.exchange_rates[params.currency].currency_code;
+                var total = 395.22;
+                if (params.client.payment_method == 'paypal') {
+                  var paypalItems = OrderCore.getItems(reservations,currencyCode);
+                  Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
+                    //Common.updateRese
+                    if (result.success) {
+                      OrderCore.updateReservations(order.id,{ autorization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
+                        if (updateRes)
+                          return res.json(result);
+                        else {
+                          result.success = false;
+                          result.error = 'reservation error';
+                          result.extra = updateRes;
+                          return res.json(result);
+                        }
+                      });
+                    } else {
+                      OrderCore.updateReservations(order.id,{ state : 'error' },function(updateRes) {
+                        result.success = false;
+                        result.error = 'reservation error';
+                        result.extra = updateRes;
+                        console.log(result);
+                        return res.json(result);
+                      });
                     }
                   });
-                } else {
+                }  else {
+                  var result = {};
+                  result.success = false;
+                  result.error = 'error';
                   return res.json(result);
                 }
-              });
-            } else { //error al guardar reservaciones
-              return res.json({ success : false , error : 'error' });
-            }
+              } else { //error al guardar reservaciones
+                return res.json({ success : false , error : 'error' });
+              }
 
-          })
+            })
+          }
         });
-
-
+      }
     },
     paypalExecute : function(req,res) {
       var params = req.params.all();

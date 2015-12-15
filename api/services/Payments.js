@@ -32,10 +32,11 @@ module.exports.ConektaCreate = function(currency) {
   });
 }
 
-module.exports.paypalCreate = function(items,return_param,curreny,callback){
+module.exports.paypalCreate = function(items,return_param,total,currency,callback){
   initPaypal();
+  //console.log(currency);
   var payment = {};
-  payment.intent = "authorize";
+  payment.intent = "sale";
   payment.payer = { payment_method : "paypal" };
   payment.redirect_urls = {
       return_url: "http://cancunwatertours.herokuapp.com/paypalExecute?success=true&" + return_param,
@@ -48,11 +49,13 @@ module.exports.paypalCreate = function(items,return_param,curreny,callback){
       },
       amount : {
         currency: currency,
-        total: 1.00
+        total: total
       },
       description : "This is the payment description."
     });
-
+  console.log("payment");
+  console.log(items);
+  console.log(payment.transactions[0].amount);
   paypal.payment.create(JSON.stringify(payment), function (error, payment) {
     if (error) {
       console.log(error);

@@ -214,7 +214,7 @@
                   </div>
                   <div id="forma-pago" class="block-content booking-form">
 
-                      <md-radio-group class="md-primary" ng-model="paymentMethod" layout="row" layout-md="column" layout-sm="column">
+                      <md-radio-group class="md-primary" ng-model="client.payment_method" layout="row" layout-md="column" layout-sm="column">
                         <!--<md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
                           <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
@@ -250,33 +250,33 @@
                     <div class="booking-form">
 
                       <p>
-                          <img src="/images/{{paymentMethod}}.png" class="datos-img">
+                          <img src="/images/{{client.payment_method}}.png" class="datos-img">
                       </p>
 
                       <p><strong>Datos del pago</strong></p>
                       <p class="no-margin">País</p>
 
-                      <md-select class="custom-select no-margin" placeholder="Elige un país" ng-model="ccCountry">
+                      <md-select class="custom-select no-margin" placeholder="Elige un país" ng-model="client.country">
                           <md-option value="US">Estados Unidos</md-option>
                           <md-option value="2">Canada</md-option>
                           <md-option value="3">España</md-option>
                           <md-option value="MX">Mexico</md-option>
                       </md-select>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" ng-if="['visa','american','master'].indexOf(paymentMethod) != -1">
+                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
                         <div flex="45" flex-sm="100" class="input-field-wrap">
-                            <input type="text" class="input-field" placeholder="Número de Tarjeta" ng-model="ccNumber">
+                            <input type="text" class="input-field" placeholder="Número de Tarjeta" ng-model="client.cc.number">
                         </div>
                         <div flex="45" flex-sm="100" class="input-field-wrap">
                           <p class="no-margin">Fecha de vencimiento</p>
                           <div layout="row" layout-align="space-between center">
                             <div flex="45">
-                              <md-select class="custom-select no-margin" ng-model="ccmonth" placeholder="Més">
+                              <md-select class="custom-select no-margin" ng-model="client.cc.month" placeholder="Més">
                                   <md-option ng-repeat="month in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2015 + month}}">{{2015 + month}}</md-option>
                               </md-select>
                             </div>
                             <div flex="45">
-                              <md-select class="custom-select" ng-model="ccyear" placeholder="Año">
+                              <md-select class="custom-select" ng-model="client.cc.year" placeholder="Año">
                                   <md-option ng-repeat="year in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2015 + year}}">{{2015 + year}}</md-option>
                               </md-select>
                             </div>
@@ -284,12 +284,12 @@
                         </div>
                       </div>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(paymentMethod) != -1">
+                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta" ng-model="ccName">
+                          <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta" ng-model="client.cc.name">
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Código de seguridad" ng-model="ccCode">
+                          <input type="text" class="input-field" placeholder="Código de seguridad" ng-model="client.cc.code">
                         </div>
                       </div>
 
@@ -300,23 +300,23 @@
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <p>Estado</p>
-                          <md-select class="custom-select custom-select-full no-margin" ng-model="state">
+                          <md-select class="custom-select custom-select-full no-margin" ng-model="client.state">
                               <md-option value="1">Sinaloa</md-option>
                               <md-option value="2">Monterrey</md-option>
                               <md-option value="3">D.F</md-option>
                           </md-select>
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Ciudad" ng-model="city">
+                          <input type="text" class="input-field" placeholder="Ciudad" ng-model="client.city">
                         </div>
                       </div>
 
                       <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Dirección" ng-model="address">
+                          <input type="text" class="input-field" placeholder="Dirección" ng-model="client.address">
                         </div>
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-                          <input type="text" class="input-field" placeholder="Código Postal" ng-model="zipCode">
+                          <input type="text" class="input-field" placeholder="Código Postal" ng-model="client.zipCode">
                         </div>
                       </div>
 

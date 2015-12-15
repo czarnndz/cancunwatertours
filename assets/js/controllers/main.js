@@ -25,7 +25,6 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.currency = $scope.currencyList[0];
 
     $scope.setCurrency = function(val){
-      console.log(val);
       $rootScope.global_currency = val;
     };
 
@@ -34,8 +33,6 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     };
 
     $rootScope.$watch('global_currency',function(){
-      console.log('currency change');
-      console.log($rootScope.global_currency);
       localStorageService.set('global_currency', $rootScope.global_currency);
     });
 

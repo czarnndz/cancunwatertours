@@ -69,8 +69,8 @@
       }
 
       function getPriceTotalTax(){
-        var tax = getPriceTotal() * serv.tax;
-        return tax;
+        return (getPriceTotal() * serv.tax);
+
       }
 
       function getPriceTax(tour){
@@ -78,7 +78,7 @@
       }
 
       function getPriceTotalTotal() {
-        return getPriceTotal() * (1 + serv.tax);
+        return getPriceTotal();
       }
 
       function getPriceTotal(){
@@ -116,13 +116,15 @@
       function process(){
         var response = {};
         var deferred = $q.defer();
-
-        var itemsToSubmit = getCartItems();
+        var items = getFormatedItems();
+        var params = { items : items,currency : $rootScope.global_currency.id,client : $rootScope.cart_client };
+        console.log(params);
         $http({
           method : 'POST',
           url : '/process',
-          params :{ items : itemsToSubmit,currency : $rootScope.global_currency.id,client : $rootScope.cart_client }
+          data : params
         }).then(function(res){
+          console.log("response");
           console.log(res);
           response = res;
           deferred.resolve(response);
@@ -130,7 +132,7 @@
         return deferred.promise;
       }
 
-      function getCartItems(){
+      function getFormatedItems(){
         return $rootScope.cart_items.map(function(item) {
           var aux = {
             id : item.id,

@@ -61,6 +61,7 @@ module.exports = {
         _.map(results,function(category){
           _.map(category.tours,function(tour){
             auxTourIds.push(tour.id);
+            //console.log(tour.name.replace(/[^a-zA-Z0-9 ]/g,'').replace(/\s+/g, '-').toLowerCase());
           });
         });
         var tourIds = _.uniq(auxTourIds);
@@ -162,7 +163,6 @@ module.exports = {
       });
     });
   }
-
 };
 
 var formatRateCategories = function(rc,callback){
