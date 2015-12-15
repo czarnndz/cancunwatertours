@@ -10,8 +10,7 @@
         <div
           class="container-xlg"
           layout="row"
-          layout-md="column"
-          layout-sm="column"
+          layout-wrap
           layout-align="space-between start"
           layout-align-md="center center"
           layout-align-sm="center center">
@@ -112,7 +111,7 @@
                               </div>-->
                           </section>
                       </div><!--Booking form-->
-                      <div flex='100' layout='column' layout-align='center center'>
+                      <div flex='100' layout-align='center center'>
                         <p class='blueText'>
                           <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
                             <i class='icon-transporte'></i> Agregar transportación
@@ -175,23 +174,23 @@
                       <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
                       <form class="booking-form">
 
-                          <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between start">
+                          <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between start">
                             <input flex="45" flex-sm="100"  type="text" class="input-field" placeholder="Nombre" ng-model="client.name" name="nombre" ng-required>
                             <input flex="45" flex-sm="100" type="text" class="input-field" placeholder="Apellidos" ng-model="client.last_name" name="apellido"  ng-required>
                           </div>
 
-                          <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between center">
+                          <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between center">
                             <input flex="45" flex-sm="100"  type="email" class="input-field" placeholder="Correo Electrónico" ng-model="client.email" name="email" ng-required>
                             <input flex="45" flex-sm="100"  type="email" class="input-field" placeholder="Confirmar Correo Electrónico" name="repeat_email" ng-model="repeat_email">
                           </div>
 
                           <p class="tel-label no-margin">Número Telefónico</p>
 
-                          <div layout="row" layout-sm="column" layout-align="space-between center">
+                          <div layout="row" layout-wrap layout-align="space-between center">
                             <div class="input-field-wrap" flex="45" flex-sm="100">
                                 <input flex="100" class="input-field" type="text" placeholder="Lada" ng-model="client.phone_lada">
                             </div>
-                            <div class="input-field-wrap" flex="45" flex-sm="100" layout="row" layout-sm="column" flex-sm="100" layout-align="start center" >
+                            <div class="input-field-wrap" flex="45" flex-sm="100" layout="row" layout-wrap flex-sm="100" layout-align="start center" >
                                 <input flex="65" flex-sm="100"  type="text" class="input-field" placeholder="Número" ng-model="client.phone">
 
                                 <div class="celular" flex="20" flex-sm="100" layout="row" layout-align="space-around center" >
@@ -214,7 +213,7 @@
                   </div>
                   <div id="forma-pago" class="block-content booking-form">
 
-                      <md-radio-group class="md-primary" ng-model="client.payment_method" layout="row" layout-md="column" layout-sm="column">
+                      <md-radio-group class="md-primary" ng-model="client.payment_method" layout="row" layout-wrap>
                         <!--<md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
                           <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
@@ -263,7 +262,7 @@
                           <md-option value="MX">Mexico</md-option>
                       </md-select>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+                      <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
                         <div flex="45" flex-sm="100" class="input-field-wrap">
                             <input type="text" class="input-field" placeholder="Número de Tarjeta" ng-model="client.cc.number">
                         </div>
@@ -284,7 +283,7 @@
                         </div>
                       </div>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+                      <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <input type="text" class="input-field" placeholder="Nombre del titular de la tarjeta" ng-model="client.cc.name">
                         </div>
@@ -297,7 +296,7 @@
 
                     <div class="booking-form">
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
+                      <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <p>Estado</p>
                           <md-select class="custom-select custom-select-full no-margin" ng-model="client.state">
@@ -311,7 +310,7 @@
                         </div>
                       </div>
 
-                      <div class="input-field-wrap" layout="row" layout-sm="column" layout-align="space-between end" layout-align-sm="space-between center">
+                      <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
                         <div class="input-field-wrap-inner" flex="45" flex-sm="100">
                           <input type="text" class="input-field" placeholder="Dirección" ng-model="client.address">
                         </div>

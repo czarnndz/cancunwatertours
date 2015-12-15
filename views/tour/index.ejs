@@ -5,16 +5,16 @@
     var imgs_url = <%- JSON.stringify(imgs_url) %>;
 </script>
 
-<div id="detalle" class="tour-indiv container-max" layout="row" layout-md="column" layout-sm="column" ng-controller="tourCTL">
+<div id="detalle" class="tour-indiv container-max" layout="row" layout-wrap ng-controller="tourCTL">
 
   <!--TOUR INFO-->
   <div class="tour-indiv-info" flex="75" flex-md="100" flex-sm="100">
-    <div layout="row" layout-md="column" layout-sm="column" layout-wrap>
+    <div layout="row" layout-wrap>
 
       <!--TOUR INFO (FIRST COLUMN)-->
-      <div class="tour-details" id="detalles-tour" flex="70" flex-md="100" flex-sm="100" layout="column">
+      <div class="tour-details" id="detalles-tour" flex="70" flex-md="100" flex-sm="100">
 
-        <div class="tour-data" flex="30" layout="row" layout-sm="column" layout-align="space-between center">
+        <div class="tour-data"  layout="row" layout-wrap layout-align="space-between center">
           <div class="tour-data-column" flex>
             <h1>
               <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/tours/{{item.url}}" target="_blank" >
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="tour-slider-wrapper" flex ><!--Erick cambio antes flex70-->
+        <div class="tour-slider-wrapper" gallery-wrapper flex ><!--Erick cambio antes flex70-->
           <slick class="tour-slider" dots="true" arrows="false" autoplay="true" autoplaySpeed="4000" fade="true">
             <div
               ng-repeat="photo in galleryPhotos track by $index"
@@ -163,7 +163,7 @@
       <!--END TOUR INFO (SECOND COLUMN)-->
     </div>
 
-    <div layout="row" layout-md="column" layout-sm="column">
+    <div layout="row" layout-wrap>
       <!--TOUR DESCRIPTION-->
       <div class="tour-description" flex="70" flex-md="100" flex-sm="100">
         <!--<perfect-scrollbar class="tour-description-scroller" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="10">-->
