@@ -2329,6 +2329,15 @@ figcaption:hover .action-btn-white{
   .booking-partial-absolute,
   .tour-map{position: relative;}
 
+  /*-----------/
+    #TOUR-SLIDER
+  /*----------*/
+  .tour-slider-wrapper{
+    height: auto!important;
+    min-height: 380px;
+  }
+
+
   /*--------/
     #FILTERS-OPTIONS
   /*--------*/
