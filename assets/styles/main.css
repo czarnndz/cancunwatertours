@@ -961,9 +961,12 @@ figcaption:hover .action-btn-white{
 /*-----------/
   #TOUR-SLIDER
 /*----------*/
-.tour-slider-wrapper{overflow: hidden;
+.tour-slider-wrapper{
+  overflow: hidden;
+  max-height: 330px;
   /*Erick cambios*/
-  position: relative;}
+  position: relative;
+}
 .tour-slider{
   height: 360px;
   min-height: 360px;
@@ -2326,6 +2329,15 @@ figcaption:hover .action-btn-white{
   .booking-partial-absolute,
   .tour-map{position: relative;}
 
+  /*-----------/
+    #TOUR-SLIDER
+  /*----------*/
+  .tour-slider-wrapper{
+    height: auto!important;
+    min-height: 380px;
+  }
+
+
   /*--------/
     #FILTERS-OPTIONS
   /*--------*/
@@ -2411,6 +2423,7 @@ figcaption:hover .action-btn-white{
   /*---------/
     #SEARCH-RESULTS
   /*---------*/
+  .filters-section-large-label{display: block;}
   .search-results-option-item.tour-type{margin-left: 0;}
 
   /*--------/
