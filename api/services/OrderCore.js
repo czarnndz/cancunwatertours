@@ -66,7 +66,8 @@ module.exports.createReservations = function(order,items,payment_method,currency
 
         newItem.pax = tour.adults;
         newItem.kidPax = tour.kids;
-        newItem.fee = tour.fee + tour.feeChild;
+        newItem.fee = tour.fee;
+        newItem.feeKids = tour.feeChild;
         newItem.fee_adults_base = tour.fee_base;
         newItem.fee_kids_base = tour.feeChild_base;
         newItem.fee_adults = tour.fee;
@@ -76,6 +77,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
         newItem.exchange_rate_book = _.isUndefined(theorder.company.exchange_rates[currency]) ? 1 : theorder.company.exchange_rates[currency].book;
         newItem.exchange_rate_provider = tour.provider ? tour.provider.exchange_rate : 0;
         newItem.tour = tour.id;
+        newItem.quantity = 1;
         Reservation.create(newItem).exec(function(err,r){
           //console.log("result ");
           //console.log(r);
@@ -93,13 +95,29 @@ module.exports.createReservations = function(order,items,payment_method,currency
 module.exports.getItems = function(reservations,currency) {
   return reservations.map(function(r){
     var item = {};
-    item.id = r.id;
+    item.sku = r.id;
     item.name = r.tour.name;
-    item.price = r.fee + (r.feeKids ? r.feeKids : 0);
+    item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
     item.currency = currency;
+    item.quantity = r.quantity;
     return item;
   });
 };
+
+module.exports.getTotal = function(reservations) {
+  var total = reservations.reduce(function(tot,r){
+    tot += (r.fee + (r.feeKids ? r.feeKids : 0));
+    return tot;
+  },0.0);
+  return total;
+};
+
+module.exports.getCurrency = function(currency_id) {
+  var currency = sails.config.company.currencies.find(function(c){
+    return (c.id == currency_id);
+  });
+  return currency.currency_code;
+}
 
 
 
@@ -117,8 +135,8 @@ function getPriceTour(item,currency,company,callback){
     aux.feeChild = (tour.feeChild ? tour.feeChild : tour.fee) * item.kids * exchange_rate;
     aux.commission_sales = tour.commission_sales;
     aux.provider = tour.provider;
-    aux.adults = tour.adults;
-    aux.kids = tour.kids;
+    aux.adults = item.adults;
+    aux.kids = item.kids;
     aux.id = tour.id;
     callback(false,aux);
   });

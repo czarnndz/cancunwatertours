@@ -162,6 +162,16 @@ module.exports = {
         }
       });
     });
+  },
+
+  setUrl : function(req,res) {
+    Tour.find().exec(function(err,tours){
+      _.each(tours,function(t){
+        console.log(t);
+        t.url = t.name.replace(/\s+/g, '-').toLowerCase();
+        t.save();
+      });
+    });
   }
 };
 

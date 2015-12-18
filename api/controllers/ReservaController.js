@@ -36,16 +36,19 @@ module.exports = {
               }
 
               if (reservations) {
-                var currencyCode = "USD";//sails.config.company.exchange_rates[params.currency].currency_code;
-                var total = 395.22;
+                var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
+                var total = OrderCore.getTotal(reservations);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = OrderCore.getItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
                     //Common.updateRese
                     if (result.success) {
-                      OrderCore.updateReservations(order.id,{ autorization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
-                        if (updateRes)
+                      OrderCore.updateReservations(order.id,{ autosrization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
+                        if (updateRes) {
+                          delete result.payment_id;
+                          delete result.payer_id;
                           return res.json(result);
+                        }
                         else {
                           result.success = false;
                           result.error = 'reservation error';

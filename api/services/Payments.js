@@ -49,13 +49,11 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
       },
       amount : {
         currency: currency,
-        total: total
+        total: total.toFixed(2)
       },
       description : "This is the payment description."
     });
-  console.log("payment");
-  console.log(items);
-  console.log(payment.transactions[0].amount);
+
   paypal.payment.create(JSON.stringify(payment), function (error, payment) {
     if (error) {
       console.log(error);

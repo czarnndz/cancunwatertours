@@ -85,12 +85,13 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     $scope.process = function() {
       $rootScope.cart_client = $scope.client;
 
-      cartService.process(function(result){
+      cartService.process().then(function(result){
+        console.log(result);
         if (result.success) {
           $location.path(result.redirect_url);
         } else {
           alert(result);
         }
-      })
+      });
     }
 });

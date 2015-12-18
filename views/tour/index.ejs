@@ -252,7 +252,7 @@
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4><a ng-href="/tour/{{tour_i.url}}">{{tour_i.name}}</a></h4>
         <!--<p>{{tour_i.location.name}}</p>-->
-        <p class="s-tour-price">${{getPrice(tour_i) | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
+        <p class="s-tour-price">{{getPrice(tour_i) | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
         <p><a class='action-btn-white' href="/tour/{{tour_i.url}}">Reservar</a></p>
       </div>
     </div>

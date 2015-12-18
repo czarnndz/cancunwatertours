@@ -139,6 +139,10 @@ module.exports.routes = {
   '/update_password': {
     controller: 'client',
     action: 'update_password'
+  },
+  '/setUrl' : {
+    controller : 'home',
+    action : 'setUrl'
   }
 
 

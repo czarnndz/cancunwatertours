@@ -114,20 +114,15 @@
       }
 
       function process(){
-        var response = {};
         var deferred = $q.defer();
         var items = getFormatedItems();
         var params = { items : items,currency : $rootScope.global_currency.id,client : $rootScope.cart_client };
-        console.log(params);
         $http({
           method : 'POST',
           url : '/process',
           data : params
         }).then(function(res){
-          console.log("response");
-          console.log(res);
-          response = res;
-          deferred.resolve(response);
+          deferred.resolve(res);
         });
         return deferred.promise;
       }
