@@ -205,3 +205,10 @@
 	content: "\e93b";
 }
 
+.icon-information:before{ content: "\e942"; }
+.icon-naturaleza0:before{ content: "\e940"; }
+.icon-naturaleza1:before{ content: "\e941"; }
+.icon-mojado0:before{ content: "\e93e"; }
+.icon-mojado1:before{ content: "\e93f"; }
+.icon-actividad0:before{ content: "\e93c"; }
+.icon-actividad1:before{ content: "\e93d"; }

@@ -122,7 +122,7 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   var sort = { };
   sort[sortBy] = 1;
   //console.log(query);
-  Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').exec(function(err,tours) {
+  Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(err,tours) {
     //console.log(tours.length);
     callback(err,Common.formatTours(tours,'es'));
   });

@@ -21,16 +21,24 @@
 
   <div class="filters-section-row filters-section-sliders" layout="row" layout-wrap>
     <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
-      <label><i class="icon-precio2"></i> Rango de precios</label>
-      <md-slider class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
+      <label>Rango de precios <i class="sm-icon icon-information"></i></label>
+      <div layout='row' layout-align="space-between end">
+        <i class="md-icon icon-precio2"></i>
+        <md-slider flex class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
+        <i class="icon-precio2"></i>
+      </div>
       <div class="levels-text" layout="row" layout-align="space-between center">
         <span>{{range.minFee | currency : '$' }}</span>
         <span>{{range.maxFee | currency : '$' }}</span>
       </div>
     </div>
     <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option">
-      <label><i class="icon-precio2"></i> {{item.name}}</label>
-      <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>
+      <label>{{item.name}} <i class='sm-icon icon-information'></i></label>
+      <div layout='row' layout-align="space-between end">
+        <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
+        <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>
+        <i class="icon-{{ getCategoryIcon(item) }}1"></i>
+      </div>
       <div class="levels-text" layout="row" layout-align="space-between center" >
         <span>{{ item.rating[0].label }}</span>
         <span>{{ item.rating[item.rating.length-1].label }}</span>

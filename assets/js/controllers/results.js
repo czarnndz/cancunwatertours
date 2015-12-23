@@ -123,18 +123,29 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         html: '<div class="custom-icon-inner"><strong>'+ str +'</strong></div>'
       };
     };
+    var printCategoriesByTour = function(tour){
+      var categoriesStr = '';
+      if(tour.categories){
+        var categories = '';
+        for(var i=0;i<tour.categories.length;i++){
+          categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
 
-    $scope.getPopup = function(tour){
+          if(i !== (categories.length) ) categories += ', ';
+        }
+        categoriesStr += "<p>Categorías: "+categories+"</p>";
+      }
+      return categoriesStr;
+    }
+    $scope.getPopup = function(tours){
+      /*tour = tours[0];
       var imgSrc = tour.avatar3;
       var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
       var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
       var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
       var info ="<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
-
       var popup =  image + info;
 
       if(tour.categories){
-
         var categories = '';
         var categoriesStr = '';
         for(var i=0;i<tour.categories.length;i++){
@@ -146,9 +157,23 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
         }
         categoriesStr += "<p>Categorías: "+categories+"</p>";
         popup += categoriesStr;
+      }*/
+      //new popup 
+      var reel = '';
+      for( var x in tours ){
+        var tour = tours[x];
+        var item = '';
+        var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
+        var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
+        item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
+        item += "<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
+        item += printCategoriesByTour(tour);
+        item = "<div>" + item + "</div>";
+        reel += item;
       }
+      reel = '<slick ng-cloak style="width:100%;min-height:200px;margin:0;" class="ng-cloak" dots="false" arrows="true" autoplay="false" fade="true">' + reel + "</slick>";
 
-      return popup;
+      return reel;
     };
 
     $scope.events = {
@@ -170,7 +195,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
                 type: 'google'
             }
         },
-        overlays: {
+        /*overlays: {
           Locations: {
             "name": "Locations",
             "type": "markercluster",
@@ -181,7 +206,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
             "removeOutsideVisibleBounds": true
             }
           }
-        }
+        }*/
     };
   };
 
@@ -194,19 +219,39 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
       $scope.tours = data;
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
+      $scope.muelles = {};
       angular.forEach(data, function(t){
-        var info = '';
+        //var info = '';
 
-        var tour = t.departurePoints.item_0;
-        var message = $scope.getPopup(t);
-
-        this.push({
+        //var tour = t.departurePoints?t.departurePoints.item_0 : { lat : 0, lng : 0 };
+        //var message = $scope.getPopup(t);
+        
+        if( t.provider && t.provider.departurePoints ){
+          if( !$scope.muelles[t.provider.id] )
+            $scope.muelles[t.provider.id] = { points : [] , tours : [] };
+          for(var x in t.provider.departurePoints ){
+            $scope.muelles[t.provider.id].points.push( t.provider.departurePoints[x] );
+            $scope.muelles[t.provider.id].tours.push( t );
+          }
+          var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
+          for(var x in $scope.muelles[t.provider.id].points){
+            this.push({
+              lat: $scope.muelles[t.provider.id].points[x].lat,
+              lng: $scope.muelles[t.provider.id].points[x].lng,
+              message: message,
+              getMessageScope : function() { return $scope; },
+              //icon: $scope.getIcon(t.name)
+            });
+          }
+        }
+        /*this.push({
           layer: 'Locations',
           lat: tour.lat,
           lng: tour.lng,
           message: message,
+          getMessageScope : function() { return $scope; },
           icon: $scope.getIcon(t.name)
-        });
+        });*/
 
       },markers);
       $scope.markers = markers.filter(function(e){
@@ -220,6 +265,8 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
             lng:$scope.markers[0].lng,
         };
       }
+      console.log('$scope.markers');
+      console.log($scope.markers);
 
     });
 
