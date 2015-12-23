@@ -46,7 +46,8 @@ module.exports = {
   facebook_callback: 'http://cancunwatertours.herokuapp.com/fb_callback',
 };
 
-process.env.BACKEND_URL = 'https://admincancunwatertours.herokuapp.com';
+process.env.BACKEND_URL = 'https://admin.cancunwatertours.com';
+process.env.FRONTEND_URL = 'https://www.cancunwatertours.com';
 process.env.CONEKTA_API_PRIVATE = 'key_AhumvqfkFZ4LYNwUtvKyfA';
 process.env.CONEKTA_API_PUBLIC = 'key_KA6smKzckK59jwiQrdvnHCA';
 process.env.PAYPAL_CLIENT_ID = 'AV8IhxBeEm4on1cNrw7b7E3tj31WARrnZXj7KbBQzEFWCrY80mg7A3P8tAET';

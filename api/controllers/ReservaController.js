@@ -43,7 +43,7 @@ module.exports = {
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
                     //Common.updateRese
                     if (result.success) {
-                      OrderCore.updateReservations(order.id,{ autosrization_code : result.payment_id,autorization_code_2 : result.payer_id },function(updateRes) {
+                      OrderCore.updateReservations({order : order.id},{ authorization_code : result.payment_id,authorization_code_2 : result.payer_id },function(updateRes) {
                         if (updateRes) {
                           delete result.payment_id;
                           delete result.payer_id;
@@ -57,7 +57,7 @@ module.exports = {
                         }
                       });
                     } else {
-                      OrderCore.updateReservations(order.id,{ state : 'error' },function(updateRes) {
+                      OrderCore.updateReservations({order : order.id},{ state : 'error' },function(updateRes) {
                         result.success = false;
                         result.error = 'reservation error';
                         result.extra = updateRes;
@@ -81,29 +81,43 @@ module.exports = {
         });
       }
     },
-    paypalExecute : function(req,res) {
+    paypal_return : function(req,res) {
       var params = req.params.all();
-      var error = false;
-      console.log(params.order);
+      var state = 'canceled';
+      var error = true;
       if (params.success) {
+        state = 'liquidated';
         error = false;
       }
-      res.view('reserva/voucher',{
-        order : order,
-        error : { message : 'error message' },
-        meta : {
-          controller : 'home.js'
-        },
-        page : {
-          searchUrl : '/voucher',
-          placeholder : 'Voucher'
-        }
+      OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
+        res.redirect('/voucher?s=' + error + '&o=' + params.order);
       });
     },
 
     voucher: function(req, res){
-      res.view();
+        var params = req.params.all();
+        console.log(params);
+        Order.findOne({ id : params.o }).populate('client').exec(function(err,theorder){
+            Reservation.find({ order : params.o }).populate('tour').exec(function(err,thereservations){
+                console.log(theorder);
+                console.log(thereservations);
+                res.view({
+                    theorder : theorder,
+                    reservations : thereservations,
+                    company : sails.config.company,
+                    error : params.s,
+                    meta : {
+                        controller : 'reserva.js'
+                    },
+                    page : {
+                        searchUrl : '/voucher',
+                        placeholder : 'Voucher'
+                    }
+                });
+            });
+        });
     }
 
 };
+
 

@@ -165,11 +165,14 @@ module.exports = {
   },
 
   setUrl : function(req,res) {
-    Tour.find().exec(function(err,tours){
-      _.each(tours,function(t){
-        console.log(t);
-        t.url = t.name.replace(/\s+/g, '-').toLowerCase();
-        t.save();
+    Tour.find({ select: ['name','url'] }).exec(function(err,tours){
+      console.log(tours);
+      async.mapSeries( tours, function(tour,CB){
+        tour.url = Common.stringReplaceChars(tour.name);
+        console.log(tour);
+        tour.save(CB);
+      },function(ress){
+        res.json(ress);
       });
     });
   }

@@ -87,11 +87,26 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
 
       cartService.process().then(function(result){
         console.log(result);
-        if (result.success) {
-          $location.path(result.redirect_url);
+        if (result.data.success) {
+          window.location.href = result.data.redirect_url;
         } else {
-          alert(result);
+          alert(result.data.success);
         }
       });
     }
+});
+
+app.controller('voucherCTL',function($scope,cartService) {
+  $scope.reservations = reservations;
+  $scope.order = theorder;
+  $scope.error = hasError;
+  $scope.cartService = cartService;
+  console.log(theorder);
+  console.log(reservations);
+
+  $scope.getTotal = function(){
+      $scope.reservations.reduce(function(e){
+        return e.fee + e.feeKids;
+    });
+  }
 });

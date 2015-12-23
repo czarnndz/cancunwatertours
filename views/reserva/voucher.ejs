@@ -1,4 +1,10 @@
-<div ng-controller="StaticPagesCTL">
+<script type="text/javascript">
+  var theorder = <%- JSON.stringify(theorder) %>;
+  var reservations = <%- JSON.stringify(reservations) %>;
+  var hasError = <%- error %>;
+  var company = <%- JSON.stringify(company) %>;
+</script>
+<div ng-controller="voucherCTL">
   <!--LEFT SIDE blueBG-->
   <section class="container-xlg container-pad voucher-container">
 
@@ -8,16 +14,13 @@
           <p>
             <a href="#" onClick="window.print()">
               <img src="/images/impresora.png" alt="Imprimir"> Imprimir
-            </a> / 17/02/2016</p>
+            </a> / {{order.dtCreated | date : 'shortDate'}}</p>
         </div>
         <p>
-          <strong>Número de reservación / Reservation number</strong>: <strong class="highlight">01234</strong>
+          <strong>Número de reservación</strong>: <strong class="highlight" ng-bind="order.id"></strong>
         </p>
         <p>
-          <strong>Nombre / Name:</strong> <strong class="highlight">John Smith</strong>
-        </p>
-        <p>
-          <strong>Número de clientes / Number of clients:</strong>: <strong class="highlight">3</strong>
+          <strong>Nombre :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
         </p>
       </div>
       <div class="static-info" flex="30">
@@ -30,48 +33,36 @@
       </div>
     </div>
 
-    <div layout="row" layout-align="space-between start">
+    <div layout="row" layout-align="space-between start" ng-repeat="reservation in reservations">
       <div flex="45">
 
         <!-- VOUCHER ITEM -->
         <div class="voucher-item">
-          <h3 class="voucher-title">TOUR</h3>
+          <h3 class="voucher-title" ng-bind="reservation.reservation_type | uppercase"></h3>
           <p>
-            <strong>Tour: </strong> <strong><a class="highlight" href="#" target="_blank">Buceo 1 tanque(con equipo propio)</a></strong>
+            <strong>{{reservation.reservation_type | uppercase}}: </strong> <strong><a class="highlight" href="#" target="_blank" ng-bind="reservation.tour.name"></a></strong>
           </p>
-          <p><strong>Duración:</strong> 2 horas</p>
-          <p><strong>Horario:</strong> 8:00 am</p>
-          <p><strong>Fecha:</strong> 1 de diciembre 2015</p>
-          <p><strong>Total: $215 dolares.</strong></p>
+          <p><strong>Duración:</strong> {{reservation.tour.duration_formated}}</p>
+          <p ng-if="reservation.schedule"><strong>Horario:</strong> {{reservation.schedule}}</p>
+          <p><strong>Fecha:</strong> {{reservation.date}}</p>
+          <p><strong>Total: {{reservation.fee + reservation.feeKids}} {{reservation.currency}}</strong></p>
         </div>
         <!--END VOUCHER ITEM-->
 
         <!--VOUCHER ITEM-->
         <div class="voucher-item">
-          <h3 class="voucher-title">DETALLES DEL TOUR / TOUR DETAILS</h3>
+          <h3 class="voucher-title">DETALLES DEL TOUR</h3>
           <div class="voucher-prop">
             <p><strong>INCLUYE</strong></p>
-            <ul>
-              <li>IVA 16% Equipo</li>
-              <li>Equipo</li>
-              <li>Instructor, buceo supervisado</li>
-              <li>Aguas y refrescos</li>
-            </ul>
+            <p ng-bind-html-unsafe="reservation.tour.includesList"></p>
           </div>
           <div class="voucher-prop">
             <p><strong>NO INCLUYE</strong></p>
-            <ul>
-              <li>$10 usd de muelle/parque marino - una fracción de su pago de derechos es destinado a la conservación de MUSA</li>
-              <li>Traje de neopreno</li>
-              <li>Fotos</li>
-            </ul>
+            <p ng-bind-html-unsafe="reservation.tour.notIncludesList"></p>
           </div>
           <div class="voucher-prop">
             <p><strong>RECOMENDACIONES</strong></p>
-            <p>Se debe presentar una certificación de buceo válida al hacer check-in</p>
-          </div>
-          <div class="voucher-prop">
-            <p><strong>CONDICIONES DE TRANSPORTACIÓN</strong></p>
+            <p ng-bind-html-unsafe="reservation.tour.recommendations_es"></p>
           </div>
         </div>
         <!--END VOUCHER ITEM-->
@@ -82,7 +73,7 @@
         <!-- VOUCHER ITEM -->
         <div class="voucher-item">
           <h3 class="voucher-title">TOTAL</h3>
-          <p><strong>TOTAL: $215 usd.</strong></p>
+          <p><strong>TOTAL: {{getTotal()}} usd.</strong></p>
         </div>
         <!--END VOUCHER ITEM-->
       </div>
