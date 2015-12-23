@@ -235,12 +235,13 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
           }
           var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
           for(var x in $scope.muelles[t.provider.id].points){
+            var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+" actividades aquí":$scope.muelles[t.provider.id].tours[0].name;
             this.push({
               lat: $scope.muelles[t.provider.id].points[x].lat,
               lng: $scope.muelles[t.provider.id].points[x].lng,
               message: message,
               getMessageScope : function() { return $scope; },
-              //icon: $scope.getIcon(t.name)
+              icon: $scope.getIcon( iconText )
             });
           }
         }
@@ -265,8 +266,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
             lng:$scope.markers[0].lng,
         };
       }
-      console.log('$scope.markers');
-      console.log($scope.markers);
+      //console.log('$scope.markers');console.log($scope.markers);
 
     });
 
