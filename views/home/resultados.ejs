@@ -51,16 +51,17 @@
     </div>
   </section></md-content>
 
-  <section class="map-wrapper map-wrapper-alt" flex="35" flex-md="100" flex-sm="100">
+  <section class="map-wrapper map-wrapper-alt" flex="35" flex-md="100" flex-sm="100" layout="column">
     <!--<div class="hotel-search" layout="row" layout-sm="column">-->
       <!--<div flex="60" flex-sm="100" class="hotel-search-label">-->
     <div class="hotel-search">
       <div class="hotel-search-label">
         <a><strong>Lugares de salida de tours</strong></a>
       </div>
-      <!--<div flex="40" flex-sm="100">
+      <div flex="100" flex-sm="100">
         <md-autocomplete
             md-selected-item="selectedHotel"
+            md-selected-item-change="changeHotelMap(selectedHotel)"
             md-search-text="searchText"
             md-items="hotel in hotels"
             md-item-text="hotel.name"
@@ -73,9 +74,10 @@
             No se econcontro "{{searchText}}".
           </md-not-found>
         </md-autocomplete>
-      </div>-->
+      </div>
     </div>
-    <leaflet center="center"  markers="markers"  layers="layers"></leaflet>
+    <div style="position:relative;" flex><leaflet center="center"  markers="markers"  layers="layers"></leaflet></div>
+    
   </section>
 
 </div>

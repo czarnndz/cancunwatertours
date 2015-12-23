@@ -1,9 +1,10 @@
 
-app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
+app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
   $scope.tours = [];
+  $scope.hotels = [];
   $scope.minFee = minFee;
   $scope.maxFee = maxFee;
   $scope.term = term;
@@ -13,6 +14,33 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
   $scope.toursCategories = [];
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
+  $scope.getHotels = function(){
+      $http.get('/hotels').success(function(response) {
+          console.log('HOTELS');
+          console.log(response);
+          $scope.hotels = [];
+          for(var x in response)
+            if( response[x].latitude && response[x].longitude )
+              $scope.hotels.push(response[x]);
+      });
+  };
+  $scope.changeHotelMap = function(hotel){
+    console.log('hotel');
+    console.log(hotel);
+    for( var x in $scope.markers ){
+      if( $scope.markers[x].layer = 'Locations' )
+        $scope.markers.splice(x,1);
+    }
+    if( hotel && hotel.latitude && hotel.longitude ){
+        $scope.markers.push({
+          lat : hotel.latitude
+          ,lng : hotel.longitude
+          ,message : hotel.name
+          ,focus:true
+        });
+      }
+  }
+  $scope.getHotels();
   $scope.toggle = function(item, list, type){
     var idx = -1;
     for(var i=0; i < list.length; i++) {
@@ -195,18 +223,18 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
                 type: 'google'
             }
         },
-        /*overlays: {
+        overlays: {
           Locations: {
             "name": "Locations",
             "type": "markercluster",
             "visible": true,
-            "layerOptions": {
+            /*"layerOptions": {
             "chunkedLoading": true,
             "showCoverageOnHover": false,
             "removeOutsideVisibleBounds": true
-            }
+            }*/
           }
-        }*/
+        }
     };
   };
 
