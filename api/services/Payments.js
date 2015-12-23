@@ -39,8 +39,8 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
   payment.intent = "sale";
   payment.payer = { payment_method : "paypal" };
   payment.redirect_urls = {
-      return_url: "http://cancunwatertours.herokuapp.com/paypalExecute?success=true&" + return_param,
-      cancel_url: "http://cancunwatertours.herokuapp.com/paypalExecute?success=false&" + return_param,
+      return_url: process.env.FRONTEND_URL + "/paypal_return?success=true&" + return_param,
+      cancel_url: process.env.FRONTEND_URL + "/paypal_return?success=false&" + return_param,
   };
   payment.transactions = [];
   payment.transactions.push({
@@ -100,5 +100,5 @@ module.exports.paypalExecute = function(payer_id,payment_id,amount,currency,call
       callback(payment);
     }
   });
-}
+};
 

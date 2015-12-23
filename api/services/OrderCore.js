@@ -41,8 +41,8 @@ module.exports.createOrder = function(client,callback){
 
 };
 
-module.exports.updateReservations = function(order,attributes,callback) {
-  Reservation.update({ order : order },attributes,function(err,ress){
+module.exports.updateReservations = function(query,attributes,callback) {
+  Reservation.update(query,attributes,function(err,ress){
     if (err) {
       console.log(err);
       callback(false);
@@ -61,6 +61,14 @@ module.exports.createReservations = function(order,items,payment_method,currency
       newItem.user = theorder.user.id;
       newItem.payment_method = payment_method;
       newItem.currency = currency;
+      newItem.quantity = 1;
+      newItem.reservation_type = 'tour';
+      newItem.reservation_method = 'web';
+      newItem.state = 'pending';
+      newItem.startDate = item.date;
+      newItem.schedule = item.schedule;
+      newItem.hotel = item.hotel;
+
       getPriceTour(item,currency,theorder.company,function(err,tour){
         if(err) callback(err,false);
 
@@ -77,7 +85,6 @@ module.exports.createReservations = function(order,items,payment_method,currency
         newItem.exchange_rate_book = _.isUndefined(theorder.company.exchange_rates[currency]) ? 1 : theorder.company.exchange_rates[currency].book;
         newItem.exchange_rate_provider = tour.provider ? tour.provider.exchange_rate : 0;
         newItem.tour = tour.id;
-        newItem.quantity = 1;
         Reservation.create(newItem).exec(function(err,r){
           //console.log("result ");
           //console.log(r);
@@ -113,7 +120,7 @@ module.exports.getTotal = function(reservations) {
 };
 
 module.exports.getCurrency = function(currency_id) {
-  var currency = sails.config.company.currencies.find(function(c){
+  var currency = _.find(sails.config.company.currencies,function(c){
     return (c.id == currency_id);
   });
   return currency.currency_code;

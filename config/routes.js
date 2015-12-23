@@ -143,6 +143,10 @@ module.exports.routes = {
   '/setUrl' : {
     controller : 'home',
     action : 'setUrl'
+  },
+  '/paypal_return' : {
+    controller : "reserva",
+    action : 'paypal_return'
   }
 
 

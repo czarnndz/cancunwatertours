@@ -99,8 +99,8 @@ module.exports = {
     ,departurepickup_time : 'datetime'
     ,startDate : 'date'
     ,endDate : 'date'
-    ,autorization_code : 'string' //usado distinto dependiendo tipo de pago
-    ,autotization_code_2 : 'string'
+    ,authorization_code : 'string' //usado distinto dependiendo tipo de pago
+    ,authorization_code_2 : 'string'
     //nuevos campos para VCM
     //ellos lo llaman cupón en el caso de yellow será la validaciṕn del mkp
     ,controlCode : {
@@ -150,7 +150,11 @@ module.exports = {
     }
     ,notes : 'string'
     ,cancelationDate : 'date'
-
+    //tour
+    ,schedule : 'string'
+    ,authorization_code : 'string' //paypal = payment_id
+    ,authorization_code_2 : 'string' //paypal = token
+    ,duration : 'integer'
   }
   , attrs_labels : {
     //transfer reservations
@@ -158,7 +162,7 @@ module.exports = {
     ,airport : { es : 'Aeropuerto' , en : 'Airport' }
     ,fee : { es : 'Precio' , en : 'Price' }
     ,transfer : { es : 'Servicio' , en : 'Service' }
-    ,autorization_code : { es : 'Código de autorización' , en : 'Autorization code' }
+    ,authorization_code : { es : 'Código de autorización' , en : 'Autorization code' }
     ,state : { es : 'Estado de pago' , en : 'Payment state' }
     ,payment_method : { es : 'Método de pago' , en : 'Payment method' }
     ,pax : { es : 'Personas' , en : 'People' }

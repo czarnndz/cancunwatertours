@@ -135,3 +135,23 @@ module.exports.formValidate = function(form,validate){
     }
     return form;
 };
+
+module.exports.stringReplaceChars = function(string){
+  var replace_map = {"á" : 'a', "é" : 'e', "í" : 'i', "ó" : 'o', "ú" : 'u', "?" : '', "!" : '', "’" : '', "'" : '','/' : '+','ñ' : 'n','¿' : '','¡' : '','.' : '','°' : '','&' : '',',' : '','Â' : ''};
+  string = string.toLowerCase().replace(/[áéíóú?!’'\/ñ¿¡.°&,Â]/g, function(match){
+    return replace_map[match];
+  }).replace(/\s+/g, '-');
+  return string;
+}
+module.exports.setAllToursUrl = function(limit,skip,theCB){
+  limit = limit || 100;
+  skip = skip || 0;
+  console.log(skip);
+  Tour.find().limit(limit).skip(skip).exec(function(err,tours){
+    if(err) return err;
+    async.mapSeries( tours, function(tour,CB){
+      tour.url = Common.stringReplaceChars( tour.url&&tour.url!=''?tour.url:tour.name );
+      tour.save(CB);
+    },theCB);
+  });
+}

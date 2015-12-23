@@ -7,39 +7,48 @@
 
 module.exports = {
   attributes: {
-    location : {
-      model : 'location' }
-    ,days : 'array'
-    ,schedules : 'array'
-    ,departurePoints : 'json'
-    ,seasonScheme : {
-      model:'seasonScheme',
-      via:'tours' }
-    ,cupons : {
-      model:'cupon',
-      via:'tours' }
-    ,categories : { collection : 'tourcategory',via:'tours' }
-    ,pax : 'integer'
-    ,fee : 'float' // precio de venta
-    ,feeChild : 'float' //precio de venta
-    ,fee_base : 'float' //precios de proveedor
-    ,feeChild_base : 'float' //precios de proveedor
-    ,commission_agency : 'float'
-    ,commission_sales : 'float'
-    ,commission_agency_base : 'integer'
-    ,commission_user_base : 'integer'
-    ,provider : {
-      model : 'tourprovider' }
-    ,agencies : {
-      collection : 'companyproduct'
-      , via : 'tour' }
-    ,duration_formated : 'datetime'
-    ,type : {
-      type: 'string',
-      enum: ['family', 'adult'],
-      defaultsTo : 'family'
-    }
-    ,url : 'string'
+      location: {
+          model: 'location'
+      },
+      days: 'array',
+      schedules: 'array',
+      departurePoints: 'json',
+      seasonScheme: {
+          model: 'seasonScheme',
+          via: 'tours'
+      }, cupons: {
+          model: 'cupon',
+          via: 'tours'
+      }, categories: {
+          collection: 'tourcategory',
+          via: 'tours'
+      }, pax: 'integer', fee: 'float' // precio de venta
+      , feeChild: 'float' //precio de venta
+      , fee_base: 'float' //precios de proveedor
+      , feeChild_base: 'float' //precios de proveedor
+      , commission_agency: 'float',
+      commission_sales: 'float',
+      commission_agency_base: 'integer',
+      commission_user_base: 'integer',
+      provider: {
+          model: 'tourprovider'
+      },
+      agencies: {
+          collection: 'companyproduct',
+          via: 'tour'
+      },
+      duration_formated: 'datetime',
+      type: {
+          type: 'string',
+          enum: ['family', 'adult'],
+          defaultsTo: 'family'
+      },
+      url: 'string',
+      feeType: {
+          type: 'string',
+          enum: ['regular', 'hour'],
+          defaultsTo: 'regular'
+      }
   }
   , migrate : 'safe'
   , attrs_labels : {
