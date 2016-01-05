@@ -43,11 +43,21 @@ module.exports = {
           enum: ['family', 'adult'],
           defaultsTo: 'family'
       },
-      url: 'string',
-      feeType: {
-          type: 'string',
-          enum: ['regular', 'hour'],
-          defaultsTo: 'regular'
+      url: 'string'
+      ,priceType : {
+        type : 'string',
+        enum: ['single', 'group'],
+        defaultsTo : 'single'
+      }
+      ,price : {
+        model : 'price'
+      }
+      ,extra_prices : {
+        collection : 'price',
+        via : 'tour'
+      }
+      ,duration : {
+        type : 'integer'
       }
   }
   , migrate : 'safe'

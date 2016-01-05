@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, toursService){
+app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartService, toursService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
@@ -52,6 +52,12 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, tou
       });
 
       $scope.tour.schedules = aux_schedules;
+
+      $http.get('/hotels').success(function(response) {
+        $scope.hotels = response;
+      });
+
+      $scope.date = new Date();
 
     };
 
@@ -108,20 +114,20 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, tou
       return str;
     };
 
-    $http.get('/hotels').success(function(response) {
-        $scope.hotels = response;
-    });
-
     $scope.setUpGallery = function(){
       $scope.galleryPhotos = [];
       if($scope.tour.files){
         $scope.galleryPhotos = $scope.tour.files.map(function(file){
           return $scope.imgs_url + '/uploads/tours/gallery/' +  file.filename;
         });
-      }else{
+      }else if ( $scope.tour.icon){
         $scope.galleryPhotos.push(
           $scope.imgs_url + '/uploads/tours/' +  $scope.tour.icon.filename
         );
+      } else {
+          $scope.galleryPhotos.push(
+            $scope.imgs_url + '/uploads/tours/default.jpg'
+          );
       }
     };
 
@@ -185,7 +191,7 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, tou
 
       $scope.map = {};
       $scope.center = {
-          zoom:14,
+          zoom:13,
           lat:21.1656951,
           lng:-86.8210734,
       };
@@ -198,14 +204,14 @@ app.controller('tourCTL',function($scope,$http,$timeout,$filter,cartService, tou
         markers.push({
           lat: tourPoints.lat,
           lng: tourPoints.lng,
-          message: message,
-          icon: getIcon($scope.tour.name)
+          //message: message,
+          icon: getIcon(tourPoints.name)
         });
 
         $scope.center = {
             zoom:12,
             lat: tourPoints.lat,
-            lng: tourPoints.lng,
+            lng: tourPoints.lng
         };
 
         $scope.markers = markers.filter(function(e){

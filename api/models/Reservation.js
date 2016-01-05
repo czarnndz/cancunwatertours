@@ -155,6 +155,10 @@ module.exports = {
     ,authorization_code : 'string' //paypal = payment_id
     ,authorization_code_2 : 'string' //paypal = token
     ,duration : 'integer'
+    ,prices : {
+        collection : 'price',
+        via : 'reservations'
+    }
   }
   , attrs_labels : {
     //transfer reservations

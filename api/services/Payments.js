@@ -11,7 +11,7 @@ function initPaypal() {
 
 
 module.exports.ConektaCreate = function(currency) {
-  conekta.api_key = '9YxqfRnx4sMQDnRsqdYn';
+  conekta.api_key = process.env.CONEKTA_API_PRIVATE;
   conekta.locale = 'es';
 
   conekta.Charge.create({
