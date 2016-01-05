@@ -1568,7 +1568,7 @@ figcaption:hover .action-btn-white{
 
 
 .map-wrapper .hotel-search{
-  position: absolute;
+  position: relative;
   top: 30px;
   left: 0;
   right: 0;
@@ -1604,9 +1604,9 @@ figcaption:hover .action-btn-white{
 .map-wrapper-alt .hotel-search{
   background: #fff;
   top: 0;
-  height: 45px;
+  height: 67px;
   width: 100%;
-  display: none;
+  /*display: none;*/
 }
 
 .map-wrapper-alt .angular-leaflet-map{
@@ -1631,6 +1631,8 @@ figcaption:hover .action-btn-white{
 }
 .map-wrapper .custom-icon-inner{
   position: relative;
+  font-size: 14px;
+  padding-top: 2px;
 }
 .map-wrapper .custom-icon-inner:after{
   content: '';
@@ -1640,7 +1642,7 @@ figcaption:hover .action-btn-white{
   right: 0;
   margin: 0 auto;
   width: 0;
-  bottom: -16px;
+  bottom: -11px;
   height: 0;
   border-style: solid;
   border-width: 8px 5px 0 5px;

@@ -1,9 +1,10 @@
 
-app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
+app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
   $scope.tours = [];
+  $scope.hotels = [];
   $scope.minFee = minFee;
   $scope.maxFee = maxFee;
   $scope.term = term;
@@ -13,6 +14,33 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
   $scope.toursCategories = [];
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
+  $scope.getHotels = function(){
+      $http.get('/hotels').success(function(response) {
+          console.log('HOTELS');
+          console.log(response);
+          $scope.hotels = [];
+          for(var x in response)
+            if( response[x].latitude && response[x].longitude )
+              $scope.hotels.push(response[x]);
+      });
+  };
+  $scope.changeHotelMap = function(hotel){
+    console.log('hotel');
+    console.log(hotel);
+    for( var x in $scope.markers ){
+      if( $scope.markers[x].layer = 'Locations' )
+        $scope.markers.splice(x,1);
+    }
+    if( hotel && hotel.latitude && hotel.longitude ){
+        $scope.markers.push({
+          lat : hotel.latitude
+          ,lng : hotel.longitude
+          ,message : hotel.name
+          ,focus:true
+        });
+      }
+  }
+  $scope.getHotels();
   $scope.toggle = function(item, list, type){
     var idx = -1;
     for(var i=0; i < list.length; i++) {
@@ -195,18 +223,18 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
                 type: 'google'
             }
         },
-        /*overlays: {
+        overlays: {
           Locations: {
             "name": "Locations",
             "type": "markercluster",
             "visible": true,
-            "layerOptions": {
+            /*"layerOptions": {
             "chunkedLoading": true,
             "showCoverageOnHover": false,
             "removeOutsideVisibleBounds": true
-            }
+            }*/
           }
-        }*/
+        }
     };
   };
 
@@ -235,12 +263,13 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
           }
           var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
           for(var x in $scope.muelles[t.provider.id].points){
+            var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+" actividades aquí":$scope.muelles[t.provider.id].tours[0].name;
             this.push({
               lat: $scope.muelles[t.provider.id].points[x].lat,
               lng: $scope.muelles[t.provider.id].points[x].lng,
               message: message,
               getMessageScope : function() { return $scope; },
-              //icon: $scope.getIcon(t.name)
+              icon: $scope.getIcon( iconText )
             });
           }
         }
@@ -265,8 +294,7 @@ app.controller('resultsCTL',function($scope, $timeout, $filter, toursService, le
             lng:$scope.markers[0].lng,
         };
       }
-      console.log('$scope.markers');
-      console.log($scope.markers);
+      //console.log('$scope.markers');console.log($scope.markers);
 
     });
 

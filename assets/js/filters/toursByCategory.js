@@ -1,6 +1,6 @@
 app.filter('toursByCategory', function($q) {
   return function(list,filters) {
-    console.log('filters');
+    //console.log('filters');
     //console.log(filters);
     var auxList = [];
     var auxList2 = [];
@@ -52,7 +52,7 @@ app.filter('toursByCategory', function($q) {
       auxList = list;
     }
 
-    console.log(auxList);
+    //console.log(auxList);
     return auxList;
   };
 
