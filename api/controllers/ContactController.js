@@ -35,7 +35,7 @@ module.exports = {
       contactMessage: form.contactMessage || 'No message'
     };
     var head = {
-      to: 'luis19prz@gmail.com',
+      to: 'info@watertours.com',
       subject: 'Mensaje desde Cancunwater Tours'
     };
     sails.hooks.email.send(
