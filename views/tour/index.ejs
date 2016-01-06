@@ -100,7 +100,7 @@
           </div>
           <div class="input-field-wrap" ng-if="tour.schedules.length > 0">
               <i class="icon-horario icon-inside"></i>
-              <md-select class="" ng-model="tour.schedule" ng-required name="schedule">
+              <md-select ng-model="tour.schedule" ng-required name="schedule">
                 <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
               </md-select>
           </div>

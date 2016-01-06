@@ -99,17 +99,6 @@ module.exports.createReservations = function(order,items,payment_method,currency
 		},callback);
 	});
 };
-module.exports.getItems = function(reservations,currency) {
-  return reservations.map(function(r){
-    var item = {};
-    item.sku = r.id;
-    item.name = r.tour.name;
-    item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
-    item.currency = currency;
-    item.quantity = r.quantity;
-    return item;
-  });
-};
 
 module.exports.getTotal = function(reservations) {
   var total = reservations.reduce(function(tot,r){

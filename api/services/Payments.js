@@ -10,7 +10,7 @@ function initPaypal() {
 }
 
 
-module.exports.ConektaCreate = function(currency) {
+module.exports.ConektaCreate = function(currency,token) {
   conekta.api_key = process.env.CONEKTA_API_PRIVATE;
   conekta.locale = 'es';
 
@@ -19,7 +19,7 @@ module.exports.ConektaCreate = function(currency) {
     amount: 50000,
     currency: currency,
     reference_id: '9839-wolf_pack',
-    card: 'tok_test_visa_4242',
+    card: token,
     details: {
       email: 'logan@x-men.org'
     }
@@ -100,5 +100,31 @@ module.exports.paypalExecute = function(payer_id,payment_id,amount,currency,call
       callback(payment);
     }
   });
+};
+
+
+module.exports.getPaypalItems = function(reservations,currency) {
+    return reservations.map(function(r){
+        var item = {};
+        item.sku = r.id;
+        item.name = r.tour.name;
+        item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
+        item.currency = currency;
+        item.quantity = r.quantity;
+        return item;
+    });
+};
+
+module.exports.getConektaItems = function(reservations,currency) {
+    return reservations.map(function(r){
+        var item = {};
+        item.sku = r.id;
+        item.name = r.tour.name;
+        item.unit_price = ((r.fee + (r.feeKids ? r.feeKids : 0)) * 100).toFixed(0);
+        item.currency = currency;
+        item.quantity = r.quantity;
+        item.type = 'tour'
+        return item;
+    });
 };
 

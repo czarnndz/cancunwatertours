@@ -106,7 +106,7 @@ module.exports.routes = {
   },
   '/process' : {
     controller : 'reserva',
-    action : 'addOrder'
+    action : 'create'
   },
   '/voucher': {
     controller: 'reserva',

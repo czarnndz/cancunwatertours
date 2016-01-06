@@ -198,6 +198,10 @@
     <script src="/js/toucheffects.js"></script>
     <!--SCRIPTS END-->
 
+    <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+    <script type="text/javascript">
+        Conekta.setPublishableKey('<%- process.env.CONEKTA_API_PUBLIC %>');
+    </script>
     <!--OLARK-->
     <%- partial('partials/olark') -%>
 

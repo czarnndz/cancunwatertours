@@ -81,8 +81,8 @@
                                     <i class="icon-horario highlight"></i> Horario:
                                   </label>
                                   <div flex="80">
-                                    <md-select class="custom-select" ng-model="tour.schedule" ng-required name="schedule">
-                                        <md-option value="{{tour.schedule}}" ng-repeat="tour.schedule in tour.schedules" ng-selected="$index == 0">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
+                                    <md-select class="custom-select" ng-model="tour.schedule" ng-required>
+                                        <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
                                     </md-select>
                                   </div>
                               </div>
@@ -214,7 +214,7 @@
                   <div id="forma-pago" class="block-content booking-form">
 
                       <md-radio-group class="md-primary" ng-model="client.payment_method" layout="row" layout-wrap>
-                        <!--<md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
+                        <md-radio-button flex-md="100" flex-sm="100" value="visa" class="md-primary">
                           <img src="/images/visa.png" class="img-tarjeta">
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="master" class="md-primary">
@@ -222,7 +222,7 @@
                         </md-radio-button>
                         <md-radio-button flex-md="100" flex-sm="100" value="american" class="md-primary">
                           <img src="/images/american.png" class="img-tarjeta">
-                        </md-radio-button>-->
+                        </md-radio-button>
                         <!--<md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">-->
                           <!--<img src="/images/puntos.png" class="img-tarjeta">-->
                         <!--</md-radio-button>-->

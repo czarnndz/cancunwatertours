@@ -54,8 +54,6 @@ var jsFilesToInject = [
   'bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js',
   'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
   'bower_components/angular-lazy-img/release/angular-lazy-img.js',
-  'https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js',
-
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'

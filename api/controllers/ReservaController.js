@@ -20,15 +20,15 @@ module.exports = {
         });
       });
     },
-    addOrder : function(req,res) {
+    create : function(req,res) {
       var params = req.params.all();
+      var result = {};
       //console.log(params);
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
             OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
               if (err) {
-                var result = {};
                 result.success = false;
                 result.error = 'create reservation error';
                 result.extra = err;
@@ -39,7 +39,7 @@ module.exports = {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
                 if (params.client.payment_method == 'paypal') {
-                  var paypalItems = OrderCore.getItems(reservations,currencyCode);
+                  var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
                     //Common.updateRese
                     if (result.success) {
@@ -51,7 +51,7 @@ module.exports = {
                         }
                         else {
                           result.success = false;
-                          result.error = 'reservation error';
+                          result.error = 'reservation update error';
                           result.extra = updateRes;
                           return res.json(result);
                         }
@@ -61,24 +61,27 @@ module.exports = {
                         result.success = false;
                         result.error = 'reservation error';
                         result.extra = updateRes;
-                        console.log(result);
                         return res.json(result);
                       });
                     }
                   });
                 }  else {
-                  var result = {};
-                  result.success = false;
-                  result.error = 'error';
+                  result.success = true;
+                  result.error = params;
+                  console.log(params);
                   return res.json(result);
                 }
               } else { //error al guardar reservaciones
-                return res.json({ success : false , error : 'error' });
+                return res.json({ success : false , error : 'error reservations creation' });
               }
 
             })
+          } else { //error al guardar la orden
+              return res.json({ success : false , error : 'error order creation' });
           }
         });
+      } else { //error de parametros de request
+          return res.json({ success : false , error : 'error bad request' });
       }
     },
     paypal_return : function(req,res) {
@@ -92,6 +95,19 @@ module.exports = {
       OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
         res.redirect('/voucher?s=' + error + '&o=' + params.order);
       });
+    },
+
+    conekta_return : function(req,res) {
+        var params = req.params.all();
+        var state = 'canceled';
+        var error = true;
+        if (params.success) {
+            state = 'liquidated';
+            error = false;
+        }
+        OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
+            res.redirect('/voucher?s=' + error + '&o=' + params.order);
+        });
     },
 
     voucher: function(req, res){

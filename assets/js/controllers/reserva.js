@@ -9,6 +9,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     /*$scope.client = {
         isMobile : false
     };*/
+
     $scope.minDate = new Date();
     $scope.hotels = hotels;
     $scope.isDisabled = true;
@@ -16,6 +17,20 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     $scope.step = 0;
 
     $scope.tours = cartService.getAll();
+    console.log($scope.tours);
+
+//    $scope.tours.forEach(function(tour,a){
+//        console.log(a);
+//        var aux_schedules = [];
+//        tour.schedules.forEach(function(el) {
+//            if( typeof el == 'string' )
+//                aux_schedules.push(JSON.parse(el));
+//            else
+//                aux_schedules.push(el);
+//        });
+//
+//        tour.schedules = aux_schedules;
+//    });
 
     //Fix md-datepicker
     for(var i=0;i<$scope.tours.length;i++){
@@ -57,7 +72,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     };
 
     $scope.priceTour = function(tour) {
-        return cartService.getPriceTour(tour);
+        return cartService.getPriceTourOnly(tour);
     };
 
     $scope.removeTour = function(index) {
@@ -83,12 +98,11 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
 
     //TODO formatear para enviar los items formateados.
     $scope.process = function() {
-      $rootScope.cart_client = $scope.client;
-
-      cartService.process().then(function(result){
+      cartService.process($scope.client).then(function(result){
         console.log(result);
         if (result.data.success) {
-          window.location.href = result.data.redirect_url;
+          console.log('success');
+          //window.location.href = result.data.redirect_url;
         } else {
           alert(result.data.success);
         }

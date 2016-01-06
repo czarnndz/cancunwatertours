@@ -15,6 +15,7 @@
       serv.getClient = getClient;
       serv.setClient = setClient;
       serv.getPriceTour = getPriceTour;
+      serv.getPriceTourOnly = getPriceTourOnly;
       serv.getPriceTax = getPriceTax;
       serv.getPriceTotalTotal = getPriceTotalTotal;
       serv.getPriceTotalTax = getPriceTotalTax;
@@ -68,6 +69,15 @@
         }
       }
 
+      function getPriceTourOnly(tour) {
+          var exchangeRate = getExchangeRate();
+          if (tour.kids > 0) {
+              return (tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate);
+          } else {
+              return (tour.adults * tour.fee * exchangeRate);
+          }
+      }
+
       function getPriceTotalTax(){
         return (getPriceTotal() * serv.tax);
 
@@ -113,18 +123,48 @@
         return getPriceTour(auxTour);
       }
 
-      function process(){
+      function process(client){
+
         var deferred = $q.defer();
         var items = getFormatedItems();
         var params = { items : items,currency : $rootScope.global_currency.id,client : $rootScope.cart_client };
-        $http({
-          method : 'POST',
-          url : '/process',
-          data : params
-        }).then(function(res){
-          deferred.resolve(res);
-        });
+
+        if (client)
+            $rootScope.cart_client = client;
+        if ($rootScope.cart_client.payment_method != 'paypal') {
+            Conekta.token.create({ card : {
+                number: $rootScope.cart_client.cc.number,//"4242424242424242",
+                name: $rootScope.cart_client.cc.name,
+                exp_year: $rootScope.cart_client.cc.year,
+                exp_month: $rootScope.cart_client.cc.month,
+                cvc: $rootScope.cart_client.cc.code
+                }
+            },function(e){ //success
+                console.log(e);
+                params.token = e.id;
+                params.client.payment_method = 'conekta';
+                $http({
+                    method : 'POST',
+                    url : '/process',
+                    data : params
+                }).then(function(res){
+                    deferred.resolve(res);
+                });
+
+            },function(e) { //error
+                console.log(e);
+            });
+        } else {
+            $http({
+                method : 'POST',
+                url : '/process',
+                data : params
+            }).then(function(res){
+                deferred.resolve(res);
+            });
+        }
         return deferred.promise;
+
       }
 
       function getFormatedItems(){

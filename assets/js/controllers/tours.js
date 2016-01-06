@@ -77,7 +77,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
     $scope.formatDuration = function(duration){
       var formatted = '';
-      console.log(duration);
+      //console.log(duration);
       if(duration){
         var t = new Date(duration);
         var h = t.getHours() || '';
@@ -198,25 +198,28 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.markers = {};
 
       if($scope.tour.departurePoints){
-        var tourPoints =  $scope.tour.departurePoints.item_0;
-        var message = getPopup($scope.tour);
+          angular.forEach(Object.keys($scope.tour.departurePoints),function(i){
+            var tourPoints =  $scope.tour.departurePoints[i];
+            //var message = getPopup($scope.tour);
 
-        markers.push({
-          lat: tourPoints.lat,
-          lng: tourPoints.lng,
-          //message: message,
-          icon: getIcon(tourPoints.name)
+            markers.push({
+                lat: tourPoints.lat,
+                lng: tourPoints.lng,
+                //message: message,
+                icon: getIcon(tourPoints.name)
+            });
+
+            $scope.center = {
+                zoom:12,
+                lat: tourPoints.lat,
+                lng: tourPoints.lng
+            };
+
+            $scope.markers = markers.filter(function(e){
+                return e;
+            });
         });
 
-        $scope.center = {
-            zoom:12,
-            lat: tourPoints.lat,
-            lng: tourPoints.lng
-        };
-
-        $scope.markers = markers.filter(function(e){
-          return e;
-        });
       }
 
       $scope.layers = {
