@@ -34,10 +34,10 @@ module.exports = {
       contactEmail: form.contactEmail || "No email",
       contactMessage: form.contactMessage || 'No message'
     };
-
     if( validateEmail(data.contactEmail) && form.contactName !== '' ){
       var head = {
-        to: 'info@watertours.com',
+        to: 'admin@spaceshiplabs.com',
+        //to: 'info@watertours.com',
         //to: 'luis19prz@gmail.com',
         subject: 'Mensaje desde Cancunwater Tours'
       };

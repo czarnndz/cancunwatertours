@@ -43,6 +43,6 @@ module.exports = {
   // }
   facebook_clientID: '974697955910416',
   facebook_clientSecret: '0d2cdb69e932618a7eddad40a6ba4b0c',
-  facebook_callback: 'http://cancunwatertours.herokuapp.com/fb_callback',
+  facebook_callback: 'http://www.cancunwatertours.com/fb_callback',
 };
 

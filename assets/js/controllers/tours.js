@@ -63,7 +63,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
     $scope.formatList = function(inlineList){
       if(inlineList){
-        var list = inlineList.split(',');
+        var list = inlineList.split('\n');
         for(var i=0;i<list.length;i++){
           if(list[i] === ''){
             list.splice(i, 1);

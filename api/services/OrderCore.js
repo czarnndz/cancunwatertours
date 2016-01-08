@@ -89,7 +89,10 @@ module.exports.createReservations = function(order,items,payment_method,currency
           //console.log("result ");
           //console.log(r);
           //console.log(err);
-          if(err) cb(err,false);
+          if(err) {
+              console.log(err);
+              cb(err,false);
+          }
           Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation){
             console.log(reservation);
             cb(errr,reservation);

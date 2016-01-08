@@ -49,16 +49,15 @@ module.exports = {
   },
 
   fb_callback: function(req, res) {
-    passport.authenticate('facebook', { failureRedirect: '/', scope: ['email'] }, function(err, user) {
+    passport.authenticate('facebook', { failureRedirect: process.env.FRONTEND_URL, scope: ['email'] }, function(err, user) {
       req.logIn(user, function(err) {
         if (err) {
           console.log('fail login');
           console.log(err);
-          return res.redirect('/');
+          return res.redirect(process.env.FRONTEND_URL);
         }
         console.log('logeado');
-        res.redirect('/');
-        return;
+        return res.redirect(process.env.FRONTEND_URL);
       });
     })(req, res);
   },

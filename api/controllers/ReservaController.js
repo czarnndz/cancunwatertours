@@ -23,19 +23,18 @@ module.exports = {
     create : function(req,res) {
       var params = req.params.all();
       var result = {};
-      //console.log(params);
+      console.log(params);
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
             OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
               if (err) {
+                console.log(err);
                 result.success = false;
                 result.error = 'create reservation error';
                 result.extra = err;
                 return res.json(result);
-              }
-
-              if (reservations) {
+              } else if (reservations) {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
                 if (params.client.payment_method == 'paypal') {
@@ -59,15 +58,42 @@ module.exports = {
                     } else {
                       OrderCore.updateReservations({order : order.id},{ state : 'error' },function(updateRes) {
                         result.success = false;
-                        result.error = 'reservation error';
+                        result.error = 'reservation update to error';
                         result.extra = updateRes;
                         return res.json(result);
                       });
                     }
                   });
-                }  else {
+                } else if (params.client.payment_method == 'conekta') {
+                      var conektaItems = Payments.getConektaItems(reservations);
+                      console.log(conektaItems);
+                      Payments.conektaCreate(conektaItems,params.client,params.token,order.id,total,currencyCode,function(err,result) {
+                          if (err) {
+                              OrderCore.updateReservations({order : order.id},{ state : 'error' },function(updateRes) {
+                                  result.success = false;
+                                  result.error = 'conekta reservation error';
+                                  result.extra = updateRes;
+                                  return res.json(result);
+                              });
+                          }
+                          OrderCore.updateReservations({order : order.id},{ state : result.status == 'paid' ? '' : 'pending' },function(updateRes) {
+                              if (updateRes) {
+                                  delete result.payment_id;
+                                  delete result.payer_id;
+                                  return res.json(result);
+                              }
+                              else {
+                                  result.success = false;
+                                  result.error = 'reservation update error';
+                                  result.extra = updateRes;
+                                  return res.json(result);
+                              }
+                          });
+
+                      });
+                } else {
                   result.success = true;
-                  result.error = params;
+                  result.error = 'error payment method not supported';
                   console.log(params);
                   return res.json(result);
                 }
