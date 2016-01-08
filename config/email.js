@@ -5,5 +5,6 @@ module.exports.email = {
     pass: 'ba3ba0ec874ed98369577895e11a4b73'
   },
   from: 'info@watertours.com',
-  testMode: false
+  //testMode: false
+  testMode: true
 };

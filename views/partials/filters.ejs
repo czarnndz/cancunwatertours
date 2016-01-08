@@ -20,7 +20,7 @@
   </div>
 
   <div class="filters-section-row filters-section-sliders" layout="row" layout-wrap>
-    <div flex="25" flex-md="100" flex-sm="100" class="filter-option">
+    <div flex="25" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
       <label>Rango de precios <i class="sm-icon icon-information"></i></label>
       <div layout='row' layout-align="space-between end">
         <i class="md-icon icon-precio2"></i>
@@ -32,7 +32,7 @@
         <span>{{range.maxFee | currency : '$' }}</span>
       </div>
     </div>
-    <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option">
+    <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
       <label>{{item.name}} <i class='sm-icon icon-information'></i></label>
       <div layout='row' layout-align="space-between end">
         <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>

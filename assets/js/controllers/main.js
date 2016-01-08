@@ -1,4 +1,4 @@
-app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searchService,cartService,localStorageService) {
+app.controller('MainCTL', function($scope,$http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
     //$scope.tours = [];
     $scope.cartService = cartService;
     $scope.maxFee = 0;
@@ -7,6 +7,7 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
     $scope.mainCategories = [];
     $scope.registerToggle = false;
     $scope.loginToggle = false;
+    $scope.contact = {};
 
 
     $scope.currencyList = currencies;
@@ -93,31 +94,65 @@ app.controller('MainCTL', function($scope,$http, $rootScope, toursService, searc
       searchService.setParams(params);
     };
 
+    $scope.doContact = function($event, form){
+      var optionsSuccess = {
+        title: 'Mensaje enviado',
+        message: 'Gracias por enviar tu mensaje'
+      };
+      var optionsFail = {
+        title: 'Revisa tu información',
+        message: 'Revisa la información e intenta de nuevo'
+      };
+
+      if(form.$valid){
+        var params = {
+          contactName: $scope.contact.name,
+          contactEmail: $scope.contact.email,
+          contactMessage: $scope.contact.message
+        }
+
+        $http({
+          method : 'POST',
+          url : '/contact/send',
+          data : params
+        }).then(function(res){
+          console.log(res);
+          if(res && res.data){
+            if(res.data.m === 's'){
+              $scope.showAlert($event, optionsSuccess);
+            }else{
+              $scope.showAlert($event, optionsFail);
+            }
+          }else{
+            $scope.showAlert($event, optionsFail);
+          }
+        });
+      }else{
+        $scope.showAlert($event, optionsFail);
+      }
+    }
+
+    $scope.showAlert = function(ev, options) {
+      var title = options.title || 'Titulo';
+      var message = options.message || 'Aceptar';
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.querySelector('#main')))
+          .clickOutsideToClose(true)
+          .title(title)
+          .content(message)
+          //.textContent('You can specify some description text in here.')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Cerrar')
+          .targetEvent(ev)
+      );
+    };
+
     $scope.init = function(){
         $scope.getToursCategories();
         $scope.getFeeRange();
     };
 
     $scope.init();
-
-    /*
-    $(document).bind('click', function(event){
-        var modals = [];
-        modals.push($('#register-modal'));
-        modals.push($('#login-modal'));
-
-        for(var i=0;i<modals.length;i++){
-          //isClickedElementChildOfPopup
-          if(modals[i].find(event.target).length > 0){
-            return;
-          }
-        }
-
-        $scope.$apply(function(){
-          $scope.registerToggle = false;
-          $scope.loginToggle = false;
-        });
-
-    });*/
 
 });

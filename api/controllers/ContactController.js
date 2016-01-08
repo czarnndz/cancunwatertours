@@ -34,21 +34,31 @@ module.exports = {
       contactEmail: form.contactEmail || "No email",
       contactMessage: form.contactMessage || 'No message'
     };
-    var head = {
-      to: 'info@watertours.com',
-      subject: 'Mensaje desde Cancunwater Tours'
-    };
-    sails.hooks.email.send(
-      "contactForm", data, head,
-      function(err) {
-        if(err){
-         console.log(err);
-         res.redirect('/contacto?m=f');
-        }else{
-          res.redirect('/contacto?m=s');
+
+    if( validateEmail(data.contactEmail) && form.contactName !== '' ){
+      var head = {
+        to: 'info@watertours.com',
+        //to: 'luis19prz@gmail.com',
+        subject: 'Mensaje desde Cancunwater Tours'
+      };
+      sails.hooks.email.send(
+        "contactForm", data, head,
+        function(err) {
+          if(err){
+            res.json({m:'f'})
+          }else{
+            res.json({m:'s'})
+          }
         }
-      }
-    );
+      );
+    }else{
+      res.redirect('/contacto?m=f');
+    }
   }
 };
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 

@@ -180,10 +180,13 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   font-size: 12px;
 }
 .header .search-box{
-  max-width: 220px;
+  /*max-width: 220px;*/
+  max-width: 300px;
   margin-left: 20px;
   position: relative;
 }
+.header .search-box md-autocomplete{width: 100%;}
+
 .md-virtual-repeat-container.md-autocomplete-suggestions-container{
   z-index: 99999;
 }
@@ -315,7 +318,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   padding-left: 0;
   list-style: none;
   position: absolute;
-  z-index: 9999;
+  z-index: 999999;
   background: #00ADF2;
   width: 100%;
   left: 0;
@@ -1418,6 +1421,10 @@ figcaption:hover .action-btn-white{
   margin: 10px 0;
   width: 100%;
 }
+.contact-form .error-field{
+  /*border: 2px solid #272727;*/
+  border: 1px solid red;
+}
 
 /*------------/
   #FILTERS
@@ -1497,6 +1504,13 @@ figcaption:hover .action-btn-white{
   font-size: 11px;
 }
 
+.filter-option-slider label{
+  font-size: 15px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.filter-option-slider i.sm-icon{font-size: 14px;}
+
 
 /*------------/
   #RESULTS
@@ -1568,7 +1582,8 @@ figcaption:hover .action-btn-white{
 
 
 .map-wrapper .hotel-search{
-  position: relative;
+  /*position: relative;*/
+  position: absolute;
   top: 30px;
   left: 0;
   right: 0;
@@ -1594,8 +1609,9 @@ figcaption:hover .action-btn-white{
 .map-wrapper .hotel-search-label a{
   color: #55C9CF;
   font-size: 10px;
+  margin-top: 10px;
   display: inline-block;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 /*---------/
@@ -1642,7 +1658,7 @@ figcaption:hover .action-btn-white{
   right: 0;
   margin: 0 auto;
   width: 0;
-  bottom: -11px;
+  bottom: -9px;
   height: 0;
   border-style: solid;
   border-width: 8px 5px 0 5px;
@@ -1722,6 +1738,24 @@ figcaption:hover .action-btn-white{
   cursor: pointer;
   overflow: hidden;
 
+}
+
+.tour-item .includes-bar{
+  background: #00ACF3;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  /*width: 100%;*/
+  z-index: 1;
+}
+.tour-item .includes-bar p{
+  margin: 0;
+  font-size: 12px;
+  color: #fff;
+}
+.tour-item .includes-bar p i{
+  position: relative;
+  top: 1px;
 }
 
 .tour-item-detail{
