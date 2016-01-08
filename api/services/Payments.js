@@ -10,25 +10,38 @@ function initPaypal() {
 }
 
 
-module.exports.ConektaCreate = function(currency,token) {
+module.exports.conektaCreate = function(items,client,token,reference_id,total,currency,callback) {
   conekta.api_key = process.env.CONEKTA_API_PRIVATE;
   conekta.locale = 'es';
 
-  conekta.Charge.create({
-    description: 'Stogies',
-    amount: 50000,
-    currency: currency,
-    reference_id: '9839-wolf_pack',
-    card: token,
-    details: {
-      email: 'logan@x-men.org'
-    }
-  }, function(err, res) {
+  var conektaRequest = {
+      description: 'Water tours reservation',
+      amount: (total * 100).toFixed(),
+      currency: currency,
+      reference_id: reference_id,
+      card: token,
+      details: {
+          name : client.name,
+          email: client.email,
+          phone : client.phone,
+          line_items : items,
+          billing_address : {
+              street1 : client.address,
+              city : client.city,
+              state : client.state,
+              zip : client.zipCode,
+              country : client.country
+          }
+      }
+  };
+
+  conekta.Charge.create(conektaRequest, function(err, res) {
+    console.log('request done');
     if (err) {
       console.log(err.message_to_purchaser);
       return;
     }
-    console.log(res.toObject());
+    callback(err,res.toObject());
   });
 }
 
@@ -115,15 +128,15 @@ module.exports.getPaypalItems = function(reservations,currency) {
     });
 };
 
-module.exports.getConektaItems = function(reservations,currency) {
+module.exports.getConektaItems = function(reservations) {
     return reservations.map(function(r){
         var item = {};
         item.sku = r.id;
         item.name = r.tour.name;
-        item.unit_price = ((r.fee + (r.feeKids ? r.feeKids : 0)) * 100).toFixed(0);
-        item.currency = currency;
+        item.description = " for " + r.adults + " adults" + (r.kids ? (" , " + r.kids + " kids") : "");
+        item.unit_price = ((r.fee + (r.feeKids ? r.feeKids : 0)) * 100).toFixed();
         item.quantity = r.quantity;
-        item.type = 'tour'
+        item.type = 'tour';
         return item;
     });
 };

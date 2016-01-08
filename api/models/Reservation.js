@@ -159,6 +159,10 @@ module.exports = {
         collection : 'price',
         via : 'reservations'
     }
+    ,number : {
+        type : 'integer',
+        autoIncrement: true
+    }
   }
   , attrs_labels : {
     //transfer reservations

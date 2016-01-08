@@ -65,7 +65,7 @@
                                     <i class="icon-adultos highlight"></i> Adultos:
                                   </label>
                                   <div flex="80">
-                                    <input type="number" min-value="1" max-value="8" ng-model="tour.adults">
+                                    <input type="number" min="1" max="8" ng-model="tour.adults">
                                   </div>
                               </div>
                               <div class="input-field-wrap" layout="row" layout-align="space-between center">
@@ -73,7 +73,7 @@
                                     <i class="icon-nino highlight"></i> Niños:
                                   </label>
                                   <div flex="80">
-                                    <input type="number" min-value="0" max-value="8" ng-model="tour.kids">
+                                    <input type="number" min="0" max="8" ng-model="tour.kids">
                                   </div>
                               </div>
                               <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.schedules.length > 0">

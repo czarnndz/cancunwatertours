@@ -141,6 +141,7 @@
                 }
             },function(e){ //success
                 console.log(e);
+                //delete params.client.cc;
                 params.token = e.id;
                 params.client.payment_method = 'conekta';
                 $http({
