@@ -59,6 +59,9 @@ module.exports = {
       ,duration : {
         type : 'integer'
       }
+      ,haveTranslate : {
+          type : 'boolean'
+      }
   }
   , migrate : 'safe'
   , attrs_labels : {
