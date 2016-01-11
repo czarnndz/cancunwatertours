@@ -119,8 +119,10 @@ app.controller('voucherCTL',function($scope,cartService) {
   console.log(reservations);
 
   $scope.getTotal = function(){
-      $scope.reservations.reduce(function(e){
-        return e.fee + e.feeKids;
+    $scope.reservations.reduce(function(e){
+        e.feeChild = e.feeKids;
+        e.total = cartService.getTotal(e);
+        return e.total;
     });
   }
 });

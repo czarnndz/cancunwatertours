@@ -74,7 +74,7 @@ module.exports = {
     var params = req.params.all();
     if (params.term){
       var term = params.term;
-      Tour.find({ select: ['id','name','icon','url'] , name:{'like': '%'+term+'%'}, limit:10 }).exec(function(e,tours){
+      Tour.find({ select: ['id','name','icon','url'] , name:{'like': '%'+term+'%'}, visible : true, limit:10 }).exec(function(e,tours){
         if(e){
           console.log(e);
           return res.json([]);
@@ -165,7 +165,7 @@ module.exports = {
   },
 
   setUrl : function(req,res) {
-    Tour.find({ select: ['name','url'] }).exec(function(err,tours){
+    Tour.find({ select: ['name','url'],visible : true }).exec(function(err,tours){
       console.log(tours);
       async.mapSeries( tours, function(tour,CB){
         tour.url = Common.stringReplaceChars(tour.name);

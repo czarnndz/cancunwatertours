@@ -11,12 +11,15 @@ module.exports = {
     if (params.url.match(/\..+$/)) res.notFound();
     Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').exec(function(e,tour){
         //Fix temporal tour undefined
+
         if (e || !tour) {
             console.log(e);
             return res.notFound();
         }
+
         var qparams = {
-          url : { '!' : params.url}
+          url : { '!' : params.url},
+          visible : true
         }
         if (tour.location) {
             qparams = {

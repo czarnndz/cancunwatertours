@@ -119,6 +119,7 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   if (ids) {
     query.id = ids;
   }
+  query.visible = true;
   var sort = { };
   sort[sortBy] = 1;
   //console.log(query);
