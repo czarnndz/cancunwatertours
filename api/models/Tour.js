@@ -59,9 +59,6 @@ module.exports = {
       ,duration : {
         type : 'integer'
       }
-      ,haveTranslate : {
-          type : 'boolean'
-      }
   }
   , migrate : 'safe'
   , attrs_labels : {
@@ -80,7 +77,7 @@ module.exports = {
     ,duration : { es : 'Duración' , en : 'Duration' }
     ,provider : { es : 'Proveedor' , en : 'Provider' }
     ,visible : { es : 'Visible en web' , en : 'Web visible' }
-    ,haveTranslate : { es : 'Transporte incluido' , en : 'Transfer included' }
+    ,haveTransfer : { es : 'Transporte incluido' , en : 'Transfer included' }
     ,description_es : { es : 'Descripción Español' , en : 'Spanish description' }
     ,description_en : { es : 'Descripción Inglés' , en : 'English description' }
     ,description_ru : { es : 'Descripción Ruso' , en : 'Russian description' }
