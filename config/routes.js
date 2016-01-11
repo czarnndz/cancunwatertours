@@ -34,6 +34,11 @@ module.exports.routes = {
 
   '/': {
     controller : 'home',
+    action : 'index',
+    lang: 'es'
+  },
+  '/:lang': {
+    controller : 'home',
     action : 'index'
   },
   '/tours': {
@@ -56,7 +61,7 @@ module.exports.routes = {
     controller : 'cuenta',
     action : 'index',
   },
-  '/tour_list' : {
+  '/:lang/tour_list' : {
       controller : 'home',
       action : 'tour_list'
   },
@@ -100,7 +105,7 @@ module.exports.routes = {
     controller: 'client',
     action: 'create'
   },
-  '/tours_search': {
+  '/:lang/tours_search': {
     controller: 'home',
     action: 'toursSearchByName'
   },

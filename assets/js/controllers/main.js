@@ -1,4 +1,4 @@
-app.controller('MainCTL', function($scope,$http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
+app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
     //$scope.tours = [];
     $scope.cartService = cartService;
     $scope.maxFee = 0;
@@ -8,7 +8,7 @@ app.controller('MainCTL', function($scope,$http, $rootScope, $mdDialog, toursSer
     $scope.registerToggle = false;
     $scope.loginToggle = false;
     $scope.contact = {};
-
+    $rootScope.currentLang = $window.currentLang;
 
     $scope.currencyList = currencies;
 

@@ -1,16 +1,16 @@
 <div class="form-modal" id="register-modal" ng-show="registerToggle" layout="row" layout-align="center center" layout-wrap>
   <a class="form-modal-close" href="" ng-click="doRegisterToggle()"><i class="icon-cerrar"></i></a>
-  <h3>Registrarse</h3>
+  <h3><%= __('register')%></h3>
   <form method="post" action="/register" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input type="text" required name="name" flex="80" type="text" placeholder="Nombre" class="input-re">
+      <input type="text" required name="name" flex="80" type="text" placeholder="<%= __('name')%>" class="input-re">
       <input type="email" required name="email" flex="80" type="text" placeholder="E-mail" class="input-re">
-      <input type="password" required name="password" flex="80" type="text" placeholder="Contraseña" class="input-re">
-      <input type="password" required name="password_confirm" flex="80" type="text" placeholder="Confirmar contraseña" class="input-re">
-      <input type="submit" value="REGISTRARSE" class="action-btn" flex="80">
+      <input type="password" required name="password" flex="80" type="text" placeholder="<%= __('password')%>" class="input-re">
+      <input type="password" required name="password_confirm" flex="80" type="text" placeholder="<%= __('confirm_password')%>" class="input-re">
+      <input type="submit" value="<%= __('register')%>" class="action-btn" flex="80">
   </form>
-  <p><strong>ó registrate mediante:</strong></p>
+  <p><strong><%= __('or_register_with')%></strong></p>
   <a href="/login_fb" class="action-btn fb-btn" flex="80">
     <strong >FACEBOOK</strong>
   </a>
-  <p><strong><a ng-click="doLoginToggle()" href="#">¿Ya tienes una cuenta?, Inicia sesión</a></strong></p>
+  <p><strong><a ng-click="doLoginToggle()" href="#"><%= __('have_an_account')%></a></strong></p>
 </div>

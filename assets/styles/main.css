@@ -236,6 +236,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   padding: 0 30px;
   min-height: 72px;
   position: relative;
+  text-transform: uppercase;
 }
 .header .advanced-search-on{
   background: #00ADEF;

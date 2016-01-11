@@ -7,6 +7,14 @@
 var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
+    var params = req.params.all();
+    var lang = params.lang;
+
+    console.log(lang);
+
+    req.session.lang = lang;
+    req.setLocale(lang);
+
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
       res.view({
         meta : {
@@ -175,7 +183,17 @@ module.exports = {
         res.json(ress);
       });
     });
+  },
+
+  changeLang: function(req, res){
+    var params = req.params.all();
+    var lang = params.lang;
+
+    req.session.lang = lang;
+    req.setLocale(lang);
+    res.redirect('/'+lang);
   }
+
 };
 
 var formatRateCategories = function(rc,callback){

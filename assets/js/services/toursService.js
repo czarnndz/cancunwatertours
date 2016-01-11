@@ -8,9 +8,10 @@
  (function(){
 
   angular.module('watertours')
-    .service('toursService', function ($http ,$q) {
+    .service('toursService', function ($http ,$q, $rootScope) {
       var serv = this;
 
+      serv.currentLang = $rootScope.currentLang;
       serv.getCategories = getCategories;
       serv.getTours = getTours;
       serv.getFeeRange = getFeeRange;
@@ -36,7 +37,7 @@
 
         return $http({
           method: 'GET',
-          url: '/tour_list',
+          url: '/' + serv.currentLang + '/tour_list',
           params : params
         })
         .then(function(res){
@@ -54,7 +55,7 @@
       function getCategories(name){
         return $http({
           method: 'GET',
-          url: '/tour_categories'
+          url: '/' + serv.currentLang + '/tour_categories'
         })
         .then(function(res){
           if (res.data && res.data.categories) {
@@ -106,7 +107,7 @@
       function getToursByName(name){
         return $http({
           method: 'GET',
-          url: '/tours_search',
+          url: '/' + serv.currentLang + '/tours_search',
           params: {
             term: name,
           }

@@ -1,4 +1,29 @@
 {
-  "Welcome": "Bienvenido",
-  "A brand new app.": "Una aplicación de la nueva marca."
+  "advanced_search": "Búsqueda avanzada",
+  "search": "Buscar",
+  "register": "Registrarse",
+  "log_in": "Iniciar sesión",
+  "user" : "Usuario",
+  "password": "Contraseña",
+  "or_login_with": "O inicia sesión con:",
+  "forgot_password": "Olvidé mi contraseña",
+  "create_account": "Crear una cuenta",
+  "or_register_with": "ó registrate mediante:",
+  "name": "Nombre",
+  "confirm_password": "Confirmar contraseña",
+  "have_an_account": "¿Ya tienes una cuenta?, inicia sesión",
+  "my_account": "Mi cuenta",
+  "log_out": "Cerrar sesión",
+
+  "sailing": "Paseos en barco",
+  "diving": "Buceo",
+  "snorkel": "Snorkel",
+  "fishing": "Pesca",
+  "water_sports": "Deportes acuáticos",
+  "cenotes": "Cenotes",
+
+  "about_us": "Quienes somos",
+  "faq": "Preguntas frecuentes",
+  "privacy_policy": "Aviso de privacidad",
+  "contact": "Contacto"
 }

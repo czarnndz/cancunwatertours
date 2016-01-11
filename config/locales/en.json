@@ -1,4 +1,31 @@
 {
-	"Welcome": "Welcome",
-	"A brand new app.": "A brand new app."
+  "Welcome": "Bienvenido",
+  "A brand new app.": "Una aplicación de la nueva marca.",
+  "advanced_search": "Advanced search",
+  "search": "Search",
+  "register": "Register",
+  "log_in": "Log in",
+  "user" : "User",
+  "password": "Password",
+  "or_login_with": "Or log in with:",
+  "forgot_password": "Forgot my password",
+  "create_account": "Create an account",
+  "or_register_with": "or register with",
+  "name": "Name",
+  "confirm_password": "Confirm password",
+  "have_an_account": "Have an account?, log in",
+  "my_account": "My account",
+  "log_out": "Log out",
+
+  "sailing": "Sailing",
+  "diving": "Diving",
+  "snorkel": "Snorkeling",
+  "fishing": "Fishing",
+  "water_sports": "Water sports",
+  "cenotes": "Cenotes",
+
+  "about_us": "About us",
+  "faq": "F.A.Q.",
+  "privacy_policy": "Privacy policy",
+  "contact": "Contact"
 }
