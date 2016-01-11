@@ -1777,7 +1777,14 @@ figcaption:hover .action-btn-white{
   font-size: 12px;
   margin: 0;
 }
-.tour-item-detail-title{font-size: 14px;}
+.tour-item-detail-title,
+.tour-item-detail-title strong{
+  font-size: 14px;
+  color: rgb(0, 171, 227);
+}
+.tour-item-detail-categories{
+  text-transform: uppercase;
+}
 .tour-item-detail .tour-item-price{
   color: #00ABE3;
   font-size: 16px;

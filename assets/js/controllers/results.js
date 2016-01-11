@@ -93,7 +93,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
   };
 
   $scope.getCategoriesString = function(tour) {
-    return tour.categories.map(function(elem){ return elem.name; }).join(" , ");
+    return tour.categories.map(function(elem){ return elem.name; }).join(" | ");
   };
   $scope.getCategoryIcon = function(category){
     return toursService.getCategoryIcon(category);
