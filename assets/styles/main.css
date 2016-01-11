@@ -31,8 +31,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 }
 *:focus, *:hover{outline: 0px}
 #main{
-  padding-bottom: 180px;
+  padding-bottom: 150px!important;
 }
+#main.main-nofooter{padding-bottom: 0!important;}
 #main-content{background: #F5F5F5;overflow: hidden;}
 
 /*---------/
@@ -480,6 +481,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   color: #000;
   border-radius: 6px;
   padding: 6px;
+}
+.custom-select-error{
+  border: 1px solid red!important;
 }
 .custom-select .md-select-value{
   color: #000!important;
@@ -1831,6 +1835,16 @@ figcaption:hover .action-btn-white{
   margin-bottom: 4px;
   position: relative;
 }
+.booking .block-content .block-content-subtitle{
+  color: #1EC3CC;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.booking .block-content .block-content-subtitle h3{
+  margin: 0;
+  font-weight: 400;
+  font-size: 21px;
+}
 .booking .block-content .removeTour{
   position: absolute;
   top: 0;
@@ -2019,6 +2033,9 @@ figcaption:hover .action-btn-white{
 .booking-form .input-field{
   width: 100%;
 }
+.booking-form .input-field-error{
+  border: 1px solid red!important;
+}
 
 .booking-form .input-field-iconized{
   padding-left: 20px;
@@ -2204,10 +2221,10 @@ figcaption:hover .action-btn-white{
 /*------------*/
 #footer{
   background: #272727;
-  padding: 30px 10px;
+  padding: 12px 10px;
   height: auto!important;
-  min-height: 180px;
-  margin-top: -180px;
+  min-height: 150px!important;
+  margin-top: -150px!important;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -2348,6 +2365,10 @@ figcaption:hover .action-btn-white{
 
 @media (max-width: 960px){
   #main{padding-bottom: 260px!important;}
+  #main.main-nofooter{padding-bottom: 0!important;}
+
+
+
   /*--------/
     #HEADER MENU
   /*-------*/
@@ -2407,6 +2428,7 @@ figcaption:hover .action-btn-white{
 @media (min-width: 600px) and (max-width: 959px) {
 
   #main{padding-bottom: 408px!important;}
+  #main.main-nofooter{padding-bottom: 0!important;}
 
   /*--------
     #FOOTER

@@ -62,13 +62,27 @@
 
 <body ng-controller="MainCTL"  ng-cloak >
 
+  <script type="text/javascript">
+    window.currencies = <%- JSON.stringify(sails.config.company.currencies) %>;
+    window.base_currency = <%- JSON.stringify(sails.config.company.base_currency) %>;
+    window.exchange_rates = <%- JSON.stringify(sails.config.company.exchange_rates) %>;
+  </script>
+
   <div id="wrap">
-    <div id="main" class="clearfix">
+    <div id="main"
+      <% if(typeof booking === 'undefined' || booking === false){  %>
+        class="clearfix"
+      <% }else{ %>
+        class="clearfix main-nofooter"
+      <% } %>
+      >
       <div id="topBackRepeat">
         <div layout="column">
 
           <div>
-            <%- partial('partials/header') -%>
+            <% if(typeof booking === 'undefined' || booking === false){ %>
+              <%- partial('partials/header') -%>
+            <% } %>
 
             <%- partial('partials/register') -%>
             <%- partial('partials/login') -%>
@@ -108,7 +122,9 @@
   </div><!-- END wrap -->
   <div class="clear"></div>
 
-  <%- partial('partials/footer') -%>
+  <% if(typeof booking === 'undefined' || booking === false){ %>
+    <%- partial('partials/footer') -%>
+  <% } %>
 
     <!--
         Client-side Templates

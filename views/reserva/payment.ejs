@@ -1,0 +1,219 @@
+<div id="pago-reservacion" ng-class="step == 2 ? 'activar' : 'ng-hide'">
+  <form name="payForm" novalidate>
+    <div class="title-block">
+        <h3><strong>FORMA DE PAGO</strong></h3>
+    </div>
+    <div id="forma-pago" class="block-content booking-form">
+        <md-radio-group
+          class="md-primary"
+          ng-model="client.payment_method"
+          layout="row"
+          required
+          layout-wrap>
+
+          <md-radio-button
+            flex-md="100"
+            flex-sm="100"
+            value="visa"
+            class="md-primary">
+              <img src="/images/visa.png" class="img-tarjeta">
+          </md-radio-button>
+
+          <md-radio-button
+            flex-md="100"
+            flex-sm="100"
+            value="master"
+            class="md-primary">
+              <img src="/images/master.png" class="img-tarjeta">
+          </md-radio-button>
+
+          <md-radio-button
+            flex-md="100"
+            flex-sm="100"
+            value="american"
+            class="md-primary">
+              <img src="/images/american.png" class="img-tarjeta">
+          </md-radio-button>
+          <!--<md-radio-button flex-md="100" flex-sm="100" value="Puntos" class="md-primary">-->
+            <!--<img src="/images/puntos.png" class="img-tarjeta">-->
+          <!--</md-radio-button>-->
+          <!--<md-radio-button flex-md="100" flex-sm="100" value="oxxo" class="md-primary">
+            <img src="/images/oxxo.png" class="img-tarjeta">
+          </md-radio-button>-->
+          <md-radio-button
+            flex-md="100"
+            flex-sm="100"
+            value="paypal"
+            class="md-primary">
+              <img src="/images/paypal.png" class="img-tarjeta" alt="Paypal">
+          </md-radio-button>
+
+        </md-radio-group>
+
+        <!--<p>Elije un banco</p>-->
+        <!--<md-select class="custom-select no-margin" placeholder="Elije un banco" ng-model="ba" placeholder>-->
+            <!--<md-option value="1">Bancomer <img src="/images/bancomer.png"></md-option>-->
+        <!--</md-select>-->
+
+    </div>
+
+    <div class="title-block">
+        <h3><strong>DATOS DEL PAGO</strong></h3>
+    </div>
+
+    <!--BLOCK CONTENT-->
+    <div class="block-content">
+      <div class="booking-form">
+        <p>
+            <img src="/images/{{client.payment_method}}.png" class="datos-img">
+        </p>
+
+        <p><strong>Datos del pago</strong></p>
+        <p class="no-margin">País</p>
+
+        <md-select
+          class="custom-select no-margin"
+          placeholder="Elige un país"
+          ng-model="client.country"
+          name="client_country"
+          required
+          ng-class="{'custom-select-error': payForm.client_country.$invalid && validatingPayment }"
+          >
+            <md-option value="US">Estados Unidos</md-option>
+            <md-option value="2">Canada</md-option>
+            <md-option value="3">España</md-option>
+            <md-option value="MX">Mexico</md-option>
+        </md-select>
+
+        <!--ONLY CREDIT CARD-->
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+          <div flex="45" flex-sm="100" class="input-field-wrap">
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Número de Tarjeta"
+                name="cc_number"
+                required
+                ng-class="{'input-field-error': payForm.cc_number.$invalid && validatingPayment }"
+                ng-model="client.cc.number">
+          </div>
+          <div flex="45" flex-sm="100" class="input-field-wrap">
+            <p class="no-margin">Fecha de vencimiento</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="45">
+                <md-select class="custom-select no-margin" ng-model="client.cc.month" placeholder="Més">
+                    <md-option ng-repeat="month in [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{month}}">{{month}}</md-option>
+                </md-select>
+              </div>
+              <div flex="45">
+                <md-select class="custom-select" ng-model="client.cc.year" placeholder="Año">
+                    <md-option ng-repeat="year in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2016 + year}}">{{2016 + year}}</md-option>
+                </md-select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <input
+              type="text"
+              class="input-field"
+              name="cc_name"
+              required
+              placeholder="Nombre del titular de la tarjeta"
+              ng-class="{'input-field-error': payForm.cc_name.$invalid && validatingPayment }"
+              ng-model="client.cc.name">
+          </div>
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Código de seguridad"
+              ng-model="client.cc.code"
+              required
+              name="cc_code"
+              ng-class="{'input-field-error': payForm.cc_code.$invalid && validatingPayment }">
+          </div>
+        </div>
+
+        <!--END ONLY CREDIT CARD-->
+      </div>
+
+      <div class="booking-form">
+
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <p>Estado</p>
+            <md-select
+              class="custom-select custom-select-full no-margin"
+              ng-model="client.state"
+              name="client_state"
+              required
+              ng-class="{'custom-select-error': payForm.client_state.$invalid && validatingPayment }"
+              >
+                <md-option value="1">Sinaloa</md-option>
+                <md-option value="2">Monterrey</md-option>
+                <md-option value="3">D.F</md-option>
+            </md-select>
+          </div>
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Ciudad"
+              required
+              name="client_city"
+              ng-model="client.city"
+              ng-class="{'input-field-error': payForm.client_city.$invalid && validatingPayment }">
+          </div>
+        </div>
+
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Dirección"
+              ng-model="client.address"
+              name="client_address"
+              required
+              ng-class="{'input-field-error': payForm.client_address.$invalid && validatingPayment }">
+          </div>
+          <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Código postal"
+              ng-model="client.zipCode"
+              required
+              name="client_zipCode"
+              ng-class="{'input-field-error': payForm.client_zipCode.$invalid && validatingPayment }">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="final-data">
+          <p class="terms-text">
+            <md-checkbox
+              class="md-primary"
+              ng-model="terminosVisibility"
+              aria-label="Terminos"
+              required>
+              He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
+            </md-checkbox>
+          </p>
+          <p class="total-pagar"><strong>Total a Pagar</strong></p>
+          <p class="total-price"><strong>{{priceTotal() | currency}}</strong> {{global_currency.currency_code | uppercase}}</p>
+          <p class="small-text" flex="100">El importe incluye todos los impuestos</p>
+
+          <!--<input type="button" id="boton-pagar" value="PAGAR RESERVA">-->
+          <input type="button" class="action-btn payment-btn" ng-click="process($event, payForm)" value="PAGAR RESERVA">
+      </div>
+
+    </div>
+    <!--END BLOCK CONTENT-->
+
+  </form>
+</div>
