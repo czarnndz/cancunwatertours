@@ -37,7 +37,7 @@
 
         return $http({
           method: 'GET',
-          url: '/' + serv.currentLang + '/tour_list',
+          url: '/tour_list',
           params : params
         })
         .then(function(res){
@@ -55,7 +55,7 @@
       function getCategories(name){
         return $http({
           method: 'GET',
-          url: '/' + serv.currentLang + '/tour_categories'
+          url: '/tour_categories'
         })
         .then(function(res){
           if (res.data && res.data.categories) {
@@ -107,7 +107,7 @@
       function getToursByName(name){
         return $http({
           method: 'GET',
-          url: '/' + serv.currentLang + '/tours_search',
+          url: '/tours_search',
           params: {
             term: name,
           }

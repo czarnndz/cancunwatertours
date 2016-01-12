@@ -617,6 +617,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .landing-tour .action-btn{
   position: relative;
   z-index: 5;
+  text-transform: uppercase;
 }
 .landing-tour-content figcaption{
   position: absolute;
@@ -704,6 +705,7 @@ figcaption:hover .action-btn-white{
   -moz-transform: scale(1.2) translateY(-10px);
   transform: scale(1.2) translateY(-10px);
 }
+.landing-slider-item .action-btn-white{text-transform: uppercase;}
 .landing-slider-item:hover .action-btn-white{
   background: #00aeef;
   color: #fff;
@@ -1207,6 +1209,7 @@ figcaption:hover .action-btn-white{
   color: white;
 }
 .booking-partial .custom-autocomplete button{margin: 0;}
+.booking-partial .cart-btn{text-transform: uppercase;}
 
 /*-----------/
   #LOGIN AND REGISTER

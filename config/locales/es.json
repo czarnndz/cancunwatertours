@@ -10,6 +10,21 @@
   "create_account": "Crear una cuenta",
   "or_register_with": "ó registrate mediante:",
   "name": "Nombre",
+  "last_name": "Apellido",
+  "male": "Hombre",
+  "female": "Mujer",
+  "gender": "Genero",
+  "birthday": "Fecha de nacimiento",
+  "day": "Dia",
+  "month": "Mes",
+  "year": "Año",
+  "contact_phones": "Télefonos de contacto",
+  "phone_number": "Número de teléfono",
+  "mobile_phone_number": "Número de teléfono celular",
+  "credit_card_number": "Número de tarjeta de credito",
+  "change_payment_method": "Cambiar metodo de pago",
+  "save": "Guardar",
+  "change_password":"Cambiar contraseña",
   "confirm_password": "Confirmar contraseña",
   "have_an_account": "¿Ya tienes una cuenta?, inicia sesión",
   "my_account": "Mi cuenta",
@@ -25,5 +40,39 @@
   "about_us": "Quienes somos",
   "faq": "Preguntas frecuentes",
   "privacy_policy": "Aviso de privacidad",
-  "contact": "Contacto"
+  "contact": "Contacto",
+
+  "book_now": "Reservar",
+  "book_tour": "Reserva el tour",
+  "adults": "Adultos",
+  "kids": "Niños",
+  "from": "De",
+  "to": "A",
+  "add_transport": "Agregar transportación",
+  "no_results_found": "No se encontraron resultados para",
+  "price_per_adult": "Precio por adulto",
+  "price_per_kid": "Precio por niño",
+  "add_to_my_cart": "Añadir a mi carrito",
+
+  "rates": "Rangos",
+  "categories_from_tour": "Categorias del tour",
+  "description": "Descripción",
+  "includes": "Incluye",
+  "noincludes": "No incluye",
+  "recommendations": "Recomendaciones",
+
+  "map_label": "Los lugares marcados representan el lugar de salida del tour.",
+  "similar_tours": "Tours similares",
+
+  "duration": "Duración",
+  "timetable" : "Horario",
+
+  "new_password": "New password",
+  "confirm_password": "Confirm password",
+  "send": "Enviar",
+  "pwr_sent": "Hemos enviado un enlace a tu correo eléctronico, de esta forma podras cambiar tu contraseña.",
+  "pwr_err": "Hubo un error, intenta de nuevo.",
+
+  "recover_password_label": "Si iniciaste sesión con Facebook, ingresa el e-mail asociado a tu cuenta de Facebook"
+
 }

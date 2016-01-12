@@ -25,7 +25,7 @@
             </div>
             <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
 
-            <a href="/tour/{{tour.url}}" class="absolute-link"></a>
+            <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
             <div class="tour-item-detail" layout="row" layout-align="space-between center">
               <div flex="60">
                 <p class="tour-item-detail-title"><strong>{{tour.name}}</strong></p>
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
-              <a class="action-btn-white" href="/tour/{{tour.url}}">¡RESERVAR!</a>
+              <a class="action-btn-white" href="/<%= req.params.lang %>/tour/{{tour.url}}">¡RESERVAR!</a>
             </div>
           </div>
         </div>

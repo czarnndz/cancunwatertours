@@ -17,6 +17,10 @@
 
 module.exports.i18n = {
 
+  locales: ['en', 'es']
+  ,defaultLocale: 'es'
+  ,localesDirectory: '/config/locales'
+
   /***************************************************************************
   *                                                                          *
   * Which locales are supported?                                             *

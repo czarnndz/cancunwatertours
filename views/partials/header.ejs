@@ -13,7 +13,7 @@
           md-items="item in querySearch(searchText)"
           md-item-text="item.name"
           md-min-length="0"
-          placeholder="Buscar"
+          placeholder="<%= __('search')%>"
           md-menu-class="autocomplete-custom-template"
           class="input-header" >
           <md-item-template>
@@ -25,13 +25,13 @@
       </form>
 
       <div  class="advanced-search" layout="row" layout-align="center center">
-        <a href="/tours"><strong><%= __('advanced_search')%></strong></a>
+        <a href="/<%= req.params.lang %>/tours"><strong><%= __('advanced_search')%></strong></a>
       </div>
     </div>
   </div>
 
   <div class="menu-section menu-section-logo" flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
-    <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
+    <a href="/<%= req.params.lang %>/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
   <div class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
@@ -47,11 +47,12 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
-          <a ng-click="setLang(item)">
-            <span ng-if="item === lang">&#10003;</span>
+          <!--<a ng-click="setLang(item)">-->
+          <a ng-href="/change_lang?lang={{item.value}}&controller=<%=req.options.controller%>&action=<%=req.options.action%>">
+            <span ng-if="item === global_lang">&#10003;</span>
             {{item.label}}
           </a>
         </li>
@@ -64,7 +65,7 @@
         </span>
 
         <span class="account-menu-item account-item">
-          <a href="/cuenta">
+          <a href="/<%= req.params.lang %>/account">
             <strong>
               <%= __('my_account')%>
             </strong>
@@ -142,11 +143,11 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
           <a ng-click="setLang(item)">
-            <span ng-if="item === lang">&#10003;</span>
+            <span ng-if="item === global_lang">&#10003;</span>
             {{item.label}}
           </a>
         </li>

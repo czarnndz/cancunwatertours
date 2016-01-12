@@ -63,6 +63,7 @@ module.exports = {
   send_password_recovery: function(req, res){
     var form = req.params.all();
     var email = form.email_to || false;
+    var lang = req.getLocale();
     if(email && validateEmail(email) ){
       Client_.findOne( {email:email}, {select: ['id', 'password', 'email']} ).exec(function(err,client){
         if(err){
@@ -72,10 +73,10 @@ module.exports = {
           var values = client.id + client.email + client.password;
           var tokenAux = bcrypt.hashSync(values ,bcrypt.genSaltSync(10));
           var token = tokenAux.replace(/\//g, "-");
-          var recoverURL = req.baseUrl + '/change_password?';
+          var recoverURL = req.baseUrl + '/' + lang +  '/change_password?';
           recoverURL += 'token='+token;
           recoverURL += '&email='+email;
-          sendPasswordRecoveryEmail({recoverURL: recoverURL, email: email}, res);
+          sendPasswordRecoveryEmail({recoverURL: recoverURL, email: email}, res, req);
         }
       });
     }
@@ -96,13 +97,17 @@ module.exports = {
   //CHANGE PASSWORD VIEW
   change_password: function(req, res){
     var form = req.params.all();
+    var lang = req.getLocale();
     if(form.token && form.email){
       validateToken(form.token, form.email, function(err, result){
         if(err){
           console.log(err);
         }
+
+        console.log(result);
+
         if(!result) {
-          return res.redirect('/change_password_message?msg=f');
+          return res.redirect('/'+lang+'/change_password_message?msg=f');
         }else{
           return res.view({
             token: form.token,
@@ -112,7 +117,7 @@ module.exports = {
       });
     }
     else{
-      return res.redirect('/change_password_message?msg=f');
+      return res.redirect('/'+lang+'/change_password_message?msg=f');
     }
 
 
@@ -123,6 +128,7 @@ module.exports = {
     var email = form.email || false;
     var password = form.password || false;
     var confirmPass = form.confirm_pass || false;
+    var lang = req.getLocale();
     if(token && email && password && confirmPass){
       if(password == confirmPass){
         validateToken(token, email, function(err, result){
@@ -130,17 +136,17 @@ module.exports = {
           Client_.update({email:email},{password: pass}).exec(function(err, client){
             if(err){
               console.log(err);
-              return res.redirect('/change_password_message?msg=f');
+              return res.redirect('/'+lang+'/change_password_message?msg=f');
             }else{
-              return res.redirect('/change_password_message?msg=s');
+              return res.redirect('/'+lang+'/change_password_message?msg=s');
             }
           });
         });
       }else{
-        return res.redirect('/change_password_message?msg=f');
+        return res.redirect('/'+lang+'/change_password_message?msg=f');
       }
     }else{
-      return res.redirect('/change_password_message?msg=f');
+      return res.redirect('/'+lang+'/change_password_message?msg=f');
     }
   }
 };
@@ -150,7 +156,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function sendPasswordRecoveryEmail(params, res){
+function sendPasswordRecoveryEmail(params, res, req){
   var data = {
     recoverURL: params.recoverURL,
   };
@@ -158,13 +164,15 @@ function sendPasswordRecoveryEmail(params, res){
     to: params.email,
     subject: 'Solicitud de cambio de contraseña en Cancunwater Tours'
   };
+  var lang = req.getLocale();
+
   sails.hooks.email.send(
     "passwordRecovery", data, head, function(err){
       if(err){
         console.log(err);
-        return res.redirect('/recover_password?msg=f');
+        return res.redirect('/'+lang+'/recover_password?msg=f');
       }
-      return res.redirect('/recover_password?msg=s');
+      return res.redirect('/'+lang+'/recover_password?msg=s');
   });
 }
 

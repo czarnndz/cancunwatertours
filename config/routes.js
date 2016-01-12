@@ -37,53 +37,51 @@ module.exports.routes = {
     action : 'index',
     lang: 'es'
   },
-  '/:lang': {
-    controller : 'home',
-    action : 'index'
+
+  /*---------------------/
+    STATIC URLS(NO LANG REQUIRED)
+  /*---------------------*/
+
+  '/change_lang':{
+    controller: 'home',
+    action: 'changeLang'
   },
-  '/tours': {
-    controller : 'home',
-    action : 'resultados_l'
-  },
-  '/tours/:url': {
-    controller : 'home',
-    action : 'resultados'
-  },
-  '/tour/:url': {
-    controller : 'tour',
-    action : 'index'
-  },
-  '/reserva': {
-    controller : 'reserva',
-    action : 'index'
-  },
-  '/cuenta': {
-    controller : 'cuenta',
-    action : 'index',
-  },
-  '/:lang/tour_list' : {
+  '/tour_list' : {
       controller : 'home',
       action : 'tour_list'
-  },
-  '/hotels' : {
-      controller : 'home',
-      action : 'hotel_list'
   },
   '/tour_categories':{
     controller: 'home',
     action: 'tour_categories'
   },
-  '/quienessomos' : {
-    controller : 'home'
-    ,action : 'quienessomos'
+  '/tours_search': {
+    controller: 'home',
+    action: 'toursSearchByName'
   },
-  '/preguntasfrecuentes' : {
-    controller : 'home'
-    ,action : 'preguntasfrecuentes'
+  '/hotels' : {
+      controller : 'home',
+      action : 'hotel_list'
   },
-  '/aviso-de-privacidad' : {
-    controller : 'home'
-    ,action : 'avisodeprivacidad'
+  '/contact/send':{
+    controller: 'contact',
+    action: 'send'
+  },
+  '/send_password_recovery': {
+    controller: 'client',
+    action: 'send_password_recovery'
+  },
+
+  '/update_password': {
+    controller: 'client',
+    action: 'update_password'
+  },
+  '/setUrl' : {
+    controller : 'home',
+    action : 'setUrl'
+  },
+  '/paypal_return' : {
+    controller : "reserva",
+    action : 'paypal_return'
   },
   '/login':{
     controller: 'auth',
@@ -105,10 +103,7 @@ module.exports.routes = {
     controller: 'client',
     action: 'create'
   },
-  '/:lang/tours_search': {
-    controller: 'home',
-    action: 'toursSearchByName'
-  },
+
   '/process' : {
     controller : 'reserva',
     action : 'create'
@@ -117,44 +112,91 @@ module.exports.routes = {
     controller: 'reserva',
     action: 'voucher'
   },
+
+  /*------------------/
+    TRANSLATED URLS
+  /*------------------*/
+  '/reserva': {
+    controller : 'reserva',
+    action : 'index'
+  },
+  '/quienessomos' : {
+    controller : 'home'
+    ,action : 'quienessomos',
+    lang:'es'
+  },
+  '/about-us' : {
+    controller : 'home'
+    ,action : 'quienessomos',
+    lang: 'en'
+  },
+  '/preguntasfrecuentes' : {
+    controller : 'home'
+    ,action : 'preguntasfrecuentes',
+    lang: 'es'
+  },
+  '/faq' : {
+    controller : 'home'
+    ,action : 'preguntasfrecuentes',
+    lang: 'en'
+  },
+  '/aviso-de-privacidad' : {
+    controller : 'home'
+    ,action : 'avisodeprivacidad'
+  },
+  '/privacy-policy' : {
+    controller : 'home'
+    ,action : 'avisodeprivacidad',
+    lang: 'en'
+  },
   '/contacto':{
     controller: 'contact',
-    action: 'index'
+    action: 'index',
+    lang: 'es'
   },
-  '/contact/send':{
+  '/contact':{
     controller: 'contact',
-    action: 'send'
+    action: 'index',
+    lang:'en'
   },
-  '/recover_password': {
-    controller: 'client',
-    action: 'recover_password'
+
+
+  /*--------------/
+  /*-------------*/
+
+
+  '/:lang': {
+    controller : 'home',
+    action : 'index'
   },
-  '/send_password_recovery': {
-    controller: 'client',
-    action: 'send_password_recovery'
+  '/:lang/tours': {
+    controller : 'home',
+    action : 'resultados_l'
   },
-  '/change_password': {
+  '/:lang/tours/:url': {
+    controller : 'home',
+    action : 'resultados'
+  },
+  '/:lang/tour/:url': {
+    controller : 'tour',
+    action : 'index'
+  },
+  '/:lang/account': {
+    controller : 'cuenta',
+    action : 'index',
+  },
+  '/:lang/change_password': {
     controller: 'client',
     action: 'change_password'
   },
-  '/change_password_message': {
+  '/:lang/change_password_message': {
     controller: 'client',
     action: 'change_password_message'
   },
-  '/update_password': {
+  '/:lang/recover_password': {
     controller: 'client',
-    action: 'update_password'
+    action: 'recover_password'
   },
-  '/setUrl' : {
-    controller : 'home',
-    action : 'setUrl'
-  },
-  '/paypal_return' : {
-    controller : "reserva",
-    action : 'paypal_return'
-  }
-
-
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

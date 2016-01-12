@@ -12,6 +12,21 @@
   "create_account": "Create an account",
   "or_register_with": "or register with",
   "name": "Name",
+  "last_name": "Last name",
+  "male": "Male",
+  "female": "Female",
+  "gender": "Gender",
+  "birthday": "Birthday",
+  "day": "Day",
+  "month": "Month",
+  "year": "Year",
+  "contact_phones": "Contact phones",
+  "phone_number": "Phone number",
+  "mobile_phone_number": "Mobile phone number",
+  "credit_card_number": "Credit card number",
+  "change_payment_method": "Change payment method",
+  "save": "Save",
+  "change_password":"Change password",
   "confirm_password": "Confirm password",
   "have_an_account": "Have an account?, log in",
   "my_account": "My account",
@@ -27,5 +42,41 @@
   "about_us": "About us",
   "faq": "F.A.Q.",
   "privacy_policy": "Privacy policy",
-  "contact": "Contact"
+  "contact": "Contact",
+
+  "book_now": "Book now",
+  "book_tour": "Book now",
+  "adults": "Adults",
+  "kids": "Kids",
+  "from": "From",
+  "to": "To",
+  "add_transport": "Add transport",
+  "no_results_found": "No results found for",
+  "price_per_adult": "Price per adult",
+  "price_per_kid": "Price per kid",
+  "add_to_my_cart": "Add to my cart",
+
+  "rates": "Rates",
+  "categories_from_tour": "Tour's categories",
+  "description": "Description",
+  "includes": "Includes",
+  "noincludes": "Does not include",
+  "recommendations": "Recommendations",
+
+  "map_label": "Markers represent departure points",
+  "similar_tours": "Related tours",
+
+  "duration": "Duration",
+  "timetable" : "Timetable",
+
+  "new_password": "New password",
+  "confirm_password": "Confirm password",
+  "send": "Send",
+  "pwr_sent": "We have sent a link to your email inbox so you can change your password",
+  "pwr_err": "There was an error, try again",
+
+
+  "recover_password_label": "If you are logged in via Facebook, enter the e-mail associated with your Facebook account"
+
+
 }

@@ -53,7 +53,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
       $scope.tour.schedules = aux_schedules;
 
-      $http.get('/hotels').success(function(response) {
+      $http.get('/'+$rootScope.currentLang+'/hotels').success(function(response) {
         $scope.hotels = response;
       });
 
@@ -164,31 +164,6 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
         };
       };
 
-      var getPopup = function(tour){
-        var imgSrc = tour.avatar3;
-        var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
-        var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-        var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-        var info ="<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
-
-        var popup =  image + info;
-
-        if(tour.categories){
-          var categories = '';
-          var categoriesStr = '';
-          for(var i=0;i<tour.categories.length;i++){
-            categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
-            if(i !== (categories.length) ){
-              categories += ', ';
-            }
-          }
-          categoriesStr += "<p>Categorías: "+categories+"</p>";
-          popup += categoriesStr;
-        }
-
-        return popup;
-      };
-
       $scope.map = {};
       $scope.center = {
           zoom:13,
@@ -200,12 +175,10 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       if($scope.tour.departurePoints){
           angular.forEach(Object.keys($scope.tour.departurePoints),function(i){
             var tourPoints =  $scope.tour.departurePoints[i];
-            //var message = getPopup($scope.tour);
 
             markers.push({
                 lat: tourPoints.lat,
                 lng: tourPoints.lng,
-                //message: message,
                 icon: getIcon(tourPoints.name)
             });
 

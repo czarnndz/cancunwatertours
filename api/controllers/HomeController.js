@@ -8,14 +8,16 @@ var bcrypt = require('bcrypt');
 module.exports = {
 	index : function(req,res){
     var params = req.params.all();
-    var lang = params.lang;
 
-    console.log(lang);
-
+    var lang = params.lang || 'es';
+    //TODO verificar mejor practica
+    req.params.lang = lang;
     req.session.lang = lang;
     req.setLocale(lang);
 
+
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){
+
       res.view({
         meta : {
           controller : 'home.js',
@@ -189,9 +191,12 @@ module.exports = {
     var params = req.params.all();
     var lang = params.lang;
 
+    var fromUrl = params.from_url || '';
+
     req.session.lang = lang;
     req.setLocale(lang);
-    res.redirect('/'+lang);
+    //res.redirect('/' + lang + '/' + fromUrl );
+    res.redirect('/' + lang);
   }
 
 };

@@ -8,26 +8,37 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
     $scope.registerToggle = false;
     $scope.loginToggle = false;
     $scope.contact = {};
-    $rootScope.currentLang = $window.currentLang;
-
-    $scope.currencyList = currencies;
-
-    $rootScope.global_exchange_rates = exchange_rates;
-    $rootScope.global_base_currency = base_currency;
-    $rootScope.global_currency = localStorageService.get('global_currency') || base_currency;
-    $rootScope.global_lang = localStorageService.get('global_lang') || {label: 'Español',value: 'es'};
 
     $scope.langList = [
       {label: 'Español',value: 'es'},
       {label: 'English',value: 'en'}
     ];
 
-    $scope.lang = $scope.langList[0];
+    $scope.initLang = function(key){
+      var lang = {label: 'Español',value: 'es'};
+      for(var i=0; i < $scope.langList.length; i++){
+        if($scope.langList[i].value === key){
+          lang = $scope.langList[i];
+        }
+      }
+      return lang;
+    };
+
+    $rootScope.currentLang = $window.currentLang;
+    $scope.currencyList = currencies;
+
+    $rootScope.global_exchange_rates = exchange_rates;
+    $rootScope.global_base_currency = base_currency;
+    $rootScope.global_currency = localStorageService.get('global_currency') || base_currency;
+    $rootScope.global_lang = $scope.initLang($rootScope.currentLang);
+
+
     $scope.currency = $scope.currencyList[0];
 
     $scope.setCurrency = function(val){
       $rootScope.global_currency = val;
     };
+
 
     $scope.setLang = function(val){
       $scope.global_lang = val;
