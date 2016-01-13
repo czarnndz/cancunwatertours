@@ -41,15 +41,26 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       location.href = "/";
     };
 
-    $scope.continueClick = function(){
-      if( !$scope.isNextButtonDisabled() ){
+    $scope.continueClick = function($event){
+      if( !$scope.isNextButtonDisabled($event) ){
           if ($scope.step < 2) {
             $scope.step++;
           }
       }
     }
 
-    $scope.isNextButtonDisabled = function() {
+    window.onbeforeunload = function (event) {
+      var message = 'Sure you want to leave?';
+      if (typeof event == 'undefined') {
+        event = window.event;
+      }
+      if (event) {
+        event.returnValue = message;
+      }
+      return message;
+    }
+
+    $scope.isNextButtonDisabled = function($event) {
         if ($scope.step == 0) {
           for(var i = 0;i<$scope.tours.length;i++) {
             if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
@@ -59,9 +70,14 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
           }
           return false;
         } else if ($scope.step == 1) {
-
+            $scope.validatingClient = true;
             if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
               console.log('disabled');
+              var options = {
+                title: 'Revisa tu información',
+                message: 'Revisa la información e intenta de nuevo'
+              };
+              $scope.showAlert($event, options);
               return true;
             }
             else{
@@ -96,19 +112,32 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       return cartService.getPriceTransfer(tour,{ cost : 20 });
     }
 
-    $scope.process = function() {
-      cartService.process($scope.client).then(function(result){
-        console.log(result);
-        if (result.data.success) {
-          console.log('success');
-          if (result.data.redirect_url)
-            window.location.href = result.data.redirect_url;
-          else
-            console.log(result.data);
-        } else {
-          alert(result.data.success);
-        }
-      });
+    //TODO formatear para enviar los items formateados.
+    $scope.process = function($event, form) {
+      $scope.validatingPayment = true;
+      if(form.$valid){
+        console.log('valido');
+        cartService.process($scope.client).then(function(result){
+          console.log(result);
+          if (result.data.success) {
+            console.log('success');
+            if (result.data.redirect_url)
+                window.location.href = result.data.redirect_url;
+            else
+                console.log(result.data);
+          } else {
+            alert(result.data.success);
+          }
+        });
+
+      }else{
+        console.log('invalido');
+        var options = {
+          title: 'Revisa tu información',
+          message: 'Revisa la información e intenta de nuevo'
+        };
+        $scope.showAlert($event, options);
+      }
     }
 });
 

@@ -10,6 +10,7 @@ module.exports = {
       Hotel.find().exec(function(err,hotels){
         res.view({
           hotels : Common.formatHotel(hotels,'es'),
+          booking: true,
           meta : {
             controller : 'reserva.js'
           },

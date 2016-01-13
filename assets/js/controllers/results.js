@@ -93,7 +93,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
   };
 
   $scope.getCategoriesString = function(tour) {
-    return tour.categories.map(function(elem){ return elem.name; }).join(" , ");
+    return tour.categories.map(function(elem){ return elem.name; }).join(" | ");
   };
   $scope.getCategoryIcon = function(category){
     return toursService.getCategoryIcon(category);
@@ -165,28 +165,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
       return categoriesStr;
     }
     $scope.getPopup = function(tours){
-      /*tour = tours[0];
-      var imgSrc = tour.avatar3;
-      var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
-      var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-      var image = "<div class='img-wrap'><img  src='"+imgSrc+"' />"+priceWrap+"</div>";
-      var info ="<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
-      var popup =  image + info;
-
-      if(tour.categories){
-        var categories = '';
-        var categoriesStr = '';
-        for(var i=0;i<tour.categories.length;i++){
-          categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
-
-          if(i !== (categories.length) ){
-            categories += ', ';
-          }
-        }
-        categoriesStr += "<p>Categorías: "+categories+"</p>";
-        popup += categoriesStr;
-      }*/
-      //new popup 
+      //new popup
       var reel = '';
       for( var x in tours ){
         var tour = tours[x];
@@ -199,7 +178,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
         item = "<div>" + item + "</div>";
         reel += item;
       }
-      reel = '<slick ng-cloak style="width:100%;min-height:200px;margin:0;" class="ng-cloak" dots="false" arrows="true" autoplay="false" fade="true">' + reel + "</slick>";
+      reel = '<slick ng-cloak style="width:100%;min-height:200px;margin:0;" class="ng-cloak" dots="false" arrows="true" autoplay="false" fade="false">' + reel + "</slick>";
 
       return reel;
     };
@@ -253,7 +232,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
 
         //var tour = t.departurePoints?t.departurePoints.item_0 : { lat : 0, lng : 0 };
         //var message = $scope.getPopup(t);
-        
+
         if( t.provider && t.provider.departurePoints ){
           if( !$scope.muelles[t.provider.id] )
             $scope.muelles[t.provider.id] = { points : [] , tours : [] };
