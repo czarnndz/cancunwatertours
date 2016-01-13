@@ -8,9 +8,10 @@
  (function(){
 
   angular.module('watertours')
-    .service('toursService', function ($http ,$q) {
+    .service('toursService', function ($http ,$q, $rootScope) {
       var serv = this;
 
+      serv.currentLang = $rootScope.currentLang;
       serv.getCategories = getCategories;
       serv.getTours = getTours;
       serv.getFeeRange = getFeeRange;

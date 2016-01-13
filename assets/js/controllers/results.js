@@ -1,5 +1,5 @@
 
-app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
+app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -16,8 +16,6 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
   $scope.selected = [];
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
-          console.log('HOTELS');
-          console.log(response);
           $scope.hotels = [];
           for(var x in response)
             if( response[x].latitude && response[x].longitude )
@@ -156,7 +154,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
       if(tour.categories){
         var categories = '';
         for(var i=0;i<tour.categories.length;i++){
-          categories += '<a href="/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
+          categories += '<a href="/'+$rootScope.currentLang+'/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
 
           if(i !== (categories.length) ) categories += ', ';
         }
@@ -173,7 +171,7 @@ app.controller('resultsCTL',function($scope,$http, $timeout, $filter, toursServi
         var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
-        item += "<p><strong class='map-marker-title'><a href='/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
+        item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
         item += printCategoriesByTour(tour);
         item = "<div>" + item + "</div>";
         reel += item;

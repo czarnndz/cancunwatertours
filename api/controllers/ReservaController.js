@@ -15,7 +15,7 @@ module.exports = {
             controller : 'reserva.js'
           },
           page : {
-            searchUrl : '/reserva',
+            searchUrl : '/booking',
             placeholder : 'Buscar'
           }
         });
@@ -114,12 +114,13 @@ module.exports = {
       var params = req.params.all();
       var state = 'canceled';
       var error = true;
+      var lang = req.getLocale() || 'es';
       if (params.success) {
         state = 'liquidated';
         error = false;
       }
       OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
-        res.redirect('/voucher?s=' + error + '&o=' + params.order);
+        res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
       });
     },
 
@@ -127,12 +128,13 @@ module.exports = {
         var params = req.params.all();
         var state = 'canceled';
         var error = true;
+        var lang = req.getLocale() || 'es';
         if (params.success) {
             state = 'liquidated';
             error = false;
         }
         OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
-            res.redirect('/voucher?s=' + error + '&o=' + params.order);
+            res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
         });
     },
     //TODO agregar selector por email y id reservation

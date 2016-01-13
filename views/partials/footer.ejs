@@ -7,36 +7,43 @@
 
     <div class="content-col" flex-gt-md="15" flex="33">
       <ul>
-        <li><a href="/tours/paseos-en-barco">Paseos en barco</a></li>
-				<li><a href="/tours/buceo">Buceo</a></li>
-				<li><a href="/tours/snorkel">Snorkel</a></li>
-				<li><a href="/tours/pesca">Pesca</a></li>
-        <li><a href="/tours/cenotes">Cenotes</a></li>
-        <li><a href="/tours/deportes-acu%C3%A1ticos">Deportes acuáticos</a></li>
+        <li><a ng-href="/{{currentLang}}/tours/paseos-en-barco"><%= __('sailing')%></a></li>
+				<li><a ng-href="/{{currentLang}}/tours/buceo"><%= __('diving')%></a></li>
+				<li><a ng-href="/{{currentLang}}/tours/snorkel"><%= __('snorkel')%></a></li>
+				<li><a ng-href="/{{currentLang}}/tours/pesca"><%= __('fishing')%></a></li>
+        <li><a ng-href="/{{currentLang}}/tours/cenotes"><%= __('cenotes')%></a></li>
+        <li><a ng-href="/{{currentLang}}/tours/deportes-acu%C3%A1ticos"><%= __('water_sports')%></a></li>
       </ul>
 		</div>
 
 		<div class="content-col" flex-gt-md="15" flex="33">
       <ul>
-        <li><a href="/quienessomos">Quienes somos</a></li>
-        <li><a href="/preguntasfrecuentes">Preguntas frecuentes</a></li>
-        <li><a href="/aviso-de-privacidad">Aviso de privacidad</a></li>
-        <li><a href="/contacto">Contacto</a></li>
+        <% if(req.params.lang === 'es'){ %>
+          <li><a href="/es/quienessomos"><%= __('about_us')%></a></li>
+          <li><a href="/es/preguntasfrecuentes"><%= __('faq')%></a></li>
+          <li><a href="/es/aviso-de-privacidad"><%= __('privacy_policy')%></a></li>
+          <li><a href="/es/contacto"><%= __('contact')%></a></li>
+        <% }else{ %>
+          <li><a href="/en/about-us"><%= __('about_us')%></a></li>
+          <li><a href="/en/faq"><%= __('faq')%></a></li>
+          <li><a href="/en/privacy-notice"><%= __('privacy_policy')%></a></li>
+          <li><a href="/en/contact"><%= __('contact')%></a></li>
+        <% } %>
 		  <ul>
     </div>
 
 		<div class="content-col" flex-gt-md="10" flex="33">
 			<ul>
-				<li><a ng-click="doRegisterToggle($event)" href="">Registro</a></li>
-				<li><a ng-click="doLoginToggle($event)" href="">Iniciar sesión</a></li>
+				<li><a ng-click="doRegisterToggle($event)" href=""><%= __('register')%></a></li>
+				<li><a ng-click="doLoginToggle($event)" href=""><%= __('log_in')%></a></li>
 				<% if(req.user){ %>
-          <li><a href="/cuenta">Mi cuenta</a></li>
+          <li><a href="/cuenta"><%= __('my_account')%></a></li>
         <% } %>
 			</ul>
 		</div>
 
 		<div class="content-col" flex-gt-md="20" flex-md="50" flex-sm="100">
-			<p><strong>CONTACTO</strong></p>
+			<p><strong><%= __('contact')%></strong></p>
 			<p><strong>Avenida Bonampak Calle Cereza # 1 SM 2A</strong></p>
 			<p>L 20 CP 77500 Cancun Quintana Roo, Mexico</p>
 			<p><strong>+(998) 2.54.03.47</strong></p>

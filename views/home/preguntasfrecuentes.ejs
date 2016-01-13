@@ -1,21 +1,50 @@
 <div ng-controller="StaticPagesCTL" layout="row" layout-wrap ng-style="theStyle" class=''>
   <!--LEFT SIDE-->
-  <section flex flex-md="100" flex-sm="100" class="container-xlg faqContainer">
-    <h3>PREGUNTAS FRECUENTES</h3>
-    <div layout='row' layout-wrap class='columns'>
-      <div flex-gt-sm='50' flex-sm="100">
-        <p class="blueText">RESERVACIÓN</p>
-        <p class='blueText'>Cambios</p>
-        <p>Mándanos por correo o llámanos para realizar el cambio en tu reservación. Los cambios deben ser al menos 24 horas antes de la fecha de la actividad, en caso contrario se podría generar un cargo por el cambio.</p>
-        <p class='blueText'>Cancelaciones</p>
-        <p>Aceptamos cancelaciones sin cargo con un mínimo de 24 horas antes de la fecha de la actividad. Ponte en contacto con nosotros para asistirte en la cancelación, el reembolso del dinero depende de cada banco. En caso de querer cancelar el mismo día de la fecha de la actividad se podría generar un cargo por cancelación.</p>
+
+  <!--ESPANOL-->
+  <% if(req.params.lang === 'es'){ %>
+
+    <section flex flex-md="100" flex-sm="100" class="container-xlg faqContainer">
+      <h3>PREGUNTAS FRECUENTES</h3>
+      <div layout='row' layout-wrap class='columns'>
+        <div flex-gt-sm='50' flex-sm="100">
+          <p class="blueText">RESERVACIÓN</p>
+          <p class='blueText'>Cambios</p>
+          <p>Mándanos por correo o llámanos para realizar el cambio en tu reservación. Los cambios deben ser al menos 24 horas antes de la fecha de la actividad, en caso contrario se podría generar un cargo por el cambio.</p>
+          <p class='blueText'>Cancelaciones</p>
+          <p>Aceptamos cancelaciones sin cargo con un mínimo de 24 horas antes de la fecha de la actividad. Ponte en contacto con nosotros para asistirte en la cancelación, el reembolso del dinero depende de cada banco. En caso de querer cancelar el mismo día de la fecha de la actividad se podría generar un cargo por cancelación.</p>
+        </div>
+        <div flex-gt-sm='50' flex-sm="100">
+          <p class='blueText'>Facturas</p>
+          <p>En caso de requerir factura, mándanos un correo con tu clave de reservación y RFC. Nuestro departamento de contabilidad te la mandará en menos de 48 horas.</p>
+          <p class='blueText'>Localizar reservación</p>
+          <p>Una vez completada la reservación, te mandamos un correo con la confirmación y detalles de la actividad. Si no te llegó o no la encuentras, contáctanos para mandarte una copia.</p>
+        </div>
       </div>
-      <div flex-gt-sm='50' flex-sm="100">
-        <p class='blueText'>Facturas</p>
-        <p>En caso de requerir factura, mándanos un correo con tu clave de reservación y RFC. Nuestro departamento de contabilidad te la mandará en menos de 48 horas.</p>
-        <p class='blueText'>Localizar reservación</p>
-        <p>Una vez completada la reservación, te mandamos un correo con la confirmación y detalles de la actividad. Si no te llegó o no la encuentras, contáctanos para mandarte una copia.</p>
+    </section>
+
+  <% }else{ %>
+    <!--ENGLISH-->
+
+    <section flex flex-md="100" flex-sm="100" class="container-xlg faqContainer">
+      <h3>FREQUENTLY ASKED QUESTIONS</h3>
+      <div layout='row' layout-wrap class='columns'>
+        <div flex-gt-sm='50' flex-sm="100">
+          <p class="blueText">RESERVATION</p>
+          <p class='blueText'>Changes</p>
+          <p>Please send us an email or call us to make the change in the booking. All changes must be made at least 24 hours before the date of the activity, if not there could be a charge for change.</p>
+          <p class='blueText'>Cancellations</p>
+          <p>We accept cancellations free of charge with a minimum of 24 hours before the date of the activity. Please contact us to assist you on the cancellation, the refund will be done according to your bank. In case of cancelling the same day of the activity, there will be a charge cancellation.</p>
+        </div>
+        <div flex-gt-sm='50' flex-sm="100">
+          <p class='blueText'>Invoices</p>
+          <p>In case you require an invoice, please send us an email with your booking code and company details. Our accounting staff will send you the invoice in less than 48 hours.</p>
+          <p class='blueText'>Find reservation</p>
+          <p>Once reservation is made, you will receive an automatic email confirmation and details of the activity. If you didn't get it or can't find it, please contact us and we will send you a copy.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  <% } %>
+
 </div>

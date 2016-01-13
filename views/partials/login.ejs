@@ -1,19 +1,19 @@
 <div class="form-modal" id="login-modal" ng-show="loginToggle" layout="row" layout-align="center center" layout-wrap>
   <a class="form-modal-close" href="" ng-click="doLoginToggle()"><i class="icon-cerrar"></i></a>
-  <h3>Iniciar sesión</h3>
+  <h3><%= __('log_in')%></h3>
   <form action="/login" method="post" flex="100" layout="row" layout-align="center center" layout-wrap>
-      <input name="username" required type="text" flex="80" type="text" placeholder="Usuario">
-      <input name="password" required type="password" flex="80" type="text" placeholder="Contraseña">
-      <input type="submit" value="INICIAR SESIÓN" class="action-btn" flex="80">
+      <input name="username" required type="text" flex="80" type="text" placeholder="<%= __('user')%>">
+      <input name="password" required type="password" flex="80" type="text" placeholder="<%= __('password')%>">
+      <input type="submit" value="<%= __('log_in')%>" class="action-btn" flex="80">
   </form>
-  <p>O INICIA SESIÓN CON:</p>
+  <p><%= __('or_login_with')%></p>
   <a href="/login_fb" class="action-btn fb-btn" flex="80">
     <strong >FACEBOOK</strong>
   </a>
   <div flex="80">
     <div class="bottom-btns" layout="row" layout-align="space-between center">
-      <a href="/recover_password"><strong>Olvidé mi contraseña</strong></a>
-      <a ng-click="doLoginToggle()" href=""><strong>Crear una cuenta</strong></a>
+      <a href="/recover_password"><strong><%= __('forgot_password')%></strong></a>
+      <a ng-click="doLoginToggle()" href=""><strong><%= __('create_account')%></strong></a>
     </div>
   </div>
 </div>

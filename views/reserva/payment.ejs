@@ -1,7 +1,7 @@
 <div id="pago-reservacion" ng-class="step == 2 ? 'activar' : 'ng-hide'">
   <form name="payForm" novalidate>
     <div class="title-block">
-        <h3><strong>FORMA DE PAGO</strong></h3>
+        <h3><strong><%= __('payment_method') %></strong></h3>
     </div>
     <div id="forma-pago" class="block-content booking-form">
         <md-radio-group
@@ -58,7 +58,7 @@
     </div>
 
     <div class="title-block">
-        <h3><strong>DATOS DEL PAGO</strong></h3>
+        <h3><strong><%= __('payment_method') %></strong></h3>
     </div>
 
     <!--BLOCK CONTENT-->
@@ -68,8 +68,8 @@
             <img src="/images/{{client.payment_method}}.png" class="datos-img">
         </p>
 
-        <p><strong>Datos del pago</strong></p>
-        <p class="no-margin">País</p>
+        <p><strong><%= __('payment_data') %></strong></p>
+        <p class="no-margin"><%= __('country') %></p>
 
         <md-select
           class="custom-select no-margin"
@@ -91,22 +91,22 @@
               <input
                 type="text"
                 class="input-field"
-                placeholder="Número de Tarjeta"
+                placeholder="<%= __('credit_card_number') %>"
                 name="cc_number"
                 required
                 ng-class="{'input-field-error': payForm.cc_number.$invalid && validatingPayment }"
                 ng-model="client.cc.number">
           </div>
           <div flex="45" flex-sm="100" class="input-field-wrap">
-            <p class="no-margin">Fecha de vencimiento</p>
+            <p class="no-margin"><%= __('due_date') %></p>
             <div layout="row" layout-align="space-between center">
               <div flex="45">
-                <md-select class="custom-select no-margin" ng-model="client.cc.month" placeholder="Més">
+                <md-select class="custom-select no-margin" ng-model="client.cc.month" placeholder="<%= __('month') %>">
                     <md-option ng-repeat="month in [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{month}}">{{month}}</md-option>
                 </md-select>
               </div>
               <div flex="45">
-                <md-select class="custom-select" ng-model="client.cc.year" placeholder="Año">
+                <md-select class="custom-select" ng-model="client.cc.year" placeholder="<%= __('year') %>">
                     <md-option ng-repeat="year in [0,1,2,3,4,5,6,7,8,9,10,11,12]" value="{{2016 + year}}">{{2016 + year}}</md-option>
                 </md-select>
               </div>
@@ -121,7 +121,7 @@
               class="input-field"
               name="cc_name"
               required
-              placeholder="Nombre del titular de la tarjeta"
+              placeholder="<%= __('credit_card_owner') %>"
               ng-class="{'input-field-error': payForm.cc_name.$invalid && validatingPayment }"
               ng-model="client.cc.name">
           </div>
@@ -129,7 +129,7 @@
             <input
               type="text"
               class="input-field"
-              placeholder="Código de seguridad"
+              placeholder="<%= __('credit_card_security_code') %>"
               ng-model="client.cc.code"
               required
               name="cc_code"
@@ -144,7 +144,7 @@
 
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-            <p>Estado</p>
+            <p><%= __('state') %></p>
             <md-select
               class="custom-select custom-select-full no-margin"
               ng-model="client.state"
@@ -161,7 +161,7 @@
             <input
               type="text"
               class="input-field"
-              placeholder="Ciudad"
+              placeholder="<%= __('city') %>"
               required
               name="client_city"
               ng-model="client.city"
@@ -174,7 +174,7 @@
             <input
               type="text"
               class="input-field"
-              placeholder="Dirección"
+              placeholder="<%= __('address') %>"
               ng-model="client.address"
               name="client_address"
               required
@@ -184,7 +184,7 @@
             <input
               type="text"
               class="input-field"
-              placeholder="Código postal"
+              placeholder="<%= __('zipcode') %>"
               ng-model="client.zipCode"
               required
               name="client_zipCode"
@@ -199,17 +199,20 @@
             <md-checkbox
               class="md-primary"
               ng-model="terminosVisibility"
-              aria-label="Terminos"
+              aria-label="<%= __('terms') %>"
               required>
-              He leído y acepto los <a href=""> Términos y Condiciones de uso </a> y el <a href=""> Aviso de privacidad </a>
+              <% if(req.params.lang === 'es'){ %>
+                He leído y acepto los <a href="/es/aviso-de-privacidad"> Términos y Condiciones de uso y el  Aviso de privacidad </a>
+              <% }else{ %>
+                I have read and accepted <a href="/en/privacy-notice"> terms and conditions of use, and the privacy notice </a>
+              <% } %>
             </md-checkbox>
           </p>
-          <p class="total-pagar"><strong>Total a Pagar</strong></p>
+          <p class="total-pagar"><strong><%= __('total_payment') %></strong></p>
           <p class="total-price"><strong>{{priceTotal() | currency}}</strong> {{global_currency.currency_code | uppercase}}</p>
-          <p class="small-text" flex="100">El importe incluye todos los impuestos</p>
+          <p class="small-text" flex="100"><%= __('total_tax_label') %></p>
 
-          <!--<input type="button" id="boton-pagar" value="PAGAR RESERVA">-->
-          <input type="button" class="action-btn payment-btn" ng-click="process($event, payForm)" value="PAGAR RESERVA">
+          <input type="button" class="action-btn payment-btn" ng-click="process($event, payForm)" value="<%= __('pay_booking') %>">
       </div>
 
     </div>

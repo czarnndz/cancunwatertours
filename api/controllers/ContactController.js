@@ -36,9 +36,9 @@ module.exports = {
     };
     if( validateEmail(data.contactEmail) && form.contactName !== '' ){
       var head = {
-        to: 'admin@spaceshiplabs.com',
+        //to: 'admin@spaceshiplabs.com',
         //to: 'info@watertours.com',
-        //to: 'luis19prz@gmail.com',
+        to: 'luis19prz@gmail.com',
         subject: 'Mensaje desde Cancunwater Tours'
       };
       sails.hooks.email.send(

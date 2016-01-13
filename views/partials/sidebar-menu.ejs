@@ -1,13 +1,21 @@
 <div class="main-sidebar" layout="row" hide-sm>
   <div class="main-sidebar-inner"  >
-    <a class="main-sidebar-item" href="/tours">
+    <a class="main-sidebar-item" href="/<%= req.params.lang %>/tours">
       <i class="icon-todos icon-desplegable"></i>
-      <p>TODOS</p>
+      <% if(req.params.lang === 'es'){ %>
+        <p>TODOS</p>
+      <% }else{ %>
+        <p>ALL</p>
+      <% } %>
     </a>
     <% for(var i=0;i<meta.categories.length;i++){ %>
-      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/tours/<%= meta.categories[i].url %>">
+      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/<%= req.params.lang %>/tours/<%= meta.categories[i].url %>">
         <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
-        <p><%= meta.categories[i].name.toUpperCase() %></p>
+        <% if(req.params.lang === 'es'){ %>
+          <p><%= meta.categories[i].name.toUpperCase() %></p>
+        <% }else{ %>
+          <p><%= meta.categories[i].name_en.toUpperCase() %></p>
+        <% } %>
       </a>
     <% } %>
   </div>

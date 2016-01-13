@@ -15,19 +15,17 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
     $scope.randArray = [];
 
     $scope.getTours = function() {
-      toursService.getTours().then(function(res){
-        console.log(res);
-        $scope.tours = $scope.formatTours(res);
-      });
-    };
-    $scope.getToursRand = function(n) {
       $scope.loading = true;
       toursService.getTours().then(function(res){
-        $scope.toursrand1 = $scope.formatToursRandom(res,3);
-        $scope.toursrand2 = $scope.formatToursRandom(res,4);
-        $scope.toursrand3 = $scope.formatToursRandom(res,4);
         $scope.loading = false;
+        $scope.tours = $scope.formatTours(res);
+        $scope.getToursRand(res);
       });
+    };
+    $scope.getToursRand = function(res) {
+      $scope.toursrand1 = $scope.formatToursRandom(res,3);
+      $scope.toursrand2 = $scope.formatToursRandom(res,4);
+      $scope.toursrand3 = $scope.formatToursRandom(res,4);
     };
 
     $scope.formatTours = function(tours){
@@ -40,6 +38,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                 aux_tours.push({
                     id : tours[i].id,
                     name: tours[i].name,
+                    name_en: tours[i].name_en,
                     icon : tours[i].avatar3,
                     avatar: tours[i].avatar,
                     fee : tours[i].fee,
@@ -70,6 +69,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
               aux_tours.push({
                   id : tours[rand].id,
                   name: tours[rand].name,
+                  name_en: tours[rand].name_en,
                   icon : tours[rand].avatar3,
                   avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
@@ -118,7 +118,6 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
     $scope.init = function(){
         $scope.getHotels();
         $scope.getTours();
-        $scope.getToursRand();
     };
 
     $scope.getPriceTour = function(tour) {

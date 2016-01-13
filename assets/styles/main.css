@@ -236,6 +236,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   padding: 0 30px;
   min-height: 72px;
   position: relative;
+  text-transform: uppercase;
 }
 .header .advanced-search-on{
   background: #00ADEF;
@@ -330,9 +331,12 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .custom-selector-list li{
   color: #fff;
   display: block;
+}
+.header .custom-selector-list li a{
+  color: #fff;
+  display: block;
   padding: 6px 10px;
 }
-.header .custom-selector-list li a{color: #fff;}
 .header .custom-selector-list li.active-item,
 .header .custom-selector-list li:hover{
   background: #fff;
@@ -616,6 +620,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .landing-tour .action-btn{
   position: relative;
   z-index: 5;
+  text-transform: uppercase;
 }
 .landing-tour-content figcaption{
   position: absolute;
@@ -703,6 +708,7 @@ figcaption:hover .action-btn-white{
   -moz-transform: scale(1.2) translateY(-10px);
   transform: scale(1.2) translateY(-10px);
 }
+.landing-slider-item .action-btn-white{text-transform: uppercase;}
 .landing-slider-item:hover .action-btn-white{
   background: #00aeef;
   color: #fff;
@@ -1206,6 +1212,7 @@ figcaption:hover .action-btn-white{
   color: white;
 }
 .booking-partial .custom-autocomplete button{margin: 0;}
+.booking-partial .cart-btn{text-transform: uppercase;}
 
 /*-----------/
   #LOGIN AND REGISTER
@@ -1914,11 +1921,18 @@ figcaption:hover .action-btn-white{
   text-align: center;
   margin: 0;
 }
-.booking .continue-btn{float: right;margin-left: 15px;margin-top: 15px;border-radius: 6px;}
+.booking .continue-btn{
+  float: right;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
 .booking .continue-btn.shopping{
   background: transparent;
   color: #1eb0eb;
-  box-shadow: inset 0px 0px 0px 3px #1EB0EB;}
+  box-shadow: inset 0px 0px 0px 3px #1EB0EB;
+}
 .booking .total-transporte p{margin: 0}
 .booking .highlight{color: #19A4EF!important}
 .booking .big-price{font-size: 24px;}

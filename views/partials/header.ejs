@@ -13,7 +13,7 @@
           md-items="item in querySearch(searchText)"
           md-item-text="item.name"
           md-min-length="0"
-          placeholder="Buscar"
+          placeholder="<%= __('search')%>"
           md-menu-class="autocomplete-custom-template"
           class="input-header" >
           <md-item-template>
@@ -24,19 +24,14 @@
         </md-autocomplete>
       </form>
 
-      <!--<div  class="advanced-search" ng-class="{'advanced-search-on': toggleSearch}" layout="row" layout-align="center center">-->
-        <!--<a ng-click="toggleSearch = !toggleSearch" href=""><strong>BÚSQUEDA AVANZADA</strong></a>-->
-        <!--<%- partial('../partials/search') -%>-->
-      <!--</div>-->
-
       <div  class="advanced-search" layout="row" layout-align="center center">
-        <a href="/tours"><strong>BÚSQUEDA AVANZADA</strong></a>
+        <a href="/<%= req.params.lang %>/tours"><strong><%= __('advanced_search')%></strong></a>
       </div>
     </div>
   </div>
 
   <div class="menu-section menu-section-logo" flex="20" flex-md="100" flex-sm="100" flex-order-md="1">
-    <a href="/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
+    <a href="/<%= req.params.lang %>/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
   <div class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
@@ -52,11 +47,12 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
-          <a ng-click="setLang(item)">
-            <span ng-if="item === lang">&#10003;</span>
+          <!--<a ng-click="setLang(item)">-->
+          <a ng-href="/change_lang?lang={{item.value}}&previous_lang=<%=req.params.lang%>&from_url=<%=req.path%>">
+            <span ng-if="item === global_lang">&#10003;</span>
             {{item.label}}
           </a>
         </li>
@@ -69,29 +65,29 @@
         </span>
 
         <span class="account-menu-item account-item">
-          <a href="/cuenta">
+          <a href="/<%= req.params.lang %>/account">
             <strong>
-              Mi cuenta
+              <%= __('my_account')%>
             </strong>
           </a>
         </span>
       <% } %>
       <span class="account-menu-item">
          <% if(req.user){ %>
-          <a href="/logout"><strong>Cerrar sesión</strong></a>
+          <a href="/logout"><strong><%= __('log_out')%></strong></a>
         <% }else{ %>
-          <a ng-click="doRegisterToggle()" href=""><strong>Registro</strong></a>
+          <a ng-click="doRegisterToggle()" href=""><strong><%= __('register')%></strong></a>
         <% } %>
       </span>
       <span class="account-menu-item">
-        <a href="/reserva">
+        <a ng-href="/{{currentLang}}/booking">
           <i class="icon-carrito"></i>
           <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
       </span>
       <% if(!req.user){ %>
         <span class="account-menu-item">
-          <a ng-click="doLoginToggle()" href="" class="action-btn"><strong>Iniciar sesión</strong></a>
+          <a ng-click="doLoginToggle()" href="" class="action-btn"><strong><%= __('log_in')%></strong></a>
         </span>
       <% } %>
     </div>
@@ -123,7 +119,7 @@
           </span>
         <% } %>
         <span>
-          <a href="/reserva">
+          <a ng-href="/{{currentLang}}/booking">
             <i class="icon-carrito"></i>
             <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
           </a>
@@ -147,32 +143,32 @@
       </ul>
     </div>
     <div flex class="custom-selector" layout="row" layout-align="center center">
-      <a><i class="icon-world"></i> <strong>{{lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
+      <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
           <a ng-click="setLang(item)">
-            <span ng-if="item === lang">&#10003;</span>
+            <span ng-if="item === global_lang">&#10003;</span>
             {{item.label}}
           </a>
         </li>
       </ul>
     </div>
     <span>
-      <a ng-click="toggleSearchMobile = !toggleSearchMobile" href=""><strong>Búsqueda</strong></a>
+      <a ng-click="toggleSearchMobile = !toggleSearchMobile" href=""><strong><%= __('search')%></strong></a>
     </span>
     <% if(!req.user){ %>
       <span>
-        <a ng-click="doRegisterToggle($event)" href=""><strong>Registro</strong></a>
+        <a ng-click="doRegisterToggle($event)" href=""><strong><%= __('register')%></strong></a>
       </span>
       <span>
-        <a ng-click="doLoginToggle($event)" href="" class="action-btn"><strong>Iniciar sesión</strong></a>
+        <a ng-click="doLoginToggle($event)" href="" class="action-btn"><strong><%= __('log_in')%></strong></a>
       </span>
     <% }else{ %>
       <span>
-        <a href="/cuenta"><strong>Mi cuenta</strong></a>
+        <a href="/cuenta"><strong><%= __('my_account')%></strong></a>
       </span>
       <span>
-        <a href="/logout"><strong>Cerrar sesión</strong></a>
+        <a href="/logout"><strong><%= __('log_out')%></strong></a>
       </span>
     <% } %>
   </div>
@@ -202,7 +198,7 @@
   <%- partial('../partials/search') -%>
 
   <div class="advanced-search">
-    <a href="/tours"><strong>BÚSQUEDA AVANZADA</strong></a>
+    <a href="/tours"><strong><%= __('advanced_search')%></strong></a>
   </div>
 
 </div>

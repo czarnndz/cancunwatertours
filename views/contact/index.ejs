@@ -3,19 +3,19 @@
 
     <!--PERSONAL INFO-->
     <form name="contactForm" novalidate ng-submit="doContact($event ,contactForm)">
-      <h1>Contáctanos</h1>
+      <h1><%= __('contact_us') %></h1>
       <p class="alert-msg"><%= page.message %></p>
 
       <div class="cont-form-cuenta" layout="row" layout-wrap layout-align="space-between center">
         <div class="cont-input-cuenta" flex="45" flex-md="100" flex-sm="100">
-          <label>Nombre</label>
+          <label><%= __('name') %></label>
           <input
             required
             flex="100"
             type="text"
             name="contactName"
             ng-model="contact.name"
-            placeholder="Nombre"
+            placeholder="<%= __('name') %>"
             ng-class="{ 'error-field' : contactForm.contactName.$invalid && contactForm.$submitted }"
             class="input-cuenta">
         </div>
@@ -40,14 +40,14 @@
           rows="5"
           ng-model="contact.message"
           name="contactMessage"
-          placeholder="Mensaje"
+          placeholder="<%= __('message') %>"
           ng-class="{ 'error-field' : contactForm.contactMessage.$invalid && contactForm.$submitted }">
         </textarea>
       </div>
 
       <div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
         <div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-          <input type="submit" ng-disabled="sendingMsg" flex="100" class="boton-cuenta" value="ENVIAR">
+          <input type="submit" ng-disabled="sendingMsg" flex="100" class="boton-cuenta" value="<%= __('send') %>">
         </div>
       </div>
 

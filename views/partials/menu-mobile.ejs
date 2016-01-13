@@ -4,7 +4,11 @@
     <% for(var i=0;i<meta.categories.length;i++){ %>
       <a href="/tours/<%= meta.categories[i].url %>" >
       <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
-      <span><%= meta.categories[i].name.toUpperCase() %></span>
+      <% if(req.params.lang === 'es'){ %>
+        <span><%= meta.categories[i].name.toUpperCase() %></span>
+      <% }else{ %>
+        <span><%= meta.categories[i].name_en.toUpperCase() %></span>
+      <% } %>
     </a>
     <% } %>
   </div>

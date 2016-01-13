@@ -13,14 +13,14 @@
         <div class="voucher-date">
           <p>
             <a href="#" onClick="window.print()">
-              <img src="/images/impresora.png" alt="Imprimir"> Imprimir
+              <img src="/images/impresora.png" alt="Imprimir"> <%= __('print') %>
             </a> / {{order.createdAt | date : 'shortDate'}}</p>
         </div>
         <p>
-          <strong>Número de reservación</strong>: <strong class="highlight" ng-bind="order.id"></strong>
+          <strong><%= __('reservation_number') %></strong>: <strong class="highlight" ng-bind="order.id"></strong>
         </p>
         <p>
-          <strong>Nombre :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
+          <strong><%= __('name') %> :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
         </p>
       </div>
       <div class="static-info" flex="30">
@@ -40,22 +40,29 @@
         <div class="voucher-item">
           <h3 class="voucher-title" ng-bind="reservation.reservation_type | uppercase"></h3>
           <p>
-            <strong>{{reservation.reservation_type | uppercase}}: </strong> <strong><a class="highlight" href="#" target="_blank" ng-bind="reservation.tour.name"></a></strong>
+            <strong>{{reservation.reservation_type | uppercase}}: </strong>
+              <strong>
+                <% if(req.params.lang === 'es'){ %>
+                  <a class="highlight" href="#" target="_blank" ng-bind="reservation.tour.name"></a>
+                <% }else{ %>
+                  <a class="highlight" href="#" target="_blank" ng-bind="reservation.tour.name_en"></a>
+                <% } %>
+              </strong>
           </p>
-          <p><strong>Duración:</strong> {{reservation.tour.duration_formated}}</p>
-          <p ng-if="reservation.schedule"><strong>Horario:</strong> de {{reservation.schedule.from | date:'HH:mm'}} a {{reservation.schedule.to | date:'HH:mm'}}</p>
-          <p><strong>Fecha:</strong> {{reservation.startDate | date:'dd/MM/yyyy'}}</p>
-          <p><strong>Adultos:</strong> {{reservation.pax}}</p>
-          <p ng-if="reservation.kidPax"><strong>Ninios:</strong> {{reservation.kidPax}}</p>
+          <p><strong><%= __('duration') %>:</strong> {{reservation.tour.duration_formated}}</p>
+          <p ng-if="reservation.schedule"><strong><%= __('schedule') %>:</strong> <%= __('from') %> {{reservation.schedule.from | date:'HH:mm'}} <%= __('to') %> {{reservation.schedule.to | date:'HH:mm'}}</p>
+          <p><strong><%= __('date') %>:</strong> {{reservation.startDate | date:'dd/MM/yyyy'}}</p>
+          <p><strong><%= __('adults') %>:</strong> {{reservation.pax}}</p>
+          <p ng-if="reservation.kidPax"><strong><%= __('kids') %>:</strong> {{reservation.kidPax}}</p>
           <p><strong>Total: {{reservation.total | currency}} {{currency | uppercase}}</strong></p>
         </div>
         <!--END VOUCHER ITEM-->
 
         <!--VOUCHER ITEM-->
         <div class="voucher-item">
-          <h3 class="voucher-title">DETALLES DEL TOUR</h3>
+          <h3 class="voucher-title"><%= __('tour_details') %></h3>
           <div class="voucher-prop">
-            <p><strong>INCLUYE</strong></p>
+            <p><strong><%= __('includes') %></strong></p>
             <p>
               <ul>
                   <li ng-repeat="include in reservation.tour.includesList">{{include}}</li>
@@ -63,7 +70,7 @@
             </p>
           </div>
           <div class="voucher-prop">
-            <p><strong>NO INCLUYE</strong></p>
+            <p><strong><%= __('noincludes') %></strong></p>
               <p>
               <ul>
                   <li ng-repeat="include in reservation.tour.notIncludesList">{{include}}</li>
@@ -71,7 +78,7 @@
               </p>
           </div>
           <div class="voucher-prop" ng-if="reservation.tour.recommendations_es">
-            <p><strong>RECOMENDACIONES</strong></p>
+            <p><strong><%= __('recommendations') %></strong></p>
             <p ng-bind-html-unsafe="reservation.tour.recommendations_es"></p>
           </div>
         </div>

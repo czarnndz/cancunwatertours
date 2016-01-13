@@ -1,7 +1,5 @@
 <div id="home" ng-controller="Home">
 
-  <!--<%- partial('../partials/add-transport') -%>-->
-
   <div ng-show="loading" layout="row" layout-align="center center" full-screen-wrapper ng-style="newWidth()">
     <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
     <img src="/images/loader.gif" alt="Cargando...">
@@ -24,14 +22,17 @@
       >
         <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions">
           <div class="landing-slider-item-bg " lazy-img="{{tour.avatar}}" ng-style="{ 'background-image': 'url({{tour.avatar}})' }"></div>
-          <a href="/tour/{{tour.url}}" class="absolute-link"></a>
+          <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <div class="landing-slider-cover">
             <div class="landing-slider-footer">
               <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
-              <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
-              <h4><strong>{{tour.name}}</strong></h4>
+              <% if(req.params.lang === 'es'){ %>
+                <h4><strong>{{tour.name}}</strong></h4>
+              <% }else{ %>
+                <h4><strong>{{tour.name_en}}</strong></h4>
+              <% } %>
               <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
-              <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
+              <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
             </div>
           </div>
         </div>
@@ -63,14 +64,22 @@
               lazy-img="{{tour.avatar}}"
               ng-style="{ 'background-image': 'url({{tour.avatar}})' }"
           ></div>
-          <a href="/tour/{{tour.url}}" class="absolute-link"></a>
+          <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
-            <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
-            <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
+            <h4>
+              <strong>
+                <a href="/<%= req.params.lang %>/tour/{{tour.url}}">
+                  <% if(req.params.lang === 'es'){ %>
+                    {{tour.name}}
+                  <% }else{ %>
+                    {{tour.name_en}}
+                  <% } %>
+                </a>
+              </strong>
+            </h4>
             <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
-            <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
-            <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
+            <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>
       </md-grid-list>
@@ -98,14 +107,22 @@
           <div class="landing-tour-background transitions"
               ng-style="{ 'background-image': 'url({{tour.avatar}})' }"
           ></div>
-          <a href="/tour/{{tour.url}}" class="absolute-link"></a>
+          <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
-            <!-- <h3><strong><a href="#">OFERTA DEL DIA</strong></h3> -->
-            <h4><strong><a href="/tour/{{tour.url}}">{{tour.name}}</strong></h4>
+            <h4>
+              <strong>
+                <a href="/<%= req.params.lang %>/tour/{{tour.url}}">
+                  <% if(req.params.lang === 'es'){ %>
+                    {{tour.name}}
+                  <% }else{ %>
+                    {{tour.name_en}}
+                  <% } %>
+                </a>
+              </strong>
+            </h4>
             <p class="tour-price">{{getPriceTour(tour) | currency}} {{global_currency.currency_code | uppercase}}</p>
-            <p><a href="/tour/{{tour.url}}" class="action-btn-white transitions"><strong>RESERVAR</strong></a></p>
-            <!--<p><a href="" ng-click="selectTour(tour)" class="action-btn"><strong>RESERVAR</strong></a></p>-->
+            <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>
       </md-grid-list>

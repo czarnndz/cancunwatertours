@@ -31,9 +31,9 @@ module.exports = {
                 //console.log(e);
                 TourCategory.find({ principal:true, type : {'!' : 'rate'}}).exec(function(e,categories){
                   res.view({
-                      tour : Common.formatTour(tour,'es'),
+                      tour : Common.formatTour(tour, req.getLocale() ),
                       rate_values : rate_values,
-                      similar_tours : Common.formatTours(similar_tours,'es'),
+                      similar_tours : Common.formatTours(similar_tours, req.getLocale() ),
                       imgs_url : process.env.BACKEND_URL,
                       meta : {
                           controller : 'tours.js',

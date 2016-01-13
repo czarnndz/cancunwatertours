@@ -3,7 +3,7 @@
   <div class="title-block title-block-data booking-form" ng-if="hotel">
     <h3>
       <i class="icon-transporte icono-trans-d"></i>
-       <strong>Datos para el traslado de tu Tour (Opcional)</strong>
+       <strong><%= __('data_for_tour') %> (<%= __('optional') %>)</strong>
     </h3>
     <input flex="50" flex-sm="100" type="text" ng-model="transferClientName">
   </div>
@@ -11,8 +11,8 @@
   <% if(!req.user){ %>
     <div class="block-content">
       <div class="block-content-subtitle">
-        <h3>Continuar la compra como</h3>
-        <h3><strong>usuario registrado</strong></h3>
+        <h3><%= __('continue_shopping_as') %></h3>
+        <h3><strong><%= __('registered_user') %></strong></h3>
       </div>
       <%- partial('../partials/login-booking') -%>
     </div>
@@ -21,11 +21,11 @@
 
   <div class="block-content" id="datos-viajero-2">
         <div class="block-content-subtitle">
-          <h3>Continuar la compra como</h3>
-          <h3><strong>nuevo usuario</strong></h3>
+          <h3><%= __('continue_shopping_as') %></h3>
+          <h3><strong><%= __('new_user') %></strong></h3>
         </div>
-        <p><strong>Datos para tu reservación</strong></p>
-        <p>Estos datos son los que se utilizarán para hacerte llegar información de su reservación</p>
+        <p><strong><%= __('data_for_reservation') %></strong></p>
+        <p><%= __('booking_label1') %></p>
         <form name="clientData" class="booking-form">
 
             <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between start">
@@ -34,7 +34,7 @@
                 flex-sm="100"
                 type="text"
                 class="input-field"
-                placeholder="Nombre"
+                placeholder="<%= __('name') %>"
                 ng-model="client.name"
                 name="name"
                 required
@@ -45,7 +45,7 @@
                 flex-sm="100"
                 type="text"
                 class="input-field"
-                placeholder="Apellidos"
+                placeholder="<%= __('last_name') %>"
                 ng-model="client.last_name"
                 name="last_name"
                 ng-class="{'input-field-error': clientData.last_name.$invalid && validatingClient }"
@@ -58,7 +58,7 @@
                 flex-sm="100"
                 type="email"
                 class="input-field"
-                placeholder="Correo Electrónico"
+                placeholder="E-mail"
                 ng-model="client.email"
                 name="email"
                 ng-class="{'input-field-error': (clientData.email.$invalid && validatingClient) || (clientData.email.$error.email && validatingClient) }"
@@ -69,14 +69,14 @@
                 flex-sm="100"
                 type="email"
                 class="input-field"
-                placeholder="Confirmar correo electrónico"
+                placeholder="<%= __('confirm_email') %>"
                 name="repeat_email"
                 required
                 ng-class="{'input-field-error': (clientData.repeat_email.$invalid && validatingClient) || (clientData.repeat_email.$error.email && validatingClient) }"
                 ng-model="repeat_email">
             </div>
 
-            <p class="tel-label no-margin">Número Telefónico</p>
+            <p class="tel-label no-margin"><%= __('phone_number') %></p>
 
             <div layout="row" layout-wrap layout-align="space-between center">
               <div class="input-field-wrap" flex="45" flex-sm="100">
@@ -85,7 +85,7 @@
                     class="input-field"
                     type="text"
                     required
-                    placeholder="Lada"
+                    placeholder="<%= __('lada') %>"
                     ng-model="client.phone_lada"
                     name="phone_lada"
                     ng-class="{'input-field-error': clientData.phone_lada.$invalid && validatingClient }">
@@ -96,7 +96,7 @@
                     flex-sm="100"
                     type="text"
                     class="input-field"
-                    placeholder="Número"
+                    placeholder="<%= __('phone_number') %>"
                     name="phone"
                     required
                     ng-class="{'input-field-error': clientData.phone.$invalid && validatingClient }"
@@ -104,7 +104,7 @@
 
                   <div class="celular" flex="20" flex-sm="100" layout="row" layout-align="space-around center" >
                     <md-checkbox md-no-ink aria-label="Celular" ng-model="client.isMobile" class="md-primary">
-                      Celular
+                      <%= __('mobile_phone_number') %>
                     </md-checkbox>
                   </div>
               </div>

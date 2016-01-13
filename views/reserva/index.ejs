@@ -21,13 +21,13 @@
               <!--STEPS BAR-->
               <div class="booking-header" layout="row"   ng-click="console.log(step);">
                   <div class="step" ng-click="step = 0" ng-class="step >= 0 ? 'step-on' : ''" flex="33">
-                      <span><strong>1.</strong> Tu reservación</span>
+                      <span><strong>1.</strong> <%= __('your_reservation') %></span>
                   </div>
                   <div class="step" ng-click="step = terminos ? 1 : 0" ng-class="step >= 1 ? 'step-on' : ''" flex="33" >
-                    <span><strong>2.</strong> Datos del viajero</span>
+                    <span><strong>2.</strong> <%= __('traveler_info') %></span>
                   </div>
                   <div class="step" ng-click="step = terminos ? 2 : 0" ng-class="step == 2 ? 'step-on' : ''" flex="33" >
-                      <span><strong>3.</strong> Pago</span>
+                      <span><strong>3.</strong> <%= __('payment') %></span>
                   </div>
               </div>
               <!--END STEPS BAR-->
@@ -46,8 +46,8 @@
 
               <div class="continue-wrap-btns" ng-if="step < 2">
                 <div layout='row' layout-align='end center'>
-                  <a href="" ng-click="continueShopping()" class="action-btn continue-btn shopping">CONTINUAR COMPRANDO</a>
-                  <a href="" ng-click="continueClick()" class="action-btn continue-btn">CONTINUAR</a>
+                  <a href="" ng-click="continueShopping()" class="action-btn continue-btn shopping"><%= __('continue_shopping') %></a>
+                  <a href="" ng-click="continueClick()" class="action-btn continue-btn"><%= __('continue') %></a>
                 </div>
               </div>
           </div>
@@ -55,16 +55,24 @@
 
           <!--RIGHT SIDE-->
           <div class="booking-info" flex="35" flex-md="100" flex-sm="100">
-            <h2 class="booking-info-title">Tu reservación</h2>
+            <h2 class="booking-info-title"><%= __('your_reservation') %></h2>
             <div class="booking-info-inner">
 
               <div class="booking-info-item" ng-repeat="tour in tours track by $index">
                 <section class="booking-info-block">
-                  <h3><a ng-href="/tour/{{tour.url}}" target="_blank">{{tour.name}}</a></h3>
+                  <h3>
+                    <a ng-href="/{{currentLang}}/tour/{{tour.url}}" target="_blank">
+                      <% if(req.params.lang === 'es'){ %>
+                        {{tour.name}}
+                      <% }else{ %>
+                        {{tour.name_en}}
+                      <% } %>
+                    </a>
+                  </h3>
                   <p class="precio-detalles">{{global_currency.currency_code | uppercase}} {{priceTour(tour) | currency}}</p>
                 </section>
                 <section ng-if="tour.hotel && tour.transfer" class="booking-info-block">
-                  <p><strong>TRANSPORTACIÓN</strong></p>
+                  <p><strong><%= __('transportation') %></strong></p>
                   <p>{{global_currency.currency_code | uppercase}} {{priceTransfer(tour) | currency}}</p>
                 </section>
               </div>
@@ -77,7 +85,7 @@
               </div>
             </div>
             <div class="booking-info-inner center-content" ng-if="step < 2">
-              <a href="" ng-click="continueClick()" class="action-btn">CONTINUAR</a>
+              <a href="" ng-click="continueClick()" class="action-btn"><%= __('continue') %></a>
             </div>
           </div>
           <!--END RIGHT SIDE-->
