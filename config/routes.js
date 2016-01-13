@@ -116,45 +116,45 @@ module.exports.routes = {
   /*------------------/
     TRANSLATED URLS
   /*------------------*/
-  '/reserva': {
+  '/:lang/booking': {
     controller : 'reserva',
     action : 'index'
   },
-  '/quienessomos' : {
+  '/:lang/quienessomos' : {
     controller : 'home'
     ,action : 'quienessomos',
     lang:'es'
   },
-  '/about-us' : {
+  '/:lang/about-us' : {
     controller : 'home'
     ,action : 'quienessomos',
     lang: 'en'
   },
-  '/preguntasfrecuentes' : {
+  '/:lang/preguntasfrecuentes' : {
     controller : 'home'
     ,action : 'preguntasfrecuentes',
     lang: 'es'
   },
-  '/faq' : {
+  '/:lang/faq' : {
     controller : 'home'
     ,action : 'preguntasfrecuentes',
     lang: 'en'
   },
-  '/aviso-de-privacidad' : {
+  '/:lang/aviso-de-privacidad' : {
     controller : 'home'
     ,action : 'avisodeprivacidad'
   },
-  '/privacy-policy' : {
+  '/:lang/privacy-notice' : {
     controller : 'home'
     ,action : 'avisodeprivacidad',
     lang: 'en'
   },
-  '/contacto':{
+  '/:lang/contacto':{
     controller: 'contact',
     action: 'index',
     lang: 'es'
   },
-  '/contact':{
+  '/:lang/contact':{
     controller: 'contact',
     action: 'index',
     lang:'en'

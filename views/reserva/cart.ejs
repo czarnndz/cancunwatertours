@@ -6,14 +6,19 @@
             <div class="booking-tour-img"  ng-style="{ 'background-image' : 'url(' + tour.avatar2 + ')'}"></div>
         </div>
         <div class="booking-form" flex="70" flex-md="65" flex-sm="100">
-            <h3>{{tour.name}}</h3>
-            <p>{{tour.hotel && tour.transfer ? "con Transportación" : ""}}</p>
+            <% if(req.params.lang === 'es'){ %>
+              <h3>{{tour.name}}</h3>
+              <p>{{tour.hotel && tour.transfer ? "con transportación" : ""}}</p>
+            <% }else{ %>
+              <h3>{{tour.name_en}}</h3>
+              <p>{{tour.hotel && tour.transfer ? "transfer included" : ""}}</p>
+            <% } %>
             <section>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" >
-                    <label flex="20">
-                      <i class="icon-calendario highlight"></i> Fecha:
+                    <label flex="25">
+                      <i class="icon-calendario highlight"></i> <%= __('schedule') %>:
                     </label>
-                    <div flex="80">
+                    <div flex="75">
                       <md-datepicker flex="75" ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
                     </div>
                 </div>
@@ -26,26 +31,26 @@
                     </div>
                 </div>-->
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" >
-                    <label flex="20">
-                      <i class="icon-adultos highlight"></i> Adultos:
+                    <label flex="25">
+                      <i class="icon-adultos highlight"></i> <%= __('adults') %>:
                     </label>
-                    <div flex="80">
+                    <div flex="75">
                       <input type="number" min="1" max="8" ng-model="tour.adults">
                     </div>
                 </div>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center">
-                    <label flex="20">
-                      <i class="icon-nino highlight"></i> Niños:
+                    <label flex="25">
+                      <i class="icon-nino highlight"></i> <%= __('kids') %>:
                     </label>
-                    <div flex="80">
+                    <div flex="75">
                       <input type="number" min="0" max="8" ng-model="tour.kids">
                     </div>
                 </div>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.schedules.length > 0">
-                    <label flex="20">
-                      <i class="icon-horario highlight"></i> Horario:
+                    <label flex="25">
+                      <i class="icon-horario highlight"></i> <%= __('schedule') %>:
                     </label>
-                    <div flex="80">
+                    <div flex="75">
                       <md-select class="custom-select" ng-model="tour.schedule" ng-required>
                           <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
                       </md-select>
@@ -79,7 +84,7 @@
         <div flex='100' layout-align='center center'>
           <p class='blueText'>
             <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
-              <i class='icon-transporte'></i> Agregar transportación
+              <i class='icon-transporte'></i> <%= __('add_transport') %>
             </md-checkbox>
           </p>
           <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
@@ -97,7 +102,7 @@
                 <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
               </md-item-template>
               <md-not-found>
-                No matches found for "{{tour.searchText}}".
+                <%= __('no_results_found') %> "{{tour.searchText}}".
               </md-not-found>
             </md-autocomplete></span>
           </div>
@@ -105,12 +110,4 @@
         <md-button class='removeTour' ng-click="removeTour($index)"><i class='icon-cerrar'></i></md-button>
     </div><!-- block-content ngRepeat -->
 
-
-    <!--<div class="">
-      <p class="terms-text">
-        <md-checkbox class="md-primary" ng-model="terminos" aria-label="Terminos">
-          He leído y acepto los <a class='blueText' href=""> Términos y Condiciones de uso </a> y el <a class='blueText' href=""> Aviso de privacidad </a>
-        </md-checkbox>
-      </p>
-    </div>-->
 </div>

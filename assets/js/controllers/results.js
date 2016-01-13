@@ -15,9 +15,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
   $scope.getHotels = function(){
-      $http.get('/'+$rootScope.currentLang+'/hotels').success(function(response) {
-          console.log('HOTELS');
-          console.log(response);
+      $http.get('/hotels').success(function(response) {
           $scope.hotels = [];
           for(var x in response)
             if( response[x].latitude && response[x].longitude )

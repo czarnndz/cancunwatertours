@@ -18,10 +18,17 @@
 
 		<div class="content-col" flex-gt-md="15" flex="33">
       <ul>
-        <li><a href="/quienessomos"><%= __('about_us')%></a></li>
-        <li><a href="/preguntasfrecuentes"><%= __('faq')%></a></li>
-        <li><a href="/aviso-de-privacidad"><%= __('privacy_policy')%></a></li>
-        <li><a href="/contacto"><%= __('contact')%></a></li>
+        <% if(req.params.lang === 'es'){ %>
+          <li><a href="/es/quienessomos"><%= __('about_us')%></a></li>
+          <li><a href="/es/preguntasfrecuentes"><%= __('faq')%></a></li>
+          <li><a href="/es/aviso-de-privacidad"><%= __('privacy_policy')%></a></li>
+          <li><a href="/es/contacto"><%= __('contact')%></a></li>
+        <% }else{ %>
+          <li><a href="/en/about-us"><%= __('about_us')%></a></li>
+          <li><a href="/en/faq"><%= __('faq')%></a></li>
+          <li><a href="/en/privacy-notice"><%= __('privacy_policy')%></a></li>
+          <li><a href="/en/contact"><%= __('contact')%></a></li>
+        <% } %>
 		  <ul>
     </div>
 

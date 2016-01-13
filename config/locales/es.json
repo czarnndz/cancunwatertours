@@ -73,6 +73,52 @@
   "pwr_sent": "Hemos enviado un enlace a tu correo eléctronico, de esta forma podras cambiar tu contraseña.",
   "pwr_err": "Hubo un error, intenta de nuevo.",
 
-  "recover_password_label": "Si iniciaste sesión con Facebook, ingresa el e-mail asociado a tu cuenta de Facebook"
+  "recover_password_label": "Si iniciaste sesión con Facebook, ingresa el e-mail asociado a tu cuenta de Facebook",
 
+  "your_reservation": "Tu reservación",
+  "traveler_info": "Datos del viajero",
+  "payment": "Pago",
+  "continue_shopping": "Continuar comprando",
+  "continue": "Continuar",
+  "transportation": "Transportación",
+  "total": "Total",
+
+  "schedule": "Horario",
+  "date": "Fecha",
+
+  "data_for_tour": "Datos para el traslado de tu Tour",
+  "optional": "Opcional",
+  "continue_shopping_as": "Continuar la compra como",
+  "registered_user": "usuario registrado",
+  "new_user": "nuevo usuario",
+  "data_for_reservation": "Datos para tu reservación",
+  "booking_label1": "Estos datos son los que se utilizarán para hacerte llegar información de su reservación",
+
+  "confirm_email": "Confirmar correo electrónico",
+  "lada": "Lada",
+
+  "payment_method": "Forma de pago",
+  "payment_data": "Datos del pago",
+  "country": "País",
+
+  "due_date": "Fecha de vencimiento",
+  "credit_card_owner": "Nombre del titular de la tarjeta",
+  "credit_card_security_code": "Código de seguridad",
+
+  "state": "Estado",
+  "city": "Ciudad",
+  "address": "Dirección",
+  "zipcode": "Código postal",
+  "terms": "Terminos",
+
+  "total_payment": "Total a pagar",
+  "total_tax_label": "El importe incluye todos los impuestos",
+  "pay_booking": "Pagar reserva",
+
+  "reservation_number": "Número de reservación",
+  "tour_details": "Detalles del tour",
+  "print": "Imprimir",
+
+  "contact_us": "Contáctanos",
+  "message": "Mensaje"
 }

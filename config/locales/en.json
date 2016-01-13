@@ -76,7 +76,52 @@
   "pwr_err": "There was an error, try again",
 
 
-  "recover_password_label": "If you are logged in via Facebook, enter the e-mail associated with your Facebook account"
+  "recover_password_label": "If you are logged in via Facebook, enter the e-mail associated with your Facebook account",
 
+  "your_reservation": "Your reservation",
+  "traveler_info": "Traveler info.",
+  "payment": "Payment",
+  "continue_shopping": "Continue shopping",
+  "continue": "Continue",
+  "transportation": "Transportation",
+  "total": "Total",
+
+  "schedule": "Schedule",
+  "date": "Date",
+
+  "data_for_tour": "Information for the tour transfer",
+  "optional": "Optional",
+  "continue_shopping_as": "Continue shopping as",
+  "registered_user": "registered user",
+  "new_user": "new usuario",
+  "data_for_reservation": "Info. for your reservation",
+  "booking_label1": "This data will be used for your reservation",
+
+  "confirm_email": "Confirm e-mail",
+  "lada": "Dial code",
+  "payment_method": "Payment method",
+  "payment_data": "Payment data",
+  "country": "Country",
+
+  "due_date": "Due date",
+  "credit_card_owner": "Credit card owner's name",
+  "credit_card_security_code": "Credit card security code",
+
+  "state": "State",
+  "city": "City",
+  "address": "Address",
+  "zipcode": "Zip code",
+  "terms": "Terms",
+
+  "total_payment": "Total due",
+  "total_tax_label": "Total due includes taxes",
+  "pay_booking": "Pay booking",
+
+  "reservation_number": "Reservation number",
+  "tour_details": "Tour details",
+  "print": "Print",
+
+  "contact_us": "Contact us",
+  "message": "Message"
 
 }

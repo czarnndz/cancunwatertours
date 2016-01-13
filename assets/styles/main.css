@@ -1911,11 +1911,18 @@ figcaption:hover .action-btn-white{
   text-align: center;
   margin: 0;
 }
-.booking .continue-btn{float: right;margin-left: 15px;margin-top: 15px;border-radius: 6px;}
+.booking .continue-btn{
+  float: right;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
 .booking .continue-btn.shopping{
   background: transparent;
   color: #1eb0eb;
-  box-shadow: inset 0px 0px 0px 3px #1EB0EB;}
+  box-shadow: inset 0px 0px 0px 3px #1EB0EB;
+}
 .booking .total-transporte p{margin: 0}
 .booking .highlight{color: #19A4EF!important}
 .booking .big-price{font-size: 24px;}

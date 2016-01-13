@@ -145,7 +145,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
     $scope.addCartTour = function() {
       cartService.addTour($scope.tour);
-      location.href = "/reserva";
+      location.href = "/" + $rootScope.currentLang + "/booking";
     };
 
     $scope.setUpMap = function(){

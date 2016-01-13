@@ -80,7 +80,7 @@
         <% } %>
       </span>
       <span class="account-menu-item">
-        <a href="/reserva">
+        <a ng-href="/{{currentLang}}/booking">
           <i class="icon-carrito"></i>
           <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
@@ -119,7 +119,7 @@
           </span>
         <% } %>
         <span>
-          <a href="/reserva">
+          <a ng-href="/{{currentLang}}/booking">
             <i class="icon-carrito"></i>
             <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
           </a>
