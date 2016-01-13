@@ -1,5 +1,5 @@
 
-app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService,$rootScope){
+app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -14,6 +14,8 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.toursCategories = [];
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
+  $scope.orderBy = 'dtCreated';
+
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
           $scope.hotels = [];
@@ -91,7 +93,10 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
 
   $scope.getCategoriesString = function(tour) {
-    return tour.categories.map(function(elem){ return elem.name; }).join(" | ");
+    return tour.categories.map(function(elem){
+      var name = ($rootScope.currentLang === 'es') ? elem.name : elem.name_en;
+      return name;
+    }).join(" | ");
   };
   $scope.getCategoryIcon = function(category){
     return toursService.getCategoryIcon(category);
@@ -150,15 +155,17 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       };
     };
     var printCategoriesByTour = function(tour){
+      var categoriesLabel = ($rootScope.currentLang === 'es') ? 'Categorías' : 'Categories';
       var categoriesStr = '';
       if(tour.categories){
         var categories = '';
         for(var i=0;i<tour.categories.length;i++){
-          categories += '<a href="/'+$rootScope.currentLang+'/tours/'+tour.categories[i].url+'" target="_blank">' + tour.categories[i].name + '</a>';
+          var category_name = ($rootScope.currentLang === 'es') ? tour.categories[i].name : tour.categories[i].name_en;
+          categories += '<a href="/'+$rootScope.currentLang+'/tours/'+tour.categories[i].url+'" target="_blank">' + category_name + '</a>';
 
           if(i !== (categories.length) ) categories += ', ';
         }
-        categoriesStr += "<p>Categorías: "+categories+"</p>";
+        categoriesStr += "<p>"+categoriesLabel+": "+categories+"</p>";
       }
       return categoriesStr;
     }
@@ -167,11 +174,12 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       var reel = '';
       for( var x in tours ){
         var tour = tours[x];
+        var tour_name = ($rootScope.lang === 'es') ? tour.name : tour.name_en;
         var item = '';
         var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
         var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
         item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
-        item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour.name+"</a></strong></p>";
+        item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
         item += printCategoriesByTour(tour);
         item = "<div>" + item + "</div>";
         reel += item;
@@ -225,6 +233,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
       $scope.muelles = {};
+      var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
       angular.forEach(data, function(t){
         //var info = '';
 
@@ -240,7 +249,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
           }
           var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
           for(var x in $scope.muelles[t.provider.id].points){
-            var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+" actividades aquí":$scope.muelles[t.provider.id].tours[0].name;
+            var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+ markerTxt : $scope.muelles[t.provider.id].tours[0].name;
             this.push({
               lat: $scope.muelles[t.provider.id].points[x].lat,
               lng: $scope.muelles[t.provider.id].points[x].lng,

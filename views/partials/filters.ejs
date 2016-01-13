@@ -1,27 +1,37 @@
 <div class="filters-section">
-  <div class='filters-section-row-colored'>
-    <md-radio-group ng-model="orderBy">
-      <span class="filters-section-large-label">Ordernar tours por: </span>
-      <div class="filter-option">
-        <md-radio-button value="dtCreated" class="md-primary"> <i class="icon-nuevo"></i> NUEVOS</md-radio-button>
-      </div>
-      <div class="filter-option">
-        <md-radio-button value="fee" class="md-primary"> <i class="icon-precio2"></i> PRECIO</md-radio-button>
-      </div>
-    </md-radio-group>
-  </div>
 
-  <div class="filters-section-row">
-    <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0">
-      <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
-        <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
-      </md-checkbox>
+  <div layout="row" layout-align="space-between start">
+
+    <div flex="35" class='filters-section-row'>
+
+      <md-select class="filters-section-orderby" ng-model="orderBy">
+        <md-option value="dtCreated">
+          <%= __('order_tours_by') %> <strong><%= __('recent') %></strong>
+        </md-option>
+        <md-option value="fee">
+          <%= __('order_tours_by') %> <strong><%= __('price') %></strong>
+        </md-option>
+      </md-select>
+
     </div>
+
+    <div flex="60" class="filters-section-row filters-section-row-nomargin">
+      <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0">
+        <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
+          <% if(req.params.lang === 'es'){ %>
+            <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
+          <% }else{ %>
+            <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name_en}}
+          <% } %>
+        </md-checkbox>
+      </div>
+    </div>
+
   </div>
 
   <div class="filters-section-row filters-section-sliders" layout="row" layout-wrap>
-    <div flex="25" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
-      <label>Rango de precios <i class="sm-icon icon-information"></i></label>
+    <div flex="33" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
+      <label><%= __('price_range') %> <i class="sm-icon icon-information"></i></label>
       <div layout='row' layout-align="space-between end">
         <i class="md-icon icon-precio2"></i>
         <md-slider flex class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
@@ -32,8 +42,12 @@
         <span>{{range.maxFee | currency : '$' }}</span>
       </div>
     </div>
-    <div ng-repeat="item in rate_categories track by item.id" flex="25" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
-      <label>{{item.name}} <i class='sm-icon icon-information'></i></label>
+    <div ng-repeat="item in rate_categories track by item.id" flex="33" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
+      <% if(req.params.lang === 'es'){ %>
+        <label>{{item.name}} <i class='sm-icon icon-information'></i></label>
+      <% }else{ %>
+        <label>{{item.name_en}} <i class='sm-icon icon-information'></i></label>
+      <% } %>
       <div layout='row' layout-align="space-between end">
         <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
         <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>

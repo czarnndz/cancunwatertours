@@ -20,32 +20,41 @@
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
         <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
           <div class="tour-item-inner">
-            <div ng-if="tour.haveTransfer" class="includes-bar">
-              <p><strong><i class="icon-transporte"></i> Transporte incluido</strong></p>
+            <div ng-if="tour.haveTransfer" class="includes-bar-img">
+              <!--<p><strong><i class="icon-transporte"></i> Transporte incluido</strong></p>-->
+              <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
             </div>
             <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
 
             <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
             <div class="tour-item-detail" layout="row" layout-align="space-between center">
               <div flex="60">
-                <p class="tour-item-detail-title"><strong>{{tour.name}}</strong></p>
+                <p class="tour-item-detail-title">
+                  <strong>
+                    <% if(req.params.lang === 'es'){ %>
+                      {{tour.name}}
+                    <% }else{ %>
+                      {{tour.name_en}}
+                    <% } %>
+                  </strong>
+                </p>
                 <p>{{tour.location.name}}</p>
-                <p class="tour-item-detail-categories"><strong>Categorias</strong> : {{ getCategoriesString(tour) }}</p>
+                <p class="tour-item-detail-categories"><strong><%= __('categories') %></strong> : {{ getCategoriesString(tour) }}</p>
               </div>
               <div flex="30">
-                <p>DESDE</p>
+                <p><%= __('from_price') %></p>
                 <p class="tour-item-price">
                   <strong>{{getPriceTour(tour) | currency}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
-              <a class="action-btn-white" href="/<%= req.params.lang %>/tour/{{tour.url}}">¡RESERVAR!</a>
+              <a class="action-btn-white" href="/<%= req.params.lang %>/tour/{{tour.url}}"><%= __('book_now') %></a>
             </div>
           </div>
         </div>
     	</div>
       <div ng-show="tours && (page * size) < tours.length" layout="row" layout-align="center center">
-        <a ng-click="page = page + 1" href="" class="action-btn">Ver más</a>
+        <a ng-click="page = page + 1" href="" class="action-btn"><%= __('see_more') %></a>
       </div>
       <div ng-show="loading" class="loading-wrapper" layout="row" layout-align="center center" layout-fill>
         <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
@@ -59,7 +68,7 @@
       <!--<div flex="60" flex-sm="100" class="hotel-search-label">-->
     <div class="hotel-search" layout="row">
       <div flex="40" class="hotel-search-label">
-        <a><strong>Ubicación</strong></a>
+        <a><strong><%= __('location') %></strong></a>
       </div>
       <div flex>
         <md-autocomplete
@@ -69,12 +78,12 @@
             md-items="hotel in hotels"
             md-item-text="hotel.name"
             md-min-length="0"
-            placeholder="Busca un hotel">
+            placeholder="<%= __('search_hotel') %>">
           <md-item-template>
             <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{hotel.name}}</span>
           </md-item-template>
           <md-not-found>
-            No se econcontro "{{searchText}}".
+            <%= __('no_results_found') %> "{{searchText}}".
           </md-not-found>
         </md-autocomplete>
       </div>

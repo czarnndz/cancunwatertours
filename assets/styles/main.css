@@ -320,7 +320,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   padding-left: 0;
   list-style: none;
   position: absolute;
-  z-index: 999999;
+  z-index: 99999999;
   background: #00ADF2;
   width: 100%;
   left: 0;
@@ -1445,10 +1445,15 @@ figcaption:hover .action-btn-white{
   background: #fff;
   padding: 16px;
 }
-.filters-section-row-colored{background: #F0FBFF;padding: 8px;}
-.filters-section-row{padding: 10px 0;}
-.filters-section-row + .filters-section-row{border-top: 1px solid lightgray;}
+.filters-section-row-nomargin{margin: 0}
+.filters-section-row-colored{background: #f4feff;padding: 8px;}
+.filters-section-row{
+  background: #f4feff;
+  padding: 10px 0;
+  margin: 10px 0;
+}
 /*
+.filters-section-row + .filters-section-row{border-top: 1px solid lightgray;}
 .filter-option:first-child{
   margin-left: 0;
 }
@@ -1456,7 +1461,7 @@ figcaption:hover .action-btn-white{
 .filter-option{
   display: inline-block;
   margin: 0 15px;
-  min-width: 163px;
+  min-width: 114px;
 }
 .filter-option i{
   color: #3CB7E3;
@@ -1473,6 +1478,8 @@ figcaption:hover .action-btn-white{
   font-size: 11px;
 }
 
+.filter-option md-radio-button span{text-transform: uppercase;}
+
 .filter-option md-radio-button,
 .filter-option md-checkbox{margin: 0}
 
@@ -1480,6 +1487,13 @@ figcaption:hover .action-btn-white{
 .filters-section-sliders .filter-option:first-child{
   padding-left: 0;
 }*/
+.filters-section-orderby{
+  margin: 6px;
+}
+.filters-section-orderby md-select-value{
+  color:#8f9094;
+  border-bottom: 0!important;
+}
 .filters-section-sliders .filter-option{
   margin: 0;
   padding: 0 15px;
@@ -1517,8 +1531,9 @@ figcaption:hover .action-btn-white{
 
 .filter-option-slider label{
   font-size: 15px;
-  display: inline-block;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
+  display: block;
+  text-align: center;
 }
 .filter-option-slider i.sm-icon{font-size: 14px;}
 
@@ -1751,6 +1766,15 @@ figcaption:hover .action-btn-white{
 
 }
 
+.tour-item .includes-bar-img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.tour-item .includes-bar-img img{
+  max-width: 100%;
+}
 .tour-item .includes-bar{
   background: #00ACF3;
   margin: 0;

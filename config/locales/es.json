@@ -120,5 +120,18 @@
   "print": "Imprimir",
 
   "contact_us": "Contáctanos",
-  "message": "Mensaje"
+  "message": "Mensaje",
+
+  "search_hotel": "Busca un hotel",
+  "location": "Ubicación",
+  "categories": "Categorias",
+  "see_more": "Ver más",
+
+  "order_tours_by": "Ordernar tours por",
+  "recent": "Nuevos",
+  "price": "Precio",
+  "price_range": "Rango de precios",
+
+  "choose_country": "Elige un país",
+  "from_price": "Desde"
 }

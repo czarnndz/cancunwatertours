@@ -122,6 +122,18 @@
   "print": "Print",
 
   "contact_us": "Contact us",
-  "message": "Message"
+  "message": "Message",
 
+  "search_hotel": "Search hotel",
+  "location": "Location",
+  "categories": "Categories",
+  "see_more": "See more",
+
+  "order_tours_by": "Order tours by",
+  "recent": "Recent",
+  "price": "Price",
+  "price_range": "Price range",
+  "choose_country": "Choose a country",
+
+  "from_price": "From"
 }

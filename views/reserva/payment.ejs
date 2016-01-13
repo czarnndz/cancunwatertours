@@ -73,7 +73,7 @@
 
         <md-select
           class="custom-select no-margin"
-          placeholder="Elige un país"
+          placeholder="<%= __('choose_country') %>"
           ng-model="client.country"
           name="client_country"
           required
@@ -202,9 +202,9 @@
               aria-label="<%= __('terms') %>"
               required>
               <% if(req.params.lang === 'es'){ %>
-                He leído y acepto los <a href="/es/aviso-de-privacidad"> Términos y Condiciones de uso y el  Aviso de privacidad </a>
+                He leído y acepto los <a href="/es/aviso-de-privacidad" target="_blank"> Términos y Condiciones de uso y el  Aviso de privacidad </a>
               <% }else{ %>
-                I have read and accepted <a href="/en/privacy-notice"> terms and conditions of use, and the privacy notice </a>
+                I have read and accepted <a href="/en/privacy-notice" target="_blank"> terms and conditions of use, and the privacy notice </a>
               <% } %>
             </md-checkbox>
           </p>
