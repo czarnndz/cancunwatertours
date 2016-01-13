@@ -195,14 +195,13 @@ module.exports = {
 
     var path = fromUrl.replace('/'+previousLang, '');
     var redirect = '/' + lang;
-    if(path && path!===''){
-      redirect += '/' + path;
+    if(path && path !== '' && path !== '/'){
+      redirect +=  path;
     }
 
     req.session.lang = lang;
     req.setLocale(lang);
-    res.redirect(path);
-    //res.redirect('/' + lang);
+    res.redirect(redirect);
   }
 
 };

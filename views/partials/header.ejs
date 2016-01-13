@@ -51,7 +51,7 @@
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
           <!--<a ng-click="setLang(item)">-->
-          <a ng-href="/change_lang?lang={{item.value}}&previous_lang=<%=req.params.lang%>&from_url=<%=req.path%>">
+          <a ng-href="/change_lang?lang={{item.value}}&previous_lang=<%=req.getLocale()%>&from_url=<%=req.path%>">
             <span ng-if="item === global_lang">&#10003;</span>
             {{item.label}}
           </a>
