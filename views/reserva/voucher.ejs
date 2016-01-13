@@ -1,7 +1,7 @@
 <script type="text/javascript">
   var theorder = <%- JSON.stringify(theorder) %>;
   var reservations = <%- JSON.stringify(reservations) %>;
-  var hasError = <%- error %>;
+  var hasError = '<%- error %>';
   var company = <%- JSON.stringify(company) %>;
 </script>
 <div ng-controller="voucherCTL">
@@ -14,7 +14,7 @@
           <p>
             <a href="#" onClick="window.print()">
               <img src="/images/impresora.png" alt="Imprimir"> Imprimir
-            </a> / {{order.dtCreated | date : 'shortDate'}}</p>
+            </a> / {{order.createdAt | date : 'shortDate'}}</p>
         </div>
         <p>
           <strong>Número de reservación</strong>: <strong class="highlight" ng-bind="order.id"></strong>
@@ -29,7 +29,7 @@
         <p>Avenida Bonampak Calle Cereza #1</p>
         <p>SM 2a L. 20 CP 77500 Cancún,</p>
         <p>Quintana Roo, México</p>
-        <p><a href="mailto:info@cancunwatertours.com">info@watertours.com</a></p>
+        <p><a href="mailto:info@watertours.com">info@watertours.com</a></p>
       </div>
     </div>
 
@@ -43,9 +43,11 @@
             <strong>{{reservation.reservation_type | uppercase}}: </strong> <strong><a class="highlight" href="#" target="_blank" ng-bind="reservation.tour.name"></a></strong>
           </p>
           <p><strong>Duración:</strong> {{reservation.tour.duration_formated}}</p>
-          <p ng-if="reservation.schedule"><strong>Horario:</strong> {{reservation.schedule}}</p>
-          <p><strong>Fecha:</strong> {{reservation.date}}</p>
-          <p><strong>Total: {{reservation.fee + reservation.feeKids}} {{reservation.currency}}</strong></p>
+          <p ng-if="reservation.schedule"><strong>Horario:</strong> de {{reservation.schedule.from | date:'HH:mm'}} a {{reservation.schedule.to | date:'HH:mm'}}</p>
+          <p><strong>Fecha:</strong> {{reservation.startDate | date:'dd/MM/yyyy'}}</p>
+          <p><strong>Adultos:</strong> {{reservation.pax}}</p>
+          <p ng-if="reservation.kidPax"><strong>Ninios:</strong> {{reservation.kidPax}}</p>
+          <p><strong>Total: {{reservation.total | currency}} {{currency | uppercase}}</strong></p>
         </div>
         <!--END VOUCHER ITEM-->
 
@@ -54,13 +56,21 @@
           <h3 class="voucher-title">DETALLES DEL TOUR</h3>
           <div class="voucher-prop">
             <p><strong>INCLUYE</strong></p>
-            <p ng-bind-html-unsafe="reservation.tour.includesList"></p>
+            <p>
+              <ul>
+                  <li ng-repeat="include in reservation.tour.includesList">{{include}}</li>
+              </ul>
+            </p>
           </div>
           <div class="voucher-prop">
             <p><strong>NO INCLUYE</strong></p>
-            <p ng-bind-html-unsafe="reservation.tour.notIncludesList"></p>
+              <p>
+              <ul>
+                  <li ng-repeat="include in reservation.tour.notIncludesList">{{include}}</li>
+              </ul>
+              </p>
           </div>
-          <div class="voucher-prop">
+          <div class="voucher-prop" ng-if="reservation.tour.recommendations_es">
             <p><strong>RECOMENDACIONES</strong></p>
             <p ng-bind-html-unsafe="reservation.tour.recommendations_es"></p>
           </div>
@@ -68,17 +78,17 @@
         <!--END VOUCHER ITEM-->
 
       </div>
-
-      <div flex="45">
-        <!-- VOUCHER ITEM -->
-        <div class="voucher-item">
-          <h3 class="voucher-title">TOTAL</h3>
-          <p><strong>TOTAL: {{getTotal()}} usd.</strong></p>
+        <div flex="45" ng-if="$index == 0">
+            <!-- VOUCHER ITEM -->
+            <div class="voucher-item">
+                <h3 class="voucher-title">TOTAL</h3>
+                <p><strong>TOTAL: {{total_reservations | currency }} {{currency | uppercase}}.</strong></p>
+            </div>
+            <!--END VOUCHER ITEM-->
         </div>
-        <!--END VOUCHER ITEM-->
-      </div>
 
     </div>
+
 
     <!--<h3>GRACIAS</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

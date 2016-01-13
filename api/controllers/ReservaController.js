@@ -23,7 +23,6 @@ module.exports = {
     create : function(req,res) {
       var params = req.params.all();
       var result = {};
-      console.log(params);
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
@@ -66,39 +65,39 @@ module.exports = {
                   });
                 } else if (params.client.payment_method == 'conekta') {
                       var conektaItems = Payments.getConektaItems(reservations);
-                      console.log(conektaItems);
-                      Payments.conektaCreate(conektaItems,params.client,params.token,order.id,total,currencyCode,function(err,result) {
+                      Payments.conektaCreate(conektaItems,params.client,params.token,order.id,total,currencyCode,function(err,cresult) {
                           if (err) {
                               OrderCore.updateReservations({order : order.id},{ state : 'error' },function(updateRes) {
                                   result.success = false;
                                   result.error = 'conekta reservation error';
                                   result.extra = updateRes;
+                                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'update_error';
                                   return res.json(result);
                               });
                           }
-                          OrderCore.updateReservations({order : order.id},{ state : result.status == 'paid' ? '' : 'pending' },function(updateRes) {
+                          console.log(cresult);
+                          OrderCore.updateReservations({order : order.id},{ state : cresult.status == 'paid' ? 'liquidated' : 'pending',authorization_code : cresult.id },function(updateRes) {
                               if (updateRes) {
-                                  delete result.payment_id;
-                                  delete result.payer_id;
+                                  result.success = true;
+                                  result.redirect_url = '/voucher?o=' + order.id;
                                   return res.json(result);
-                              }
-                              else {
+                              } else {
                                   result.success = false;
                                   result.error = 'reservation update error';
                                   result.extra = updateRes;
+                                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'update_error';
                                   return res.json(result);
                               }
                           });
-
                       });
                 } else {
                   result.success = true;
                   result.error = 'error payment method not supported';
-                  console.log(params);
+                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'payment_method';
                   return res.json(result);
                 }
               } else { //error al guardar reservaciones
-                return res.json({ success : false , error : 'error reservations creation' });
+                return res.json({ success : false , error : 'error reservations creation',redirect_url : '/voucher?o=' + order.id });
               }
 
             })
@@ -123,7 +122,7 @@ module.exports = {
       });
     },
 
-    conekta_return : function(req,res) {
+    conekta_return : function(req,res) { //parece que no hay
         var params = req.params.all();
         var state = 'canceled';
         var error = true;
@@ -135,19 +134,16 @@ module.exports = {
             res.redirect('/voucher?s=' + error + '&o=' + params.order);
         });
     },
-
+    //TODO agregar selector por email y id reservation
     voucher: function(req, res){
         var params = req.params.all();
-        console.log(params);
         Order.findOne({ id : params.o }).populate('client').exec(function(err,theorder){
             Reservation.find({ order : params.o }).populate('tour').exec(function(err,thereservations){
-                console.log(theorder);
-                console.log(thereservations);
                 res.view({
                     theorder : theorder,
                     reservations : thereservations,
                     company : sails.config.company,
-                    error : params.s,
+                    error : params.s || 'none',
                     meta : {
                         controller : 'reserva.js'
                     },

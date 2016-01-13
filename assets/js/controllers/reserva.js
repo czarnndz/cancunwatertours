@@ -96,13 +96,15 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       return cartService.getPriceTransfer(tour,{ cost : 20 });
     }
 
-    //TODO formatear para enviar los items formateados.
     $scope.process = function() {
       cartService.process($scope.client).then(function(result){
         console.log(result);
         if (result.data.success) {
           console.log('success');
-          //window.location.href = result.data.redirect_url;
+          if (result.data.redirect_url)
+            window.location.href = result.data.redirect_url;
+          else
+            console.log(result.data);
         } else {
           alert(result.data.success);
         }
@@ -115,14 +117,39 @@ app.controller('voucherCTL',function($scope,cartService) {
   $scope.order = theorder;
   $scope.error = hasError;
   $scope.cartService = cartService;
-  console.log(theorder);
-  console.log(reservations);
+  $scope.currency = company.currencies.reduce(function(c) {
+      if (reservations[0].currency == c.id) {
+          return c.currency_code;
+      }
+  });
+  $scope.total_reservations = 0;
 
-  $scope.getTotal = function(){
-    $scope.reservations.reduce(function(e){
+  console.log(theorder);
+
+
+
+    var formatList = function(inlineList){
+        if(inlineList){
+            var list = inlineList.split('\n');
+            for(var i=0;i<list.length;i++){
+                if(list[i] === ''){
+                    list.splice(i, 1);
+                }
+            }
+            return list;
+        }
+        return [];
+    };
+
+    $scope.reservations.forEach(function(e){
         e.feeChild = e.feeKids;
-        e.total = cartService.getTotal(e);
-        return e.total;
+        e.adults = e.pax;
+        e.kids = e.kidPax;
+        e.schedule = JSON.parse(e.schedule);
+        e.total = cartService.getPriceTour(e);
+        e.tour.includesList = formatList(e.tour.includes_es);
+        e.tour.notIncludesList = formatList(e.tour.does_not_include_es);
+        $scope.total_reservations += e.total;
+        console.log(e);
     });
-  }
 });

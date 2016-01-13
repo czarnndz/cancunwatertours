@@ -37,6 +37,10 @@ module.exports = {
       collection : 'reservation',
       via : 'order'
     }
+    ,number : {
+        type : 'integer',
+        autoIncrement: true
+    }
   }
   ,labels : {
     es : 'Reservaciones'
