@@ -78,10 +78,10 @@
 
             <p class="tel-label no-margin"><%= __('phone_number') %></p>
 
-            <div layout="row" layout-wrap layout-align="space-between center">
-              <div class="input-field-wrap" flex="45" flex-sm="100">
+            <div layout="row" layout-wrap layout-align="space-between start">
+              <div class="input-field-wrap" flex="30" flex-sm="100">
                   <input
-                    flex="100"
+                    flex="65"
                     class="input-field"
                     type="text"
                     required
@@ -90,9 +90,9 @@
                     name="phone_lada"
                     ng-class="{'input-field-error': clientData.phone_lada.$invalid && validatingClient }">
               </div>
-              <div class="input-field-wrap" flex="45" flex-sm="100" layout="row" layout-wrap flex-sm="100" layout-align="start center" >
+              <div class="input-field-wrap" flex="60" flex-sm="100">
                   <input
-                    flex="65"
+                    flex="100"
                     flex-sm="100"
                     type="text"
                     class="input-field"
@@ -102,7 +102,7 @@
                     ng-class="{'input-field-error': clientData.phone.$invalid && validatingClient }"
                     ng-model="client.phone">
 
-                  <div class="celular" flex="20" flex-sm="100" layout="row" layout-align="space-around center" >
+                  <div class="celular">
                     <md-checkbox md-no-ink aria-label="Celular" ng-model="client.isMobile" class="md-primary">
                       <%= __('mobile_phone_number') %>
                     </md-checkbox>

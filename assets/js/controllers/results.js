@@ -93,7 +93,11 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
 
   $scope.getCategoriesString = function(tour) {
-    return tour.categories.map(function(elem){
+    var categories =  tour.categories.filter(function(elem){
+      return (elem.type !== 'rate')
+    });
+
+    return categories.map(function(elem){
       var name = ($rootScope.currentLang === 'es') ? elem.name : elem.name_en;
       return name;
     }).join(" | ");

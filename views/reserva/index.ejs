@@ -20,13 +20,25 @@
 
               <!--STEPS BAR-->
               <div class="booking-header" layout="row"   ng-click="console.log(step);">
-                  <div class="step" ng-click="step = 0" ng-class="step >= 0 ? 'step-on' : ''" flex="33">
+                  <div
+                    class="step"
+                    ng-click="step = 0"
+                    ng-class="step == 0 ? 'step-on' : ''"
+                    flex="33">
                       <span><strong>1.</strong> <%= __('your_reservation') %></span>
                   </div>
-                  <div class="step" ng-click="step = terminos ? 1 : 0" ng-class="step >= 1 ? 'step-on' : ''" flex="33" >
+                  <div
+                    class="step"
+                    ng-click="step = cartComplete ? 1 : step"
+                    ng-class="step == 1 ? 'step-on' : ''"
+                    flex="33" >
                     <span><strong>2.</strong> <%= __('traveler_info') %></span>
                   </div>
-                  <div class="step" ng-click="step = terminos ? 2 : 0" ng-class="step == 2 ? 'step-on' : ''" flex="33" >
+                  <div
+                    class="step"
+                    ng-click="step = clientComplete ? 2 : step"
+                    ng-class="step == 2 ? 'step-on' : ''"
+                    flex="33" >
                       <span><strong>3.</strong> <%= __('payment') %></span>
                   </div>
               </div>
@@ -80,7 +92,7 @@
               <div class="booking-info-item">
                 <section class="booking-info-block">
                   <p class="text-total-d"><strong>TOTAL</strong></p>
-                  <p class="precio-total-d">{{priceTotal() | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}">{{priceTotal() | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
                 </section>
               </div>
             </div>

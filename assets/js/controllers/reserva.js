@@ -1,6 +1,7 @@
-app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location,$rootScope) {
+app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location,$rootScope, $timeout) {
     $scope.cartService = cartService;
     $scope.city = '';
+    $scope.blinkClass = false;
     $scope.client = window.client || {name:'',last_name:'',email:''};
     $scope.client.isMobile = false;
     if (!cartService.getClient().name) {
@@ -14,10 +15,13 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     $scope.hotels = hotels;
     $scope.isDisabled = true;
     $scope.terminos = false;
+
+    $scope.cartComplete = false;
+    $scope.clientComplete = false;
+
     $scope.step = 0;
 
     $scope.tours = cartService.getAll();
-    console.log($scope.tours);
 
 //    $scope.tours.forEach(function(tour,a){
 //        console.log(a);
@@ -65,23 +69,26 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
           for(var i = 0;i<$scope.tours.length;i++) {
             if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
               console.log('no hotel selected');
+              $scope.cartComplete = false;
               return true;
             }
           }
+          $scope.cartComplete = true;
           return false;
         } else if ($scope.step == 1) {
             $scope.validatingClient = true;
             if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
-              console.log('disabled');
               var options = {
                 title: 'Revisa tu información',
                 message: 'Revisa la información e intenta de nuevo'
               };
               $scope.showAlert($event, options);
+              $scope.clientComplete = false;
               return true;
             }
             else{
               console.log('not disabled');
+              $scope.clientComplete = true;
               return false;
             }
         }
@@ -97,8 +104,17 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     }
 
     $scope.priceTotal = function(){
-        return cartService.getPriceTotalTotal();
+      return cartService.getPriceTotalTotal();
     }
+
+    $scope.$watch($scope.priceTotal, function(newValue, oldValue){
+      if(newValue !== oldValue){
+        $scope.blinkClass = true;
+        $timeout(function(){
+          $scope.blinkClass = false;
+        }, 2000);
+      }
+    });
 
     $scope.tourPriceTotal = function(tour){
         return $scope.priceTour(tour) * $scope.priceTax(tour);

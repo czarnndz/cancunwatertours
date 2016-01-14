@@ -2,20 +2,20 @@
 
   <div layout="row" layout-align="space-between start">
 
-    <div flex="35" class='filters-section-row'>
+    <div flex="30" class='filters-section-row'>
 
       <md-select class="filters-section-orderby" ng-model="orderBy">
         <md-option value="dtCreated">
-          <%= __('order_tours_by') %> <strong><%= __('recent') %></strong>
+          <%= __('order_tours_by') %>: <strong><%= __('recent') %></strong>
         </md-option>
         <md-option value="fee">
-          <%= __('order_tours_by') %> <strong><%= __('price') %></strong>
+          <%= __('order_tours_by') %>: <strong><%= __('price') %></strong>
         </md-option>
       </md-select>
 
     </div>
 
-    <div flex="60" class="filters-section-row filters-section-row-nomargin">
+    <div flex="66" class="filters-section-row filters-section-row-nomargin">
       <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0">
         <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
           <% if(req.params.lang === 'es'){ %>
@@ -33,7 +33,7 @@
     <div flex="33" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
       <label><%= __('price_range') %> <i class="sm-icon icon-information"></i></label>
       <div layout='row' layout-align="space-between end">
-        <i class="md-icon icon-precio2"></i>
+        <i class="md-icon icon-coins"></i>
         <md-slider flex class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
         <i class="icon-precio2"></i>
       </div>

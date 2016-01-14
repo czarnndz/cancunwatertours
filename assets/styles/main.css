@@ -36,6 +36,14 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
 #main.main-nofooter{padding-bottom: 0!important;}
 #main-content{background: #F5F5F5;overflow: hidden;}
 
+.blink-txt {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}
+
 /*---------/
   #LOADING-WRAPPER
 /*--------*/
@@ -1460,13 +1468,13 @@ figcaption:hover .action-btn-white{
 */
 .filter-option{
   display: inline-block;
-  margin: 0 15px;
-  min-width: 114px;
+  margin: 0 5px;
+  min-width: 110px;
 }
 .filter-option i{
   color: #3CB7E3;
   font-size: 28px;
-  font-size: 40px;
+  font-size: 32px;
   vertical-align: middle;
 }
 .filter-option i.md-icon{font-size: 25px;}
@@ -1488,11 +1496,12 @@ figcaption:hover .action-btn-white{
   padding-left: 0;
 }*/
 .filters-section-orderby{
-  margin: 6px;
+  margin: 2px 6px;
 }
 .filters-section-orderby md-select-value{
   color:#8f9094;
   border-bottom: 0!important;
+  font-size: 13px;
 }
 .filters-section-sliders .filter-option{
   margin: 0;
