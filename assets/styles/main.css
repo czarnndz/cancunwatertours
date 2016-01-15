@@ -1451,14 +1451,14 @@ figcaption:hover .action-btn-white{
 .filters-section {
   color: #8f9094;
   background: #fff;
-  padding: 16px;
+  padding: 0 16px;
 }
 .filters-section-row-nomargin{margin: 0}
 .filters-section-row-colored{background: #f4feff;padding: 8px;}
 .filters-section-row{
   background: #f4feff;
   padding: 10px 0;
-  margin: 10px 0;
+  margin: 4px 0;
 }
 /*
 .filters-section-row + .filters-section-row{border-top: 1px solid lightgray;}
@@ -1600,7 +1600,7 @@ figcaption:hover .action-btn-white{
 }
 
 .search-results-tours{
-  padding:20px;
+  padding: 0 20px 20px 20px;
 }
 
 .map-wrapper{

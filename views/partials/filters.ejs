@@ -1,8 +1,8 @@
 <div class="filters-section">
 
-  <div layout="row" layout-align="space-between start">
+  <div layout="row" layout-wrap layout-align="space-between start">
 
-    <div flex="30" class='filters-section-row'>
+    <div flex="30" flex-sm="100" class='filters-section-row'>
 
       <md-select class="filters-section-orderby" ng-model="orderBy">
         <md-option value="dtCreated">
@@ -15,7 +15,7 @@
 
     </div>
 
-    <div flex="66" class="filters-section-row filters-section-row-nomargin">
+    <div flex="66" flex-sm="100" class="filters-section-row filters-section-row-nomargin">
       <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0">
         <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
           <% if(req.params.lang === 'es'){ %>
@@ -37,10 +37,10 @@
         <md-slider flex class="md-primary" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
         <i class="icon-precio2"></i>
       </div>
-      <div class="levels-text" layout="row" layout-align="space-between center">
+      <!--<div class="levels-text" layout="row" layout-align="space-between center">
         <span>{{range.minFee | currency : '$' }}</span>
         <span>{{range.maxFee | currency : '$' }}</span>
-      </div>
+      </div>-->
     </div>
     <div ng-repeat="item in rate_categories track by item.id" flex="33" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
       <% if(req.params.lang === 'es'){ %>
@@ -53,10 +53,10 @@
         <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>
         <i class="icon-{{ getCategoryIcon(item) }}1"></i>
       </div>
-      <div class="levels-text" layout="row" layout-align="space-between center" >
+      <!--<div class="levels-text" layout="row" layout-align="space-between center" >
         <span>{{ item.rating[0].label }}</span>
         <span>{{ item.rating[item.rating.length-1].label }}</span>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>
