@@ -10,7 +10,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
   create : function(req,res, next){
     if(!req.user){
-      var form = Common.formValidate(req.params.all(),['name','address','password','password_confirm','phone','rfc','comments','email','city','state','country']);
+      var form = Common.formValidate(req.params.all(),['name','last_name','address','password','password_confirm','phone','rfc','comments','email','city','state','country']);
       if(form && form.password != '' && form.password === form.password_confirm){
         var email = form.email;
         var password = form.password;

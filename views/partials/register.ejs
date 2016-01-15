@@ -3,6 +3,7 @@
   <h3><%= __('register')%></h3>
   <form method="post" action="/register" flex="100" layout="row" layout-align="center center" layout-wrap>
       <input type="text" required name="name" flex="80" type="text" placeholder="<%= __('name')%>" class="input-re">
+      <input type="text" required name="last_name" flex="80" type="text" placeholder="<%= __('last_name')%>" class="input-re">
       <input type="email" required name="email" flex="80" type="text" placeholder="E-mail" class="input-re">
       <input type="password" required name="password" flex="80" type="text" placeholder="<%= __('password')%>" class="input-re">
       <input type="password" required name="password_confirm" flex="80" type="text" placeholder="<%= __('confirm_password')%>" class="input-re">

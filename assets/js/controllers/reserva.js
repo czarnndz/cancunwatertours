@@ -16,10 +16,10 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     $scope.isDisabled = true;
     $scope.terminos = false;
 
-    $scope.cartComplete = false;
+    $scope.cartComplete = window.cartComplete || false;
     $scope.clientComplete = false;
 
-    $scope.step = 0;
+    $scope.step = $scope.cartComplete  ? 1 : 0;
 
     $scope.tours = cartService.getAll();
 
@@ -53,7 +53,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       }
     }
 
-    window.onbeforeunload = function (event) {
+    /*window.onbeforeunload = function (event) {
       var message = 'Sure you want to leave?';
       if (typeof event == 'undefined') {
         event = window.event;
@@ -62,7 +62,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
         event.returnValue = message;
       }
       return message;
-    }
+    }*/
 
     $scope.isNextButtonDisabled = function($event) {
         if ($scope.step == 0) {

@@ -7,16 +7,20 @@
 
 module.exports = {
     index : function(req,res) {
+      var params = req.params.all();
+      var isCartComplete = (params.step == '2') ? true : false;
       Hotel.find().exec(function(err,hotels){
         res.view({
           hotels : Common.formatHotel(hotels,'es'),
           booking: true,
+          cartComplete: isCartComplete,
           meta : {
             controller : 'reserva.js'
           },
           page : {
             searchUrl : '/booking',
-            placeholder : 'Buscar'
+            placeholder : 'Buscar',
+
           }
         });
       });
@@ -24,6 +28,7 @@ module.exports = {
     create : function(req,res) {
       var params = req.params.all();
       var result = {};
+      var lang = req.getLocale() || 'es';
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
@@ -72,7 +77,7 @@ module.exports = {
                                   result.success = false;
                                   result.error = 'conekta reservation error';
                                   result.extra = updateRes;
-                                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'update_error';
+                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
                                   return res.json(result);
                               });
                           }
@@ -80,13 +85,13 @@ module.exports = {
                           OrderCore.updateReservations({order : order.id},{ state : cresult.status == 'paid' ? 'liquidated' : 'pending',authorization_code : cresult.id },function(updateRes) {
                               if (updateRes) {
                                   result.success = true;
-                                  result.redirect_url = '/voucher?o=' + order.id;
+                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id;
                                   return res.json(result);
                               } else {
                                   result.success = false;
                                   result.error = 'reservation update error';
                                   result.extra = updateRes;
-                                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'update_error';
+                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
                                   return res.json(result);
                               }
                           });
@@ -94,7 +99,7 @@ module.exports = {
                 } else {
                   result.success = true;
                   result.error = 'error payment method not supported';
-                  result.redirect_url = '/voucher?o=' + order.id + '&s=' + 'payment_method';
+                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'payment_method';
                   return res.json(result);
                 }
               } else { //error al guardar reservaciones

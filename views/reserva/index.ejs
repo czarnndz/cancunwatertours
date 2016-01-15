@@ -1,5 +1,6 @@
 <script type="text/javascript">
     var hotels = <%- JSON.stringify(hotels) %>;
+    var cartComplete = <%- JSON.stringify(cartComplete) %>;
     <% if(req.user){ %>
       var client = <%- JSON.stringify(req.user) %>;
     <% } %>
