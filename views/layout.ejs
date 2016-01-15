@@ -71,7 +71,7 @@
 
   <div id="wrap">
     <div id="main"
-      <% if(typeof booking === 'undefined' || booking === false){  %>
+      <% if(typeof booking === 'undefined' || booking === false || true){  %>
         class="clearfix"
       <% }else{ %>
         class="clearfix main-nofooter"
@@ -81,7 +81,7 @@
         <div layout="column">
 
           <div>
-            <% if(typeof booking === 'undefined' || booking === false){ %>
+            <% if(typeof booking === 'undefined' || booking === false || true){ %>
               <%- partial('partials/header') -%>
             <% } %>
 
@@ -123,7 +123,7 @@
   </div><!-- END wrap -->
   <div class="clear"></div>
 
-  <% if(typeof booking === 'undefined' || booking === false){ %>
+  <% if(typeof booking === 'undefined' || booking === false || true){ %>
     <%- partial('partials/footer') -%>
   <% } %>
 
@@ -149,7 +149,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 

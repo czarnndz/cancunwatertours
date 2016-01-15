@@ -12,7 +12,7 @@ module.exports = {
     var form = req.params.all();
     var inBookingProcess = false;
     if (form.is_booking && form.is_booking == '1'){
-      isBooking = true;
+      inBookingProcess = true;
     }
     passport.authenticate('local', function(err, user, info) {
       if ((err) || (!user)) {
@@ -21,7 +21,7 @@ module.exports = {
       }
       req.logIn(user, function(err) {
         if (err) res.send(err);
-        if(isBooking){
+        if(inBookingProcess){
           return res.redirect('/' + req.getLocale() + '/booking?step=2');
         }else{
           return res.redirect('/');

@@ -103,6 +103,10 @@ module.exports.routes = {
     controller: 'client',
     action: 'create'
   },
+  '/update_client':{
+    controller: 'client',
+    action: 'update'
+  },
 
   '/process' : {
     controller : 'reserva',

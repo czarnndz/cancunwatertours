@@ -2,17 +2,29 @@
 	<div class="account container-lg">
 
     <!--PERSONAL INFO-->
-		<form method="post">
+		<form action="/update_client" method="post">
 			<h1><%= __('my_account') %></h1>
 
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label><%= __('name') %></label>
-					<input flex="100" type="text" value="<%- req.user.name %>" placeholder="<%= __('name') %>" class="input-cuenta">
+					<input
+            flex="100"
+            type="text"
+            name="name"
+            value="<%- req.user.name %>"
+            placeholder="<%= __('name') %>"
+            class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100" >
 					<label><%= __('last_name') %></label>
-					<input flex="100" type="text" value="<%- req.user.last_name %>" placeholder="<%= __('last_name') %>" class="input-cuenta">
+					<input
+            flex="100"
+            type="text"
+            name="last_name"
+            value="<%- req.user.last_name %>"
+            placeholder="<%= __('last_name') %>"
+            class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center start" flex="100">
@@ -68,7 +80,13 @@
 
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label><%= __('contact_phones') %></label>
-					<input flex="100" type="text" placeholder="<%= __('phone_number') %>" class="input-cuenta">
+					<input
+            flex="100"
+            type="text"
+            name="phone"
+            value="<%- req.user.phone %>"
+            placeholder="<%= __('phone_number') %>"
+            class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<input flex="100" type="text" placeholder="<%= __('mobile_phone_number') %>" class="input-cuenta">
@@ -78,25 +96,33 @@
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label>E-mail</label>
-					<input flex="100" type="text" value="<%- req.user.email %>" placeholder="E-mail" class="input-cuenta">
+					<input
+            flex="100"
+            type="text"
+            value="<%- req.user.email %>"
+            placeholder="E-mail"
+            name="email"
+            class="input-cuenta">
 				</div>
-				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
+				<!--
+        <div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label><%= __('credit_card_number') %></label>
 					<input flex="100" type="text" placeholder="***** **** ****" class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<input flex="100" type="text" placeholder="<%= __('change_payment_method') %>" class="input-cuenta">
 				</div>
+        -->
 			</div>
 
 			<div class="cont-form-cuenta" flex="100" layout="row" layout-align="center center" layout-wrap>
 				<div class="cont-input-cuenta" flex="20" flex-md="80" flex-sm="90" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
-					<input type="button" flex="100" class="boton-cuenta" value="<%= __('save') %>">
+					<input type="submit" flex="100" class="boton-cuenta" value="<%= __('save') %>">
 				</div>
 			</div>
 
       <p><a ng-href="/{{currentLang}}/recover_password"><%= __('change_password') %></a></p>
-
+      <input type="hidden" name="id" value="<%- req.user.id %>">
 		</form>
     <!--END PERSONAL INFO-->
 

@@ -35,6 +35,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
             for (var i = 0; i < 4; i++) {
                 //colspan = randomSpan();
                 //rowspan = randomSpan(colspan);
+                var tourMainCategories = toursService.getMainCategories(tours[i].categories);
                 aux_tours.push({
                     id : tours[i].id,
                     name: tours[i].name,
@@ -46,7 +47,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                     url: tours[i].url,
                     adults : 1,
                     kids : 0,
-                    firstCategory: tours[i].categories[0],
+                    firstCategory: tourMainCategories[0] || {},
                     collgspan: $scope.lengthsArray[i].collg,
                     rowlgspan: $scope.lengthsArray[i].rowlg,
                     colmdspan: $scope.lengthsArray[i].colmd,
@@ -66,6 +67,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                 rand = Math.floor( Math.random() * tours.length );
               }
               $scope.randArray.push( rand );
+              var tourMainCategories = toursService.getMainCategories(tours[rand].categories);
               aux_tours.push({
                   id : tours[rand].id,
                   name: tours[rand].name,
@@ -77,7 +79,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                   url: tours[rand].url,
                   adults : 1,
                   kids : 0,
-                  firstCategory: tours[rand].categories[0],
+                  firstCategory: tourMainCategories[0] || {},
                   collgspan: $scope.lengthsArray[i].collg,
                   rowlgspan: $scope.lengthsArray[i].rowlg,
                   colmdspan: $scope.lengthsArray[i].colmd,

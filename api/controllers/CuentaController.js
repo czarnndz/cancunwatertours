@@ -7,7 +7,10 @@
 
 module.exports = {
 	index : function(req,res){
+    var params = req.params.all();
+    var message = params.m || false;
 		res.view({
+      message: message,
 			meta : {
 				controller : 'cuenta.js',
                 addMenu : false

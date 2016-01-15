@@ -16,6 +16,7 @@
       serv.getTours = getTours;
       serv.getFeeRange = getFeeRange;
       serv.getCategoryIcon = getCategoryIcon;
+      serv.getMainCategories = getMainCategories;
       serv.getToursByName = getToursByName;
       serv.tours = [];
       serv.categories = [];
@@ -163,6 +164,15 @@
           icon = 'todos';
         }
         return icon;
+      }
+
+      function getMainCategories(categories){
+        var mainCategories = categories.filter(function(category){
+          if(category.principal){
+            return true;
+          }
+        });
+        return mainCategories;
       }
   });
 

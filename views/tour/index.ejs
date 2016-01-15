@@ -236,16 +236,16 @@
       <div class="s-tour-data" flex>
         <p><i ng-repeat="item in getSubcategories(tour_i.categories,'principal') | limitTo:1" class="icon-{{::item.name_en | slugFilter}} big-icon"></i></p>
         <h4>
-          <a ng-href="/tour/{{tour_i.url}}">
+          <a ng-href="/{{currentLang}}/tour/{{tour_i.url}}">
             <% if(req.params.lang === 'es'){ %>
-              {{tour.name}}
+              {{tour_i.name}}
             <% }else{ %>
-              {{tour.name_en}}
+              {{tour_i.name_en}}
             <% } %>
           </a>
         </h4>
         <p class="s-tour-price">{{getPrice(tour_i) | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
-        <p><a class='action-btn-white' href="/tour/{{tour_i.url}}"><%= __('book_now') %></a></p>
+        <p><a class='action-btn-white' ng-href="/{{currentLang}}/tour/{{tour_i.url}}"><%= __('book_now') %></a></p>
       </div>
     </div>
   </div>

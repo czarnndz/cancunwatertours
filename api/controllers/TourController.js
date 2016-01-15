@@ -9,7 +9,7 @@ module.exports = {
 	index : function(req,res){
     var params = req.params.all();
     if (params.url.match(/\..+$/)) res.notFound();
-    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').exec(function(e,tour){
+    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').populate('categories').exec(function(e,tour){
         //Fix temporal tour undefined
 
         if (e || !tour) {

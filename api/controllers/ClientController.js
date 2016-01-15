@@ -47,6 +47,19 @@ module.exports = {
       return res.redirect('/');
     }
   },
+  update: function(req,res){
+      var form = Common.formValidate(req.params.all(),['id','name','last_name','address','phone','rfc','comments','email','city','state','country']);
+      if(form && validateEmail(form.email) ){
+          delete form.contacts;
+          Client_.update({id:form.id},form).exec(function(err,client_){
+            if(err) return res.redirect('/' + req.getLocale() + '/account?m=f');
+
+            return res.redirect('/' + req.getLocale() + '/account?m=s');
+          });
+      }else{
+        return res.redirect('/' + req.getLocale() + '/account?m=f');
+      }
+  },
   recover_password: function(req, res){
     //if(!req.user){
       var form = req.params.all();
