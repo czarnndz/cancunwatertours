@@ -6,7 +6,6 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.imgs_url = imgs_url;
       $scope.minDate = new Date();
       $scope.tour = tour;
-      console.log(tour);
       $scope.tour.schedules = tour.schedules || [];
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
@@ -29,9 +28,10 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
           }
       };
 
-      var days_en = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
-      var days_en = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-      $scope.days = $rootScope.currentLang == 'es' ? days_es : days_en;
+      $scope.days = $rootScope.currentLang == 'es' ?
+          ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'] :
+          ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
 
       $scope.tourDurationFormatted = $scope.formatDuration($scope.tour.duration_formated);
       $scope.tourDuration = $scope.setDuration($scope.tour.days);
@@ -222,7 +222,6 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
             aux.push( categories[x] );
         }
       }
-      console.log(aux);
       return aux;
     }
     $scope.getRateValue = function(category){

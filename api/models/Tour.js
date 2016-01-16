@@ -61,6 +61,10 @@ module.exports = {
       ,duration : {
         type : 'integer'
       }
+      ,transferHotels : {
+          collection : 'hotel',
+          via : 'transferTours'
+      }
   }
   , migrate : 'safe'
   , attrs_labels : {
