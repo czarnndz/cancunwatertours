@@ -33,7 +33,8 @@
     "sails": "~0.11.2",
     "sails-disk": "~0.10.0",
     "sails-hook-email": "^0.12.1",
-    "sails-mongo": "^0.11.2"
+    "sails-mongo": "^0.11.2",
+    "sailsjs-cacheman": "^0.1.3"
   },
   "scripts": {
     "start": "node app.js",
