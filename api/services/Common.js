@@ -134,14 +134,16 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   cacheQuery.pageSize = pageSize;
   cacheQuery.page = page;
 
-  Cache.get('"' + JSON.stringify(cacheQuery) + '"',function(e,val){
+  var cacheKey = '"' + JSON.stringify(cacheQuery) + '"';
+
+  Cache.get(cacheKey,function(e,val){
       if (e) {
           console.log('error cache');
           callback(e,null);
       } else {
           if (!val) {
               Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(er,tours) {
-                  Cache.set('"' + JSON.stringify(cacheQuery) + '"',Common.formatTours(tours,'es'),'24h',function(err,value) {
+                  Cache.set(cacheKey,Common.formatTours(tours,'es'),'24h',function(err,value) {
                       if (err) throw err;
                       callback(err,value);
                   });
