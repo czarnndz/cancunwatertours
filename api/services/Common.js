@@ -93,6 +93,8 @@ module.exports.formatRoom = function(room,lang){
     }
 }
 
+var Cache = require('sailsjs-cacheman').sailsCacheman('name');
+
 module.exports.getTours = function(callback,page,pageSize,sort,name,category,maxFee,minFee,ids,all) {
   var s = {};
   var query = {};
@@ -127,9 +129,30 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   var sort = { };
   sort[sortBy] = 1;
   //console.log(query);
-  Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(err,tours) {
-    callback(err,Common.formatTours(tours,'es'));
+  var cacheQuery = _.clone(query);
+  cacheQuery.sort = sort;
+  cacheQuery.pageSize = pageSize;
+  cacheQuery.page = page;
+
+
+  Cache.get('"' + JSON.stringify(cacheQuery) + '"',function(e,val){
+      if (e) {
+          console.log('error cache');
+          callback(e,null);
+      } else {
+          if (!val) {
+              Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(er,tours) {
+                  Cache.set('"' + JSON.stringify(cacheQuery) + '"',Common.formatTours(tours,'es'),'1m',function(err,value) {
+                      if (err) throw err;
+                      callback(err,value);
+                  });
+              });
+          } else
+            callback(null,val);
+      }
   });
+
+
 }
 
 module.exports.formValidate = function(form,validate){

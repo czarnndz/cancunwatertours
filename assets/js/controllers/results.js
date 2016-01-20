@@ -130,7 +130,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.initMap = function(){
     $scope.map = {};
     $scope.center = {
-        zoom:14,
+        zoom:10,
         lat:21.1656951,
         lng:-86.8210734,
     };

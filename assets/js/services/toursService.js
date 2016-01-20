@@ -39,7 +39,7 @@
         if (all) {
             params.all = all;
         }
-          
+
         $http.get('/tour_list', {
               params: params
           })
