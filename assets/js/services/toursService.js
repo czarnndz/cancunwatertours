@@ -21,8 +21,9 @@
       serv.tours = [];
       serv.categories = [];
 
-      function getTours(category,minFee,maxFee,term){
+      function getTours(category,minFee,maxFee,term,all){
         var params = {};
+        var deferred = $q.defer();
         if (category) {
           params.category = category;
         }
@@ -35,22 +36,22 @@
         if (term) {
           params.term = term;
         }
-
-        return $http({
-          method: 'GET',
-          url: '/tour_list',
-          params : params
-        })
-        .then(function(res){
-          if (res.data && angular.isArray(res.data) ) {
-            serv.tours = res.data;
-            return res.data;
-          }
-          return [];
-        })
-        .catch(function(err){
-          return [];
+        if (all) {
+            params.all = all;
+        }
+          
+        $http.get('/tour_list', {
+              params: params
+          })
+        .success(function(data,status){
+          if (data && angular.isArray(data) ) {
+            serv.tours = data;
+            deferred.resolve(data);
+          } else
+            deferred.resolve([]);
         });
+
+        return deferred.promise;
       }
 
       function getCategories(name){

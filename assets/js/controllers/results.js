@@ -79,6 +79,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.getCategoriesByTours = function(){
     $scope.subcategories = [];
     //console.log(sec_categories);
+
     var aux = [];
     for( var x in sec_categories ){
       for( var y in $scope.tours ){
@@ -86,6 +87,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
           if( $scope.tours[y].categories[z].id == sec_categories[x].id && aux.indexOf(sec_categories[x].id)<0 ){
             $scope.subcategories.push( sec_categories[x] );
             aux.push(sec_categories[x].id);
+            //console.log(sec_categories[x]);
           }
         }
       }
@@ -94,7 +96,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
 
   $scope.getCategoriesString = function(tour) {
     var categories =  tour.categories.filter(function(elem){
-      return (elem.type !== 'rate')
+      return (elem.type != 'rate')
     });
 
     return categories.map(function(elem){
@@ -119,18 +121,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
         map.invalidateSize();
       });
     },500);
-  };
-
-  $scope.getTours = function() {
-    $scope.loading = true;
-    toursService.getTours($scope.category,minFee,maxFee,term).then(function(res){
-      //console.log(res);
-      $scope.tours = res;
-      $scope.loading = false;
-      $scope.redrawMap();
-      $scope.updatePricesRange();
-      $scope.getCategoriesByTours();
-    });
   };
 
   $scope.getPriceTour = function(tour){
@@ -231,7 +221,8 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     var markers = [];
     $scope.loading = true;
     $scope.initMap();
-    toursService.getTours($scope.category,minFee,maxFee,term).then(function(data){
+    $scope.getToursCategories();
+    toursService.getTours($scope.category,minFee,maxFee,term,true).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
       $scope.updatePricesRange();
@@ -287,9 +278,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       //console.log('$scope.markers');console.log($scope.markers);
 
     });
-
-    $scope.getToursCategories();
-
   };
 
   $scope.init();

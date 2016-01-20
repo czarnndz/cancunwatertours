@@ -93,7 +93,7 @@ module.exports.formatRoom = function(room,lang){
     }
 }
 
-module.exports.getTours = function(callback,page,pageSize,sort,name,category,maxFee,minFee,ids) {
+module.exports.getTours = function(callback,page,pageSize,sort,name,category,maxFee,minFee,ids,all) {
   var s = {};
   var query = {};
   var sortBy = 'name';
@@ -104,6 +104,10 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   if (!page) {
     page = 1;
   }
+  if (all) {
+    pageSize = ids.length;
+    page = 1;
+  }
   if (sort) {
     sortBy = sort;
   }
@@ -111,10 +115,10 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
     query.name = "/.*" + name + ".*/";
   }
   if(minFee){
-    query.minFee = { '>' : minFee };
+    query.fee = { '>' : minFee };
   }
   if (maxFee){
-    query.maxFee = { '<' : maxFee };
+    query.fee = { '<' : maxFee };
   }
   if (ids) {
     query.id = ids;
@@ -124,7 +128,6 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   sort[sortBy] = 1;
   //console.log(query);
   Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(err,tours) {
-    //console.log(tours.length);
     callback(err,Common.formatTours(tours,'es'));
   });
 }

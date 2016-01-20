@@ -9,7 +9,7 @@ module.exports = {
 	index : function(req,res){
     var params = req.params.all();
     if (params.url.match(/\..+$/)) res.notFound();
-    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').populate('categories').exec(function(e,tour){
+    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').populate('categories').populate('location').exec(function(e,tour){
         //Fix temporal tour undefined
 
         if (e || !tour) {
@@ -20,13 +20,11 @@ module.exports = {
         var qparams = {
           url : { '!' : params.url},
           visible : true
-        }
+        };
         if (tour.location) {
-            qparams = {
-                location: tour.location.id
-            }
+            qparams.location = tour.location.id;
         }
-        Tour.find(qparams).limit(3).sort('fee desc').populate('location').populate('categories').populate('price').exec(function(e,similar_tours){
+        Tour.find(qparams).limit(3).sort('fee desc').populate('price').exec(function(e,similar_tours){
             TourTourcategory.find({ tour_categories : tour.id }).exec(function(err,rate_values){
                 //console.log(e);
                 TourCategory.find({ principal:true, type : {'!' : 'rate'}}).exec(function(e,categories){
