@@ -18,7 +18,7 @@
           class="input-header" >
           <md-item-template>
             <span class="item-title search-box-item">
-              <img src="{{item.avatar1}}" alt="{{item.name}}"> <a href="/<%= req.params.lang %>/tour/{{item.url}}"> {{item.name}} </a>
+              <img src="{{item.avatar1}}" alt="{{item.name}}"> <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{item.name}} </a>
             </span>
           </md-item-template>
         </md-autocomplete>
@@ -188,7 +188,7 @@
       <md-item-template>
         <span class="item-title">
           <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-          <a href="/tour/{{item.url}}"> {{item.name}} </a>
+          <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{item.name}} </a>
         </span>
       </md-item-template>
     </md-autocomplete>

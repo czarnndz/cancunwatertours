@@ -144,7 +144,7 @@ app.controller('Search',function($scope, $window, toursService,$rootScope,localS
     };
 
     $scope.selectedItemChange = function(item){
-      $window.location.href = '/tour/' + item.url;
+      $window.location.href = '/' +  $rootScope.currentLang +  '/tour/' + item.url;
     }
 });
 app.controller('StaticPagesCTL',function($scope,$http){
