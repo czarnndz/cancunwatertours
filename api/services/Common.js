@@ -12,10 +12,10 @@ module.exports.formatTours = function(tours,lang){
 }
 module.exports.formatTour = function(tour,lang){
 	if(tour){
-        tour.avatar = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/'+tour.icon.filename : '/images/bit_default.jpg';
-        tour.avatar1  = tour.icon ? process.env.BACKEND_URL + '/uploads/tours/196x140'+tour.icon.filename : '/images/small_default.jpg';
-        tour.avatar2 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/177x171'+tour.icon.filename : '/images/small_default.jpg';
-        tour.avatar3 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/593x331'+tour.icon.filename : '/images/bit_default.jpg';
+        tour.avatar = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/'+tour.icon.filename : '/images/default.png';
+        tour.avatar1  = tour.icon ? process.env.BACKEND_URL + '/uploads/tours/196x140'+tour.icon.filename : '/images/default.png';
+        tour.avatar2 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/177x171'+tour.icon.filename : '/images/default.png';
+        tour.avatar3 = tour.icon ? process.env.BACKEND_URL +'/uploads/tours/593x331'+tour.icon.filename : '/images/default.png';
         tour.reservation_type = 'tour';
         tour.adults = 1;
         tour.kids = 0;

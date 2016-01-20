@@ -1468,13 +1468,12 @@ figcaption:hover .action-btn-white{
 */
 .filter-option{
   display: inline-block;
-  margin: 0 5px;
+  margin: 5px;
   min-width: 110px;
 }
 .filter-option i{
   color: #3CB7E3;
   font-size: 28px;
-  font-size: 32px;
   vertical-align: middle;
 }
 .filter-option i.md-icon{font-size: 25px;}
@@ -1539,7 +1538,7 @@ figcaption:hover .action-btn-white{
 }
 
 .filter-option-slider label{
-  font-size: 15px;
+  font-size: 13px;
   margin: 0 auto 10px;
   display: block;
   text-align: center;
