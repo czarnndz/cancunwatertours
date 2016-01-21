@@ -262,8 +262,13 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .account-menu .login-icon-wrap i{
   font-size: 26px;
   vertical-align: middle;
-  margin-top: 7px;
   display: inline-block;
+}
+.header .account-menu .login-icon-wrap img{
+  border-radius: 50%;
+  height: 35px;
+  margin-top: 4px;
+  width: 35px;
 }
 .header .account-menu-item{
   margin: -6px 10px 0;
@@ -1507,7 +1512,7 @@ figcaption:hover .action-btn-white{
   padding: 0 15px;
 }
 
-.filter-option md-slider{margin: 0px 10px;top: 18px;margin-top: -11px;}
+.filter-option md-slider{margin: 0px 10px;top: 18px;margin-top: -18px;}
 .filter-option md-slider .md-track{background: #b6b7b9}
 
 .filter-option md-slider.md-default-theme.md-primary,
@@ -1539,7 +1544,7 @@ figcaption:hover .action-btn-white{
 
 .filter-option-slider label{
   font-size: 13px;
-  margin: 0 auto 10px;
+  margin: 0 auto;
   display: block;
   text-align: center;
 }
