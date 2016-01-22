@@ -11,6 +11,7 @@ module.exports = {
     name	: { type: 'string',required : true },
     last_name : { type : 'string' },
     phone	: { type: 'string' },
+    mobilephone : { type: 'string' },
     email : 'string',
 
     company	: { model : 'Company'  },
@@ -46,6 +47,12 @@ module.exports = {
     },
     facebookId: {
       type: 'string'
+    },
+    gender:{
+      type:'string'
+    },
+    birthday: {
+      type: 'date'
     }
     ,setPassword : function(val,cb){
       this.password = bcrypt.hashSync(val,bcrypt.genSaltSync(10));

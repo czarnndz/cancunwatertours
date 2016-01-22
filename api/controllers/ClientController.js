@@ -48,10 +48,21 @@ module.exports = {
     }
   },
   update: function(req,res){
-      var form = Common.formValidate(req.params.all(),['id','name','last_name','address','phone','rfc','comments','email','city','state','country']);
+      var form = Common.formValidate(req.params.all(),['id','name','last_name','gender','address','phone','mobilephone','birthday','birthmonth','birthyear','rfc','comments','email','city','state','country']);
+
+      //TODO encontrar una manera mas facil de manejar fecha
+      if(form.birthday && form.birthmonth && form.birthyear){
+        var birthday = new Date(form.birthyear,form.birthmonth,form.birthday);
+        delete form.birthday;
+        delete form.birthmonth;
+        delete form.birthyear;
+        form.birthday = birthday;
+      }
+
       if(form && validateEmail(form.email) ){
           delete form.contacts;
           Client_.update({id:form.id},form).exec(function(err,client_){
+            if(err) console.log(err);
             if(err) return res.redirect('/' + req.getLocale() + '/account?m=f');
 
             return res.redirect('/' + req.getLocale() + '/account?m=s');
