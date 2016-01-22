@@ -29,6 +29,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   width: 100%;
   z-index: 1;
 }
+.row-justified{justify-content:space-between;}
 *:focus, *:hover{outline: 0px}
 #main{
   padding-bottom: 150px!important;
@@ -1499,6 +1500,12 @@ figcaption:hover .action-btn-white{
 .filters-section-sliders .filter-option:first-child{
   padding-left: 0;
 }*/
+.filters-wrap-orderby{
+  -webkit-flex: 0 0 28%;
+  -ms-flex: 0 0 28%;
+  flex: 0 0 28%;
+  max-width: 28%;
+}
 .filters-section-orderby{
   margin: 2px 6px;
 }

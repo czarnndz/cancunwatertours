@@ -1,8 +1,8 @@
 <div class="filters-section">
 
-  <div layout="row" layout-wrap layout-align="space-between start">
+  <div layout="row" layout-wrap class="row-justified">
 
-    <div flex="25" flex-md="100" flex-sm="100" class='filters-section-row'>
+    <div flex="25" flex-md="100" flex-sm="100" layout="row" layout-align="center center" class='filters-section-row filters-wrap-orderby'>
 
       <md-select class="filters-section-orderby" ng-model="orderBy">
         <md-option value="dtCreated">
@@ -34,7 +34,7 @@
           <% } %>
           <div layout='row' layout-align="space-between end">
             <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
-            <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" md-discrete aria-label="rating" ></md-slider>
+            <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
             <i class="icon-{{ getCategoryIcon(item) }}1"></i>
           </div>
         </div>
