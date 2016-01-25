@@ -19,6 +19,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
           $scope.hotels = [];
+          console.log(response);
           for(var x in response)
             if( response[x].latitude && response[x].longitude )
               $scope.hotels.push(response[x]);
