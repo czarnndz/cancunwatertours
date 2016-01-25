@@ -60,7 +60,13 @@
     <div class="account-menu-inner" flex layout="row" layout-align="center center" >
       <% if(req.user){ %>
         <span class="account-menu-item login-icon-wrap">
-          <a href="/cuenta"><i class="icon-login"></i></a>
+          <a href="/cuenta">
+            <% if(req.user.facebookId){ %>
+              <img src="http://graph.facebook.com/<%= req.user.facebookId %>/picture" alt="">
+            <% }else{ %>
+              <i class="icon-login"></i>
+            <% } %>
+          </a>
         </span>
 
         <span class="account-menu-item account-item">
@@ -114,7 +120,13 @@
       <div layout="row" layout-align="end center">
         <% if(req.user){ %>
           <span class="login-icon-wrap">
-            <a href="/cuenta"><i class="icon-login"></i></a>
+            <a href="/cuenta">
+              <% if(req.user.facebookId){ %>
+                <img src="http://graph.facebook.com/<%= req.user.facebookId %>/picture" alt="">
+              <% }else{ %>
+                <i class="icon-login"></i>
+              <% } %>
+            </a>
           </span>
         <% } %>
         <span>

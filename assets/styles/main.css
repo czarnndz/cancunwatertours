@@ -29,6 +29,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   width: 100%;
   z-index: 1;
 }
+.row-justified{justify-content:space-between;}
 *:focus, *:hover{outline: 0px}
 #main{
   padding-bottom: 150px!important;
@@ -262,8 +263,13 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .account-menu .login-icon-wrap i{
   font-size: 26px;
   vertical-align: middle;
-  margin-top: 7px;
   display: inline-block;
+}
+.header .account-menu .login-icon-wrap img{
+  border-radius: 50%;
+  height: 35px;
+  margin-top: 4px;
+  width: 35px;
 }
 .header .account-menu-item{
   margin: -6px 10px 0;
@@ -1460,6 +1466,9 @@ figcaption:hover .action-btn-white{
   padding: 10px 0;
   margin: 4px 0;
 }
+
+.row-justified > .filters-section-row{padding: 6px 0;}
+
 /*
 .filters-section-row + .filters-section-row{border-top: 1px solid lightgray;}
 .filter-option:first-child{
@@ -1494,6 +1503,12 @@ figcaption:hover .action-btn-white{
 .filters-section-sliders .filter-option:first-child{
   padding-left: 0;
 }*/
+.filters-wrap-orderby{
+  -webkit-flex: 0 0 28%!important;
+  -ms-flex: 0 0 28%!important;
+  flex: 0 0 28%!important;
+  max-width: 28%!important;
+}
 .filters-section-orderby{
   margin: 2px 6px;
 }
@@ -1507,7 +1522,7 @@ figcaption:hover .action-btn-white{
   padding: 0 15px;
 }
 
-.filter-option md-slider{margin: 0px 10px;top: 18px;margin-top: -11px;}
+.filter-option md-slider{margin: 0px 10px;top: 18px;margin-top: -18px;}
 .filter-option md-slider .md-track{background: #b6b7b9}
 
 .filter-option md-slider.md-default-theme.md-primary,
@@ -1537,9 +1552,10 @@ figcaption:hover .action-btn-white{
   font-size: 11px;
 }
 
+.filter-option-slider {margin: 0 5px;}
 .filter-option-slider label{
   font-size: 13px;
-  margin: 0 auto 10px;
+  margin: 0 auto;
   display: block;
   text-align: center;
 }
@@ -2460,6 +2476,16 @@ figcaption:hover .action-btn-white{
   /*--------/
     #FILTERS-OPTIONS
   /*--------*/
+  .filter-option-slider{
+    padding: 5px;
+    margin: 0;
+  }
+  .filters-wrap-orderby{
+    -webkit-flex: 0 0 100%!important;
+    -ms-flex: 0 0 100%!important;
+    flex: 0 0 100%!important;
+    max-width: 100%!important;
+  }
   .filters-section-sliders .filter-option{padding: 0;}
 
   /*--------

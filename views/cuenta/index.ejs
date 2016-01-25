@@ -1,5 +1,10 @@
 <div id="cont-cuenta" class="container-xlg" ng-controller="Cuenta">
-	<div class="account container-lg">
+
+  <script type="text/javascript">
+    window.user = <%- JSON.stringify(req.user) %>;
+  </script>
+
+  <div class="account container-lg">
 
     <!--PERSONAL INFO-->
 		<form action="/update_client" method="post">
@@ -28,55 +33,29 @@
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100" layout="row" layout-align="start end" layout-align-md="center center" layout-align-sm="center center" layout-wrap>
 					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center start" flex="100">
-				  		<md-select ng-model="someVal" placeholder="<%= __('gender') %>">
-				    		<md-option value="1"><%= __('male') %></md-option>
-				    		<md-option value="2"><%= __('female') %></md-option>
+				  		<md-select ng-model="userGender" placeholder="<%= __('gender') %>">
+				    		<md-option value="male"><%= __('male') %></md-option>
+				    		<md-option value="female"><%= __('female') %></md-option>
 				  		</md-select>
+
+              <input type="hidden" ng-value="userGender" name="gender">
 					</div>
 				</div>
 			</div>
 
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
-				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
-					<label><%= __('birthday') %></label>
-          <div layout="row" layout-align="space-between end" layout-wrap>
-  					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
-  				  		<md-select ng-model="someVal" placeholder="<%= __('day') %>">
-  				    		<md-option value="1">1</md-option>
-  				    		<md-option value="2">2</md-option>
-  				    		<md-option value="3">3</md-option>
-  				    		<md-option value="4">4</md-option>
-  				    		<md-option value="5">5</md-option>
-  				    		<md-option value="6">6</md-option>
-  				    		<md-option value="7">7</md-option>
-  				    		<md-option value="8">8</md-option>
-  				    		<md-option value="9">9</md-option>
-  				    		<md-option value="10">10</md-option>
-  				  		</md-select>
-  					</div>
-  					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
-  				  		<md-select ng-model="someVal" placeholder="<%= __('month') %>">
-  				    		<md-option value="1">1</md-option>
-  				    		<md-option value="2">2</md-option>
-  				    		<md-option value="3">3</md-option>
-  				    		<md-option value="4">4</md-option>
-  				    		<md-option value="5">5</md-option>
-  				    		<md-option value="6">6</md-option>
-  				    		<md-option value="7">7</md-option>
-  				    		<md-option value="8">8</md-option>
-  				    		<md-option value="9">9</md-option>
-  				    		<md-option value="10">10</md-option>
-  				  		</md-select>
-  					</div>
-  					<div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
-  				  		<md-select ng-model="someVal" placeholder="<%= __('year') %>">
-  				    		<md-option value="1">2015</md-option>
-  				    		<md-option value="2">2016</md-option>
-  				    		<md-option value="3">2017</md-option>
-  				  		</md-select>
-  					</div>
-          </div>
-				</div>
+
+        <div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
+          <label>E-mail</label>
+          <input
+            flex="100"
+            type="text"
+            value="<%- req.user.email %>"
+            placeholder="E-mail"
+            name="email"
+            class="input-cuenta">
+        </div>
+
 
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label><%= __('contact_phones') %></label>
@@ -89,21 +68,35 @@
             class="input-cuenta">
 				</div>
 				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
-					<input flex="100" type="text" placeholder="<%= __('mobile_phone_number') %>" class="input-cuenta">
+					<input flex="100" type="text" value="<%= req.user.mobilephone %>" name="mobilephone" placeholder="<%= __('mobile_phone_number') %>" class="input-cuenta">
 				</div>
 			</div>
 
       <div class="cont-form-cuenta" layout="row" layout-align="space-between end" layout-wrap>
-				<div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
-					<label>E-mail</label>
-					<input
-            flex="100"
-            type="text"
-            value="<%- req.user.email %>"
-            placeholder="E-mail"
-            name="email"
-            class="input-cuenta">
-				</div>
+
+        <div class="cont-input-cuenta" flex="60" flex-md="100" flex-sm="100">
+          <label><%= __('birthday') %></label>
+          <div layout="row" layout-align="space-between end" layout-wrap>
+            <div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
+                <md-select ng-model="userBirthday" placeholder="<%= __('day') %>">
+                  <md-option ng-repeat="day in getRange(1,31)" ng-value="day">{{day}}</md-option>
+                </md-select>
+                <input type="hidden" ng-value="userBirthday" name="birthday">
+            </div>
+            <div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
+                <md-select ng-model="userBirthmonth" placeholder="<%= __('month') %>">
+                  <md-option ng-repeat="month in months track by $index" ng-value="$index">{{month}}</md-option>
+                </md-select>
+                <input type="hidden" ng-value="userBirthmonth" name="birthmonth">
+            </div>
+            <div class="input-cuenta input-cuenta-select" layout="column" layout-align="center center" flex="30">
+                <md-select ng-model="userBirthyear" placeholder="<%= __('year') %>">
+                  <md-option ng-value="{{year}}" ng-repeat="year in getRange(1900,2015)">{{year}}</md-option>
+                </md-select>
+                <input type="hidden" ng-value="userBirthyear" name="birthyear">
+            </div>
+          </div>
+        </div>
 				<!--
         <div class="cont-input-cuenta" flex="30" flex-md="100" flex-sm="100">
 					<label><%= __('credit_card_number') %></label>

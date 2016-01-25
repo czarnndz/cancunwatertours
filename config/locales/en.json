@@ -129,11 +129,12 @@
   "categories": "Categories",
   "see_more": "See more",
 
-  "order_tours_by": "Order tours by",
+  "order_tours_by": "Order by",
   "recent": "Recent",
   "price": "Price",
   "price_range": "Price range",
   "choose_country": "Choose a country",
 
-  "from_price": "From"
+  "from_price": "From",
+  "activity_day": "Activity day"
 }
