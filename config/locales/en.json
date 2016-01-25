@@ -135,5 +135,6 @@
   "price_range": "Price range",
   "choose_country": "Choose a country",
 
-  "from_price": "From"
+  "from_price": "From",
+  "activity_day": "Activity day"
 }
