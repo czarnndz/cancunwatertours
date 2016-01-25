@@ -12,7 +12,7 @@
   </a>
   <div flex="80">
     <div class="bottom-btns" layout="row" layout-align="space-between center">
-      <a href="/recover_password"><strong><%= __('forgot_password')%></strong></a>
+      <a ng-href="/{{currentLang}}/recover_password"><strong><%= __('forgot_password')%></strong></a>
       <a ng-click="doLoginToggle()" href=""><strong><%= __('create_account')%></strong></a>
     </div>
   </div>
