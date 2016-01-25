@@ -130,7 +130,7 @@ module.exports = {
     }
     ,transfer_type : {
       type:'string',
-      enum : ['1','2'] //1=hotel-hotel , 2=aeropuerto-hotel
+      enum : ['1','2','3'] //1=hotel-hotel , 2=aeropuerto-hotel, 3=hotel-tour
       ,defaultsTo : '2'
     }
     /*
@@ -152,7 +152,7 @@ module.exports = {
     ,cancelationDate : 'date'
     //tour
     ,schedule : 'string'
-    ,authorization_code : 'string' //paypal = payment_id
+    ,authorization_code : 'string' //paypal = payment_id , conekta : charge_id
     ,authorization_code_2 : 'string' //paypal = token
     ,duration : 'integer'
     ,prices : {

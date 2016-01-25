@@ -49,10 +49,16 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.tour.schedules = aux_schedules;
 
       $http.get('/hotels').success(function(response) {
-        $scope.hotels = response;
+          $scope.hotels = response;
+          if ($scope.tour.transferHotels) {
+              $scope.searchHotels = $scope.tour.transferHotels;
+          } else {
+              $scope.searchHotels = $scope.hotels;
+          }
       });
 
       $scope.date = new Date();
+      $scope.date.setDate($scope.date.getDate() + 1);
 
     };
 
