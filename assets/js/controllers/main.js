@@ -91,7 +91,6 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
 
     $scope.getToursCategories = function() {
       toursService.getCategories().then(function(res){
-        //console.log(res);
         $scope.toursCategories = res;
       });
     };
@@ -107,12 +106,12 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
 
     $scope.doContact = function($event, form){
       var optionsSuccess = {
-        title: 'Mensaje enviado',
-        message: 'Gracias por enviar tu mensaje'
+        title: ($rootScope.currentLang=='es') ? 'Mensaje enviado' : 'Message sent',
+        message: ($rootScope.currentLang=='es') ? 'Gracias por enviar tu mensaje' : 'Thanks, your message has been sent'
       };
       var optionsFail = {
-        title: 'Revisa tu información',
-        message: 'Revisa la información e intenta de nuevo'
+        title: ($rootScope.currentLang=='es') ? 'Revisa tu información' : 'Check your information',
+        message: ($rootScope.currentLang=='es') ? 'Revisa tu información e intenta de nuevo' : 'Check your information and try again'
       };
 
       if(form.$valid){

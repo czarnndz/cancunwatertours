@@ -660,6 +660,11 @@ figcaption:hover .action-btn-white{
   overflow: hidden;
   position: relative;
 }
+
+.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y{
+  background-color: #A1E1E6!important;
+}
+
 .tile-container md-grid-list{
   padding-bottom: 0 !important;
 }
@@ -810,13 +815,20 @@ figcaption:hover .action-btn-white{
 }
 .tour-extra-data{font-size: 13px;}
 .tour-extra-data i{font-size: 13px;}
+.tour-extra-data .extra-item:first-child{margin-left: 0;}
 .tour-extra-data .extra-item{margin: 0 10px;}
+.tour-description .row-categories .row-category-wrapper{
+  margin-left: -10px;
+}
+/*
 .tour-extra-data .extra-item:first-child{margin-left:0; }
+.tour-description .row-categories .row-category:first-child{margin-left: 0;}
+*/
 .tour-description .row-categories .row-category{
   margin: 0 15px;
 }
+.tour-description .row-categories .row-category a{color: #B1B1B1}
 
-.tour-description .row-categories .row-category:first-child{margin-left: 0;}
 .tour-description .row-categories i{
   font-size: 18px;
   position: relative;
@@ -830,6 +842,7 @@ figcaption:hover .action-btn-white{
 }
 .tour-description .row-categories p{
   color: #B1B1B1;
+  margin: 6px 0;
 }
 .tour-description .row-categories{
   border-bottom: 1px solid #B1B1B1;
@@ -1504,10 +1517,7 @@ figcaption:hover .action-btn-white{
   padding-left: 0;
 }*/
 .filters-wrap-orderby{
-  -webkit-flex: 0 0 28%!important;
-  -ms-flex: 0 0 28%!important;
-  flex: 0 0 28%!important;
-  max-width: 28%!important;
+  margin-right: 10px;
 }
 .filters-section-orderby{
   margin: 2px 6px;
@@ -2284,6 +2294,25 @@ figcaption:hover .action-btn-white{
   }
 }
 
+/*--------------/
+  #TOOLTIP-CUSTOM
+/*-------------*/
+.tooltip-custom{
+  background: #c0eeff!important;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  color: #75767b;
+  font-size: 12px;
+  max-width: 200px;
+  padding: 6px;
+  text-align: justify;
+}
+.tooltip-custom .md-background{
+  background: #c0eeff!important;
+}
+.tooltip-custom .md-content{
+  height: auto;
+  white-space: normal;
+}
 
 /*-------------/
   #FOOTER
@@ -2485,6 +2514,7 @@ figcaption:hover .action-btn-white{
     -ms-flex: 0 0 100%!important;
     flex: 0 0 100%!important;
     max-width: 100%!important;
+    margin-right: 0;
   }
   .filters-section-sliders .filter-option{padding: 0;}
 

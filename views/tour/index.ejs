@@ -17,15 +17,22 @@
         <div class="tour-data"  layout="row" layout-wrap layout-align="space-between center">
           <div class="tour-data-column" flex>
             <h1>
-              <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="{{currentLang}}/tours/{{item.url}}" target="_blank" >
-                <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
-              </a>
-                <% if(req.params.lang === 'es'){ %>
-                  {{tour.name}}
-                <% }else{ %>
-                  {{tour.name_en}}
-                <% } %>
-             </h1>
+              <% if(req.params.lang === 'es'){ %>
+
+                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name}}" >
+                  <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                </a>
+                {{tour.name}}
+
+              <% }else{ %>
+
+                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name_en}}" >
+                  <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
+                </a>
+                {{tour.name_en}}
+
+              <% } %>
+            </h1>
             <div layout='row' class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial>
                 <i class="icon-horario"> </i><strong><%= __('duration') %>:</strong> <strong>{{tourDurationFormatted}}</strong>
@@ -162,11 +169,17 @@
         <div class="tour-description-inner container-smd">
           <div class='row-categories' ng-if="getSubcategories(tour.categories,'rate').length>0">
             <h4><%= __('rates') %></h4>
-            <div layout="row" >
+            <div class="row-category-wrapper" layout="row" >
               <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'rate')">
                 <p>
                   <i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
-                  <strong>{{ ::item.name }}</strong>:
+                  <strong>
+                    <% if(req.params.lang === 'es'){ %>
+                      {{item.name}}
+                    <% }else{ %>
+                      {{item.name_en}}
+                    <% } %>
+                  </strong>:
                   <strong>{{ getRateValue(item) }}</strong>
                 </p>
               </div>
@@ -174,10 +187,21 @@
           </div>
           <div class='row-categories' ng-if="getSubcategories(tour.categories,'sub').length>0">
             <h4><%= __('categories_from_tour') %></h4>
-            <div layout="row" >
+            <div class="row-category-wrapper" layout="row" layout-wrap>
               <div class='row-category' flex-initial ng-repeat="item in getSubcategories(tour.categories,'sub')">
-                <p><i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
-                <strong>{{::item.name}}</strong></p>
+                <p>
+                  <% if(req.params.lang === 'es'){ %>
+                    <a ng-href="/{{currentLang}}/tours/{{item.url}}" title="{{::item.name}}" >
+                      <i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
+                      {{item.name}}
+                    </a>
+                  <% }else{ %>
+                    <a ng-href="/{{currentLang}}/tours/{{item.url}}" title="{{::item.name_en}}" >
+                      <i class="blueText icon-{{getCategoryIcon(item)}} big-icon"></i>
+                      {{item.name_en}}
+                    </a>
+                  <% } %>
+                </p>
               </div>
             </div>
           </div>

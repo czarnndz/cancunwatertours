@@ -21,7 +21,6 @@
         <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
           <div class="tour-item-inner">
             <div ng-if="tour.haveTranslate" class="includes-bar-img">
-              <!--<p><strong><i class="icon-transporte"></i> Transporte incluido</strong></p>-->
               <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
             </div>
             <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
