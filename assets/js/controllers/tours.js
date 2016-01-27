@@ -37,6 +37,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.tourDuration = $scope.setDuration($scope.tour.days);
       $scope.tour.includesList = $scope.formatList($scope.tour.includes_es);
       $scope.tour.notIncludesList = $scope.formatList($scope.tour.does_not_include_es);
+      $scope.searchHotels = [];
 
       var aux_schedules = [];
       $scope.tour.schedules.forEach(function(el) {
@@ -50,11 +51,12 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
       $http.get('/hotels').success(function(response) {
           $scope.hotels = response;
-          if ($scope.tour.transferHotels) {
-              $scope.searchHotels = $scope.tour.transferHotels;
+          if ($scope.tour.transferHotels && $scope.tour.transferHotels.length > 0) {
+              angular.copy($scope.tour.transferHotels,$scope.searchHotels);
           } else {
-              $scope.searchHotels = $scope.hotels;
+              angular.copy($scope.hotels,$scope.searchHotels);
           }
+          console.log($scope.searchHotels);
       });
 
       $scope.date = new Date();

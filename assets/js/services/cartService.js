@@ -99,8 +99,10 @@
 
       function getPriceTransfer(tour){
         var exchangeRate = getExchangeRate();
+        //console.log(tour.hotel);
+        //console.log(tour.transfer);
         if (tour.hotel && tour.transfer) {
-            var transferPrice = getTransferZonePrice();
+            var transferPrice = getTransferZonePrice(tour);
             return ((transferPrice * tour.adults * exchangeRate) + (tour.kids * transferPrice * exchangeRate));
         } else
           return 0;
@@ -202,9 +204,15 @@
         }
       }
 
-      function getTransferZonePrice() {
-        return 20;
+      function getTransferZonePrice(tour,transferPrices) {
+        if (tour.haveTransfer) {
+            return 0;
+        }
+        console.log(transferPrices);
+        return 25;
+
       }
+
     });
 
 })();
