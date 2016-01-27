@@ -191,6 +191,9 @@ module.exports = {
     var params = req.params.all();
     var lang = params.lang;
     var previousLang = params.previous_lang || '';
+    if(previousLang !== 'es' && previousLang!=='en'){
+      previousLang = 'es';
+    }
     var fromUrl = params.from_url || '';
 
     var path = fromUrl.replace('/'+previousLang, '');

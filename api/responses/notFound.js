@@ -24,6 +24,9 @@ module.exports = function notFound (data, options) {
   var res = this.res;
   var sails = req._sails;
 
+  //Set default 404 lang
+  req.params.lang = 'es';
+
   // Set status code
   res.status(404);
 
