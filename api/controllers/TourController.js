@@ -9,7 +9,7 @@ module.exports = {
 	index : function(req,res){
     var params = req.params.all();
     if (params.url.match(/\..+$/)) res.notFound();
-    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').populate('categories').populate('location').exec(function(e,tour){
+    Tour.findOne({ url : params.url }).populate('extra_prices').populate('price').populate('categories').populate('location').populate('transferHotels').exec(function(e,tour){
         //Fix temporal tour undefined
 
         if (e || !tour) {
@@ -28,23 +28,28 @@ module.exports = {
             TourTourcategory.find({ tour_categories : tour.id }).exec(function(err,rate_values){
                 //console.log(e);
                 TourCategory.find({ principal:true, type : {'!' : 'rate'}}).exec(function(e,categories){
-                  res.view({
-                      tour : Common.formatTour(tour, req.getLocale() ),
-                      rate_values : rate_values,
-                      similar_tours : Common.formatTours(similar_tours, req.getLocale() ),
-                      imgs_url : process.env.BACKEND_URL,
-                      meta : {
-                          controller : 'tours.js',
-                          removeFlexLayout : true,
-                          categories: categories,
-                          addMenu: true,
-                      },
-                      page : {
-                          searchUrl : '/tours',
-                          placeholder : 'Busca Tours',
-                          menuselected : 'tour'
-                      }
-                  });
+                  TransferPrice.find({ or : [ { location : tour.location.id } , { location2 : tour.location.id }], active : true}).exec(function(et,transferPrices) {
+                      console.log(transferPrices);
+                      res.view({
+                          tour : Common.formatTour(tour, req.getLocale() ),
+                          rate_values : rate_values,
+                          similar_tours : Common.formatTours(similar_tours, req.getLocale() ),
+                          imgs_url : process.env.BACKEND_URL,
+                          transfer_prices : transferPrices,
+                          meta : {
+                              controller : 'tours.js',
+                              removeFlexLayout : true,
+                              categories: categories,
+                              addMenu: true,
+                          },
+                          page : {
+                              searchUrl : '/tours',
+                              placeholder : 'Busca Tours',
+                              menuselected : 'tour'
+                          }
+                      });
+                });
+
                 });
             });
         });

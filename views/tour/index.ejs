@@ -86,7 +86,7 @@
                 </md-select>
               </div>
             </div>
-            <div flex="45" ng-if="tour.feeChild">
+            <div flex="45" ng-if="tour.feeChild || tour.priceType == 'group'">
               <div class="input-field-wrap" layout="row" layout-align="space-between center">
                 <label flex><%= __('kids') %></label>
                 <md-select flex placeholder="1" ng-model="tour.kids" ng-required>
@@ -120,7 +120,7 @@
                 md-no-cache="false"
                 md-selected-item="tour.hotel"
                 md-search-text="tour.searchText"
-                md-items="item in hotels | filter:{ name : tour.searchText }:false"
+                md-items="item in searchHotels | filter:{ name : tour.searchText }:false"
                 md-item-text="item.name"
                 md-min-length="0"
                 placeholder="">
@@ -134,15 +134,44 @@
             </div>
           </div>
 
+            <div ng-if="!tour.haveTransfer" class="input-field-wrap">
+                <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+                    <i class='icon-transporte'></i> <%= __('add_transport') %>
+                </md-checkbox>
+                <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+                    <span><i class='icon-pin'></i>Hotel</span>
+                    <span flex></span>
+                      <span>
+                          <md-autocomplete
+                                  class="custom-autocomplete"
+                                  md-no-cache="false"
+                                  md-selected-item="tour.hotel"
+                                  md-search-text="tour.searchText"
+                                  md-items="item in searchHotels | filter:{ name : tour.searchText }:false"
+                                  md-item-text="item.name"
+                                  md-min-length="0"
+                                  placeholder="">
+                              <md-item-template>
+                                  <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                              </md-item-template>
+                              <md-not-found>
+                                  <%= __('no_results_found') %> "{{tour.searchText}}".
+                              </md-not-found>
+                          </md-autocomplete>
+                       </span>
+                </div>
+            </div>
+
+
           <div class="clear"></div>
 
           <!--END INPUT FIELDS-->
           <div class="precios-detalle">
             <p class="prices-value">
-              <strong>({{::tour.adults}})</strong> <%= __('price_per_adult') %> {{getPriceAdults(tour) | currency}}
+              <strong>({{tour.adults}})</strong> <%= __('price_per_adult') %> {{getPriceAdults(tour) | currency}}
             </p>
-            <p class="prices-value" ng-if="tour.kids > 0" >
-              <strong>({{::tour.kids}})</strong> <%= __('price_per_kid') %> {{getPriceKids(tour) | currency}}
+            <p class="prices-value" ng-if="tour.feeChild || tour.priceType == 'group'" >
+              <strong>({{tour.kids}})</strong> <%= __('price_per_kid') %> {{getPriceKids(tour) | currency}}
             </p>
             <section class="final-price-block">
               <p class="prices-value">
