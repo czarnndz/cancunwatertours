@@ -25,8 +25,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       });
   };
   $scope.changeHotelMap = function(hotel){
-    console.log('hotel');
-    console.log(hotel);
     for( var x in $scope.markers ){
       if( $scope.markers[x].layer = 'Locations' )
         $scope.markers.splice(x,1);
@@ -217,6 +215,28 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     };
   };
 
+  /*
+  $scope.$on('leafletDirectiveMap.popupopen', function(e, args) {
+    leafletData.getMap().then(function(map) {
+      console.log(args);
+      console.log(args.leafletObject._popup._latlng)
+      var pos = args.leafletObject._popup._latlng;
+      var lat = args.leafletObject._popup._latlng.lat;
+      var lng = args.leafletObject._popup._latlng.lng;
+
+      var px = map.project(pos); // find the pixel location on the map where the popup anchor is
+      px.y -= args.leafletObject._popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+      $scope.center = {
+        lat: map.unproject(px).lat,
+        lng: map.unproject(px).lng,
+        zoom:14
+      };
+      //map.panTo(map.unproject(px),{animate: true}); // pan to new center
+    });
+
+  });
+  */
+
   $scope.init = function(){
     var markers = [];
     $scope.loading = true;
@@ -230,10 +250,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       $scope.muelles = {};
       var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
       angular.forEach(data, function(t){
-        //var info = '';
-
-        //var tour = t.departurePoints?t.departurePoints.item_0 : { lat : 0, lng : 0 };
-        //var message = $scope.getPopup(t);
 
         if( t.provider && t.provider.departurePoints ){
           if( !$scope.muelles[t.provider.id] )
@@ -249,19 +265,14 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
               lat: $scope.muelles[t.provider.id].points[x].lat,
               lng: $scope.muelles[t.provider.id].points[x].lng,
               message: message,
+              popupOptions:{
+                autoPan: false
+              },
               getMessageScope : function() { return $scope; },
               icon: $scope.getIcon( iconText )
             });
           }
         }
-        /*this.push({
-          layer: 'Locations',
-          lat: tour.lat,
-          lng: tour.lng,
-          message: message,
-          getMessageScope : function() { return $scope; },
-          icon: $scope.getIcon(t.name)
-        });*/
 
       },markers);
       $scope.markers = markers.filter(function(e){
@@ -275,7 +286,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
             lng:$scope.markers[0].lng,
         };
       }
-      //console.log('$scope.markers');console.log($scope.markers);
 
     });
   };

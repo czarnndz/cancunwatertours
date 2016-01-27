@@ -12,7 +12,10 @@ module.exports = {
     last_name : { type : 'string' },
     phone	: { type: 'string' },
     mobilephone : { type: 'string' },
-    email : 'string',
+    email : {
+     type: 'string',
+     unique: true
+    },
 
     company	: { model : 'Company'  },
     address	: { type: 'string' },

@@ -9,7 +9,7 @@
 
 <div class='no-fullscreen-md' ng-controller="resultsCTL" layout="row" layout-wrap ng-style="theStyle" full-screen-wrapper ng-style="newWidth()" >
   <!--LEFT SIDE-->
-  <md-content flex="65" flex-md="100" flex-sm="100"><section class="search-results-tours">
+  <md-content flex="65" class="perfectscrollbar" flex-md="100" flex-sm="100"><section class="search-results-tours">
 
     <!--FILTERS-->
     <%- partial('../partials/filters') -%>
@@ -21,7 +21,6 @@
         <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
           <div class="tour-item-inner">
             <div ng-if="tour.haveTranslate" class="includes-bar-img">
-              <!--<p><strong><i class="icon-transporte"></i> Transporte incluido</strong></p>-->
               <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
             </div>
             <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>

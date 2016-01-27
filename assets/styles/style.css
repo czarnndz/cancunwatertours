@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?kxorw1');
-    src:    url('fonts/icomoon.eot?kxorw1#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?kxorw1') format('truetype'),
-        url('fonts/icomoon.woff?kxorw1') format('woff'),
-        url('fonts/icomoon.svg?kxorw1#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?58k3hx');
+    src:    url('fonts/icomoon.eot?58k3hx#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?58k3hx') format('truetype'),
+        url('fonts/icomoon.woff?58k3hx') format('woff'),
+        url('fonts/icomoon.svg?58k3hx#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -66,169 +66,166 @@
 .icon-cenote:before {
     content: "\e90d";
 }
-.icon-cenote2:before {
+.icon-cenotes:before {
     content: "\e90e";
 }
-.icon-cenotes:before {
+.icon-cerrar:before {
     content: "\e90f";
 }
-.icon-cerrar:before {
+.icon-coins:before {
     content: "\e910";
 }
-.icon-coins:before {
+.icon-corazon:before {
     content: "\e911";
 }
-.icon-corazon:before {
+.icon-cultural:before {
     content: "\e912";
 }
-.icon-cultural:before {
+.icon-diving:before {
     content: "\e913";
 }
-.icon-diving:before {
+.icon-embarazadas:before {
     content: "\e914";
 }
-.icon-embarazadas:before {
+.icon-estrella:before {
     content: "\e915";
 }
-.icon-estrella:before {
+.icon-face:before {
     content: "\e916";
 }
-.icon-face:before {
+.icon-familiar:before {
     content: "\e917";
 }
-.icon-familiar:before {
+.icon-familiar2:before {
     content: "\e918";
 }
-.icon-familiar2:before {
+.icon-fishing:before {
     content: "\e919";
 }
-.icon-fishing:before {
+.icon-flecha:before {
     content: "\e91a";
 }
-.icon-flecha:before {
+.icon-flecha2:before {
     content: "\e91b";
 }
-.icon-flecha2:before {
+.icon-grupos:before {
     content: "\e91c";
 }
-.icon-grupos:before {
+.icon-horario:before {
     content: "\e91d";
 }
-.icon-horario:before {
+.icon-horario2:before {
     content: "\e91e";
 }
-.icon-horario2:before {
+.icon-hotel:before {
     content: "\e91f";
 }
-.icon-hotel:before {
+.icon-information:before {
     content: "\e920";
 }
-.icon-information:before {
+.icon-instagram:before {
     content: "\e921";
 }
-.icon-instagram:before {
+.icon-login:before {
     content: "\e922";
 }
-.icon-login:before {
+.icon-mail:before {
     content: "\e923";
 }
-.icon-mail:before {
+.icon-mascompradas:before {
     content: "\e924";
 }
-.icon-mascompradas:before {
+.icon-mojado:before {
     content: "\e925";
 }
-.icon-mojado:before {
+.icon-mojado0:before {
     content: "\e926";
 }
-.icon-mojado0:before {
+.icon-mojado1:before {
     content: "\e927";
 }
-.icon-mojado1:before {
+.icon-moneda:before {
     content: "\e928";
 }
-.icon-moneda:before {
+.icon-naturaleza:before {
     content: "\e929";
 }
-.icon-naturaleza:before {
+.icon-naturaleza0:before {
     content: "\e92a";
 }
-.icon-naturaleza0:before {
+.icon-naturaleza1:before {
     content: "\e92b";
 }
-.icon-naturaleza1:before {
+.icon-new:before {
     content: "\e92c";
 }
-.icon-new:before {
+.icon-nino:before {
     content: "\e92d";
 }
-.icon-nino:before {
+.icon-ninos:before {
     content: "\e92e";
 }
-.icon-ninos:before {
+.icon-nocturno:before {
     content: "\e92f";
 }
-.icon-nocturno:before {
+.icon-nombre:before {
     content: "\e930";
 }
-.icon-nombre:before {
+.icon-nuevo:before {
     content: "\e931";
 }
-.icon-nuevo:before {
+.icon-oferta:before {
     content: "\e932";
 }
-.icon-oferta:before {
+.icon-parejas:before {
     content: "\e933";
 }
-.icon-parejas:before {
+.icon-pin:before {
     content: "\e934";
 }
-.icon-pin:before {
+.icon-populares:before {
     content: "\e935";
 }
-.icon-populares:before {
+.icon-populares2:before {
     content: "\e936";
 }
-.icon-populares2:before {
+.icon-precio:before {
     content: "\e937";
 }
-.icon-precio:before {
+.icon-precio2:before {
     content: "\e938";
 }
-.icon-precio2:before {
+.icon-sailing:before {
     content: "\e939";
 }
-.icon-sailing:before {
+.icon-snorkeling:before {
     content: "\e93a";
 }
-.icon-snorkeling:before {
+.icon-tel:before {
     content: "\e93b";
 }
-.icon-tel:before {
+.icon-theme-parks:before {
     content: "\e93c";
 }
-.icon-theme-parks:before {
+.icon-todos:before {
     content: "\e93d";
 }
-.icon-todos:before {
+.icon-transporte:before {
     content: "\e93e";
 }
-.icon-transporte:before {
+.icon-trending:before {
     content: "\e93f";
 }
-.icon-trending:before {
+.icon-twit:before {
     content: "\e940";
 }
-.icon-twit:before {
+.icon-viajes:before {
     content: "\e941";
 }
-.icon-viajes:before {
+.icon-water-sports:before {
     content: "\e942";
 }
-.icon-water-sports:before {
-    content: "\e943";
-}
 .icon-world:before {
-    content: "\e944";
+    content: "\e943";
 }
 

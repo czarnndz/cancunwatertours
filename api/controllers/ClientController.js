@@ -11,7 +11,7 @@ module.exports = {
   create : function(req,res, next){
     if(!req.user){
       var form = Common.formValidate(req.params.all(),['name','last_name','address','password','password_confirm','phone','rfc','comments','email','city','state','country']);
-      if(form && form.password != '' && form.password === form.password_confirm){
+      if(form && form.password != '' && form.password === form.password_confirm && validateEmail(form.email) ){
         var email = form.email;
         var password = form.password;
         //form.source = 'WebSite';
@@ -34,7 +34,22 @@ module.exports = {
                 if (err) {
                   console.log(err);
                 }else{
-                  return res.redirect('/');
+
+                  //Sending account register confirmation
+                  var head = {
+                    to: email,
+                    subject: 'Registro en CancunWatertours'
+                  };
+
+                  sails.hooks.email.send(
+                    "register", {}, head, function(err){
+                      if(err){
+                        console.log(err);
+                      }
+                      return res.redirect('/');
+                  });
+                  /////
+
                 }
               });
 
@@ -96,7 +111,8 @@ module.exports = {
         }else{
           var values = client.id + client.email + client.password;
           var tokenAux = bcrypt.hashSync(values ,bcrypt.genSaltSync(10));
-          var token = tokenAux.replace(/\//g, "-");
+          var token = tokenAux;
+          //var token = tokenAux.replace(/\//g, "-");
           var recoverURL = req.baseUrl + '/' + lang +  '/change_password?';
           recoverURL += 'token='+token;
           recoverURL += '&email='+email;
@@ -127,8 +143,6 @@ module.exports = {
         if(err){
           console.log(err);
         }
-
-        console.log(result);
 
         if(!result) {
           return res.redirect('/'+lang+'/change_password_message?msg=f');
@@ -206,7 +220,12 @@ function validateToken(token, email, cb){
       console.log(err);
     }
     var values = client.id + client.email + client.password;
-    var realToken = values.replace(/\//g, "-");
+    var realToken = values;
+    //var realToken = values.replace(/\//g, "-");
+
+    console.log('token:'+ token);
+    console.log('realToken:'+ realToken);
+
     bcrypt.compare(realToken, token, cb);
   });
 }

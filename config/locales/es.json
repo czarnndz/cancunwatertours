@@ -135,5 +135,8 @@
   "choose_country": "Elige un país",
   "from_price": "Desde",
 
-  "activity_day": "Día de la actividad"
+  "activity_day": "Día de la actividad",
+  "password_change_success": "Tu contraseña ha sido cambiada con exito, haz click en \"Iniciar sesión\" para ingresar",
+  "password_change_failed": "Hubo un error, intenta de nuevo"
+
 }

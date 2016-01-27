@@ -15,10 +15,10 @@
             <% } %>
             <section>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" >
-                    <label flex="25">
+                    <label flex="40">
                       <i class="icon-calendario highlight"></i> <%= __('activity_day') %>:
                     </label>
-                    <div flex="75">
+                    <div flex="60">
                       <md-datepicker flex="75" ng-model="tour.date" md-min-date="minDate" md-placeholder="Fecha"></md-datepicker>
                     </div>
                 </div>
@@ -31,26 +31,45 @@
                     </div>
                 </div>-->
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" >
-                    <label flex="25">
+                    <label flex="40">
                       <i class="icon-adultos highlight"></i> <%= __('adults') %>:
                     </label>
-                    <div flex="75">
-                      <input type="number" min="1" max="8" ng-model="tour.adults">
+                    <div flex="60">
+
+                      <md-select ng-model="tour.adults" ng-required class="custom-select">
+                         <md-option value="1">1</md-option>
+                         <md-option value="2">2</md-option>
+                         <md-option value="3">3</md-option>
+                         <md-option value="4">4</md-option>
+                         <md-option value="5">5</md-option>
+                         <md-option value="6">6</md-option>
+                      </md-select>
+
                     </div>
                 </div>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center">
-                    <label flex="25">
+                    <label flex="40">
                       <i class="icon-nino highlight"></i> <%= __('kids') %>:
                     </label>
-                    <div flex="75">
-                      <input type="number" min="0" max="8" ng-model="tour.kids">
+                    <div flex="60">
+
+                      <md-select ng-model="tour.kids" ng-required class="custom-select">
+                         <md-option value="0">0</md-option>
+                         <md-option value="1">1</md-option>
+                         <md-option value="2">2</md-option>
+                         <md-option value="3">3</md-option>
+                         <md-option value="4">4</md-option>
+                         <md-option value="5">5</md-option>
+                         <md-option value="6">6</md-option>
+                      </md-select>
+
                     </div>
                 </div>
                 <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.schedules.length > 0">
-                    <label flex="25">
+                    <label flex="40">
                       <i class="icon-horario highlight"></i> <%= __('schedule') %>:
                     </label>
-                    <div flex="75">
+                    <div flex="60">
                       <md-select class="custom-select" ng-model="tour.schedule" ng-required>
                           <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules">De {{schedule.from | date:'HH:mm'}} a {{schedule.to | date:'HH:mm'}}</md-option>
                       </md-select>

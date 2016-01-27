@@ -1,6 +1,6 @@
 <div class="main-sidebar" layout="row" hide-sm>
   <div class="main-sidebar-inner"  >
-    <a class="main-sidebar-item" href="/<%= req.params.lang %>/tours">
+    <a class="main-sidebar-item" href="/<%= req.params.lang %>/tours" target="_self">
       <i class="icon-todos icon-desplegable"></i>
       <% if(req.params.lang === 'es'){ %>
         <p>TODOS</p>
@@ -9,7 +9,7 @@
       <% } %>
     </a>
     <% for(var i=0;i<meta.categories.length;i++){ %>
-      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/<%= req.params.lang %>/tours/<%= meta.categories[i].url %>">
+      <a class="main-sidebar-item <%= meta.req&&meta.req.category==meta.categories[i].id?"selected":"" %>" href="/<%= req.params.lang %>/tours/<%= meta.categories[i].url %>" target="_self">
         <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
         <% if(req.params.lang === 'es'){ %>
           <p><%= meta.categories[i].name.toUpperCase() %></p>

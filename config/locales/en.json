@@ -136,5 +136,8 @@
   "choose_country": "Choose a country",
 
   "from_price": "From",
-  "activity_day": "Activity day"
+  "activity_day": "Activity day",
+
+  "password_change_success": "Your password has been successfully changed, click on \"Log in\"",
+  "password_change_failed": "There was an error, please try again"
 }
