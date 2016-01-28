@@ -215,27 +215,37 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     };
   };
 
-  /*
+
   $scope.$on('leafletDirectiveMap.popupopen', function(e, args) {
     leafletData.getMap().then(function(map) {
-      console.log(args);
-      console.log(args.leafletObject._popup._latlng)
-      var pos = args.leafletObject._popup._latlng;
-      var lat = args.leafletObject._popup._latlng.lat;
-      var lng = args.leafletObject._popup._latlng.lng;
 
-      var px = map.project(pos); // find the pixel location on the map where the popup anchor is
-      px.y -= args.leafletObject._popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-      $scope.center = {
-        lat: map.unproject(px).lat,
-        lng: map.unproject(px).lng,
-        zoom:14
-      };
+      $timeout(function(){
+        var lat = args.leafletObject._popup._latlng.lat;
+        var lng = args.leafletObject._popup._latlng.lng;
+
+        var lpos = L.latLng(parseFloat(lat), parseFloat(lng));
+        var px = map.project(lpos); // find the pixel location on the map where the popup anchor is
+
+        px.y -= args.leafletObject._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+
+        var currentZoom = $scope.center.zoom;
+        var coords = map.unproject(px);
+
+        angular.extend($scope, {
+          center: {
+            lat: coords.lat,
+            lng: coords.lng,
+            zoom: currentZoom
+          }
+        });
+
+      },400);
+
       //map.panTo(map.unproject(px),{animate: true}); // pan to new center
     });
 
   });
-  */
+
 
   $scope.init = function(){
     var markers = [];
