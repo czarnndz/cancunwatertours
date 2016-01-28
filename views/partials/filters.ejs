@@ -53,7 +53,7 @@
           <% } %>
           <div layout='row' layout-align="space-between end">
             <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
-            <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
+            <md-slider flex class="md-primary" md-discrete min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
             <i class="icon-{{ getCategoryIcon(item) }}1"></i>
           </div>
         </div>
