@@ -109,7 +109,7 @@
           </div>
 
           <div ng-if="tour.haveTransfer" class="input-field-wrap">
-            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+            <md-checkbox class="md-primary add-transport-checkbox" ng-model="tour.transfer" aria-label="">
               <i class='icon-transporte'></i> <%= __('add_transport') %>
             </md-checkbox>
             <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
@@ -135,7 +135,7 @@
           </div>
 
             <div ng-if="!tour.haveTransfer" class="input-field-wrap">
-                <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+                <md-checkbox class="md-primary add-transport-checkbox" ng-model="tour.transfer" aria-label="">
                     <i class='icon-transporte'></i> <%= __('add_transport') %>
                 </md-checkbox>
                 <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>

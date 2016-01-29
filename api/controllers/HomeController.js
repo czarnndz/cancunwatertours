@@ -42,7 +42,8 @@ module.exports = {
         //console.log("assasasassssssssssssssssssssss");
         //console.log(category);
         params.category = category.id;
-        resultados(params,res);
+        categoryName = (req.getLocale() === 'es') ? category.name : category.name_en;
+        resultados(params,categoryName,res);
       } else {
         res.notFound();
       }
@@ -51,7 +52,8 @@ module.exports = {
   },
   resultados_l : function(req,res){
     var params = req.params.all();
-    resultados(params,res);
+    var title = (req.getLocale() === 'es') ? 'Todos los tours' : 'Tours';
+    resultados(params,title,res);
   },
   tour_list : function(req,res){
     var params = req.params.all();
@@ -176,10 +178,10 @@ module.exports = {
 
   setUrl : function(req,res) {
     Tour.find({ select: ['name','url'],visible : true }).exec(function(err,tours){
-      console.log(tours);
+      //console.log(tours);
       async.mapSeries( tours, function(tour,CB){
         tour.url = Common.stringReplaceChars(tour.name);
-        console.log(tour);
+        //console.log(tour);
         tour.save(CB);
       },function(ress){
         res.json(ress);
@@ -191,6 +193,9 @@ module.exports = {
     var params = req.params.all();
     var lang = params.lang;
     var previousLang = params.previous_lang || '';
+    if(previousLang !== 'es' && previousLang!=='en'){
+      previousLang = 'es';
+    }
     var fromUrl = params.from_url || '';
 
     var path = fromUrl.replace('/'+previousLang, '');
@@ -219,12 +224,13 @@ var formatRateCategories = function(rc,callback){
   });
 }
 
-var resultados = function(params,res) {
+var resultados = function(params,categoryName,res) {
   TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours',{ visible : true }).exec(function(e,categories) {
     TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours',{ visible : true }).exec(function(e,sec_categories){
       TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours',{ visible : true }).exec(function(e,rate_categories){
         formatRateCategories(rate_categories,function(rc){
           res.view('home/resultados',{
+            categoryName: categoryName,
             meta: {
               controller: 'home.js',
               addMenu: true,

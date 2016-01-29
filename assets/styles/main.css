@@ -1240,6 +1240,12 @@ figcaption:hover .action-btn-white{
 }
 .booking-partial .custom-autocomplete button{margin: 0;}
 .booking-partial .cart-btn{text-transform: uppercase;}
+.booking-partial .add-transport-checkbox{
+  font-size: 12px;
+  vertical-align: middle;
+}
+.booking-partial .add-transport-checkbox span{vertical-align: middle;}
+.booking-partial .add-transport-checkbox i{vertical-align: text-bottom;}
 
 /*-----------/
   #LOGIN AND REGISTER
@@ -1569,6 +1575,7 @@ figcaption:hover .action-btn-white{
   display: block;
   text-align: center;
 }
+.filter-option-slider .md-sign{display: none;}
 .filter-option-slider i.sm-icon{font-size: 14px;}
 
 
@@ -2084,6 +2091,9 @@ figcaption:hover .action-btn-white{
   box-sizing: border-box;
 }
 .booking-form .custom-select .md-select-value{color: #DCDCDC;}
+.booking-form .custom-select .md-select-value .md-select-icon:after{
+  font-size: 13px;
+}
 
 .booking-form .custom-autocomplete{
   background: #fff;

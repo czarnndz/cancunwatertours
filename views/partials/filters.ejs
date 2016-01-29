@@ -23,7 +23,7 @@
             <%= __('price_range') %>
              <i class="sm-icon icon-information" ></i>
             <md-tooltip md-visible="priceTooltip" class="tooltip-custom">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati pariatur accusantium eligendi quod.
+              <%= __('price_tooltip') %>
             </md-tooltip>
           </label>
           <div layout='row' layout-align="space-between end">
@@ -38,20 +38,22 @@
               {{item.name}}
               <i class='sm-icon icon-information'></i>
               <md-tooltip class="tooltip-custom">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati pariatur accusantium eligendi quod.
+                <span ng-if="item.name === 'Nivel de Agua'"><%= __('wetness_tooltip') %></span>
+                <span ng-if="item.name === 'Actividad Física'"><%= __('physical_tooltip') %></span>
               </md-tooltip>
             </label>
           <% }else{ %>
             <label>
               {{item.name_en}} <i class='sm-icon icon-information'></i>
               <md-tooltip class="tooltip-custom">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati pariatur accusantium eligendi quod.
+                <span ng-if="item.name === 'Nivel de Agua'"><%= __('wetness_tooltip') %></span>
+                <span ng-if="item.name === 'Actividad Física'"><%= __('physical_tooltip') %></span>
               </md-tooltip>
             </label>
           <% } %>
           <div layout='row' layout-align="space-between end">
             <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
-            <md-slider flex class="md-primary" min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
+            <md-slider flex class="md-primary" md-discrete min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
             <i class="icon-{{ getCategoryIcon(item) }}1"></i>
           </div>
         </div>

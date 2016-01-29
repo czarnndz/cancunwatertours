@@ -137,6 +137,11 @@
 
   "activity_day": "Día de la actividad",
   "password_change_success": "Tu contraseña ha sido cambiada con exito, haz click en \"Iniciar sesión\" para ingresar",
-  "password_change_failed": "Hubo un error, intenta de nuevo"
+  "password_change_failed": "Hubo un error, intenta de nuevo",
+
+  "price_tooltip": "Elige un aproximado de precio para encontrar tours a tu medida.",
+  "wetness_tooltip": "¡Escoge que tanto te quieres mojar! Puedes sumergirte, empaparte o solo ver.",
+  "physical_tooltip": "¿Qué tanto te puedes cansar? Encuentra una actividad perfecta para tu rendimiento."
+
 
 }
