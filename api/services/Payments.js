@@ -64,7 +64,7 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
         currency: currency,
         total: total.toFixed(2)
       },
-      description : "This is the payment description."
+      description : "Water tours reservation."
     });
 
   paypal.payment.create(JSON.stringify(payment), function (error, payment) {
@@ -76,9 +76,7 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
       var result = { success : false };
       //console.log(payment);
       for (var index = 0; index < payment.links.length; index++) {
-        //Redirect user to this endpoint for redirect url
         if (payment.links[index].rel === 'approval_url') {
-          //console.log(payment.links[index].href);
           result.redirect_url = payment.links[index].href;
           result.payment_id = payment.id;
           var aux = result.redirect_url.split('token=');

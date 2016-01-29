@@ -63,7 +63,7 @@
 
     <!--BLOCK CONTENT-->
     <div class="block-content">
-      <div class="booking-form">
+      <div class="booking-form" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
         <p>
             <img src="/images/{{client.payment_method}}.png" class="datos-img">
         </p>
@@ -86,7 +86,7 @@
         </md-select>
 
         <!--ONLY CREDIT CARD-->
-        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end">
           <div flex="45" flex-sm="100" class="input-field-wrap">
               <input
                 type="text"
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
+        <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
             <input
               type="text"
@@ -140,7 +140,7 @@
         <!--END ONLY CREDIT CARD-->
       </div>
 
-      <div class="booking-form">
+      <div class="booking-form" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
 
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">

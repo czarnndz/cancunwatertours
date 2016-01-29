@@ -65,6 +65,9 @@ module.exports = {
           collection : 'hotel',
           via : 'transferTours'
       }
+      ,zone : {
+          model : 'zone'
+      }
   }
   , migrate : 'safe'
   , attrs_labels : {
