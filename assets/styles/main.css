@@ -2091,8 +2091,10 @@ figcaption:hover .action-btn-white{
   box-sizing: border-box;
 }
 .booking-form .custom-select .md-select-value{color: #DCDCDC;}
+.booking-form .custom-select .md-select-value .md-select-icon{margin-right: 0;}
 .booking-form .custom-select .md-select-value .md-select-icon:after{
-  font-size: 13px;
+  font-size: 14px;
+  top: 0;
 }
 
 .booking-form .custom-autocomplete{
