@@ -91,6 +91,7 @@
             minFee: minFee,
             maxFee: maxFee
           };
+          console.log(range);
           deferred.resolve(range);
         };
 

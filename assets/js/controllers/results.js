@@ -15,6 +15,8 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
   $scope.orderBy = 'dtCreated';
+  console.log($scope.rate_categories);
+  console.log($scope.range);
 
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
@@ -50,6 +52,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     else list.push(item);
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
+
   $scope.formatRatings = function(item,list,value){
     var idx = -1;
     for(var i=0; i < list.length; i++) {
@@ -68,6 +71,9 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
         list.push(item);
       }
     }
+    console.log(list);
+    console.log(value);
+    console.log(idx);
   };
   $scope.updatePricesRange = function(){
     toursService.getFeeRange().then(function(res){
@@ -91,6 +97,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       }
     }
   };
+
 
   $scope.getCategoriesString = function(tour) {
     var categories =  tour.categories.filter(function(elem){
@@ -121,16 +128,18 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     },500);
   };
 
-  $scope.getPriceTour = function(tour){
-    cartService.getPriceTour(tour,function(val){
-        tour.total_price = val;
-    });
+  $scope.updatePrices = function(){
+      angular.forEach($scope.tours,function(t){
+          cartService.getPriceTour(t,function(val){
+              t.total_price = val;
+          })
+      });
   };
 
   $scope.initMap = function(){
     $scope.map = {};
     $scope.center = {
-        zoom:10,
+        zoom:9,
         lat:21.1656951,
         lng:-86.8210734,
     };
@@ -173,6 +182,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
             var item = '';
             var price = $filter('currency')(val) + $filter('uppercase')($rootScope.global_currency.currency_code);
             var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
+            tour.total_price = val;
             item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
             item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
             item += printCategoriesByTour(tour);
@@ -304,6 +314,10 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
 
     });
   };
+
+  $scope.$on('CURRENCY_CHANGE', function () {
+      $scope.updatePrices();
+  });
 
   $scope.init();
   $scope.redrawMap();

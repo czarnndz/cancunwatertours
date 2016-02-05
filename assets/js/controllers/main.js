@@ -37,6 +37,7 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
 
     $scope.setCurrency = function(val){
       $rootScope.global_currency = val;
+      $rootScope.$broadcast('CURRENCY_CHANGE');
     };
 
 

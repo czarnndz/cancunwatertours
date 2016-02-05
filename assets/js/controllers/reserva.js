@@ -148,7 +148,13 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
         $scope.priceTax(tour);
         $scope.priceTransfer(tour);
         $scope.getPriceTotal();
-    }
+    };
+
+    $scope.$on('CURRENCY_CHANGE', function () {
+        angular.forEach($scope.tours,function(t){
+            $scope.updatePrices(t);
+        });
+    });
 
     //TODO formatear para enviar los items formateados.
     $scope.process = function($event, form) {
@@ -156,13 +162,13 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
       if(form.$valid){
         //console.log('valido');
         cartService.process($scope.client).then(function(result){
-          console.log(result);
+          //console.log(result);
           if (result.data.success) {
             //console.log('success');
-            if (result.data.redirect_url)
+            if (result.data.redirect_url) {
                 console.log(result.data.redirect_url);
-                //window.location.href = result.data.redirect_url;
-            else
+                window.location.href = result.data.redirect_url;
+            } else
                 console.log(result.data);
           } else {
             alert(result.data.success);
@@ -192,7 +198,7 @@ app.controller('voucherCTL',function($scope,cartService) {
   });
   $scope.total_reservations = 0;
 
-  console.log(reservations);
+  //console.log(reservations);
 
     var formatList = function(inlineList){
         if(inlineList){

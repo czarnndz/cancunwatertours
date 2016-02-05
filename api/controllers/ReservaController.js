@@ -37,7 +37,7 @@ module.exports = {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
             OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
-              console.log(reservations);
+              //console.log(reservations);
               if (err) {
                 console.log(err);
                 result.success = false;
@@ -47,7 +47,7 @@ module.exports = {
               } else if (reservations) {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
-                console.log(total);
+                //console.log(total);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
@@ -151,10 +151,10 @@ module.exports = {
     //TODO agregar selector por email y id reservation
     voucher: function(req, res){
         var params = req.params.all();
-        console.log(params);
+        //console.log(params);
         Order.findOne({ id : params.o }).populate('client').exec(function(err,theorder){
             Reservation.find({ order : params.o }).populate('tour').populate('transfer').exec(function(err,thereservations){
-                console.log(thereservations);
+                //console.log(thereservations);
                 res.view({
                     theorder : theorder,
                     reservations : thereservations,

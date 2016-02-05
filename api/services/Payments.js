@@ -13,7 +13,7 @@ function initPaypal() {
 module.exports.conektaCreate = function(items,client,token,reference_id,total,currency,callback) {
   conekta.api_key = process.env.CONEKTA_API_PRIVATE;
   conekta.locale = 'es';
-  console.log(items);
+  //console.log(items);
   var conektaRequest = {
       description: 'Water tours reservation',
       amount: (total * 100).toFixed(),
@@ -36,7 +36,7 @@ module.exports.conektaCreate = function(items,client,token,reference_id,total,cu
   };
 
   conekta.Charge.create(conektaRequest, function(err, res) {
-    console.log('request done');
+    //console.log('request done');
     if (err) {
       console.log(err.message_to_purchaser);
       callback(err,false);
@@ -72,7 +72,7 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
       console.log(error);
       callback({ error : error });
     } else {
-      console.log("Create Payment Response");
+      //console.log("Create Payment Response");
       var result = { success : false };
       //console.log(payment);
       for (var index = 0; index < payment.links.length; index++) {
@@ -106,8 +106,8 @@ module.exports.paypalExecute = function(payer_id,payment_id,amount,currency,call
     if (error) {
       console.log(error.response);
     } else {
-      console.log("Get Payment Response");
-      console.log(JSON.stringify(payment));
+      //console.log("Get Payment Response");
+      //console.log(JSON.stringify(payment));
       callback(payment);
     }
   });
@@ -130,7 +130,7 @@ module.exports.getPaypalItems = function(reservations,currency) {
 };
 
 module.exports.getConektaItems = function(reservations) {
-    console.log(reservations);
+    //console.log(reservations);
     return reservations.map(function(r){
         var item = {};
         item.sku = r.id;
