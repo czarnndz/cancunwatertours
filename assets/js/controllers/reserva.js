@@ -1,12 +1,14 @@
-app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$location,$rootScope, $timeout) {
+app.controller('reservaCTL',function($scope,$filter,toursService,cartService,countries) {
     $scope.cartService = cartService;
     $scope.city = '';
     $scope.blinkClass = false;
     $scope.client = window.client || {name:'',last_name:'',email:''};
     $scope.client.isMobile = false;
+    $scope.countries = countries;
     if (!cartService.getClient().name) {
       cartService.setClient($scope.client);
     }
+
     /*$scope.client = {
         isMobile : false
     };*/
@@ -20,7 +22,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
     $scope.clientComplete = false;
 
     $scope.step = $scope.cartComplete  ? 1 : 0;
-
+    $scope.transfer_prices = transfer_prices;
     $scope.tours = cartService.getAll();
 
 //    $scope.tours.forEach(function(tour,a){
@@ -38,7 +40,14 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
 
     //Fix md-datepicker
     for(var i=0;i<$scope.tours.length;i++){
-      $scope.tours[i].date = new Date($scope.tours[i].date);
+        $scope.tours[i].date = new Date($scope.tours[i].date);
+        $scope.tours[i].maxPaxSize = [];
+        if (!$scope.tours[i].pax) {
+            $scope.tours[i].pax = 8;
+        }
+        for (var j = 1; j <= $scope.tours[i].pax ; j++) {
+            $scope.tours[i].maxPaxSize.push(j);
+        }
     }
 
     $scope.continueShopping = function() {
@@ -94,20 +103,13 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
         }
     };
 
-    $scope.priceTour = function(tour) {
-        return cartService.getPriceTourOnly(tour);
-    };
-
     $scope.removeTour = function(index) {
         cartService.removeItem(index);
         $scope.tours = cartService.getAll();
-    }
-
-    $scope.priceTotal = function(){
-      return cartService.getPriceTotalTotal();
-    }
-
-    $scope.$watch($scope.priceTotal, function(newValue, oldValue){
+        $scope.getPriceTotal();
+    };
+//
+    $scope.$watch($scope.total, function(newValue, oldValue){
       if(newValue !== oldValue){
         $scope.blinkClass = true;
         $timeout(function(){
@@ -116,29 +118,50 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
       }
     });
 
-    $scope.tourPriceTotal = function(tour){
-        return $scope.priceTour(tour) * $scope.priceTax(tour);
-    }
+    $scope.getPriceTotal = function(){
+        cartService.getPriceTotal($scope.transfer_prices).then(function(res){
+            //console.log(res);
+            $scope.total = res;
+        });
+    };
 
     $scope.priceTax = function(tour){
-      return cartService.getPriceTax(tour);
+      cartService.getPriceTourTax(tour,function(price){
+          tour.tax_price = price;
+      });
     }
 
     $scope.priceTransfer = function(tour) {
-      return cartService.getPriceTransfer(tour,{ cost : 20 });
+      cartService.getPriceTourTransfer(tour,$scope.transfer_prices).then(function(val){
+          tour.transfer_price = val;
+      });
+    };
+
+    $scope.priceTour = function(tour){
+        cartService.getPriceTour(tour,function(val){
+            tour.total_price = val;
+        });
+    }
+
+    $scope.updatePrices = function(tour) {
+        $scope.priceTour(tour);
+        $scope.priceTax(tour);
+        $scope.priceTransfer(tour);
+        $scope.getPriceTotal();
     }
 
     //TODO formatear para enviar los items formateados.
     $scope.process = function($event, form) {
       $scope.validatingPayment = true;
       if(form.$valid){
-        console.log('valido');
+        //console.log('valido');
         cartService.process($scope.client).then(function(result){
           console.log(result);
           if (result.data.success) {
-            console.log('success');
+            //console.log('success');
             if (result.data.redirect_url)
-                window.location.href = result.data.redirect_url;
+                console.log(result.data.redirect_url);
+                //window.location.href = result.data.redirect_url;
             else
                 console.log(result.data);
           } else {
@@ -147,7 +170,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,$lo
         });
 
       }else{
-        console.log('invalido');
+        //console.log('invalido');
         var options = {
           title: 'Revisa tu información',
           message: 'Revisa la información e intenta de nuevo'
@@ -169,9 +192,7 @@ app.controller('voucherCTL',function($scope,cartService) {
   });
   $scope.total_reservations = 0;
 
-  console.log(theorder);
-
-
+  console.log(reservations);
 
     var formatList = function(inlineList){
         if(inlineList){
@@ -187,14 +208,23 @@ app.controller('voucherCTL',function($scope,cartService) {
     };
 
     $scope.reservations.forEach(function(e){
-        e.feeChild = e.feeKids;
-        e.adults = e.pax;
-        e.kids = e.kidPax;
-        e.schedule = JSON.parse(e.schedule);
-        e.total = cartService.getPriceTour(e);
-        e.tour.includesList = formatList(e.tour.includes_es);
-        e.tour.notIncludesList = formatList(e.tour.does_not_include_es);
-        $scope.total_reservations += e.total;
-        console.log(e);
+        if (e.reservation_type == 'tour') {
+            e.feeChild = e.feeKids;
+            e.adults = e.pax;
+            e.kids = e.kidPax;
+            e.schedule = JSON.parse(e.schedule);
+            e.total = e.fee + e.feeKids;
+            e.tour.includesList = formatList(e.tour.includes_es);
+            e.tour.notIncludesList = formatList(e.tour.does_not_include_es);
+            $scope.total_reservations += e.total;
+        }
+        if (e.reservation_type == 'transfer') {
+            e.feeChild = e.feeKids;
+            e.adults = e.pax;
+            e.kids = e.kidPax;
+            e.total = e.fee + e.feeKids;
+            $scope.total_reservations += e.total;
+        }
+
     });
 });

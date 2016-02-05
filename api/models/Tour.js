@@ -68,6 +68,22 @@ module.exports = {
       ,zone : {
           model : 'zone'
       }
+      ,description_es : 'string'
+      ,description_en : 'string'
+      ,description_ru : 'string'
+      ,description_pt : 'string'
+      ,includes_es : 'string'
+      ,includes_en : 'string'
+      ,includes_ru : 'string'
+      ,includes_pt : 'string'
+      ,does_not_include_es : 'string'
+      ,does_not_include_en : 'string'
+      ,does_not_include_ru : 'string'
+      ,does_not_include_pt : 'string'
+      ,recommendations_es : 'string'
+      ,recommendations_en : 'string'
+      ,recommendations_ru : 'string'
+      ,recommendations_pt : 'string'
   }
   , migrate : 'safe'
   , attrs_labels : {
@@ -103,6 +119,7 @@ module.exports = {
     ,recommendations_en : { es : 'Recomendaciones Inglés' , en : 'English recommendations' }
     ,recommendations_ru : { es : 'Recomendaciones Ruso' , en : 'Russian recommendations' }
     ,recommendations_pt : { es : 'Recomendaciones Portugués' , en : 'Portugués recommendations' }
+
   }
   ,labels : { es : 'Tours', en : 'Tours' }
 

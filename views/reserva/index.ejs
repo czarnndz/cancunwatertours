@@ -1,6 +1,7 @@
 <script type="text/javascript">
     var hotels = <%- JSON.stringify(hotels) %>;
     var cartComplete = <%- JSON.stringify(cartComplete) %>;
+    var transfer_prices = <%- JSON.stringify(transfer_prices)%>;
     <% if(req.user){ %>
       var client = <%- JSON.stringify(req.user) %>;
     <% } %>
@@ -71,7 +72,7 @@
             <h2 class="booking-info-title"><%= __('your_reservation') %></h2>
             <div class="booking-info-inner">
 
-              <div class="booking-info-item" ng-repeat="tour in tours track by $index">
+              <div class="booking-info-item" ng-repeat="tour in tours track by $index" ng-init="updatePrices(tour)">
                 <section class="booking-info-block">
                   <h3>
                     <a ng-href="/{{currentLang}}/tour/{{tour.url}}" target="_blank">
@@ -82,18 +83,18 @@
                       <% } %>
                     </a>
                   </h3>
-                  <p class="precio-detalles">{{global_currency.currency_code | uppercase}} {{priceTour(tour) | currency}}</p>
+                  <p class="precio-detalles">{{global_currency.currency_code | uppercase}} {{tour.total_price | currency}}</p>
                 </section>
                 <section ng-if="tour.hotel && tour.transfer" class="booking-info-block">
                   <p><strong><%= __('transportation') %></strong></p>
-                  <p>{{global_currency.currency_code | uppercase}} {{priceTransfer(tour) | currency}}</p>
+                  <p>{{global_currency.currency_code | uppercase}} {{tour.transfer_price | currency}}</p>
                 </section>
               </div>
 
               <div class="booking-info-item">
                 <section class="booking-info-block">
                   <p class="text-total-d"><strong>TOTAL</strong></p>
-                  <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}">{{priceTotal() | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}">{{total | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
                 </section>
               </div>
             </div>

@@ -15,13 +15,14 @@
       serv.getClient = getClient;
       serv.setClient = setClient;
       serv.getPriceTour = getPriceTour;
-      serv.getPriceTourOnly = getPriceTourOnly;
-      serv.getPriceTax = getPriceTax;
-      serv.getPriceTotalTotal = getPriceTotalTotal;
-      serv.getPriceTotalTax = getPriceTotalTax;
-      serv.getPriceTransfer = getPriceTransfer;
+      serv.getPriceTourTax = getPriceTourTax;
+      serv.getPriceTourWTax = getPriceTourWTax;
+      serv.getPriceTourTransfer = getPriceTourTransfer;
+      serv.getPriceTourTotal = getPriceTourTotal;
       serv.getPriceAdults = getPriceAdults;
       serv.getPriceKids = getPriceKids;
+      serv.getPriceTotal = getPriceTotal;
+      serv.getPriceTotalTax = getPriceTotalTax;
       serv.removeItem = removeItem;
       serv.process = process;
       serv.tax = 0.15;
@@ -59,71 +60,103 @@
         $rootScope.cart_items.length = 0;
       }
 
-      function getPriceTour(tour) {
-        var exchangeRate = getExchangeRate();
-        var transferPrice = getPriceTransfer(tour);
-        if (tour.kids > 0) {
-          return transferPrice + (tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate);
-        } else {
-          return transferPrice + (tour.adults * tour.fee * exchangeRate);
-        }
-      }
-
-      function getPriceTourOnly(tour) {
+      //TODO cambiar a promises cuando tengamos api de cotizado
+      function getPriceTour(tour,callback) {
           var exchangeRate = getExchangeRate();
-          if (tour.kids > 0) {
-              return (tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate);
+          if (tour.priceType == 'group') {
+              callback((tour.fee * exchangeRate));
           } else {
-              return (tour.adults * tour.fee * exchangeRate);
+              if (tour.kids > 0) {
+                  callback((tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate));//si no hay precio de ninio agarra el de adulto
+              } else {
+                  callback((tour.adults * tour.fee * exchangeRate));
+              }
           }
       }
 
-      function getPriceTotalTax(){
-        return (getPriceTotal() * serv.tax);
-
+      function getPriceTourWTax(tour,callback) {
+          getPriceTour(tour,function(price){
+              callback(price + (price * serv.tax));
+          });
       }
 
-      function getPriceTax(tour){
-        return getPriceTour(tour) * serv.tax;
+      function getPriceTourTax(tour,callback) {
+          getPriceTour(tour,function(price){
+              callback(price * serv.tax);
+          });
       }
 
-      function getPriceTotalTotal() {
-        return getPriceTotal();
+      function getPriceTotalTax(transferPrices){
+        var deferred = $q.defer();
+        getPriceTotal(transferPrices).then(function(total){
+            deferred.resolve(total * serv.tax);
+        });
+        return deferred.promise;
       }
 
-      function getPriceTotal(){
-        return $rootScope.cart_items.reduce(function(prev,cur){
-          return prev + getPriceTour(cur);
-        },0);
+      function getPriceTourTotal(tour,transferPrices) {
+          var deferred = $q.defer();
+          getPriceTourTransfer(tour,transferPrices).then(function(value) {
+              //console.log(value);
+              getPriceTour(tour,function(val) {
+                  //console.log(val);
+                  if (tour.hotel) {
+                      deferred.resolve(val + value);
+                  }
+                  else {
+                      deferred.resolve(val);
+                  }
+              });
+          });
+
+          return deferred.promise;
       }
 
-      function getPriceTransfer(tour){
-        var exchangeRate = getExchangeRate();
-        //console.log(tour.hotel);
-        //console.log(tour.transfer);
-        if (tour.hotel && tour.transfer) {
-            var transferPrice = getTransferZonePrice(tour);
-            return ((transferPrice * tour.adults * exchangeRate) + (tour.kids * transferPrice * exchangeRate));
-        } else
-          return 0;
-      };
+      //TODO necesita cambios en caso de que los cart_items ya no sean todos de tour
+      function getPriceTotal(transferPrices){
+          var deferred = $q.defer();
+          var functions = [];
+          async.each($rootScope.cart_items,function(item,cb){
+              var auxItem = angular.copy(item);
+              functions.push(function(cb1){
+                  getPriceTourTotal(auxItem,transferPrices).then(function(res){
+                      //console.log(res);
+                      cb1(false,res);
+                  });
+              });
+              cb();
+          },function(err){
+            //console.log('total');
+            async.parallel(functions,function(err,results){
+                async.reduce(results,0,function(prev,i,callback){
+                    callback(null,prev + i);
+                },function(err,total) {
+                    deferred.resolve(total);
+                });
+            });
+          });
+          return deferred.promise;
+      }
 
-      function getPriceAdults(tour) {
+      function getPriceAdults(tour,callback) {
         var auxTour = {
           fee : tour.fee,
           kids : 0,
-          adults : tour.adults
+          adults : tour.adults,
+          priceType : tour.priceType
         };
-        return getPriceTour(auxTour);
+        return getPriceTour(auxTour,callback);
       }
 
-      function getPriceKids(tour) {
+      function getPriceKids(tour,callback) {
         var auxTour = {
           fee : tour.fee,
+          feeChild : tour.feeChild,
           kids : tour.kids,
-          adults : 0
+          adults : 0,
+          priceType : tour.priceType
         };
-        return getPriceTour(auxTour);
+        return getPriceTour(auxTour,callback);
       }
 
       function process(client){
@@ -131,7 +164,7 @@
         var deferred = $q.defer();
         var items = getFormatedItems();
         var params = { items : items,currency : $rootScope.global_currency.id,client : $rootScope.cart_client };
-
+        console.log(params);
         if (client)
             $rootScope.cart_client = client;
         if ($rootScope.cart_client.payment_method != 'paypal') {
@@ -180,7 +213,9 @@
             kids : item.kids,
             transfer : item.transfer,
             hotel : item.hotel,
-            schedule : item.schedule
+            schedule : item.schedule,
+            transfer_price : item.transfer_price,
+            haveTransfer : item.haveTransfer
           };
           return aux;
         });
@@ -204,13 +239,40 @@
         }
       }
 
-      function getTransferZonePrice(tour,transferPrices) {
-        if (tour.haveTransfer) {
-            return 0;
-        }
-        console.log(transferPrices);
-        return 25;
+      function getPriceTourTransfer(tour,transferPrices) {
+        var deferred = $q.defer();
+        var exchangeRate = getExchangeRate();
+        var found = false;
+        if (tour.haveTransfer || (!tour.transfer)) {
+            deferred.resolve(0);
+        } else if (tour.hotel && transferPrices && transferPrices.length > 0) {
+            angular.forEach(transferPrices,function(val){
+                if ((val.zone1 == tour.hotel.zone && val.zone2 == tour.zone) || (val.zone2 == tour.hotel.zone && val.zone1 == tour.zone)) {
+                    found = true;
+                    var aux = 0;
+                    if (val.transfer.service_type == 'C') {
+                        var quantity = Math.ceil(((parseInt(tour.adults) + parseInt(tour.kids)) / val.transfer.max_pax)); //dpenede del tipo de transfer
+                        console.log(quantity);
+                        aux = quantity * parseFloat(val.round_trip) * exchangeRate;
+                    } else {
+                        if (tour.kids > 0) {
+                            aux = (tour.adults * parseFloat(val.round_trip) * exchangeRate) + (tour.kids * (angular.isDefined(val['round_trip_child']) ? parseFloat(val.round_trip_child) : parseFloat(val.round_trip)) * exchangeRate);
+                        } else {
+                            aux = (tour.adults * parseFloat(val.round_trip) * exchangeRate);
+                        }
+                    }
 
+                    //aux *= quantity;
+                    deferred.resolve(aux);
+                }
+            });
+            //console.log(found);
+            if (!found)
+                deferred.resolve(0);
+        } else {
+            deferred.resolve(0);
+        }
+        return deferred.promise;
       }
 
     });

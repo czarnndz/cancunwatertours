@@ -122,7 +122,9 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
 
   $scope.getPriceTour = function(tour){
-    return cartService.getPriceTour(tour);
+    cartService.getPriceTour(tour,function(val){
+        tour.total_price = val;
+    });
   };
 
   $scope.initMap = function(){
@@ -167,14 +169,17 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       for( var x in tours ){
         var tour = tours[x];
         var tour_name = ($rootScope.lang === 'es') ? tour.name : tour.name_en;
-        var item = '';
-        var price = $filter('currency')(cartService.getPriceTour(tour)) + $filter('uppercase')($rootScope.global_currency.currency_code);
-        var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-        item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
-        item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
-        item += printCategoriesByTour(tour);
-        item = "<div>" + item + "</div>";
-        reel += item;
+        cartService.getPriceTour(tour,function(val) {
+            var item = '';
+            var price = $filter('currency')(val) + $filter('uppercase')($rootScope.global_currency.currency_code);
+            var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
+            item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
+            item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
+            item += printCategoriesByTour(tour);
+            item = "<div>" + item + "</div>";
+            reel += item;
+        });
+
       }
       reel = '<slick ng-cloak style="width:100%;min-height:200px;margin:0;" class="ng-cloak" dots="false" arrows="true" autoplay="false" fade="false">' + reel + "</slick>";
 

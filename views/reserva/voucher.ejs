@@ -52,16 +52,17 @@
           <p><strong><%= __('duration') %>:</strong> {{reservation.tour.duration_formated}}</p>
           <p ng-if="reservation.schedule"><strong><%= __('schedule') %>:</strong> <%= __('from') %> {{reservation.schedule.from | date:'HH:mm'}} <%= __('to') %> {{reservation.schedule.to | date:'HH:mm'}}</p>
           <p><strong><%= __('date') %>:</strong> {{reservation.startDate | date:'dd/MM/yyyy'}}</p>
-          <p><strong><%= __('adults') %>:</strong> {{reservation.pax}}</p>
-          <p ng-if="reservation.kidPax"><strong><%= __('kids') %>:</strong> {{reservation.kidPax}}</p>
+          <p ng-if="reservation.reservation_type == 'tour'"><strong><%= __('adults') %>:</strong> {{reservation.pax}}</p>
+          <p ng-if="reservation.kidPax && reservation.reservation_type == 'tour'"><strong><%= __('kids') %>:</strong> {{reservation.kidPax}}</p>
+          <p ng-if="reservation.reservation_type == 'transfer'"><strong><%= __('people') %>:</strong> {{reservation.pax}}</p>
           <p><strong>Total: {{reservation.total | currency}} {{currency | uppercase}}</strong></p>
         </div>
         <!--END VOUCHER ITEM-->
 
         <!--VOUCHER ITEM-->
-        <div class="voucher-item">
+        <div class="voucher-item" ng-if="(reservation.tour.includesList && reservation.tour.includesList.length > 0) || (reservation.tour.notIncludesList && reservation.tour.notIncludesList.length > 0) || (reservation.tour.recommendations_es && reservation.tour.recommendations_es.length > 0)">
           <h3 class="voucher-title"><%= __('tour_details') %></h3>
-          <div class="voucher-prop">
+          <div class="voucher-prop" ng-if="reservation.tour.includesList">
             <p><strong><%= __('includes') %></strong></p>
             <p>
               <ul>
@@ -69,7 +70,7 @@
               </ul>
             </p>
           </div>
-          <div class="voucher-prop">
+          <div class="voucher-prop" ng-if="reservation.tour.notIncludesList">
             <p><strong><%= __('noincludes') %></strong></p>
               <p>
               <ul>

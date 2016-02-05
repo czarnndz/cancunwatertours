@@ -20,6 +20,7 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
         $scope.loading = false;
         $scope.tours = $scope.formatTours(res);
         $scope.getToursRand(res);
+        $scope.updatePrices();
       });
     };
     $scope.getToursRand = function(res) {
@@ -31,7 +32,6 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
     $scope.formatTours = function(tours){
         return (function() {
             var aux_tours = [];
-            var span = 1;
             for (var i = 0; i < 4; i++) {
                 //colspan = randomSpan();
                 //rowspan = randomSpan(colspan);
@@ -45,6 +45,8 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                     fee : tours[i].fee,
                     feeChild : tours[i].feeChild,
                     url: tours[i].url,
+                    haveTransfer : tours[i].haveTransfer,
+                    hotel : false,
                     adults : 1,
                     kids : 0,
                     firstCategory: tourMainCategories[0] || {},
@@ -77,6 +79,8 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
                   fee : tours[rand].fee,
                   feeChild : tours[i].feeChild,
                   url: tours[rand].url,
+                  haveTransfer : tours[rand].haveTransfer,
+                  hotel : false,
                   adults : 1,
                   kids : 0,
                   firstCategory: tourMainCategories[0] || {},
@@ -122,14 +126,64 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
         $scope.getTours();
     };
 
-    $scope.getPriceTour = function(tour) {
-        //console.log("get price tour");
-        return cartService.getPriceTour(tour);
-    };
-
     $scope.getCategoryIcon = function(category){
       return toursService.getCategoryIcon(category);
-    }
+    };
+
+    $scope.updatePrices = function(){
+        var functions = [];
+        functions.push(
+            function(cb) {
+                async.each($scope.tours,
+                    function(tour,callback){
+                        cartService.getPriceTour(tour,function(val){
+                        tour.total_price = val;
+                        callback();
+                    })},function(e){
+                        cb(e,true);
+                    });
+            }
+        );
+        functions.push(
+            function(cb) {
+                async.each($scope.toursrand1,
+                    function(tour,callback){
+                        cartService.getPriceTour(tour,function(val){
+                            tour.total_price = val;
+                            callback();
+                        })},function(e){
+                        cb(e,true);
+                    });
+            }
+        );
+        functions.push(
+            function(cb) {
+                async.each($scope.toursrand2,
+                    function(tour,callback){
+                        cartService.getPriceTour(tour,function(val){
+                            tour.total_price = val;
+                            callback();
+                        })},function(e){
+                        cb(e,true);
+                    });
+            }
+        );
+        functions.push(
+            function(cb) {
+                async.each($scope.toursrand3,
+                    function(tour,callback){
+                        cartService.getPriceTour(tour,function(val){
+                            tour.total_price = val;
+                            callback();
+                        })},function(e){
+                        cb(e,true);
+                    });
+            }
+        );
+        async.parallel(functions,function(err,res) {
+            console.log(res);
+        });
+    };
 
     $scope.init();
 });

@@ -150,19 +150,20 @@ module.exports = {
     }
     ,notes : 'string'
     ,cancelationDate : 'date'
+    ,duration : 'integer'
+    ,prices : {
+      collection : 'price',
+      via : 'reservations'
+    }
+    ,number : {
+      type : 'integer',
+      autoIncrement: true
+    }
     //tour
     ,schedule : 'string'
     ,authorization_code : 'string' //paypal = payment_id , conekta : charge_id
     ,authorization_code_2 : 'string' //paypal = token
-    ,duration : 'integer'
-    ,prices : {
-        collection : 'price',
-        via : 'reservations'
-    }
-    ,number : {
-        type : 'integer',
-        autoIncrement: true
-    }
+    ,includesTransfer : 'boolean' //por ahora solo para tours
   }
   , attrs_labels : {
     //transfer reservations

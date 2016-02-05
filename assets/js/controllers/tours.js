@@ -10,9 +10,22 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
       $scope.tour.date = new Date();
+      $scope.tour.transfer = $scope.tour.haveTransfer;
       $scope.minDate = new Date();
       $scope.hotels = [];
       $scope.rate_values = rate_values;
+      $scope.transfer_prices = transfer_prices;
+      $scope.tour.total_price = 0;
+      $scope.tour.adult_price = 0;
+      $scope.tour.kids_price = 0;
+      $scope.tour.transfer_price = 0;
+      $scope.tour.maxPaxSize = [];
+      if (!$scope.tour.pax) {
+          $scope.tour.pax = 8;
+      }
+      for (var i = 1; i <= $scope.tour.pax; i++) {
+        $scope.tour.maxPaxSize.push(i);
+      }
       $scope.center = {
           zoom:14,
           lat:21.1656951,
@@ -56,12 +69,12 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
           } else {
               angular.copy($scope.hotels,$scope.searchHotels);
           }
-          console.log($scope.searchHotels);
+          //console.log($scope.searchHotels);
       });
 
       $scope.date = new Date();
       $scope.date.setDate($scope.date.getDate() + 1);
-
+      $scope.updatePrices($scope.tour);
     };
 
     $scope.formatList = function(inlineList){
@@ -134,16 +147,47 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       }
     };
 
+    $scope.updatePrices = function(tour) {
+        $scope.getPrice(tour);
+        $scope.getPriceAdults(tour);
+        $scope.getPriceKids(tour);
+        $scope.getPriceTotal();
+        $scope.getPriceTransfer();
+    }
+
     $scope.getPrice = function(tour){
-        return cartService.getPriceTour(tour);
+        cartService.getPriceTour(tour,function(res){
+            tour.total_tour_price = res;
+        });
     };
 
     $scope.getPriceAdults = function(tour) {
-      return cartService.getPriceAdults(tour);
+          cartService.getPriceAdults(tour,function(res){
+              tour.adult_price = res;
+          });
     };
 
     $scope.getPriceKids = function(tour) {
-      return cartService.getPriceKids(tour);
+        cartService.getPriceKids(tour,function(res){
+            tour.kids_price = res;
+        });
+    };
+
+    $scope.getPriceTotal = function() {
+      cartService.getPriceTourTotal($scope.tour,$scope.transfer_prices).then(function(res){
+          $scope.tour.total_price = res;
+      });
+    };
+
+    $scope.getPriceTransfer = function() {
+        if (!$scope.tour.haveTransfer && $scope.tour.hotel) {
+            cartService.getPriceTourTransfer($scope.tour,$scope.transfer_prices).then(function(val){
+                $scope.tour.transfer_price = val;
+            });
+        } else {
+            $scope.tour.transfer_price = 0;
+        }
+
     };
 
     $scope.addCartTour = function() {

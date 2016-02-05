@@ -74,7 +74,7 @@
 
       function getFeeRange(){
         var maxFee = 0;
-        var minFee = 10000;
+        var minFee = 100000;
         var range = {};
         var deferred = $q.defer();
 
@@ -92,7 +92,7 @@
             maxFee: maxFee
           };
           deferred.resolve(range);
-        }
+        };
 
         if(serv.tours.length > 0){
           calculateRange(serv.tours);

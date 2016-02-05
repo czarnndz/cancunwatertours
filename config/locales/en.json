@@ -51,9 +51,12 @@
   "from": "From",
   "to": "To",
   "add_transport": "Add transport",
+  "search_hotels" : "Search your hotel",
   "no_results_found": "No results found for",
   "price_per_adult": "Price per adult",
   "price_per_kid": "Price per kid",
+  "price_per_tour": "tour price",
+  "price_per_transfer": "transfer price",
   "add_to_my_cart": "Add to my cart",
 
   "rates": "Rates",

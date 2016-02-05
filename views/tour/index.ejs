@@ -3,6 +3,7 @@
     var rate_values = <%- JSON.stringify(rate_values) %>;
     var similar_tours = <%- JSON.stringify(similar_tours) %>;
     var imgs_url = <%- JSON.stringify(imgs_url) %>;
+    var transfer_prices = <%- JSON.stringify(transfer_prices)%>;
 </script>
 
 <div id="detalle" class="tour-indiv container-max" layout="row" layout-wrap ng-controller="tourCTL">
@@ -76,20 +77,15 @@
             <div flex="45">
               <div class="input-field-wrap" layout="row" layout-align="space-between center">
                 <label flex><%= __('adults') %></label>
-                <md-select flex placeholder="1" ng-model="tour.adults" ng-required>
-                   <md-option value="1">1</md-option>
-                   <md-option value="2">2</md-option>
-                   <md-option value="3">3</md-option>
-                   <md-option value="4">4</md-option>
-                   <md-option value="5">5</md-option>
-                   <md-option value="6">6</md-option>
+                <md-select flex placeholder="1" ng-model="tour.adults" ng-required ng-change="updatePrices(tour)">
+                    <md-option value="{{paxSize}}" ng-repeat="paxSize in tour.maxPaxSize track by $index">{{paxSize}}</md-option>
                 </md-select>
               </div>
             </div>
             <div flex="45" ng-if="tour.feeChild || tour.priceType == 'group'">
               <div class="input-field-wrap" layout="row" layout-align="space-between center">
                 <label flex><%= __('kids') %></label>
-                <md-select flex placeholder="1" ng-model="tour.kids" ng-required>
+                <md-select flex placeholder="1" ng-model="tour.kids" ng-required ng-change="updatePrices(tour)">
                    <md-option value="0">0</md-option>
                    <md-option value="1">1</md-option>
                    <md-option value="2">2</md-option>
@@ -109,11 +105,9 @@
           </div>
 
           <div ng-if="tour.haveTransfer" class="input-field-wrap">
-            <md-checkbox class="md-primary add-transport-checkbox" ng-model="tour.transfer" aria-label="">
-              <i class='icon-transporte'></i> <%= __('add_transport') %>
-            </md-checkbox>
-            <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
-              <span><i class='icon-pin'></i>Hotel</span>
+
+            <div class='hotel-select' layout='row' layout-align='center center'>
+              <span><i class='icon-pin'></i><%= __('search_hotels') %></span>
               <span flex></span>
               <span><md-autocomplete
                 class="custom-autocomplete"
@@ -122,7 +116,8 @@
                 md-search-text="tour.searchText"
                 md-items="item in searchHotels | filter:{ name : tour.searchText }:false"
                 md-item-text="item.name"
-                md-min-length="0"
+                md-min-length="1"
+                md-selected-item-change="updatePrices(tour)"
                 placeholder="">
                 <md-item-template>
                   <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
@@ -136,6 +131,7 @@
 
             <div ng-if="!tour.haveTransfer" class="input-field-wrap">
                 <md-checkbox class="md-primary add-transport-checkbox" ng-model="tour.transfer" aria-label="">
+
                     <i class='icon-transporte'></i> <%= __('add_transport') %>
                 </md-checkbox>
                 <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
@@ -149,7 +145,8 @@
                                   md-search-text="tour.searchText"
                                   md-items="item in searchHotels | filter:{ name : tour.searchText }:false"
                                   md-item-text="item.name"
-                                  md-min-length="0"
+                                  md-min-length="1"
+                                  md-selected-item-change="updatePrices(tour)"
                                   placeholder="">
                               <md-item-template>
                                   <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
@@ -167,18 +164,25 @@
 
           <!--END INPUT FIELDS-->
           <div class="precios-detalle">
-            <p class="prices-value">
-              <strong>({{tour.adults}})</strong> <%= __('price_per_adult') %> {{getPriceAdults(tour) | currency}}
+            <p class="prices-value" ng-if="tour.priceType != 'group'">
+              <strong>({{tour.adults}})</strong> <%= __('price_per_adult') %> {{tour.adult_price | currency}}
             </p>
-            <p class="prices-value" ng-if="tour.feeChild || tour.priceType == 'group'" >
-              <strong>({{tour.kids}})</strong> <%= __('price_per_kid') %> {{getPriceKids(tour) | currency}}
+            <p class="prices-value" ng-if="tour.feeChild && tour.priceType != 'group'" >
+              <strong>({{tour.kids}})</strong> <%= __('price_per_kid') %> {{tour.kids_price | currency}}
             </p>
+            <p class="prices-value" ng-if="tour.priceType == 'group' && tour.transfer_price">
+              <strong><%= __('price_per_tour') %></strong> {{tour.total_tour_price | currency}}
+            </p>
+            <p class="prices-value" ng-if="tour.transfer_price">
+                <strong><%= __('price_per_transfer') %></strong> {{tour.transfer_price | currency}}</strong>
+            </p>
+
             <section class="final-price-block">
               <p class="prices-value">
                 <strong>TOTAL</strong>
               </p>
               <p class="prices-value">
-                <span class="prices-value-total">{{getPrice(tour) | currency}} {{global_currency.currency_code | uppercase}}</span>
+                <span class="prices-value-total">{{tour.total_price | currency}} {{global_currency.currency_code | uppercase}}</span>
               </p>
 
               <a ng-click="addCartTour()" class="boton-detalle cart-btn">
@@ -280,7 +284,7 @@
   <!--SIMILAR TOURS-->
   <div class="similar-tours" id="similares" flex="25" flex-md="100" flex-sm="100" >
     <h2><%= __('similar_tours') %> <br> <span class='icon-flecha'></span></h2>
-    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours">
+    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours" ng-init="getPrice(tour_i)">
       <span ng-style="{'background-image': 'url('+tour_i.avatar3+')'}"
         class="s-tour-img">
       </span>
@@ -297,7 +301,7 @@
             <% } %>
           </a>
         </h4>
-        <p class="s-tour-price">{{getPrice(tour_i) | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
+        <p class="s-tour-price">{{tour_i.total_tour_price | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
         <p><a class='action-btn-white' ng-href="/{{currentLang}}/tour/{{tour_i.url}}"><%= __('book_now') %></a></p>
       </div>
     </div>

@@ -13,7 +13,7 @@ function initPaypal() {
 module.exports.conektaCreate = function(items,client,token,reference_id,total,currency,callback) {
   conekta.api_key = process.env.CONEKTA_API_PRIVATE;
   conekta.locale = 'es';
-
+  console.log(items);
   var conektaRequest = {
       description: 'Water tours reservation',
       amount: (total * 100).toFixed(),
@@ -39,9 +39,9 @@ module.exports.conektaCreate = function(items,client,token,reference_id,total,cu
     console.log('request done');
     if (err) {
       console.log(err.message_to_purchaser);
-      return;
-    }
-    callback(err,res.toObject());
+      callback(err,false);
+    } else
+        callback(err,res.toObject());
   });
 }
 
@@ -118,7 +118,10 @@ module.exports.getPaypalItems = function(reservations,currency) {
     return reservations.map(function(r){
         var item = {};
         item.sku = r.id;
-        item.name = r.tour.name;
+        if (r.reservation_type == 'tour')
+            item.name = r.tour.name;
+        else
+            item.name = r.transfer.name;
         item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
         item.currency = currency;
         item.quantity = r.quantity;
@@ -127,14 +130,20 @@ module.exports.getPaypalItems = function(reservations,currency) {
 };
 
 module.exports.getConektaItems = function(reservations) {
+    console.log(reservations);
     return reservations.map(function(r){
         var item = {};
         item.sku = r.id;
-        item.name = r.tour.name;
-        item.description = " for " + r.pax + " adults" + (r.kidPax ? (" , " + r.kidPax + " kids") : "");
-        item.unit_price = ((r.fee + (r.feeKids ? r.feeKids : 0)) * 100).toFixed();
+        if (r.reservation_type == 'tour') {
+            item.name = r.tour.name;
+            item.description = " for " + r.pax + " adults" + (r.kidPax ? (" , " + r.kidPax + " kids") : "");
+        } else if (r.reservation_type == 'transfer') {
+            item.name = r.transfer.name;
+            item.description = " transportation for " + r.pax;
+        }
+        item.unit_price = (r.fee * 100).toFixed();
         item.quantity = r.quantity;
-        item.type = 'tour';
+        item.type = r.reservation_type;
         return item;
     });
 };

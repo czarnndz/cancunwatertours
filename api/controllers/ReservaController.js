@@ -10,19 +10,23 @@ module.exports = {
       var params = req.params.all();
       var isCartComplete = (params.step == '2') ? true : false;
       Hotel.find().exec(function(err,hotels){
-        res.view({
-          hotels : Common.formatHotel(hotels,'es'),
-          booking: true,
-          cartComplete: isCartComplete,
-          meta : {
-            controller : 'reserva.js'
-          },
-          page : {
-            searchUrl : '/booking',
-            placeholder : 'Buscar',
+          TransferPrice.find({ active : true}).populate('transfer').exec(function(et,transferPrices) {
+              res.view({
+                  hotels : Common.formatHotel(hotels,'es'),
+                  transfer_prices : transferPrices,
+                  booking: true,
+                  cartComplete: isCartComplete,
+                  meta : {
+                      controller : 'reserva.js'
+                  },
+                  page : {
+                      searchUrl : '/booking',
+                      placeholder : 'Buscar',
 
-          }
-        });
+                  }
+              });
+          });
+
       });
     },
     create : function(req,res) {
@@ -33,6 +37,7 @@ module.exports = {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
             OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
+              console.log(reservations);
               if (err) {
                 console.log(err);
                 result.success = false;
@@ -42,6 +47,7 @@ module.exports = {
               } else if (reservations) {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
+                console.log(total);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
@@ -81,7 +87,7 @@ module.exports = {
                                   return res.json(result);
                               });
                           }
-                          console.log(cresult);
+                          //console.log(cresult);
                           OrderCore.updateReservations({order : order.id},{ state : cresult.status == 'paid' ? 'liquidated' : 'pending',authorization_code : cresult.id },function(updateRes) {
                               if (updateRes) {
                                   result.success = true;
@@ -145,8 +151,10 @@ module.exports = {
     //TODO agregar selector por email y id reservation
     voucher: function(req, res){
         var params = req.params.all();
+        console.log(params);
         Order.findOne({ id : params.o }).populate('client').exec(function(err,theorder){
-            Reservation.find({ order : params.o }).populate('tour').exec(function(err,thereservations){
+            Reservation.find({ order : params.o }).populate('tour').populate('transfer').exec(function(err,thereservations){
+                console.log(thereservations);
                 res.view({
                     theorder : theorder,
                     reservations : thereservations,
@@ -156,7 +164,7 @@ module.exports = {
                         controller : 'reserva.js'
                     },
                     page : {
-                        searchUrl : '/voucher',
+                        searchUrl : '/' + params.lang +  '/voucher',
                         placeholder : 'Voucher'
                     }
                 });

@@ -112,14 +112,15 @@ module.exports.routes = {
     controller : 'reserva',
     action : 'create'
   },
-  '/voucher': {
-    controller: 'reserva',
-    action: 'voucher'
-  },
 
   /*------------------/
     TRANSLATED URLS
   /*------------------*/
+
+  '/:lang/voucher': {
+    controller: 'reserva',
+    action: 'voucher'
+  },
   '/:lang/booking': {
     controller : 'reserva',
     action : 'index'

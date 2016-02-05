@@ -36,24 +36,19 @@
                     </label>
                     <div flex="60">
 
-                      <md-select ng-model="tour.adults" ng-required class="custom-select">
-                         <md-option value="1">1</md-option>
-                         <md-option value="2">2</md-option>
-                         <md-option value="3">3</md-option>
-                         <md-option value="4">4</md-option>
-                         <md-option value="5">5</md-option>
-                         <md-option value="6">6</md-option>
+                      <md-select ng-model="tour.adults" ng-required class="custom-select" ng-change="updatePrices(tour)">
+                         <md-option value="{{paxSize}}" ng-repeat="paxSize in tour.maxPaxSize track by $index">{{paxSize}}</md-option>
                       </md-select>
 
                     </div>
                 </div>
-                <div class="input-field-wrap" layout="row" layout-align="space-between center">
+                <div class="input-field-wrap" layout="row" layout-align="space-between center" ng-if="tour.feeChild || tour.priceType == 'group'">
                     <label flex="40">
                       <i class="icon-nino highlight"></i> <%= __('kids') %>:
                     </label>
                     <div flex="60">
 
-                      <md-select ng-model="tour.kids" ng-required class="custom-select">
+                      <md-select ng-model="tour.kids" ng-required class="custom-select" ng-change="updatePrices(tour)">
                          <md-option value="0">0</md-option>
                          <md-option value="1">1</md-option>
                          <md-option value="2">2</md-option>
@@ -75,47 +70,26 @@
                       </md-select>
                     </div>
                 </div>
-                <!--<div class="input-field-wrap" layout="row" layout-align="space-between center">
-                  <label flex="20">
-                    <i class="icon-hotel highlight"></i> Hotel:
-                  </label>
-                  <div flex="75">
-                    <md-autocomplete
-                      class="custom-autocomplete"
-                      md-no-cache="false"
-                      md-selected-item="tour.hotel"
-                      md-search-text="tour.searchText"
-                      md-items="item in hotels|filter:{name : tour.searchText}:false"
-                      md-item-text="item.name"
-                      md-min-length="0"
-                      placeholder="">
-                      <md-item-template>
-                        <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>
-                      </md-item-template>
-                      <md-not-found>
-                        No matches found for "{{tour.searchText}}".
-                      </md-not-found>
-                    </md-autocomplete>
-                  </div>
-                </div>-->
             </section>
         </div><!--Booking form-->
         <div flex='100' layout-align='center center'>
           <p class='blueText'>
-            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="">
+            <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="" ng-change="updatePrices(tour)">
               <i class='icon-transporte'></i> <%= __('add_transport') %>
             </md-checkbox>
           </p>
           <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
             <span><i class='icon-pin'></i>Hotel</span>
-            <span><md-autocomplete
+            <span>
+              <md-autocomplete
               class="custom-autocomplete"
               md-no-cache="false"
               md-selected-item="tour.hotel"
               md-search-text="tour.searchText"
               md-items="item in hotels|filter:{name : tour.searchText}:false"
               md-item-text="item.name"
-              md-min-length="0"
+              md-min-length="1"
+              md-selected-item-change="updatePrices(tour)"
               placeholder="">
               <md-item-template>
                 <span md-highlight-text="tour.searchText" md-highlight-flags="^i">{{item.name}}</span>

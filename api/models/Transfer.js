@@ -30,7 +30,11 @@ module.exports = {
     ,service_type :{
       type : 'string'
       ,enum : ['C','P','D'] //c=colectivo , p=privado , d=directo
-    }
+    },
+    round_trip : 'float',
+    round_trip_child : 'float',
+    one_way : 'float',
+    one_way_child : 'float'
   }
   ,labels : { es : 'Traslados', en : 'Transfers' }
 };

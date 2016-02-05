@@ -49,9 +49,12 @@
   "from": "De",
   "to": "A",
   "add_transport": "Agregar transportación",
+  "search_hotels" : "Busca tu hotel",
   "no_results_found": "No se encontraron resultados para",
   "price_per_adult": "Precio por adulto",
   "price_per_kid": "Precio por niño",
+  "price_per_tour": "Precio tour",
+  "price_per_transfer": "Precio transportación",
   "add_to_my_cart": "Añadir a mi carrito",
 
   "rates": "Rangos",

@@ -76,7 +76,7 @@
             md-search-text="searchText"
             md-items="hotel in hotels"
             md-item-text="hotel.name"
-            md-min-length="0"
+            md-min-length="1"
             placeholder="<%= __('search_hotel') %>">
           <md-item-template>
             <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{hotel.name}}</span>

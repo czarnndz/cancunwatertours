@@ -79,10 +79,7 @@
           required
           ng-class="{'custom-select-error': payForm.client_country.$invalid && validatingPayment }"
           >
-            <md-option value="US">Estados Unidos</md-option>
-            <md-option value="2">Canada</md-option>
-            <md-option value="3">España</md-option>
-            <md-option value="MX">Mexico</md-option>
+            <md-option value="{{country.code}}" ng-repeat="country in countries">{{country.name}}</md-option>
         </md-select>
 
         <!--ONLY CREDIT CARD-->
@@ -209,7 +206,7 @@
             </md-checkbox>
           </p>
           <p class="total-pagar"><strong><%= __('total_payment') %></strong></p>
-          <p class="total-price"><strong>{{priceTotal() | currency}}</strong> {{global_currency.currency_code | uppercase}}</p>
+          <p class="total-price"><strong>{{total | currency}}</strong> {{global_currency.currency_code | uppercase}}</p>
           <p class="small-text" flex="100"><%= __('total_tax_label') %></p>
 
           <input type="button" class="action-btn payment-btn" ng-click="process($event, payForm)" value="<%= __('pay_booking') %>">
