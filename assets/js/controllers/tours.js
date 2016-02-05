@@ -153,7 +153,14 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
         $scope.getPriceKids(tour);
         $scope.getPriceTotal();
         $scope.getPriceTransfer();
-    }
+    };
+
+    $scope.$on('CURRENCY_CHANGE', function () {
+        $scope.updatePrices($scope.tour);
+        angular.forEach($scope.similar_tours,function(t){
+            $scope.getPrice(t);
+        });
+    });
 
     $scope.getPrice = function(tour){
         cartService.getPriceTour(tour,function(res){

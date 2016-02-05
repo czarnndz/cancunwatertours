@@ -12,11 +12,9 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.size = 6;
   $scope.loading = false;
   $scope.toursCategories = [];
-  $scope.range = { id:'0', name:'prices' ,minFee : 0, maxFee : 1, tours:[] };
+  $scope.range = { id:'0', name:'prices',type : 'price' ,minFee : 0, maxFee : 1, tours:[] };
   $scope.selected = [];
   $scope.orderBy = 'dtCreated';
-  console.log($scope.rate_categories);
-  console.log($scope.range);
 
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
@@ -77,7 +75,8 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
   $scope.updatePricesRange = function(){
     toursService.getFeeRange().then(function(res){
-      $scope.range = res;
+      $scope.range.minFee = res.minFee;
+      $scope.range.maxFee = res.maxFee;
     });
   };
   $scope.getCategoriesByTours = function(){
@@ -270,8 +269,10 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     toursService.getTours($scope.category,minFee,maxFee,term,true).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
+      $scope.range.tours = angular.copy($scope.tours);
       $scope.updatePricesRange();
       $scope.getCategoriesByTours();
+      $scope.ratingPrice = $scope.range.maxFee;
       $scope.muelles = {};
       var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
       angular.forEach(data, function(t){

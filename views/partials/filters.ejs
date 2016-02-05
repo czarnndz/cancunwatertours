@@ -28,7 +28,7 @@
           </label>
           <div layout='row' layout-align="space-between end">
             <i class="md-icon icon-coins" ng-click="priceTooltip = !priceTooltip"></i>
-            <md-slider flex class="md-primary" md-discrete step="{{(range.maxFee - range.minFee) / 5}}" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
+            <md-slider flex class="md-primary" md-discrete step="{{(range.maxFee - range.minFee) / 4}}" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
             <i class="icon-precio2"></i>
           </div>
         </div>

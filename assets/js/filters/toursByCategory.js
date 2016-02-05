@@ -33,7 +33,15 @@ app.filter('toursByCategory', function($q) {
                   this.push(true);
                 else
                   this.push(false);
-              } else
+              } if (!angular.isUndefined(filter.type) && filter.type == 'price') {
+                    console.log(filter.value);
+                    item.value = itemL.fee;
+                    if (itemL.fee <= filter.value)
+                        this.push(true);
+                    else
+                        this.push(false);
+              }
+              else
                 this.push(true);
             }else
               this.push(false);
