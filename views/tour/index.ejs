@@ -20,14 +20,14 @@
             <h1>
               <% if(req.params.lang === 'es'){ %>
 
-                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name}}" >
+                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name}}" >
                   <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
                 </a>
                 {{tour.name}}
 
               <% }else{ %>
 
-                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name_en}}" >
+                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name_en}}" >
                   <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
                 </a>
                 {{tour.name_en}}

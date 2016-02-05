@@ -143,7 +143,7 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
       } else {
           if (!val) {
               Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(er,tours) {
-                  Cache.set(cacheKey,Common.formatTours(tours,'es'),'24h',function(err,value) {
+                  Cache.set(cacheKey,Common.formatTours(tours,'es'),'1h',function(err,value) {
                       if (err) throw err;
                       callback(err,value);
                   });
