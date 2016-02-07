@@ -72,7 +72,7 @@
         });
       }
 
-      function getFeeRange(){
+      function getFeeRange(tours){
         var maxFee = 0;
         var minFee = 100000;
         var range = {};
@@ -80,27 +80,23 @@
 
         var calculateRange = function(tours){
           tours.forEach(function(item) {
-              if (item.fee > maxFee) {
-                  maxFee = item.fee;
+              if (item.total_price > maxFee) {
+                  maxFee = item.total_price;
               }
-              if (item.fee < minFee) {
-                  minFee = item.fee
+              if (item.total_price < minFee) {
+                  minFee = item.total_price;
               }
           });
           range = {
             minFee: minFee,
             maxFee: maxFee
           };
+
           deferred.resolve(range);
         };
 
-        if(serv.tours.length > 0){
-          calculateRange(serv.tours);
-        }else{
-          serv.getTours().then(function(tours){
-            calculateRange(tours);
-          });
-        }
+        calculateRange(tours);
+
 
         return deferred.promise;
 

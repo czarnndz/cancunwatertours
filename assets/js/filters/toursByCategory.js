@@ -34,9 +34,8 @@ app.filter('toursByCategory', function($q) {
                 else
                   this.push(false);
               } if (!angular.isUndefined(filter.type) && filter.type == 'price') {
-                    console.log(filter.value);
-                    item.value = itemL.fee;
-                    if (itemL.fee <= filter.value)
+                    item.value = itemL.total_price;
+                    if (itemL.total_price <= filter.value)
                         this.push(true);
                     else
                         this.push(false);

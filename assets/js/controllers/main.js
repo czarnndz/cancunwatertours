@@ -83,13 +83,6 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
       );
     };
 
-    $scope.getFeeRange = function(){
-        toursService.getFeeRange().then(function(res){
-            $scope.minFee = res.minFee;
-            $scope.maxFee = res.maxFee;
-        });
-    };
-
     $scope.getToursCategories = function() {
       toursService.getCategories().then(function(res){
         $scope.toursCategories = res;
@@ -159,11 +152,6 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
       );
     };
 
-    $scope.init = function(){
-        $scope.getToursCategories();
-        $scope.getFeeRange();
-    };
-
-    $scope.init();
+    $scope.getToursCategories();
 
 });

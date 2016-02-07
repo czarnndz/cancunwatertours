@@ -5,14 +5,12 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.rate_categories = rate_categories || [];
   $scope.tours = [];
   $scope.hotels = [];
-  $scope.minFee = minFee;
-  $scope.maxFee = maxFee;
   $scope.term = term;
   $scope.page = 1;
   $scope.size = 6;
   $scope.loading = false;
   $scope.toursCategories = [];
-  $scope.range = { id:'0', name:'prices',type : 'price' ,minFee : 0, maxFee : 1, tours:[] };
+  $scope.range = { id:'0', name:'prices',type : 'price' ,minFee : 1, maxFee : 10,step : 2, tours:[] };
   $scope.selected = [];
   $scope.orderBy = 'dtCreated';
 
@@ -69,14 +67,21 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
         list.push(item);
       }
     }
-    console.log(list);
-    console.log(value);
-    console.log(idx);
+    if (idx != -1) {
+        $scope.size = 100;
+    }
+//    console.log(list);
+//    console.log(value);
+//    console.log(idx);
   };
-  $scope.updatePricesRange = function(){
-    toursService.getFeeRange().then(function(res){
+  $scope.updatePricesRange = function(cb){
+    //console.log('update range');
+    toursService.getFeeRange($scope.tours).then(function(res){
       $scope.range.minFee = res.minFee;
       $scope.range.maxFee = res.maxFee;
+      $scope.range.step = ($scope.range.maxFee - $scope.range.minFee) / 5;
+      $scope.ratingPrice = angular.copy($scope.range.maxFee);
+      cb();
     });
   };
   $scope.getCategoriesByTours = function(){
@@ -127,11 +132,14 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     },500);
   };
 
-  $scope.updatePrices = function(){
-      angular.forEach($scope.tours,function(t){
+  $scope.updatePrices = function(cb){
+      async.each($scope.tours,function(t,callback){
           cartService.getPriceTour(t,function(val){
               t.total_price = val;
+              callback();
           })
+      },function(){
+          cb();
       });
   };
 
@@ -181,7 +189,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
             var item = '';
             var price = $filter('currency')(val) + $filter('uppercase')($rootScope.global_currency.currency_code);
             var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-            tour.total_price = val;
             item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
             item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
             item += printCategoriesByTour(tour);
@@ -269,55 +276,60 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     toursService.getTours($scope.category,minFee,maxFee,term,true).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
-      $scope.range.tours = angular.copy($scope.tours);
-      $scope.updatePricesRange();
+      $scope.range.tours = $scope.tours;
       $scope.getCategoriesByTours();
-      $scope.ratingPrice = $scope.range.maxFee;
       $scope.muelles = {};
       var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
-      angular.forEach(data, function(t){
+      async.each(data, function(t,cb){
+        cartService.getPriceTour(t,function(val){
+            t.total_price = val;
+            if( t.provider && t.provider.departurePoints ){
+                if( !$scope.muelles[t.provider.id] )
+                    $scope.muelles[t.provider.id] = { points : [] , tours : [] };
+                for(var x in t.provider.departurePoints ){
+                    $scope.muelles[t.provider.id].points.push( t.provider.departurePoints[x] );
+                    $scope.muelles[t.provider.id].tours.push( t );
+                }
+                var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
+                for(var x in $scope.muelles[t.provider.id].points){
+                    var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+ markerTxt : $scope.muelles[t.provider.id].tours[0].name;
+                    markers.push({
+                        lat: $scope.muelles[t.provider.id].points[x].lat,
+                        lng: $scope.muelles[t.provider.id].points[x].lng,
+                        message: message,
+                        popupOptions:{
+                            autoPan: false
+                        },
+                        getMessageScope : function() { return $scope; },
+                        icon: $scope.getIcon( iconText )
+                    });
+                }
+                cb();
 
-        if( t.provider && t.provider.departurePoints ){
-          if( !$scope.muelles[t.provider.id] )
-            $scope.muelles[t.provider.id] = { points : [] , tours : [] };
-          for(var x in t.provider.departurePoints ){
-            $scope.muelles[t.provider.id].points.push( t.provider.departurePoints[x] );
-            $scope.muelles[t.provider.id].tours.push( t );
+            }
+        });
+      },function(){
+          $scope.markers = markers.filter(function(e){
+              return e;
+          });
+          if($scope.markers.length > 0){
+              $scope.center = {
+                  zoom:14,
+                  lat:$scope.markers[0].lat,
+                  lng:$scope.markers[0].lng,
+              };
           }
-          var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
-          for(var x in $scope.muelles[t.provider.id].points){
-            var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+ markerTxt : $scope.muelles[t.provider.id].tours[0].name;
-            this.push({
-              lat: $scope.muelles[t.provider.id].points[x].lat,
-              lng: $scope.muelles[t.provider.id].points[x].lng,
-              message: message,
-              popupOptions:{
-                autoPan: false
-              },
-              getMessageScope : function() { return $scope; },
-              icon: $scope.getIcon( iconText )
-            });
-          }
-        }
-
-      },markers);
-      $scope.markers = markers.filter(function(e){
-        return e;
+          $scope.updatePricesRange(function(){
+              console.log($scope.range);
+          });
       });
-
-      if($scope.markers.length > 0){
-        $scope.center = {
-            zoom:14,
-            lat:$scope.markers[0].lat,
-            lng:$scope.markers[0].lng,
-        };
-      }
-
     });
   };
 
   $scope.$on('CURRENCY_CHANGE', function () {
-      $scope.updatePrices();
+      async.series([  $scope.updatePrices, $scope.updatePricesRange ],function(e,r){
+        console.log('currency change');
+      });
   });
 
   $scope.init();

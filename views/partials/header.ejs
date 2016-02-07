@@ -12,7 +12,7 @@
           md-search-text="searchText"
           md-items="item in querySearch(searchText)"
           md-item-text="item.name"
-          md-min-length="0"
+          md-min-length="1"
           placeholder="<%= __('search')%>"
           md-menu-class="autocomplete-custom-template"
           class="input-header" >
@@ -204,7 +204,7 @@
       md-selected-item-change="selectedItemChange(item)"
       md-items="item in querySearch(searchText)"
       md-item-text="item.name"
-      md-min-length="0"
+      md-min-length="1"
       placeholder="Buscar"
       md-menu-class="autocomplete-custom-template"
       class="input-header" >
