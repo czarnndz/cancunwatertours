@@ -104,7 +104,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
                                 transferItem.user = theorder.user.id;
                                 transferItem.payment_method = payment_method;
                                 transferItem.currency = currency;
-                                transferItem.quantity = transfer_price.quantity;
+                                transferItem.quantity = 1;
                                 transferItem.reservation_type = 'transfer';
                                 transferItem.reservation_method = 'web';
                                 transferItem.state = 'pending';
@@ -173,6 +173,32 @@ module.exports.getCurrency = function(currency_id) {
   });
   return currency.currency_code;
 };
+
+module.exports.sendNewReservationEmail = function(order_id,lang,callback) {
+    Order.findOne(order_id).populate('reservations').populate('client').exec(function(err,order){
+        if (err) {
+            callback(err,false);
+        }
+        var head = {
+            to : order.client.email,
+            subject : lang == 'en' ? 'New reservation from Cancun Watertours' : 'Nueva reservacion de Cancun Watertours',
+            bcc : 'admin@spaceshiplabs.com'
+        };
+
+        sails.hooks.email.send(
+            "newReservation-" + lang, order, head,
+            function(err) {
+                if(err){
+                    console.log("email error!!!");
+                    console.log(err);
+                    callback(true,false);
+                }else{
+                    callback(false,true);
+                }
+            }
+        );
+    });
+}
 
 function getPriceTour(item,currency,company,callback){
   var exchange_rate = getCurrencyValue(company.base_currency,currency,company.exchange_rates);

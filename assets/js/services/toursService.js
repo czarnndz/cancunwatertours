@@ -96,10 +96,7 @@
         };
 
         calculateRange(tours);
-
-
         return deferred.promise;
-
       }
 
       function getToursByName(name){

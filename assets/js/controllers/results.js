@@ -24,17 +24,19 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
   $scope.changeHotelMap = function(hotel){
     for( var x in $scope.markers ){
-      if( $scope.markers[x].layer = 'Locations' )
-        $scope.markers.splice(x,1);
+      if( $scope.markers[x].layer = 'Locations' ) {
+          $scope.markers.splice(x,1);
+      }
     }
+
     if( hotel && hotel.latitude && hotel.longitude ){
         $scope.markers.push({
-          lat : hotel.latitude
-          ,lng : hotel.longitude
+          lat : parseFloat(hotel.latitude)
+          ,lng : parseFloat(hotel.longitude)
           ,message : hotel.name
           ,focus:true
         });
-      }
+    }
   }
   $scope.getHotels();
   $scope.toggle = function(item, list, type){

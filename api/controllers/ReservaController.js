@@ -57,7 +57,10 @@ module.exports = {
                         if (updateRes) {
                           delete result.payment_id;
                           delete result.payer_id;
-                          return res.json(result);
+                            OrderCore.sendNewReservationEmail(order.id,lang,function(err,success){
+                                result.email_success = success;
+                                return res.json(result);
+                            });
                         }
                         else {
                           result.success = false;
@@ -92,7 +95,10 @@ module.exports = {
                               if (updateRes) {
                                   result.success = true;
                                   result.redirect_url = '/'+lang+'/voucher?o=' + order.id;
-                                  return res.json(result);
+                                  OrderCore.sendNewReservationEmail(order.id,lang,function(err,success){
+                                      result.email_success = success;
+                                      return res.json(result);
+                                  });
                               } else {
                                   result.success = false;
                                   result.error = 'reservation update error';
