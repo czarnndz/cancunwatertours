@@ -123,7 +123,7 @@ module.exports.getPaypalItems = function(reservations,currency) {
             item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
         } else {
             item.name = r.transfer.name;
-            item.price = ((r.fee + (r.feeKids ? r.feeKids : 0)) / item.quantity ).toFixed(2);
+            item.price = ((r.fee + (r.feeKids ? r.feeKids : 0)) / r.quantity ).toFixed(2);
         }
         item.currency = currency;
         item.quantity = r.quantity;
