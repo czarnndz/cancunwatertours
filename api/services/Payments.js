@@ -118,11 +118,13 @@ module.exports.getPaypalItems = function(reservations,currency) {
     return reservations.map(function(r){
         var item = {};
         item.sku = r.id;
-        if (r.reservation_type == 'tour')
+        if (r.reservation_type == 'tour') {
             item.name = r.tour.name;
-        else
+            item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
+        } else {
             item.name = r.transfer.name;
-        item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
+            item.price = ((r.fee + (r.feeKids ? r.feeKids : 0)) / item.quantity ).toFixed(2);
+        }
         item.currency = currency;
         item.quantity = r.quantity;
         return item;
@@ -137,11 +139,13 @@ module.exports.getConektaItems = function(reservations) {
         if (r.reservation_type == 'tour') {
             item.name = r.tour.name;
             item.description = " for " + r.pax + " adults" + (r.kidPax ? (" , " + r.kidPax + " kids") : "");
+            item.unit_price = (r.fee * 100).toFixed();
         } else if (r.reservation_type == 'transfer') {
             item.name = r.transfer.name;
             item.description = " transportation for " + r.pax;
+            item.unit_price = ((r.fee * 100)/ r.quantity).toFixed();
         }
-        item.unit_price = (r.fee * 100).toFixed();
+
         item.quantity = r.quantity;
         item.type = r.reservation_type;
         return item;

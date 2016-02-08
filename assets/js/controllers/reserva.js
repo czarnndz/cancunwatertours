@@ -171,7 +171,8 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
             } else
                 console.log(result.data);
           } else {
-            alert(result.data.success);
+            console.log(result.data);
+            alert(result.data.error);
           }
         });
 

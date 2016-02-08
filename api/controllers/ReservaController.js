@@ -57,12 +57,8 @@ module.exports = {
                         if (updateRes) {
                           delete result.payment_id;
                           delete result.payer_id;
-                            OrderCore.sendNewReservationEmail(order.id,lang,function(err,success){
-                                result.email_success = success;
-                                return res.json(result);
-                            });
-                        }
-                        else {
+                          return res.json(result);
+                        } else {
                           result.success = false;
                           result.error = 'reservation update error';
                           result.extra = updateRes;
@@ -84,9 +80,9 @@ module.exports = {
                           if (err) {
                               OrderCore.updateReservations({order : order.id},{ state : 'error' },function(updateRes) {
                                   result.success = false;
-                                  result.error = 'conekta reservation error';
+                                  result.error = err;
                                   result.extra = updateRes;
-                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
+                                  //result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
                                   return res.json(result);
                               });
                           }
@@ -95,10 +91,7 @@ module.exports = {
                               if (updateRes) {
                                   result.success = true;
                                   result.redirect_url = '/'+lang+'/voucher?o=' + order.id;
-                                  OrderCore.sendNewReservationEmail(order.id,lang,function(err,success){
-                                      result.email_success = success;
-                                      return res.json(result);
-                                  });
+                                  return res.json(result);
                               } else {
                                   result.success = false;
                                   result.error = 'reservation update error';
@@ -137,7 +130,14 @@ module.exports = {
         error = false;
       }
       OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
-        res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+          if (!result) {
+              res.forbidden();
+          } else {
+              OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
+                  result.email_success = success;
+                  res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+              });
+          }
       });
     },
 

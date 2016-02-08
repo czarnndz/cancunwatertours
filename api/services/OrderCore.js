@@ -104,7 +104,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
                                 transferItem.user = theorder.user.id;
                                 transferItem.payment_method = payment_method;
                                 transferItem.currency = currency;
-                                transferItem.quantity = 1;
+                                transferItem.quantity = transfer_price.quantity;
                                 transferItem.reservation_type = 'transfer';
                                 transferItem.reservation_method = 'web';
                                 transferItem.state = 'pending';
@@ -126,7 +126,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
 
                                     var reservations = [ ];
                                     Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation_tour){
-                                        console.log(reservation_tour);
+                                        //console.log(reservation_tour);
                                         reservations.push(reservation_tour);
                                         Reservation.findOne(tr.id).populate('transfer').exec(function(errr,reservation_transfer){
                                             reservations.push(reservation_transfer);
@@ -137,7 +137,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
                             });
                         } else {
                             Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation){
-                                console.log(reservation);
+                                //console.log(reservation);
                                 cb(errr,reservation);
                             });
                         }
@@ -184,6 +184,8 @@ module.exports.sendNewReservationEmail = function(order_id,lang,callback) {
             subject : lang == 'en' ? 'New reservation from Cancun Watertours' : 'Nueva reservacion de Cancun Watertours',
             bcc : 'admin@spaceshiplabs.com'
         };
+        console.log(order);
+        console.log(head);
 
         sails.hooks.email.send(
             "newReservation-" + lang, order, head,

@@ -45,6 +45,7 @@ module.exports = {
         "contactForm", data, head,
         function(err) {
           if(err){
+            console.log(err);
             res.json({m:'f'})
           }else{
             res.json({m:'s'})
