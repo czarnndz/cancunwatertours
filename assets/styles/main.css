@@ -674,6 +674,7 @@ figcaption:hover .action-btn-white{
 
 .landing-tour-background{
   background-size: cover;
+  background-image: url(../images/default.png);
   background-position: center;
   position: absolute;
   width: 100%;
@@ -746,6 +747,7 @@ figcaption:hover .action-btn-white{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(../images/default.png);
   -webkit-transition: transform .3s linear;
   -moz-transition: transform .3s linear;
   -o-transition: transform .3s linear;
