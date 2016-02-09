@@ -1974,6 +1974,7 @@ figcaption:hover .action-btn-white{
 
 .booking-tour-img-wrap{}
 .booking-tour-img{
+  background-image: url(../images/default.png);
   width: 130px;
   height: 130px;
   border-radius: 50%;
