@@ -362,6 +362,8 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .header .custom-selector:hover .custom-selector-list,
 .header .custom-selector-active .custom-selector-list{display: block;}
 
+.header-desktop .button-menu-mobile{display: none;}
+
 /*-----------/
   #HEADER-MOBILE
 /*----------*/
@@ -438,11 +440,12 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   position: relative;
 }
 .close-mobile{
-  min-height: 400px;
+  min-height: 40px;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 0;
+  top: 0;
   cursor: pointer;
+  padding: 20px;
 }
 
 
@@ -671,6 +674,7 @@ figcaption:hover .action-btn-white{
 
 .landing-tour-background{
   background-size: cover;
+  background-image: url(../images/default.png);
   background-position: center;
   position: absolute;
   width: 100%;
@@ -743,6 +747,7 @@ figcaption:hover .action-btn-white{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(../images/default.png);
   -webkit-transition: transform .3s linear;
   -moz-transition: transform .3s linear;
   -o-transition: transform .3s linear;
@@ -1971,6 +1976,7 @@ figcaption:hover .action-btn-white{
 
 .booking-tour-img-wrap{}
 .booking-tour-img{
+  background-image: url(../images/default.png);
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -2551,6 +2557,13 @@ figcaption:hover .action-btn-white{
   #main{padding-bottom: 408px!important;}
   #main.main-nofooter{padding-bottom: 0!important;}
 
+  .header-desktop .button-menu-mobile{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+  }
+
   /*--------
     #FOOTER
   /*--------*/
@@ -2568,6 +2581,9 @@ figcaption:hover .action-btn-white{
   .advanced-search-header{left: 0;}
   .slider-container{height: 400px;}
   .perfectscrollbar{overflow: visible;}
+
+  .header-desktop .button-menu-mobile{display: none;}
+
 
   /*---------/
     #HOME
