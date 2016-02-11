@@ -133,10 +133,15 @@ module.exports = {
           if (!result) {
               res.forbidden();
           } else {
-              OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
-                  result.email_success = success;
+              if (params.success) {
+                  OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
+                      result.email_success = success;
+                      res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                  });
+              } else {
                   res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
-              });
+              }
+
           }
       });
     },

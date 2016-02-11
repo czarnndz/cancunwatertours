@@ -103,9 +103,9 @@ passport.use(new LocalStrategy(
 
 
 passport.use(new FacebookStrategy({
-    clientID: sails.config.facebook_clientID,
-    clientSecret: sails.config.facebook_clientSecret,
-    callbackURL: sails.config.facebook_callback,
+    clientID: process.env.facebook_clientID,
+    clientSecret: process.env.facebook_clientSecret,
+    callbackURL: process.env.facebook_callback,
     profileFields: ['id', 'displayName', 'email'],
     enableProof: false
   }, function (accessToken, refreshToken, profile, done) {
