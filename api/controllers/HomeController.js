@@ -39,8 +39,6 @@ module.exports = {
       if (err) {
         console.log(err);
       } else if (!_.isUndefined(category)){
-        //console.log("assasasassssssssssssssssssssss");
-        //console.log(category);
         params.category = category.id;
         categoryName = (req.getLocale() === 'es') ? category.name : category.name_en;
         resultados(params,categoryName,res);

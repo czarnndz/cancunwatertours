@@ -285,42 +285,50 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       async.each(data, function(t,cb){
         cartService.getPriceTour(t,function(val){
             t.total_price = val;
-            if( t.provider && t.provider.departurePoints ){
+            if( t.departurePoints ){
                 if( !$scope.muelles[t.provider.id] )
-                    $scope.muelles[t.provider.id] = { points : [] , tours : [] };
-                for(var x in t.provider.departurePoints ){
-                    $scope.muelles[t.provider.id].points.push( t.provider.departurePoints[x] );
-                    $scope.muelles[t.provider.id].tours.push( t );
-                }
-                var message = $scope.getPopup($scope.muelles[t.provider.id].tours);
-                for(var x in $scope.muelles[t.provider.id].points){
-                    var iconText = $scope.muelles[t.provider.id].tours.length>1?$scope.muelles[t.provider.id].tours.length+ markerTxt : $scope.muelles[t.provider.id].tours[0].name;
-                    markers.push({
-                        lat: $scope.muelles[t.provider.id].points[x].lat,
-                        lng: $scope.muelles[t.provider.id].points[x].lng,
-                        message: message,
-                        popupOptions:{
-                            autoPan: false
-                        },
-                        getMessageScope : function() { return $scope; },
-                        icon: $scope.getIcon( iconText )
-                    });
+                    $scope.muelles[t.provider.id] = { group_points : [] };
+                for(var x in t.departurePoints ){
+                    if (!$scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] )
+                        $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] = { tours : [], point : {} };
+                    $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].point = t.departurePoints[x];
+                    $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].tours.push(t);
                 }
                 cb();
-
+            } else {
+                cb();
             }
         });
       },function(){
-          $scope.markers = markers.filter(function(e){
-              return e;
-          });
-          if($scope.markers.length > 0){
-              $scope.center = {
-                  zoom:14,
-                  lat:$scope.markers[0].lat,
-                  lng:$scope.markers[0].lng,
-              };
-          }
+           async.each($scope.muelles,function(m,cb){
+               //console.log($scope.muelles);
+               for(var x in m.group_points){
+                   var message = $scope.getPopup(m.group_points[x].tours);
+                   var iconText = m.group_points[x].tours.length > 1 ? m.group_points[x].tours.length + markerTxt : m.group_points[x].tours[0].name;
+                   markers.push({
+                       lat: m.group_points[x].point.lat,
+                       lng: m.group_points[x].point.lng,
+                       message: message,
+                       popupOptions:{
+                           autoPan: false
+                       },
+                       getMessageScope : function() { return $scope; },
+                       icon: $scope.getIcon( iconText )
+                   });
+               }
+               cb();
+           },function(){
+               $scope.markers = markers.filter(function(e){
+                   return e;
+               });
+               if($scope.markers.length > 0){
+                   $scope.center = {
+                       zoom:14,
+                       lat:$scope.markers[0].lat,
+                       lng:$scope.markers[0].lng
+                   };
+               }
+           });
           $scope.updatePricesRange(function(){
               console.log($scope.range);
           });
@@ -336,5 +344,14 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
 
   $scope.init();
   $scope.redrawMap();
+
+  function getDeparturePointId(dp) {
+      if (dp.identifier)
+        return dp.identifier;
+      else {
+          var newId = Math.ceil((dp.lat - dp.lng) * 100);
+          return newId.toString();
+      }
+  }
 
 });
