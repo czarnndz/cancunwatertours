@@ -31,7 +31,12 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
         }
       },
       onChange: function(){
-        $scope.formatRatings($scope.range,$scope.selected,$scope.ratingPrice);
+        $scope.formatRatings(
+          $scope.range,
+          $scope.selected,
+          $scope.ratingPrice,
+          $scope.ratingPriceMin
+        );
       }
     }
   };
@@ -73,7 +78,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   };
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
 
-  $scope.formatRatings = function(item,list,value){
+  $scope.formatRatings = function(item,list,value,valueMin){
     console.log(item);
     console.log(list);
     console.log(value);
@@ -90,6 +95,9 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       if( idx >= 0  ){
         list[idx].value = value;
         list[idx].tours = item.tours;
+        if(valueMin){
+          list[idx].valueMin = valueMin;
+        }
       }else{
         item.value = value;
         list.push(item);
@@ -271,7 +279,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     };
   };
 
-
+  //CENTER POPUP ON MAP
   $scope.$on('leafletDirectiveMap.popupopen', function(e, args) {
     leafletData.getMap().then(function(map) {
 
@@ -296,10 +304,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
         });
 
       },400);
-
-      //map.panTo(map.unproject(px),{animate: true}); // pan to new center
     });
-
   });
 
 
