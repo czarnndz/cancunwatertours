@@ -52,6 +52,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif
   min-height: 250px;
 }
 
+/*---------/
+  #RZSLIDER
+/*---------*/
+rzslider span{font-size: 10px;}
 
 /*---------/
   #LAZYIMG

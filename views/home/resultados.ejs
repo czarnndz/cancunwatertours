@@ -43,7 +43,7 @@
               <div flex="30">
                 <p><%= __('from_price') %></p>
                 <p class="tour-item-price">
-                  <strong>{{tour.total_price | currency}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >

@@ -14,6 +14,28 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.selected = [];
   $scope.orderBy = 'dtCreated';
 
+  $scope.feeSlider = {
+      minValue: $scope.range.minFee,
+      maxValue: $scope.range.maxFee,
+    options: {
+      floor: $scope.range.minFee,
+      ceil: $scope.range.maxFee,
+      translate: function(value, sliderId, label) {
+        switch (label) {
+          case 'model':
+            return '<b>Min:</b> $' + value;
+          case 'high':
+            return '<b>Max:</b> $' + value;
+          default:
+            return '$' + value
+        }
+      },
+      onChange: function(){
+        $scope.formatRatings($scope.range,$scope.selected,$scope.ratingPrice);
+      }
+    }
+  };
+
   $scope.getHotels = function(){
       $http.get('/hotels').success(function(response) {
           $scope.hotels = [];
@@ -52,6 +74,10 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
 
   $scope.formatRatings = function(item,list,value){
+    console.log(item);
+    console.log(list);
+    console.log(value);
+
     var idx = -1;
     for(var i=0; i < list.length; i++) {
       if( list[i].id == item.id ){
@@ -81,7 +107,14 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     toursService.getFeeRange($scope.tours).then(function(res){
       $scope.range.minFee = res.minFee;
       $scope.range.maxFee = res.maxFee;
+
+      //Fee slider fix
+      $scope.feeSlider.options.floor = res.minFee;
+      $scope.feeSlider.options.ceil = res.maxFee;
+
+
       $scope.range.step = ($scope.range.maxFee - $scope.range.minFee) / 5;
+      $scope.ratingPriceMin = angular.copy($scope.range.minFee);
       $scope.ratingPrice = angular.copy($scope.range.maxFee);
       cb();
     });
