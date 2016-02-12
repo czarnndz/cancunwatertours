@@ -4,6 +4,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
   $scope.tours = [];
+  $scope.toursFiltered = [];
   $scope.hotels = [];
   $scope.term = term;
   $scope.page = 1;
@@ -18,7 +19,11 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       minValue: $scope.range.minFee,
       maxValue: $scope.range.maxFee,
     options: {
+      showTicksValues: true,
+      step: 1000,
       floor: $scope.range.minFee,
+      showTicksValues: false,
+      hideLimitLabels:true,
       ceil: $scope.range.maxFee,
       translate: function(value, sliderId, label) {
         switch (label) {
@@ -79,9 +84,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
 
   $scope.formatRatings = function(item,list,value,valueMin){
-    console.log(item);
-    console.log(list);
-    console.log(value);
 
     var idx = -1;
     for(var i=0; i < list.length; i++) {
@@ -106,10 +108,15 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     if (idx != -1) {
         $scope.size = 100;
     }
-//    console.log(list);
-//    console.log(value);
-//    console.log(idx);
+
+    /*
+    $timeout(function(){
+      $scope.setupMap($scope.toursFiltered);
+    },500);
+    */
+
   };
+
   $scope.updatePricesRange = function(cb){
     //console.log('update range');
     toursService.getFeeRange($scope.tours).then(function(res){
@@ -119,6 +126,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       //Fee slider fix
       $scope.feeSlider.options.floor = res.minFee;
       $scope.feeSlider.options.ceil = res.maxFee;
+      $scope.feeSlider.options.step = Math.ceil(Math.ceil(res.maxFee) - Math.floor(res.minFee) ) / 5;
 
 
       $scope.range.step = ($scope.range.maxFee - $scope.range.minFee) / 5;
@@ -308,8 +316,64 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   });
 
 
-  $scope.init = function(){
+  $scope.setupMap = function(data){
     var markers = [];
+    var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
+
+    async.each(data, function(t,cb){
+      cartService.getPriceTour(t,function(val){
+          t.total_price = val;
+          if( t.departurePoints ){
+              if( !$scope.muelles[t.provider.id] )
+                  $scope.muelles[t.provider.id] = { group_points : [] };
+              for(var x in t.departurePoints ){
+                  if (!$scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] )
+                      $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] = { tours : [], point : {} };
+                  $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].point = t.departurePoints[x];
+                  $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].tours.push(t);
+              }
+              cb();
+          } else {
+              cb();
+          }
+      });
+    },function(){
+         async.each($scope.muelles,function(m,cb){
+             //console.log($scope.muelles);
+             for(var x in m.group_points){
+                 var message = $scope.getPopup(m.group_points[x].tours);
+                 var iconText = m.group_points[x].tours.length > 1 ? m.group_points[x].tours.length + markerTxt : m.group_points[x].tours[0].name;
+                 markers.push({
+                     lat: m.group_points[x].point.lat,
+                     lng: m.group_points[x].point.lng,
+                     message: message,
+                     popupOptions:{
+                         autoPan: false
+                     },
+                     getMessageScope : function() { return $scope; },
+                     icon: $scope.getIcon( iconText )
+                 });
+             }
+             cb();
+         },function(){
+             $scope.markers = markers.filter(function(e){
+                 return e;
+             });
+             if($scope.markers.length > 0){
+                 $scope.center = {
+                     zoom:14,
+                     lat:$scope.markers[0].lat,
+                     lng:$scope.markers[0].lng
+                 };
+             }
+         });
+        $scope.updatePricesRange(function(){
+            console.log($scope.range);
+        });
+    });
+  };
+
+  $scope.init = function(){
     $scope.loading = true;
     $scope.initMap();
     $scope.getToursCategories();
@@ -319,58 +383,8 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       $scope.range.tours = $scope.tours;
       $scope.getCategoriesByTours();
       $scope.muelles = {};
-      var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
-      async.each(data, function(t,cb){
-        cartService.getPriceTour(t,function(val){
-            t.total_price = val;
-            if( t.departurePoints ){
-                if( !$scope.muelles[t.provider.id] )
-                    $scope.muelles[t.provider.id] = { group_points : [] };
-                for(var x in t.departurePoints ){
-                    if (!$scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] )
-                        $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])] = { tours : [], point : {} };
-                    $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].point = t.departurePoints[x];
-                    $scope.muelles[t.provider.id].group_points[getDeparturePointId(t.departurePoints[x])].tours.push(t);
-                }
-                cb();
-            } else {
-                cb();
-            }
-        });
-      },function(){
-           async.each($scope.muelles,function(m,cb){
-               //console.log($scope.muelles);
-               for(var x in m.group_points){
-                   var message = $scope.getPopup(m.group_points[x].tours);
-                   var iconText = m.group_points[x].tours.length > 1 ? m.group_points[x].tours.length + markerTxt : m.group_points[x].tours[0].name;
-                   markers.push({
-                       lat: m.group_points[x].point.lat,
-                       lng: m.group_points[x].point.lng,
-                       message: message,
-                       popupOptions:{
-                           autoPan: false
-                       },
-                       getMessageScope : function() { return $scope; },
-                       icon: $scope.getIcon( iconText )
-                   });
-               }
-               cb();
-           },function(){
-               $scope.markers = markers.filter(function(e){
-                   return e;
-               });
-               if($scope.markers.length > 0){
-                   $scope.center = {
-                       zoom:14,
-                       lat:$scope.markers[0].lat,
-                       lng:$scope.markers[0].lng
-                   };
-               }
-           });
-          $scope.updatePricesRange(function(){
-              console.log($scope.range);
-          });
-      });
+
+      $scope.setupMap(data);
     });
   };
 

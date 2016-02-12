@@ -18,7 +18,11 @@
     <div class="container-xlg" layout-wrap>
 
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
-        <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
+        <div
+          flex-sm="100"
+          flex="50"
+          class="tour-item"
+          ng-repeat="tour in toursFiltered = (tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page) )">
           <div class="tour-item-inner">
             <div ng-if="tour.haveTransfer" class="includes-bar-img">
               <img src="/images/transfer_<%= req.params.lang %>.png" alt="">

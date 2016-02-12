@@ -1584,6 +1584,10 @@ figcaption:hover .action-btn-white{
   display: block;
   text-align: center;
 }
+.filter-option-slider-price label{
+  top: 11px;
+  position: relative;
+}
 .filter-option-slider .md-sign{display: none;}
 .filter-option-slider i.sm-icon{font-size: 14px;}
 
