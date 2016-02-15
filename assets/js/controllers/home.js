@@ -185,6 +185,10 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
         });
     };
 
+    $scope.$on('CURRENCY_CHANGE', function () {
+        $scope.updatePrices();
+    });
+
     $scope.init();
 });
 

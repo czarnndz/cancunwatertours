@@ -233,7 +233,9 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
             markers.push({
                 lat: tourPoints.lat,
                 lng: tourPoints.lng,
-                icon: getIcon(tourPoints.name)
+                icon: getIcon(tourPoints.name),
+                identifier : tourPoints.identifier,
+                name : tourPoints.name
             });
 
             $scope.center = {

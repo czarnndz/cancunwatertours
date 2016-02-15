@@ -33,13 +33,14 @@ app.filter('toursByCategory', function($q) {
                   this.push(true);
                 else
                   this.push(false);
-              } if (!angular.isUndefined(filter.type) && filter.type == 'price') {
+                }
+                if (!angular.isUndefined(filter.type) && filter.type == 'price') {
                     item.value = itemL.total_price;
                     if (itemL.total_price <= filter.value)
                         this.push(true);
                     else
                         this.push(false);
-              }
+                }
               else
                 this.push(true);
             }else

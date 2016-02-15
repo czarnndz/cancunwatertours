@@ -29,8 +29,19 @@
       serv.get = get;
       serv.getAll = getAll;
       serv.flush = flush;
+      serv.setHotel = setHotel;
+      serv.getHotel = getHotel;
       $rootScope.cart_items = localStorageService.get('cart_items') || [];
       $rootScope.cart_client = localStorageService.get('cart_client') || {}  ;
+      $rootScope.cart_client = localStorageService.get('cart_hotel') || {}  ;
+
+      function setHotel() {
+          return $rootScope.cart_hotel;
+      }
+
+      function getHotel(hotel) {
+          $rootScope.cart_hotel = hotel;
+      }
 
       function getClient() {
         return $rootScope.cart_client;
@@ -220,6 +231,10 @@
           return aux;
         });
       }
+
+      $rootScope.$watch('cart_hotel',function(){
+          localStorageService.set('cart_hotel', $rootScope.cart_hotel);
+      });
 
       $rootScope.$watch('cart_items', function () {
         //console.log($rootScope.cart_items);

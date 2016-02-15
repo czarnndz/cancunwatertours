@@ -30,6 +30,7 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
     }
 
     if( hotel && hotel.latitude && hotel.longitude ){
+        cartService.setHotel(hotel);
         $scope.markers.push({
           lat : parseFloat(hotel.latitude)
           ,lng : parseFloat(hotel.longitude)
