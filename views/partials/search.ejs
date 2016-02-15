@@ -8,11 +8,11 @@
     </div>
     <div flex>
       <p layout="row" layout-align="space-between center">
-        <span>{{minFee | currency}}</span>
-        <span>{{maxFee | currency}}</span>
+        <span>{{minFee | currency:"$":0}}</span>
+        <span>{{maxFee | currency:"$":0}}</span>
       </p>
       <md-slider class="slider-precios" ng-model="tourPrice" min="5" max="500"></md-slider>
-      <p>{{tourPrice | currency}}</p>
+      <p>{{tourPrice | currency:"$":0}}</p>
     </div>
   </section>
 

@@ -23,6 +23,7 @@ var cssFilesToInject = [
   'bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css',
   'bower_components/leaflet.markerclusterer/dist/MarkerCluster.css',
   'bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css',
+  'bower_components/angularjs-slider/dist/rzslider.min.css',
   //'bower_components/bootstrap/dist/css/*.min.css',
   'styles/**/*.css',
 ];
@@ -55,6 +56,7 @@ var jsFilesToInject = [
   'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
   'bower_components/angular-lazy-img/release/angular-lazy-img.js',
   'bower_components/async/dist/async.min.js',
+  'bower_components/angularjs-slider/dist/rzslider.min.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'

@@ -18,7 +18,11 @@
     <div class="container-xlg" layout-wrap>
 
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
-        <div flex-sm="100" flex="50" class="tour-item" ng-repeat="tour in tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page)">
+        <div
+          flex-sm="100"
+          flex="50"
+          class="tour-item"
+          ng-repeat="tour in toursFiltered = (tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page) )">
           <div class="tour-item-inner">
             <div ng-if="tour.haveTransfer" class="includes-bar-img">
               <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
@@ -43,7 +47,7 @@
               <div flex="30">
                 <p><%= __('from_price') %></p>
                 <p class="tour-item-price">
-                  <strong>{{tour.total_price | currency}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
               </div>
             </div>
             <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >

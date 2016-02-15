@@ -31,7 +31,7 @@
               <% }else{ %>
                 <h4><strong>{{tour.name_en}}</strong></h4>
               <% } %>
-              <p class="tour-price">{{tour.total_price | currency}} {{global_currency.currency_code | uppercase}}</p>
+              <p class="tour-price">{{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}</p>
               <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
             </div>
           </div>
@@ -78,7 +78,7 @@
                 </a>
               </strong>
             </h4>
-            <p class="tour-price">{{tour.total_price | currency}} {{global_currency.currency_code | uppercase}}</p>
+            <p class="tour-price">{{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}</p>
             <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>
@@ -121,7 +121,7 @@
                 </a>
               </strong>
             </h4>
-            <p class="tour-price">{{tour.total_price | currency}} {{global_currency.currency_code | uppercase}}</p>
+            <p class="tour-price">{{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}</p>
             <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>

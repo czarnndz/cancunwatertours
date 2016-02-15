@@ -4,7 +4,8 @@ var app = angular.module('watertours',[
   'slick',
   'perfect_scrollbar',
   'LocalStorageModule',
-  'angularLazyImg'
+  'angularLazyImg',
+  'rzModule'
   ]);
 
 app.config(['localStorageServiceProvider','lazyImgConfigProvider', function(localStorageServiceProvider, lazyImgConfigProvider){

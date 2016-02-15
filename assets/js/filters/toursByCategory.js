@@ -36,14 +36,16 @@ app.filter('toursByCategory', function($q) {
                 }
                 if (!angular.isUndefined(filter.type) && filter.type == 'price') {
                     item.value = itemL.total_price;
-                    if (itemL.total_price <= filter.value)
+                    if (itemL.total_price >= filter.valueMin && itemL.total_price <= filter.value){
                         this.push(true);
-                    else
+                    }
+                    else{
                         this.push(false);
+                    }
                 }
-              else
-                this.push(true);
-            }else
+                else
+                  this.push(true);
+            } else
               this.push(false);
           },auxList3);
           if( auxList3.indexOf(true) >= 0 )

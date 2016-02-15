@@ -18,7 +18,7 @@
 
     <div flex="70" flex-md="100" flex-sm="100" class="filters-section-row filters-section-row-nomargin">
       <div layout="row" layout-wrap layout-align="space-between center">
-        <div flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
+        <div flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider filter-option-slider-price">
           <label>
             <%= __('price_range') %>
              <i class="sm-icon icon-information" ></i>
@@ -27,9 +27,18 @@
             </md-tooltip>
           </label>
           <div layout='row' layout-align="space-between end">
+
+            <!--
             <i class="md-icon icon-coins" ng-click="priceTooltip = !priceTooltip"></i>
             <md-slider flex class="md-primary" md-discrete step="{{range.step}}" min="{{range.minFee}}" max="{{range.maxFee}}" ng-model="ratingPrice" ng-change="formatRatings(range,selected,ratingPrice)"></md-slider>
             <i class="icon-precio2"></i>
+            -->
+
+
+            <rzslider rz-slider-model="ratingPriceMin"
+              rz-slider-high="ratingPrice"
+              rz-slider-options="feeSlider.options"></rzslider>
+
           </div>
         </div>
         <div ng-repeat="item in rate_categories track by item.id" flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
