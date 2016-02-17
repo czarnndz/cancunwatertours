@@ -88,7 +88,9 @@
                 name="cc_number"
                 required
                 ng-class="{'input-field-error': payForm.cc_number.$invalid && validatingPayment }"
-                ng-model="client.cc.number">
+                ng-model="client.cc.number"
+                value="4242424242424242"
+                      >
           </div>
           <div flex="45" flex-sm="100" class="input-field-wrap">
             <p class="no-margin"><%= __('due_date') %></p>

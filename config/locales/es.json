@@ -49,6 +49,7 @@
   "from": "De",
   "to": "A",
   "add_transport": "Agregar transportación",
+  "select_departure_point" : "Lugar de salida",
   "search_hotels" : "Busca tu hotel",
   "no_results_found": "No se encontraron resultados para",
   "price_per_adult": "Precio por adulto",

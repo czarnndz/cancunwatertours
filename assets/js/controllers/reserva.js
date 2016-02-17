@@ -24,6 +24,7 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
     $scope.step = $scope.cartComplete  ? 1 : 0;
     $scope.transfer_prices = transfer_prices;
     $scope.tours = cartService.getAll();
+    console.log($scope.tours);
 
 //    $scope.tours.forEach(function(tour,a){
 //        console.log(a);
@@ -41,6 +42,8 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
     //Fix md-datepicker
     for(var i=0;i<$scope.tours.length;i++){
         $scope.tours[i].date = new Date($scope.tours[i].date);
+        $scope.tours[i].departurePoint = angular.fromJson($scope.tours[i].departurePoint);
+        console.log($scope.tours[i].departurePoint);
         $scope.tours[i].maxPaxSize = [];
         if (!$scope.tours[i].pax) {
             $scope.tours[i].pax = 8;
@@ -155,6 +158,10 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
             $scope.updatePrices(t);
         });
     });
+
+    $scope.hasDeparturePoints = function(tour){
+        return Object.keys(tour.departurePoints).length > 1;
+    };
 
     //TODO formatear para enviar los items formateados.
     $scope.process = function($event, form) {

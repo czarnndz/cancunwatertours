@@ -158,6 +158,12 @@
                        </span>
                 </div>
             </div>
+            <div ng-if="markers.length > 1" class="input-field-wrap">
+                <span><i class="icon-pin"></i> <%= __('select_departure_point') %></span>
+                <md-select ng-model="tour.departurePoint" ng-required name="departurePoint">
+                    <md-option value="{{departurePoint}}" ng-repeat="departurePoint in tour.departurePoints" ng-selected="$index == 0"> {{ departurePoint.name }}</md-option>
+                </md-select>
+            </div>
 
 
           <div class="clear"></div>

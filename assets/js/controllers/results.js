@@ -360,11 +360,23 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
              $scope.markers = markers.filter(function(e){
                  return e;
              });
+
              if($scope.markers.length > 0){
+                 var lat = $scope.markers.reduce(
+                     function(valorAnterior, valorActual){
+                        return valorAnterior + valorActual.lat;
+                     },0.0
+                 );
+                 var lng = $scope.markers.reduce(
+                     function(valorAnterior, valorActual){
+                         return valorAnterior + valorActual.lng;
+                     },0.0
+                 );
+
                  $scope.center = {
-                     zoom:14,
-                     lat:$scope.markers[0].lat,
-                     lng:$scope.markers[0].lng
+                     zoom:12,
+                     lat:(lat/$scope.markers.length),
+                     lng:(lng/$scope.markers.length)
                  };
              }
          });

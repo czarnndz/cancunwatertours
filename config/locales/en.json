@@ -51,6 +51,7 @@
   "from": "From",
   "to": "To",
   "add_transport": "Add transport",
+  "select_departure_point" : "Departure point",
   "search_hotels" : "Search your hotel",
   "no_results_found": "No results found for",
   "price_per_adult": "Price per adult",

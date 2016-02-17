@@ -198,6 +198,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
     };
 
     $scope.addCartTour = function() {
+      //$scope.tour.departurePoint = angular.fromJson($scope.tour.departurePoint);
       cartService.addTour($scope.tour);
       location.href = "/" + $rootScope.currentLang + "/booking";
     };
@@ -222,9 +223,10 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       $scope.center = {
           zoom:13,
           lat:21.1656951,
-          lng:-86.8210734,
+          lng:-86.8210734
       };
       $scope.markers = {};
+      //console.log($scope.tour.departurePoints);
 
       if($scope.tour.departurePoints){
           angular.forEach(Object.keys($scope.tour.departurePoints),function(i){
