@@ -85,7 +85,6 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
   $scope.exists = function(item, list){ return list.indexOf(item) > -1; };
 
   $scope.formatRatings = function(item,list,value,valueMin){
-
     var idx = -1;
     for(var i=0; i < list.length; i++) {
       if( list[i].id == item.id ){

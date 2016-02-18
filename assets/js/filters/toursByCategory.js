@@ -23,28 +23,28 @@ app.filter('toursByCategory', function($q) {
         },auxList2);
         angular.extend(this,auxList2);
       },auxList);*/
-      angular.forEach(list,function(item){
-        angular.forEach(filters,function(filter){
-          angular.forEach(filter.tours,function(itemL){
+      angular.forEach(list,function(item){ //lista de tours
+        angular.forEach(filters,function(filter){ //lista de filtros aplicados
+          angular.forEach(filter.tours,function(itemL){ //lista de tours de los filtros aplicados
             if (itemL.id == item.id) {
               if (!angular.isUndefined(filter.type) && filter.type == 'rate') {
                 item.value = itemL.value;
-                if (itemL.value <= filter.value)
-                  this.push(true);
-                else
-                  this.push(false);
+                if (itemL.value <= filter.value) {
+                    this.push(true);
+                } else {
+                    this.push(false);
                 }
-                if (!angular.isUndefined(filter.type) && filter.type == 'price') {
-                    item.value = itemL.total_price;
-                    if (itemL.total_price >= filter.valueMin && itemL.total_price <= filter.value){
-                        this.push(true);
-                    }
-                    else{
-                        this.push(false);
-                    }
-                }
-                else
-                  this.push(true);
+
+              } else if (!angular.isUndefined(filter.type) && filter.type == 'price') {
+                  item.value = itemL.total_price;
+                  if (itemL.total_price >= filter.valueMin && itemL.total_price <= filter.value){
+                      this.push(true);
+                  }
+                  else{
+                      this.push(false);
+                  }
+              } else
+                this.push(true);
             } else
               this.push(false);
           },auxList3);
