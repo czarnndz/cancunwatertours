@@ -156,7 +156,19 @@ module.exports = {
             error = false;
         }
         OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
-            res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+            if (!result) {
+                res.forbidden();
+            } else {
+                if (params.success) {
+                    OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
+                        result.email_success = success;
+                        res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                    });
+                } else {
+                    res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                }
+
+            }
         });
     },
     //TODO agregar selector por email y id reservation

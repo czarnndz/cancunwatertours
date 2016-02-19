@@ -6,23 +6,6 @@ app.filter('toursByCategory', function($q) {
     var auxList2 = [];
     var auxList3= [];
     if (filters.length) {
-      /*angular.forEach(list,function(item){
-        angular.forEach(filters,function(filter){
-          angular.forEach(filter.tours,function(itemL){
-            if (itemL.id == item.id) {
-              if (!angular.isUndefined(filter.type) && filter.type == 'rate') {
-                if (itemL.value <= filter.value) {
-                  this.push(item);
-                }
-              } else
-                this.push(item);
-            }
-          },auxList3);
-          //console.log(auxList3);
-          angular.extend(this,auxList3);
-        },auxList2);
-        angular.extend(this,auxList2);
-      },auxList);*/
       angular.forEach(list,function(item){ //lista de tours
         angular.forEach(filters,function(filter){ //lista de filtros aplicados
           angular.forEach(filter.tours,function(itemL){ //lista de tours de los filtros aplicados

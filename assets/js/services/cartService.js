@@ -226,7 +226,8 @@
             hotel : item.hotel,
             schedule : item.schedule,
             transfer_price : item.transfer_price,
-            haveTransfer : item.haveTransfer
+            haveTransfer : item.haveTransfer,
+            departurePoint : item.departurePoint
           };
           return aux;
         });

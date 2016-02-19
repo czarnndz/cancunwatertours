@@ -68,6 +68,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
               newItem.startDate = item.date;
               newItem.schedule = item.schedule;
               newItem.hotel = item.hotel;
+              newItem.departurePoint = item.departurePoint;
 
                   getPriceTour(item,currency,theorder.company,function(err,tour){
                     if(err) callback(err,false);

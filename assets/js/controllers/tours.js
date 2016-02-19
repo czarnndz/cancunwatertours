@@ -199,6 +199,7 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
 
     $scope.addCartTour = function() {
       //$scope.tour.departurePoint = angular.fromJson($scope.tour.departurePoint);
+      console.log($scope.tour);
       cartService.addTour($scope.tour);
       location.href = "/" + $rootScope.currentLang + "/booking";
     };

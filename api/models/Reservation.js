@@ -164,6 +164,7 @@ module.exports = {
     ,authorization_code : 'string' //paypal = payment_id , conekta : charge_id
     ,authorization_code_2 : 'string' //paypal = token
     ,includesTransfer : 'boolean' //por ahora solo para tours
+    ,departurePoint : 'json'
   }
   , attrs_labels : {
     //transfer reservations
