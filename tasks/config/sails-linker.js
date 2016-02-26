@@ -128,7 +128,7 @@ module.exports = function(grunt) {
 			files: {
 				'.tmp/public/index.html': require('../pipeline').cssFilesToInject,
 				'views/**/*.html': require('../pipeline').cssFilesToInject,
-				'views/**/*.ejs': require('../pipeline').cssFilesToInject,
+				'views/**/*.ejs': require('../pipeline').cssFilesToInject
 			}
 		},
 
