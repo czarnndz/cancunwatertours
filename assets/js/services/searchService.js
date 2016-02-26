@@ -8,7 +8,7 @@
  (function(){
 
   angular.module('watertours')
-    .service('searchService', function ($rootScope) {
+    .service('searchService',['$rootScope' ,function ($rootScope) {
       this.params = {
         minFee: 0,
         maxFee: 0,
@@ -30,7 +30,7 @@
       }
 
 
-    });
+    }]);
 
 
  })();

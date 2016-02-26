@@ -1,4 +1,4 @@
-app.controller('reservaCTL',function($scope,$filter,toursService,cartService,countries) {
+app.controller('reservaCTL',['$scope','$filter','toursService','cartService','countries' ,function($scope,$filter,toursService,cartService,countries) {
     $scope.cartService = cartService;
     $scope.city = '';
     $scope.blinkClass = false;
@@ -192,9 +192,9 @@ app.controller('reservaCTL',function($scope,$filter,toursService,cartService,cou
         $scope.showAlert($event, options);
       }
     }
-});
+}]);
 
-app.controller('voucherCTL',function($scope,cartService) {
+app.controller('voucherCTL',['$scope','cartService', function($scope,cartService) {
   $scope.reservations = reservations;
   $scope.order = theorder;
   $scope.error = hasError;
@@ -241,4 +241,4 @@ app.controller('voucherCTL',function($scope,cartService) {
         }
 
     });
-});
+}]);

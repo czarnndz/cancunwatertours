@@ -1,4 +1,4 @@
-app.filter('toursByCategory', function($q) {
+app.filter('toursByCategory',['$q', function($q) {
   return function(list,filters) {
     //console.log('filters');
     //console.log(filters);
@@ -59,4 +59,4 @@ app.filter('toursByCategory', function($q) {
     //deferred.resolve(a);
     return a;//deferred.promise;
   }
-});
+}]);

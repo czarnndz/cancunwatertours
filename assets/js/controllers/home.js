@@ -1,4 +1,4 @@
-app.controller('Home', function($scope,$http,$rootScope, toursService,cartService) {
+app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartService', function($scope,$http,$rootScope, toursService,cartService) {
     $scope.tours = [];
     $scope.hotels = [];
     $scope.loading = false;
@@ -190,9 +190,9 @@ app.controller('Home', function($scope,$http,$rootScope, toursService,cartServic
     });
 
     $scope.init();
-});
+}]);
 
-app.controller('Search',function($scope, $window, toursService,$rootScope,localStorageService){
+app.controller('Search',['$scope', '$window', 'toursService','$rootScope','localStorageService', function($scope, $window, toursService,$rootScope,localStorageService){
     $scope.querySearch = function(text) {
       return toursService.getToursByName(text)
         .then(function(data){
@@ -204,7 +204,9 @@ app.controller('Search',function($scope, $window, toursService,$rootScope,localS
     $scope.selectedItemChange = function(item){
       $window.location.href = '/' +  $rootScope.currentLang +  '/tour/' + item.url;
     }
-});
-app.controller('StaticPagesCTL',function($scope,$http){
+}]);
+/*
+app.controller('StaticPagesCTL',['$scope,$http' ,function($scope,$http){
     //
-});
+}]);
+*/

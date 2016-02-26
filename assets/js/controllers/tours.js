@@ -1,6 +1,6 @@
 
 
-app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartService, toursService){
+app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','cartService','toursService' ,function($scope,$rootScope,$http,$timeout,$filter,cartService, toursService){
     $scope.init = function(){
       $scope.similar_tours = similar_tours;
       $scope.imgs_url = imgs_url;
@@ -304,4 +304,4 @@ app.controller('tourCTL',function($scope,$rootScope,$http,$timeout,$filter,cartS
       return toursService.getCategoryIcon(category);
     }
 
-});
+}]);

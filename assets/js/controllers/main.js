@@ -1,4 +1,4 @@
-app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
+app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialog', 'toursService', 'searchService','cartService','localStorageService' ,function($scope, $window, $http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
     //$scope.tours = [];
     $scope.cartService = cartService;
     $scope.maxFee = 0;
@@ -154,4 +154,4 @@ app.controller('MainCTL', function($scope, $window, $http, $rootScope, $mdDialog
 
     $scope.getToursCategories();
 
-});
+}]);

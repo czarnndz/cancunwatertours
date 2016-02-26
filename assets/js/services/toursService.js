@@ -8,7 +8,7 @@
  (function(){
 
   angular.module('watertours')
-    .service('toursService', function ($http ,$q, $rootScope) {
+    .service('toursService',[ '$http' ,'$q', '$rootScope', function ($http ,$q, $rootScope) {
       var serv = this;
 
       serv.currentLang = $rootScope.currentLang;
@@ -168,6 +168,6 @@
         });
         return mainCategories;
       }
-  });
+  }]);
 
 })();

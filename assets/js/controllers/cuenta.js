@@ -1,4 +1,4 @@
-app.controller('Cuenta', function($scope, $rootScope, $http) {
+app.controller('Cuenta',[ '$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
 
   $scope.init = function(){
     $scope.user = window.user;
@@ -27,4 +27,4 @@ app.controller('Cuenta', function($scope, $rootScope, $http) {
 
   $scope.init();
 
-});
+}]);

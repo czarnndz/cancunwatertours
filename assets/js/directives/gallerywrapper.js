@@ -7,7 +7,7 @@
  * # galleryWrapper
  */
  angular.module('watertours')
- .directive('galleryWrapper', function($window){
+ .directive('galleryWrapper',['$window', function($window){
 
  	return function (scope, element) {// jshint ignore:line
  		var bookingForm = angular.element('.booking-partial-wrap');
@@ -30,4 +30,4 @@
  		});
  	};
 
- });
+}]);

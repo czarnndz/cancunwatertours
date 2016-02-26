@@ -7,7 +7,7 @@
  * # fullScreenWrapper
  */
  angular.module('watertours')
- .directive('fullScreenWrapper', function($window){
+ .directive('fullScreenWrapper',['$window', function($window){
 
  	return function (scope, element) {// jshint ignore:line
  		var w = angular.element($window);
@@ -43,4 +43,4 @@
  		});
  	};
 
- });
+ }]);

@@ -1,5 +1,5 @@
 
-app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService){
+app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filter', 'toursService', 'leafletData','cartService' ,function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -418,4 +418,4 @@ app.controller('resultsCTL',function($scope,$http, $rootScope, $timeout, $filter
       }
   }
 
-});
+}]);

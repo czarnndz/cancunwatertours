@@ -8,7 +8,7 @@
 (function(){
 
   angular.module('watertours')
-    .service('cartService', function ($rootScope,$http,$q,localStorageService) {
+    .service('cartService',['$rootScope','$http','$q','localStorageService' ,function ($rootScope,$http,$q,localStorageService) {
       var serv = this;
 
       serv.addTour = addTour;
@@ -291,6 +291,6 @@
         return deferred.promise;
       }
 
-    });
+    }]);
 
 })();
