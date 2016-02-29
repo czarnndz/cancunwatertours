@@ -2474,6 +2474,11 @@ figcaption:hover .action-btn-white{
     padding: 20px 80px;
     max-width: none;
   }
+  .tour-slider{min-height: 560px;}
+  .search-results-tours .tour-item{
+    flex: 0 0 33%;
+    max-width: 33%;
+  }
 }
 
 @media (max-width: 1350px){
