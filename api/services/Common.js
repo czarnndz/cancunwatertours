@@ -101,7 +101,7 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   var sortBy = 'name';
 
   if(!pageSize) {
-    pageSize = 20;
+    pageSize = 15;
   }
   if (!page) {
     page = 1;
@@ -135,6 +135,9 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
   cacheQuery.page = page;
 
   var cacheKey = '"' + JSON.stringify(cacheQuery) + '"';
+
+  console.log('pageSize');
+  console.log(pageSize);
 
   Cache.get(cacheKey,function(e,val){
       if (e) {
