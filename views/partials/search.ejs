@@ -6,7 +6,7 @@
         <md-radio-button class="search-by-price" value="Buscar por precio" class="md-primary">BUSCAR POR PRECIO</md-radio-button>
       </md-radio-group>
     </div>
-    <div flex>
+    <div flex ng-cloak>
       <p layout="row" layout-align="space-between center">
         <span>{{minFee | currency:"$":0}}</span>
         <span>{{maxFee | currency:"$":0}}</span>
@@ -16,7 +16,7 @@
     </div>
   </section>
 
-  <section>
+  <section ng-cloak>
     <md-select class="custom-select" ng-model="tourCategory" placeholder="Tipo">
           <md-option ng-repeat="category in toursCategories track by category.id" value="{{::category.id}}">{{::category.name}}</md-option>
     </md-select>

@@ -17,47 +17,48 @@
 
     <div class="container-xlg" layout-wrap>
 
-    	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap>
-        <div
-          flex-sm="100"
-          flex="50"
-          class="tour-item"
-          ng-repeat="tour in toursFiltered = (tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page) )">
-          <div class="tour-item-inner">
-            <div ng-if="tour.haveTransfer" class="includes-bar-img">
-              <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
-            </div>
-            <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
+    	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap ng-cloak>
+            <div
+              flex-sm="100"
+              flex="50"
+              class="tour-item"
+              ng-repeat="tour in toursFiltered = (tours | orderBy : orderBy | filter:{visible: true} | toursByCategory:selected | limitTo: (size * page) )"
+              layout-fill>
+              <div class="tour-item-inner">
+                <div ng-if="tour.haveTransfer" class="includes-bar-img">
+                  <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
+                </div>
+                <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
 
-            <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
-            <div class="tour-item-detail" layout="row" layout-align="space-between center">
-              <div flex="60">
-                <p class="tour-item-detail-title">
-                  <strong>
-                    <% if(req.params.lang === 'es'){ %>
-                      {{tour.name}}
-                    <% }else{ %>
-                      {{tour.name_en}}
-                    <% } %>
-                  </strong>
-                </p>
-                <p>{{tour.location.name}}</p>
-                <p class="tour-item-detail-categories"><strong><%= __('categories') %></strong> : {{ getCategoriesString(tour) }}</p>
-              </div>
-              <div flex="30">
-                <p><%= __('from_price') %></p>
-                <p class="tour-item-price">
-                  <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
+                <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
+                <div class="tour-item-detail" layout="row" layout-align="space-between center">
+                  <div flex="60">
+                    <p class="tour-item-detail-title">
+                      <strong>
+                        <% if(req.params.lang === 'es'){ %>
+                          {{tour.name}}
+                        <% }else{ %>
+                          {{tour.name_en}}
+                        <% } %>
+                      </strong>
+                    </p>
+                    <p>{{tour.location.name}}</p>
+                    <p class="tour-item-detail-categories"><strong><%= __('categories') %></strong> : {{ getCategoriesString(tour) }}</p>
+                  </div>
+                  <div flex="30">
+                    <p><%= __('from_price') %></p>
+                    <p class="tour-item-price" ng-cloak>
+                      <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  </div>
+                </div>
+                <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
+                  <a class="action-btn-white" href="/<%= req.params.lang %>/tour/{{tour.url}}"><%= __('book_now') %></a>
+                </div>
               </div>
             </div>
-            <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >
-              <a class="action-btn-white" href="/<%= req.params.lang %>/tour/{{tour.url}}"><%= __('book_now') %></a>
-            </div>
-          </div>
-        </div>
     	</div>
-      <div ng-show="tours && (page * size) < tours.length" layout="row" layout-align="center center">
-        <a ng-click="page = page + 1" href="" class="action-btn"><%= __('see_more') %></a>
+      <div ng-show="tours && (page * size) < tours.length" layout="row" layout-align="center center" ng-cloak>
+        <a ng-click="page = page + 1" ng-if="toursFiltered.length > 0" href="" class="action-btn"><%= __('see_more') %></a>
       </div>
       <div ng-show="loading" class="loading-wrapper" layout="row" layout-align="center center" layout-fill>
         <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
@@ -69,7 +70,7 @@
   <section class="map-wrapper " flex="35" flex-md="100" flex-sm="100" layout="column">
     <!--<div class="hotel-search" layout="row" layout-sm="column">-->
       <!--<div flex="60" flex-sm="100" class="hotel-search-label">-->
-    <div class="hotel-search" layout="row">
+    <div class="hotel-search" layout="row" ng-cloak>
       <div flex="40" class="hotel-search-label">
         <a><strong><%= __('location') %></strong></a>
       </div>

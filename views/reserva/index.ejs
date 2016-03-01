@@ -72,7 +72,7 @@
             <h2 class="booking-info-title"><%= __('your_reservation') %></h2>
             <div class="booking-info-inner">
 
-              <div class="booking-info-item" ng-repeat="tour in tours track by $index" ng-init="updatePrices(tour)">
+              <div class="booking-info-item" ng-repeat="tour in tours track by $index" ng-init="updatePrices(tour)" ng-cloak>
                 <section class="booking-info-block">
                   <h3>
                     <a ng-href="/{{currentLang}}/tour/{{tour.url}}" target="_blank">
@@ -94,11 +94,11 @@
               <div class="booking-info-item">
                 <section class="booking-info-block">
                   <p class="text-total-d"><strong>TOTAL</strong></p>
-                  <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}">{{total | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
+                  <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}" ng-cloak>{{total | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
                 </section>
               </div>
             </div>
-            <div class="booking-info-inner center-content" ng-if="step < 2">
+            <div class="booking-info-inner center-content" ng-if="step < 2" ng-cloak>
               <a href="" ng-click="continueClick()" class="action-btn"><%= __('continue') %></a>
             </div>
           </div>

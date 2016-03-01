@@ -18,7 +18,7 @@
 
     <div flex="70" flex-md="100" flex-sm="100" class="filters-section-row filters-section-row-nomargin">
       <div layout="row" layout-wrap layout-align="space-between center">
-        <div flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider filter-option-slider-price">
+        <div flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider filter-option-slider-price" ng-cloak>
           <label>
             <%= __('price_range') %>
              <i class="sm-icon icon-information" ></i>
@@ -41,7 +41,7 @@
 
           </div>
         </div>
-        <div ng-repeat="item in rate_categories track by item.id" flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider">
+        <div ng-repeat="item in rate_categories track by item.id" flex="30" flex-md="100" flex-sm="100" class="filter-option filter-option-slider" ng-cloak>
           <% if(req.params.lang === 'es'){ %>
             <label>
               {{item.name}}
@@ -62,7 +62,7 @@
           <% } %>
           <div layout='row' layout-align="space-between end">
             <i class="md-icon icon-{{ getCategoryIcon(item) }}0"></i>
-            <md-slider flex class="md-primary" md-discrete min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,ratings[item.id])" ng-model="ratings[item.id]" aria-label="rating" ></md-slider>
+            <md-slider flex class="md-primary" md-discrete min="0" max="{{item.rating.length}}" ng-change="formatRatings(item,selected,item.values)" ng-model="item.values" aria-label="rating" ></md-slider>
             <i class="icon-{{ getCategoryIcon(item) }}1"></i>
           </div>
         </div>
@@ -72,8 +72,8 @@
   </div>
 
   <div layout="row" layout-wrap class="filters-section-row">
-    <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0">
-      <md-checkbox ng-click="toggle(item, selected,'subcategory')" class="md-primary">
+    <div flex="20" ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0" ng-cloak>
+      <md-checkbox ng-model="item.checked" ng-click="toggle(item, selected,'subcategory')" class="md-primary">
         <% if(req.params.lang === 'es'){ %>
           <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
         <% }else{ %>
@@ -83,6 +83,8 @@
     </div>
   </div>
 
-
+    <div layout="row" layout-wrap class="filters-section-row" ng-cloak>
+        <md-button ng-click="resetFilters()"><%= __('reset_filters') %></md-button>
+    </div>
 
 </div>

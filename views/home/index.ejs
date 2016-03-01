@@ -20,7 +20,7 @@
               ng-if="toursrand1.length"
               data="toursrand1"
       >
-        <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions">
+        <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions" ng-cloak>
           <div class="landing-slider-item-bg " lazy-img="{{tour.avatar}}" ng-style="{ 'background-image': 'url({{tour.avatar}})' }"></div>
           <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <div class="landing-slider-cover">

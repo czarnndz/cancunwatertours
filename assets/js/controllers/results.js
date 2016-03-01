@@ -14,6 +14,18 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
   $scope.range = { id:'0', name:'prices',type : 'price' ,minFee : 1, maxFee : 10,step : 2, tours:[] };
   $scope.selected = [];
   $scope.orderBy = 'dtCreated';
+  $scope.raitings = [];
+
+  $scope.resetFilters = function(){
+      angular.forEach($scope.rate_categories, function(t, key) {
+          t.value = t.rating.length;
+          t.values = t.rating.length;
+      });
+      angular.forEach($scope.subcategories, function(t, key) {
+          t.checked = false;
+      });
+      $scope.selected = [];
+  }
 
   $scope.feeSlider = {
       minValue: $scope.range.minFee,
@@ -395,7 +407,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       $scope.range.tours = $scope.tours;
       $scope.getCategoriesByTours();
       $scope.muelles = {};
-
+      $scope.resetFilters();
       $scope.setupMap(data);
     });
   };

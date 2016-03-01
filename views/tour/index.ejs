@@ -16,11 +16,11 @@
       <div class="tour-details" id="detalles-tour" flex="70" flex-md="100" flex-sm="100">
 
         <div class="tour-data"  layout="row" layout-wrap layout-align="space-between center">
-          <div class="tour-data-column" flex>
+          <div class="tour-data-column" flex  ng-cloak>
             <h1>
               <% if(req.params.lang === 'es'){ %>
 
-                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name}}" >
+                <a ng-repeat="item in getSubcategories(tour.categories,'principal')" ng-href="/{{currentLang}}/tours/{{item.url}}" target="_blank" title="{{::item.name}}">
                   <i class="icon-{{::item.name_en | slugFilter}} big-icon"></i>
                 </a>
                 {{tour.name}}
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <div class="tour-slider-wrapper" gallery-wrapper flex ><!--Erick cambio antes flex70-->
+        <div class="tour-slider-wrapper" gallery-wrapper flex ng-cloak><!--Erick cambio antes flex70-->
           <slick class="tour-slider" dots="true" arrows="false" autoplay="true" autoplaySpeed="4000" fade="true">
             <div
               ng-repeat="photo in galleryPhotos track by $index"
@@ -73,7 +73,7 @@
           </div>
           <div class="clear"></div>
 
-          <div layout="row" layout-align="space-between center">
+          <div layout="row" layout-align="space-between center" ng-cloak>
             <div flex="45">
               <div class="input-field-wrap" layout="row" layout-align="space-between center">
                 <label flex><%= __('adults') %></label>
@@ -97,7 +97,7 @@
               </div>
             </div>
           </div>
-          <div class="input-field-wrap" ng-if="tour.schedules.length > 0">
+          <div class="input-field-wrap" ng-if="tour.schedules.length > 0" ng-cloak>
               <i class="icon-horario icon-inside"></i>
               <md-select ng-model="tour.schedule" ng-required name="schedule">
                 <md-option value="{{schedule}}" ng-repeat="schedule in tour.schedules" ng-selected="$index == 0"><%= __('from') %> {{schedule.from | date:'HH:mm'}} <%= __('to') %> {{schedule.to | date:'HH:mm'}}</md-option>
@@ -106,7 +106,7 @@
 
           <div ng-if="tour.haveTransfer" class="input-field-wrap">
 
-            <div class='hotel-select' layout='row' layout-align='center center'>
+            <div class='hotel-select' layout='row' layout-align='center center' ng-cloak>
               <span><i class='icon-pin'></i><%= __('search_hotels') %></span>
               <span flex></span>
               <span><md-autocomplete
@@ -134,7 +134,7 @@
 
                     <i class='icon-transporte'></i> <%= __('add_transport') %>
                 </md-checkbox>
-                <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+                <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center' ng-cloak>
                     <span><i class='icon-pin'></i>Hotel</span>
                     <span flex></span>
                       <span>
@@ -158,7 +158,7 @@
                        </span>
                 </div>
             </div>
-            <div ng-if="markers.length > 1" class="input-field-wrap">
+            <div ng-if="markers.length > 1" class="input-field-wrap" ng-cloak>
                 <span><i class="icon-pin"></i> <%= __('select_departure_point') %></span>
                 <md-select ng-model="tour.departurePoint" ng-required name="departurePoint">
                     <md-option value="{{departurePoint}}" ng-repeat="departurePoint in tour.departurePoints" ng-selected="$index == 0"> {{ departurePoint.name }}</md-option>
@@ -169,7 +169,7 @@
           <div class="clear"></div>
 
           <!--END INPUT FIELDS-->
-          <div class="precios-detalle">
+          <div class="precios-detalle" ng-cloak>
             <p class="prices-value" ng-if="tour.priceType != 'group'">
               <strong>({{tour.adults}})</strong> <%= __('price_per_adult') %> {{tour.adult_price | currency}}
             </p>
@@ -205,7 +205,7 @@
     <div layout="row" layout-wrap>
       <!--TOUR DESCRIPTION-->
       <div class="tour-description" flex="70" flex-md="100" flex-sm="100">
-        <div class="tour-description-inner container-smd">
+        <div class="tour-description-inner container-smd" ng-cloak>
           <div class='row-categories' ng-if="getSubcategories(tour.categories,'rate').length>0">
             <h4><%= __('rates') %></h4>
             <div class="row-category-wrapper" layout="row" >
@@ -280,7 +280,7 @@
           <a><strong> <%= __('map_label') %></strong></a>
         </div>
       </div>
-        <leaflet center="center"  markers="markers" layers="layers"></leaflet>
+        <leaflet center="center"  markers="markers" layers="layers" ng-cloak></leaflet>
       </div>
     </div>
 
@@ -290,7 +290,7 @@
   <!--SIMILAR TOURS-->
   <div class="similar-tours" id="similares" flex="25" flex-md="100" flex-sm="100" >
     <h2><%= __('similar_tours') %> <br> <span class='icon-flecha'></span></h2>
-    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours" ng-init="getPrice(tour_i)">
+    <div class="s-tour cont-similares" layout="row" layout-align="center end" ng-repeat="tour_i in similar_tours" ng-init="getPrice(tour_i)" ng-cloak>
       <span ng-style="{'background-image': 'url('+tour_i.avatar3+')'}"
         class="s-tour-img">
       </span>

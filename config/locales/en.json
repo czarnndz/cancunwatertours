@@ -146,5 +146,6 @@
   "password_change_failed": "There was an error, please try again",
   "price_tooltip": "Choose an approximate price to find a range of suitable tours.",
   "wetness_tooltip": "Choose your wetness level! You can dive in, get soaked or just watch.",
-  "physical_tooltip": "How much effort can you make? Find a perfect activity for your performance level."
+  "physical_tooltip": "How much effort can you make? Find a perfect activity for your performance level.",
+  "reset_filters": "Reset filters"
 }

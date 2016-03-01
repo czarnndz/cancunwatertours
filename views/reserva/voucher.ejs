@@ -19,7 +19,7 @@
         <p>
           <strong><%= __('reservation_number') %></strong>: <strong class="highlight" ng-bind="order.id"></strong>
         </p>
-        <p>
+        <p ng-cloak>
           <strong><%= __('name') %> :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
         </p>
       </div>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div layout="row" layout-align="space-between start" ng-repeat="reservation in reservations">
+    <div layout="row" layout-align="space-between start" ng-repeat="reservation in reservations" ng-cloak>
       <div flex="45">
 
         <!-- VOUCHER ITEM -->

@@ -8,7 +8,7 @@
   <div class="menu-section menu-section-first" flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
     <div layout="row" layout-align="start center" layout-align-md="center center">
 
-      <form class="search-box" ng-controller="Search" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()">
+      <form class="search-box" ng-controller="Search" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()" ng-cloak>
         <i class="icon-buscador"></i>
         <md-autocomplete
           md-selected-item="selectedTour"
@@ -19,7 +19,9 @@
           md-min-length="1"
           placeholder="<%= __('search')%>"
           md-menu-class="autocomplete-custom-template"
-          class="input-header" >
+          class="input-header"
+          ng-cloak
+          >
           <md-item-template>
             <span class="item-title search-box-item">
               <img src="{{item.avatar1}}" alt="{{item.name}}"> <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{item.name}} </a>
@@ -39,9 +41,9 @@
   </div>
 
   <div class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
-    <div flex class="custom-selector" layout="row" layout-align="center center">
+    <div flex class="custom-selector" layout="row" layout-align="center center"  ng-cloak>
       <a><i class="icon-moneda"></i> <strong>{{global_currency.currency_code}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
-      <ul class="custom-selector-list">
+      <ul class="custom-selector-list" ng-cloak>
         <li ng-repeat="item in currencyList track by $index">
           <a ng-click="setCurrency(item)">
             <span ng-if="item.currency_code == global_currency.currency_code">&#10003;</span>
@@ -50,7 +52,7 @@
         </li>
       </ul>
     </div>
-    <div flex class="custom-selector" layout="row" layout-align="center center">
+    <div flex class="custom-selector" layout="row" layout-align="center center" ng-cloak>
       <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
@@ -99,10 +101,10 @@
           <a ng-click="doRegisterToggle()" href=""><strong><%= __('register')%></strong></a>
         <% } %>
       </span>
-      <span class="account-menu-item">
+      <span class="account-menu-item" ng-cloak>
         <a ng-href="/{{currentLang}}/booking">
           <i class="icon-carrito"></i>
-          <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
+          <span ng-cloak class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
       </span>
       <% if(!req.user){ %>
@@ -144,7 +146,7 @@
             </a>
           </span>
         <% } %>
-        <span>
+        <span ng-cloak>
           <a ng-href="/{{currentLang}}/booking">
             <i class="icon-carrito"></i>
             <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
@@ -156,7 +158,7 @@
   </div>
 
 
-  <div class="container-xsm submenu" layout="row" layout-align="space-between center">
+  <div class="container-xsm submenu" layout="row" layout-align="space-between center" ng-cloak>
     <div flex class="custom-selector" layout="row" layout-align="center center">
       <a><i class="icon-moneda"></i> <strong>{{global_currency.currency_code}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
@@ -168,7 +170,7 @@
         </li>
       </ul>
     </div>
-    <div flex class="custom-selector" layout="row" layout-align="center center">
+    <div flex class="custom-selector" layout="row" layout-align="center center" ng-cloak>
       <a><i class="icon-world"></i> <strong>{{global_lang.label}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list">
         <li ng-repeat="item in langList track by $index">
@@ -201,7 +203,7 @@
 
 </div>
 
-<div class="header search-mobile" ng-class="{'search-mobile-on': toggleSearchMobile}">
+<div class="header search-mobile" ng-class="{'search-mobile-on': toggleSearchMobile}"  ng-cloak>
   <form class="search-box" flex ng-submit="$event.preventDefault()">
     <md-autocomplete
       md-selected-item="selectedTour"
@@ -211,7 +213,7 @@
       md-min-length="1"
       placeholder="Buscar"
       md-menu-class="autocomplete-custom-template"
-      class="input-header" >
+      class="input-header">
       <md-item-template>
         <span class="item-title">
           <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
