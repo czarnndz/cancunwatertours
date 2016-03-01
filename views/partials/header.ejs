@@ -6,7 +6,7 @@
   </div>
 
   <div class="menu-section menu-section-first" flex="40" flex-md="100" flex-sm="100" flex-order-md="3">
-    <div layout="row" layout-align="start center" layout-align-md="center center">
+    <div ng-cloak layout="row" layout-align="start center" layout-align-md="center center">
 
       <form class="search-box" ng-controller="Search" flex layout="row" layout-align="start center" ng-submit="$event.preventDefault()" ng-cloak>
         <i class="icon-buscador"></i>
@@ -40,7 +40,7 @@
     <a href="/<%= req.params.lang %>/"><img class="logo" src="/images/watertourslogo.png" alt=""></a>
   </div>
 
-  <div class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
+  <div ng-cloak class="menu-section account-menu" flex="40" flex-md="100" flex-sm="100"  flex-order-md="2" layout="row" layout-align-md="center center">
     <div flex class="custom-selector" layout="row" layout-align="center center"  ng-cloak>
       <a><i class="icon-moneda"></i> <strong>{{global_currency.currency_code}}</strong> <i class="icon-flecha2 custom-selector-arrow"></i></a>
       <ul class="custom-selector-list" ng-cloak>

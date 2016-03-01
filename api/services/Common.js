@@ -136,9 +136,6 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
 
   var cacheKey = '"' + JSON.stringify(cacheQuery) + '"';
 
-  console.log('pageSize');
-  console.log(pageSize);
-
   Cache.get(cacheKey,function(e,val){
       if (e) {
           console.log('error cache');

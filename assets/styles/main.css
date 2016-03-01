@@ -1591,6 +1591,15 @@ figcaption:hover .action-btn-white{
 .filter-option-slider .md-sign{display: none;}
 .filter-option-slider i.sm-icon{font-size: 14px;}
 
+.filter-clear{border-left: 1px solid #8f9094}
+.filter-clear i{
+  color: #3CB7E3;
+  font-size: 22px;
+  vertical-align: middle;
+}
+.filter-clear .md-button span{
+  font-size: 11px;
+}
 
 /*------------/
   #RESULTS

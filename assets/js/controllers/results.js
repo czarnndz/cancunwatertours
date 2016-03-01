@@ -16,7 +16,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
   $scope.orderBy = 'dtCreated';
   $scope.raitings = [];
 
-  $scope.resetFilters = function(){
+  $scope.resetFilters = function(initalFilter){
       angular.forEach($scope.rate_categories, function(t, key) {
           t.value = t.rating.length;
           t.values = t.rating.length;
@@ -25,6 +25,10 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
           t.checked = false;
       });
       $scope.selected = [];
+
+      if(!initalFilter){
+        $scope.updatePricesRange(function(){console.log('updatePricesRange');})
+      }
   }
 
   $scope.feeSlider = {
@@ -407,7 +411,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       $scope.range.tours = $scope.tours;
       $scope.getCategoriesByTours();
       $scope.muelles = {};
-      $scope.resetFilters();
+      $scope.resetFilters(true);
       $scope.setupMap(data);
     });
   };
