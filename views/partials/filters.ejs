@@ -1,8 +1,14 @@
 <div class="filters-section">
 
-  <div layout="row" layout-wrap class="row-justified">
+  <div class="filters-section-top">
+    <md-button ng-click="resetFilters(false)">
+      <i class="icon-borrar"></i> <span><%= __('reset_filters') %></span>
+    </md-button>
+  </div>
 
-    <div flex flex-md="100" flex-sm="100" layout="row" layout-align="center center" class='filters-section-row filters-wrap-orderby'>
+  <div layout="row" layout-wrap>
+
+    <div flex flex-md="100" flex-sm="100" layout="row" layout-align="start center" class='filters-section-row filters-wrap-orderby'>
 
       <md-select class="filters-section-orderby" ng-model="orderBy">
         <md-option value="dtCreated">
@@ -72,22 +78,23 @@
   </div>
 
   <div layout="row" layout-wrap class="filters-section-row">
-    <div flex="80" layout="row" layout-wrap>
-      <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0" ng-cloak>
-        <md-checkbox ng-model="item.checked" ng-click="toggle(item, selected,'subcategory')" class="md-primary">
-          <% if(req.params.lang === 'es'){ %>
-            <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
-          <% }else{ %>
-            <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name_en}}
-          <% } %>
-        </md-checkbox>
-      </div>
+    <div ng-repeat="item in subcategories track by item.id" ng-if="item.name !== 'Aventura'" class="filter-option" ng-hide="item.tours.length==0" ng-cloak>
+      <md-checkbox ng-model="item.checked" ng-click="toggle(item, selected,'subcategory')" class="md-primary">
+        <% if(req.params.lang === 'es'){ %>
+          <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name}}
+        <% }else{ %>
+          <i class="icon-{{ getCategoryIcon(item) }}"></i> {{item.name_en}}
+        <% } %>
+      </md-checkbox>
     </div>
+  </div>
+
+  <!--
     <div flex="20" class="filter-clear">
       <md-button ng-click="resetFilters(false)">
         <i class="icon-borrar"></i> <span><%= __('reset_filters') %></span>
       </md-button>
     </div>
-  </div>
+-->
 
 </div>

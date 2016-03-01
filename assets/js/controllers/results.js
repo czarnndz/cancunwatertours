@@ -8,7 +8,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
   $scope.hotels = [];
   $scope.term = term;
   $scope.page = 1;
-  $scope.size = 6;
+  $scope.size = 9;
   $scope.loading = false;
   $scope.toursCategories = [];
   $scope.range = { id:'0', name:'prices',type : 'price' ,minFee : 1, maxFee : 10,step : 2, tours:[] };

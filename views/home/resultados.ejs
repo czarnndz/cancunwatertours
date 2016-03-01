@@ -15,7 +15,7 @@
     <%- partial('../partials/filters') -%>
     <!--END FILTERS-->
 
-    <div class="container-xlg" layout-wrap>
+    <div layout-wrap>
 
     	<div ng-hide="loading" class="search-results-list" layout="row" layout-align="space-between start" layout-wrap ng-cloak>
             <div
@@ -58,7 +58,7 @@
             </div>
     	</div>
       <div ng-show="tours && (page * size) < tours.length" layout="row" layout-align="center center" ng-cloak>
-        <a ng-click="page = page + 1" ng-if="toursFiltered.length > 0" href="" class="action-btn"><%= __('see_more') %></a>
+        <a ng-click="page = page + 1" href="" class="action-btn"><%= __('see_more') %></a>
       </div>
       <div ng-show="loading" class="loading-wrapper" layout="row" layout-align="center center" layout-fill>
         <!--<md-progress-circular md-mode="indeterminate" ></md-progress-circular>-->
