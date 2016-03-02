@@ -1,9 +1,12 @@
 <div class="filters-section">
 
-  <div class="filters-section-top">
+  <div ng-if="toursFiltered.length < tours.length && selected.length > 0" class="filters-section-top">
     <md-button ng-click="resetFilters(false)">
       <i class="icon-borrar"></i> <span><%= __('reset_filters') %></span>
     </md-button>
+    <!--
+    filtered {{toursFiltered.length}} | tours: {{tours.length}} | selected {{selected.length}}
+    -->
   </div>
 
   <div layout="row" layout-wrap>
