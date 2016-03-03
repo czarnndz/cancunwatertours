@@ -134,17 +134,22 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
       $scope.galleryPhotos = [];
       if($scope.tour.files){
         $scope.galleryPhotos = $scope.tour.files.map(function(file){
-          return $scope.imgs_url + '/uploads/tours/gallery/' +  file.filename;
+          var size = file.size>5000000 ? '593x331' : '';
+          return $scope.imgs_url + '/uploads/tours/gallery/' + size +  file.filename;
         });
-      }else if ( $scope.tour.icon){
-        $scope.galleryPhotos.push(
-          $scope.imgs_url + '/uploads/tours/' +  $scope.tour.icon.filename
-        );
-      } else {
+      }else {
           $scope.galleryPhotos.push(
             $scope.imgs_url + '/uploads/tours/default.jpg'
           );
       }
+
+      if ( $scope.tour.icon){
+        var size = $scope.tour.icon.size>5000000 ? '593x331' : '';
+        $scope.galleryPhotos.push(
+          $scope.imgs_url + '/uploads/tours/' + size +  $scope.tour.icon.filename
+        );
+      }
+
     };
 
     $scope.updatePrices = function(tour) {

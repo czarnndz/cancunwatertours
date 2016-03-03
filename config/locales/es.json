@@ -146,7 +146,8 @@
   "price_tooltip": "Elige un aproximado de precio para encontrar tours a tu medida.",
   "wetness_tooltip": "¡Escoge que tanto te quieres mojar! Puedes sumergirte, empaparte o solo ver.",
   "physical_tooltip": "¿Qué tanto te puedes cansar? Encuentra una actividad perfecta para tu rendimiento.",
-  "reset_filters": "Borrar filtros"
+  "reset_filters": "Borrar filtros",
 
+  "my_cart": "Mi carrito"
 
 }

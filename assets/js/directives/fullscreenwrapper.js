@@ -9,7 +9,7 @@
  angular.module('watertours')
  .directive('fullScreenWrapper',['$window', function($window){
 
- 	return function (scope, element) {// jshint ignore:line
+ 	function link(scope, element) {// jshint ignore:line
  		var w = angular.element($window);
 
  		scope.getWindowDimensions = function () {
@@ -31,6 +31,10 @@
       scope.newWidth = function (){
         var side = 0;
         if($(".main-sidebar").length > 0){
+          var sidebar = $(".main-sidebar");
+          if(element[0].id == "home-photos"){
+            element.css({'height':sidebar.outerHeight(false)});
+          }
           side = $(".main-sidebar")[0].clientWidth;
         }
 
@@ -41,6 +45,10 @@
  		w.bind('resize', function () {
  			scope.$digest();
  		});
- 	};
+ 	}
+
+  return{
+    link: link,
+  }
 
  }]);
