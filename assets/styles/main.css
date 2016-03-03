@@ -276,9 +276,9 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   width: 35px;
 }
 .header .account-menu-item{
-  margin: -6px 10px 0;
+  margin: -6px 5px 0;
 }
-.header .account-menu-item .action-btn{padding: 6px 10px;}
+.header .account-menu-item .action-btn{padding: 6px 8px;}
 .header .account-menu i{
   color: #2AB7D0;
   font-size: 24px;
