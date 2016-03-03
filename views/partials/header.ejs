@@ -102,11 +102,24 @@
         <% } %>
       </span>
       <span class="account-menu-item" ng-cloak>
-        <a ng-href="/{{currentLang}}/booking">
+        <a ng-href="/{{currentLang}}/booking" title="<%= __('my_cart') %>">
           <i class="icon-carrito"></i>
           <span ng-cloak class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
         </a>
       </span>
+      <% if(req.params.lang === 'es'){ %>
+        <span class="account-menu-item" ng-cloak>
+          <a ng-href="/es/contacto" title="<%= __('contact') %>">
+            <i class="icon-mail"></i>
+          </a>
+        </span>
+      <% }else{ %>
+        <span class="account-menu-item" ng-cloak>
+          <a ng-href="/en/contact" title="<%= __('contact') %>">
+            <i class="icon-mail"></i>
+          </a>
+        </span>
+      <% } %>
       <% if(!req.user){ %>
         <span class="account-menu-item">
           <a ng-click="doLoginToggle()" href="" class="action-btn"><strong><%= __('log_in')%></strong></a>
@@ -147,11 +160,24 @@
           </span>
         <% } %>
         <span ng-cloak>
-          <a ng-href="/{{currentLang}}/booking">
+          <a ng-href="/{{currentLang}}/booking" title="<%= __('my_cart') %>">
             <i class="icon-carrito"></i>
             <span class="cart-items-n" ng-if="cart_items.length > 0">{{cart_items.length}}</span>
           </a>
         </span>
+        <% if(req.params.lang === 'es'){ %>
+          <span ng-cloak>
+            <a ng-href="/es/contacto" title="<%= __('contact') %>">
+              <i class="icon-mail"></i>
+            </a>
+          </span>
+        <% }else{ %>
+          <span ng-cloak>
+            <a ng-href="/en/contact" title="<%= __('contact') %>">
+              <i class="icon-mail"></i>
+            </a>
+          </span>
+        <% } %>
       </div>
     </div>
 

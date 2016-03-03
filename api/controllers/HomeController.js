@@ -84,7 +84,14 @@ module.exports = {
     var params = req.params.all();
     if (params.term){
       var term = params.term;
-      Tour.find({ select: ['id','name','icon','url'] , name:{'like': '%'+term+'%'}, visible : true, limit:10 }).exec(function(e,tours){
+      Tour.find({ select: ['id','name','icon','url'], visible : true, limit:10 })
+        .where({
+          or:[
+            {name:{'like': '%'+term+'%'}},
+            {name_en:{'like': '%'+term+'%'}}
+          ]
+        })
+        .exec(function(e,tours){
         if(e){
           console.log(e);
           return res.json([]);

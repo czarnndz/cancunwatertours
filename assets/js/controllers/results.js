@@ -251,7 +251,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       var reel = '';
       for( var x in tours ){
         var tour = tours[x];
-        var tour_name = ($rootScope.lang === 'es') ? tour.name : tour.name_en;
+        var tour_name = ($rootScope.currentLang === 'es') ? tour.name : tour.name_en;
         cartService.getPriceTour(tour,function(val) {
             var item = '';
             var price = $filter('currency')(val) + $filter('uppercase')($rootScope.global_currency.currency_code);
