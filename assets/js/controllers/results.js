@@ -405,7 +405,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
     $scope.loading = true;
     $scope.initMap();
     $scope.getToursCategories();
-    toursService.getTours($scope.category,minFee,maxFee,term,true).then(function(data){
+    toursService.getTours($scope.category,minFee,maxFee,term,true,$rootScope.currentLang).then(function(data){
       $scope.loading = false;
       $scope.tours = data;
       $scope.range.tours = $scope.tours;

@@ -12,7 +12,7 @@ app.filter('toursByCategory',['$q', function($q) {
             if (itemL.id == item.id) {
               if (!angular.isUndefined(filter.type) && filter.type == 'rate') {
                 item.value = itemL.value;
-                if (itemL.value <= filter.value) {
+                if (itemL.value == filter.value) {
                     this.push(true);
                 } else {
                     this.push(false);
