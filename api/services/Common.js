@@ -95,44 +95,48 @@ module.exports.formatRoom = function(room,lang){
 
 var Cache = require('sailsjs-cacheman').sailsCacheman('name');
 
-module.exports.getTours = function(callback,page,pageSize,sort,name,category,maxFee,minFee,ids,all) {
+module.exports.getTours = function(callback,params) {
   var s = {};
   var query = {};
   var sortBy = 'name';
 
-  if(!pageSize) {
-    pageSize = 15;
+  if(!params.pageSize) {
+      params.pageSize = 15;
   }
-  if (!page) {
-    page = 1;
+  if (!params.page) {
+      params.page = 1;
   }
-  if (all) {
-    pageSize = ids.length;
-    page = 1;
+  if (params.all) {
+      params.pageSize = ids.length;
+      params.page = 1;
   }
-  if (sort) {
-    sortBy = sort;
+  if (params.sort) {
+      sortBy = params.sort;
   }
-  if( name && name != '' ){
-    query.name = "/.*" + name + ".*/";
+  if( params.name && params.name != '' ){
+    if (params.lang && params.lang == 'en')
+        query.name_en = "/.*" + params.name + ".*/";
+    else
+        query.name = "/.*" + params.name + ".*/";
   }
-  if(minFee){
-    query.fee = { '>' : minFee };
+  if(params.minFee){
+    query.fee = { '>' : params.minFee };
   }
-  if (maxFee){
-    query.fee = { '<' : maxFee };
+  if (params.maxFee){
+    query.fee = { '<' : params.maxFee };
   }
-  if (ids) {
-    query.id = ids;
+  if (params.tourIds) {
+    query.id = params.tourIds;
   }
   query.visible = true;
   var sort = { };
   sort[sortBy] = 1;
   //console.log(query);
   var cacheQuery = _.clone(query);
-  cacheQuery.sort = sort;
-  cacheQuery.pageSize = pageSize;
-  cacheQuery.page = page;
+  cacheQuery.sort = params.sort;
+  cacheQuery.pageSize = params.pageSize;
+  cacheQuery.page = params.page;
+  cacheQuery.lang = params.lang ? params.lang : 'es';
 
   var cacheKey = '"' + JSON.stringify(cacheQuery) + '"';
 
@@ -142,7 +146,7 @@ module.exports.getTours = function(callback,page,pageSize,sort,name,category,max
           callback(e,null);
       } else {
           if (!val) {
-              Tour.find(query).sort(sort).limit(pageSize).skip((page - 1 ) * pageSize).populate('categories').populate('provider').exec(function(er,tours) {
+              Tour.find(query).sort(sort).limit(params.pageSize).skip((params.page - 1 ) * params.pageSize).populate('categories').populate('provider').exec(function(er,tours) {
                   Cache.set(cacheKey,Common.formatTours(tours,'es'),'1h',function(err,value) {
                       if (err) throw err;
                       callback(err,value);

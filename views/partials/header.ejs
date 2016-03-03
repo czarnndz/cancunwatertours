@@ -24,7 +24,7 @@
           >
           <md-item-template>
             <span class="item-title search-box-item">
-              <img src="{{item.avatar1}}" alt="{{item.name}}"> <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{item.name}} </a>
+              <img src="{{item.avatar1}}" alt="{{currentLang == 'es' ? item.name : item.name_en}}"> <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{currentLang == 'es' ? item.name : item.name_en}} </a>
             </span>
           </md-item-template>
         </md-autocomplete>
@@ -243,7 +243,7 @@
       <md-item-template>
         <span class="item-title">
           <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-          <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{item.name}} </a>
+          <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{currentLang == 'es' ? item.name : item.name_en}} </a>
         </span>
       </md-item-template>
     </md-autocomplete>

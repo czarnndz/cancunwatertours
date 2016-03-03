@@ -77,21 +77,23 @@ module.exports = {
         var tourIds = _.uniq(auxTourIds);
         Common.getTours(function(err,tour_list){
           res.json(tour_list);
-        },params.page,params.pageSize,params.sort,params.name,params.category,params.maxFee,params.minFee,tourIds,params.all);
+        },params);
     });
   },
   toursSearchByName: function(req, res){
     var params = req.params.all();
     if (params.term){
-      var term = params.term;
-      Tour.find({ select: ['id','name','icon','url'], visible : true, limit:10 })
-        .where({
-          or:[
-            {name:{'like': '%'+term+'%'}},
-            {name_en:{'like': '%'+term+'%'}}
-          ]
-        })
-        .exec(function(e,tours){
+      var query = {
+          select: ['id','name','name_en','icon','url'],
+          visible : true,
+          limit:10
+      };
+      if (params.lang && params.lang == 'en') {
+          query.name_en = {'like': '%'+params.term+'%'};
+      } else {
+          query.name = {'like': '%'+params.term+'%'};
+      }
+      Tour.find(query).exec(function(e,tours){
         if(e){
           console.log(e);
           return res.json([]);

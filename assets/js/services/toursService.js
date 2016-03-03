@@ -21,7 +21,7 @@
       serv.tours = [];
       serv.categories = [];
 
-      function getTours(category,minFee,maxFee,term,all){
+      function getTours(category,minFee,maxFee,term,all,lang){
         var params = {};
         var deferred = $q.defer();
         if (category) {
@@ -38,6 +38,9 @@
         }
         if (all) {
             params.all = all;
+        }
+        if (lang) {
+            params.lang = lang;
         }
 
         $http.get('/tour_list', {
@@ -105,6 +108,7 @@
           url: '/tours_search',
           params: {
             term: name,
+            lang : $rootScope.currentLang
           }
         })
         .then(getToursByNameComplete)
