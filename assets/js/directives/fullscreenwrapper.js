@@ -32,9 +32,11 @@
         var side = 0;
         if($(".main-sidebar").length > 0){
           var sidebar = $(".main-sidebar");
+          /*
           if(element[0].id == "home-photos"){
             element.css({'height':sidebar.outerHeight(false)});
           }
+          */
           side = $(".main-sidebar")[0].clientWidth;
         }
 
