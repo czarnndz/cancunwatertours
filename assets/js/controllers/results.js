@@ -171,7 +171,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       return (elem.type != 'rate')
     });
 
-    return categories.map(function(elem){
+    return categories.slice(0, 10).map(function(elem){
       var name = ($rootScope.currentLang === 'es') ? elem.name : elem.name_en;
       return name;
     }).join(" | ");
