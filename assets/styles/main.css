@@ -1880,6 +1880,7 @@ figcaption:hover .action-btn-white{
   color: rgb(0, 171, 227);
 }
 .tour-item-detail-categories{
+  font-size: 10px !important;
   text-transform: uppercase;
 }
 .tour-item-detail .tour-item-price{

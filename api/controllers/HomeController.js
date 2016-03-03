@@ -74,7 +74,7 @@ module.exports = {
             //console.log(tour.name.replace(/[^a-zA-Z0-9 ]/g,'').replace(/\s+/g, '-').toLowerCase());
           });
         });
-        var tourIds = _.uniq(auxTourIds);
+        params.ids = _.uniq(auxTourIds);
         Common.getTours(function(err,tour_list){
           res.json(tour_list);
         },params);
