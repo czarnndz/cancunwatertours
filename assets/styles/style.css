@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('/fonts/icomoon.eot?58k3hx');
-    src:    url('/fonts/icomoon.eot?58k3hx#iefix') format('embedded-opentype'),
-        url('/fonts/icomoon.ttf?58k3hx') format('truetype'),
-        url('/fonts/icomoon.woff?58k3hx') format('woff'),
-        url('/fonts/icomoon.svg?58k3hx#icomoon') format('svg');
+    src:    url('/fonts/icomoon.eot?l8z9x9');
+    src:    url('/fonts/icomoon.eot?l8z9x9#iefix') format('embedded-opentype'),
+        url('/fonts/icomoon.ttf?l8z9x9') format('truetype'),
+        url('/fonts/icomoon.woff?l8z9x9') format('woff'),
+        url('/fonts/icomoon.svg?l8z9x9#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
+    /* use !important to prevent issues with browser extensions that change /fonts */
     font-family: 'icomoon' !important;
     speak: none;
     font-style: normal;
@@ -24,208 +24,208 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-accesible:before {
+.icon-world:before {
     content: "\e900";
 }
-.icon-actividad:before {
+.icon-water-sports:before {
     content: "\e901";
 }
-.icon-actividad0:before {
+.icon-viajes:before {
     content: "\e902";
 }
-.icon-actividad1:before {
+.icon-twit:before {
     content: "\e903";
 }
-.icon-adultos:before {
+.icon-trending:before {
     content: "\e904";
 }
-.icon-adventure:before {
+.icon-transporte:before {
     content: "\e905";
 }
-.icon-alert:before {
+.icon-todos:before {
     content: "\e906";
 }
-.icon-archaeological-sites:before {
+.icon-theme-parks:before {
     content: "\e907";
 }
-.icon-bebes:before {
+.icon-tel:before {
     content: "\e908";
 }
-.icon-borrar:before {
+.icon-snorkeling:before {
     content: "\e909";
 }
-.icon-buscador:before {
+.icon-sailing:before {
     content: "\e90a";
 }
-.icon-calendario:before {
+.icon-precio2:before {
     content: "\e90b";
 }
-.icon-carrito:before {
+.icon-precio:before {
     content: "\e90c";
 }
-.icon-cenote:before {
+.icon-populares2:before {
     content: "\e90d";
 }
-.icon-cenotes:before {
+.icon-populares:before {
     content: "\e90e";
 }
-.icon-cerrar:before {
+.icon-pin:before {
     content: "\e90f";
 }
-.icon-coins:before {
+.icon-parejas:before {
     content: "\e910";
 }
-.icon-corazon:before {
+.icon-oferta:before {
     content: "\e911";
 }
-.icon-cultural:before {
+.icon-nuevo:before {
     content: "\e912";
 }
-.icon-diving:before {
+.icon-nombre:before {
     content: "\e913";
 }
-.icon-embarazadas:before {
+.icon-nocturno:before {
     content: "\e914";
 }
-.icon-estrella:before {
+.icon-ninos:before {
     content: "\e915";
 }
-.icon-face:before {
+.icon-nino:before {
     content: "\e916";
 }
-.icon-familiar:before {
+.icon-new:before {
     content: "\e917";
 }
-.icon-familiar2:before {
+.icon-naturaleza1:before {
     content: "\e918";
 }
-.icon-fishing:before {
+.icon-naturaleza0:before {
     content: "\e919";
 }
-.icon-flecha:before {
+.icon-naturaleza:before {
     content: "\e91a";
 }
-.icon-flecha2:before {
+.icon-moneda:before {
     content: "\e91b";
 }
-.icon-grupos:before {
+.icon-mojado1:before {
     content: "\e91c";
 }
-.icon-horario:before {
+.icon-mojado0:before {
     content: "\e91d";
 }
-.icon-horario2:before {
+.icon-mojado:before {
     content: "\e91e";
 }
-.icon-hotel:before {
+.icon-mascompradas:before {
     content: "\e91f";
 }
-.icon-information:before {
+.icon-mail:before {
     content: "\e920";
 }
-.icon-instagram:before {
+.icon-login:before {
     content: "\e921";
 }
-.icon-login:before {
+.icon-instagram:before {
     content: "\e922";
 }
-.icon-mail:before {
+.icon-information:before {
     content: "\e923";
 }
-.icon-mascompradas:before {
+.icon-hotel:before {
     content: "\e924";
 }
-.icon-mojado:before {
+.icon-horario2:before {
     content: "\e925";
 }
-.icon-mojado0:before {
+.icon-horario:before {
     content: "\e926";
 }
-.icon-mojado1:before {
+.icon-grupos:before {
     content: "\e927";
 }
-.icon-moneda:before {
+.icon-flecha2:before {
     content: "\e928";
 }
-.icon-naturaleza:before {
+.icon-flecha:before {
     content: "\e929";
 }
-.icon-naturaleza0:before {
+.icon-fishing:before {
     content: "\e92a";
 }
-.icon-naturaleza1:before {
+.icon-familiar2:before {
     content: "\e92b";
 }
-.icon-new:before {
+.icon-familiar:before {
     content: "\e92c";
 }
-.icon-nino:before {
+.icon-face:before {
     content: "\e92d";
 }
-.icon-ninos:before {
+.icon-estrella:before {
     content: "\e92e";
 }
-.icon-nocturno:before {
+.icon-embarazadas:before {
     content: "\e92f";
 }
-.icon-nombre:before {
+.icon-diving:before {
     content: "\e930";
 }
-.icon-nuevo:before {
+.icon-cultural:before {
     content: "\e931";
 }
-.icon-oferta:before {
+.icon-corazon:before {
     content: "\e932";
 }
-.icon-parejas:before {
+.icon-coins:before {
     content: "\e933";
 }
-.icon-pin:before {
+.icon-cerrar:before {
     content: "\e934";
 }
-.icon-populares:before {
+.icon-cenotes:before {
     content: "\e935";
 }
-.icon-populares2:before {
+.icon-cenote:before {
     content: "\e936";
 }
-.icon-precio:before {
+.icon-carrito:before {
     content: "\e937";
 }
-.icon-precio2:before {
+.icon-calendario:before {
     content: "\e938";
 }
-.icon-sailing:before {
+.icon-buscador:before {
     content: "\e939";
 }
-.icon-snorkeling:before {
+.icon-borrar:before {
     content: "\e93a";
 }
-.icon-tel:before {
+.icon-bebes:before {
     content: "\e93b";
 }
-.icon-theme-parks:before {
+.icon-archaeological-sites:before {
     content: "\e93c";
 }
-.icon-todos:before {
+.icon-alert:before {
     content: "\e93d";
 }
-.icon-transporte:before {
+.icon-adventure:before {
     content: "\e93e";
 }
-.icon-trending:before {
+.icon-adultos:before {
     content: "\e93f";
 }
-.icon-twit:before {
+.icon-actividad1:before {
     content: "\e940";
 }
-.icon-viajes:before {
+.icon-actividad0:before {
     content: "\e941";
 }
-.icon-water-sports:before {
+.icon-actividad:before {
     content: "\e942";
 }
-.icon-world:before {
+.icon-accesible:before {
     content: "\e943";
 }
 
