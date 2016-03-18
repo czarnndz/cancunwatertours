@@ -50,12 +50,12 @@ module.exports = {
       } else if (!_.isUndefined(category)){
         params.category = category.id;
         var meta = {
-          title: category.name,
-          description: '',
-          keywords: '',
-          title_en: category.name_en,
-          description: '',
-          keywords_en:''
+          title: category.meta_title_es || category.name,
+          description: category.meta_description_es || category.name,
+          keywords: category.meta_keywords_es || category.name,
+          title_en: category.meta_title_en || category.name_en,
+          description_en: category.meta_description_en || category.name,
+          keywords_en: category.meta_keywords_en || category.name
         };
         resultados(params,meta,res);
       } else {

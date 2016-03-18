@@ -84,6 +84,14 @@ module.exports = {
       ,recommendations_en : 'string'
       ,recommendations_ru : 'string'
       ,recommendations_pt : 'string'
+
+      ,meta_title_es:'string'
+      ,meta_description_es:'string'
+      ,meta_keywords_es:'string'
+      ,meta_title_en:'string'
+      ,meta_description_en:'string'
+      ,meta_keywords_en:'string'
+
   }
   , migrate : 'safe'
   , attrs_labels : {
