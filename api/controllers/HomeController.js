@@ -22,7 +22,15 @@ module.exports = {
         meta : {
           controller : 'home.js',
           addMenu : true,
-          categories : categories
+          categories : categories,
+          metadata:{
+            title: 'Cancun Water Tours | Tours Acuáticos en Cancún, buceo, snorkel, pesca',
+            description: 'Cancún Water Tours es una empresa especializada en actividades acuáticas en Cancun o Isla Mujeres. Reserva tours de cenotes, MUSA, buceo, catamarán, flyboard',
+            keywords: 'tours en cancun, que hacer en cancun, jungle tour cancun, catamarán cancun, buceo en cancun, flyboard cancun',
+            title_en: 'Cancun Water Tours | Aquatics Tours | Jungle Tour, Snorkeling, Diving',
+            description_en: 'Cancun Water Tours is a company specialized in aquatics tours in Cancun and Isla Mujeres. The best cancun tours:  Snorkel, jungle tour, flyboard, scuba, MUSA',
+            keywords_en: 'aquatics tours in cancun, cancun tours, what to do in cancun, snorkeling in cancun, jungle tour, cancun fishing'
+          }
         },
         page : {
           searchUrl : '/index',
@@ -34,14 +42,22 @@ module.exports = {
 
   resultados : function(req,res){
     var params = req.params.all();
+    var isCategory = true;
     if (params.url.match(/\..+$/)) res.notFound();
     TourCategory.findOne({ url : params.url }).exec(function(err,category){
       if (err) {
         console.log(err);
       } else if (!_.isUndefined(category)){
         params.category = category.id;
-        categoryName = (req.getLocale() === 'es') ? category.name : category.name_en;
-        resultados(params,categoryName,res);
+        var meta = {
+          title: category.name,
+          description: '',
+          keywords: '',
+          title_en: category.name_en,
+          description: '',
+          keywords_en:''
+        };
+        resultados(params,meta,res);
       } else {
         res.notFound();
       }
@@ -50,8 +66,15 @@ module.exports = {
   },
   resultados_l : function(req,res){
     var params = req.params.all();
-    var title = (req.getLocale() === 'es') ? 'Todos los tours' : 'Tours';
-    resultados(params,title,res);
+    var meta = {
+      title: 'Actividades Acuáticas y deportivas en Cancún | Pesca, Buceo, Flyboard',
+      description: 'Cancún Water Tours, la mejor opción para disfrutar el mar caribe mexicano con actividades y deportes acuáticos como Buceo, Snorkel, pesca deportiva, cenotes',
+      keywords: 'atracciones en cancun, tours cancun, tours acuaticos en cancun, deportes acuaticos en cancun, jungle tour cancun, snorkel cancun',
+      title_en: 'The best water tours in Cancun and Isla Mujeres | Book online now',
+      description_en: 'Cancun Water Tours is located in the gorgeous city of Cancun and we are the best option for any water tour. Book only a tour: Catamaran, Sailing, Snorkeling, Scuba',
+      keywords_en:'what to do in cancun, snorkeling in cancun, jungle tour cancun, cancun tours,catamaran cancun, sailing in cancun, cancun water tours'
+    };
+    resultados(params,meta,res);
   },
   tour_list : function(req,res){
     var params = req.params.all();
@@ -231,13 +254,13 @@ var formatRateCategories = function(rc,callback){
   });
 }
 
-var resultados = function(params,categoryName,res) {
+var resultados = function(params,metadata,res) {
   TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours',{ visible : true }).exec(function(e,categories) {
     TourCategory.find({ principal : { '!' : true }, type : {'!' : 'rate'}}).populate('tours',{ visible : true }).exec(function(e,sec_categories){
       TourCategory.find({ principal : { '!' : true }, type : 'rate' }).populate('tours',{ visible : true }).exec(function(e,rate_categories){
         formatRateCategories(rate_categories,function(rc){
-          res.view('home/resultados',{
-            categoryName: categoryName,
+
+          var data = {
             meta: {
               controller: 'home.js',
               addMenu: true,
@@ -250,7 +273,12 @@ var resultados = function(params,categoryName,res) {
               searchUrl: '/tours',
               placeholder: 'Buscar'
             }
-          });//res
+          };
+          data.meta.metadata = metadata;
+
+          res.view('home/resultados',data);//res
+
+
         });//format categories
       });//rates
     })//subcategories

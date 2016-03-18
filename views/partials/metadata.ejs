@@ -1,0 +1,37 @@
+<%
+  var title = '';
+  var description = '';
+  var keywords = '';
+  if(typeof meta.metadata != 'undefined' && meta.metadata){
+
+    if(req.params.lang === 'es'){
+      title = meta.metadata.title;
+      description = meta.metadata.description;
+      keywords = meta.metadata.keywords;
+    }else{
+      title = meta.metadata.title_en;
+      description = meta.metadata.description_en;
+      keywords = meta.metadata.keywords_en;
+    }
+
+  }else{
+    if(typeof tour != 'undefined' && tour){
+      title = ( req.params.lang === 'es' ) ? tour.name : tour.name_en;
+    }
+    else{
+      if(req.params.lang === 'es'){
+        title = 'Cancun Water Tours | Tours Acuáticos en Cancún, buceo, snorkel, pesca';
+        description = 'Cancún Water Tours es una empresa especializada en actividades acuáticas en Cancun o Isla Mujeres. Reserva tours de cenotes, MUSA, buceo, catamarán, flyboard';
+        keywords = 'tours en cancun, que hacer en cancun, jungle tour cancun, catamarán cancun, buceo en cancun, flyboard cancun';
+      }else{
+        title = 'Cancun Water Tours | Aquatics Tours | Jungle Tour, Snorkeling, Diving';
+        description = 'Cancun Water Tours is a company specialized in aquatics tours in Cancun and Isla Mujeres. The best cancun tours:  Snorkel, jungle tour, flyboard, scuba, MUSA';
+        keywords = 'aquatics tours in cancun, cancun tours, what to do in cancun, snorkeling in cancun, jungle tour, cancun fishing';
+      }
+    }
+  }
+%>
+
+<title><%= title %></title>
+<meta name="description" content="<%=  description %>">
+<meta name="keywords" content="<%= keywords %>">

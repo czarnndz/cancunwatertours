@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="watertours">
   <head>
-    <% if(typeof tour != 'undefined' && tour){ %>
-      <% if(req.params.lang === 'es'){ %>
-        <title><%= tour.name %></title>
-      <% }else{ %>
-        <title><%= tour.name_en %></title>
-      <% } %>
-    <% }else if(typeof categoryName != 'undefined' && categoryName){ %>
-      <title><%= categoryName %></title>
-    <% }else{ %>
-      <title>Water Tours</title>
-    <% } %>
+
+    <%- partial('partials/metadata') -%>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
