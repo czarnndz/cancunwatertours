@@ -412,6 +412,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
 }
+.header-mobile .action-btn{padding: 6px 4px;}
 
 /*-----------/
   #MENU-MOBILE
@@ -2658,6 +2659,11 @@ figcaption:hover .action-btn-white{
   /*---------*/
   .filters-section-large-label{display: block;}
   .search-results-option-item.tour-type{margin-left: 0;}
+  .filters-section md-slider .md-track-container{
+    height: 4px;
+    top: 21px;
+  }
+
 
   /*--------/
     #FOOTER

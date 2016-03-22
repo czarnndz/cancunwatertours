@@ -115,9 +115,14 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
         list[idx].tours = item.tours;
         if(valueMin){
           list[idx].valueMin = valueMin;
+        }else{
+          list[idx].valueMin = 0;
         }
       }else{
         item.value = value;
+        if(valueMin){
+          item.valueMin = valueMin;
+        }
         list.push(item);
       }
     }
