@@ -13,7 +13,7 @@
  		var w = angular.element($window);
 
  		scope.getWindowDimensions = function () {
- 			return { 'h': $('#wrap').outerHeight(false), 'w': w.width() };
+ 			return { 'h': w.outerHeight(false), 'w': w.width() };
  		};
 
  		scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {// jshint ignore:line
@@ -30,7 +30,7 @@
 
         element.css({"height" : newHeight+"px","min-height" : "526px"});
 
-      }, 1000);
+      }, 500);
 
       scope.newWidth = function (){
         var side = 0;
