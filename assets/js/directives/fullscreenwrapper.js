@@ -7,26 +7,30 @@
  * # fullScreenWrapper
  */
  angular.module('watertours')
- .directive('fullScreenWrapper',['$window', function($window){
+ .directive('fullScreenWrapper',['$window','$timeout', function($window, $timeout){
 
  	function link(scope, element) {// jshint ignore:line
  		var w = angular.element($window);
 
  		scope.getWindowDimensions = function () {
- 			return { 'h': w.outerHeight(false), 'w': w.width() };
+ 			return { 'h': $('#wrap').outerHeight(false), 'w': w.width() };
  		};
 
  		scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {// jshint ignore:line
-      var headerd = $(".header-desktop").outerHeight(false);
-      var headerm = $(".header-mobile").outerHeight(false);
-      var footer = $("#footer").outerHeight(false);
+      $timeout(function(){
 
-      var newHeight = newValue.h - headerm - footer;
-      if(newValue.w >= 600){
-        newHeight = newValue.h - headerd - footer;
-      }
+        var headerd = $(".header-desktop").outerHeight(false);
+        var headerm = $(".header-mobile").outerHeight(false);
+        var footer = $("#footer").outerHeight(false);
 
-      element.css({"height" : newHeight+"px","min-height" : "526px"});
+        var newHeight = newValue.h - headerm - footer;
+        if(newValue.w >= 600){
+          newHeight = newValue.h - headerd - footer;
+        }
+
+        element.css({"height" : newHeight+"px","min-height" : "526px"});
+
+      }, 1000);
 
       scope.newWidth = function (){
         var side = 0;
