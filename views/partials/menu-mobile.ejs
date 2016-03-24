@@ -1,15 +1,23 @@
 <div class="cont-menu menu-mobile" hide-gt-md ng-class="{'menu-mobile-on': toggleMenuMobile}" ng-cloak>
 
   <div class="menu-mobile-inner">
-    <% for(var i=0;i<meta.categories.length;i++){ %>
-      <a ng-href="/{{currentLang}}/tours/<%= meta.categories[i].url %>" >
-      <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
+    <a ng-href="/{{currentLang}}/tours/" >
+      <i class="icon-todos icon-desplegable"></i>
       <% if(req.params.lang === 'es'){ %>
-        <span><%= meta.categories[i].name.toUpperCase() %></span>
+        <span>TODOS</span>
       <% }else{ %>
-        <span><%= meta.categories[i].name_en.toUpperCase() %></span>
+        <span>ALL</span>
       <% } %>
     </a>
+    <% for(var i=0;i<meta.categories.length;i++){ %>
+      <a ng-href="/{{currentLang}}/tours/<%= meta.categories[i].url %>" >
+        <i class="icon-<%= meta.categories[i].name_en.replace(' ','-').toLowerCase() %> icon-desplegable"></i>
+        <% if(req.params.lang === 'es'){ %>
+          <span><%= meta.categories[i].name.toUpperCase() %></span>
+        <% }else{ %>
+          <span><%= meta.categories[i].name_en.toUpperCase() %></span>
+        <% } %>
+      </a>
     <% } %>
   </div>
 
