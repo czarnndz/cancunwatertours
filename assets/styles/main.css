@@ -1565,7 +1565,7 @@ figcaption:hover .action-btn-white{
 }
 .filter-option md-slider.md-default-theme.md-primary,
 .filter-option md-slider.md-primary .md-track.md-track-fill{
-  background-color: #3CB7E3;
+  background-color: #0DB9F0!important;
 }
 
 .filter-option md-slider.md-default-theme.md-primary,
@@ -1603,6 +1603,12 @@ figcaption:hover .action-btn-white{
 }
 .filter-clear .md-button span{
   font-size: 11px;
+}
+
+.search-results-option-item.tour-type{margin-left: 0;}
+.filters-section md-slider .md-track-container{
+  height: 4px;
+  top: 21px;
 }
 
 /*------------/
@@ -2658,11 +2664,7 @@ figcaption:hover .action-btn-white{
     #SEARCH-RESULTS
   /*---------*/
   .filters-section-large-label{display: block;}
-  .search-results-option-item.tour-type{margin-left: 0;}
-  .filters-section md-slider .md-track-container{
-    height: 4px;
-    top: 21px;
-  }
+
 
 
   /*--------/

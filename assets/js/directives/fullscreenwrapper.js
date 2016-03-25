@@ -23,9 +23,9 @@
         var headerm = $(".header-mobile").outerHeight(false);
         var footer = $("#footer").outerHeight(false);
 
-        var newHeight = newValue.h - headerm - footer;
+        var newHeight = newValue.h - headerm;
         if(newValue.w >= 600){
-          newHeight = newValue.h - headerd - footer;
+          newHeight = newValue.h - headerd;
         }
 
         element.css({"height" : newHeight+"px","min-height" : "526px"});
