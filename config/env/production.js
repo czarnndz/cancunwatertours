@@ -1,4 +1,5 @@
 var fs = require('fs');
+var rootPath = process.cwd();
 /**
  * Production environment settings
  *
@@ -27,8 +28,8 @@ module.exports = {
     },
 
     ssl:{
-      key: fs.readFileSync(__dirname + '/ssl/server.key'),
-      cert: fs.readFileSync(__dirname + '/ssl/191c2efd36887f4.crt')
+      key: fs.readFileSync(rootPath + '/config/ssl/server.key'),
+      cert: fs.readFileSync(rootPath + '/config/ssl/191c2efd36887f4.crt')
     },
     policies: {
       '*': 'isHTTPS'
