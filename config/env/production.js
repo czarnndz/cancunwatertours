@@ -26,7 +26,7 @@ module.exports = {
     },
     ssl:{
       key: fs.readFileSync(__dirname + '/ssl/server.key'),
-      cert: fs.readFileSync(__dirname + '/ssl/191c2efd36887f4.crt'),
+      cert: fs.readFileSync(__dirname + '/ssl/191c2efd36887f4.crt')
     },
     policies: {
       '*': 'isHTTPS'
