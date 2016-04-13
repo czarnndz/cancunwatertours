@@ -1,3 +1,4 @@
+var fs = require('fs');
 /**
  * Production environment settings
  *
@@ -24,7 +25,7 @@ module.exports = {
              url       : process.env.MONGO_URI || null
          }
     },
-    /*
+
     ssl:{
       key: fs.readFileSync(__dirname + '/ssl/server.key'),
       cert: fs.readFileSync(__dirname + '/ssl/191c2efd36887f4.crt')
@@ -32,7 +33,7 @@ module.exports = {
     policies: {
       '*': 'isHTTPS'
     }
-    */
+
    },
 
    hookTimeout: 600000,
