@@ -37,7 +37,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
             '570fd560bc3f9a0c00950470', //Tour en la jungla
             '568ee28a1e8b6c0c0060d9ed', //Pesca privada 31 pies
             '568ed0f9abb4d00c005ec824', //Pesca compartida
-            '5682bccb2447800c003ea96b',
+            '5695378c08b0320c0044b32e', //Bungee extremo
             '569542c308b0320c0044b33f'
         ];
         /*
