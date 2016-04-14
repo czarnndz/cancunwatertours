@@ -14,25 +14,51 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
     ];
     $scope.randArray = [];
 
+    /*
     $scope.getTours = function() {
       $scope.loading = true;
       toursService.getTours().then(function(res){
         $scope.loading = false;
         $scope.tours = $scope.formatTours(res);
         $scope.getToursRand(res);
-        $scope.updatePrices();
+        $scope.getFixedTours();
       });
     };
     $scope.getToursRand = function(res) {
-      $scope.toursrand1 = $scope.formatToursRandom(res,3);
-      $scope.toursrand2 = $scope.formatToursRandom(res,4);
+      //$scope.toursrand1 = $scope.formatToursRandom(res,3);
+      //$scope.toursrand2 = $scope.formatToursRandom(res,4);
       $scope.toursrand3 = $scope.formatToursRandom(res,4);
     };
+    */
+
+    $scope.getLandingTours = function(res){
+        $scope.loading = true;
+        var fixedIds = [
+            '56818accd4bc3e0c00a64e39',
+            '56957c604838680c005aac38',
+            '5695378c08b0320c0044b32e',
+            '5682bccb2447800c003ea96b',
+            '569542c308b0320c0044b33f',
+        ];
+
+        toursService.getToursById(fixedIds).then(function(fixedTours){
+            toursService.getTours().then(function(tours){
+                $scope.loading = false;
+                var group1 = fixedTours.slice(0,1);
+                var group2 = fixedTours.slice(1,5);
+                $scope.toursrand1 = $scope.formatTours( group1 );
+                $scope.toursrand2 = $scope.formatTours( group2 );
+                $scope.toursrand3 = $scope.formatToursRandom( tours, 4 );
+                $scope.updatePrices();
+            });
+
+        });
+    }
 
     $scope.formatTours = function(tours){
         return (function() {
             var aux_tours = [];
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < tours.length; i++) {
                 //colspan = randomSpan();
                 //rowspan = randomSpan(colspan);
                 var tourMainCategories = toursService.getMainCategories(tours[i].categories);
@@ -123,7 +149,8 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
 
     $scope.init = function(){
         $scope.getHotels();
-        $scope.getTours();
+        //$scope.getTours();
+        $scope.getLandingTours();
     };
 
     $scope.getCategoryIcon = function(category){

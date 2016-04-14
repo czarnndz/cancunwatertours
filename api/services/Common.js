@@ -131,7 +131,7 @@ module.exports.getTours = function(callback,params) {
   query.visible = true;
   var sort = { };
   sort[sortBy] = 1;
-  //console.log(query);
+
   var cacheQuery = _.clone(query);
   cacheQuery.sort = params.sort;
   cacheQuery.pageSize = params.pageSize;

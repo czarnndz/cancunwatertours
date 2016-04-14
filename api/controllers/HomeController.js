@@ -78,7 +78,6 @@ module.exports = {
   },
   tour_list : function(req,res){
     var params = req.params.all();
-
     var queryCategories = {};
 
     if(params.category) {
@@ -90,14 +89,19 @@ module.exports = {
           console.log(e);
           throw e;
         }
-        var auxTourIds = [];
-        _.map(results,function(category){
-          _.map(category.tours,function(tour){
-            auxTourIds.push(tour.id);
-            //console.log(tour.name.replace(/[^a-zA-Z0-9 ]/g,'').replace(/\s+/g, '-').toLowerCase());
+
+        if(!params.idslist){
+          var auxTourIds = [];
+          _.map(results,function(category){
+            _.map(category.tours,function(tour){
+              auxTourIds.push(tour.id);
+              //console.log(tour.name.replace(/[^a-zA-Z0-9 ]/g,'').replace(/\s+/g, '-').toLowerCase());
+            });
           });
-        });
-        params.ids = _.uniq(auxTourIds);
+          params.ids = _.uniq(auxTourIds);
+        }else{
+          params.ids = _.uniq(params.idslist);
+        }
         Common.getTours(function(err,tour_list){
           res.json(tour_list);
         },params);
@@ -109,13 +113,19 @@ module.exports = {
       var query = {
           select: ['id','name','name_en','icon','url'],
           visible : true,
-          limit:10
+          limit:10,
+          or: [
+            {name: {'like': '%'+params.term+'%'}},
+            {name_en: {'like': '%'+params.term+'%'}}
+          ]
       };
+      /*
       if (params.lang && params.lang == 'en') {
           query.name_en = {'like': '%'+params.term+'%'};
       } else {
           query.name = {'like': '%'+params.term+'%'};
       }
+      */
       Tour.find(query).exec(function(e,tours){
         if(e){
           console.log(e);

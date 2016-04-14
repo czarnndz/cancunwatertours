@@ -14,6 +14,7 @@
       serv.currentLang = $rootScope.currentLang;
       serv.getCategories = getCategories;
       serv.getTours = getTours;
+      serv.getToursById = getToursById;
       serv.getFeeRange = getFeeRange;
       serv.getCategoryIcon = getCategoryIcon;
       serv.getMainCategories = getMainCategories;
@@ -56,6 +57,29 @@
 
         return deferred.promise;
       }
+
+
+      function getToursById(ids){
+        var params = {};
+        var deferred = $q.defer();
+        if(ids){
+          params.idslist = ids;
+        }
+
+        $http.get('/tour_list', {
+              params: params
+          })
+        .success(function(data,status){
+          if (data && angular.isArray(data) ) {
+            //serv.tours = data;
+            deferred.resolve(data);
+          } else
+            deferred.resolve([]);
+        });
+
+        return deferred.promise;
+      }
+
 
       function getCategories(name){
         return $http({

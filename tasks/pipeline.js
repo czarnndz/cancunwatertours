@@ -57,6 +57,7 @@ var jsFilesToInject = [
   'bower_components/angular-lazy-img/release/angular-lazy-img.js',
   'bower_components/async/dist/async.min.js',
   'bower_components/angularjs-slider/dist/rzslider.min.js',
+  'bower_components/underscore/underscore-min.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'
