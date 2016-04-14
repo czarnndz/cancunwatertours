@@ -34,12 +34,21 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
     $scope.getLandingTours = function(res){
         $scope.loading = true;
         var fixedIds = [
+            '570fd560bc3f9a0c00950470', //Tour en la jungla
+            '568ee28a1e8b6c0c0060d9ed', //Pesca privada 31 pies
+            '568ed0f9abb4d00c005ec824', //Pesca compartida
+            '5682bccb2447800c003ea96b',
+            '569542c308b0320c0044b33f'
+        ];
+        /*
+        var fixedIds = [
             '56818accd4bc3e0c00a64e39',
             '56957c604838680c005aac38',
             '5695378c08b0320c0044b32e',
             '5682bccb2447800c003ea96b',
             '569542c308b0320c0044b33f',
         ];
+        */
 
         toursService.getToursById(fixedIds).then(function(fixedTours){
             toursService.getTours().then(function(tours){
