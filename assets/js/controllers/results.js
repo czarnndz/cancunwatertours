@@ -201,7 +201,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       leafletData.getMap().then(function(map) {
         map.invalidateSize();
       });
-    },500);
+    },1500);
   };
 
   $scope.updatePrices = function(cb){

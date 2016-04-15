@@ -138,13 +138,15 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
           return $scope.imgs_url + '/uploads/tours/gallery/' + size +  file.filename;
         });
       }
-      else if ( $scope.tour.icon){
+
+      if ( $scope.tour.icon ){
         var size = $scope.tour.icon.size>5000000 ? '593x331' : '';
         $scope.galleryPhotos.push(
           $scope.imgs_url + '/uploads/tours/' + size +  $scope.tour.icon.filename
         );
       }
-      else{
+
+      if( !$scope.tour.files && !$scope.tour.icon ){
           $scope.galleryPhotos.push(
             '/images/default.png'
           );

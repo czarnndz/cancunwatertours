@@ -14,23 +14,6 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
     ];
     $scope.randArray = [];
 
-    /*
-    $scope.getTours = function() {
-      $scope.loading = true;
-      toursService.getTours().then(function(res){
-        $scope.loading = false;
-        $scope.tours = $scope.formatTours(res);
-        $scope.getToursRand(res);
-        $scope.getFixedTours();
-      });
-    };
-    $scope.getToursRand = function(res) {
-      //$scope.toursrand1 = $scope.formatToursRandom(res,3);
-      //$scope.toursrand2 = $scope.formatToursRandom(res,4);
-      $scope.toursrand3 = $scope.formatToursRandom(res,4);
-    };
-    */
-
     $scope.getLandingTours = function(res){
         $scope.loading = true;
         var fixedIds = [
@@ -40,15 +23,6 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
             '5695378c08b0320c0044b32e', //Bungee extremo
             '569542c308b0320c0044b33f'
         ];
-        /*
-        var fixedIds = [
-            '56818accd4bc3e0c00a64e39',
-            '56957c604838680c005aac38',
-            '5695378c08b0320c0044b32e',
-            '5682bccb2447800c003ea96b',
-            '569542c308b0320c0044b33f',
-        ];
-        */
 
         toursService.getToursById(fixedIds).then(function(fixedTours){
             toursService.getTours().then(function(tours){
