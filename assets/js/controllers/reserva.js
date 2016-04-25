@@ -1,4 +1,4 @@
-app.controller('reservaCTL',['$scope','$filter','toursService','cartService','countries' ,function($scope,$filter,toursService,cartService,countries) {
+app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartService','countries', 'countriesStates' ,function($scope,$http,$filter,toursService,cartService,countries,countriesStates) {
     $scope.cartService = cartService;
     $scope.city = '';
     $scope.blinkClass = false;
@@ -8,6 +8,7 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
     if (!cartService.getClient().name) {
       cartService.setClient($scope.client);
     }
+    $scope.states = [];
 
     /*$scope.client = {
         isMobile : false
@@ -204,7 +205,32 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
         };
         $scope.showAlert($event, options);
       }
-    }
+    };
+
+    $scope.getStatesbyCountry = function(countryCode){
+      if(countryCode != ''){
+        /*var url = 'http://api.geonames.org/searchJSON?username=demo&country='+countryCode+'&featureCode=ADM1&style=short';
+        $http.get(url).then(function(res){
+          console.log(res);
+          $scope.states = res.data;
+        });
+        */
+        var aux = countriesStates.filter(function(country){
+          return country.countryCode === countryCode;
+        });
+
+        if(aux.length > 0){
+          $scope.states = aux[0].states;
+        }
+      }
+    };
+
+    $scope.$watch('client.country', function(newValue, oldValue){
+      if(newValue !== oldValue){
+        $scope.getStatesbyCountry(newValue);
+      }
+    });
+
 }]);
 
 app.controller('voucherCTL',['$scope','cartService', function($scope,cartService) {

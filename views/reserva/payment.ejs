@@ -138,20 +138,31 @@
       <div class="booking-form" ng-if="['visa','american','master'].indexOf(client.payment_method) != -1">
 
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
+
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
             <p><%= __('state') %></p>
             <md-select
+              ng-if="client.country == 'CA' || client.country == 'MX' || client.country == 'US' "
               class="custom-select custom-select-full no-margin"
               ng-model="client.state"
               name="client_state"
               required
               ng-class="{'custom-select-error': payForm.client_state.$invalid && validatingPayment }"
               >
-                <md-option value="1">Sinaloa</md-option>
-                <md-option value="2">Monterrey</md-option>
-                <md-option value="3">D.F</md-option>
+                <md-option ng-repeat="state in states">{{state.name}}</md-option>
+
             </md-select>
+            <input
+              ng-if="client.country != 'CA' && client.country != 'MX' && client.country != 'US' "
+              type="text"
+              class="input-field"
+              placeholder="<%= __('state') %>"
+              required
+              name="client_state"
+              ng-model="client.state"
+              ng-class="{'input-field-error': payForm.client_state.$invalid && validatingPayment }">
           </div>
+
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
             <input
               type="text"
