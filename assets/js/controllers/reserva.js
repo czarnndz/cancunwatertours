@@ -17,6 +17,7 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
     $scope.hotels = hotels;
     $scope.isDisabled = true;
     $scope.terminos = false;
+    $scope.isLoading = false;
 
     $scope.cartComplete = window.cartComplete || false;
     $scope.clientComplete = false;
@@ -160,7 +161,12 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
     });
 
     $scope.hasDeparturePoints = function(tour){
-        return Object.keys(tour.departurePoints).length > 1;
+      //console.log(tour);
+      //return Object.keys(tour.departurePoints).length > 0;
+      if( ('departurePoints' in tour) ){
+        return true;
+      }
+      return false;
     };
 
     //TODO formatear para enviar los items formateados.
@@ -168,7 +174,9 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
       $scope.validatingPayment = true;
       if(form.$valid){
         //console.log('valido');
+        $scope.isLoading = true;
         cartService.process($scope.client).then(function(result){
+          $scope.isLoading = false;
           //console.log(result);
           if (result.data.success) {
             //console.log('success');
@@ -179,7 +187,12 @@ app.controller('reservaCTL',['$scope','$filter','toursService','cartService','co
                 console.log(result.data);
           } else {
             console.log(result.data);
-            alert(result.data.error);
+            alert(result.data.error.message_to_purchaser);
+          }
+        }).catch(function(e){
+          $scope.isLoading = false;
+          if(e){
+            alert(e.message_to_purchaser);
           }
         });
 

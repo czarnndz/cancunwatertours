@@ -6,8 +6,15 @@
       var client = <%- JSON.stringify(req.user) %>;
     <% } %>
 </script>
-<div  class="booking" ng-controller="reservaCTL">
-    <div id="reserva" >
+
+
+<div class="booking" ng-controller="reservaCTL">
+
+    <div ng-show="isLoading" layout="row" layout-align="center center" full-screen-wrapper ng-style="newWidth()">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+
+    <div ng-show="!isLoading" id="reserva" >
 
         <div
           class="container-xlg"

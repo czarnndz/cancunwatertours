@@ -86,20 +86,27 @@ module.exports = {
                                   return res.json(result);
                               });
                           }
+                          else{
                           //console.log(cresult);
-                          OrderCore.updateReservations({order : order.id},{ state : cresult.status == 'paid' ? 'liquidated' : 'pending',authorization_code : cresult.id },function(updateRes) {
-                              if (updateRes) {
-                                  result.success = true;
-                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id;
-                                  return res.json(result);
-                              } else {
-                                  result.success = false;
-                                  result.error = 'reservation update error';
-                                  result.extra = updateRes;
-                                  result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
-                                  return res.json(result);
-                              }
-                          });
+                            OrderCore.updateReservations({order : order.id},{ state : cresult.status == 'paid' ? 'liquidated' : 'pending',authorization_code : cresult.id },function(updateRes) {
+                                if (updateRes) {
+                                    //console.log(order);
+                                    result.success = true;
+                                    result.redirect_url = '/'+lang+'/voucher?o=' + order.id;
+
+                                    OrderCore.sendNewReservationEmail(order.id,lang,req,function(err,success){
+                                      return res.json(result);
+                                    });
+
+                                } else {
+                                    result.success = false;
+                                    result.error = 'reservation update error';
+                                    result.extra = updateRes;
+                                    result.redirect_url = '/'+lang+'/voucher?o=' + order.id + '&s=' + 'update_error';
+                                    return res.json(result);
+                                }
+                            });
+                          }
                       });
                 } else {
                   result.success = true;
@@ -134,7 +141,7 @@ module.exports = {
               res.forbidden();
           } else {
               if (params.success) {
-                  OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
+                  OrderCore.sendNewReservationEmail(params.order,lang,req,function(err,success){
                       result.email_success = success;
                       res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
                   });

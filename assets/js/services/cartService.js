@@ -201,6 +201,7 @@
 
             },function(e) { //error
                 console.log(e);
+                deferred.reject(e);
             });
         } else {
             $http({

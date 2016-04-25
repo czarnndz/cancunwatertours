@@ -7,7 +7,7 @@ $(document).ready(function() {
   setTimeout(function(){
     var $conektaIframe = $('#conekta-flag').next();
     if($conektaIframe.length > 0){
-      $conektaIframe.hide();
+      //$conektaIframe.hide();
     }
   }, 1000);
 

@@ -172,7 +172,8 @@ module.exports.routes = {
 
   '/:lang': {
     controller : 'home',
-    action : 'index'
+    action : 'index',
+    skipAssets: true
   },
   '/:lang/tours': {
     controller : 'home',

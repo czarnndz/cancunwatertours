@@ -175,7 +175,7 @@ module.exports.getCurrency = function(currency_id) {
   return currency.currency_code;
 };
 
-module.exports.sendNewReservationEmail = function(order_id,lang,callback) {
+module.exports.sendNewReservationEmail = function(order_id,lang,req,callback) {
     Order.findOne(order_id).populate('reservations').populate('client').exec(function(err,order){
         if (err) {
             callback(err,false);
@@ -187,6 +187,8 @@ module.exports.sendNewReservationEmail = function(order_id,lang,callback) {
         };
         console.log(order);
         console.log(head);
+
+        order.domainName = req.baseUrl;
 
         sails.hooks.email.send(
             "newReservation-" + lang, order, head,
