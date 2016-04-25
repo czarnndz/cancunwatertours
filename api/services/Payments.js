@@ -35,6 +35,9 @@ module.exports.conektaCreate = function(items,client,token,reference_id,total,cu
       }
   };
 
+  console.log('conektaRequest');
+  console.log(conektaRequest);
+
   conekta.Charge.create(conektaRequest, function(err, res) {
     //console.log('request done');
     if (err) {

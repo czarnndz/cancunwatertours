@@ -209,16 +209,9 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
     $scope.getStatesbyCountry = function(countryCode){
       if(countryCode != ''){
-        /*var url = 'http://api.geonames.org/searchJSON?username=demo&country='+countryCode+'&featureCode=ADM1&style=short';
-        $http.get(url).then(function(res){
-          console.log(res);
-          $scope.states = res.data;
-        });
-        */
         var aux = countriesStates.filter(function(country){
           return country.countryCode === countryCode;
         });
-
         if(aux.length > 0){
           $scope.states = aux[0].states;
         }
