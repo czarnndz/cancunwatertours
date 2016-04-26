@@ -3,7 +3,6 @@ var paypal = require('paypal-rest-sdk');
 
 function initPaypal() {
   console.log('env: ' + process.env.NODE_ENV);
-  console.log('env (antes) : ' + process.env.environment);
   var _mode = process.env.NODE_ENV == 'production' ? 'live' : 'sandbox'
   console.log('paypal mode: ' + _mode);
   console.log('paypal keys');
