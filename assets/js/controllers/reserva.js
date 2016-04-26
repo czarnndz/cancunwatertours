@@ -110,7 +110,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
               }
           }
         }
-        return false;
+        return true;
     };
 
     $scope.validateClientPhones = function(){

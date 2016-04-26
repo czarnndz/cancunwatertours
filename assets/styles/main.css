@@ -2572,6 +2572,12 @@ figcaption:hover .action-btn-white{
   }
   .filters-section-sliders .filter-option{padding: 0;}
 
+  /*----------/
+    #BOOKING
+  /*---------*/
+  .booking .continue-wrap-btns-desktop{display: none;}
+
+
   /*--------
     #FOOTER
   /*--------*/

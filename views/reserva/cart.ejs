@@ -76,7 +76,7 @@
                     </label>
                     <div flex="60">
                         <md-select ng-model="tour.departurePoint" ng-required name="departurePoint">
-                            <md-option value="{{departurePoint}}" ng-repeat="departurePoint in tour.departurePoints"> {{ departurePoint.name }}</md-option>
+                            <md-option value="{{departurePoint}}" ng-repeat="departurePoint in tour.departurePoints" ng-selected="$first"> {{ departurePoint.name }}</md-option>
                         </md-select>
                     </div>
                 </div>
