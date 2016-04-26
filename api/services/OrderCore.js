@@ -185,8 +185,8 @@ module.exports.sendNewReservationEmail = function(order_id,lang,req,callback) {
             subject : lang == 'en' ? 'New reservation from Cancun Watertours' : 'Nueva reservacion de Cancun Watertours',
             bcc : 'admin@spaceshiplabs.com'
         };
-        console.log(order);
-        console.log(head);
+        //console.log(order);
+        //console.log(head);
 
         order.domainName = req.baseUrl;
 

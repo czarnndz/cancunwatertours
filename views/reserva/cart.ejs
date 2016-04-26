@@ -2,7 +2,7 @@
 
 
     <div class="block-content" layout="row" layout-align="space-between start" layout-wrap ng-repeat="tour in tours track by $index">
-        <div class="booking-tour-img" flex="30" flex-md="35" flex-sm="100">
+        <div class="booking-tour-img" ng-class="{'booking-tour-img-blank': tour.avatar2}" flex="30" flex-md="35" flex-sm="100">
             <div class="booking-tour-img"  ng-style="{ 'background-image' : 'url(' + tour.avatar2 + ')'}"></div>
         </div>
         <div class="booking-form" flex="70" flex-md="65" flex-sm="100">

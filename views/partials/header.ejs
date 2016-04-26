@@ -231,10 +231,11 @@
 </div>
 
 <div class="header search-mobile" ng-class="{'search-mobile-on': toggleSearchMobile}"  ng-cloak>
-  <form class="search-box" flex ng-submit="$event.preventDefault()">
+  <form class="search-box" ng-controller="Search" flex ng-submit="$event.preventDefault()">
     <md-autocomplete
       md-selected-item="selectedTour"
       md-selected-item-change="selectedItemChange(item)"
+      md-search-text="searchText"
       md-items="item in querySearch(searchText)"
       md-item-text="item.name"
       md-min-length="1"
@@ -242,9 +243,8 @@
       md-menu-class="autocomplete-custom-template"
       class="input-header">
       <md-item-template>
-        <span class="item-title">
-          <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-          <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{currentLang == 'es' ? item.name : item.name_en}} </a>
+        <span class="item-title search-box-item">
+          <img src="{{item.avatar1}}" alt="{{currentLang == 'es' ? item.name : item.name_en}}"> <a ng-href="/{{currentLang}}/tour/{{item.url}}"> {{currentLang == 'es' ? item.name : item.name_en}} </a>
         </span>
       </md-item-template>
     </md-autocomplete>

@@ -88,6 +88,8 @@
                     placeholder="<%= __('lada') %>"
                     ng-model="client.phone_lada"
                     name="phone_lada"
+                    min="3"
+                    max="3"
                     ng-class="{'input-field-error': clientData.phone_lada.$invalid && validatingClient }">
               </div>
               <div class="input-field-wrap" flex="60" flex-sm="100">
@@ -99,6 +101,7 @@
                     placeholder="<%= __('phone_number') %>"
                     name="phone"
                     required
+                    min="7"
                     ng-class="{'input-field-error': clientData.phone.$invalid && validatingClient }"
                     ng-model="client.phone">
 
@@ -109,6 +112,7 @@
                   </div>
               </div>
             </div>
+            <p ng-if="!validPhones"><%= __('phone_number_validation') %></p>
 
         </form>
     </div>

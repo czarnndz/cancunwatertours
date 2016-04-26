@@ -148,6 +148,7 @@
   "physical_tooltip": "¿Qué tanto te puedes cansar? Encuentra una actividad perfecta para tu rendimiento.",
   "reset_filters": "Borrar filtros",
 
-  "my_cart": "Mi carrito"
+  "my_cart": "Mi carrito",
+  "phone_number_validation": "El numero de lada debe ser de al menos 3 digitos y el número de teléfono de al menos 7 digitos"
 
 }

@@ -191,6 +191,7 @@
                 //delete params.client.cc;
                 params.token = e.id;
                 params.client.payment_method = 'conekta';
+                params.client.phone = params.client.phone + params.client.phone_lada;
                 $http({
                     method : 'POST',
                     url : '/process',

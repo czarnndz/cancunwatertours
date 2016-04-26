@@ -26,6 +26,13 @@ app.config(['localStorageServiceProvider','lazyImgConfigProvider', function(loca
 }]);
 
 app.value('countries',[
+    { "name": "Canada", "code": "CA" },
+    { "name": "Mexico", "code": "MX" },
+    { "name": "United States", "code": "US" }
+]);
+
+/*
+app.value('countries',[
     { "name": "Afghanistan", "code": "AF" },
     { "name": "Åland Islands", "code": "AX" },
     { "name": "Albania", "code": "AL" },
@@ -272,3 +279,4 @@ app.value('countries',[
     { "name": "Zambia", "code": "ZM" },
     { "name": "Zimbabwe", "code": "ZW" }
 ]);
+*/

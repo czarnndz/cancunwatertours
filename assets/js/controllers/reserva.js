@@ -19,6 +19,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     $scope.isDisabled = true;
     $scope.terminos = false;
     $scope.isLoading = false;
+    $scope.validPhones = true;
 
     $scope.cartComplete = window.cartComplete || false;
     $scope.clientComplete = false;
@@ -64,6 +65,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
           if ($scope.step < 2) {
             $scope.step++;
           }
+          $scope.scrollTop();
       }
     }
 
@@ -91,7 +93,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
           return false;
         } else if ($scope.step == 1) {
             $scope.validatingClient = true;
-            if ($scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
+            if (!$scope.validateClientPhones() || $scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
               var options = {
                 title: 'Revisa tu información',
                 message: 'Revisa la información e intenta de nuevo'
@@ -106,6 +108,17 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
               return false;
             }
         }
+    };
+
+    $scope.validateClientPhones = function(){
+      if( isFinite($scope.client.phone) && isFinite($scope.client.phone_lada) ){
+        if($scope.client.phone.length >= 7 && $scope.client.phone_lada >= 3){
+          $scope.validPhones = true;
+          return true;
+        }
+      }
+      $scope.validPhones = false;
+      return false;
     };
 
     $scope.removeTour = function(index) {
@@ -162,7 +175,6 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     });
 
     $scope.hasDeparturePoints = function(tour){
-      //console.log(tour);
       //return Object.keys(tour.departurePoints).length > 0;
       if( ('departurePoints' in tour) ){
         return true;
@@ -176,6 +188,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       if(form.$valid){
         //console.log('valido');
         $scope.isLoading = true;
+        $scope.scrollTop();
         cartService.process($scope.client).then(function(result){
           $scope.isLoading = false;
           //console.log(result);

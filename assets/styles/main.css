@@ -2013,6 +2013,9 @@ figcaption:hover .action-btn-white{
   background-size: cover;
   margin: 0 auto;
 }
+.booking-tour-img-blank{
+  background: none!important;
+}
 
 .booking .total-price{
   font-size: 20px;
@@ -2665,7 +2668,10 @@ figcaption:hover .action-btn-white{
   /*---------*/
   .filters-section-large-label{display: block;}
 
-
+  /*---------/
+    #VOUCHER
+  /*----------*/
+  .voucher-container .static-info p{text-align: left;}
 
   /*--------/
     #FOOTER
