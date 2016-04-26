@@ -81,33 +81,36 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     }*/
 
     $scope.isNextButtonDisabled = function($event) {
-        if ($scope.step == 0) {
-          for(var i = 0;i<$scope.tours.length;i++) {
-            if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
-              console.log('no hotel selected');
-              $scope.cartComplete = false;
-              return true;
+        if($scope.tours.length > 0){
+          if ($scope.step == 0) {
+            for(var i = 0;i<$scope.tours.length;i++) {
+              if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
+                console.log('no hotel selected');
+                $scope.cartComplete = false;
+                return true;
+              }
             }
+            $scope.cartComplete = true;
+            return false;
+          } else if ($scope.step == 1) {
+              $scope.validatingClient = true;
+              if (!$scope.validateClientPhones() || $scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
+                var options = {
+                  title: 'Revisa tu información',
+                  message: 'Revisa la información e intenta de nuevo'
+                };
+                $scope.showAlert($event, options);
+                $scope.clientComplete = false;
+                return true;
+              }
+              else{
+                console.log('not disabled');
+                $scope.clientComplete = true;
+                return false;
+              }
           }
-          $scope.cartComplete = true;
-          return false;
-        } else if ($scope.step == 1) {
-            $scope.validatingClient = true;
-            if (!$scope.validateClientPhones() || $scope.client.name.$invalid || $scope.client.last_name.$invalid || $scope.client.email.$invalid || ($scope.repeat_email != $scope.client.email) ){
-              var options = {
-                title: 'Revisa tu información',
-                message: 'Revisa la información e intenta de nuevo'
-              };
-              $scope.showAlert($event, options);
-              $scope.clientComplete = false;
-              return true;
-            }
-            else{
-              console.log('not disabled');
-              $scope.clientComplete = true;
-              return false;
-            }
         }
+        return false;
     };
 
     $scope.validateClientPhones = function(){
