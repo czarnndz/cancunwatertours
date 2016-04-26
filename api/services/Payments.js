@@ -2,6 +2,15 @@ var conekta = require('conekta');
 var paypal = require('paypal-rest-sdk');
 
 function initPaypal() {
+  var _mode = process.env.environment == 'production' ? 'live' : 'sandbox'
+  console.log('paypal mode: ' + _mode);
+  console.log('paypal keys');
+  var _ppkeys = {
+    'mode': process.env.environment == 'production' ? 'live' : 'sandbox', //sandbox or live
+    'client_id': process.env.PAYPAL_CLIENT_ID,
+    'client_secret': process.env.PAYPAL_CLIENT_SECRET
+  };
+  console.log(_ppkeys);
   paypal.configure({
     'mode': process.env.environment == 'production' ? 'live' : 'sandbox', //sandbox or live
     'client_id': process.env.PAYPAL_CLIENT_ID,
