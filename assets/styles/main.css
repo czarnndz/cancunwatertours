@@ -1365,7 +1365,7 @@ figcaption:hover .action-btn-white{
 .form-modal-static input[type="password"],
 .form-modal-static input[type="text"],
 .form-modal-static input[type="email"]{
-  color: #8A8A8A;
+  color: #000;
   border-color:#8A8A8A;
   display: block;
   width: 100%;
@@ -2112,7 +2112,7 @@ figcaption:hover .action-btn-white{
   border-radius: 5px;
   border:1px solid #DCDCDC;
   box-shadow: none;
-  color: #939393;
+  color: #000;
   padding: 8px 0px 8px 6px;
   font-size: 14px;
   /*width: 164px!important;*/
@@ -2155,7 +2155,7 @@ figcaption:hover .action-btn-white{
 .booking-form label + input[type="number"],
 .booking-form label + input[type="text"],
 .booking-form label + input[type="email"]{
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 .booking-form .input-field{

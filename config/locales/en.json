@@ -107,7 +107,7 @@
   "payment_data": "Payment data",
   "country": "Country",
 
-  "due_date": "Due date",
+  "due_date": "Expiration date",
   "credit_card_owner": "Credit card owner's name",
   "credit_card_security_code": "Credit card security code",
 

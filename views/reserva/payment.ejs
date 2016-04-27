@@ -81,10 +81,10 @@
         <!--ONLY CREDIT CARD-->
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end">
           <div flex="45" flex-sm="100" class="input-field-wrap">
+              <label for="cc_number"><%= __('credit_card_number') %></label>
               <input
                 type="text"
                 class="input-field"
-                placeholder="<%= __('credit_card_number') %>"
                 name="cc_number"
                 required
                 ng-class="{'input-field-error': payForm.cc_number.$invalid && validatingPayment }"
@@ -111,20 +111,20 @@
 
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <label for="cc_name"><%= __('credit_card_owner') %></label>
             <input
               type="text"
               class="input-field"
               name="cc_name"
               required
-              placeholder="<%= __('credit_card_owner') %>"
               ng-class="{'input-field-error': payForm.cc_name.$invalid && validatingPayment }"
               ng-model="client.cc.name">
           </div>
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <label for="cc_code"><%= __('credit_card_security_code') %></label>
             <input
               type="text"
               class="input-field"
-              placeholder="<%= __('credit_card_security_code') %>"
               ng-model="client.cc.code"
               required
               name="cc_code"
@@ -140,7 +140,7 @@
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
 
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
-            <p><%= __('state') %></p>
+            <label for="client_state"><%= __('state') %></label>
             <md-select
               ng-if="client.country == 'CA' || client.country == 'MX' || client.country == 'US' "
               class="custom-select custom-select-full no-margin"
@@ -156,7 +156,6 @@
               ng-if="client.country != 'CA' && client.country != 'MX' && client.country != 'US' "
               type="text"
               class="input-field"
-              placeholder="<%= __('state') %>"
               required
               name="client_state"
               ng-model="client.state"
@@ -164,10 +163,10 @@
           </div>
 
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <label for="client_city"><%= __('city') %></label>
             <input
               type="text"
               class="input-field"
-              placeholder="<%= __('city') %>"
               required
               name="client_city"
               ng-model="client.city"
@@ -177,20 +176,20 @@
 
         <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between end" layout-align-sm="space-between center">
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <label for="client_address"><%= __('address') %></label>
             <input
               type="text"
               class="input-field"
-              placeholder="<%= __('address') %>"
               ng-model="client.address"
               name="client_address"
               required
               ng-class="{'input-field-error': payForm.client_address.$invalid && validatingPayment }">
           </div>
           <div class="input-field-wrap-inner" flex="45" flex-sm="100">
+            <label for="client_zipCode"><%= __('zipcode') %></label>
             <input
               type="text"
               class="input-field"
-              placeholder="<%= __('zipcode') %>"
               ng-model="client.zipCode"
               required
               name="client_zipCode"

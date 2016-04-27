@@ -29,63 +29,62 @@
         <form name="clientData" class="booking-form">
 
             <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between start">
-              <input
-                flex="45"
-                flex-sm="100"
-                type="text"
-                class="input-field"
-                placeholder="<%= __('name') %>"
-                ng-model="client.name"
-                name="name"
-                required
-                ng-class="{'input-field-error': clientData.name.$invalid && validatingClient }"
-                >
-              <input
-                flex="45"
-                flex-sm="100"
-                type="text"
-                class="input-field"
-                placeholder="<%= __('last_name') %>"
-                ng-model="client.last_name"
-                name="last_name"
-                ng-class="{'input-field-error': clientData.last_name.$invalid && validatingClient }"
-                required>
+              <div flex="45" flex-sm="100">
+                <label for="name"><%= __('name') %></label>
+                <input
+                  type="text"
+                  class="input-field"
+                  ng-model="client.name"
+                  name="name"
+                  required
+                  ng-class="{'input-field-error': clientData.name.$invalid && validatingClient }"
+                  >
+              </div>
+              <div flex="45" flex-sm="100">
+                <label for="last_name"><%= __('last_name') %></label>
+                <input
+                  type="text"
+                  class="input-field"
+                  ng-model="client.last_name"
+                  name="last_name"
+                  ng-class="{'input-field-error': clientData.last_name.$invalid && validatingClient }"
+                  required>
+              </div>
             </div>
 
             <div class="input-field-wrap" layout="row" layout-wrap layout-align="space-between center">
-              <input
-                flex="45"
-                flex-sm="100"
-                type="email"
-                class="input-field"
-                placeholder="E-mail"
-                ng-model="client.email"
-                name="email"
-                ng-class="{'input-field-error': (clientData.email.$invalid && validatingClient) || (clientData.email.$error.email && validatingClient) }"
-                required>
-
-              <input
-                flex="45"
-                flex-sm="100"
-                type="email"
-                class="input-field"
-                placeholder="<%= __('confirm_email') %>"
-                name="repeat_email"
-                required
-                ng-class="{'input-field-error': (clientData.repeat_email.$invalid && validatingClient) || (clientData.repeat_email.$error.email && validatingClient) }"
-                ng-model="repeat_email">
+              <div flex="45" flex-sm="100">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  class="input-field"
+                  ng-model="client.email"
+                  name="email"
+                  ng-class="{'input-field-error': (clientData.email.$invalid && validatingClient) || (clientData.email.$error.email && validatingClient) }"
+                  required>
+              </div>
+              <div flex="45" flex-sm="100">
+                <label for="repeat_email"><%= __('confirm_email') %></label>
+                <input
+                  type="email"
+                  class="input-field"
+                  name="repeat_email"
+                  required
+                  ng-class="{'input-field-error': (clientData.repeat_email.$invalid && validatingClient) || (clientData.repeat_email.$error.email && validatingClient) }"
+                  ng-model="repeat_email">
+                </div>
             </div>
 
             <p class="tel-label no-margin"><%= __('phone_number') %></p>
 
             <div layout="row" layout-wrap layout-align="space-between start">
               <div class="input-field-wrap" flex="30" flex-sm="100">
+                  <label for="phone_lada"><%= __('lada') %></label>
                   <input
                     flex="65"
                     class="input-field"
                     type="text"
                     required
-                    placeholder="<%= __('lada') %>"
                     ng-model="client.phone_lada"
                     name="phone_lada"
                     min="3"
@@ -93,12 +92,12 @@
                     ng-class="{'input-field-error': clientData.phone_lada.$invalid && validatingClient }">
               </div>
               <div class="input-field-wrap" flex="60" flex-sm="100">
+                  <label for="phone"><%= __('phone_number') %></label>
                   <input
                     flex="100"
                     flex-sm="100"
                     type="text"
                     class="input-field"
-                    placeholder="<%= __('phone_number') %>"
                     name="phone"
                     required
                     min="7"
