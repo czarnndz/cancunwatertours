@@ -94,7 +94,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
                           console.log(err);
                           cb(err,false);
                         }
-                        if (!newItem.includesTransfer && newItem.hotel) {
+                        if (!newItem.includesTransfer && newItem.hotel && newItem.transfer) {
                             //new transfer reservation
                             item.zone = tour.zone;
                             //console.log(item);
@@ -239,9 +239,17 @@ function getPriceTour(item,currency,company,callback){
 };
 
 function getPriceTransfer(item,currency,company,callback) {
+    //sails.log.debug('item');
+    //sails.log.debug(item);
     var exchange_rate = getCurrencyValue(company.base_currency,currency,company.exchange_rates);
     Hotel.findOne({ id : item.hotel.id }).exec(function(e,hotel){
-        TransferPrice.findOne({ or : [ { zone1 : item.zone , zone2 : hotel.zone } ,{ zone2 : item.zone , zone1 : hotel.zone } ],active : true }).populate('transfer').exec(function(er,transferPrice){
+
+        var query = { or : [ { zone1 : item.zone , zone2 : hotel.zone } ,{ zone2 : item.zone , zone1 : hotel.zone } ],active : true };
+        //sails.log.debug('query');
+        //sails.log.debug(query);
+        TransferPrice.findOne(query).populate('transfer').exec(function(er,transferPrice){
+            sails.log.debug('transferPrice');
+            sails.log.debug(transferPrice);
             var aux = {};
             var quantity = Math.ceil((parseInt(item.adults) + parseInt(item.kids)) / transferPrice.transfer.max_pax);
             if (transferPrice.transfer.service_type == 'C') {

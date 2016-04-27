@@ -224,11 +224,12 @@
             date : item.date,
             adults : item.adults,
             kids : item.kids,
-            transfer : item.transfer,
+            //transfer : item.transfer,
             hotel : item.hotel,
             schedule : item.schedule,
             transfer_price : item.transfer_price,
-            haveTransfer : item.haveTransfer,
+            //haveTransfer : item.haveTransfer,
+            haveTransfer: false,
             departurePoint : item.departurePoint
           };
           return aux;
