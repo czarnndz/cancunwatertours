@@ -69,6 +69,8 @@
   })(window,document,'script','dataLayer','GTM-NPBSWD');</script>
   <!-- End Google Tag Manager -->
 
+  <%- partial('partials/conversions') -%>
+
   <script type="text/javascript">
     window.currencies = <%- JSON.stringify(sails.config.company.currencies) %>;
     window.base_currency = <%- JSON.stringify(sails.config.company.base_currency) %>;
