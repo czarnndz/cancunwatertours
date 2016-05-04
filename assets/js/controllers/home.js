@@ -17,11 +17,11 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
     $scope.getLandingTours = function(res){
         $scope.loading = true;
         var fixedIds = [
-            '570fd560bc3f9a0c00950470', //Tour en la jungla
+            '5695378c08b0320c0044b32e', //Bungee extremo
+            '569542c308b0320c0044b33f', //Tour en la jungla 1
             '568ee28a1e8b6c0c0060d9ed', //Pesca privada 31 pies
             '568ed0f9abb4d00c005ec824', //Pesca compartida
-            '5695378c08b0320c0044b32e', //Bungee extremo
-            '569542c308b0320c0044b33f'
+            '570fd560bc3f9a0c00950470' //jungle tour 2
         ];
 
         toursService.getToursById(fixedIds).then(function(fixedTours){
@@ -29,8 +29,9 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                 $scope.loading = false;
                 var group1 = fixedTours.slice(0,1);
                 var group2 = fixedTours.slice(1,5);
-                $scope.toursrand1 = $scope.formatTours( group1 );
-                $scope.toursrand2 = $scope.formatTours( group2 );
+                group2.reverse();
+                $scope.toursrand1 = $scope.formatTours( group1 );console.log('group1',group1);
+                $scope.toursrand2 = $scope.formatTours( group2 );console.log('group1',group2);
                 $scope.toursrand3 = $scope.formatToursRandom( tours, 4 );
                 $scope.updatePrices();
             });
