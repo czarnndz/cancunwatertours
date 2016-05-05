@@ -14,6 +14,7 @@ module.exports = {
     req.params.lang = lang;
     req.session.lang = lang;
     req.setLocale(lang);
+    req.section = 'home';
 
 
     TourCategory.find({ principal:true, type : {'!' : 'rate'}}).populate('tours').exec(function(e,categories){

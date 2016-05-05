@@ -259,6 +259,8 @@
 </div>
 
 <!--END HEADER MOBILE-->
-<div class='needHelp'>
-  <a href="/{{currentLang}}/{{ (currentLang=='en'?'contact':'contacto') }}"><i class='icon-flecha2'></i> <strong><%= __('need_help')%></strong> <%= __('ask_us')%></a>
-</div>
+<% if( req.section && req.section == 'home' ){ %>
+  <div class='needHelp'>
+    <a href="/{{currentLang}}/{{ (currentLang=='en'?'contact':'contacto') }}"><i class='icon-flecha2'></i> <strong><%= __('need_help')%></strong> <%= __('ask_us')%></a>
+  </div>
+<% } %>
