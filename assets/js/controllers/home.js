@@ -54,6 +54,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                     avatar: tours[i].avatar,
                     fee : tours[i].fee,
                     feeChild : tours[i].feeChild,
+                    commission_agency: tours[i].commission_agency,
                     url: tours[i].url,
                     haveTransfer : tours[i].haveTransfer,
                     hotel : false,
@@ -88,6 +89,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                   avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
                   feeChild : tours[i].feeChild,
+                  commission_agency: tours[i].commission_agency,
                   url: tours[rand].url,
                   haveTransfer : tours[rand].haveTransfer,
                   hotel : false,
@@ -143,14 +145,19 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
 
     $scope.updatePrices = function(){
         var functions = [];
+        var applyDiscount = true;
         functions.push(
             function(cb) {
                 async.each($scope.tours,
                     function(tour,callback){
-                        cartService.getPriceTour(tour,function(val){
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price_before = val;
+                      });
+                      cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                    })},function(e){
+                      }, applyDiscount);
+                    },function(e){
                         cb(e,true);
                     });
             }
@@ -159,10 +166,14 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
             function(cb) {
                 async.each($scope.toursrand1,
                     function(tour,callback){
-                        cartService.getPriceTour(tour,function(val){
-                            tour.total_price = val;
-                            callback();
-                        })},function(e){
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price_before = val;
+                      });
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price = val;
+                        callback();
+                      }, applyDiscount);
+                    },function(e){
                         cb(e,true);
                     });
             }
@@ -171,10 +182,14 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
             function(cb) {
                 async.each($scope.toursrand2,
                     function(tour,callback){
-                        cartService.getPriceTour(tour,function(val){
-                            tour.total_price = val;
-                            callback();
-                        })},function(e){
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price_before = val;
+                      });
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price = val;
+                        callback();
+                      }, applyDiscount);
+                    },function(e){
                         cb(e,true);
                     });
             }
@@ -183,10 +198,14 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
             function(cb) {
                 async.each($scope.toursrand3,
                     function(tour,callback){
-                        cartService.getPriceTour(tour,function(val){
-                            tour.total_price = val;
-                            callback();
-                        })},function(e){
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price_before = val;
+                      });
+                      cartService.getPriceTour(tour,function(val){
+                        tour.total_price = val;
+                        callback();
+                      }, applyDiscount);
+                    },function(e){
                         cb(e,true);
                     });
             }

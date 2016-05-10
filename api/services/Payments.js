@@ -123,7 +123,10 @@ module.exports.getPaypalItems = function(reservations,currency) {
         item.sku = r.id;
         if (r.reservation_type == 'tour') {
             item.name = r.tour.name;
+            //item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
             item.price = (r.fee + (r.feeKids ? r.feeKids : 0)).toFixed(2);
+            item.price = calculateDiscount(item.price, r.tour.commission_agency).toFixed(2);
+
         } else {
             item.name = r.transfer.name;
             item.price = ((r.fee + (r.feeKids ? r.feeKids : 0)) / r.quantity ).toFixed(2);
@@ -142,7 +145,10 @@ module.exports.getConektaItems = function(reservations) {
         if (r.reservation_type == 'tour') {
             item.name = r.tour.name;
             item.description = " for " + r.pax + " adults" + (r.kidPax ? (" , " + r.kidPax + " kids") : "");
-            item.unit_price = (r.fee * 100).toFixed();
+            //item.unit_price = (r.fee * 100).toFixed();
+            var fee = calculateDiscount(r.fee, r.tour.commission_agency);
+            item.unit_price = (fee * 100).toFixed(2);
+
         } else if (r.reservation_type == 'transfer') {
             item.name = r.transfer.name;
             item.description = " transportation for " + r.pax;
@@ -155,3 +161,30 @@ module.exports.getConektaItems = function(reservations) {
     });
 };
 
+
+function calculateDiscount(price, commission){
+  var result = price;
+  var discountTable = {
+    '10': 5,
+    '15': 10,
+    '20': 10,
+    '25': 15,
+    '30': 15,
+    '35': 20,
+    '40': 20,
+    '45': 25,
+    '50': 25
+  };
+
+  if(discountTable[commission]){
+    var discPercent = discountTable[commission];
+    result = price - ( price * (discPercent / 100) );
+  }
+  else if (commission && parseFloat(commission) > 40){
+    var discPercent = 25;
+    result = price - ( price * (discPercent / 100) );
+  }
+  return result;
+}
+
+module.exports.calculateDiscount = calculateDiscount;

@@ -89,6 +89,10 @@
                       <% } %>
                     </a>
                   </h3>
+                  <p class="precio-detalles price-before" ng-if="tour.total_price_before != tour.total_price">
+                    {{global_currency.currency_code | uppercase}} {{tour.total_price_before | currency}}
+                  </p>
+
                   <p class="precio-detalles">{{global_currency.currency_code | uppercase}} {{tour.total_price | currency}}</p>
                 </section>
                 <section ng-if="tour.hotel && tour.transfer" class="booking-info-block">

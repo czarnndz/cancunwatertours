@@ -32,6 +32,7 @@ module.exports = {
     create : function(req,res) {
       var params = req.params.all();
       var result = {};
+      sails.log.debug(params);
       var lang = req.getLocale() || 'es';
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {

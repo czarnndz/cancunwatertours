@@ -72,17 +72,50 @@
       }
 
       //TODO cambiar a promises cuando tengamos api de cotizado
-      function getPriceTour(tour,callback) {
+      function getPriceTour(tour,callback, applyDiscount) {
           var exchangeRate = getExchangeRate();
+          var priceTour = 0;
+          console.log('comision: ' + tour.commission_agency + ' de tour :' + tour.name + ' aplicar descuento : ' + applyDiscount);
           if (tour.priceType == 'group') {
-              callback((tour.fee * exchangeRate));
+              priceTour = tour.fee * exchangeRate;
           } else {
               if (tour.kids > 0) {
-                  callback((tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate));//si no hay precio de ninio agarra el de adulto
+                priceTour =  (tour.adults * tour.fee * exchangeRate) + (tour.kids * (tour.feeChild ? tour.feeChild : tour.fee) * exchangeRate);//si no hay precio de ninio agarra el de adulto
               } else {
-                  callback((tour.adults * tour.fee * exchangeRate));
+                priceTour = (tour.adults * tour.fee * exchangeRate);
               }
           }
+
+          if(applyDiscount){
+            priceTour = calculateDiscount(priceTour, tour.commission_agency);
+          }
+
+          callback(priceTour);
+      }
+
+      function calculateDiscount(price, commission){
+        var result = price;
+        var discountTable = {
+          '10': 5,
+          '15': 10,
+          '20': 10,
+          '25': 15,
+          '30': 15,
+          '35': 20,
+          '40': 20,
+          '45': 25,
+          '50': 25
+        };
+
+        if(discountTable[commission]){
+          var discPercent = discountTable[commission];
+          result = price - ( price * (discPercent / 100) );
+        }
+        else if (commission && parseFloat(commission) > 40){
+          var discPercent = 25;
+          result = price - ( price * (discPercent / 100) );
+        }
+        return result;
       }
 
       function getPriceTourWTax(tour,callback) {
@@ -92,9 +125,10 @@
       }
 
       function getPriceTourTax(tour,callback) {
+          var applyDiscount = true;
           getPriceTour(tour,function(price){
               callback(price * serv.tax);
-          });
+          }, applyDiscount);
       }
 
       function getPriceTotalTax(transferPrices){
@@ -105,7 +139,7 @@
         return deferred.promise;
       }
 
-      function getPriceTourTotal(tour,transferPrices) {
+      function getPriceTourTotal(tour,transferPrices, applyDiscount) {
           var deferred = $q.defer();
           getPriceTourTransfer(tour,transferPrices).then(function(value) {
               //console.log(value);
@@ -117,20 +151,21 @@
                   else {
                       deferred.resolve(val);
                   }
-              });
+              }, applyDiscount);
           });
 
           return deferred.promise;
       }
 
       //TODO necesita cambios en caso de que los cart_items ya no sean todos de tour
-      function getPriceTotal(transferPrices){
+      function getPriceTotal(transferPrices, applyDiscount){
+          console.log('getPriceTotal : ' + applyDiscount);
           var deferred = $q.defer();
           var functions = [];
           async.each($rootScope.cart_items,function(item,cb){
               var auxItem = angular.copy(item);
               functions.push(function(cb1){
-                  getPriceTourTotal(auxItem,transferPrices).then(function(res){
+                  getPriceTourTotal(auxItem,transferPrices, applyDiscount).then(function(res){
                       //console.log(res);
                       cb1(false,res);
                   });

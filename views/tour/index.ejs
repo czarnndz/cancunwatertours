@@ -188,6 +188,13 @@
               <p class="prices-value">
                 <strong>TOTAL</strong>
               </p>
+
+              <p class="prices-value">
+                <span class="prices-value-before" ng-if="tour.total_price_before != tour.total_price">
+                  {{tour.total_price_before | currency}} {{global_currency.currency_code | uppercase}}
+                </span>
+              </p>
+
               <p class="prices-value">
                 <span class="prices-value-total">{{tour.total_price | currency}} {{global_currency.currency_code | uppercase}}</span>
               </p>
@@ -308,7 +315,11 @@
             <% } %>
           </a>
         </h4>
+        <p class="s-tour-price s-tour-price-before" ng-if="tour_i.total_tour_price_before != tour_i.total_tour_price">
+          {{tour_i.total_tour_price_before | currency}} <span>{{global_currency.currency_code | uppercase}}</span>
+        </p>
         <p class="s-tour-price">{{tour_i.total_tour_price | currency}} <span>{{global_currency.currency_code | uppercase}}</span> </p>
+
         <p><a class='action-btn-white' ng-href="/{{currentLang}}/tour/{{tour_i.url}}"><%= __('book_now') %></a></p>
       </div>
     </div>

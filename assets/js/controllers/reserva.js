@@ -9,6 +9,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       cartService.setClient($scope.client);
     }
     $scope.states = [];
+    $scope.applyDiscount = true;
 
     /*$scope.client = {
         isMobile : false
@@ -140,7 +141,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     });
 
     $scope.getPriceTotal = function(){
-        cartService.getPriceTotal($scope.transfer_prices).then(function(res){
+        cartService.getPriceTotal($scope.transfer_prices, $scope.applyDiscount).then(function(res){
             //console.log(res);
             $scope.total = res;
         });
@@ -160,8 +161,12 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
     $scope.priceTour = function(tour){
         cartService.getPriceTour(tour,function(val){
-            tour.total_price = val;
+            tour.total_price_before = val;
         });
+
+        cartService.getPriceTour(tour,function(val){
+            tour.total_price = val;
+        }, $scope.applyDiscount);
     }
 
     $scope.updatePrices = function(tour) {
@@ -192,6 +197,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
         //console.log('valido');
         $scope.isLoading = true;
         $scope.scrollTop();
+        console.log($scope.client);
         cartService.process($scope.client).then(function(result){
           $scope.isLoading = false;
           //console.log(result);

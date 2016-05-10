@@ -128,6 +128,8 @@ module.exports.createReservations = function(order,items,payment_method,currency
                                     var reservations = [ ];
                                     Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation_tour){
                                         //console.log(reservation_tour);
+                                        sails.log.debug('tours en ordercore');
+                                        sails.log.debug(reservation_tour);
                                         reservations.push(reservation_tour);
                                         Reservation.findOne(tr.id).populate('transfer').exec(function(errr,reservation_transfer){
                                             reservations.push(reservation_transfer);
@@ -161,8 +163,14 @@ module.exports.createReservations = function(order,items,payment_method,currency
 };
 
 module.exports.getTotal = function(reservations) {
+  sails.log.debug('reservations');
+  sails.log.debug(reservations);
   var total = reservations.reduce(function(tot,r){
-    tot += (r.fee + (r.feeKids ? r.feeKids : 0));
+    var rPrice = (r.fee + (r.feeKids ? r.feeKids : 0));
+    rPrice = Payments.calculateDiscount(rPrice, r.tour.commission_agency);
+    sails.log.debug('rPrice');
+    sails.log.debug(rPrice);
+    tot += rPrice;
     return tot;
   },0.0);
   return total;
@@ -174,6 +182,7 @@ module.exports.getCurrency = function(currency_id) {
   });
   return currency.currency_code;
 };
+
 
 module.exports.sendNewReservationEmail = function(order_id,lang,req,callback) {
     Order.findOne(order_id).populate('reservations').populate('client').exec(function(err,order){
@@ -279,4 +288,5 @@ function getCurrencyValue(base_currency,currency,exchange_rates){
     return exchange_rates[currency].sales;
   }
 };
+
 

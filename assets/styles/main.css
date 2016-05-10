@@ -640,6 +640,11 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   font-size: 18px;
   margin-top: -5px;
 }
+.landing-slider-item .tour-price-before,
+.landing-tour-content .tour-price-before{
+  font-size: 12px;
+  text-decoration: line-through;
+}
 .landing-tour-content a{color: #fff;}
 .landing-tour .absolute-link{z-index: 4}
 .landing-tour .action-btn{
@@ -1013,6 +1018,10 @@ figcaption:hover .action-btn-white{
   text-transform: uppercase;
   padding-bottom: 5px;
 }
+.s-tour-price-before{
+  font-size: 10px;
+  text-decoration: line-through;
+}
 .s-tour-price span{font-size: 12px;}
 
 /*-----------/
@@ -1216,6 +1225,10 @@ figcaption:hover .action-btn-white{
     font-size: 36px;
     font-weight: 300;
   }
+.booking-partial  .prices-value-before{
+  font-size: 20px;
+  text-decoration: line-through;
+}
 .booking-partial  .precio-total-tour{font-size: 35px;}
 .booking-partial .final-price-block{margin: 20px 0 0}
 .booking-partial .final-price-block p{margin: 0}
@@ -2227,6 +2240,10 @@ figcaption:hover .action-btn-white{
 .booking-info a{color: #fff;}
 .booking-info .see-details{font-size: 13px;}
 .booking-info .precio-detalles{font-size: 14px;}
+.booking-info .price-before{
+  font-size: 12px;
+  text-decoration: line-through;
+}
 .booking-info .text-total-d{
   color: #19A4EF;
   font-size: 16px;
