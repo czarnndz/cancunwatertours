@@ -36,8 +36,7 @@ module.exports = {
     };
     if( validateEmail(data.contactEmail) && form.contactName !== '' ){
       var head = {
-        to: 'admin@spaceshiplabs.com',
-        //to: 'info@watertours.com',
+        to: ['admin@spaceshiplabs.com','info@cancunwatertours.com'],
         //to: 'luis19prz@gmail.com',
         subject: 'Mensaje desde Cancunwater Tours'
       };
