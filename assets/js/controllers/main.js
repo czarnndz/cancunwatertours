@@ -8,6 +8,7 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
     $scope.registerToggle = false;
     $scope.loginToggle = false;
     $scope.contact = {};
+    $scope.applyDiscount = window.isActiveGlobalDiscount;
 
     $scope.langList = [
       {label: 'Español',value: 'es'},

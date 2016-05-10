@@ -145,7 +145,6 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
 
     $scope.updatePrices = function(){
         var functions = [];
-        var applyDiscount = true;
         functions.push(
             function(cb) {
                 async.each($scope.tours,
@@ -156,7 +155,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, applyDiscount);
+                      }, $scope.applyDiscount);
                     },function(e){
                         cb(e,true);
                     });
@@ -172,7 +171,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, applyDiscount);
+                      }, $scope.applyDiscount);
                     },function(e){
                         cb(e,true);
                     });
@@ -188,7 +187,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, applyDiscount);
+                      }, $scope.applyDiscount);
                     },function(e){
                         cb(e,true);
                     });
@@ -204,7 +203,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, applyDiscount);
+                      }, $scope.applyDiscount);
                     },function(e){
                         cb(e,true);
                     });

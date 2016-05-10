@@ -82,6 +82,7 @@ module.exports = {
     ,fee_adults_base : 'float' //save del precio adultos en ese momento
     ,fee_special : 'float'
     ,discount : 'float'
+    ,hasGlobalDiscount: 'boolean'
     ,cuponsingle : {
       model : 'CuponSingle'
     }

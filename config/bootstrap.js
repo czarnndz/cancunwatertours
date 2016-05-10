@@ -25,6 +25,7 @@ module.exports.bootstrap = function (cb) {
           throw new Error('company_id no existe');
         } else {
           sails.config.company = company;
+          sails.config.company.isActiveGlobalDiscount = sails.config.company.isActiveGlobalDiscount || false;
           server.kill(function(err){
             cb();
           });

@@ -107,6 +107,11 @@
           '50': 25
         };
 
+        var exceptions = [
+          '558dc7e368b4f41b1a39b75f', //Xcaret basico
+          '547d015533b3bf00659e057d', //Xcaret Plus
+        ];
+
         if(discountTable[commission]){
           var discPercent = discountTable[commission];
           result = price - ( price * (discPercent / 100) );

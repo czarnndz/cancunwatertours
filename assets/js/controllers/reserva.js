@@ -9,8 +9,6 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       cartService.setClient($scope.client);
     }
     $scope.states = [];
-    $scope.applyDiscount = true;
-
     /*$scope.client = {
         isMobile : false
     };*/

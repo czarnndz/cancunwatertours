@@ -88,6 +88,7 @@ module.exports.createReservations = function(order,items,payment_method,currency
                     newItem.includesTransfer = tour.haveTransfer;
                     newItem.number = Math.floor(Math.random() * (5000 - 2000)) + 2000;
                     newItem.tour = tour.id;
+                    newItem.hasGlobalDiscount = true;
 
                     Reservation.create(newItem).exec(function(err,r){
                         if(err) {
@@ -127,9 +128,6 @@ module.exports.createReservations = function(order,items,payment_method,currency
 
                                     var reservations = [ ];
                                     Reservation.findOne(r.id).populate('tour').exec(function(errr,reservation_tour){
-                                        //console.log(reservation_tour);
-                                        sails.log.debug('tours en ordercore');
-                                        sails.log.debug(reservation_tour);
                                         reservations.push(reservation_tour);
                                         Reservation.findOne(tr.id).populate('transfer').exec(function(errr,reservation_transfer){
                                             reservations.push(reservation_transfer);
@@ -163,13 +161,8 @@ module.exports.createReservations = function(order,items,payment_method,currency
 };
 
 module.exports.getTotal = function(reservations) {
-  sails.log.debug('reservations');
-  sails.log.debug(reservations);
   var total = reservations.reduce(function(tot,r){
     var rPrice = (r.fee + (r.feeKids ? r.feeKids : 0));
-    rPrice = Payments.calculateDiscount(rPrice, r.tour.commission_agency);
-    sails.log.debug('rPrice');
-    sails.log.debug(rPrice);
     tot += rPrice;
     return tot;
   },0.0);
@@ -226,12 +219,18 @@ function getPriceTour(item,currency,company,callback){
         aux.fee_base = tour.fee;
         aux.feeChild_base = 0;
         aux.fee = tour.fee * exchange_rate;
+        aux.fee = calculateDiscount(aux.fee, tour.commission_agency);
         aux.feeChild = 0;
     } else {
         aux.fee_base = tour.fee * item.adults;
         aux.feeChild_base = (tour.feeChild ? tour.feeChild : tour.fee) * item.kids;
         aux.fee = (tour.fee * item.adults * exchange_rate);
         aux.feeChild = (tour.feeChild ? tour.feeChild : tour.fee) * item.kids * exchange_rate;
+
+
+        //Applying discounts(if globaldiscount is active)
+        aux.fee = calculateDiscount(aux.fee, tour.commission_agency);
+        aux.feeChild = calculateDiscount(aux.feeChild, tour.commission_agency);
     }
 
     aux.commission_sales = tour.commission_sales;
@@ -242,6 +241,15 @@ function getPriceTour(item,currency,company,callback){
     aux.zone = tour.zone;
     aux.duration = item.duration;
     aux.id = tour.id;
+
+    /*
+    sails.log.debug('Tour  '+ tour.name +'   con descuento aplicado(adultos): ' + aux.fee);
+    sails.log.debug('Tour  '+ tour.name +'   pax adultos: ' + item.adults);
+    sails.log.debug('Tour  '+ tour.name +'   con descuento aplicado(ninos): ' + aux.feeChild);
+    sails.log.debug('Tour  '+ tour.name +'   pax ninos: ' + item.kids);
+    */
+
+
     callback(false,aux);
   });
 
@@ -290,3 +298,34 @@ function getCurrencyValue(base_currency,currency,exchange_rates){
 };
 
 
+function calculateDiscount(price, commission){
+  var result = price;
+  var discountTable = {
+    '10': 5,
+    '15': 10,
+    '20': 10,
+    '25': 15,
+    '30': 15,
+    '35': 20,
+    '40': 20,
+    '45': 25,
+    '50': 25
+  };
+
+  var exceptions = [
+    '558dc7e368b4f41b1a39b75f', //Xcaret basico
+    '547d015533b3bf00659e057d', //Xcaret Plus
+  ];
+
+  if(discountTable[commission] && sails.config.company.isActiveGlobalDiscount){
+    var discPercent = discountTable[commission];
+    result = price - ( price * (discPercent / 100) );
+  }
+  else if (commission && parseFloat(commission) > 40 && sails.config.company.isActiveGlobalDiscount){
+    var discPercent = 25;
+    result = price - ( price * (discPercent / 100) );
+  }
+  return result;
+}
+
+module.exports.calculateDiscount = calculateDiscount;

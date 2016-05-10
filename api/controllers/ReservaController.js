@@ -32,7 +32,7 @@ module.exports = {
     create : function(req,res) {
       var params = req.params.all();
       var result = {};
-      sails.log.debug(params);
+      //sails.log.debug(params);
       var lang = req.getLocale() || 'es';
       if (params && params.client && params.items.length && params.currency) {
         OrderCore.createOrder(params.client,function(order) {
@@ -48,7 +48,7 @@ module.exports = {
               } else if (reservations) {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
-                //console.log(total);
+                //sails.log.debug('total de la reserva : ' + total);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {

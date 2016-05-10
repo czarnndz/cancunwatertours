@@ -174,10 +174,9 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
         cartService.getPriceTour(tour,function(res){
             tour.total_tour_price_before = res;
         });
-        var applyDiscount = true;
         cartService.getPriceTour(tour, function(res){
           tour.total_tour_price = res;
-        }, applyDiscount);
+        }, $scope.applyDiscount);
     };
 
     $scope.getPriceAdults = function(tour) {
@@ -198,8 +197,7 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
           $scope.tour.total_price_before = res;
       });
 
-      var applyDiscount = true;
-      cartService.getPriceTourTotal($scope.tour,$scope.transfer_prices, applyDiscount).then(function(res){
+      cartService.getPriceTourTotal($scope.tour,$scope.transfer_prices, $scope.applyDiscount).then(function(res){
           $scope.tour.total_price = res;
       });
 

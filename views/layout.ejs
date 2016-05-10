@@ -75,6 +75,7 @@
     window.currencies = <%- JSON.stringify(sails.config.company.currencies) %>;
     window.base_currency = <%- JSON.stringify(sails.config.company.base_currency) %>;
     window.exchange_rates = <%- JSON.stringify(sails.config.company.exchange_rates) %>;
+    window.isActiveGlobalDiscount = <%- JSON.stringify( sails.config.company.isActiveGlobalDiscount ) %>;
     window.currentLang = '<%- req.params.lang  %>';
   </script>
 
