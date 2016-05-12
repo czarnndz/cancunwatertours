@@ -229,9 +229,11 @@
       <a ng-click="toggleSearchMobile = !toggleSearchMobile" href=""><strong><%= __('search')%></strong></a>
     </span>
     <% if(!req.user){ %>
+      <!--
       <span>
         <a ng-click="doRegisterToggle($event)" href=""><strong><%= __('register')%></strong></a>
       </span>
+      -->
       <span>
         <a ng-click="doLoginToggle($event)" href="" class="action-btn"><strong><%= __('log_in')%></strong></a>
       </span>

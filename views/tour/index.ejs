@@ -35,14 +35,16 @@
 
               <% } %>
             </h1>
-            <div layout='row' class='tour-extra-data'>
+            <div layout='row' layout-wrap class='tour-extra-data'>
               <div class='extra-item' ng-if="tour.duration" flex-initial>
                 <i class="icon-horario"> </i><strong><%= __('duration') %>:</strong> <strong>{{tourDurationFormatted}}</strong>
               </div>
               <div class='extra-item' flex-initial>
                 <i class="icon-calendario"> </i><strong><%= __('timetable') %></strong> <strong>{{tourDuration}}</strong>
               </div>
-              <div class='extra-item' flex-initial></div>
+              <div class='extra-item' flex-initial flex-sm="100">
+                <strong>{{tour.provider.name}}</strong>
+              </div>
             </div>
           </div>
           <div class='' flex-initial>
@@ -141,6 +143,7 @@
             </div>
           </div>
 
+            <!--
             <div ng-if="!tour.haveTransfer" class="input-field-wrap">
                 <md-checkbox class="md-primary add-transport-checkbox" ng-model="tour.transfer" aria-label="">
 
@@ -170,6 +173,8 @@
                        </span>
                 </div>
             </div>
+            -->
+
             <div ng-if="markers.length > 1" class="input-field-wrap" ng-cloak>
                 <span><i class="icon-pin"></i> <%= __('select_departure_point') %></span>
                 <md-select ng-model="tour.departurePoint" ng-required name="departurePoint">

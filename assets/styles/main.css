@@ -923,13 +923,22 @@ figcaption:hover .action-btn-white{
   text-align: center;
   text-transform: uppercase;
 }
+
+.discount-counter-home{
+    bottom: 160px;
+    max-width: 400px;
+    min-width: 400px;
+    left: auto;
+    right: 20px;
+}
+
 .discount-counter #counter-inner{
   background: rgba(0,0,0,0.75);
   border: 4px solid #39D0C9;
   padding: 10px;
 }
 
-.discount-counter #counter-inner-cols{
+.discount-counter .counter-inner-cols{
   max-width: 80%;
   margin: 0 auto;
 }
@@ -2836,6 +2845,20 @@ z-index: 9999;
     display: block;
   }
 
+  .landing-tour-content h3,
+  .landing-tour-content h4{
+    font-size: 14px;
+  }
+  .landing-slider-item .tour-price-before,
+  .landing-tour-content .tour-price-before{
+    font-size: 14px;
+  }
+  .landing-slider-item .tour-price-hl,
+  .landing-tour .tour-price-hl{
+    font-size: 20px;
+  }
+
+
   /*--------
     #FOOTER
   /*--------*/
@@ -2907,6 +2930,12 @@ z-index: 9999;
     #BOOKING-INFO
   /*--------*/
   .booking-info{width: 100%;}
+
+  /*-----------/
+    #TOUR
+  /*----------*/
+  .tour-extra-data .extra-item{margin: 5px 4px;}
+
 
   /*---------/
     #SEARCH-RESULTS

@@ -2,7 +2,7 @@
   var title = '';
   var description = '';
   var keywords = '';
-  if(typeof meta.metadata != 'undefined' && meta.metadata){
+  if(typeof meta != 'undefined' && typeof meta.metadata != 'undefined' && meta.metadata){
 
     if(req.params.lang === 'es'){
       title = meta.metadata.title;

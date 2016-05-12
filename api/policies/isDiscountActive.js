@@ -16,8 +16,11 @@ module.exports = function(req, res, next) {
         throw new Error('company_id no existe');
       } else {
         //sails.log.debug('Company isActiveGlobalDiscount: ' + company.isActiveGlobalDiscount);
-        sails.config.company.isActiveGlobalDiscount = company.isActiveGlobalDiscount || false;
+        //sails.config.company.isActiveGlobalDiscount = company.isActiveGlobalDiscount || false;
         //sails.config.company.isActiveGlobalDiscount = true;
+        //DONT REMOVE
+        sails.config.company.isActiveGlobalDiscount = false;
+
         next();
       }
 

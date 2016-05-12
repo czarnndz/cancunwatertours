@@ -27,7 +27,8 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
         toursService.getToursById(fixedIds).then(function(fixedTours){
             toursService.getTours().then(function(tours){
                 $scope.loading = false;
-                $scope.setupCounter();
+                var isHome = true;
+                $scope.setupCounter(isHome);
                 var group1 = fixedTours.slice(0,1);
                 var group2 = fixedTours.slice(1,5);
                 group2.reverse();

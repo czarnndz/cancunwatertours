@@ -15,6 +15,7 @@ module.exports = {
             .populate('categories')
             .populate('location')
             .populate('transferHotels')
+            .populate('provider')
             .exec(function(e,tour){
             //Fix temporal tour undefined
             if (e || !tour) {

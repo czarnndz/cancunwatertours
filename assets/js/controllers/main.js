@@ -161,11 +161,13 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
       return disc;
     };
 
-    $scope.getToursCategories();
 
-
-    $scope.setupCounter = function(){
+    $scope.setupCounter = function(isHome){
       if($scope.isGlobalDiscountActive){
+        var selector = '#counter-general';
+        if(isHome) {
+          selector = '#counter-home';
+        }
         var daysLabel = $rootScope.currentLang == 'es' ? 'Dias' : 'Days';
         var hoursLabel = $rootScope.currentLang == 'es' ? 'Horas' : 'Hours';
         var minutesLabel = $rootScope.currentLang == 'es' ? 'Minutos' : 'Minutes';
@@ -177,11 +179,12 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
         layoutHtml += '<div class="counter-col" flex><p class="num">{sn}</p><p>'+secondsLabel+'</p></div>';
 
         $timeout(function(){
-          console.log('lol');
-          $('#counter-inner-cols').countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
+          $(selector).countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
         }, 1000);
       }
     };
 
+    $scope.getToursCategories();
+    //$scope.setupCounter();
 
 }]);
