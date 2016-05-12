@@ -1,4 +1,4 @@
-app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialog', 'toursService', 'searchService','cartService','localStorageService' ,function($scope, $window, $http, $rootScope, $mdDialog, toursService, searchService,cartService,localStorageService) {
+app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialog', '$timeout', 'toursService', 'searchService','cartService','localStorageService' ,function($scope, $window, $http, $rootScope, $mdDialog, $timeout, toursService, searchService,cartService,localStorageService) {
     //$scope.tours = [];
     $scope.cartService = cartService;
     $scope.maxFee = 0;
@@ -162,5 +162,24 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
     };
 
     $scope.getToursCategories();
+
+
+    $scope.setupCounter = function(){
+      var daysLabel = $rootScope.currentLang == 'es' ? 'Dias' : 'Days';
+      var hoursLabel = $rootScope.currentLang == 'es' ? 'Horas' : 'Hours';
+      var minutesLabel = $rootScope.currentLang == 'es' ? 'Minutos' : 'Minutes';
+      var secondsLabel = $rootScope.currentLang == 'es' ? 'Segundos' : 'Seconds';
+
+      var layoutHtml = '<div class="counter-col" flex><p class="num">{dn}</p><p>'+daysLabel+'</p></div>';
+      layoutHtml += '<div class="counter-col" flex><p class="num">{hn}</p><p>'+hoursLabel+'</p></div>';
+      layoutHtml += '<div class="counter-col" flex><p class="num">{mn}</p><p>'+minutesLabel+'</p></div>';
+      layoutHtml += '<div class="counter-col" flex><p class="num">{sn}</p><p>'+secondsLabel+'</p></div>';
+
+      $timeout(function(){
+        console.log('lol');
+        $('#counter-inner-cols').countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
+      }, 6000);
+    }
+
 
 }]);

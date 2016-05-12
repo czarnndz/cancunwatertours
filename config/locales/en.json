@@ -31,8 +31,8 @@
   "have_an_account": "Have an account?, log in",
   "my_account": "My account",
   "log_out": "Log out",
-  "need_help" : "Necesitas ayuda?,",
-  "ask_us" : "preguntanos",
+  "need_help" : "Need help?",
+  "ask_us" : "ask us anything",
 
   "sailing": "Sailing",
   "diving": "Diving",
@@ -152,5 +152,12 @@
   "reset_filters": "Reset filters",
 
   "my_cart": "My cart",
-  "phone_number_validation": "Phone lada must have at least 3 digits and phone number at least 7 digits"
+  "phone_number_validation": "Phone lada must have at least 3 digits and phone number at least 7 digits",
+
+  "by_launching": "By launching",
+  "all_the_store": "All the store has",
+  "discount": "Discount",
+  "discounts_end_on": "Discounts end on"
+
+
 }

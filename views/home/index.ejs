@@ -30,15 +30,31 @@
             layout="row"
             layout-align="center center"
           >
-            <div class="landing-promo-circle" layout="row" layout-align="center center">
-              <div class="landing-promo-circle-inner">
-                <p class="top-text">Por lanzamiento</p>
-                <h3><strong>Toda la tienda tiene</strong></h3>
-                <h2>Descuento</h2>
-                <p>
-                  <a href="/<%= req.params.lang %>/tours" class="action-btn-white"><%= __('see_more') %></a>
-                </p>
+            <div class="landing-promo-slide-content-inner">
+
+              <div class="landing-promo-circle" layout="row" layout-align="center center">
+                <div class="landing-promo-circle-inner">
+                  <p class="top-text"><%= __('by_launching') %></p>
+                  <h3><strong><%= __('all_the_store') %></strong></h3>
+                  <h2><%= __('discount') %></h2>
+                  <p>
+                    <a href="/<%= req.params.lang %>/tours" class="action-btn-white"><%= __('see_more') %></a>
+                  </p>
+                </div>
               </div>
+              <div class="discount-counter">
+
+                <div id="counter-inner" >
+                  <p><strong><%= __('discounts_end_on') %>:</strong></p>
+                  <div id="counter-inner-cols" layout="row">
+
+                  </div>
+                </div>
+
+              <!--
+<div id="counter-inner" class="layout-row is-countdown"><div flex=""><p class="num">49</p><p>Dias</p></div><div flex=""><p class="num">11</p><p>Horas</p></div><div flex=""><p class="num">6</p><p>Minutos</p></div><div flex=""><p class="num">50</p><p>Segundos</p></div></div>-->
+              </div>
+
             </div>
           </div>
         </div>

@@ -29,8 +29,9 @@
   "have_an_account": "¿Ya tienes una cuenta?, inicia sesión",
   "my_account": "Mi cuenta",
   "log_out": "Cerrar sesión",
-  "need_help" : "Need help?,",
-  "ask_us" : "ask us anything",
+
+  "need_help" : "¿Necesitas ayuda?",
+  "ask_us" : "preguntanos",
 
   "sailing": "Paseos en barco",
   "diving": "Buceo",
@@ -151,6 +152,11 @@
   "reset_filters": "Borrar filtros",
 
   "my_cart": "Mi carrito",
-  "phone_number_validation": "El numero de lada debe ser de al menos 3 digitos y el número de teléfono de al menos 7 digitos"
+  "phone_number_validation": "El numero de lada debe ser de al menos 3 digitos y el número de teléfono de al menos 7 digitos",
+
+  "by_launching": "Por lanzamiento",
+  "all_the_store": "Toda la tienda tiene",
+  "discount": "Descuento",
+  "discounts_end_on": "Los descuentos terminan en"
 
 }

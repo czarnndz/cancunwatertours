@@ -302,11 +302,20 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
   height: 35px;
   margin-top: 4px;
   width: 35px;
+  vertical-align: middle;
 }
 .header .account-menu-item{
   margin: -6px 5px 0;
 }
-.header .account-menu-item .action-btn{padding: 6px 8px;}
+.header .account-menu-item .action-btn{padding: 6px 4px;}
+
+.header .account-menu-item .action-btn-v2{
+  border: 2px solid #35cdd4;
+  background: none;
+  color: #35cdd4!important;
+  text-transform: none;
+}
+
 .header .account-menu i{
   color: #2AB7D0;
   font-size: 24px;
@@ -856,14 +865,20 @@ figcaption:hover .action-btn-white{
   width: 100%;
   height: 100%;
 }
+.landing-promo-slide-content-inner{
+  position: relative;
+  width: 90%;
+}
+
 .landing-promo-slide-content .landing-promo-circle{
   background: url(../images/desc.png) center center no-repeat;
   background-size: cover;
   padding: 20px;
   text-align: center;
   border-radius: 50%;
-  height: 320px;
-  width: 320px;
+  height: 360px;
+  width: 360px;
+  margin: 0 auto;
 }
 .landing-promo-slide-content .landing-promo-circle h3,
 .landing-promo-slide-content .landing-promo-circle h2{
@@ -892,6 +907,52 @@ figcaption:hover .action-btn-white{
 }
 .landing-promo-slide-content .landing-promo-circle .action-btn-white:hover{
   background: transparent;
+}
+
+/*----------------/
+  #DISCOUNT-COUNTER
+/*---------------*/
+.discount-counter{
+  position: absolute;
+  min-width: 85%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 85%;
+  bottom: -50px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.discount-counter #counter-inner{
+  background: rgba(0,0,0,0.75);
+  border: 4px solid #39D0C9;
+  padding: 10px;
+}
+
+.discount-counter #counter-inner-cols{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.discount-counter .counter-col{
+  padding: 0 5px;
+}
+.discount-counter .counter-col + .counter-col{
+  border-left: 2px solid #39D0C9;
+}
+.discount-counter p{
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 3px 0;
+  color: #fff;
+}
+.discount-counter p strong{letter-spacing: 2px;}
+
+.discount-counter .num{
+  font-weight: 700;
+  font-size: 40px;
+  color: #39D0C9;
+  line-height: 1;
 }
 
 
@@ -2637,6 +2698,10 @@ z-index: 9999;
   transform: translateY(-50%);
 }
 
+
+
+
+
 @media (min-width: 1600px){
   .tour-description-inner{
     padding: 20px 80px;
@@ -2658,6 +2723,10 @@ z-index: 9999;
   .header .search-box{margin-left: 0;}
   .header .advanced-search{padding: 0 5px;}
   .main-sidebar{display: none;}
+
+  .header .account-menu-item .action-btn{font-size: 10px;}
+  .header .account-menu-item .action-btn-v2 .askus{display: none;}
+
 }
 @media (min-width:961px) and (max-width: 1230px){
   .footer .content-col-item-left,
@@ -2668,6 +2737,18 @@ z-index: 9999;
   #main{padding-bottom: 260px!important;}
   #main.main-nofooter{padding-bottom: 0!important;}
 
+  /*-----------/
+    #HOME
+  /*----------*/
+  .landing-promo-slide-content .landing-promo-circle{
+    height: 300px;
+    width: 300px;
+  }
+  .discount-counter{bottom: -30px;}
+  .discount-counter p{font-size: 10px;}
+  .discount-counter .counter-col .num{font-size: 24px;}
+  .discount-counter #counter-inner{padding: 10px;}
+  .discount-counter #counter-inner-cols{max-width: 100%;}
 
 
   /*--------/
@@ -2782,6 +2863,15 @@ z-index: 9999;
   /*.landing-tour figcaption{
     padding: 12px;
   }*/
+
+
+  .landing-slider-item .tour-price-before, .landing-tour-content .tour-price-before {
+    font-size: 14px;
+  }
+  .landing-slider-item .tour-price-hl, .landing-tour .tour-price-hl{
+    font-size: 18px;
+  }
+
 
   /*----------/
     #HEADER
