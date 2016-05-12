@@ -25,35 +25,28 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
     $scope.step = $scope.cartComplete  ? 1 : 0;
     $scope.transfer_prices = transfer_prices;
-    $scope.tours = cartService.getAll();
+    $scope.tours = [];
 
-//    $scope.tours.forEach(function(tour,a){
-//        console.log(a);
-//        var aux_schedules = [];
-//        tour.schedules.forEach(function(el) {
-//            if( typeof el == 'string' )
-//                aux_schedules.push(JSON.parse(el));
-//            else
-//                aux_schedules.push(el);
-//        });
-//
-//        tour.schedules = aux_schedules;
-//    });
+    $scope.init = function(){
+      cartService.getAll().then(function(res){
 
-    //Fix md-datepicker
-    for(var i=0;i<$scope.tours.length;i++){
-        $scope.tours[i].date = new Date($scope.tours[i].date);
-        //$scope.tours[i].departurePoint = angular.fromJson($scope.tours[i].departurePoint);
-        //console.log($scope.tours[i].departurePoint);
-        $scope.tours[i].maxPaxSize = [];
-        if (!$scope.tours[i].pax) {
-            $scope.tours[i].pax = 8;
+        $scope.tours = res;
+        //Fix md-datepicker
+        for(var i=0;i<$scope.tours.length;i++){
+            $scope.tours[i].date = new Date($scope.tours[i].date);
+            //$scope.tours[i].departurePoint = angular.fromJson($scope.tours[i].departurePoint);
+            //console.log($scope.tours[i].departurePoint);
+            $scope.tours[i].maxPaxSize = [];
+            if (!$scope.tours[i].pax) {
+                $scope.tours[i].pax = 8;
+            }
+            for (var j = 1; j <= $scope.tours[i].pax ; j++) {
+                $scope.tours[i].maxPaxSize.push(j);
+            }
         }
-        for (var j = 1; j <= $scope.tours[i].pax ; j++) {
-            $scope.tours[i].maxPaxSize.push(j);
-        }
-    }
-    console.log($scope.tours);
+
+      });
+    };
 
     $scope.continueShopping = function() {
       location.href = "/";
@@ -139,7 +132,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     });
 
     $scope.getPriceTotal = function(){
-        cartService.getPriceTotal($scope.transfer_prices, $scope.applyDiscount).then(function(res){
+        cartService.getPriceTotal($scope.transfer_prices, $scope.isGlobalDiscountActive).then(function(res){
             //console.log(res);
             $scope.total = res;
         });
@@ -164,7 +157,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
         cartService.getPriceTour(tour,function(val){
             tour.total_price = val;
-        }, $scope.applyDiscount);
+        }, $scope.isGlobalDiscountActive);
     }
 
     $scope.updatePrices = function(tour) {
@@ -243,6 +236,9 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
         $scope.getStatesbyCountry(newValue);
       }
     });
+
+    $scope.init();
+
 
 }]);
 

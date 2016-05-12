@@ -171,6 +171,31 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 }
 
 /*------------/
+  #DISC-CIRCLE
+/*-----------*/
+.disc-circle{
+  background: #53F4C8;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 4px;
+  position: absolute;
+  right: 6px;
+  text-align: center;
+  top: 6px;
+  width: 40px;
+  background: #56f8c7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #56f8c7 0%, #32c3c8 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #56f8c7 0%,#32c3c8 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #56f8c7 0%,#32c3c8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56f8c7', endColorstr='#32c3c8',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+
+/*------------/
   #HEADER
 /*-----------*/
 #headerContainer{position: relative;}
@@ -642,9 +667,23 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 }
 .landing-slider-item .tour-price-before,
 .landing-tour-content .tour-price-before{
-  font-size: 12px;
+  font-size: 16px;
   text-decoration: line-through;
+  margin-right: 6px;
 }
+
+.landing-slider-item .tour-price-hl,
+.landing-tour .tour-price-hl{
+  color: #53EBBC;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.landing-slider-item .tour-price-hl .tour-price-currency,
+.landing-tour .tour-price-hl .tour-price-currency{
+  font-weight: 300;
+}
+
 .landing-tour-content a{color: #fff;}
 .landing-tour .absolute-link{z-index: 4}
 .landing-tour .action-btn{
@@ -1017,12 +1056,15 @@ figcaption:hover .action-btn-white{
   font-size: 14px;
   text-transform: uppercase;
   padding-bottom: 5px;
+  font-weight: 700;
 }
 .s-tour-price-before{
-  font-size: 10px;
+  font-size: 12px;
   text-decoration: line-through;
 }
 .s-tour-price span{font-size: 12px;}
+.s-tour .disc-circle{color: #000;}
+
 
 /*-----------/
   #TOUR-SLIDER
@@ -1090,6 +1132,17 @@ figcaption:hover .action-btn-white{
   background: #18A5F0;
 }
 .tour-slider .slick-dots li button:before{display: none;}
+.tour-slider-wrapper .disc-circle{
+z-index: 9999;
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+  top: 36px;
+}
+.tour-slider-wrapper .disc-circle-v2{
+  top: 6px;
+}
+
 
 /*--------/
   #BOOKING-PARTIAL
@@ -1804,6 +1857,10 @@ figcaption:hover .action-btn-white{
   display: block;
   clear: both;
 }
+.map-wrapper .leaflet-popup-content .img-wrap .disc-circle{
+  color: #000;
+}
+
 .map-wrapper .leaflet-popup-content .price-wrap{
   background: rgba(0,0,0,0.5);
   bottom: 0;
@@ -1813,6 +1870,14 @@ figcaption:hover .action-btn-white{
   margin: 0 auto;
   position: absolute;
   right: 0;
+}
+.map-wrapper .leaflet-popup-content .price-wrap .price-before{
+  text-decoration: line-through;
+  font-size: 14px;
+  margin-right: 4px;
+}
+.map-wrapper .leaflet-popup-content .price-wrap .price-hl{
+  color: #53EBBC;
 }
 .map-wrapper .leaflet-popup-content a{color: #00AEED;}
 .map-wrapper .leaflet-popup-content p{margin: 0;}
@@ -1911,6 +1976,13 @@ figcaption:hover .action-btn-white{
   font-size: 16px;
 }
 .tour-item-detail .tour-item-price span{font-size: 12px;}
+.tour-item-detail .tour-item-price-hl{
+  color: #53EBBC;
+  font-weight: 700;
+}
+.tour-item-detail .tour-item-price-before{
+  text-decoration: line-through;
+}
 .tour-item-overlay{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
 .tour-item:hover .tour-item-overlay{opacity: 1}
 

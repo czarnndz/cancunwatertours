@@ -31,12 +31,17 @@
               <% }else{ %>
                 <h4><strong>{{tour.name_en}}</strong></h4>
               <% } %>
-              <p class="tour-price tour-price-before" ng-if="tour.total_price_before != tour.total_price">
-                {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
-              </p>
+
               <p class="tour-price">
-                {{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+                <span class="tour-price tour-price-before" ng-if="tour.total_price != tour.total_price_before && isGlobalDiscountActive">
+                  {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+                </span>
+
+                <span ng-class="{ 'tour-price-hl' : tour.total_price != tour.total_price_before  }">
+                  {{tour.total_price | currency:"$":0}} <span class="tour-price-currency">{{global_currency.currency_code | uppercase}}</span>
+                </span>
               </p>
+
               <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
             </div>
           </div>
@@ -69,6 +74,11 @@
               lazy-img="{{tour.icon}}"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }"
           ></div>
+
+          <div ng-if="getTourDiscount(tour) > 0" class="disc-circle" layout="row" layout-align="center center">
+            <span> -{{ getTourDiscount(tour) }}% </span>
+          </div>
+
           <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
@@ -83,10 +93,17 @@
                 </a>
               </strong>
             </h4>
-            <p class="tour-price tour-price-before" ng-if="tour.total_price != tour.total_price_before">
-              {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+
+            <p class="tour-price">
+              <span class="tour-price tour-price-before" ng-if="tour.total_price != tour.total_price_before && isGlobalDiscountActive">
+                {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+              </span>
+
+              <span ng-class="{ 'tour-price-hl' : tour.total_price != tour.total_price_before  }">
+                {{tour.total_price | currency:"$":0}} <span class="tour-price-currency">{{global_currency.currency_code | uppercase}}</span>
+              </span>
             </p>
-            <p class="tour-price">{{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}</p>
+
             <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>
@@ -115,6 +132,11 @@
           <div class="landing-tour-background transitions"
               ng-style="{ 'background-image': 'url({{tour.icon}})' }"
           ></div>
+
+          <div ng-if="getTourDiscount(tour) > 0" class="disc-circle" layout="row" layout-align="center center">
+            <span> -{{ getTourDiscount(tour) }}% </span>
+          </div>
+
           <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <md-grid-tile-footer class="landing-tour-content" layout="column" layout-align-gt-sm="space-around center" layout-align-sm="center center">
             <i class="icon-{{getCategoryIcon(tour.firstCategory)}}"></i>
@@ -129,10 +151,15 @@
                 </a>
               </strong>
             </h4>
-            <p class="tour-price tour-price-before" ng-if="tour.total_price != tour.total_price_before">
-              {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+            <p class="tour-price">
+              <span class="tour-price tour-price-before" ng-if="tour.total_price != tour.total_price_before">
+                {{tour.total_price_before | currency:"$":0}} {{global_currency.currency_code | uppercase}}
+              </span>
+
+              <span ng-class="{ 'tour-price-hl' : tour.total_price != tour.total_price_before  }">
+                {{tour.total_price | currency:"$":0}} <span class="tour-price-currency">{{global_currency.currency_code | uppercase}}</span>
+              </span>
             </p>
-            <p class="tour-price">{{tour.total_price | currency:"$":0}} {{global_currency.currency_code | uppercase}}</p>
             <p><a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="action-btn-white transitions"><strong><%= __('book_now') %></strong></a></p>
           </md-grid-tile-footer>
         </md-grid-tile>

@@ -113,6 +113,12 @@ module.exports.routes = {
     action : 'create'
   },
 
+  '/get_tours_prices':{
+    controller: 'reserva',
+    action: 'getToursPrices'
+  },
+
+
   /*------------------/
     TRANSLATED URLS
   /*------------------*/

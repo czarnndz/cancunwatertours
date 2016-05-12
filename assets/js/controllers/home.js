@@ -155,7 +155,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, $scope.applyDiscount);
+                      }, $scope.isGlobalDiscountActive);
                     },function(e){
                         cb(e,true);
                     });
@@ -171,7 +171,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, $scope.applyDiscount);
+                      }, $scope.isGlobalDiscountActive);
                     },function(e){
                         cb(e,true);
                     });
@@ -187,7 +187,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, $scope.applyDiscount);
+                      }, $scope.isGlobalDiscountActive);
                     },function(e){
                         cb(e,true);
                     });
@@ -203,7 +203,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                       cartService.getPriceTour(tour,function(val){
                         tour.total_price = val;
                         callback();
-                      }, $scope.applyDiscount);
+                      }, $scope.isGlobalDiscountActive);
                     },function(e){
                         cb(e,true);
                     });

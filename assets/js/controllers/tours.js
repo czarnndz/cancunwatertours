@@ -170,13 +170,12 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
     });
 
     $scope.getPrice = function(tour){
-        console.log(tour);
         cartService.getPriceTour(tour,function(res){
             tour.total_tour_price_before = res;
         });
         cartService.getPriceTour(tour, function(res){
           tour.total_tour_price = res;
-        }, $scope.applyDiscount);
+        }, $scope.isGlobalDiscountActive);
     };
 
     $scope.getPriceAdults = function(tour) {
@@ -197,7 +196,7 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
           $scope.tour.total_price_before = res;
       });
 
-      cartService.getPriceTourTotal($scope.tour,$scope.transfer_prices, $scope.applyDiscount).then(function(res){
+      cartService.getPriceTourTotal($scope.tour,$scope.transfer_prices, $scope.isGlobalDiscountActive).then(function(res){
           $scope.tour.total_price = res;
       });
 
@@ -217,7 +216,7 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
 
     $scope.addCartTour = function() {
       //$scope.tour.departurePoint = angular.fromJson($scope.tour.departurePoint);
-      console.log($scope.tour);
+      //console.log($scope.tour);
       cartService.addTour($scope.tour);
       location.href = "/" + $rootScope.currentLang + "/booking";
     };

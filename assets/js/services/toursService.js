@@ -49,6 +49,7 @@
           })
         .success(function(data,status){
           if (data && angular.isArray(data) ) {
+            console.log(data);
             serv.tours = data;
             deferred.resolve(data);
           } else

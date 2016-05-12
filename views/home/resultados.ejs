@@ -30,6 +30,10 @@
                 </div>
                 <div class="tour-item-bg" ng-style="{ 'background-image' : 'url(' + tour.avatar3 + ')' }"></div>
 
+                <div ng-if="getTourDiscount(tour) > 0" class="disc-circle" layout="row" layout-align="center center">
+                  <span> -{{ getTourDiscount(tour) }}% </span>
+                </div>
+
                 <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
                 <div class="tour-item-detail" layout="row" layout-align="space-between center">
                   <div flex="60">
@@ -47,8 +51,12 @@
                   </div>
                   <div flex="30">
                     <p><%= __('from_price') %></p>
-                    <p class="tour-item-price" ng-cloak>
-                      <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span></p>
+                    <p class="tour-item-price tour-item-price-before" ng-cloak ng-if="tour.total_price_before != tour.total_price && isGlobalDiscountActive">
+                      <strong>{{tour.total_price_before | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span>
+                    </p>
+                    <p class="tour-item-price" ng-class="{'tour-item-price-hl' : isGlobalDiscountActive}" ng-cloak>
+                      <strong>{{tour.total_price | currency:"$":0}}</strong> <span>{{global_currency.currency_code | uppercase}}</span>
+                    </p>
                   </div>
                 </div>
                 <div class="tour-item-overlay" flex="100" layout="row" layout-align="center center" >

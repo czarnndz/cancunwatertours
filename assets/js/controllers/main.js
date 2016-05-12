@@ -8,7 +8,7 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
     $scope.registerToggle = false;
     $scope.loginToggle = false;
     $scope.contact = {};
-    $scope.applyDiscount = window.isActiveGlobalDiscount;
+    $scope.isGlobalDiscountActive = window.isGlobalDiscountActive;
 
     $scope.langList = [
       {label: 'Español',value: 'es'},
@@ -151,6 +151,14 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
           .ok('Cerrar')
           .targetEvent(ev)
       );
+    };
+
+    $scope.getTourDiscount = function(tour){
+      var disc = 0;
+      if($scope.isGlobalDiscountActive){
+        disc = cartService.getPercentageDiscount(tour.commission_agency);
+      }
+      return disc;
     };
 
     $scope.getToursCategories();

@@ -21,7 +21,7 @@ module.exports = {
                 console.log(e);
                 return res.notFound();
             }
-            console.log(tour);
+            //console.log(tour);
 
             var qparams = {
               url : { '!' : params.url},

@@ -28,6 +28,7 @@ module.exports.policies = {
 
  '*': true,
  '*': 'localize',
+ '*': 'isDiscountActive',
  CuentaController:{
   '*': ['userAuth','localize'],
  }

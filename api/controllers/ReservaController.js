@@ -201,6 +201,25 @@ module.exports = {
                 });
             });
         });
+    },
+
+    getToursPrices: function(req, res){
+      var params = req.params.all();
+      if(params.ids && params.ids.length > 0){
+        var query = {
+          where: {id: params.ids},
+          select: ['fee', 'feeChild']
+        };
+        //TODO add extra prices
+        Tour.find(query).exec(function(err, tours){
+          if(err){
+            console.log(err);
+            throw(err);
+          }
+          //sails.log.debug(tours);
+          res.json(tours);
+        });
+      }
     }
 
 };

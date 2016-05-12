@@ -207,9 +207,12 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
   $scope.updatePrices = function(cb){
       async.each($scope.tours,function(t,callback){
           cartService.getPriceTour(t,function(val){
+              t.total_price_before = val;
+          });
+          cartService.getPriceTour(t,function(val){
               t.total_price = val;
               callback();
-          })
+          }, $scope.isGlobalDiscountActive);
       },function(){
           cb();
       });
@@ -257,16 +260,41 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
       for( var x in tours ){
         var tour = tours[x];
         var tour_name = ($rootScope.currentLang === 'es') ? tour.name : tour.name_en;
+
+        cartService.getPriceTour(tour, function (val){
+          tour.price_before = val;
+        });
+
+        //Applying discount (if active)
         cartService.getPriceTour(tour,function(val) {
+
             var item = '';
-            var price = $filter('currency')(val) + $filter('uppercase')($rootScope.global_currency.currency_code);
+            tour.price_before = tour.price_before || 0;
+            var price_before = $filter('currency')(tour.price_before,'$',0) + " " + $filter('uppercase')($rootScope.global_currency.currency_code);
+            var price = $filter('currency')(val,'$',0) + " " + $filter('uppercase')($rootScope.global_currency.currency_code);
             var priceWrap = "<div class='price-wrap'><strong>"+price+"</strong></div>";
-            item += "<div class='img-wrap'><img  src='"+tour.avatar3+"' />"+priceWrap+"</div>";
+
+            if($scope.isGlobalDiscountActive){
+              priceWrap = "<div class='price-wrap'>";
+                priceWrap += "<span class='price-before'>"+ price_before +"</span>";
+                priceWrap += "<strong class='price-hl'>"+ price +"</strong>";
+              priceWrap +="</div>";
+            }
+
+            item += "<div class='img-wrap'>";
+            if($scope.isGlobalDiscountActive && $scope.getTourDiscount(tour) > 0){
+              item += "<div class='disc-circle' layout='row' layout-align='center center'>";
+              item += "<span>" + $scope.getTourDiscount(tour) + "%</span>";
+              item += "</div>";
+            }
+            item += "<img  src='"+tour.avatar3+"' />" + priceWrap;
+            item += "</div>";
             item += "<p><strong class='map-marker-title'><a href='/"+$rootScope.currentLang+"/tour/"+tour.url+"' target='_blank'>"+tour_name+"</a></strong></p>";
             item += printCategoriesByTour(tour);
             item = "<div>" + item + "</div>";
             reel += item;
-        });
+
+        }, $scope.isGlobalDiscountActive);
 
       }
       reel = '<slick ng-cloak style="width:100%;min-height:200px;margin:0;" class="ng-cloak" dots="false" arrows="true" autoplay="false" fade="false">' + reel + "</slick>";
@@ -342,6 +370,10 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
     var markerTxt = ($rootScope.currentLang === 'es') ? ' actividades aquí' : ' activities here';
 
     async.each(data, function(t,cb){
+      cartService.getPriceTour(t, function(val){
+        t.total_price_before = val;
+      });
+      //Applyng discount
       cartService.getPriceTour(t,function(val){
           t.total_price = val;
           if( t.departurePoints ){
@@ -357,7 +389,7 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
           } else {
               cb();
           }
-      });
+      }, $scope.isGlobalDiscountActive);
     },function(){
          async.each($scope.muelles,function(m,cb){
              //console.log($scope.muelles);
