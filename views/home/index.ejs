@@ -9,6 +9,7 @@
 
     <div class="slider-container" flex-gt-sm="50" flex="100">
 
+
       <slick class="landing-slider"
               speed="500"
               pauseOnHover="true"
@@ -20,7 +21,38 @@
               ng-if="toursrand1.length"
               data="toursrand1"
       >
-        <div  ng-repeat="tour in toursrand1" class="landing-slider-item transitions" ng-cloak>
+
+        <!--PROMO SLIDE-->
+        <div ng-if="isGlobalDiscountActive"class="landing-promo-slide"
+        >
+          <div
+            class="landing-promo-slide-content"
+            layout="row"
+            layout-align="center center"
+          >
+            <div class="landing-promo-circle" layout="row" layout-align="center center">
+              <div class="landing-promo-circle-inner">
+                <p class="top-text">Por lanzamiento</p>
+                <h3><strong>Toda la tienda tiene</strong></h3>
+                <h2>Descuento</h2>
+                <p>
+                  <a href="/<%= req.params.lang %>/tours" class="action-btn-white"><%= __('see_more') %></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--END PROMO SLIDE-->
+
+
+        <!--TOUR SLIDE-->
+        <div
+          ng-if="!isGlobalDiscountActive"
+          ng-repeat="tour in toursrand1"
+          class="landing-slider-item transitions"
+          ng-cloak
+        >
           <div class="landing-slider-item-bg " lazy-img="{{tour.avatar}}" ng-style="{ 'background-image': 'url({{tour.avatar}})' }"></div>
           <a href="/<%= req.params.lang %>/tour/{{tour.url}}" class="absolute-link"></a>
           <div class="landing-slider-cover">
@@ -46,6 +78,8 @@
             </div>
           </div>
         </div>
+        <!--END TOUR SLIDE-->
+
       </slick>
     </div>
 
