@@ -165,21 +165,23 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
 
 
     $scope.setupCounter = function(){
-      var daysLabel = $rootScope.currentLang == 'es' ? 'Dias' : 'Days';
-      var hoursLabel = $rootScope.currentLang == 'es' ? 'Horas' : 'Hours';
-      var minutesLabel = $rootScope.currentLang == 'es' ? 'Minutos' : 'Minutes';
-      var secondsLabel = $rootScope.currentLang == 'es' ? 'Segundos' : 'Seconds';
+      if($scope.isGlobalDiscountActive){
+        var daysLabel = $rootScope.currentLang == 'es' ? 'Dias' : 'Days';
+        var hoursLabel = $rootScope.currentLang == 'es' ? 'Horas' : 'Hours';
+        var minutesLabel = $rootScope.currentLang == 'es' ? 'Minutos' : 'Minutes';
+        var secondsLabel = $rootScope.currentLang == 'es' ? 'Segundos' : 'Seconds';
 
-      var layoutHtml = '<div class="counter-col" flex><p class="num">{dn}</p><p>'+daysLabel+'</p></div>';
-      layoutHtml += '<div class="counter-col" flex><p class="num">{hn}</p><p>'+hoursLabel+'</p></div>';
-      layoutHtml += '<div class="counter-col" flex><p class="num">{mn}</p><p>'+minutesLabel+'</p></div>';
-      layoutHtml += '<div class="counter-col" flex><p class="num">{sn}</p><p>'+secondsLabel+'</p></div>';
+        var layoutHtml = '<div class="counter-col" flex><p class="num">{dn}</p><p>'+daysLabel+'</p></div>';
+        layoutHtml += '<div class="counter-col" flex><p class="num">{hn}</p><p>'+hoursLabel+'</p></div>';
+        layoutHtml += '<div class="counter-col" flex><p class="num">{mn}</p><p>'+minutesLabel+'</p></div>';
+        layoutHtml += '<div class="counter-col" flex><p class="num">{sn}</p><p>'+secondsLabel+'</p></div>';
 
-      $timeout(function(){
-        console.log('lol');
-        $('#counter-inner-cols').countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
-      }, 6000);
-    }
+        $timeout(function(){
+          console.log('lol');
+          $('#counter-inner-cols').countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
+        }, 1000);
+      }
+    };
 
 
 }]);

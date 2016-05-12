@@ -147,7 +147,7 @@
           '547d015533b3bf00659e057d', //Xcaret Plus
         ];
 
-        if( exceptions.indexOf(tourId) <= -1 )
+        if( exceptions.indexOf(tourId) <= -1 ){
           if(discPercent > 0){
             result = price - ( price * (discPercent / 100) );
           }
@@ -155,6 +155,7 @@
             discPercent = 25;
             result = price - ( price * (discPercent / 100) );
           }
+        }
         return result;
       }
 

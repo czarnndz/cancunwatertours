@@ -219,7 +219,7 @@ function getPriceTour(item,currency,company,callback){
         aux.fee_base = tour.fee;
         aux.feeChild_base = 0;
         aux.fee = tour.fee * exchange_rate;
-        aux.fee = calculateDiscount(aux.fee, tour.commission_agency);
+        aux.fee = calculateDiscount(aux.fee, tour.commission_agency, tour.id);
         aux.feeChild = 0;
     } else {
         aux.fee_base = tour.fee * item.adults;
@@ -229,8 +229,8 @@ function getPriceTour(item,currency,company,callback){
 
 
         //Applying discounts(if globaldiscount is active)
-        aux.fee = calculateDiscount(aux.fee, tour.commission_agency);
-        aux.feeChild = calculateDiscount(aux.feeChild, tour.commission_agency);
+        aux.fee = calculateDiscount(aux.fee, tour.commission_agency, tour.id);
+        aux.feeChild = calculateDiscount(aux.feeChild, tour.commission_agency, tour.id);
     }
 
     aux.commission_sales = tour.commission_sales;
@@ -298,7 +298,7 @@ function getCurrencyValue(base_currency,currency,exchange_rates){
 };
 
 
-function calculateDiscount(price, commission){
+function calculateDiscount(price, commission, tourId){
   var result = price;
   var discountTable = {
     '10': 5,
@@ -317,14 +317,17 @@ function calculateDiscount(price, commission){
     '547d015533b3bf00659e057d', //Xcaret Plus
   ];
 
-  if(discountTable[commission] && sails.config.company.isActiveGlobalDiscount){
-    var discPercent = discountTable[commission];
-    result = price - ( price * (discPercent / 100) );
+  if( exceptions.indexOf(tourId) <= -1 ){
+    if(discountTable[commission] && sails.config.company.isActiveGlobalDiscount && tourId){
+      var discPercent = discountTable[commission];
+      result = price - ( price * (discPercent / 100) );
+    }
+    else if (commission && parseFloat(commission) > 40 && sails.config.company.isActiveGlobalDiscount && tourId){
+      var discPercent = 25;
+      result = price - ( price * (discPercent / 100) );
+    }
   }
-  else if (commission && parseFloat(commission) > 40 && sails.config.company.isActiveGlobalDiscount){
-    var discPercent = 25;
-    result = price - ( price * (discPercent / 100) );
-  }
+
   return result;
 }
 

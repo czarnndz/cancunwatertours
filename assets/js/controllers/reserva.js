@@ -118,8 +118,11 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
     $scope.removeTour = function(index) {
         cartService.removeItem(index);
-        $scope.tours = cartService.getAll();
-        $scope.getPriceTotal();
+        //$scope.tours = cartService.getAll();
+        cartService.getAll().then(function(res){
+          $scope.tours = res;
+          $scope.getPriceTotal();
+        });
     };
 //
     $scope.$watch($scope.total, function(newValue, oldValue){
@@ -270,11 +273,12 @@ app.controller('voucherCTL',['$scope','cartService', function($scope,cartService
     };
 
     $scope.reservations.forEach(function(e){
+        console.log(e);
         if (e.reservation_type == 'tour') {
             e.feeChild = e.feeKids;
             e.adults = e.pax;
             e.kids = e.kidPax;
-            e.schedule = JSON.parse(e.schedule);
+            e.schedule = (e.schedule!='') ? JSON.parse(e.schedule) : '';
             e.total = e.fee + e.feeKids;
             e.tour.includesList = formatList(e.tour.includes_es);
             e.tour.notIncludesList = formatList(e.tour.does_not_include_es);
