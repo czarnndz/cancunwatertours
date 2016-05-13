@@ -240,15 +240,28 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       }
     });
 
+    $scope.getSavedAmmount = function(){
+      var saved = 0;
+      $scope.tours.forEach(function(tour){
+        saved += (tour.total_price_before - tour.total_price);
+      });
+      return saved;
+    };
+
     $scope.init();
 
 
 }]);
 
-app.controller('voucherCTL',['$scope','cartService', function($scope,cartService) {
+app.controller('voucherCTL',['$scope', '$window','cartService', function($scope, $window,cartService) {
   $scope.reservations = reservations;
   $scope.order = theorder;
   $scope.error = hasError;
+
+  if($scope.error == 'false'){
+    $scope.error = false;
+  }
+
   $scope.cartService = cartService;
   $scope.currency = company.currencies.reduce(function(c) {
       if (reservations[0].currency == c.id) {
@@ -293,4 +306,9 @@ app.controller('voucherCTL',['$scope','cartService', function($scope,cartService
         }
 
     });
+
+    $scope.printVoucher = function(){
+      $window.print();
+    }
+
 }]);

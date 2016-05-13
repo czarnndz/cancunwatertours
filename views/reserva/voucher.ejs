@@ -6,22 +6,39 @@
 </script>
 <div ng-controller="voucherCTL">
   <!--LEFT SIDE blueBG-->
-  <section class="container-xlg container-pad voucher-container">
+  <section class="container-xlg container-pad voucher-container" ng-cloak>
 
     <div class="top-info" layout="row" layout-wrap layout-align="space-between start" layout-align-sm="start start">
       <div flex="65" flex-sm="100">
         <div class="voucher-date">
           <p>
-            <a href="#" onClick="window.print()">
+            <a href="#" ng-click="printVoucher()">
               <img src="/images/impresora.png" alt="Imprimir"> <%= __('print') %>
             </a> / {{order.createdAt | date : 'shortDate'}}</p>
         </div>
-        <p>
-          <strong><%= __('reservation_number') %></strong>: <strong class="highlight" ng-bind="order.id"></strong>
-        </p>
-        <p ng-cloak>
-          <strong><%= __('name') %> :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
-        </p>
+
+        <div ng-if="error">
+          <p class="voucher-error">
+            <strong>
+              <%= __('voucher_error') %>
+              <% if(req.params.lang === 'es'){ %>
+                <a class="lower-c" href="/es/contacto"><%= __('contact_us') %></a>
+              <% }else{ %>
+                <a class="lower-c" href="/en/contact"><%= __('contact_us') %></a>
+              <% } %>
+            </strong>
+          </p>
+        </div>
+
+        <div ng-if=" !error  ">
+          <p>
+            <strong><%= __('reservation_number') %></strong>: <strong class="highlight" ng-bind="order.id"></strong>
+          </p>
+          <p ng-cloak>
+            <strong><%= __('name') %> :</strong> <strong class="highlight">{{order.client.name}} {{order.client.last_name}}</strong>
+          </p>
+        </div>
+
       </div>
       <div class="static-info" flex="30" flex-sm="100">
         <p><a href="/" target="_blank"><img src="/images/watertourslogo.png" class="voucher-logo" alt="WaterTours"></a></p>
@@ -33,7 +50,7 @@
       </div>
     </div>
 
-    <div layout="row" layout-wrap layout-align="space-between start" ng-repeat="reservation in reservations" ng-cloak>
+    <div ng-if="!error" layout="row" layout-wrap layout-align="space-between start" ng-repeat="reservation in reservations" ng-cloak>
       <div flex="45" flex-sm="100">
 
         <!-- VOUCHER ITEM -->
@@ -55,6 +72,11 @@
           <p ng-if="reservation.reservation_type == 'tour'"><strong><%= __('adults') %>:</strong> {{reservation.pax}}</p>
           <p ng-if="reservation.kidPax && reservation.reservation_type == 'tour'"><strong><%= __('kids') %>:</strong> {{reservation.kidPax}}</p>
           <p ng-if="reservation.reservation_type == 'transfer'"><strong><%= __('people') %>:</strong> {{reservation.pax}}</p>
+
+          <div ng-if="reservation.hasGlobalDiscount && reservation.discount > 0">
+            <p><strong><%= __('applied_discount') %></strong>: {{reservation.discount}}%</p>
+          </div>
+
           <p><strong>Total: {{reservation.total | currency}} {{currency | uppercase}}</strong></p>
         </div>
         <!--END VOUCHER ITEM-->

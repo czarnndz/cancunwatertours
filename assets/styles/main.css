@@ -1283,6 +1283,15 @@ z-index: 9999;
   box-sizing: border-box;
 }
 
+.booking-partial .have-a-group{
+  color: #fff;
+  font-size: 14px;
+}
+.booking-partial .have-a-group a{
+  color: #fff;
+}
+
+
 .booking-partial md-checkbox:not([disabled]).md-primary .md-icon{border-color: white;}
 .booking-partial{
   background: #00C1C8;
@@ -2545,6 +2554,7 @@ z-index: 9999;
   margin: 6px 0;
   padding-left: 20px;
 }
+.lower-c{text-transform: lowercase;}
 
 @media print {
   .header,

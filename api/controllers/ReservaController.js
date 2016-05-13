@@ -48,7 +48,6 @@ module.exports = {
               } else if (reservations) {
                 var currencyCode = OrderCore.getCurrency(params.currency);//sails.config.company.exchange_rates[params.currency].currency_code;
                 var total = OrderCore.getTotal(reservations);
-                //sails.log.debug('total de la reserva : ' + total);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
                   Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
@@ -133,21 +132,25 @@ module.exports = {
       var state = 'canceled';
       var error = true;
       var lang = req.getLocale() || 'es';
-      if (params.success) {
+      if (params.success && params.success == 'true') {
         state = 'liquidated';
         error = false;
       }
+
+      //sails.log.debug('paypal_return');
+      //sails.log.debug(params);
+
       OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
           if (!result) {
               res.forbidden();
           } else {
-              if (params.success) {
+              if (params.success == 'true') {
                   OrderCore.sendNewReservationEmail(params.order,lang,req,function(err,success){
                       result.email_success = success;
-                      res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                      res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
                   });
               } else {
-                  res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                  res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
               }
 
           }
@@ -170,10 +173,10 @@ module.exports = {
                 if (params.success) {
                     OrderCore.sendNewReservationEmail(params.order,lang,function(err,success){
                         result.email_success = success;
-                        res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                        res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
                     });
                 } else {
-                    res.redirect('/'+lang+'/voucher?s=' + error + '&o=' + params.order);
+                    res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
                 }
 
             }
@@ -190,7 +193,7 @@ module.exports = {
                     theorder : theorder,
                     reservations : thereservations,
                     company : sails.config.company,
-                    error : params.s || 'none',
+                    error : params.e || 'none',
                     meta : {
                         controller : 'reserva.js'
                     },

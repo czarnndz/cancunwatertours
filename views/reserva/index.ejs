@@ -109,12 +109,21 @@
                 </section>
               </div>
 
-              <div class="booking-info-item">
+              <div class="booking-info-item" ng-cloak>
+
                 <section class="booking-info-block">
                   <p class="text-total-d"><strong>TOTAL</strong></p>
                   <p class="precio-total-d" ng-class="{'blink-txt': blinkClass}" ng-cloak>{{total | currency}} <span>{{global_currency.currency_code | uppercase}}</span></p>
                 </section>
+
+                <section  ng-if="isGlobalDiscountActive && getSavedAmmount() != 0" class="booking-info-block">
+                  <p><%= __('you_saved') %>:</p>
+                  <p><strong>{{getSavedAmmount() | currency}} {{global_currency.currency_code | uppercase}}</strong></p>
+                </section>
+
               </div>
+
+
             </div>
             <div class="booking-info-inner center-content" ng-if="step < 2" ng-cloak>
               <a href="" ng-click="continueClick()" class="action-btn"><%= __('continue') %></a>

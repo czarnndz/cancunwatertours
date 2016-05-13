@@ -111,6 +111,20 @@
               </div>
             </div>
           </div>
+
+          <p class="have-a-group">
+            <a ng-if="currentLang == 'es' " href="/es/contacto">
+              <strong><%= __('do_you_have_group') %></strong>
+              <%= __('contact_us') %></a>
+            </a>
+
+            <a ng-if="currentLang != 'es' " href="/es/contact">
+              <strong><%= __('do_you_have_group') %></strong>
+              <%= __('contact_us') %></a>
+            </a>
+
+          </p>
+
           <div class="input-field-wrap" ng-if="tour.schedules.length > 0" ng-cloak>
               <i class="icon-horario icon-inside"></i>
               <md-select ng-model="tour.schedule" ng-required name="schedule">

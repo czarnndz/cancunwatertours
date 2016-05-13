@@ -9,6 +9,8 @@ module.exports.createOrder = function(client,callback){
     params.company = process.env.company_id;
     params.reservation_method = 'web';
     params.reservations = [];
+    params.payment_method = client.payment_method;
+    params.state = 'pending';
 
     if (client.id) {
       params.client = client.id;
@@ -42,13 +44,26 @@ module.exports.createOrder = function(client,callback){
 };
 
 module.exports.updateReservations = function(query,attributes,callback) {
-  Reservation.update(query,attributes,function(err,ress){
-    if (err) {
-      console.log(err);
+  var order = query.order;
+  var state = attributes.state || 'pending';
+
+  Order.update({id: order}, {state: state}, function(errOrder, orderUpdated){
+
+    if(errOrder){
+      console.log(errOrder);
       callback(false);
     }
-    callback(ress);
-  })
+
+    Reservation.update(query,attributes,function(err,ress){
+      if (err) {
+        console.log(err);
+        callback(false);
+      }
+      callback(ress);
+    });
+
+  });
+
 }
 
 module.exports.createReservations = function(order,items,payment_method,currency,callback){
@@ -88,13 +103,15 @@ module.exports.createReservations = function(order,items,payment_method,currency
                     newItem.includesTransfer = tour.haveTransfer;
                     newItem.number = Math.floor(Math.random() * (5000 - 2000)) + 2000;
                     newItem.tour = tour.id;
-                    newItem.hasGlobalDiscount = true;
+                    newItem.hasGlobalDiscount = tourHasDiscount(tour.id);
+                    newItem.discount = getPercentageDiscount(tour.commission_agency, tour.id);
 
                     Reservation.create(newItem).exec(function(err,r){
                         if(err) {
                           console.log(err);
                           cb(err,false);
                         }
+
                         if (!newItem.includesTransfer && newItem.hotel && newItem.transfer) {
                             //new transfer reservation
                             item.zone = tour.zone;
@@ -241,14 +258,7 @@ function getPriceTour(item,currency,company,callback){
     aux.zone = tour.zone;
     aux.duration = item.duration;
     aux.id = tour.id;
-
-    /*
-    sails.log.debug('Tour  '+ tour.name +'   con descuento aplicado(adultos): ' + aux.fee);
-    sails.log.debug('Tour  '+ tour.name +'   pax adultos: ' + item.adults);
-    sails.log.debug('Tour  '+ tour.name +'   con descuento aplicado(ninos): ' + aux.feeChild);
-    sails.log.debug('Tour  '+ tour.name +'   pax ninos: ' + item.kids);
-    */
-
+    aux.commission_agency = tour.commission_agency;
 
     callback(false,aux);
   });
@@ -256,8 +266,6 @@ function getPriceTour(item,currency,company,callback){
 };
 
 function getPriceTransfer(item,currency,company,callback) {
-    //sails.log.debug('item');
-    //sails.log.debug(item);
     var exchange_rate = getCurrencyValue(company.base_currency,currency,company.exchange_rates);
     Hotel.findOne({ id : item.hotel.id }).exec(function(e,hotel){
 
@@ -300,6 +308,34 @@ function getCurrencyValue(base_currency,currency,exchange_rates){
 
 function calculateDiscount(price, commission, tourId){
   var result = price;
+  var discPercent = getPercentageDiscount(commission, tourId);
+
+  if( tourHasDiscount(tourId) ){
+    if(discPercent > 0){
+      result = price - ( price * (discPercent / 100) );
+    }
+    else if (commission && parseFloat(commission) > 40){
+      discPercent = 25;
+      result = price - ( price * (discPercent / 100) );
+    }
+  }
+  return result;
+}
+
+function tourHasDiscount(tourId){
+  var result = true;
+  var exceptions = [
+    '558dc7e368b4f41b1a39b75f', //Xcaret basico
+    '547d015533b3bf00659e057d', //Xcaret Plus
+  ];
+  if( !sails.config.company.isActiveGlobalDiscount  || exceptions.indexOf(tourId) > -1 ){
+    result = false;
+  }
+  return result;
+}
+
+function getPercentageDiscount(commission, tourId){
+  var percentage = 0;
   var discountTable = {
     '10': 5,
     '15': 10,
@@ -311,24 +347,18 @@ function calculateDiscount(price, commission, tourId){
     '45': 25,
     '50': 25
   };
-
-  var exceptions = [
-    '558dc7e368b4f41b1a39b75f', //Xcaret basico
-    '547d015533b3bf00659e057d', //Xcaret Plus
-  ];
-
-  if( exceptions.indexOf(tourId) <= -1 ){
-    if(discountTable[commission] && sails.config.company.isActiveGlobalDiscount && tourId){
-      var discPercent = discountTable[commission];
-      result = price - ( price * (discPercent / 100) );
+  if(tourHasDiscount(tourId) ){
+    if(discountTable[commission]){
+      percentage = discountTable[commission];
     }
-    else if (commission && parseFloat(commission) > 40 && sails.config.company.isActiveGlobalDiscount && tourId){
-      var discPercent = 25;
-      result = price - ( price * (discPercent / 100) );
+    else if (commission && parseFloat(commission) > 40){
+      percentage = 25;
     }
   }
-
-  return result;
+  return percentage;
 }
 
+
 module.exports.calculateDiscount = calculateDiscount;
+module.exports.getPercentageDiscount = getPercentageDiscount;
+module.exports.tourHasDiscount = tourHasDiscount;

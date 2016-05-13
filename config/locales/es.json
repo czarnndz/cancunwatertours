@@ -157,6 +157,11 @@
   "by_launching": "Por lanzamiento",
   "all_the_store": "Toda la tienda tiene",
   "discount": "Descuento",
-  "discounts_end_on": "Los descuentos terminan en"
+  "discounts_end_on": "Los descuentos terminan en",
+
+  "you_saved": "Ahorraste",
+  "voucher_error": "Hubo un error con tu método de pago, intenta de nuevo o",
+  "do_you_have_group": "¿Tienes un grupo?",
+  "applied_discount": "Descuento aplicado"
 
 }

@@ -157,7 +157,12 @@
   "by_launching": "By launching",
   "all_the_store": "All the store has",
   "discount": "Discount",
-  "discounts_end_on": "Discounts end on"
+  "discounts_end_on": "Discounts end on",
 
+  "you_saved": "You saved",
+  "voucher_error": "There was an error with your payment method, please try again or",
+
+  "do_you_have_group": "Do you have a group?",
+  "applied_discount": "Discount applied"
 
 }
