@@ -36,11 +36,16 @@
                 <div class="landing-promo-circle-inner">
 
                   <% if(req.params.lang == 'es'){ %>
+
                     <p class="top-text"><%= __('by_launching') %></p>
                     <h3><strong><%= __('all_the_store') %></strong></h3>
                     <h2><%= __('discount') %></h2>
+
                   <% }else{ %>
+
+                    <h3><strong>Discounts throughout the site</strong>
                     <h2>Launch SALE</h2>
+
                   <% } %>
                   <p>
                     <a href="/<%= req.params.lang %>/tours" class="action-btn-white"><%= __('see_more') %></a>
