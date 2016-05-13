@@ -162,6 +162,8 @@
   "you_saved": "Ahorraste",
   "voucher_error": "Hubo un error con tu método de pago, intenta de nuevo o",
   "do_you_have_group": "¿Tienes un grupo?",
-  "applied_discount": "Descuento aplicado"
+  "applied_discount": "Descuento aplicado",
+
+  "transfer_included": "Transporte incluido"
 
 }

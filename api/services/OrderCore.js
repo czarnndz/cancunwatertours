@@ -88,6 +88,9 @@ module.exports.createReservations = function(order,items,payment_method,currency
                   getPriceTour(item,currency,theorder.company,function(err,tour){
                     if(err) callback(err,false);
 
+                    sails.log.debug('Tour en getPriceTour: ' + tour.name);
+                    sails.log.debug('Tour haveTransfer: ' + tour.haveTransfer);
+
                     newItem.pax = tour.adults;
                     newItem.kidPax = tour.kids;
                     newItem.fee = tour.fee;

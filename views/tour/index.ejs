@@ -54,6 +54,10 @@
 
         <div class="tour-slider-wrapper" gallery-wrapper flex ng-cloak><!--Erick cambio antes flex70-->
 
+          <div class="includes-transfer-label">
+            <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
+          </div>
+
           <div
             ng-if="getTourDiscount(tour) > 0"
             class="disc-circle disc-circle-lg"

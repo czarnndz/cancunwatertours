@@ -163,6 +163,9 @@
   "voucher_error": "There was an error with your payment method, please try again or",
 
   "do_you_have_group": "Do you have a group?",
-  "applied_discount": "Discount applied"
+  "applied_discount": "Discount applied",
+
+  "transfer_included": "Transfer included"
+
 
 }

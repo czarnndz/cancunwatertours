@@ -38,7 +38,6 @@ module.exports = {
         OrderCore.createOrder(params.client,function(order) {
           if (order) {
             OrderCore.createReservations(order.id,params.items,params.client.payment_method,params.currency,function(err,reservations){
-              //console.log(reservations);
               if (err) {
                 console.log(err);
                 result.success = false;

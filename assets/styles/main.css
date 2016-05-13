@@ -573,7 +573,7 @@ md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
 .main-sidebar{
   opacity: 1;
   transition: .5s linear all;
-  max-width: 102px;
+  max-width: 86px;
   background: linear-gradient(to right, #1EB0EB  , #35cdd4);
 }
 .main-sidebar-inner{
@@ -1197,6 +1197,13 @@ figcaption:hover .action-btn-white{
   /*Erick cambios*/
   position: relative;
 }
+.tour-slider-wrapper .includes-transfer-label{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+
 .tour-slider{
   height: 360px;
   min-height: 360px;

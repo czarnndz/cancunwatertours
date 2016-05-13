@@ -80,14 +80,16 @@
                         </md-select>
                     </div>
                 </div>
-                <!--
+
                 <div flex='100' layout-align='center center'>
+                    <!--
                     <p class='blueText'>
                         <md-checkbox class="md-primary" ng-model="tour.transfer" aria-label="" ng-change="updatePrices(tour)">
                             <i class='icon-transporte'></i> <%= __('add_transport') %>
                         </md-checkbox>
                     </p>
-                    <div class='hotel-select' ng-hide="!tour.transfer" layout='row' layout-align='center center'>
+                    -->
+                    <div class='hotel-select' ng-hide="!tour.transfer || !tour.haveTransfer" layout='row' layout-align='center center'>
                         <span><i class='icon-pin'></i>Hotel</span>
                         <span>
                           <md-autocomplete
@@ -109,7 +111,7 @@
                           </md-autocomplete></span>
                     </div>
                 </div>
-              -->
+
             </section>
         </div><!--Booking form-->
 
