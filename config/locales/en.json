@@ -133,7 +133,7 @@
   "search_hotel": "Search hotel",
   "location": "Location",
   "categories": "Categories",
-  "see_more": "See more",
+  "see_more": "View more",
 
   "order_tours_by": "Order by",
   "recent": "Recent",
@@ -157,7 +157,7 @@
   "by_launching": "By launching",
   "all_the_store": "All the store has",
   "discount": "Discount",
-  "discounts_end_on": "Discounts end on",
+  "discounts_end_on": "Offer ends in",
 
   "you_saved": "You saved",
   "voucher_error": "There was an error with your payment method, please try again or",

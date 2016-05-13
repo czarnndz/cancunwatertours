@@ -126,7 +126,7 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
         }
       }
       if(str === '' || counter === tourDays.length){
-        str = 'Todos los dias';
+        str = ($rootScope.currentLang == 'es') ? 'Todos los dias' : 'Everyday';
       }
       return str;
     };
