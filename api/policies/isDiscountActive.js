@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
         sails.config.company.isActiveGlobalDiscount = company.isActiveGlobalDiscount || false;
         //sails.config.company.isActiveGlobalDiscount = true;
         //DONT REMOVE
-        //sails.config.company.isActiveGlobalDiscount = false;
+        //sails.config.company.isActiveGlobalDiscount = true;
 
         next();
       }

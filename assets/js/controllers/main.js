@@ -179,7 +179,7 @@ app.controller('MainCTL',[ '$scope', '$window', '$http', '$rootScope', '$mdDialo
         layoutHtml += '<div class="counter-col" flex><p class="num">{sn}</p><p>'+secondsLabel+'</p></div>';
 
         $timeout(function(){
-          $(selector).countdown({until: new Date(2016, 6, 1), layout: layoutHtml});
+          $(selector).countdown({until: new Date(2016, 4, 30), layout: layoutHtml});
         }, 1000);
       }
     };

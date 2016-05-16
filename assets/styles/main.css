@@ -2985,3 +2985,16 @@ z-index: 9999;
   }
 
 }
+
+
+/*IE*/
+@media screen\0 {
+  .header .advanced-search-link{
+    display:flex;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+  }
+}
