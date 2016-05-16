@@ -54,7 +54,7 @@
 
         <div class="tour-slider-wrapper" gallery-wrapper flex ng-cloak><!--Erick cambio antes flex70-->
 
-          <div class="includes-transfer-label">
+          <div ng-if="tour.haveTransfer" class="includes-transfer-label">
             <img src="/images/transfer_<%= req.params.lang %>.png" alt="">
           </div>
 
@@ -136,6 +136,7 @@
               </md-select>
           </div>
 
+          <!--
           <div ng-if="tour.haveTransfer" class="input-field-wrap">
 
             <div class='hotel-select' layout='row' layout-align='center center' ng-cloak>
@@ -159,7 +160,9 @@
                 </md-not-found>
               </md-autocomplete></span>
             </div>
+
           </div>
+          -->
 
             <!--
             <div ng-if="!tour.haveTransfer" class="input-field-wrap">
