@@ -91,7 +91,7 @@ app.controller('Home',['$scope','$http','$rootScope', 'toursService','cartServic
                   avatar: tours[rand].avatar,
                   fee : tours[rand].fee,
                   feeChild : tours[i].feeChild,
-                  commission_agency: tours[i].commission_agency,
+                  commission_agency: tours[rand].commission_agency,
                   url: tours[rand].url,
                   haveTransfer : tours[rand].haveTransfer,
                   hotel : false,
