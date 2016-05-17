@@ -256,11 +256,13 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 app.controller('voucherCTL',['$scope', '$window','cartService', function($scope, $window,cartService) {
   $scope.reservations = reservations;
   $scope.order = theorder;
-  $scope.error = hasError;
+  $scope.error = hasError || false;
 
-  if($scope.error == 'false'){
+  if($scope.error == 'false' || $scope.error == 'none'){
     $scope.error = false;
   }
+
+  console.log($scope.error);
 
   $scope.cartService = cartService;
   $scope.currency = company.currencies.reduce(function(c) {
