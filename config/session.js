@@ -67,10 +67,10 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  adapter: 'connect-mongo',
+  //adapter: 'connect-mongo',
   //host: 'localhost',
   //port: 27017,
-  db: process.env.MONGO_DB || 'water2',
+  //db: process.env.MONGO_DB || 'water2',
   //url: 'mongodb://localhost:27017/water2/sessions'
   //collection: 'sessions',
   //stringify: false
