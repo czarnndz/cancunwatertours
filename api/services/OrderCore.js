@@ -115,7 +115,9 @@ module.exports.createReservations = function(order,items,payment_method,currency
                           cb(err,false);
                         }
 
-                        if (!newItem.includesTransfer && newItem.hotel && newItem.transfer) {
+                        //if (!newItem.includesTransfer && newItem.hotel && newItem.transfer) {
+                        //TODO checar transfer tours, por ahora en falso
+                        if (false && !newItem.includesTransfer && newItem.hotel && newItem.transfer) {
                             //new transfer reservation
                             item.zone = tour.zone;
                             //console.log(item);

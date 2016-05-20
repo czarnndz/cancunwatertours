@@ -75,6 +75,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     $scope.isNextButtonDisabled = function($event) {
         if($scope.tours.length > 0){
           if ($scope.step == 0) {
+            /*
             for(var i = 0;i<$scope.tours.length;i++) {
               if ($scope.tours[i].transfer && !$scope.tours[i].hotel) {
                 console.log('no hotel selected');
@@ -82,6 +83,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
                 return true;
               }
             }
+            */
             $scope.cartComplete = true;
             return false;
           } else if ($scope.step == 1) {
