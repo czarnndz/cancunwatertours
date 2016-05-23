@@ -118,6 +118,13 @@ module.exports.routes = {
     action: 'getToursPrices'
   },
 
+  /*
+  '/getpaypalpayment/:id':{
+    controller: 'reserva',
+    action: 'getPaypalPayment'
+  },
+  */
+
 
   /*------------------/
     TRANSLATED URLS

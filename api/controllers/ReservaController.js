@@ -49,7 +49,8 @@ module.exports = {
                 var total = OrderCore.getTotal(reservations);
                 if (params.client.payment_method == 'paypal') {
                   var paypalItems = Payments.getPaypalItems(reservations,currencyCode);
-                  Payments.paypalCreate(paypalItems,"order=" + order.id,total,currencyCode,function(result) {
+                  var urlParams = 'order='+order.id+'&currency='+currencyCode+'&total='+total.toFixed(2);
+                  Payments.paypalCreate(paypalItems,urlParams,total,currencyCode,function(result) {
                     //Common.updateRese
                     if (result.success) {
                       OrderCore.updateReservations({order : order.id},{ authorization_code : result.payment_id,authorization_code_2 : result.payer_id },function(updateRes) {
@@ -126,34 +127,48 @@ module.exports = {
           return res.json({ success : false , error : 'error bad request' });
       }
     },
+
     paypal_return : function(req,res) {
       var params = req.params.all();
       var state = 'canceled';
       var error = true;
       var lang = req.getLocale() || 'es';
+
+      console.log(params);
+
       if (params.success && params.success == 'true') {
-        state = 'liquidated';
+        state = 'pending';
         error = false;
-      }
 
-      //sails.log.debug('paypal_return');
-      //sails.log.debug(params);
-
-      OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
-          if (!result) {
-              res.forbidden();
-          } else {
-              if (params.success == 'true') {
-                  OrderCore.sendNewReservationEmail(params.order,lang,req,function(err,success){
-                      result.email_success = success;
-                      res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
-                  });
+        //Return success, executing payment
+        Payments.paypalExecute(params.PayerID, params.paymentId, params.total, params.currency, function(result){
+          sails.log.debug('after paypal execute');
+          sails.log.debug(result);
+          state = 'liquidated';
+          OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(resultUpdate){
+              if (!resultUpdate) {
+                  res.forbidden();
               } else {
-                  res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
+                OrderCore.sendNewReservationEmail(params.order,lang,req,function(err,success){
+                    resultUpdate.email_success = success;
+                    res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
+                });
               }
+          });
 
-          }
-      });
+        });
+      }
+      else{
+        //Return canceled
+        OrderCore.updateReservations({ order : params.order,authorization_code_2 : params.token },{ state : state },function(result){
+            if (!result) {
+                res.forbidden();
+            } else {
+              res.redirect('/'+lang+'/voucher?e=' + error + '&o=' + params.order);
+            }
+        });
+
+      }
     },
 
     conekta_return : function(req,res) { //parece que no hay
@@ -222,6 +237,15 @@ module.exports = {
           res.json(tours);
         });
       }
+    },
+
+
+    getPaypalPayment: function(req, res){
+      var form = req.params.all();
+      var id = form.id;
+      Payments.getPaypalPayment(id, function(result){
+        res.json(result);
+      });
     }
 
 };

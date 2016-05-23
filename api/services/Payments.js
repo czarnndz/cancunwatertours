@@ -3,6 +3,7 @@ var paypal = require('paypal-rest-sdk');
 
 function initPaypal() {
   paypal.configure({
+
     'mode': process.env.NODE_ENV == 'production' ? 'live' : 'sandbox', //sandbox or live
     'client_id': process.env.PAYPAL_CLIENT_ID,
     'client_secret': process.env.PAYPAL_CLIENT_SECRET
@@ -94,23 +95,24 @@ module.exports.paypalCreate = function(items,return_param,total,currency,callbac
 
 };
 
-module.exports.paypalExecute = function(payer_id,payment_id,amount,currency,callback) {
+module.exports.paypalExecute = function(payer_id,payment_id,total,currency,callback) {
+  initPaypal();
   var execute = {
     payer_id: payer_id,
     transactions: [{
       amount: {
         currency: currency,
-        total: amount
+        total: total
       }
     }]
   };
 
   paypal.payment.execute(payment_id, JSON.stringify(execute), function (error, payment) {
     if (error) {
-      console.log(error.response);
+      callback({error: error});
     } else {
-      //console.log("Get Payment Response");
-      //console.log(JSON.stringify(payment));
+      sails.log.debug('paypal payment created');
+      sails.log.debug(payment);
       callback(payment);
     }
   });
@@ -155,6 +157,23 @@ module.exports.getConektaItems = function(reservations) {
         return item;
     });
 };
+
+
+module.exports.getPaypalPayment = function(paymentId, callback){
+  var paymentId = paymentId;
+  initPaypal();
+  paypal.payment.get(paymentId, function (error, payment) {
+      if (error) {
+          console.log(error);
+          throw error;
+      } else {
+        //console.log("Get Payment Response");
+        //console.log(JSON.stringify(payment));
+        callback(payment);
+      }
+
+  });
+}
 
 
 
