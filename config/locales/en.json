@@ -150,6 +150,7 @@
   "wetness_tooltip": "Choose your wetness level! You can dive in, get soaked or just watch.",
   "physical_tooltip": "How much effort can you make? Find a perfect activity for your performance level.",
   "reset_filters": "Reset filters",
+  "show_filters": "Filters",
 
   "my_cart": "My cart",
   "phone_number_validation": "Phone lada must have at least 3 digits and phone number at least 7 digits",

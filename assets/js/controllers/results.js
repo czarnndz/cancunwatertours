@@ -1,5 +1,5 @@
 
-app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filter', 'toursService', 'leafletData','cartService' ,function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData,cartService){
+app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filter', 'toursService', 'leafletData','cartService', '$window' ,function($scope,$http, $rootScope, $timeout, $filter, toursService, leafletData, cartService, $window){
   $scope.category = category;
   $scope.subcategories = []; //sec_categories
   $scope.rate_categories = rate_categories || [];
@@ -470,5 +470,21 @@ app.controller('resultsCTL',['$scope','$http', '$rootScope', '$timeout', '$filte
           return newId.toString();
       }
   }
+
+  function checkSize(event) {
+    event = event || {};
+    if ($window.innerWidth <= 600) {
+      $scope.showFilterInMobil = false;
+    } else {
+      $scope.showFilterInMobil = true;
+    }
+
+    if (event.type) {
+      $scope.$digest();
+    }
+  }
+
+  checkSize();
+  angular.element($window).bind('resize', checkSize);
 
 }]);
