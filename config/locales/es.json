@@ -150,6 +150,7 @@
   "wetness_tooltip": "¡Escoge que tanto te quieres mojar! Puedes sumergirte, empaparte o solo ver.",
   "physical_tooltip": "¿Qué tanto te puedes cansar? Encuentra una actividad perfecta para tu rendimiento.",
   "reset_filters": "Borrar filtros",
+  "show_filters": "Filtros",
 
   "my_cart": "Mi carrito",
   "phone_number_validation": "El numero de lada debe ser de al menos 3 digitos y el número de teléfono de al menos 7 digitos",

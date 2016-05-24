@@ -1,4 +1,4 @@
-<div class="filters-section">
+<div class="filters-section" ng-if="showFilterInMobil">
 
   <div ng-if="toursFiltered.length < tours.length && selected.length > 0" class="filters-section-top">
     <md-button ng-click="resetFilters(false)">
@@ -100,4 +100,9 @@
     </div>
 -->
 
+</div>
+<div class="filter-show" hide-gt-sm>
+  <md-button ng-click="showFilterInMobil=!showFilterInMobil">
+    <i class="icon-flecha2 custom-selector-arrow"></i> <span><%= __('show_filters') %></span>
+  </md-button>
 </div>

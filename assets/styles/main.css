@@ -1823,6 +1823,17 @@ z-index: 9999;
   font-size: 11px;
 }
 
+.filter-show .md-button span{
+  font-size: 11px;
+  color: #64CBE4;
+}
+
+.filter-show i{
+  color: #3CB7E3;
+  font-size: 22px;
+  vertical-align: middle;
+}
+
 .search-results-option-item.tour-type{margin-left: 0;}
 .filters-section md-slider .md-track-container{
   height: 4px;
