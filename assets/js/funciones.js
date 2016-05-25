@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
   if($(".perfectscrollbar").length){
-    $(".perfectscrollbar").perfectScrollbar();
+    $(".perfectscrollbar").perfectScrollbar({wheelPropagation: true});
   }
 
   setTimeout(function(){
