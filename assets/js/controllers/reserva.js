@@ -72,6 +72,46 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       return message;
     }*/
 
+    function restoreFromSessionStorage() {
+      var clienJson = sessionStorage['clientInfoSave'];
+      var lastStep = sessionStorage['clientInfoSaveStep'];
+      var repeatEmail = sessionStorage['clientInfoSaveRepeatMail'];
+
+      if(clienJson) {
+        var client = JSON.parse(clienJson);
+        if (lastStep > 1) {
+          $scope.cartComplete = true;
+          $scope.validatingClient = true;
+          $scope.clientComplete = true;
+        }
+
+        if (repeatEmail) {
+          $scope.repeat_email = repeatEmail;
+        }
+        var client = JSON.parse(clienJson);
+        if (client.name) {
+          angular.extend($scope.client, client);
+          $scope.step = lastStep;
+        }
+      }
+    }
+
+    window.onbeforeunload = function (event) {
+      if ($scope.isPayBooking) {
+        sessionStorage.clear();
+      } else if (window.sessionStorage && sessionStorage.setItem && $scope.client != {}) {
+        sessionStorage.setItem('clientInfoSave', JSON.stringify($scope.client));
+        if ($scope.repeat_email) {
+          sessionStorage.setItem('clientInfoSaveRepeatMail', $scope.repeat_email);
+        }
+        sessionStorage.setItem('clientInfoSaveStep', $scope.step);
+      }
+    }
+    if (window.sessionStorage && sessionStorage['clientInfoSave'] && sessionStorage['clientInfoSaveStep']) {
+      restoreFromSessionStorage();
+    }
+
+
     $scope.isNextButtonDisabled = function($event) {
         if($scope.tours.length > 0){
           if ($scope.step == 0) {
@@ -192,6 +232,7 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
       $scope.validatingPayment = true;
       if(form.$valid){
         //console.log('valido');
+        $scope.isPayBooking = true;
         $scope.isLoading = true;
         $scope.scrollTop();
         console.log($scope.client);
