@@ -108,8 +108,9 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
     };
 
     $scope.validateClientPhones = function(){
-      if( isFinite($scope.client.phone) && isFinite($scope.client.phone_lada) ){
-        if($scope.client.phone.length >= 7 && $scope.client.phone_lada >= 3){
+      var validPhoneLada = $scope.client.phone_lada ? isFinite($scope.client.phone_lada) : null;
+      if( isFinite($scope.client.phone) && (validPhoneLada || validPhoneLada === null)){
+        if($scope.client.phone.length >= 7 && (($scope.client.phone_lada && $scope.client.phone_lada.length >= 3) || validPhoneLada === null) ){
           $scope.validPhones = true;
           return true;
         }
