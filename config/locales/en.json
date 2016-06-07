@@ -61,6 +61,8 @@
   "price_per_tour": "tour price",
   "price_per_transfer": "transfer price",
   "add_to_my_cart": "Add to my cart",
+  "pier_tax": "PIER TAX NOT INCLUDED",
+  "pier_tax_pay": "It is paid at the marina",
 
   "rates": "Rates",
   "categories_from_tour": "Tour's categories",

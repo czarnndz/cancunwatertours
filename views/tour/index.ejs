@@ -239,6 +239,9 @@
               <a ng-click="addCartTour()" class="boton-detalle cart-btn">
                 <%= __('add_to_my_cart') %>
               </a>
+              <p class="pier-tax" ng-if="hasPierTax(tour.noincludes)">
+                <strong><%= __('pier_tax') %>*</strong>
+              </p>
 
             </section>
           </div>
@@ -305,7 +308,7 @@
                 <span class="tour-include-icon">&#x2715;</span> <%= __('noincludes') %>
               </h4>
               <ul>
-                <li ng-repeat="include in tour.noincludes">{{::include}}</li>
+                <li ng-repeat="include in tour.noincludes" ng-class="{strong: isPierTax(include)}">{{::include}}</li>
               </ul>
             </div>
             <div ng-if="tour.recommendations" class="tour-include-block">

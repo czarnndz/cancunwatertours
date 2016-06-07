@@ -6,7 +6,6 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
       $scope.imgs_url = imgs_url;
       $scope.minDate = new Date();
       $scope.tour = tour;
-      console.log($scope.tour);
       $scope.tour.schedules = tour.schedules || [];
       $scope.tour.adults = 1;
       $scope.tour.kids = 0;
@@ -321,5 +320,13 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
     $scope.getCategoryIcon = function(category){
       return toursService.getCategoryIcon(category);
     }
+
+    $scope.hasPierTax = function(noIncludes) {
+      return noIncludes.filter($scope.isPierTax).length;
+    };
+
+    $scope.isPierTax = function(el) {
+      return el.match(/(pier|dock|muelle)/ig);
+    };
 
 }]);

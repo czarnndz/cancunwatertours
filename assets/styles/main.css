@@ -13,6 +13,8 @@ html{min-width: 320px;}
 body{background: #F5F5F5;*/font-family: 'Open Sans',sans-serif;}
 a{text-decoration:none;}
 strong{font-weight: 700}
+.strong{font-weight: 700}
+
 a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Open Sans', sans-serif}
 .clear{clear: both}
 .nopadding{padding: 0!important}
@@ -2145,6 +2147,12 @@ z-index: 9999;
 }
 .tour-item-overlay{height: 100%;background: rgba(3, 3, 3, 0.7);position: absolute;width: 100%;left: 0;top: 0;opacity: 0;transition: .5s linear all}
 .tour-item:hover .tour-item-overlay{opacity: 1}
+
+.pier-tax{
+  text-align: center;
+  font-size: 12px;
+  padding-top: 7px;
+}
 
 /*------------/
   #BOOKING

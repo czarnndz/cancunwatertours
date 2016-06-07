@@ -60,6 +60,8 @@
   "price_per_tour": "Precio tour",
   "price_per_transfer": "Precio transportación",
   "add_to_my_cart": "Añadir a mi carrito",
+  "pier_tax": "IMPUESTO DE MUELLE NO INCLUIDO",
+  "pier_tax_pay": "Se paga en la marina",
 
   "rates": "Rangos",
   "categories_from_tour": "Categorias del tour",
