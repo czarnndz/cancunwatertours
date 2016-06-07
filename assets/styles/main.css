@@ -2154,6 +2154,14 @@ z-index: 9999;
   padding-top: 7px;
 }
 
+.voucher-container .pier-tax{
+  text-align: left;
+  color: red;
+  padding-top: 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 /*------------/
   #BOOKING
 /*-----------*/

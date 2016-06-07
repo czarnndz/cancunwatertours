@@ -294,23 +294,6 @@ app.controller('reservaCTL',['$scope','$http','$filter','toursService','cartServ
 
     $scope.init();
 
-
-    function isPierTax(tour) {
-      if (!tour || !tour.noincludes)
-        return false;
-
-      return tour.noincludes.filter(function(el) {
-        return el.match(/(pier|dock|muelle)/ig);
-      }).length;
-    }
-
-    $scope.hasPierTax = function(tours) {
-      if (!tours || !tours.length)
-        return false;
-      return tours.filter(isPierTax).length;
-    };
-
-
 }]);
 
 app.controller('voucherCTL',['$scope', '$window','cartService', function($scope, $window,cartService) {
@@ -371,5 +354,18 @@ app.controller('voucherCTL',['$scope', '$window','cartService', function($scope,
 
     $scope.printVoucher = function(){
       $window.print();
-    }
+    };
+
+    var formatTours = reservations.map(function(res) {
+      var t = res.tour;
+      t.noincludes = t.noincludes || t.notIncludesList;
+      return t;
+    });
+
+    $scope.hasPierTax = function() {
+      return cartService.hasPierTax(formatTours);
+    };
+
+    $scope.isPierTax = cartService.isPierTaxMatch;
+
 }]);

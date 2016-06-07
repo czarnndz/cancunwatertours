@@ -393,6 +393,25 @@
         return deferred.promise;
       }
 
+
+      serv.isPierTax = function(tour) {
+        if (!tour || !tour.noincludes)
+          return false;
+
+        return tour.noincludes.filter(serv.isPierTaxMatch).length;
+      };
+
+      serv.hasPierTax = function(tours) {
+        console.log('has...');
+        if (!tours || !tours.length)
+          return false;
+        return tours.filter(serv.isPierTax).length;
+      };
+
+      serv.isPierTaxMatch = function(el) {
+        return el.match(/(pier|dock|muelle)/ig);
+      };
+
     }]);
 
 })();

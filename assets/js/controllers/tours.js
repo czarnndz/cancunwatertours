@@ -321,12 +321,8 @@ app.controller('tourCTL',['$scope','$rootScope','$http','$timeout','$filter','ca
       return toursService.getCategoryIcon(category);
     }
 
-    $scope.hasPierTax = function(noIncludes) {
-      return noIncludes.filter($scope.isPierTax).length;
-    };
+    $scope.hasPierTax = cartService.hasPierTax;
 
-    $scope.isPierTax = function(el) {
-      return el.match(/(pier|dock|muelle)/ig);
-    };
+    $scope.isPierTax = cartService.isPierTaxMatch;
 
 }]);

@@ -96,7 +96,7 @@
             <p><strong><%= __('noincludes') %></strong></p>
               <p>
               <ul>
-                  <li ng-repeat="include in reservation.tour.notIncludesList">{{include}}</li>
+                  <li ng-repeat="include in reservation.tour.notIncludesList" ng-class="{'pier-tax': isPierTax(include)}">{{include}}</li>
               </ul>
               </p>
           </div>
@@ -114,6 +114,8 @@
                 <h3 class="voucher-title">TOTAL</h3>
                 <p><strong>TOTAL: {{total_reservations | currency }} {{currency | uppercase}}.</strong></p>
             </div>
+
+            <p class="pier-tax" ng-if="hasPierTax()"><strong><%= __('pier_tax')%></strong></p>
             <!--END VOUCHER ITEM-->
         </div>
 

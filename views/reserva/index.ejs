@@ -119,7 +119,7 @@
                 <section  ng-if="isGlobalDiscountActive && getSavedAmmount() != 0" class="booking-info-block">
                   <p><%= __('you_saved') %>:</p>
                   <p><strong>{{getSavedAmmount() | currency}} {{global_currency.currency_code | uppercase}}</strong></p>
-                  <p ng-show="hasPierTax(tours)">
+                  <p ng-show="cartService.hasPierTax(tours)">
                     <strong>
                       <%= __('pier_tax')%>
                       <br />

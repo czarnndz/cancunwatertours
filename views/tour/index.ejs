@@ -239,7 +239,7 @@
               <a ng-click="addCartTour()" class="boton-detalle cart-btn">
                 <%= __('add_to_my_cart') %>
               </a>
-              <p class="pier-tax" ng-if="hasPierTax(tour.noincludes)">
+              <p class="pier-tax" ng-if="cartService.hasPierTax([tour])">
                 <strong><%= __('pier_tax') %>*</strong>
               </p>
 
